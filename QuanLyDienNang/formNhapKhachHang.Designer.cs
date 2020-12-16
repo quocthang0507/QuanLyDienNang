@@ -30,7 +30,6 @@
         {
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-			this.dtg = new DevComponents.DotNetBar.Controls.DataGridViewX();
 			this.tbxDuongDan = new System.Windows.Forms.TextBox();
 			this.btnNhapExcel = new System.Windows.Forms.Button();
 			this.btnLuu = new System.Windows.Forms.Button();
@@ -41,7 +40,6 @@
 			this.tableParent = new System.Windows.Forms.TableLayoutPanel();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.label3 = new System.Windows.Forms.Label();
-			((System.ComponentModel.ISupportInitialize)(this.dtg)).BeginInit();
 			this.panel1.SuspendLayout();
 			this.tableParent.SuspendLayout();
 			this.panel2.SuspendLayout();
@@ -61,7 +59,6 @@
 			// 
 			// dtg
 			// 
-			this.dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
 			dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -69,13 +66,6 @@
 			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
 			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dtg.DefaultCellStyle = dataGridViewCellStyle2;
-			this.dtg.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-			this.dtg.Location = new System.Drawing.Point(4, 164);
-			this.dtg.Margin = new System.Windows.Forms.Padding(4);
-			this.dtg.Name = "dtg";
-			this.dtg.Size = new System.Drawing.Size(976, 492);
-			this.dtg.TabIndex = 2;
 			// 
 			// tbxDuongDan
 			// 
@@ -158,7 +148,6 @@
 			// 
 			this.tableParent.ColumnCount = 1;
 			this.tableParent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableParent.Controls.Add(this.dtg, 0, 3);
 			this.tableParent.Controls.Add(this.panel1, 0, 2);
 			this.tableParent.Controls.Add(this.panel2, 0, 1);
 			this.tableParent.Controls.Add(this.label3, 0, 0);
@@ -206,7 +195,6 @@
 			this.Name = "FormNhapKhachHang";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Nhập thông tin khách hàng từ Excel";
-			((System.ComponentModel.ISupportInitialize)(this.dtg)).EndInit();
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			this.tableParent.ResumeLayout(false);
@@ -217,7 +205,6 @@
 
         #endregion
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private DevComponents.DotNetBar.Controls.DataGridViewX dtg;
         private System.Windows.Forms.TextBox tbxDuongDan;
 		private System.Windows.Forms.Button btnNhapExcel;
 		private System.Windows.Forms.Button btnLuu;
