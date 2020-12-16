@@ -178,12 +178,6 @@
   <data name="Comment1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Comment1.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="images1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="anh nen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1459677351-dv---anh-chinh.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Modify" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Modify.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -247,9 +241,6 @@
   <data name="Back" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Back.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="anh nen 3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\a.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Search.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -273,9 +264,6 @@
   </data>
   <data name="Log Out" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Log Out.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="anh nen 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hinh-nen-may-tinh-3d-thien-nhien-16-1024x576.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Previous" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Previous.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -415,7 +403,16 @@
   <data name="Mail" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Mail.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="anh nen 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\evn-doanh-nghiep-so-15949053966832025313805.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="anh_nen_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\anh nen 1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="anh_nen_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\anh nen 2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="anh_nen_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\anh nen 3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="anh_nen_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\anh nen 4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

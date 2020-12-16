@@ -28,9 +28,9 @@ namespace QuanLyDienNang.Properties {
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=THUANNHU-PC\\SQLEXPRESS;Initial Catalog=quanlydien_sql;Integrated Secu" +
             "rity=True")]
-        public string quanlydien_sqlConnectionString {
+        public string connectionString {
             get {
-                return ((string)(this["quanlydien_sqlConnectionString"]));
+                return ((string)(this["connectionString"]));
             }
         }
     }

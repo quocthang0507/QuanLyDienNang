@@ -13,7 +13,7 @@ namespace QuanLyDienNang.Classes
 		{
 			con = new SqlConnection
 			{
-				ConnectionString = Properties.Settings.Default.quanlydien_sqlConnectionString
+				ConnectionString = Properties.Settings.Default.connectionString
 			};
 			con.Open();
 		}  // tạo kết nối

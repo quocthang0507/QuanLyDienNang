@@ -83,19 +83,9 @@ namespace QuanLyDienNang.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap anh_nen {
-            get {
-                object obj = ResourceManager.GetObject("anh nen", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap anh_nen_1 {
             get {
-                object obj = ResourceManager.GetObject("anh nen 1", resourceCulture);
+                object obj = ResourceManager.GetObject("anh_nen_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -105,7 +95,7 @@ namespace QuanLyDienNang.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap anh_nen_2 {
             get {
-                object obj = ResourceManager.GetObject("anh nen 2", resourceCulture);
+                object obj = ResourceManager.GetObject("anh_nen_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -115,7 +105,17 @@ namespace QuanLyDienNang.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap anh_nen_3 {
             get {
-                object obj = ResourceManager.GetObject("anh nen 3", resourceCulture);
+                object obj = ResourceManager.GetObject("anh_nen_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap anh_nen_4 {
+            get {
+                object obj = ResourceManager.GetObject("anh_nen_4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -466,16 +466,6 @@ namespace QuanLyDienNang.Properties {
         internal static System.Drawing.Bitmap Help {
             get {
                 object obj = ResourceManager.GetObject("Help", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap images1 {
-            get {
-                object obj = ResourceManager.GetObject("images1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

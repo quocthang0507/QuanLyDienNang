@@ -16,7 +16,7 @@ namespace QuanLyDienNang
 			Application.Exit();
 		} // nút Thoát
 
-		private void btnThongTinDoanhNghiep(object sender, EventArgs e) // Thông Tin Doanh Nghiệp
+		private void btnThongTinDoanhNghiep_Click(object sender, EventArgs e) // Thông Tin Doanh Nghiệp
 		{
 			formThongTinDoanhNghiep tt = new formThongTinDoanhNghiep();
 			tt.ShowDialog();
