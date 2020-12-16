@@ -5,18 +5,18 @@ using System.Windows.Forms;
 
 namespace QuanLyDienNang
 {
-	public partial class formThongTinKhachHang : Form
+	public partial class FormThongTinKhachHang : Form
 	{
 		private readonly int i;
 		private readonly string ma_kh;
 		readonly SqlConnection con = new SqlConnection(@"Data Source=THUANNHU-PC\SQLEXPRESS;Initial Catalog=quanlydien_sql;Integrated Security=True");
 
-		public formThongTinKhachHang()
+		public FormThongTinKhachHang()
 		{
 			InitializeComponent();
 
 		}
-		public formThongTinKhachHang(string makh)
+		public FormThongTinKhachHang(string makh)
 		{
 			InitializeComponent();
 			this.ma_kh = makh;
@@ -51,7 +51,7 @@ namespace QuanLyDienNang
 
 
 		}
-		public formThongTinKhachHang(int i)
+		public FormThongTinKhachHang(int i)
 		{
 			this.i = i;
 			InitializeComponent();

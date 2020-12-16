@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyDienNang.Classes;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -6,36 +7,14 @@ using System.Windows.Forms;
 
 namespace QuanLyDienNang
 {
-	public partial class formQuanLyKhachHang : Form
+	public partial class FormQuanLyKhachHang : Form
 	{
-		public formQuanLyKhachHang()
+		public FormQuanLyKhachHang()
 		{
 			InitializeComponent();
-
-
 		}
 
-		public formQuanLyKhachHang(int j)
-		{
-			this.j = j;
-			InitializeComponent();
-			loaddatagirdview();
-
-
-		}
-
-		quanlydien_sqlDataContext dt = new quanlydien_sqlDataContext();
-
-		//  DataTable table;
-		readonly int i = 0;
-		readonly int j = 0;
-
-		// int k = 0;
-
-		readonly SqlConnection con = new SqlConnection(@"Data Source=THUANNHU-PC\SQLEXPRESS;Initial Catalog=quanlydien_sql;Integrated Security=True");
-		//  private string makh;
-
-		private void Quanlykhachhang_Load(object sender, EventArgs e)
+		private void formQuanLyKhachHang_Load(object sender, EventArgs e)
 		{
 			btn_them.Enabled = true;
 			btn_sua.Enabled = false;
@@ -43,53 +22,24 @@ namespace QuanLyDienNang
 			btn_xoa.Enabled = false;
 			btn_thoat.Enabled = true;
 			tb_makh.Enabled = false;
-			loaddatagirdview();
+			LoadDataGridView();
 		}
 
-		private void loaddatagirdview()
+		private void LoadDataGridView()
 		{
-
 			try
 			{
-				con.Open();
-				string sql;
-				sql = "select * from quanlykhachhang ORDER BY sott ASC ";
-				SqlDataAdapter da = new SqlDataAdapter(sql, con);
-				DataTable table = new DataTable();
-				da.Fill(table);
+				string query = "select * from QuanLyKhachHang ORDER BY SoTT ASC ";
+				Common sql = new Common();
+				var table = sql.ExecuteQuery(query);
+				if (table == null)
+					throw new Exception();
 				dtg_kh.DataSource = table;
-				dtg_kh.AllowUserToAddRows = false; //Không cho người dùng thêm dữ liệu trực tiếp
-				dtg_kh.EditMode = DataGridViewEditMode.EditProgrammatically; //Không cho sửa dữ liệu trực tiếp
-				dtg_kh.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2; // cho phep sửa dữ liệu trực tiếp
 			}
-			catch
+			catch (Exception)
 			{
-				MessageBox.Show("đéo đc");
+				MessageBox.Show("Lỗi lấy dữ liệu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
-			con.Close();
-		}
-
-
-		private void btn_thoat_Click(object sender, EventArgs e)
-		{
-			con.Close();
-			this.Close();
-		}
-
-		private void btn_thoat_Click_1(object sender, EventArgs e)
-		{
-			this.Close();
-		}
-
-		private void btn_huy_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void dtg_kh_CellContentClick(object sender, DataGridViewCellEventArgs e)
-		{
-
-
 		}
 
 		private void dtg_kh_Click(object sender, EventArgs e)
@@ -105,23 +55,20 @@ namespace QuanLyDienNang
 		private void btn_sua_Click(object sender, EventArgs e)
 		{
 			//  this.Close();
-			formThongTinKhachHang fgm = new formThongTinKhachHang(tb_makh.Text);
+			FormThongTinKhachHang fgm = new FormThongTinKhachHang(tb_makh.Text);
 			if (fgm.ShowDialog() == DialogResult.Cancel)
 			{
-				loaddatagirdview();
+				LoadDataGridView();
 			}
-
-
-
 		}
 
 		private void btn_them_Click(object sender, EventArgs e)
 		{
 			//  this.Close();
-			formThongTinKhachHang frm = new formThongTinKhachHang(i);
+			FormThongTinKhachHang frm = new formThongTinKhachHang(i);
 			if (frm.ShowDialog() == DialogResult.Cancel)
 			{
-				loaddatagirdview();
+				LoadDataGridView();
 			}
 			//  frm.ShowDialog();
 		}
@@ -130,7 +77,7 @@ namespace QuanLyDienNang
 			con.Open();
 			this.Close();
 			SqlDataAdapter da = new SqlDataAdapter("select *from khachhang", con);
-			formThongTinKhachHang frm = new formThongTinKhachHang(tb_makh.Text);
+			FormThongTinKhachHang frm = new FormThongTinKhachHang(tb_makh.Text);
 			frm.ShowDialog();
 
 		}
@@ -147,14 +94,14 @@ namespace QuanLyDienNang
 					MessageBox.Show("lỗi");
 
 				con.Close();
-				loaddatagirdview();
+				LoadDataGridView();
 			}
 
 		}
 
 		private void buttonX2_Click(object sender, EventArgs e)
 		{
-			loaddatagirdview();
+			LoadDataGridView();
 		}
 
 		private void buttonX1_Click(object sender, EventArgs e)
@@ -208,7 +155,7 @@ namespace QuanLyDienNang
 
 		private void Quanlykhachhang_Enter(object sender, EventArgs e)
 		{
-			loaddatagirdview();
+			LoadDataGridView();
 		}
 	}
 }

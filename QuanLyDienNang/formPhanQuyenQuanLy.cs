@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace QuanLyDienNang
 {
-	public partial class formPhanQuyenQuanLy : Form
+	public partial class FormPhanQuyenQuanLy : Form
 	{
-		public formPhanQuyenQuanLy()
+		public FormPhanQuyenQuanLy()
 		{
 			InitializeComponent();
 		}

@@ -1,6 +1,6 @@
 ﻿namespace QuanLyDienNang
 {
-    partial class formNhapKhachHang
+    partial class FormNhapKhachHang
     {
         /// <summary>
         /// Required designer variable.
@@ -28,169 +28,205 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btn_import = new DevComponents.DotNetBar.ButtonX();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dtg = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.btn_Save = new DevComponents.DotNetBar.ButtonX();
-            this.btn_thoat = new DevComponents.DotNetBar.ButtonX();
-            this.tb_duongdan = new System.Windows.Forms.TextBox();
-            this.labelX1 = new DevComponents.DotNetBar.LabelX();
-            this.cb_sheet = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.labelX2 = new DevComponents.DotNetBar.LabelX();
-            ((System.ComponentModel.ISupportInitialize)(this.dtg)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // btn_import
-            // 
-            this.btn_import.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btn_import.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_import.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_import.Image = global::QuanLyDienNang.Properties.Resources.Loading;
-            this.btn_import.Location = new System.Drawing.Point(179, 41);
-            this.btn_import.Name = "btn_import";
-            this.btn_import.Size = new System.Drawing.Size(133, 35);
-            this.btn_import.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btn_import.TabIndex = 0;
-            this.btn_import.Text = " Excel";
-            this.btn_import.Click += new System.EventHandler(this.btn_import_Click);
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CustomFormat = "MM/yyyy";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(21, 41);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(111, 35);
-            this.dateTimePicker1.TabIndex = 1;
-            // 
-            // dtg
-            // 
-            this.dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtg.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dtg.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dtg.Location = new System.Drawing.Point(12, 127);
-            this.dtg.Name = "dtg";
-            this.dtg.Size = new System.Drawing.Size(1422, 562);
-            this.dtg.TabIndex = 2;
-            // 
-            // btn_Save
-            // 
-            this.btn_Save.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btn_Save.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Save.Image = global::QuanLyDienNang.Properties.Resources.Save1;
-            this.btn_Save.Location = new System.Drawing.Point(384, 41);
-            this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(133, 35);
-            this.btn_Save.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btn_Save.TabIndex = 0;
-            this.btn_Save.Text = "Lưu Lại";
-            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
-            // 
-            // btn_thoat
-            // 
-            this.btn_thoat.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btn_thoat.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_thoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_thoat.Image = global::QuanLyDienNang.Properties.Resources.Exit1;
-            this.btn_thoat.Location = new System.Drawing.Point(1301, 41);
-            this.btn_thoat.Name = "btn_thoat";
-            this.btn_thoat.Size = new System.Drawing.Size(133, 35);
-            this.btn_thoat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btn_thoat.TabIndex = 0;
-            this.btn_thoat.Text = "Thoát";
-            this.btn_thoat.Click += new System.EventHandler(this.btn_thoat_Click);
-            // 
-            // tb_duongdan
-            // 
-            this.tb_duongdan.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_duongdan.Location = new System.Drawing.Point(717, 41);
-            this.tb_duongdan.Name = "tb_duongdan";
-            this.tb_duongdan.Size = new System.Drawing.Size(471, 32);
-            this.tb_duongdan.TabIndex = 3;
-            // 
-            // labelX1
-            // 
-            // 
-            // 
-            // 
-            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX1.Location = new System.Drawing.Point(578, 42);
-            this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(117, 31);
-            this.labelX1.TabIndex = 5;
-            this.labelX1.Text = "Đường Dẫn";
-            // 
-            // cb_sheet
-            // 
-            this.cb_sheet.DisplayMember = "Text";
-            this.cb_sheet.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cb_sheet.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_sheet.FormattingEnabled = true;
-            this.cb_sheet.ItemHeight = 26;
-            this.cb_sheet.Location = new System.Drawing.Point(720, 82);
-            this.cb_sheet.Name = "cb_sheet";
-            this.cb_sheet.Size = new System.Drawing.Size(171, 32);
-            this.cb_sheet.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cb_sheet.TabIndex = 6;
-            this.cb_sheet.SelectedIndexChanged += new System.EventHandler(this.cb_sheet_SelectedIndexChanged);
-            // 
-            // labelX2
-            // 
-            // 
-            // 
-            // 
-            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX2.Location = new System.Drawing.Point(578, 82);
-            this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(117, 31);
-            this.labelX2.TabIndex = 5;
-            this.labelX2.Text = "Sheet";
-            // 
-            // nhapkhachhangexcel
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1452, 699);
-            this.Controls.Add(this.cb_sheet);
-            this.Controls.Add(this.labelX2);
-            this.Controls.Add(this.labelX1);
-            this.Controls.Add(this.tb_duongdan);
-            this.Controls.Add(this.dtg);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.btn_thoat);
-            this.Controls.Add(this.btn_Save);
-            this.Controls.Add(this.btn_import);
-            this.Name = "nhapkhachhangexcel";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "nhapkhachhangexcel";
-            ((System.ComponentModel.ISupportInitialize)(this.dtg)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+			this.dtg = new DevComponents.DotNetBar.Controls.DataGridViewX();
+			this.tbxDuongDan = new System.Windows.Forms.TextBox();
+			this.btnNhapExcel = new System.Windows.Forms.Button();
+			this.btnLuu = new System.Windows.Forms.Button();
+			this.label1 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.cbxSheet = new System.Windows.Forms.ComboBox();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.tableParent = new System.Windows.Forms.TableLayoutPanel();
+			this.panel2 = new System.Windows.Forms.Panel();
+			this.label3 = new System.Windows.Forms.Label();
+			((System.ComponentModel.ISupportInitialize)(this.dtg)).BeginInit();
+			this.panel1.SuspendLayout();
+			this.tableParent.SuspendLayout();
+			this.panel2.SuspendLayout();
+			this.SuspendLayout();
+			// 
+			// dateTimePicker1
+			// 
+			this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.dateTimePicker1.CustomFormat = "MM/yyyy";
+			this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.dateTimePicker1.Location = new System.Drawing.Point(447, 12);
+			this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
+			this.dateTimePicker1.Name = "dateTimePicker1";
+			this.dateTimePicker1.Size = new System.Drawing.Size(138, 23);
+			this.dateTimePicker1.TabIndex = 1;
+			// 
+			// dtg
+			// 
+			this.dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dtg.DefaultCellStyle = dataGridViewCellStyle2;
+			this.dtg.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+			this.dtg.Location = new System.Drawing.Point(4, 164);
+			this.dtg.Margin = new System.Windows.Forms.Padding(4);
+			this.dtg.Name = "dtg";
+			this.dtg.Size = new System.Drawing.Size(976, 492);
+			this.dtg.TabIndex = 2;
+			// 
+			// tbxDuongDan
+			// 
+			this.tbxDuongDan.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.tbxDuongDan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.tbxDuongDan.Location = new System.Drawing.Point(209, 9);
+			this.tbxDuongDan.Margin = new System.Windows.Forms.Padding(4);
+			this.tbxDuongDan.Name = "tbxDuongDan";
+			this.tbxDuongDan.Size = new System.Drawing.Size(621, 23);
+			this.tbxDuongDan.TabIndex = 3;
+			// 
+			// btnNhapExcel
+			// 
+			this.btnNhapExcel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnNhapExcel.Image = global::QuanLyDienNang.Properties.Resources.Loading;
+			this.btnNhapExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnNhapExcel.Location = new System.Drawing.Point(209, 3);
+			this.btnNhapExcel.Name = "btnNhapExcel";
+			this.btnNhapExcel.Size = new System.Drawing.Size(143, 40);
+			this.btnNhapExcel.TabIndex = 7;
+			this.btnNhapExcel.Text = "Nhập từ Excel";
+			this.btnNhapExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnNhapExcel.UseVisualStyleBackColor = true;
+			// 
+			// btnLuu
+			// 
+			this.btnLuu.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnLuu.Image = global::QuanLyDienNang.Properties.Resources.Save;
+			this.btnLuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnLuu.Location = new System.Drawing.Point(703, 3);
+			this.btnLuu.Name = "btnLuu";
+			this.btnLuu.Size = new System.Drawing.Size(100, 40);
+			this.btnLuu.TabIndex = 7;
+			this.btnLuu.Text = "Lưu lại";
+			this.btnLuu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnLuu.UseVisualStyleBackColor = true;
+			// 
+			// label1
+			// 
+			this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(106, 13);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(82, 17);
+			this.label1.TabIndex = 8;
+			this.label1.Text = "Đường dẫn:";
+			// 
+			// label2
+			// 
+			this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(106, 40);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(84, 17);
+			this.label2.TabIndex = 8;
+			this.label2.Text = "Chọn sheet:";
+			// 
+			// cbxSheet
+			// 
+			this.cbxSheet.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.cbxSheet.FormattingEnabled = true;
+			this.cbxSheet.Location = new System.Drawing.Point(209, 36);
+			this.cbxSheet.Name = "cbxSheet";
+			this.cbxSheet.Size = new System.Drawing.Size(324, 24);
+			this.cbxSheet.TabIndex = 9;
+			// 
+			// panel1
+			// 
+			this.panel1.Controls.Add(this.cbxSheet);
+			this.panel1.Controls.Add(this.tbxDuongDan);
+			this.panel1.Controls.Add(this.label2);
+			this.panel1.Controls.Add(this.label1);
+			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel1.Location = new System.Drawing.Point(3, 83);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(978, 74);
+			this.panel1.TabIndex = 10;
+			// 
+			// tableParent
+			// 
+			this.tableParent.ColumnCount = 1;
+			this.tableParent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableParent.Controls.Add(this.dtg, 0, 3);
+			this.tableParent.Controls.Add(this.panel1, 0, 2);
+			this.tableParent.Controls.Add(this.panel2, 0, 1);
+			this.tableParent.Controls.Add(this.label3, 0, 0);
+			this.tableParent.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableParent.Location = new System.Drawing.Point(0, 0);
+			this.tableParent.Name = "tableParent";
+			this.tableParent.RowCount = 4;
+			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableParent.Size = new System.Drawing.Size(984, 561);
+			this.tableParent.TabIndex = 11;
+			// 
+			// panel2
+			// 
+			this.panel2.Controls.Add(this.dateTimePicker1);
+			this.panel2.Controls.Add(this.btnLuu);
+			this.panel2.Controls.Add(this.btnNhapExcel);
+			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel2.Location = new System.Drawing.Point(3, 33);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(978, 44);
+			this.panel2.TabIndex = 11;
+			// 
+			// label3
+			// 
+			this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label3.Location = new System.Drawing.Point(3, 0);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(978, 30);
+			this.label3.TabIndex = 12;
+			this.label3.Text = "NHẬP THÔNG TIN KHÁCH HÀNG";
+			this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
+			// FormNhapKhachHang
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(984, 561);
+			this.Controls.Add(this.tableParent);
+			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+			this.Margin = new System.Windows.Forms.Padding(4);
+			this.Name = "FormNhapKhachHang";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.Text = "Nhập thông tin khách hàng từ Excel";
+			((System.ComponentModel.ISupportInitialize)(this.dtg)).EndInit();
+			this.panel1.ResumeLayout(false);
+			this.panel1.PerformLayout();
+			this.tableParent.ResumeLayout(false);
+			this.panel2.ResumeLayout(false);
+			this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private DevComponents.DotNetBar.ButtonX btn_import;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private DevComponents.DotNetBar.Controls.DataGridViewX dtg;
-        private DevComponents.DotNetBar.ButtonX btn_Save;
-        private DevComponents.DotNetBar.ButtonX btn_thoat;
-        private System.Windows.Forms.TextBox tb_duongdan;
-        private DevComponents.DotNetBar.LabelX labelX1;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cb_sheet;
-        private DevComponents.DotNetBar.LabelX labelX2;
-    }
+        private System.Windows.Forms.TextBox tbxDuongDan;
+		private System.Windows.Forms.Button btnNhapExcel;
+		private System.Windows.Forms.Button btnLuu;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.ComboBox cbxSheet;
+		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.TableLayoutPanel tableParent;
+		private System.Windows.Forms.Panel panel2;
+		private System.Windows.Forms.Label label3;
+	}
 }

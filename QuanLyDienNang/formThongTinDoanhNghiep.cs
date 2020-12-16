@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace QuanLyDienNang
 {
-	public partial class formThongTinDoanhNghiep : Form
+	public partial class FormThongTinDoanhNghiep : Form
 	{
-		public formThongTinDoanhNghiep()
+		public FormThongTinDoanhNghiep()
 		{
 			InitializeComponent();
 		}

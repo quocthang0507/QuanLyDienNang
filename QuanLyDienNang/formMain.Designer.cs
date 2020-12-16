@@ -36,7 +36,7 @@
 			this.dockSite5 = new DevComponents.DotNetBar.DockSite();
 			this.dockSite6 = new DevComponents.DotNetBar.DockSite();
 			this.dockSite7 = new DevComponents.DotNetBar.DockSite();
-			this.menuBar = new DevComponents.DotNetBar.Bar();
+			this.menu = new DevComponents.DotNetBar.Bar();
 			this.btnHeThong = new DevComponents.DotNetBar.ButtonItem();
 			this.btnThongTinDoanhNghiep = new DevComponents.DotNetBar.ButtonItem();
 			this.btnThoat = new DevComponents.DotNetBar.ButtonItem();
@@ -69,7 +69,7 @@
 			this.buttonItem28 = new DevComponents.DotNetBar.ButtonItem();
 			this.dockSite3 = new DevComponents.DotNetBar.DockSite();
 			this.dockSite7.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.menuBar)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.menu)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// dockSite4
@@ -89,10 +89,10 @@
 			this.dockSite1.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
 			this.dockSite1.Dock = System.Windows.Forms.DockStyle.Left;
 			this.dockSite1.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer();
-			this.dockSite1.Location = new System.Drawing.Point(0, 27);
+			this.dockSite1.Location = new System.Drawing.Point(0, 28);
 			this.dockSite1.Margin = new System.Windows.Forms.Padding(4);
 			this.dockSite1.Name = "dockSite1";
-			this.dockSite1.Size = new System.Drawing.Size(0, 534);
+			this.dockSite1.Size = new System.Drawing.Size(0, 533);
 			this.dockSite1.TabIndex = 0;
 			this.dockSite1.TabStop = false;
 			// 
@@ -102,10 +102,10 @@
 			this.dockSite2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("dockSite2.BackgroundImage")));
 			this.dockSite2.Dock = System.Windows.Forms.DockStyle.Right;
 			this.dockSite2.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer();
-			this.dockSite2.Location = new System.Drawing.Point(984, 27);
+			this.dockSite2.Location = new System.Drawing.Point(984, 28);
 			this.dockSite2.Margin = new System.Windows.Forms.Padding(4);
 			this.dockSite2.Name = "dockSite2";
-			this.dockSite2.Size = new System.Drawing.Size(0, 534);
+			this.dockSite2.Size = new System.Drawing.Size(0, 533);
 			this.dockSite2.TabIndex = 1;
 			this.dockSite2.TabStop = false;
 			// 
@@ -124,10 +124,10 @@
 			// 
 			this.dockSite5.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
 			this.dockSite5.Dock = System.Windows.Forms.DockStyle.Left;
-			this.dockSite5.Location = new System.Drawing.Point(0, 27);
+			this.dockSite5.Location = new System.Drawing.Point(0, 28);
 			this.dockSite5.Margin = new System.Windows.Forms.Padding(4);
 			this.dockSite5.Name = "dockSite5";
-			this.dockSite5.Size = new System.Drawing.Size(0, 534);
+			this.dockSite5.Size = new System.Drawing.Size(0, 533);
 			this.dockSite5.TabIndex = 4;
 			this.dockSite5.TabStop = false;
 			// 
@@ -135,33 +135,33 @@
 			// 
 			this.dockSite6.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
 			this.dockSite6.Dock = System.Windows.Forms.DockStyle.Right;
-			this.dockSite6.Location = new System.Drawing.Point(984, 27);
+			this.dockSite6.Location = new System.Drawing.Point(984, 28);
 			this.dockSite6.Margin = new System.Windows.Forms.Padding(4);
 			this.dockSite6.Name = "dockSite6";
-			this.dockSite6.Size = new System.Drawing.Size(0, 534);
+			this.dockSite6.Size = new System.Drawing.Size(0, 533);
 			this.dockSite6.TabIndex = 5;
 			this.dockSite6.TabStop = false;
 			// 
 			// dockSite7
 			// 
 			this.dockSite7.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-			this.dockSite7.Controls.Add(this.menuBar);
+			this.dockSite7.Controls.Add(this.menu);
 			this.dockSite7.Dock = System.Windows.Forms.DockStyle.Top;
 			this.dockSite7.Location = new System.Drawing.Point(0, 0);
 			this.dockSite7.Margin = new System.Windows.Forms.Padding(4);
 			this.dockSite7.Name = "dockSite7";
-			this.dockSite7.Size = new System.Drawing.Size(984, 27);
+			this.dockSite7.Size = new System.Drawing.Size(984, 28);
 			this.dockSite7.TabIndex = 6;
-			this.dockSite7.TabStop = false;
 			// 
-			// menuBar
+			// menu
 			// 
-			this.menuBar.AccessibleDescription = "DotNetBar Bar (bar1)";
-			this.menuBar.AccessibleName = "DotNetBar Bar";
-			this.menuBar.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
-			this.menuBar.DockSide = DevComponents.DotNetBar.eDockSide.Top;
-			this.menuBar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.menuBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+			this.menu.AccessibleDescription = "DotNetBar Bar (bar1)";
+			this.menu.AccessibleName = "DotNetBar Bar";
+			this.menu.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolBar;
+			this.menu.BarType = DevComponents.DotNetBar.eBarType.MenuBar;
+			this.menu.DockSide = DevComponents.DotNetBar.eDockSide.Top;
+			this.menu.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.menu.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.btnHeThong,
             this.buttonItem3,
             this.buttonItem6,
@@ -171,14 +171,14 @@
             this.buttonItem22,
             this.buttonItem25,
             this.buttonItem26});
-			this.menuBar.Location = new System.Drawing.Point(0, 0);
-			this.menuBar.Margin = new System.Windows.Forms.Padding(4);
-			this.menuBar.Name = "bar1";
-			this.menuBar.Size = new System.Drawing.Size(984, 26);
-			this.menuBar.Stretch = true;
-			this.menuBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Windows7;
-			this.menuBar.TabIndex = 0;
-			this.menuBar.TabStop = false;
+			this.menu.Location = new System.Drawing.Point(0, 0);
+			this.menu.Margin = new System.Windows.Forms.Padding(4);
+			this.menu.Name = "bar1";
+			this.menu.Size = new System.Drawing.Size(984, 27);
+			this.menu.Stretch = true;
+			this.menu.Style = DevComponents.DotNetBar.eDotNetBarStyle.Windows7;
+			this.menu.TabIndex = 0;
+			this.menu.TabStop = false;
 			// 
 			// btnHeThong
 			// 
@@ -198,7 +198,6 @@
 			// 
 			this.btnThoat.Name = "btnThoat";
 			this.btnThoat.Text = "Thoát";
-			this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
 			// 
 			// buttonItem3
 			// 
@@ -369,12 +368,11 @@
 			this.dockSite3.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
 			this.dockSite3.Dock = System.Windows.Forms.DockStyle.Top;
 			this.dockSite3.DocumentDockContainer = new DevComponents.DotNetBar.DocumentDockContainer();
-			this.dockSite3.Location = new System.Drawing.Point(0, 27);
+			this.dockSite3.Location = new System.Drawing.Point(0, 28);
 			this.dockSite3.Margin = new System.Windows.Forms.Padding(4);
 			this.dockSite3.Name = "dockSite3";
 			this.dockSite3.Size = new System.Drawing.Size(984, 0);
 			this.dockSite3.TabIndex = 2;
-			this.dockSite3.TabStop = false;
 			// 
 			// FormMain
 			// 
@@ -398,9 +396,8 @@
 			this.Name = "FormMain";
 			this.Text = "Ứng dụng quản lý điện năng";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-			this.Load += new System.EventHandler(this.FormMain_Load);
 			this.dockSite7.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.menuBar)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.menu)).EndInit();
 			this.ResumeLayout(false);
 
         }
@@ -450,6 +447,7 @@
 		private DevComponents.DotNetBar.ButtonItem btnPhanQuyenQuanLy;
 		private DevComponents.DotNetBar.ButtonItem btnQuanLyKhachHang;
 		private DevComponents.DotNetBar.ButtonItem btnNhapExcel;
+		private DevComponents.DotNetBar.Bar menu;
 	}
 }
 

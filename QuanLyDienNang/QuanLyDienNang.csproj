@@ -75,53 +75,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Functions.cs" />
-    <Compile Include="formMain.cs">
+    <Compile Include="Classes\Common.cs" />
+    <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formMain.Designer.cs">
-      <DependentUpon>formMain.cs</DependentUpon>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="formNhapKhachHang.cs">
+    <Compile Include="FormNhapKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formNhapKhachHang.Designer.cs">
-      <DependentUpon>formNhapKhachHang.cs</DependentUpon>
+    <Compile Include="FormNhapKhachHang.Designer.cs">
+      <DependentUpon>FormNhapKhachHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="formPhanQuyenQuanLy.cs">
+    <Compile Include="FormPhanQuyenQuanLy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formPhanQuyenQuanLy.Designer.cs">
-      <DependentUpon>formPhanQuyenQuanLy.cs</DependentUpon>
+    <Compile Include="FormPhanQuyenQuanLy.Designer.cs">
+      <DependentUpon>FormPhanQuyenQuanLy.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="formQuanLyKhachHang.cs">
+    <Compile Include="FormQuanLyKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formQuanLyKhachHang.Designer.cs">
-      <DependentUpon>formQuanLyKhachHang.cs</DependentUpon>
+    <Compile Include="FormQuanLyKhachHang.Designer.cs">
+      <DependentUpon>FormQuanLyKhachHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="formThongTinDoanhNghiep.cs">
+    <Compile Include="FormThongTinDoanhNghiep.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formThongTinDoanhNghiep.Designer.cs">
-      <DependentUpon>formThongTinDoanhNghiep.cs</DependentUpon>
+    <Compile Include="FormThongTinDoanhNghiep.Designer.cs">
+      <DependentUpon>FormThongTinDoanhNghiep.cs</DependentUpon>
     </Compile>
-    <Compile Include="formThongTinKhachHang.cs">
+    <Compile Include="FormThongTinKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formThongTinKhachHang.Designer.cs">
-      <DependentUpon>formThongTinKhachHang.cs</DependentUpon>
+    <Compile Include="FormThongTinKhachHang.Designer.cs">
+      <DependentUpon>FormThongTinKhachHang.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="formMain.resx">
-      <DependentUpon>formMain.cs</DependentUpon>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formNhapKhachHang.resx">
-      <DependentUpon>formNhapKhachHang.cs</DependentUpon>
+    <EmbeddedResource Include="FormNhapKhachHang.resx">
+      <DependentUpon>FormNhapKhachHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formPhanQuyenQuanLy.resx">
-      <DependentUpon>formPhanQuyenQuanLy.cs</DependentUpon>
+    <EmbeddedResource Include="FormPhanQuyenQuanLy.resx">
+      <DependentUpon>FormPhanQuyenQuanLy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -133,15 +133,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="formThongTinKhachHang.resx">
-      <DependentUpon>formThongTinKhachHang.cs</DependentUpon>
+    <EmbeddedResource Include="FormThongTinKhachHang.resx">
+      <DependentUpon>FormThongTinKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
-    <EmbeddedResource Include="formQuanLyKhachHang.resx">
-      <DependentUpon>formQuanLyKhachHang.cs</DependentUpon>
+    <EmbeddedResource Include="FormQuanLyKhachHang.resx">
+      <DependentUpon>FormQuanLyKhachHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formThongTinDoanhNghiep.resx">
-      <DependentUpon>formThongTinDoanhNghiep.cs</DependentUpon>
+    <EmbeddedResource Include="FormThongTinDoanhNghiep.resx">
+      <DependentUpon>FormThongTinDoanhNghiep.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
