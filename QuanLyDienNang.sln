@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLyDienNang", "QuanLyDienNang\QuanLyDienNang.csproj", "{250EA250-4C3D-4ADD-B0E1-4E1C64C7C400}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThuVien", "ThuVien\ThuVien.csproj", "{4CBE36A4-9A8C-4B6C-BEEF-A9C2F2EBAF51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{250EA250-4C3D-4ADD-B0E1-4E1C64C7C400}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{250EA250-4C3D-4ADD-B0E1-4E1C64C7C400}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{250EA250-4C3D-4ADD-B0E1-4E1C64C7C400}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CBE36A4-9A8C-4B6C-BEEF-A9C2F2EBAF51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CBE36A4-9A8C-4B6C-BEEF-A9C2F2EBAF51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CBE36A4-9A8C-4B6C-BEEF-A9C2F2EBAF51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CBE36A4-9A8C-4B6C-BEEF-A9C2F2EBAF51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {133ABDF0-997C-467E-897A-F5059BA3714D}
 	EndGlobalSection
 EndGlobal
