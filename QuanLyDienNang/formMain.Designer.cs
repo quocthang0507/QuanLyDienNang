@@ -31,12 +31,13 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
 			this.menuBar = new System.Windows.Forms.MenuStrip();
 			this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.giớiThiệuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.quảnLýKháchHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.nhậpThôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.xuấtThôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.panelParent = new System.Windows.Forms.Panel();
 			this.menuBar.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -60,23 +61,23 @@
 			this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
 			this.hệThốngToolStripMenuItem.Text = "Chương trình";
 			// 
-			// thoátToolStripMenuItem
-			// 
-			this.thoátToolStripMenuItem.Image = global::QuanLyDienNang.Properties.Resources.Exit;
-			this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-			this.thoátToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-			this.thoátToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.thoátToolStripMenuItem.Text = "Thoát";
-			this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
-			// 
 			// giớiThiệuToolStripMenuItem
 			// 
 			this.giớiThiệuToolStripMenuItem.Image = global::QuanLyDienNang.Properties.Resources.Info1;
 			this.giớiThiệuToolStripMenuItem.Name = "giớiThiệuToolStripMenuItem";
 			this.giớiThiệuToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-			this.giớiThiệuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.giớiThiệuToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
 			this.giớiThiệuToolStripMenuItem.Text = "Giới thiệu";
 			this.giớiThiệuToolStripMenuItem.Click += new System.EventHandler(this.giớiThiệuToolStripMenuItem_Click);
+			// 
+			// thoátToolStripMenuItem
+			// 
+			this.thoátToolStripMenuItem.Image = global::QuanLyDienNang.Properties.Resources.Exit;
+			this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
+			this.thoátToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+			this.thoátToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+			this.thoátToolStripMenuItem.Text = "Thoát";
+			this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
 			// 
 			// quảnLýKháchHàngToolStripMenuItem
 			// 
@@ -112,14 +113,24 @@
 			this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem.Text = "Cập nhật điện năng tiêu thụ";
 			this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem.Click += new System.EventHandler(this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem_Click);
 			// 
+			// panelParent
+			// 
+			this.panelParent.BackColor = System.Drawing.Color.Transparent;
+			this.panelParent.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panelParent.Location = new System.Drawing.Point(0, 24);
+			this.panelParent.Name = "panelParent";
+			this.panelParent.Size = new System.Drawing.Size(984, 537);
+			this.panelParent.TabIndex = 1;
+			// 
 			// FormMain
 			// 
+			this.BackgroundImage = global::QuanLyDienNang.Properties.Resources.anh_nen_1;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(984, 561);
+			this.Controls.Add(this.panelParent);
 			this.Controls.Add(this.menuBar);
 			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.IsMdiContainer = true;
 			this.Name = "FormMain";
 			this.Text = "Chương Trình Quản Lý Điện Năng";
 			this.menuBar.ResumeLayout(false);
@@ -139,6 +150,7 @@
 		private System.Windows.Forms.ToolStripMenuItem nhậpThôngTinToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem xuấtThôngTinToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem;
+		private System.Windows.Forms.Panel panelParent;
 	}
 }
 

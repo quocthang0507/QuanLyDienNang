@@ -44,9 +44,13 @@ namespace QuanLyDienNang
 			}
 		}
 
-		private void btnSave_Click(object sender, EventArgs e)
+		private void FormKH_NhapKhachHang_FormClosing(object sender, FormClosingEventArgs e)
 		{
+			if (true)
+			{
 
+			}
 		}
+
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace QuanLyDienNang
@@ -13,7 +14,11 @@ namespace QuanLyDienNang
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new FormMain());
+			FormWelcome splash = new FormWelcome();
+			splash.Show();
+			Application.Run(new FormMain(splash));
 		}
+
+
 	}
 }

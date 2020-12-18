@@ -191,7 +191,6 @@
 			this.Controls.Add(this.tableParent);
 			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.IsMdiContainer = true;
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "FormKH_XuatKhachHang";
 			this.Text = "Xuất Thông Tin Khách Hàng Ra Excel";

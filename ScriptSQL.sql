@@ -1,5 +1,7 @@
 USE MASTER
-CREATE DATABASE QuanLyDienDien
+GO
+CREATE DATABASE QuanLyDienNang
+GO
 USE QuanLyDienNang
 GO
 
@@ -9,7 +11,8 @@ CREATE TABLE BangGia
 	--BG001
 	MaBangGia char(5) primary key,
 	TenBangGia nvarchar(100) not null
-) GO
+) 
+GO
 
 --TRẠM BIẾN ÁP ÁP DỤNG CHO KHÁCH HÀNG
 CREATE TABLE TramBienAp
@@ -17,7 +20,8 @@ CREATE TABLE TramBienAp
 	--BA001
 	MaTram char(5) primary key,
 	TenTram nvarchar(100) not null
-) GO
+) 
+GO
 
 --NGƯỜI QUẢN LÝ KHÁCH HÀNG
 CREATE TABLE NguoiQuanLy
@@ -28,7 +32,8 @@ CREATE TABLE NguoiQuanLy
 	SoDienThoai varchar(20) null,
 	DiaChi nvarchar(200) not null,
 	Email nvarchar(100) null
-) GO
+) 
+GO
 
 --THÔNG TIN KHÁCH HÀNG
 CREATE TABLE KhachHang
@@ -53,7 +58,8 @@ CREATE TABLE KhachHang
 	MaCongTo nvarchar(20) null,
 	SoNganHang varchar(20) null,
 	TenNganHang nvarchar(100) null
-) GO
+) 
+GO
 
 --THÔNG TIN ĐIỆN NĂNG TIÊU THỤ CỦA KHÁCH HÀNG
 CREATE TABLE DienNangTieuThu
@@ -67,4 +73,5 @@ CREATE TABLE DienNangTieuThu
 	ChiSoMoi int,
 	ChiSoCu int,
 	DaThanhToan bit default 0 not null
-) GO
+) 
+GO
