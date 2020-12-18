@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace QuanLyDienNang
@@ -17,11 +16,11 @@ namespace QuanLyDienNang
 		{
 			this.SplashScreen = form;
 			InitializeComponent();
-			if(this.SplashScreen!=null)
+			if (this.SplashScreen != null)
 			{
 				this.SplashScreen.Close();
 				this.SplashScreen = null;
-			}	
+			}
 		}
 
 		private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
