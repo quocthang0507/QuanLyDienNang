@@ -8,11 +8,11 @@ using System.Windows.Forms;
 
 namespace QuanLyDienNang
 {
-	public partial class FormNhapKhachHang : Form
+	public partial class FormKH_NhapKhachHang : Form
 	{
 		private DataTableCollection table;
 
-		public FormNhapKhachHang()
+		public FormKH_NhapKhachHang()
 		{
 			InitializeComponent();
 		}

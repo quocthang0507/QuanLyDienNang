@@ -1,6 +1,6 @@
 ﻿namespace QuanLyDienNang
 {
-    partial class FormNhapKhachHang
+    partial class FormKH_NhapKhachHang
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.tbxDuongDan = new System.Windows.Forms.TextBox();
 			this.btnNhapExcel = new System.Windows.Forms.Button();
 			this.btnLuu = new System.Windows.Forms.Button();
@@ -44,28 +42,6 @@
 			this.tableParent.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.SuspendLayout();
-			// 
-			// dateTimePicker1
-			// 
-			this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.dateTimePicker1.CustomFormat = "MM/yyyy";
-			this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.dateTimePicker1.Location = new System.Drawing.Point(447, 12);
-			this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
-			this.dateTimePicker1.Name = "dateTimePicker1";
-			this.dateTimePicker1.Size = new System.Drawing.Size(138, 23);
-			this.dateTimePicker1.TabIndex = 1;
-			// 
-			// dtg
-			// 
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			// 
 			// tbxDuongDan
 			// 
@@ -82,7 +58,7 @@
 			this.btnNhapExcel.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnNhapExcel.Image = global::QuanLyDienNang.Properties.Resources.Loading;
 			this.btnNhapExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnNhapExcel.Location = new System.Drawing.Point(209, 3);
+			this.btnNhapExcel.Location = new System.Drawing.Point(348, 1);
 			this.btnNhapExcel.Name = "btnNhapExcel";
 			this.btnNhapExcel.Size = new System.Drawing.Size(143, 40);
 			this.btnNhapExcel.TabIndex = 7;
@@ -95,7 +71,7 @@
 			this.btnLuu.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnLuu.Image = global::QuanLyDienNang.Properties.Resources.Save;
 			this.btnLuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLuu.Location = new System.Drawing.Point(703, 3);
+			this.btnLuu.Location = new System.Drawing.Point(497, 3);
 			this.btnLuu.Name = "btnLuu";
 			this.btnLuu.Size = new System.Drawing.Size(100, 40);
 			this.btnLuu.TabIndex = 7;
@@ -164,7 +140,6 @@
 			// 
 			// panel2
 			// 
-			this.panel2.Controls.Add(this.dateTimePicker1);
 			this.panel2.Controls.Add(this.btnLuu);
 			this.panel2.Controls.Add(this.btnNhapExcel);
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -182,9 +157,9 @@
 			this.label3.Size = new System.Drawing.Size(978, 30);
 			this.label3.TabIndex = 12;
 			this.label3.Text = "NHẬP THÔNG TIN KHÁCH HÀNG";
-			this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// FormNhapKhachHang
+			// FormKH_NhapKhachHang
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -192,9 +167,8 @@
 			this.Controls.Add(this.tableParent);
 			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
 			this.Margin = new System.Windows.Forms.Padding(4);
-			this.Name = "FormNhapKhachHang";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Nhập thông tin khách hàng từ Excel";
+			this.Name = "FormKH_NhapKhachHang";
+			this.Text = "Nhập Thông Tin Khách Hàng Từ Excel";
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			this.tableParent.ResumeLayout(false);
@@ -204,7 +178,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox tbxDuongDan;
 		private System.Windows.Forms.Button btnNhapExcel;
 		private System.Windows.Forms.Button btnLuu;

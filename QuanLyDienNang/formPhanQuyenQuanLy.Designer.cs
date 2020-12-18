@@ -64,7 +64,7 @@
 			this.label1.Size = new System.Drawing.Size(976, 30);
 			this.label1.TabIndex = 8;
 			this.label1.Text = "THÔNG TIN TRẠM QUẢN LÝ";
-			this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// label2
 			// 

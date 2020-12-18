@@ -81,11 +81,11 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNhapKhachHang.cs">
+    <Compile Include="FormKH_NhapKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormNhapKhachHang.Designer.cs">
-      <DependentUpon>FormNhapKhachHang.cs</DependentUpon>
+    <Compile Include="FormKH_NhapKhachHang.Designer.cs">
+      <DependentUpon>FormKH_NhapKhachHang.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPhanQuyenQuanLy.cs">
       <SubType>Form</SubType>
@@ -93,13 +93,19 @@
     <Compile Include="FormPhanQuyenQuanLy.Designer.cs">
       <DependentUpon>FormPhanQuyenQuanLy.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="FormQuanLyKhachHang.cs">
+    <Compile Include="FormKH_DienNangTieuThu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormQuanLyKhachHang.Designer.cs">
-      <DependentUpon>FormQuanLyKhachHang.cs</DependentUpon>
+    <Compile Include="FormKH_DienNangTieuThu.Designer.cs">
+      <DependentUpon>FormKH_DienNangTieuThu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FormKH_XuatKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKH_XuatKhachHang.Designer.cs">
+      <DependentUpon>FormKH_XuatKhachHang.cs</DependentUpon>
     </Compile>
     <Compile Include="FormThongTinDoanhNghiep.cs">
       <SubType>Form</SubType>
@@ -107,20 +113,17 @@
     <Compile Include="FormThongTinDoanhNghiep.Designer.cs">
       <DependentUpon>FormThongTinDoanhNghiep.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormThongTinKhachHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormThongTinKhachHang.Designer.cs">
-      <DependentUpon>FormThongTinKhachHang.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNhapKhachHang.resx">
-      <DependentUpon>FormNhapKhachHang.cs</DependentUpon>
+    <EmbeddedResource Include="FormKH_NhapKhachHang.resx">
+      <DependentUpon>FormKH_NhapKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPhanQuyenQuanLy.resx">
       <DependentUpon>FormPhanQuyenQuanLy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormKH_DienNangTieuThu.resx">
+      <DependentUpon>FormKH_DienNangTieuThu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -132,12 +135,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="FormThongTinKhachHang.resx">
-      <DependentUpon>FormThongTinKhachHang.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
-    <EmbeddedResource Include="FormQuanLyKhachHang.resx">
-      <DependentUpon>FormQuanLyKhachHang.cs</DependentUpon>
+    <EmbeddedResource Include="FormKH_XuatKhachHang.resx">
+      <DependentUpon>FormKH_XuatKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormThongTinDoanhNghiep.resx">
       <DependentUpon>FormThongTinDoanhNghiep.cs</DependentUpon>

@@ -18,5 +18,31 @@ namespace QuanLyDienNang
 				Application.Exit();
 			}
 		}
+
+		private void giớiThiệuToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void nhậpThôngTinToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Form frmNhap = new FormKH_NhapKhachHang();
+			frmNhap.MdiParent = this;
+			frmNhap.Show();
+		}
+
+		private void xuấtThôngTinToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Form frmXuat = new FormKH_XuatKhachHang();
+			frmXuat.MdiParent = this;
+			frmXuat.Show();
+		}
+
+		private void cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Form frmDNTT = new FormKH_DienNangTieuThu();
+			frmDNTT.MdiParent = this;
+			frmDNTT.Show();
+		}
 	}
 }

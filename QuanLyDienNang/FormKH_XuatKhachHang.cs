@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace QuanLyDienNang
 {
-	public partial class FormQuanLyKhachHang : Form
+	public partial class FormKH_XuatKhachHang : Form
 	{
-		public FormQuanLyKhachHang()
+		public FormKH_XuatKhachHang()
 		{
 			InitializeComponent();
 		}

@@ -59,7 +59,7 @@
 			this.label1.Size = new System.Drawing.Size(976, 24);
 			this.label1.TabIndex = 14;
 			this.label1.Text = "THÔNG TIN DOANH NGHIỆP";
-			this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// label2
 			// 
@@ -223,7 +223,7 @@
 			this.ClientSize = new System.Drawing.Size(984, 561);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "FormThongTinDoanhNghiep";
 			this.Text = "Thongtin";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
