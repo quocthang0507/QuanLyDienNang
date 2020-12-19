@@ -74,7 +74,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Common.cs" />
+    <Compile Include="FormKH_DocChiSoDien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKH_DocChiSoDien.Designer.cs">
+      <DependentUpon>FormKH_DocChiSoDien.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +124,9 @@
     <Compile Include="FormThongTinDoanhNghiep.Designer.cs">
       <DependentUpon>FormThongTinDoanhNghiep.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormKH_DocChiSoDien.resx">
+      <DependentUpon>FormKH_DocChiSoDien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>

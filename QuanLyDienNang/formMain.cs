@@ -55,6 +55,12 @@ namespace QuanLyDienNang
 			AddFormToPanel(frmDNTT);
 		}
 
+		private void đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Form frmOCR = new FormKH_DocChiSoDien();
+			AddFormToPanel(frmOCR);
+		}
+
 		/// <summary>
 		/// Đóng form bên trong panel, trường hợp không đóng được do form đó chưa hoàn tất công việc
 		/// </summary>
@@ -88,5 +94,6 @@ namespace QuanLyDienNang
 			panelParent.Controls.Add(form);
 			form.Show();
 		}
+
 	}
 }

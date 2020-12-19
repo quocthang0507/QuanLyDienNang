@@ -37,6 +37,7 @@
 			this.nhậpThôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.xuấtThôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.panelParent = new System.Windows.Forms.Panel();
 			this.menuBar.SuspendLayout();
 			this.SuspendLayout();
@@ -84,7 +85,8 @@
 			this.quảnLýKháchHàngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nhậpThôngTinToolStripMenuItem,
             this.xuấtThôngTinToolStripMenuItem,
-            this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem});
+            this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem,
+            this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem});
 			this.quảnLýKháchHàngToolStripMenuItem.Name = "quảnLýKháchHàngToolStripMenuItem";
 			this.quảnLýKháchHàngToolStripMenuItem.Size = new System.Drawing.Size(126, 20);
 			this.quảnLýKháchHàngToolStripMenuItem.Text = "Quản lý Khách hàng";
@@ -93,7 +95,7 @@
 			// 
 			this.nhậpThôngTinToolStripMenuItem.Image = global::QuanLyDienNang.Properties.Resources.Add;
 			this.nhậpThôngTinToolStripMenuItem.Name = "nhậpThôngTinToolStripMenuItem";
-			this.nhậpThôngTinToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+			this.nhậpThôngTinToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
 			this.nhậpThôngTinToolStripMenuItem.Text = "Nhập thông tin";
 			this.nhậpThôngTinToolStripMenuItem.Click += new System.EventHandler(this.nhậpThôngTinToolStripMenuItem_Click);
 			// 
@@ -101,7 +103,7 @@
 			// 
 			this.xuấtThôngTinToolStripMenuItem.Image = global::QuanLyDienNang.Properties.Resources.Text_Document;
 			this.xuấtThôngTinToolStripMenuItem.Name = "xuấtThôngTinToolStripMenuItem";
-			this.xuấtThôngTinToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+			this.xuấtThôngTinToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
 			this.xuấtThôngTinToolStripMenuItem.Text = "Xuất thông tin";
 			this.xuấtThôngTinToolStripMenuItem.Click += new System.EventHandler(this.xuấtThôngTinToolStripMenuItem_Click);
 			// 
@@ -109,9 +111,17 @@
 			// 
 			this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem.Image = global::QuanLyDienNang.Properties.Resources.Modify;
 			this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem.Name = "cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem";
-			this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+			this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
 			this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem.Text = "Cập nhật điện năng tiêu thụ";
 			this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem.Click += new System.EventHandler(this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem_Click);
+			// 
+			// đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem
+			// 
+			this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem.Image = global::QuanLyDienNang.Properties.Resources.Picture;
+			this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem.Name = "đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem";
+			this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+			this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem.Text = "Đọc chỉ số điện năng tiêu thụ";
+			this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem.Click += new System.EventHandler(this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem_Click);
 			// 
 			// panelParent
 			// 
@@ -151,6 +161,7 @@
 		private System.Windows.Forms.ToolStripMenuItem xuấtThôngTinToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem;
 		private System.Windows.Forms.Panel panelParent;
+		private System.Windows.Forms.ToolStripMenuItem đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem;
 	}
 }
 
