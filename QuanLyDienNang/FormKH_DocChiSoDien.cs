@@ -16,5 +16,10 @@ namespace QuanLyDienNang
 		{
 			InitializeComponent();
 		}
+
+		private void btnMoThuMuc_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }
