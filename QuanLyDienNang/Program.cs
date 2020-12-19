@@ -17,14 +17,12 @@ namespace QuanLyDienNang
 			{
 				Application.EnableVisualStyles();
 				Application.SetCompatibleTextRenderingDefault(false);
-				FormWelcome splash = new FormWelcome();
-				splash.Show();
-				Application.Run(new FormMain(splash));
+				Application.Run(new FormMain());
 				singleton.Close();
 			}
 			else
 			{
-				MessageBox.Show("Chương trình này đang chạy trong hệ thống. Bạn không thể mở cùng lúc nhiều cửa sổ của chương trình này được", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				MessageBox.Show("Chương trình này đang chạy trong hệ thống. Bạn không thể mở cùng lúc nhiều cửa sổ của chương trình này được.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
 		}
 	}

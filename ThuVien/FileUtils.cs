@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using ThuVien.Classes;
 
 namespace ThuVien
 {
@@ -14,13 +15,13 @@ namespace ThuVien
 			return Path.GetFullPath(Path.Combine(assemblyFolderPath, relativePath));
 		}
 
-		public static IEnumerable<string> LoadImagesFromDirectory(string pathToImageFolder)
+		public static IEnumerable<ImageResult> LoadImagesFromDirectory(string pathToImageFolder)
 		{
 			IEnumerable<string> imagesPaths = Directory.
 				GetFiles(pathToImageFolder, "*", SearchOption.AllDirectories).
-				Where(file => Path.GetExtension(file).Equals("jpg", StringComparison.OrdinalIgnoreCase) || Path.GetExtension(file).Equals("png", StringComparison.OrdinalIgnoreCase)).
+				Where(file => Path.GetExtension(file).Equals(".jpg", StringComparison.OrdinalIgnoreCase) || Path.GetExtension(file).Equals(".png", StringComparison.OrdinalIgnoreCase)).
 				OrderBy(file => Path.GetFileName(file));
-			return imagesPaths;
+			return imagesPaths.Select(path => new ImageResult(path));
 		}
 	}
 }

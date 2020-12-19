@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace QuanLyDienNang
@@ -9,18 +10,11 @@ namespace QuanLyDienNang
 
 		public FormMain()
 		{
+			Thread thread = new Thread(new ThreadStart(ShowSplashScreen));
+			thread.Start();
+			Thread.Sleep(2000);
 			InitializeComponent();
-		}
-
-		public FormMain(Form form)
-		{
-			this.SplashScreen = form;
-			InitializeComponent();
-			if (this.SplashScreen != null)
-			{
-				this.SplashScreen.Close();
-				this.SplashScreen = null;
-			}
+			thread.Abort();
 		}
 
 		private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
@@ -95,5 +89,9 @@ namespace QuanLyDienNang
 			form.Show();
 		}
 
+		private void ShowSplashScreen()
+		{
+			Application.Run(new FormWelcome());
+		}
 	}
 }

@@ -30,6 +30,10 @@ namespace QuanLyDienNang
 		private void InitializeComponent()
 		{
 			this.label1 = new System.Windows.Forms.Label();
+			this.progressBar = new System.Windows.Forms.ProgressBar();
+			this.label2 = new System.Windows.Forms.Label();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -38,20 +42,54 @@ namespace QuanLyDienNang
 			this.label1.BackColor = System.Drawing.Color.Transparent;
 			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
 			this.label1.ForeColor = System.Drawing.Color.Gold;
-			this.label1.Location = new System.Drawing.Point(5, 140);
+			this.label1.Location = new System.Drawing.Point(4, 9);
 			this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(391, 26);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "ỨNG DỤNG QUẢN LÝ ĐIỆN NĂNG";
 			// 
+			// progressBar
+			// 
+			this.progressBar.Location = new System.Drawing.Point(31, 265);
+			this.progressBar.MarqueeAnimationSpeed = 50;
+			this.progressBar.Name = "progressBar";
+			this.progressBar.Size = new System.Drawing.Size(323, 23);
+			this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+			this.progressBar.TabIndex = 1;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.BackColor = System.Drawing.Color.Transparent;
+			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
+			this.label2.ForeColor = System.Drawing.Color.DarkGreen;
+			this.label2.Location = new System.Drawing.Point(102, 242);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(172, 20);
+			this.label2.TabIndex = 2;
+			this.label2.Text = "Đang tải, vui lòng chờ...";
+			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.Image = global::QuanLyDienNang.Properties.Resources.anh_nen_3;
+			this.pictureBox1.Location = new System.Drawing.Point(72, 50);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(236, 189);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pictureBox1.TabIndex = 3;
+			this.pictureBox1.TabStop = false;
+			// 
 			// FormWelcome
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackgroundImage = global::QuanLyDienNang.Properties.Resources.anh_nen_3;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(400, 300);
+			this.ControlBox = false;
+			this.Controls.Add(this.pictureBox1);
+			this.Controls.Add(this.label2);
+			this.Controls.Add(this.progressBar);
 			this.Controls.Add(this.label1);
 			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -59,6 +97,7 @@ namespace QuanLyDienNang
 			this.Name = "FormWelcome";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "FormWelcome";
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -67,5 +106,8 @@ namespace QuanLyDienNang
 		#endregion
 
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.ProgressBar progressBar;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.PictureBox pictureBox1;
 	}
 }
