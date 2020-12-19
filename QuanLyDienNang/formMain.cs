@@ -6,15 +6,14 @@ namespace QuanLyDienNang
 {
 	public partial class FormMain : Form
 	{
-		private Form SplashScreen;
-
 		public FormMain()
 		{
-			Thread thread = new Thread(new ThreadStart(ShowSplashScreen));
+			Thread thread = new Thread(ShowSplashScreen);
 			thread.Start();
 			Thread.Sleep(2000);
 			InitializeComponent();
 			thread.Abort();
+			this.TopMost = true;
 		}
 
 		private void thoátToolStripMenuItem_Click(object sender, EventArgs e)

@@ -47,7 +47,7 @@ namespace QuanLyDienNang
 			this.label3 = new System.Windows.Forms.Label();
 			this.btnLuuFile = new System.Windows.Forms.Button();
 			this.btnDung = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
+			this.btnNhanDienTatCa = new System.Windows.Forms.Button();
 			this.btnNhanDien = new System.Windows.Forms.Button();
 			this.folderDialog = new System.Windows.Forms.FolderBrowserDialog();
 			this.tableParent.SuspendLayout();
@@ -207,7 +207,7 @@ namespace QuanLyDienNang
 			this.panel2.Controls.Add(this.label3);
 			this.panel2.Controls.Add(this.btnLuuFile);
 			this.panel2.Controls.Add(this.btnDung);
-			this.panel2.Controls.Add(this.button1);
+			this.panel2.Controls.Add(this.btnNhanDienTatCa);
 			this.panel2.Controls.Add(this.btnNhanDien);
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel2.Location = new System.Drawing.Point(3, 258);
@@ -277,19 +277,21 @@ namespace QuanLyDienNang
 			this.btnDung.Text = "Dừng lại";
 			this.btnDung.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnDung.UseVisualStyleBackColor = true;
+			this.btnDung.Click += new System.EventHandler(this.btnDung_Click);
 			// 
-			// button1
+			// btnNhanDienTatCa
 			// 
-			this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.button1.Image = global::QuanLyDienNang.Properties.Resources.Preview;
-			this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button1.Location = new System.Drawing.Point(164, 5);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(148, 40);
-			this.button1.TabIndex = 5;
-			this.button1.Text = "Nhận diện tất cả";
-			this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.button1.UseVisualStyleBackColor = true;
+			this.btnNhanDienTatCa.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnNhanDienTatCa.Image = global::QuanLyDienNang.Properties.Resources.Preview;
+			this.btnNhanDienTatCa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnNhanDienTatCa.Location = new System.Drawing.Point(164, 5);
+			this.btnNhanDienTatCa.Name = "btnNhanDienTatCa";
+			this.btnNhanDienTatCa.Size = new System.Drawing.Size(148, 40);
+			this.btnNhanDienTatCa.TabIndex = 5;
+			this.btnNhanDienTatCa.Text = "Nhận diện tất cả";
+			this.btnNhanDienTatCa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnNhanDienTatCa.UseVisualStyleBackColor = true;
+			this.btnNhanDienTatCa.Click += new System.EventHandler(this.btnNhanDienTatCa_Click);
 			// 
 			// btnNhanDien
 			// 
@@ -303,6 +305,7 @@ namespace QuanLyDienNang
 			this.btnNhanDien.Text = "Nhận diện";
 			this.btnNhanDien.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnNhanDien.UseVisualStyleBackColor = true;
+			this.btnNhanDien.Click += new System.EventHandler(this.btnNhanDien_Click);
 			// 
 			// folderDialog
 			// 
@@ -346,7 +349,7 @@ namespace QuanLyDienNang
 		private System.Windows.Forms.PictureBox pbxHinhAnh;
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Button btnDung;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button btnNhanDienTatCa;
 		private System.Windows.Forms.Button btnNhanDien;
 		private System.Windows.Forms.TextBox tbxChiSoDien;
 		private System.Windows.Forms.Label label4;

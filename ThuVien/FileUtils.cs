@@ -17,11 +17,18 @@ namespace ThuVien
 
 		public static IEnumerable<ImageResult> LoadImagesFromDirectory(string pathToImageFolder)
 		{
-			IEnumerable<string> imagesPaths = Directory.
-				GetFiles(pathToImageFolder, "*", SearchOption.AllDirectories).
-				Where(file => Path.GetExtension(file).Equals(".jpg", StringComparison.OrdinalIgnoreCase) || Path.GetExtension(file).Equals(".png", StringComparison.OrdinalIgnoreCase)).
-				OrderBy(file => Path.GetFileName(file));
-			return imagesPaths.Select(path => new ImageResult(path));
+			try
+			{
+				IEnumerable<string> imagesPaths = Directory.
+					GetFiles(pathToImageFolder, "*", SearchOption.AllDirectories).
+					Where(file => Path.GetExtension(file).Equals(".jpg", StringComparison.OrdinalIgnoreCase) || Path.GetExtension(file).Equals(".png", StringComparison.OrdinalIgnoreCase)).
+					OrderBy(file => Path.GetFileName(file));
+				return imagesPaths.Select(path => new ImageResult(path));
+			}
+			catch (Exception)
+			{
+				return null;
+			}
 		}
 	}
 }
