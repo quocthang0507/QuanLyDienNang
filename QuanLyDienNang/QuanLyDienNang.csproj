@@ -484,9 +484,6 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\anh nen 4.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\anh nen 3.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -497,6 +494,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\close.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

@@ -50,7 +50,6 @@ namespace QuanLyDienNang
 			this.btnNhanDienTatCa = new System.Windows.Forms.Button();
 			this.btnNhanDien = new System.Windows.Forms.Button();
 			this.folderDialog = new System.Windows.Forms.FolderBrowserDialog();
-			this.btnDong = new System.Windows.Forms.Button();
 			this.tableParent.SuspendLayout();
 			this.panel1.SuspendLayout();
 			this.tableParentBottom.SuspendLayout();
@@ -91,7 +90,6 @@ namespace QuanLyDienNang
 			// 
 			// panel1
 			// 
-			this.panel1.Controls.Add(this.btnDong);
 			this.panel1.Controls.Add(this.btnChayServer);
 			this.panel1.Controls.Add(this.btnMoThuMuc);
 			this.panel1.Controls.Add(this.tbxDuongDan);
@@ -107,7 +105,7 @@ namespace QuanLyDienNang
 			this.btnChayServer.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnChayServer.Image = global::QuanLyDienNang.Properties.Resources.Play;
 			this.btnChayServer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnChayServer.Location = new System.Drawing.Point(422, 32);
+			this.btnChayServer.Location = new System.Drawing.Point(492, 32);
 			this.btnChayServer.Name = "btnChayServer";
 			this.btnChayServer.Size = new System.Drawing.Size(177, 40);
 			this.btnChayServer.TabIndex = 3;
@@ -121,7 +119,7 @@ namespace QuanLyDienNang
 			this.btnMoThuMuc.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnMoThuMuc.Image = global::QuanLyDienNang.Properties.Resources.Open;
 			this.btnMoThuMuc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnMoThuMuc.Location = new System.Drawing.Point(273, 32);
+			this.btnMoThuMuc.Location = new System.Drawing.Point(343, 32);
 			this.btnMoThuMuc.Name = "btnMoThuMuc";
 			this.btnMoThuMuc.Size = new System.Drawing.Size(143, 40);
 			this.btnMoThuMuc.TabIndex = 2;
@@ -314,20 +312,6 @@ namespace QuanLyDienNang
 			this.folderDialog.Description = "Chọn thư mục hình ảnh";
 			this.folderDialog.ShowNewFolderButton = false;
 			// 
-			// btnDong
-			// 
-			this.btnDong.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnDong.Image = global::QuanLyDienNang.Properties.Resources.Exit;
-			this.btnDong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnDong.Location = new System.Drawing.Point(605, 32);
-			this.btnDong.Name = "btnDong";
-			this.btnDong.Size = new System.Drawing.Size(86, 40);
-			this.btnDong.TabIndex = 4;
-			this.btnDong.Text = "Đóng";
-			this.btnDong.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.btnDong.UseVisualStyleBackColor = true;
-			this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
-			// 
 			// FormKH_DocChiSoDien
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -373,6 +357,5 @@ namespace QuanLyDienNang
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Button btnLuuFile;
 		private System.Windows.Forms.FolderBrowserDialog folderDialog;
-		private System.Windows.Forms.Button btnDong;
 	}
 }

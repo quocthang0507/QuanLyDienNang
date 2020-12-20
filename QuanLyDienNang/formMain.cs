@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -13,7 +14,6 @@ namespace QuanLyDienNang
 			Thread.Sleep(2000);
 			InitializeComponent();
 			thread.Abort();
-			this.TopMost = true;
 		}
 
 		private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
@@ -54,23 +54,14 @@ namespace QuanLyDienNang
 			AddFormToPanel(frmOCR);
 		}
 
-		/// <summary>
-		/// Đóng form bên trong panel, trường hợp không đóng được do form đó chưa hoàn tất công việc
-		/// </summary>
-		/// <returns>True/False: Đã đóng hết các form hay chưa</returns>
-		private bool CloseAllFormsInPanel()
+		private void menuDong_Click(object sender, EventArgs e)
 		{
-			foreach (var control in panelParent.Controls)
-			{
-				if (control is Form)
-				{
-					var form = control as Form;
-					form.Close();
-				}
-			}
-			if (panelParent.Controls.Count > 0)
-				return false;
-			return true;
+			var tab = tabForms.SelectedTab;
+			if (tab.Name == "tabMain")
+				return;
+			var form = tab.Controls[0] as Form;
+			form.Close();
+			tabForms.TabPages.Remove(tab);
 		}
 
 		/// <summary>
@@ -79,18 +70,28 @@ namespace QuanLyDienNang
 		/// <param name="form"></param>
 		private void AddFormToPanel(Form form)
 		{
-			form.FormBorderStyle = FormBorderStyle.None;
+			// Chỉnh sửa form trước khi thêm vào tab
 			form.TopLevel = false;
+			form.FormBorderStyle = FormBorderStyle.None;
 			form.Dock = DockStyle.Fill;
-			if (!CloseAllFormsInPanel())
-				return;
-			panelParent.Controls.Add(form);
+			// Tạo một tabPage và thêm form vào tab
+			TabPage newTab = new TabPage();
+			newTab.Text = form.Text;
+			newTab.Controls.Add(form);
+			newTab.ContextMenuStrip = contextTabMenu;
+			tabForms.TabPages.Add(newTab);
+			// Hiển thị form và kích hoạt tab
 			form.Show();
 		}
 
 		private void ShowSplashScreen()
 		{
 			Application.Run(new FormWelcome());
+		}
+
+		private void btnDongForm_Click(object sender, EventArgs e)
+		{
+			menuDong.PerformClick();
 		}
 	}
 }

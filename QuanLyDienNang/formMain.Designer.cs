@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
 			this.menuBar = new System.Windows.Forms.MenuStrip();
 			this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,8 +39,20 @@
 			this.xuấtThôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.panelParent = new System.Windows.Forms.Panel();
+			this.contextTabMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.menuDong = new System.Windows.Forms.ToolStripMenuItem();
+			this.tabForms = new System.Windows.Forms.TabControl();
+			this.tabMain = new System.Windows.Forms.TabPage();
+			this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+			this.toolbar = new System.Windows.Forms.ToolStrip();
+			this.btnDongForm = new System.Windows.Forms.ToolStripButton();
 			this.menuBar.SuspendLayout();
+			this.contextTabMenu.SuspendLayout();
+			this.tabForms.SuspendLayout();
+			this.toolStripContainer1.ContentPanel.SuspendLayout();
+			this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
+			this.toolStripContainer1.SuspendLayout();
+			this.toolbar.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// menuBar
@@ -123,21 +136,85 @@
 			this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem.Text = "Đọc chỉ số điện năng tiêu thụ";
 			this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem.Click += new System.EventHandler(this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem_Click);
 			// 
-			// panelParent
+			// contextTabMenu
 			// 
-			this.panelParent.BackColor = System.Drawing.Color.Transparent;
-			this.panelParent.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panelParent.Location = new System.Drawing.Point(0, 24);
-			this.panelParent.Name = "panelParent";
-			this.panelParent.Size = new System.Drawing.Size(984, 537);
-			this.panelParent.TabIndex = 1;
+			this.contextTabMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuDong});
+			this.contextTabMenu.Name = "contextTabMenu";
+			this.contextTabMenu.Size = new System.Drawing.Size(175, 26);
+			// 
+			// menuDong
+			// 
+			this.menuDong.Name = "menuDong";
+			this.menuDong.Size = new System.Drawing.Size(174, 22);
+			this.menuDong.Text = "Đóng tab đang mở";
+			this.menuDong.Click += new System.EventHandler(this.menuDong_Click);
+			// 
+			// tabForms
+			// 
+			this.tabForms.Controls.Add(this.tabMain);
+			this.tabForms.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabForms.Location = new System.Drawing.Point(0, 0);
+			this.tabForms.Name = "tabForms";
+			this.tabForms.SelectedIndex = 0;
+			this.tabForms.Size = new System.Drawing.Size(984, 512);
+			this.tabForms.TabIndex = 1;
+			// 
+			// tabMain
+			// 
+			this.tabMain.BackgroundImage = global::QuanLyDienNang.Properties.Resources.anh_nen_1;
+			this.tabMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.tabMain.Location = new System.Drawing.Point(4, 25);
+			this.tabMain.Name = "tabMain";
+			this.tabMain.Size = new System.Drawing.Size(976, 483);
+			this.tabMain.TabIndex = 0;
+			this.tabMain.Text = "Chào mừng";
+			this.tabMain.UseVisualStyleBackColor = true;
+			// 
+			// toolStripContainer1
+			// 
+			// 
+			// toolStripContainer1.ContentPanel
+			// 
+			this.toolStripContainer1.ContentPanel.Controls.Add(this.tabForms);
+			this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(984, 512);
+			this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.toolStripContainer1.Location = new System.Drawing.Point(0, 24);
+			this.toolStripContainer1.Name = "toolStripContainer1";
+			this.toolStripContainer1.Size = new System.Drawing.Size(984, 537);
+			this.toolStripContainer1.TabIndex = 4;
+			this.toolStripContainer1.Text = "toolStripContainer1";
+			// 
+			// toolStripContainer1.TopToolStripPanel
+			// 
+			this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolbar);
+			// 
+			// toolbar
+			// 
+			this.toolbar.Dock = System.Windows.Forms.DockStyle.None;
+			this.toolbar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnDongForm});
+			this.toolbar.Location = new System.Drawing.Point(3, 0);
+			this.toolbar.Name = "toolbar";
+			this.toolbar.Size = new System.Drawing.Size(130, 25);
+			this.toolbar.TabIndex = 3;
+			this.toolbar.Text = "toolStrip1";
+			// 
+			// btnDongForm
+			// 
+			this.btnDongForm.Image = global::QuanLyDienNang.Properties.Resources.Delete;
+			this.btnDongForm.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btnDongForm.Name = "btnDongForm";
+			this.btnDongForm.Size = new System.Drawing.Size(87, 22);
+			this.btnDongForm.Text = "Đóng Form";
+			this.btnDongForm.ToolTipText = "Đóng Form hiện hành";
+			this.btnDongForm.Click += new System.EventHandler(this.btnDongForm_Click);
 			// 
 			// FormMain
 			// 
-			this.BackgroundImage = global::QuanLyDienNang.Properties.Resources.anh_nen_1;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(984, 561);
-			this.Controls.Add(this.panelParent);
+			this.Controls.Add(this.toolStripContainer1);
 			this.Controls.Add(this.menuBar);
 			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -145,6 +222,15 @@
 			this.Text = "Chương Trình Quản Lý Điện Năng";
 			this.menuBar.ResumeLayout(false);
 			this.menuBar.PerformLayout();
+			this.contextTabMenu.ResumeLayout(false);
+			this.tabForms.ResumeLayout(false);
+			this.toolStripContainer1.ContentPanel.ResumeLayout(false);
+			this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
+			this.toolStripContainer1.TopToolStripPanel.PerformLayout();
+			this.toolStripContainer1.ResumeLayout(false);
+			this.toolStripContainer1.PerformLayout();
+			this.toolbar.ResumeLayout(false);
+			this.toolbar.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -160,8 +246,14 @@
 		private System.Windows.Forms.ToolStripMenuItem nhậpThôngTinToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem xuấtThôngTinToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem;
-		private System.Windows.Forms.Panel panelParent;
 		private System.Windows.Forms.ToolStripMenuItem đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem;
+		private System.Windows.Forms.ContextMenuStrip contextTabMenu;
+		private System.Windows.Forms.ToolStripMenuItem menuDong;
+		private System.Windows.Forms.TabControl tabForms;
+		private System.Windows.Forms.TabPage tabMain;
+		private System.Windows.Forms.ToolStripContainer toolStripContainer1;
+		private System.Windows.Forms.ToolStrip toolbar;
+		private System.Windows.Forms.ToolStripButton btnDongForm;
 	}
 }
 

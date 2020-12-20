@@ -44,11 +44,6 @@ namespace QuanLyDienNang
 			lbxHinhAnh.Items.AddRange(files.ToArray());
 		}
 
-		private void btnDong_Click(object sender, EventArgs e)
-		{
-			this.Close();
-		}
-
 		private void btnChayServer_Click(object sender, EventArgs e)
 		{
 
