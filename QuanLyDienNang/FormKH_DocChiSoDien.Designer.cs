@@ -50,6 +50,7 @@ namespace QuanLyDienNang
 			this.btnNhanDienTatCa = new System.Windows.Forms.Button();
 			this.btnNhanDien = new System.Windows.Forms.Button();
 			this.folderDialog = new System.Windows.Forms.FolderBrowserDialog();
+			this.btnDong = new System.Windows.Forms.Button();
 			this.tableParent.SuspendLayout();
 			this.panel1.SuspendLayout();
 			this.tableParentBottom.SuspendLayout();
@@ -90,6 +91,7 @@ namespace QuanLyDienNang
 			// 
 			// panel1
 			// 
+			this.panel1.Controls.Add(this.btnDong);
 			this.panel1.Controls.Add(this.btnChayServer);
 			this.panel1.Controls.Add(this.btnMoThuMuc);
 			this.panel1.Controls.Add(this.tbxDuongDan);
@@ -105,7 +107,7 @@ namespace QuanLyDienNang
 			this.btnChayServer.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnChayServer.Image = global::QuanLyDienNang.Properties.Resources.Play;
 			this.btnChayServer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnChayServer.Location = new System.Drawing.Point(491, 32);
+			this.btnChayServer.Location = new System.Drawing.Point(422, 32);
 			this.btnChayServer.Name = "btnChayServer";
 			this.btnChayServer.Size = new System.Drawing.Size(177, 40);
 			this.btnChayServer.TabIndex = 3;
@@ -119,7 +121,7 @@ namespace QuanLyDienNang
 			this.btnMoThuMuc.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnMoThuMuc.Image = global::QuanLyDienNang.Properties.Resources.Open;
 			this.btnMoThuMuc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnMoThuMuc.Location = new System.Drawing.Point(342, 32);
+			this.btnMoThuMuc.Location = new System.Drawing.Point(273, 32);
 			this.btnMoThuMuc.Name = "btnMoThuMuc";
 			this.btnMoThuMuc.Size = new System.Drawing.Size(143, 40);
 			this.btnMoThuMuc.TabIndex = 2;
@@ -221,7 +223,7 @@ namespace QuanLyDienNang
 			this.tbxChiSoDien.Location = new System.Drawing.Point(360, 72);
 			this.tbxChiSoDien.Name = "tbxChiSoDien";
 			this.tbxChiSoDien.Size = new System.Drawing.Size(112, 23);
-			this.tbxChiSoDien.TabIndex = 8;
+			this.tbxChiSoDien.TabIndex = 9;
 			this.tbxChiSoDien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxChiSoDien_KeyPress);
 			// 
 			// label4
@@ -240,7 +242,7 @@ namespace QuanLyDienNang
 			this.tbxMaKhachHang.Location = new System.Drawing.Point(120, 72);
 			this.tbxMaKhachHang.Name = "tbxMaKhachHang";
 			this.tbxMaKhachHang.Size = new System.Drawing.Size(154, 23);
-			this.tbxMaKhachHang.TabIndex = 7;
+			this.tbxMaKhachHang.TabIndex = 8;
 			// 
 			// label3
 			// 
@@ -260,7 +262,7 @@ namespace QuanLyDienNang
 			this.btnLuuFile.Location = new System.Drawing.Point(171, 100);
 			this.btnLuuFile.Name = "btnLuuFile";
 			this.btnLuuFile.Size = new System.Drawing.Size(146, 40);
-			this.btnLuuFile.TabIndex = 9;
+			this.btnLuuFile.TabIndex = 10;
 			this.btnLuuFile.Text = "Lưu vào tập tin";
 			this.btnLuuFile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnLuuFile.UseVisualStyleBackColor = true;
@@ -273,7 +275,7 @@ namespace QuanLyDienNang
 			this.btnDung.Location = new System.Drawing.Point(318, 5);
 			this.btnDung.Name = "btnDung";
 			this.btnDung.Size = new System.Drawing.Size(99, 40);
-			this.btnDung.TabIndex = 6;
+			this.btnDung.TabIndex = 7;
 			this.btnDung.Text = "Dừng lại";
 			this.btnDung.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnDung.UseVisualStyleBackColor = true;
@@ -287,7 +289,7 @@ namespace QuanLyDienNang
 			this.btnNhanDienTatCa.Location = new System.Drawing.Point(164, 5);
 			this.btnNhanDienTatCa.Name = "btnNhanDienTatCa";
 			this.btnNhanDienTatCa.Size = new System.Drawing.Size(148, 40);
-			this.btnNhanDienTatCa.TabIndex = 5;
+			this.btnNhanDienTatCa.TabIndex = 6;
 			this.btnNhanDienTatCa.Text = "Nhận diện tất cả";
 			this.btnNhanDienTatCa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnNhanDienTatCa.UseVisualStyleBackColor = true;
@@ -301,7 +303,7 @@ namespace QuanLyDienNang
 			this.btnNhanDien.Location = new System.Drawing.Point(41, 5);
 			this.btnNhanDien.Name = "btnNhanDien";
 			this.btnNhanDien.Size = new System.Drawing.Size(117, 40);
-			this.btnNhanDien.TabIndex = 4;
+			this.btnNhanDien.TabIndex = 5;
 			this.btnNhanDien.Text = "Nhận diện";
 			this.btnNhanDien.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnNhanDien.UseVisualStyleBackColor = true;
@@ -311,6 +313,20 @@ namespace QuanLyDienNang
 			// 
 			this.folderDialog.Description = "Chọn thư mục hình ảnh";
 			this.folderDialog.ShowNewFolderButton = false;
+			// 
+			// btnDong
+			// 
+			this.btnDong.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnDong.Image = global::QuanLyDienNang.Properties.Resources.Exit;
+			this.btnDong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnDong.Location = new System.Drawing.Point(605, 32);
+			this.btnDong.Name = "btnDong";
+			this.btnDong.Size = new System.Drawing.Size(86, 40);
+			this.btnDong.TabIndex = 4;
+			this.btnDong.Text = "Đóng";
+			this.btnDong.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnDong.UseVisualStyleBackColor = true;
+			this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
 			// 
 			// FormKH_DocChiSoDien
 			// 
@@ -357,5 +373,6 @@ namespace QuanLyDienNang
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Button btnLuuFile;
 		private System.Windows.Forms.FolderBrowserDialog folderDialog;
+		private System.Windows.Forms.Button btnDong;
 	}
 }
