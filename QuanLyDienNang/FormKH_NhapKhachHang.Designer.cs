@@ -47,10 +47,10 @@
 			// 
 			this.tbxDuongDan.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.tbxDuongDan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.tbxDuongDan.Location = new System.Drawing.Point(209, 9);
+			this.tbxDuongDan.Location = new System.Drawing.Point(182, 10);
 			this.tbxDuongDan.Margin = new System.Windows.Forms.Padding(4);
 			this.tbxDuongDan.Name = "tbxDuongDan";
-			this.tbxDuongDan.Size = new System.Drawing.Size(621, 23);
+			this.tbxDuongDan.Size = new System.Drawing.Size(544, 23);
 			this.tbxDuongDan.TabIndex = 3;
 			// 
 			// btnNhapExcel
@@ -58,9 +58,9 @@
 			this.btnNhapExcel.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnNhapExcel.Image = global::QuanLyDienNang.Properties.Resources.Loading;
 			this.btnNhapExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnNhapExcel.Location = new System.Drawing.Point(348, 1);
+			this.btnNhapExcel.Location = new System.Drawing.Point(303, 1);
 			this.btnNhapExcel.Name = "btnNhapExcel";
-			this.btnNhapExcel.Size = new System.Drawing.Size(143, 40);
+			this.btnNhapExcel.Size = new System.Drawing.Size(125, 42);
 			this.btnNhapExcel.TabIndex = 7;
 			this.btnNhapExcel.Text = "Nhập từ Excel";
 			this.btnNhapExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -71,9 +71,9 @@
 			this.btnLuu.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnLuu.Image = global::QuanLyDienNang.Properties.Resources.Save;
 			this.btnLuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLuu.Location = new System.Drawing.Point(497, 3);
+			this.btnLuu.Location = new System.Drawing.Point(434, 3);
 			this.btnLuu.Name = "btnLuu";
-			this.btnLuu.Size = new System.Drawing.Size(100, 40);
+			this.btnLuu.Size = new System.Drawing.Size(88, 42);
 			this.btnLuu.TabIndex = 7;
 			this.btnLuu.Text = "Lưu lại";
 			this.btnLuu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -83,9 +83,9 @@
 			// 
 			this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(106, 13);
+			this.label1.Location = new System.Drawing.Point(92, 14);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(82, 17);
+			this.label1.Size = new System.Drawing.Size(77, 17);
 			this.label1.TabIndex = 8;
 			this.label1.Text = "Đường dẫn:";
 			// 
@@ -93,9 +93,9 @@
 			// 
 			this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(106, 40);
+			this.label2.Location = new System.Drawing.Point(92, 42);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(84, 17);
+			this.label2.Size = new System.Drawing.Size(76, 17);
 			this.label2.TabIndex = 8;
 			this.label2.Text = "Chọn sheet:";
 			// 
@@ -103,9 +103,9 @@
 			// 
 			this.cbxSheet.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.cbxSheet.FormattingEnabled = true;
-			this.cbxSheet.Location = new System.Drawing.Point(209, 36);
+			this.cbxSheet.Location = new System.Drawing.Point(182, 38);
 			this.cbxSheet.Name = "cbxSheet";
-			this.cbxSheet.Size = new System.Drawing.Size(324, 24);
+			this.cbxSheet.Size = new System.Drawing.Size(284, 25);
 			this.cbxSheet.TabIndex = 9;
 			// 
 			// panel1
@@ -115,9 +115,9 @@
 			this.panel1.Controls.Add(this.label2);
 			this.panel1.Controls.Add(this.label1);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel1.Location = new System.Drawing.Point(3, 83);
+			this.panel1.Location = new System.Drawing.Point(3, 88);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(978, 74);
+			this.panel1.Size = new System.Drawing.Size(855, 79);
 			this.panel1.TabIndex = 10;
 			// 
 			// tableParent
@@ -131,11 +131,11 @@
 			this.tableParent.Location = new System.Drawing.Point(0, 0);
 			this.tableParent.Name = "tableParent";
 			this.tableParent.RowCount = 4;
-			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
+			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 85F));
 			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableParent.Size = new System.Drawing.Size(984, 561);
+			this.tableParent.Size = new System.Drawing.Size(861, 596);
 			this.tableParent.TabIndex = 11;
 			// 
 			// panel2
@@ -143,9 +143,9 @@
 			this.panel2.Controls.Add(this.btnLuu);
 			this.panel2.Controls.Add(this.btnNhapExcel);
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel2.Location = new System.Drawing.Point(3, 33);
+			this.panel2.Location = new System.Drawing.Point(3, 35);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(978, 44);
+			this.panel2.Size = new System.Drawing.Size(855, 47);
 			this.panel2.TabIndex = 11;
 			// 
 			// label3
@@ -154,18 +154,18 @@
 			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label3.Location = new System.Drawing.Point(3, 0);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(978, 30);
+			this.label3.Size = new System.Drawing.Size(855, 32);
 			this.label3.TabIndex = 12;
 			this.label3.Text = "NHẬP THÔNG TIN KHÁCH HÀNG";
 			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// FormKH_NhapKhachHang
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(984, 561);
+			this.ClientSize = new System.Drawing.Size(861, 596);
 			this.Controls.Add(this.tableParent);
-			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+			this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "FormKH_NhapKhachHang";
 			this.Text = "Nhập Thông Tin Khách Hàng Từ Excel";

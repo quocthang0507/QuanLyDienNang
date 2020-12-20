@@ -11,9 +11,14 @@ namespace QuanLyDienNang
 		{
 			Thread thread = new Thread(ShowSplashScreen);
 			thread.Start();
-			Thread.Sleep(2000);
 			InitializeComponent();
 			thread.Abort();
+			toolbar.Visible = false;
+		}
+
+		private void FormMain_Load(object sender, EventArgs e)
+		{
+			this.Activate();
 		}
 
 		private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
@@ -27,31 +32,32 @@ namespace QuanLyDienNang
 
 		private void giớiThiệuToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-
+			Form frmGioiThieu = new Form_GioiThieu();
+			frmGioiThieu.ShowDialog();
 		}
 
 		private void nhậpThôngTinToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Form frmNhap = new FormKH_NhapKhachHang();
-			AddFormToPanel(frmNhap);
+			AddFormToTabPage(frmNhap);
 		}
 
 		private void xuấtThôngTinToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Form frmXuat = new FormKH_XuatKhachHang();
-			AddFormToPanel(frmXuat);
+			AddFormToTabPage(frmXuat);
 		}
 
 		private void cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Form frmDNTT = new FormKH_DienNangTieuThu();
-			AddFormToPanel(frmDNTT);
+			AddFormToTabPage(frmDNTT);
 		}
 
 		private void đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Form frmOCR = new FormKH_DocChiSoDien();
-			AddFormToPanel(frmOCR);
+			AddFormToTabPage(frmOCR);
 		}
 
 		private void menuDong_Click(object sender, EventArgs e)
@@ -64,11 +70,24 @@ namespace QuanLyDienNang
 			tabForms.TabPages.Remove(tab);
 		}
 
+		private void btnDongForm_Click(object sender, EventArgs e)
+		{
+			menuDong.PerformClick();
+		}
+
+		private void tabForms_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (tabForms.SelectedIndex == 0)
+				toolbar.Visible = false;
+			else
+				toolbar.Visible = true;
+		}
+
 		/// <summary>
 		/// Kiểm tra panel còn form nào hay không, nếu không có thì chèn form mới vào
 		/// </summary>
 		/// <param name="form"></param>
-		private void AddFormToPanel(Form form)
+		private void AddFormToTabPage(Form form)
 		{
 			// Chỉnh sửa form trước khi thêm vào tab
 			form.TopLevel = false;
@@ -89,9 +108,5 @@ namespace QuanLyDienNang
 			Application.Run(new FormWelcome());
 		}
 
-		private void btnDongForm_Click(object sender, EventArgs e)
-		{
-			menuDong.PerformClick();
-		}
 	}
 }

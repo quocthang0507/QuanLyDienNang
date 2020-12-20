@@ -54,7 +54,7 @@
 			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
 			this.label1.Location = new System.Drawing.Point(3, 0);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(978, 24);
+			this.label1.Size = new System.Drawing.Size(855, 26);
 			this.label1.TabIndex = 2;
 			this.label1.Text = "XUẤT THÔNG TIN KHÁCH HÀNG";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -64,9 +64,9 @@
 			this.btnXuat.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnXuat.Image = global::QuanLyDienNang.Properties.Resources.Text_Document;
 			this.btnXuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnXuat.Location = new System.Drawing.Point(492, 1);
+			this.btnXuat.Location = new System.Drawing.Point(429, 1);
 			this.btnXuat.Name = "btnXuat";
-			this.btnXuat.Size = new System.Drawing.Size(134, 40);
+			this.btnXuat.Size = new System.Drawing.Size(117, 42);
 			this.btnXuat.TabIndex = 3;
 			this.btnXuat.Text = "Xuất Excel";
 			this.btnXuat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -84,29 +84,29 @@
 			this.tableParent.Location = new System.Drawing.Point(0, 0);
 			this.tableParent.Name = "tableParent";
 			this.tableParent.RowCount = 4;
-			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 159F));
+			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
 			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableParent.Size = new System.Drawing.Size(984, 561);
+			this.tableParent.Size = new System.Drawing.Size(861, 596);
 			this.tableParent.TabIndex = 8;
 			// 
 			// dataGridView1
 			// 
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView1.Location = new System.Drawing.Point(3, 233);
+			this.dataGridView1.Location = new System.Drawing.Point(3, 247);
 			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.Size = new System.Drawing.Size(978, 425);
+			this.dataGridView1.Size = new System.Drawing.Size(855, 452);
 			this.dataGridView1.TabIndex = 0;
 			// 
 			// panel1
 			// 
 			this.panel1.Controls.Add(this.groupBox1);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel1.Location = new System.Drawing.Point(3, 33);
+			this.panel1.Location = new System.Drawing.Point(3, 35);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(978, 144);
+			this.panel1.Size = new System.Drawing.Size(855, 153);
 			this.panel1.TabIndex = 3;
 			// 
 			// groupBox1
@@ -118,7 +118,7 @@
 			this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.groupBox1.Location = new System.Drawing.Point(0, 0);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(978, 144);
+			this.groupBox1.Size = new System.Drawing.Size(855, 153);
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Điều kiện xuất";
@@ -127,9 +127,9 @@
 			// 
 			this.label14.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(91, 40);
+			this.label14.Location = new System.Drawing.Point(79, 42);
 			this.label14.Name = "label14";
-			this.label14.Size = new System.Drawing.Size(55, 17);
+			this.label14.Size = new System.Drawing.Size(50, 17);
 			this.label14.TabIndex = 11;
 			this.label14.Text = "Địa chỉ:";
 			// 
@@ -137,27 +137,27 @@
 			// 
 			this.cbxTenTram.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.cbxTenTram.FormattingEnabled = true;
-			this.cbxTenTram.Location = new System.Drawing.Point(584, 40);
+			this.cbxTenTram.Location = new System.Drawing.Point(510, 42);
 			this.cbxTenTram.Name = "cbxTenTram";
-			this.cbxTenTram.Size = new System.Drawing.Size(287, 24);
+			this.cbxTenTram.Size = new System.Drawing.Size(252, 25);
 			this.cbxTenTram.TabIndex = 10;
 			// 
 			// label4
 			// 
 			this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(496, 43);
+			this.label4.Location = new System.Drawing.Point(433, 46);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(69, 17);
+			this.label4.Size = new System.Drawing.Size(62, 17);
 			this.label4.TabIndex = 8;
 			this.label4.Text = "Tên trạm:";
 			// 
 			// tbxDiaChi
 			// 
 			this.tbxDiaChi.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxDiaChi.Location = new System.Drawing.Point(165, 40);
+			this.tbxDiaChi.Location = new System.Drawing.Point(143, 42);
 			this.tbxDiaChi.Name = "tbxDiaChi";
-			this.tbxDiaChi.Size = new System.Drawing.Size(287, 23);
+			this.tbxDiaChi.Size = new System.Drawing.Size(252, 25);
 			this.tbxDiaChi.TabIndex = 9;
 			// 
 			// panel2
@@ -165,9 +165,9 @@
 			this.panel2.Controls.Add(this.btnXuat);
 			this.panel2.Controls.Add(this.btnTimKiem);
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel2.Location = new System.Drawing.Point(3, 183);
+			this.panel2.Location = new System.Drawing.Point(3, 194);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(978, 44);
+			this.panel2.Size = new System.Drawing.Size(855, 47);
 			this.panel2.TabIndex = 4;
 			// 
 			// btnTimKiem
@@ -175,9 +175,9 @@
 			this.btnTimKiem.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnTimKiem.Image = global::QuanLyDienNang.Properties.Resources.Search;
 			this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnTimKiem.Location = new System.Drawing.Point(372, 1);
+			this.btnTimKiem.Location = new System.Drawing.Point(325, 1);
 			this.btnTimKiem.Name = "btnTimKiem";
-			this.btnTimKiem.Size = new System.Drawing.Size(114, 40);
+			this.btnTimKiem.Size = new System.Drawing.Size(100, 42);
 			this.btnTimKiem.TabIndex = 7;
 			this.btnTimKiem.Text = "Tìm kiếm";
 			this.btnTimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -185,11 +185,11 @@
 			// 
 			// FormKH_XuatKhachHang
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(984, 561);
+			this.ClientSize = new System.Drawing.Size(861, 596);
 			this.Controls.Add(this.tableParent);
-			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+			this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "FormKH_XuatKhachHang";

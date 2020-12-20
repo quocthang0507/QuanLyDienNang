@@ -73,7 +73,7 @@
             this.thoátToolStripMenuItem});
 			this.hệThốngToolStripMenuItem.Name = "hệThốngToolStripMenuItem";
 			this.hệThốngToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
-			this.hệThốngToolStripMenuItem.Text = "Chương trình";
+			this.hệThốngToolStripMenuItem.Text = "&Chương trình";
 			// 
 			// giớiThiệuToolStripMenuItem
 			// 
@@ -81,7 +81,7 @@
 			this.giớiThiệuToolStripMenuItem.Name = "giớiThiệuToolStripMenuItem";
 			this.giớiThiệuToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
 			this.giớiThiệuToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-			this.giớiThiệuToolStripMenuItem.Text = "Giới thiệu";
+			this.giớiThiệuToolStripMenuItem.Text = "&Giới thiệu";
 			this.giớiThiệuToolStripMenuItem.Click += new System.EventHandler(this.giớiThiệuToolStripMenuItem_Click);
 			// 
 			// thoátToolStripMenuItem
@@ -90,7 +90,7 @@
 			this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
 			this.thoátToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
 			this.thoátToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-			this.thoátToolStripMenuItem.Text = "Thoát";
+			this.thoátToolStripMenuItem.Text = "&Thoát";
 			this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
 			// 
 			// quảnLýKháchHàngToolStripMenuItem
@@ -102,14 +102,14 @@
             this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem});
 			this.quảnLýKháchHàngToolStripMenuItem.Name = "quảnLýKháchHàngToolStripMenuItem";
 			this.quảnLýKháchHàngToolStripMenuItem.Size = new System.Drawing.Size(126, 20);
-			this.quảnLýKháchHàngToolStripMenuItem.Text = "Quản lý Khách hàng";
+			this.quảnLýKháchHàngToolStripMenuItem.Text = "&Quản lý Khách hàng";
 			// 
 			// nhậpThôngTinToolStripMenuItem
 			// 
 			this.nhậpThôngTinToolStripMenuItem.Image = global::QuanLyDienNang.Properties.Resources.Add;
 			this.nhậpThôngTinToolStripMenuItem.Name = "nhậpThôngTinToolStripMenuItem";
 			this.nhậpThôngTinToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-			this.nhậpThôngTinToolStripMenuItem.Text = "Nhập thông tin";
+			this.nhậpThôngTinToolStripMenuItem.Text = "&Nhập thông tin";
 			this.nhậpThôngTinToolStripMenuItem.Click += new System.EventHandler(this.nhậpThôngTinToolStripMenuItem_Click);
 			// 
 			// xuấtThôngTinToolStripMenuItem
@@ -117,7 +117,7 @@
 			this.xuấtThôngTinToolStripMenuItem.Image = global::QuanLyDienNang.Properties.Resources.Text_Document;
 			this.xuấtThôngTinToolStripMenuItem.Name = "xuấtThôngTinToolStripMenuItem";
 			this.xuấtThôngTinToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-			this.xuấtThôngTinToolStripMenuItem.Text = "Xuất thông tin";
+			this.xuấtThôngTinToolStripMenuItem.Text = "&Xuất thông tin";
 			this.xuấtThôngTinToolStripMenuItem.Click += new System.EventHandler(this.xuấtThôngTinToolStripMenuItem_Click);
 			// 
 			// cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem
@@ -125,7 +125,7 @@
 			this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem.Image = global::QuanLyDienNang.Properties.Resources.Modify;
 			this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem.Name = "cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem";
 			this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-			this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem.Text = "Cập nhật điện năng tiêu thụ";
+			this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem.Text = "&Cập nhật điện năng tiêu thụ";
 			this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem.Click += new System.EventHandler(this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem_Click);
 			// 
 			// đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem
@@ -133,7 +133,7 @@
 			this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem.Image = global::QuanLyDienNang.Properties.Resources.Picture;
 			this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem.Name = "đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem";
 			this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-			this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem.Text = "Đọc chỉ số điện năng tiêu thụ";
+			this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem.Text = "&Đọc chỉ số điện năng tiêu thụ";
 			this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem.Click += new System.EventHandler(this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem_Click);
 			// 
 			// contextTabMenu
@@ -159,14 +159,15 @@
 			this.tabForms.SelectedIndex = 0;
 			this.tabForms.Size = new System.Drawing.Size(984, 512);
 			this.tabForms.TabIndex = 1;
+			this.tabForms.SelectedIndexChanged += new System.EventHandler(this.tabForms_SelectedIndexChanged);
 			// 
 			// tabMain
 			// 
 			this.tabMain.BackgroundImage = global::QuanLyDienNang.Properties.Resources.anh_nen_1;
 			this.tabMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.tabMain.Location = new System.Drawing.Point(4, 25);
+			this.tabMain.Location = new System.Drawing.Point(4, 26);
 			this.tabMain.Name = "tabMain";
-			this.tabMain.Size = new System.Drawing.Size(976, 483);
+			this.tabMain.Size = new System.Drawing.Size(976, 482);
 			this.tabMain.TabIndex = 0;
 			this.tabMain.Text = "Chào mừng";
 			this.tabMain.UseVisualStyleBackColor = true;
@@ -188,6 +189,7 @@
 			// toolStripContainer1.TopToolStripPanel
 			// 
 			this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolbar);
+			this.toolStripContainer1.TopToolStripPanel.Cursor = System.Windows.Forms.Cursors.Default;
 			// 
 			// toolbar
 			// 
@@ -196,7 +198,7 @@
             this.btnDongForm});
 			this.toolbar.Location = new System.Drawing.Point(3, 0);
 			this.toolbar.Name = "toolbar";
-			this.toolbar.Size = new System.Drawing.Size(130, 25);
+			this.toolbar.Size = new System.Drawing.Size(99, 25);
 			this.toolbar.TabIndex = 3;
 			this.toolbar.Text = "toolStrip1";
 			// 
@@ -216,10 +218,11 @@
 			this.ClientSize = new System.Drawing.Size(984, 561);
 			this.Controls.Add(this.toolStripContainer1);
 			this.Controls.Add(this.menuBar);
-			this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+			this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "FormMain";
 			this.Text = "Chương Trình Quản Lý Điện Năng";
+			this.Load += new System.EventHandler(this.FormMain_Load);
 			this.menuBar.ResumeLayout(false);
 			this.menuBar.PerformLayout();
 			this.contextTabMenu.ResumeLayout(false);
