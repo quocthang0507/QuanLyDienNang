@@ -112,7 +112,7 @@ namespace QuanLyDienNang
 			this.btnChayServer.Text = "Chạy server Python";
 			this.btnChayServer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnChayServer.UseVisualStyleBackColor = true;
-			this.btnChayServer.Click += new System.EventHandler(this.btnMoThuMuc_Click);
+			this.btnChayServer.Click += new System.EventHandler(this.btnChayServer_Click);
 			// 
 			// btnMoThuMuc
 			// 

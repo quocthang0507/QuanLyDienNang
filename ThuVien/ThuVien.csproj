@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\ImageResult.cs" />
+    <Compile Include="Classes\INIFile.cs" />
     <Compile Include="Common.cs" />
     <Compile Include="FileUtils.cs" />
     <Compile Include="ImageValidation.cs" />

@@ -39,6 +39,11 @@ namespace QuanLyDienNang
 			lbxHinhAnh.Items.AddRange(files.ToArray());
 		}
 
+		private void btnChayServer_Click(object sender, EventArgs e)
+		{
+
+		}
+
 		private void lbxHinhAnh_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			try
