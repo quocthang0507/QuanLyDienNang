@@ -3,7 +3,7 @@ using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 
-namespace ThuVien
+namespace ThuVien.Helper
 {
 	public class ImageValidation
 	{

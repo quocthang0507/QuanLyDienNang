@@ -3,8 +3,8 @@ using System.Drawing;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
-using ThuVien;
 using ThuVien.Classes;
+using ThuVien.Helper;
 
 namespace QuanLyDienNang
 {
@@ -12,7 +12,7 @@ namespace QuanLyDienNang
 	{
 		private Thread runAllThread;
 		private Thread runOneThread;
-		private INI MyIni = new INI();
+		private readonly INI MyIni = new INI();
 		private readonly string SECTION_INI = "DocChiSoDien";
 		private readonly string KEY_IMAGEFOLDER_INI = "DuongDanThuMuc";
 

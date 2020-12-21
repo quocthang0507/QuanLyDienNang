@@ -107,7 +107,7 @@ namespace QuanLyDienNang
 			this.btnChayServer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.btnChayServer.Location = new System.Drawing.Point(429, 34);
 			this.btnChayServer.Name = "btnChayServer";
-			this.btnChayServer.Size = new System.Drawing.Size(155, 42);
+			this.btnChayServer.Size = new System.Drawing.Size(171, 42);
 			this.btnChayServer.TabIndex = 3;
 			this.btnChayServer.Text = "Chạy server Python";
 			this.btnChayServer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -119,9 +119,9 @@ namespace QuanLyDienNang
 			this.btnMoThuMuc.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnMoThuMuc.Image = global::QuanLyDienNang.Properties.Resources.Open;
 			this.btnMoThuMuc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnMoThuMuc.Location = new System.Drawing.Point(299, 34);
+			this.btnMoThuMuc.Location = new System.Drawing.Point(281, 34);
 			this.btnMoThuMuc.Name = "btnMoThuMuc";
-			this.btnMoThuMuc.Size = new System.Drawing.Size(125, 42);
+			this.btnMoThuMuc.Size = new System.Drawing.Size(143, 42);
 			this.btnMoThuMuc.TabIndex = 2;
 			this.btnMoThuMuc.Text = "Chọn thư mục";
 			this.btnMoThuMuc.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -142,7 +142,7 @@ namespace QuanLyDienNang
 			this.label2.AutoSize = true;
 			this.label2.Location = new System.Drawing.Point(80, 6);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(207, 17);
+			this.label2.Size = new System.Drawing.Size(221, 19);
 			this.label2.TabIndex = 0;
 			this.label2.Text = "Đường dẫn đến thư mục hình ảnh:";
 			// 
@@ -218,9 +218,9 @@ namespace QuanLyDienNang
 			// tbxChiSoDien
 			// 
 			this.tbxChiSoDien.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxChiSoDien.Location = new System.Drawing.Point(314, 76);
+			this.tbxChiSoDien.Location = new System.Drawing.Point(326, 76);
 			this.tbxChiSoDien.Name = "tbxChiSoDien";
-			this.tbxChiSoDien.Size = new System.Drawing.Size(98, 25);
+			this.tbxChiSoDien.Size = new System.Drawing.Size(82, 25);
 			this.tbxChiSoDien.TabIndex = 9;
 			this.tbxChiSoDien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxChiSoDien_KeyPress);
 			// 
@@ -228,18 +228,18 @@ namespace QuanLyDienNang
 			// 
 			this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(240, 80);
+			this.label4.Location = new System.Drawing.Point(240, 79);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(76, 17);
+			this.label4.Size = new System.Drawing.Size(80, 19);
 			this.label4.TabIndex = 7;
 			this.label4.Text = "Chỉ số điện:";
 			// 
 			// tbxMaKhachHang
 			// 
 			this.tbxMaKhachHang.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxMaKhachHang.Location = new System.Drawing.Point(104, 76);
+			this.tbxMaKhachHang.Location = new System.Drawing.Point(115, 76);
 			this.tbxMaKhachHang.Name = "tbxMaKhachHang";
-			this.tbxMaKhachHang.Size = new System.Drawing.Size(135, 25);
+			this.tbxMaKhachHang.Size = new System.Drawing.Size(119, 25);
 			this.tbxMaKhachHang.TabIndex = 8;
 			// 
 			// label3
@@ -248,7 +248,7 @@ namespace QuanLyDienNang
 			this.label3.AutoSize = true;
 			this.label3.Location = new System.Drawing.Point(3, 80);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(100, 17);
+			this.label3.Size = new System.Drawing.Size(107, 19);
 			this.label3.TabIndex = 7;
 			this.label3.Text = "Mã khách hàng:";
 			// 
@@ -257,9 +257,9 @@ namespace QuanLyDienNang
 			this.btnLuuFile.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnLuuFile.Image = global::QuanLyDienNang.Properties.Resources.Save;
 			this.btnLuuFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLuuFile.Location = new System.Drawing.Point(149, 106);
+			this.btnLuuFile.Location = new System.Drawing.Point(143, 106);
 			this.btnLuuFile.Name = "btnLuuFile";
-			this.btnLuuFile.Size = new System.Drawing.Size(128, 42);
+			this.btnLuuFile.Size = new System.Drawing.Size(138, 42);
 			this.btnLuuFile.TabIndex = 10;
 			this.btnLuuFile.Text = "Lưu vào tập tin";
 			this.btnLuuFile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -270,9 +270,9 @@ namespace QuanLyDienNang
 			this.btnDung.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnDung.Image = global::QuanLyDienNang.Properties.Resources.Stop;
 			this.btnDung.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnDung.Location = new System.Drawing.Point(287, 5);
+			this.btnDung.Location = new System.Drawing.Point(296, 3);
 			this.btnDung.Name = "btnDung";
-			this.btnDung.Size = new System.Drawing.Size(93, 42);
+			this.btnDung.Size = new System.Drawing.Size(100, 42);
 			this.btnDung.TabIndex = 7;
 			this.btnDung.Text = "Dừng lại";
 			this.btnDung.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -286,7 +286,7 @@ namespace QuanLyDienNang
 			this.btnNhanDienTatCa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.btnNhanDienTatCa.Location = new System.Drawing.Point(143, 5);
 			this.btnNhanDienTatCa.Name = "btnNhanDienTatCa";
-			this.btnNhanDienTatCa.Size = new System.Drawing.Size(138, 42);
+			this.btnNhanDienTatCa.Size = new System.Drawing.Size(147, 42);
 			this.btnNhanDienTatCa.TabIndex = 6;
 			this.btnNhanDienTatCa.Text = "Nhận diện tất cả";
 			this.btnNhanDienTatCa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -318,7 +318,7 @@ namespace QuanLyDienNang
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(861, 596);
 			this.Controls.Add(this.tableParent);
-			this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Font = new System.Drawing.Font("Segoe UI", 10F);
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "FormKH_DocChiSoDien";
 			this.Text = "Đọc Chỉ Số Điện Năng Tiêu Thụ";

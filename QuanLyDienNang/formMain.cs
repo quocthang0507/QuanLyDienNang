@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -94,12 +93,15 @@ namespace QuanLyDienNang
 			form.FormBorderStyle = FormBorderStyle.None;
 			form.Dock = DockStyle.Fill;
 			// Tạo một tabPage và thêm form vào tab
-			TabPage newTab = new TabPage();
-			newTab.Text = form.Text;
+			TabPage newTab = new TabPage
+			{
+				Text = form.Text
+			};
 			newTab.Controls.Add(form);
 			newTab.ContextMenuStrip = contextTabMenu;
-			tabForms.TabPages.Add(newTab);
 			// Hiển thị form và kích hoạt tab
+			tabForms.TabPages.Add(newTab);
+			tabForms.SelectedTab = newTab;
 			form.Show();
 		}
 

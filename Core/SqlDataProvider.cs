@@ -62,6 +62,11 @@ namespace Core
 			return SqlHelper.ExecuteReader(connectionString, spName, parameterValues);
 		}
 
+		public override IDataReader ExecuteReader()
+		{
+			return SqlHelper.ExecuteReader(connectionString, CommandType.Text, "SELECT * FROM DienNangTieuThu");
+		}
+
 		public override object ExecuteScalar(string spName, params object[] parameterValues)
 		{
 			return SqlHelper.ExecuteScalar(connectionString, spName, parameterValues);

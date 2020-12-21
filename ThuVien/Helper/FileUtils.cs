@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using ThuVien.Classes;
 
-namespace ThuVien
+namespace ThuVien.Helper
 {
 	public class FileUtils
 	{

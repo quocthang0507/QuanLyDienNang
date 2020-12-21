@@ -39,7 +39,7 @@
 			this.tbxDiaChi = new System.Windows.Forms.TextBox();
 			this.btnXoa = new System.Windows.Forms.Button();
 			this.btnCapNhat = new System.Windows.Forms.Button();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.dgvDienNangTieuThu = new System.Windows.Forms.DataGridView();
 			this.tableParent = new System.Windows.Forms.TableLayoutPanel();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.btnLuu = new System.Windows.Forms.Button();
@@ -48,7 +48,7 @@
 			this.btnTimKiem = new System.Windows.Forms.Button();
 			this.tbxSoDienThoai = new System.Windows.Forms.TextBox();
 			this.label7 = new System.Windows.Forms.Label();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvDienNangTieuThu)).BeginInit();
 			this.tableParent.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.panel1.SuspendLayout();
@@ -72,16 +72,16 @@
 			this.label2.AutoSize = true;
 			this.label2.Location = new System.Drawing.Point(284, 10);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(100, 17);
+			this.label2.Size = new System.Drawing.Size(107, 19);
 			this.label2.TabIndex = 3;
 			this.label2.Text = "Mã khách hàng:";
 			// 
 			// tbxMaKhachHang
 			// 
 			this.tbxMaKhachHang.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxMaKhachHang.Location = new System.Drawing.Point(385, 6);
+			this.tbxMaKhachHang.Location = new System.Drawing.Point(390, 7);
 			this.tbxMaKhachHang.Name = "tbxMaKhachHang";
-			this.tbxMaKhachHang.Size = new System.Drawing.Size(159, 25);
+			this.tbxMaKhachHang.Size = new System.Drawing.Size(149, 25);
 			this.tbxMaKhachHang.TabIndex = 1;
 			// 
 			// label3
@@ -90,7 +90,7 @@
 			this.label3.AutoSize = true;
 			this.label3.Location = new System.Drawing.Point(7, 44);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(88, 17);
+			this.label3.Size = new System.Drawing.Size(94, 19);
 			this.label3.TabIndex = 3;
 			this.label3.Text = "Họ và tên KH:";
 			// 
@@ -108,7 +108,7 @@
 			this.label4.AutoSize = true;
 			this.label4.Location = new System.Drawing.Point(386, 44);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(62, 17);
+			this.label4.Size = new System.Drawing.Size(66, 19);
 			this.label4.TabIndex = 3;
 			this.label4.Text = "Tên trạm:";
 			// 
@@ -127,7 +127,7 @@
 			this.label14.AutoSize = true;
 			this.label14.Location = new System.Drawing.Point(42, 71);
 			this.label14.Name = "label14";
-			this.label14.Size = new System.Drawing.Size(50, 17);
+			this.label14.Size = new System.Drawing.Size(53, 19);
 			this.label14.TabIndex = 7;
 			this.label14.Text = "Địa chỉ:";
 			// 
@@ -146,7 +146,7 @@
 			this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.btnXoa.Location = new System.Drawing.Point(423, 0);
 			this.btnXoa.Name = "btnXoa";
-			this.btnXoa.Size = new System.Drawing.Size(100, 42);
+			this.btnXoa.Size = new System.Drawing.Size(116, 42);
 			this.btnXoa.TabIndex = 9;
 			this.btnXoa.Text = "Xóa (Del)";
 			this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -157,22 +157,22 @@
 			this.btnCapNhat.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnCapNhat.Image = global::QuanLyDienNang.Properties.Resources.Rename;
 			this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnCapNhat.Location = new System.Drawing.Point(527, 0);
+			this.btnCapNhat.Location = new System.Drawing.Point(545, 0);
 			this.btnCapNhat.Name = "btnCapNhat";
-			this.btnCapNhat.Size = new System.Drawing.Size(160, 42);
+			this.btnCapNhat.Size = new System.Drawing.Size(170, 42);
 			this.btnCapNhat.TabIndex = 10;
 			this.btnCapNhat.Text = "Cập nhật (Ctrl + U)";
 			this.btnCapNhat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnCapNhat.UseVisualStyleBackColor = true;
 			// 
-			// dataGridView1
+			// dgvDienNangTieuThu
 			// 
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView1.Location = new System.Drawing.Point(3, 205);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.Size = new System.Drawing.Size(855, 388);
-			this.dataGridView1.TabIndex = 9;
+			this.dgvDienNangTieuThu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvDienNangTieuThu.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dgvDienNangTieuThu.Location = new System.Drawing.Point(3, 205);
+			this.dgvDienNangTieuThu.Name = "dgvDienNangTieuThu";
+			this.dgvDienNangTieuThu.Size = new System.Drawing.Size(855, 388);
+			this.dgvDienNangTieuThu.TabIndex = 9;
 			// 
 			// tableParent
 			// 
@@ -180,8 +180,9 @@
 			this.tableParent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableParent.Controls.Add(this.label1, 0, 0);
 			this.tableParent.Controls.Add(this.panel2, 0, 2);
-			this.tableParent.Controls.Add(this.dataGridView1, 0, 3);
+			this.tableParent.Controls.Add(this.dgvDienNangTieuThu, 0, 3);
 			this.tableParent.Controls.Add(this.panel1, 0, 1);
+			this.tableParent.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableParent.Location = new System.Drawing.Point(0, 0);
 			this.tableParent.Name = "tableParent";
 			this.tableParent.RowCount = 4;
@@ -208,9 +209,9 @@
 			this.btnLuu.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnLuu.Image = global::QuanLyDienNang.Properties.Resources.Save;
 			this.btnLuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLuu.Location = new System.Drawing.Point(330, 0);
+			this.btnLuu.Location = new System.Drawing.Point(316, 0);
 			this.btnLuu.Name = "btnLuu";
-			this.btnLuu.Size = new System.Drawing.Size(88, 42);
+			this.btnLuu.Size = new System.Drawing.Size(102, 42);
 			this.btnLuu.TabIndex = 8;
 			this.btnLuu.Text = "Lưu lại";
 			this.btnLuu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -221,9 +222,9 @@
 			this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnThem.Image = global::QuanLyDienNang.Properties.Resources.Add;
 			this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnThem.Location = new System.Drawing.Point(160, 0);
+			this.btnThem.Location = new System.Drawing.Point(137, 0);
 			this.btnThem.Name = "btnThem";
-			this.btnThem.Size = new System.Drawing.Size(161, 42);
+			this.btnThem.Size = new System.Drawing.Size(173, 42);
 			this.btnThem.TabIndex = 7;
 			this.btnThem.Text = "Thêm mới (Ctrl + N)";
 			this.btnThem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -253,9 +254,9 @@
 			this.btnTimKiem.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnTimKiem.Image = global::QuanLyDienNang.Properties.Resources.Search;
 			this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnTimKiem.Location = new System.Drawing.Point(742, 47);
+			this.btnTimKiem.Location = new System.Drawing.Point(733, 47);
 			this.btnTimKiem.Name = "btnTimKiem";
-			this.btnTimKiem.Size = new System.Drawing.Size(88, 42);
+			this.btnTimKiem.Size = new System.Drawing.Size(103, 42);
 			this.btnTimKiem.TabIndex = 6;
 			this.btnTimKiem.Text = "Tìm kiếm";
 			this.btnTimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -275,7 +276,7 @@
 			this.label7.AutoSize = true;
 			this.label7.Location = new System.Drawing.Point(363, 75);
 			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(88, 17);
+			this.label7.Size = new System.Drawing.Size(92, 19);
 			this.label7.TabIndex = 3;
 			this.label7.Text = "Số điện thoại:";
 			// 
@@ -285,11 +286,12 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(861, 596);
 			this.Controls.Add(this.tableParent);
-			this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Font = new System.Drawing.Font("Segoe UI", 10F);
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "FormKH_DienNangTieuThu";
 			this.Text = "Thông Tin Điện Năng Tiêu Thụ Của Khách Hàng";
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			this.Load += new System.EventHandler(this.FormKH_DienNangTieuThu_Load);
+			((System.ComponentModel.ISupportInitialize)(this.dgvDienNangTieuThu)).EndInit();
 			this.tableParent.ResumeLayout(false);
 			this.panel2.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);
@@ -310,7 +312,7 @@
 		private System.Windows.Forms.TextBox tbxDiaChi;
 		private System.Windows.Forms.Button btnXoa;
 		private System.Windows.Forms.Button btnCapNhat;
-		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.DataGridView dgvDienNangTieuThu;
 		private System.Windows.Forms.TableLayoutPanel tableParent;
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Panel panel1;

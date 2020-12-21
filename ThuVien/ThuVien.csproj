@@ -44,11 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\DienNangTieuThu.cs" />
     <Compile Include="Classes\ImageResult.cs" />
     <Compile Include="Classes\INI.cs" />
-    <Compile Include="Common.cs" />
-    <Compile Include="FileUtils.cs" />
-    <Compile Include="ImageValidation.cs" />
+    <Compile Include="Helper\Common.cs" />
+    <Compile Include="Helper\FileUtils.cs" />
+    <Compile Include="Helper\ImageValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

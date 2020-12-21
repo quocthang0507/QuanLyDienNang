@@ -5,7 +5,7 @@ using System.Net;
 using System.Windows.Forms;
 using ThuVien.Classes;
 
-namespace ThuVien
+namespace ThuVien.Helper
 {
 	public static class Common
 	{
@@ -26,7 +26,7 @@ namespace ThuVien
 			{
 				using (MemoryStream memory = new MemoryStream())
 				{
-					image.Save((Stream)memory, image.RawFormat);
+					image.Save(memory, image.RawFormat);
 					string base64 = Convert.ToBase64String(memory.ToArray());
 					try
 					{
