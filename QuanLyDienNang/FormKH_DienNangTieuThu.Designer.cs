@@ -199,6 +199,7 @@
 			this.panel2.Controls.Add(this.btnThem);
 			this.panel2.Controls.Add(this.btnXoa);
 			this.panel2.Controls.Add(this.btnCapNhat);
+			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel2.Location = new System.Drawing.Point(3, 152);
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(855, 47);
@@ -220,7 +221,7 @@
 			// btnThem
 			// 
 			this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnThem.Image = global::QuanLyDienNang.Properties.Resources.Add;
+			this.btnThem.Image = global::QuanLyDienNang.Properties.Resources.Add1;
 			this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.btnThem.Location = new System.Drawing.Point(137, 0);
 			this.btnThem.Name = "btnThem";

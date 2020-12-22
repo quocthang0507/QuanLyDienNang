@@ -46,6 +46,13 @@
 			this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
 			this.toolbar = new System.Windows.Forms.ToolStrip();
 			this.btnDongForm = new System.Windows.Forms.ToolStripButton();
+			this.btnLen = new System.Windows.Forms.ToolStripButton();
+			this.btnXuong = new System.Windows.Forms.ToolStripButton();
+			this.separator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.btnSaoChep = new System.Windows.Forms.ToolStripButton();
+			this.separator2 = new System.Windows.Forms.ToolStripSeparator();
+			this.btnIn = new System.Windows.Forms.ToolStripButton();
+			this.separator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.menuBar.SuspendLayout();
 			this.contextTabMenu.SuspendLayout();
 			this.tabForms.SuspendLayout();
@@ -77,7 +84,7 @@
 			// 
 			// giớiThiệuToolStripMenuItem
 			// 
-			this.giớiThiệuToolStripMenuItem.Image = global::QuanLyDienNang.Properties.Resources.Info1;
+			this.giớiThiệuToolStripMenuItem.Image = global::QuanLyDienNang.Properties.Resources.Info;
 			this.giớiThiệuToolStripMenuItem.Name = "giớiThiệuToolStripMenuItem";
 			this.giớiThiệuToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
 			this.giớiThiệuToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
@@ -106,7 +113,7 @@
 			// 
 			// nhậpThôngTinToolStripMenuItem
 			// 
-			this.nhậpThôngTinToolStripMenuItem.Image = global::QuanLyDienNang.Properties.Resources.Add;
+			this.nhậpThôngTinToolStripMenuItem.Image = global::QuanLyDienNang.Properties.Resources.Add1;
 			this.nhậpThôngTinToolStripMenuItem.Name = "nhậpThôngTinToolStripMenuItem";
 			this.nhậpThôngTinToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
 			this.nhậpThôngTinToolStripMenuItem.Text = "&Nhập thông tin";
@@ -190,15 +197,23 @@
 			// 
 			this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolbar);
 			this.toolStripContainer1.TopToolStripPanel.Cursor = System.Windows.Forms.Cursors.Default;
+			this.toolStripContainer1.TopToolStripPanel.Font = new System.Drawing.Font("Segoe UI", 10F);
 			// 
 			// toolbar
 			// 
 			this.toolbar.Dock = System.Windows.Forms.DockStyle.None;
 			this.toolbar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnIn,
+            this.separator1,
+            this.btnSaoChep,
+            this.separator2,
+            this.btnLen,
+            this.btnXuong,
+            this.separator3,
             this.btnDongForm});
 			this.toolbar.Location = new System.Drawing.Point(3, 0);
 			this.toolbar.Name = "toolbar";
-			this.toolbar.Size = new System.Drawing.Size(99, 25);
+			this.toolbar.Size = new System.Drawing.Size(240, 25);
 			this.toolbar.TabIndex = 3;
 			this.toolbar.Text = "toolStrip1";
 			// 
@@ -211,6 +226,57 @@
 			this.btnDongForm.Text = "Đóng Form";
 			this.btnDongForm.ToolTipText = "Đóng Form hiện hành";
 			this.btnDongForm.Click += new System.EventHandler(this.btnDongForm_Click);
+			// 
+			// btnLen
+			// 
+			this.btnLen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btnLen.Image = global::QuanLyDienNang.Properties.Resources.Stock_Index_Up;
+			this.btnLen.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btnLen.Name = "btnLen";
+			this.btnLen.Size = new System.Drawing.Size(23, 22);
+			this.btnLen.Text = "Đi lên";
+			// 
+			// btnXuong
+			// 
+			this.btnXuong.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btnXuong.Image = global::QuanLyDienNang.Properties.Resources.Stock_Index_Down;
+			this.btnXuong.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btnXuong.Name = "btnXuong";
+			this.btnXuong.Size = new System.Drawing.Size(23, 22);
+			this.btnXuong.Text = "Đi xuống";
+			// 
+			// separator1
+			// 
+			this.separator1.Name = "separator1";
+			this.separator1.Size = new System.Drawing.Size(6, 25);
+			// 
+			// btnSaoChep
+			// 
+			this.btnSaoChep.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btnSaoChep.Image = global::QuanLyDienNang.Properties.Resources.Copy;
+			this.btnSaoChep.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btnSaoChep.Name = "btnSaoChep";
+			this.btnSaoChep.Size = new System.Drawing.Size(23, 22);
+			this.btnSaoChep.Text = "Sao chép";
+			// 
+			// separator2
+			// 
+			this.separator2.Name = "separator2";
+			this.separator2.Size = new System.Drawing.Size(6, 25);
+			// 
+			// btnIn
+			// 
+			this.btnIn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btnIn.Image = global::QuanLyDienNang.Properties.Resources.Print;
+			this.btnIn.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btnIn.Name = "btnIn";
+			this.btnIn.Size = new System.Drawing.Size(23, 22);
+			this.btnIn.Text = "In";
+			// 
+			// separator3
+			// 
+			this.separator3.Name = "separator3";
+			this.separator3.Size = new System.Drawing.Size(6, 25);
 			// 
 			// FormMain
 			// 
@@ -257,6 +323,13 @@
 		private System.Windows.Forms.ToolStripContainer toolStripContainer1;
 		private System.Windows.Forms.ToolStrip toolbar;
 		private System.Windows.Forms.ToolStripButton btnDongForm;
+		private System.Windows.Forms.ToolStripButton btnLen;
+		private System.Windows.Forms.ToolStripButton btnXuong;
+		private System.Windows.Forms.ToolStripSeparator separator1;
+		private System.Windows.Forms.ToolStripButton btnSaoChep;
+		private System.Windows.Forms.ToolStripSeparator separator2;
+		private System.Windows.Forms.ToolStripButton btnIn;
+		private System.Windows.Forms.ToolStripSeparator separator3;
 	}
 }
 

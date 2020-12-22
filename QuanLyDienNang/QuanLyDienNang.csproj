@@ -191,9 +191,6 @@
     <None Include="Resources\Add.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Back1.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Bar Chart.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -257,12 +254,6 @@
     <None Include="Resources\Audio Disk.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Back2.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Bar Chart1.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Burn Disk.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -270,9 +261,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Cancel.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Comment1.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Compact Disk.ico" />
@@ -302,12 +290,6 @@
     <None Include="Resources\Edit.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Email1.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Exit1.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Favorites.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -332,31 +314,16 @@
     <None Include="Resources\Help.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Info1.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Information.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Key.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Line Chart1.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Load1.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Loading1.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Log Out.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Mail.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Modify1.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Negative.ico" />
@@ -380,9 +347,6 @@
     <None Include="Resources\Picture1.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Pie Chart1.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Play.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -399,9 +363,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Print1.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Profile1.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Properties.ico" />
@@ -455,9 +416,6 @@
     <None Include="Resources\User.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Warning1.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Zoom In.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -465,9 +423,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\repair.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Exit2.ico" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -503,6 +458,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\Add2.ico" />
+    <None Include="Resources\Delete2.png" />
+    <None Include="Resources\Add2.png" />
+    <None Include="Resources\Archive1.png" />
+    <None Include="Resources\Edit1.png" />
+    <None Include="Resources\Edit2.png" />
+    <None Include="Resources\Import.png" />
+    <None Include="Resources\CD.png" />
+    <None Include="Resources\Cut.png" />
+    <None Include="Resources\Tool.png" />
+    <None Include="Resources\Back3.png" />
+    <None Include="Resources\Down.png" />
+    <None Include="Resources\Forward.png" />
+    <None Include="Resources\Up.png" />
+    <None Include="Resources\Copy.png" />
+    <None Include="Resources\Configure.png" />
     <None Include="Resources\close.png" />
   </ItemGroup>
   <ItemGroup>
