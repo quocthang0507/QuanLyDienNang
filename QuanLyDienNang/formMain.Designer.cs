@@ -43,23 +43,26 @@
 			this.menuDong = new System.Windows.Forms.ToolStripMenuItem();
 			this.tabForms = new System.Windows.Forms.TabControl();
 			this.tabMain = new System.Windows.Forms.TabPage();
-			this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-			this.toolbar = new System.Windows.Forms.ToolStrip();
-			this.btnDongForm = new System.Windows.Forms.ToolStripButton();
-			this.btnLen = new System.Windows.Forms.ToolStripButton();
-			this.btnXuong = new System.Windows.Forms.ToolStripButton();
+			this.toolStripContainer = new System.Windows.Forms.ToolStripContainer();
+			this.toolBar = new System.Windows.Forms.ToolStrip();
+			this.btnIn = new System.Windows.Forms.ToolStripButton();
 			this.separator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.btnSaoChep = new System.Windows.Forms.ToolStripButton();
 			this.separator2 = new System.Windows.Forms.ToolStripSeparator();
-			this.btnIn = new System.Windows.Forms.ToolStripButton();
+			this.btnLen = new System.Windows.Forms.ToolStripButton();
+			this.btnXuong = new System.Windows.Forms.ToolStripButton();
 			this.separator3 = new System.Windows.Forms.ToolStripSeparator();
+			this.btnDongForm = new System.Windows.Forms.ToolStripButton();
+			this.btnXoa = new System.Windows.Forms.ToolStripButton();
+			this.statusBar = new System.Windows.Forms.StatusStrip();
 			this.menuBar.SuspendLayout();
 			this.contextTabMenu.SuspendLayout();
 			this.tabForms.SuspendLayout();
-			this.toolStripContainer1.ContentPanel.SuspendLayout();
-			this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
-			this.toolStripContainer1.SuspendLayout();
-			this.toolbar.SuspendLayout();
+			this.toolStripContainer.BottomToolStripPanel.SuspendLayout();
+			this.toolStripContainer.ContentPanel.SuspendLayout();
+			this.toolStripContainer.TopToolStripPanel.SuspendLayout();
+			this.toolStripContainer.SuspendLayout();
+			this.toolBar.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// menuBar
@@ -164,7 +167,7 @@
 			this.tabForms.Location = new System.Drawing.Point(0, 0);
 			this.tabForms.Name = "tabForms";
 			this.tabForms.SelectedIndex = 0;
-			this.tabForms.Size = new System.Drawing.Size(984, 512);
+			this.tabForms.Size = new System.Drawing.Size(984, 490);
 			this.tabForms.TabIndex = 1;
 			this.tabForms.SelectedIndexChanged += new System.EventHandler(this.tabForms_SelectedIndexChanged);
 			// 
@@ -174,48 +177,101 @@
 			this.tabMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.tabMain.Location = new System.Drawing.Point(4, 26);
 			this.tabMain.Name = "tabMain";
-			this.tabMain.Size = new System.Drawing.Size(976, 482);
+			this.tabMain.Size = new System.Drawing.Size(976, 460);
 			this.tabMain.TabIndex = 0;
 			this.tabMain.Text = "Chào mừng";
 			this.tabMain.UseVisualStyleBackColor = true;
 			// 
-			// toolStripContainer1
+			// toolStripContainer
 			// 
 			// 
-			// toolStripContainer1.ContentPanel
+			// toolStripContainer.BottomToolStripPanel
 			// 
-			this.toolStripContainer1.ContentPanel.Controls.Add(this.tabForms);
-			this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(984, 512);
-			this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.toolStripContainer1.Location = new System.Drawing.Point(0, 24);
-			this.toolStripContainer1.Name = "toolStripContainer1";
-			this.toolStripContainer1.Size = new System.Drawing.Size(984, 537);
-			this.toolStripContainer1.TabIndex = 4;
-			this.toolStripContainer1.Text = "toolStripContainer1";
+			this.toolStripContainer.BottomToolStripPanel.Controls.Add(this.statusBar);
 			// 
-			// toolStripContainer1.TopToolStripPanel
+			// toolStripContainer.ContentPanel
 			// 
-			this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolbar);
-			this.toolStripContainer1.TopToolStripPanel.Cursor = System.Windows.Forms.Cursors.Default;
-			this.toolStripContainer1.TopToolStripPanel.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.toolStripContainer.ContentPanel.Controls.Add(this.tabForms);
+			this.toolStripContainer.ContentPanel.Size = new System.Drawing.Size(984, 490);
+			this.toolStripContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.toolStripContainer.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.toolStripContainer.Location = new System.Drawing.Point(0, 24);
+			this.toolStripContainer.Name = "toolStripContainer";
+			this.toolStripContainer.Size = new System.Drawing.Size(984, 537);
+			this.toolStripContainer.TabIndex = 4;
+			this.toolStripContainer.Text = "toolStripContainer1";
 			// 
-			// toolbar
+			// toolStripContainer.TopToolStripPanel
 			// 
-			this.toolbar.Dock = System.Windows.Forms.DockStyle.None;
-			this.toolbar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.toolStripContainer.TopToolStripPanel.Controls.Add(this.toolBar);
+			this.toolStripContainer.TopToolStripPanel.Cursor = System.Windows.Forms.Cursors.Default;
+			this.toolStripContainer.TopToolStripPanel.Font = new System.Drawing.Font("Segoe UI", 10F);
+			// 
+			// toolBar
+			// 
+			this.toolBar.Dock = System.Windows.Forms.DockStyle.None;
+			this.toolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnIn,
             this.separator1,
+            this.btnXoa,
             this.btnSaoChep,
             this.separator2,
             this.btnLen,
             this.btnXuong,
             this.separator3,
             this.btnDongForm});
-			this.toolbar.Location = new System.Drawing.Point(3, 0);
-			this.toolbar.Name = "toolbar";
-			this.toolbar.Size = new System.Drawing.Size(240, 25);
-			this.toolbar.TabIndex = 3;
-			this.toolbar.Text = "toolStrip1";
+			this.toolBar.Location = new System.Drawing.Point(3, 0);
+			this.toolBar.Name = "toolBar";
+			this.toolBar.Size = new System.Drawing.Size(470, 25);
+			this.toolBar.TabIndex = 3;
+			this.toolBar.Text = "Thanh công cụ";
+			// 
+			// btnIn
+			// 
+			this.btnIn.Image = global::QuanLyDienNang.Properties.Resources.Print;
+			this.btnIn.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btnIn.Name = "btnIn";
+			this.btnIn.Size = new System.Drawing.Size(37, 22);
+			this.btnIn.Text = "In";
+			// 
+			// separator1
+			// 
+			this.separator1.Name = "separator1";
+			this.separator1.Size = new System.Drawing.Size(6, 25);
+			// 
+			// btnSaoChep
+			// 
+			this.btnSaoChep.Image = global::QuanLyDienNang.Properties.Resources.Copy;
+			this.btnSaoChep.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btnSaoChep.Name = "btnSaoChep";
+			this.btnSaoChep.Size = new System.Drawing.Size(75, 22);
+			this.btnSaoChep.Text = "Sao chép";
+			// 
+			// separator2
+			// 
+			this.separator2.Name = "separator2";
+			this.separator2.Size = new System.Drawing.Size(6, 25);
+			// 
+			// btnLen
+			// 
+			this.btnLen.Image = global::QuanLyDienNang.Properties.Resources.Stock_Index_Up;
+			this.btnLen.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btnLen.Name = "btnLen";
+			this.btnLen.Size = new System.Drawing.Size(80, 22);
+			this.btnLen.Text = "Dòng trên";
+			// 
+			// btnXuong
+			// 
+			this.btnXuong.Image = global::QuanLyDienNang.Properties.Resources.Stock_Index_Down;
+			this.btnXuong.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btnXuong.Name = "btnXuong";
+			this.btnXuong.Size = new System.Drawing.Size(83, 22);
+			this.btnXuong.Text = "Dòng dưới";
+			// 
+			// separator3
+			// 
+			this.separator3.Name = "separator3";
+			this.separator3.Size = new System.Drawing.Size(6, 25);
 			// 
 			// btnDongForm
 			// 
@@ -227,62 +283,27 @@
 			this.btnDongForm.ToolTipText = "Đóng Form hiện hành";
 			this.btnDongForm.Click += new System.EventHandler(this.btnDongForm_Click);
 			// 
-			// btnLen
+			// btnXoa
 			// 
-			this.btnLen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btnLen.Image = global::QuanLyDienNang.Properties.Resources.Stock_Index_Up;
-			this.btnLen.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btnLen.Name = "btnLen";
-			this.btnLen.Size = new System.Drawing.Size(23, 22);
-			this.btnLen.Text = "Đi lên";
+			this.btnXoa.Image = global::QuanLyDienNang.Properties.Resources.Delete2;
+			this.btnXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btnXoa.Name = "btnXoa";
+			this.btnXoa.Size = new System.Drawing.Size(47, 22);
+			this.btnXoa.Text = "Xóa";
 			// 
-			// btnXuong
+			// statusBar
 			// 
-			this.btnXuong.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btnXuong.Image = global::QuanLyDienNang.Properties.Resources.Stock_Index_Down;
-			this.btnXuong.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btnXuong.Name = "btnXuong";
-			this.btnXuong.Size = new System.Drawing.Size(23, 22);
-			this.btnXuong.Text = "Đi xuống";
-			// 
-			// separator1
-			// 
-			this.separator1.Name = "separator1";
-			this.separator1.Size = new System.Drawing.Size(6, 25);
-			// 
-			// btnSaoChep
-			// 
-			this.btnSaoChep.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btnSaoChep.Image = global::QuanLyDienNang.Properties.Resources.Copy;
-			this.btnSaoChep.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btnSaoChep.Name = "btnSaoChep";
-			this.btnSaoChep.Size = new System.Drawing.Size(23, 22);
-			this.btnSaoChep.Text = "Sao chép";
-			// 
-			// separator2
-			// 
-			this.separator2.Name = "separator2";
-			this.separator2.Size = new System.Drawing.Size(6, 25);
-			// 
-			// btnIn
-			// 
-			this.btnIn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btnIn.Image = global::QuanLyDienNang.Properties.Resources.Print;
-			this.btnIn.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btnIn.Name = "btnIn";
-			this.btnIn.Size = new System.Drawing.Size(23, 22);
-			this.btnIn.Text = "In";
-			// 
-			// separator3
-			// 
-			this.separator3.Name = "separator3";
-			this.separator3.Size = new System.Drawing.Size(6, 25);
+			this.statusBar.Dock = System.Windows.Forms.DockStyle.None;
+			this.statusBar.Location = new System.Drawing.Point(0, 0);
+			this.statusBar.Name = "statusBar";
+			this.statusBar.Size = new System.Drawing.Size(984, 22);
+			this.statusBar.TabIndex = 0;
 			// 
 			// FormMain
 			// 
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(984, 561);
-			this.Controls.Add(this.toolStripContainer1);
+			this.Controls.Add(this.toolStripContainer);
 			this.Controls.Add(this.menuBar);
 			this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -293,13 +314,15 @@
 			this.menuBar.PerformLayout();
 			this.contextTabMenu.ResumeLayout(false);
 			this.tabForms.ResumeLayout(false);
-			this.toolStripContainer1.ContentPanel.ResumeLayout(false);
-			this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
-			this.toolStripContainer1.TopToolStripPanel.PerformLayout();
-			this.toolStripContainer1.ResumeLayout(false);
-			this.toolStripContainer1.PerformLayout();
-			this.toolbar.ResumeLayout(false);
-			this.toolbar.PerformLayout();
+			this.toolStripContainer.BottomToolStripPanel.ResumeLayout(false);
+			this.toolStripContainer.BottomToolStripPanel.PerformLayout();
+			this.toolStripContainer.ContentPanel.ResumeLayout(false);
+			this.toolStripContainer.TopToolStripPanel.ResumeLayout(false);
+			this.toolStripContainer.TopToolStripPanel.PerformLayout();
+			this.toolStripContainer.ResumeLayout(false);
+			this.toolStripContainer.PerformLayout();
+			this.toolBar.ResumeLayout(false);
+			this.toolBar.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -320,8 +343,8 @@
 		private System.Windows.Forms.ToolStripMenuItem menuDong;
 		private System.Windows.Forms.TabControl tabForms;
 		private System.Windows.Forms.TabPage tabMain;
-		private System.Windows.Forms.ToolStripContainer toolStripContainer1;
-		private System.Windows.Forms.ToolStrip toolbar;
+		private System.Windows.Forms.ToolStripContainer toolStripContainer;
+		private System.Windows.Forms.ToolStrip toolBar;
 		private System.Windows.Forms.ToolStripButton btnDongForm;
 		private System.Windows.Forms.ToolStripButton btnLen;
 		private System.Windows.Forms.ToolStripButton btnXuong;
@@ -330,6 +353,8 @@
 		private System.Windows.Forms.ToolStripSeparator separator2;
 		private System.Windows.Forms.ToolStripButton btnIn;
 		private System.Windows.Forms.ToolStripSeparator separator3;
+		private System.Windows.Forms.StatusStrip statusBar;
+		private System.Windows.Forms.ToolStripButton btnXoa;
 	}
 }
 

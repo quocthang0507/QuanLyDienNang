@@ -149,7 +149,7 @@
 			// btnThem
 			// 
 			this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnThem.Image = global::QuanLyDienNang.Properties.Resources.Add;
+			this.btnThem.Image = global::QuanLyDienNang.Properties.Resources.Add1;
 			this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.btnThem.Location = new System.Drawing.Point(187, 3);
 			this.btnThem.Margin = new System.Windows.Forms.Padding(4);

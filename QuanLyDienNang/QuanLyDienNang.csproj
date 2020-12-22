@@ -458,6 +458,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\Top.png" />
+    <None Include="Resources\Cut1.png" />
+    <None Include="Resources\Export.png" />
+    <None Include="Resources\Print Preview.png" />
+    <None Include="Resources\Office.png" />
+    <None Include="Resources\Play1.png" />
+    <None Include="Resources\Pause1.png" />
+    <None Include="Resources\Network.png" />
+    <None Include="Resources\New Folder.png" />
+    <None Include="Resources\Open1.png" />
+    <None Include="Resources\Chat.png" />
     <None Include="Resources\Add2.ico" />
     <None Include="Resources\Delete2.png" />
     <None Include="Resources\Add2.png" />

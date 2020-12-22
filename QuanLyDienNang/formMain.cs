@@ -12,7 +12,7 @@ namespace QuanLyDienNang
 			thread.Start();
 			InitializeComponent();
 			thread.Abort();
-			toolbar.Visible = false;
+			toolBar.Visible = false;
 		}
 
 		private void FormMain_Load(object sender, EventArgs e)
@@ -77,9 +77,9 @@ namespace QuanLyDienNang
 		private void tabForms_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (tabForms.SelectedIndex == 0)
-				toolbar.Visible = false;
+				toolBar.Visible = false;
 			else
-				toolbar.Visible = true;
+				toolBar.Visible = true;
 		}
 
 		/// <summary>
