@@ -80,11 +80,11 @@
     <Compile Include="FormKH_DocChiSoDien.Designer.cs">
       <DependentUpon>FormKH_DocChiSoDien.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMain.cs">
+    <Compile Include="Form_Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMain.Designer.cs">
-      <DependentUpon>FormMain.cs</DependentUpon>
+    <Compile Include="Form_Main.Designer.cs">
+      <DependentUpon>Form_Main.cs</DependentUpon>
     </Compile>
     <Compile Include="FormKH_NhapKhachHang.cs">
       <SubType>Form</SubType>
@@ -110,6 +110,12 @@
     <Compile Include="FormWelcome.Designer.cs">
       <DependentUpon>FormWelcome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_CauHinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_CauHinh.Designer.cs">
+      <DependentUpon>Form_CauHinh.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_GioiThieu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,8 +139,11 @@
     <EmbeddedResource Include="FormKH_DocChiSoDien.resx">
       <DependentUpon>FormKH_DocChiSoDien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMain.resx">
-      <DependentUpon>FormMain.cs</DependentUpon>
+    <EmbeddedResource Include="Form_CauHinh.resx">
+      <DependentUpon>Form_CauHinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Main.resx">
+      <DependentUpon>Form_Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormKH_NhapKhachHang.resx">
       <DependentUpon>FormKH_NhapKhachHang.cs</DependentUpon>

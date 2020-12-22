@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace QuanLyDienNang
 {
-	public partial class FormMain : Form
+	public partial class Form_Main : Form
 	{
-		public FormMain()
+		public Form_Main()
 		{
 			Thread thread = new Thread(ShowSplashScreen);
 			thread.Start();
@@ -19,6 +19,12 @@ namespace QuanLyDienNang
 		{
 			UpdateComputerName();
 			this.Activate();
+		}
+
+		private void cấuHìnhSQLStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Form frmCauHinh = new Form_CauHinh();
+			frmCauHinh.ShowDialog();
 		}
 
 		private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
@@ -115,5 +121,6 @@ namespace QuanLyDienNang
 		{
 			lblComputerName.Text = Environment.MachineName;
 		}
+
 	}
 }
