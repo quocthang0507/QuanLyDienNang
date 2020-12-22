@@ -17,6 +17,7 @@ namespace QuanLyDienNang
 
 		private void FormMain_Load(object sender, EventArgs e)
 		{
+			UpdateComputerName();
 			this.Activate();
 		}
 
@@ -110,5 +111,9 @@ namespace QuanLyDienNang
 			Application.Run(new FormWelcome());
 		}
 
+		private void UpdateComputerName()
+		{
+			lblComputerName.Text = Environment.MachineName;
+		}
 	}
 }
