@@ -109,7 +109,7 @@ namespace ThuVien.Classes
 		{
 			try
 			{
-				SqlConnection connection = new SqlConnection(this.ConnectionString);
+				SqlConnection connection = new SqlConnection(ConnectionString);
 				connection.Open();
 				connection.Close();
 				return true;

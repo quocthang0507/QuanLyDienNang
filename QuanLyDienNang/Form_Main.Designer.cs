@@ -96,7 +96,8 @@
 			// 
 			this.cấuHìnhSQLStripMenuItem.Image = global::QuanLyDienNang.Properties.Resources.Configure;
 			this.cấuHìnhSQLStripMenuItem.Name = "cấuHìnhSQLStripMenuItem";
-			this.cấuHìnhSQLStripMenuItem.Size = new System.Drawing.Size(181, 22);
+			this.cấuHìnhSQLStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
+			this.cấuHìnhSQLStripMenuItem.Size = new System.Drawing.Size(200, 22);
 			this.cấuHìnhSQLStripMenuItem.Text = "Cấu hình &SQL Server";
 			this.cấuHìnhSQLStripMenuItem.Click += new System.EventHandler(this.cấuHìnhSQLStripMenuItem_Click);
 			// 
@@ -105,7 +106,7 @@
 			this.giớiThiệuToolStripMenuItem.Image = global::QuanLyDienNang.Properties.Resources.Info;
 			this.giớiThiệuToolStripMenuItem.Name = "giớiThiệuToolStripMenuItem";
 			this.giớiThiệuToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-			this.giớiThiệuToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+			this.giớiThiệuToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
 			this.giớiThiệuToolStripMenuItem.Text = "&Giới thiệu";
 			this.giớiThiệuToolStripMenuItem.Click += new System.EventHandler(this.giớiThiệuToolStripMenuItem_Click);
 			// 
@@ -114,7 +115,7 @@
 			this.thoátToolStripMenuItem.Image = global::QuanLyDienNang.Properties.Resources.Exit;
 			this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
 			this.thoátToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-			this.thoátToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+			this.thoátToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
 			this.thoátToolStripMenuItem.Text = "&Thoát";
 			this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
 			// 

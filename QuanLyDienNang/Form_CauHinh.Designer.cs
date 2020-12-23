@@ -130,7 +130,7 @@ namespace QuanLyDienNang
 			this.gbxChungThuc.Controls.Add(this.label5);
 			this.gbxChungThuc.Controls.Add(this.tbxMatKhau);
 			this.gbxChungThuc.Controls.Add(this.tbxTenDangNhap);
-			this.gbxChungThuc.Location = new System.Drawing.Point(51, 136);
+			this.gbxChungThuc.Location = new System.Drawing.Point(51, 141);
 			this.gbxChungThuc.Name = "gbxChungThuc";
 			this.gbxChungThuc.Size = new System.Drawing.Size(412, 107);
 			this.gbxChungThuc.TabIndex = 4;
@@ -179,7 +179,7 @@ namespace QuanLyDienNang
 			this.btnKiemTra.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnKiemTra.Image = global::QuanLyDienNang.Properties.Resources.Refresh;
 			this.btnKiemTra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnKiemTra.Location = new System.Drawing.Point(121, 294);
+			this.btnKiemTra.Location = new System.Drawing.Point(121, 299);
 			this.btnKiemTra.Name = "btnKiemTra";
 			this.btnKiemTra.Size = new System.Drawing.Size(144, 40);
 			this.btnKiemTra.TabIndex = 6;
@@ -194,7 +194,7 @@ namespace QuanLyDienNang
 			this.btnLuu.Enabled = false;
 			this.btnLuu.Image = global::QuanLyDienNang.Properties.Resources.Save1;
 			this.btnLuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLuu.Location = new System.Drawing.Point(271, 294);
+			this.btnLuu.Location = new System.Drawing.Point(271, 299);
 			this.btnLuu.Name = "btnLuu";
 			this.btnLuu.Size = new System.Drawing.Size(125, 40);
 			this.btnLuu.TabIndex = 7;
@@ -206,11 +206,10 @@ namespace QuanLyDienNang
 			// progressBar
 			// 
 			this.progressBar.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.progressBar.Location = new System.Drawing.Point(85, 256);
-			this.progressBar.MarqueeAnimationSpeed = 0;
+			this.progressBar.Location = new System.Drawing.Point(85, 261);
 			this.progressBar.Name = "progressBar";
 			this.progressBar.Size = new System.Drawing.Size(345, 23);
-			this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+			this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
 			this.progressBar.TabIndex = 8;
 			// 
 			// label7
