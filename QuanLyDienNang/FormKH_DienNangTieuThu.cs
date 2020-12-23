@@ -1,5 +1,5 @@
-﻿using System.Windows.Forms;
-using ThuVien.Classes;
+﻿using Business.Classes;
+using System.Windows.Forms;
 
 namespace QuanLyDienNang
 {

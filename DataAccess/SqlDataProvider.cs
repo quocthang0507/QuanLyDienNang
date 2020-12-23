@@ -1,10 +1,9 @@
-﻿using Microsoft.ApplicationBlocks.Data;
-using System;
+﻿using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Core
+namespace DataAccess
 {
 	public class SqlDataProvider : DataProvider
 	{

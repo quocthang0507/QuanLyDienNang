@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ThuVien.Classes
+namespace Business.Classes
 {
 	public class Funcs_CauHinh
 	{

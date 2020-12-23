@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Business.Classes;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using ThuVien.Classes;
 
-namespace ThuVien.Helper
+namespace Business.Helper
 {
 	public class FileUtils
 	{

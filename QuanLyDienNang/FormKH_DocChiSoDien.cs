@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Business.Classes;
+using Business.Helper;
+using System;
 using System.Drawing;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
-using ThuVien.Classes;
-using ThuVien.Helper;
 
 namespace QuanLyDienNang
 {

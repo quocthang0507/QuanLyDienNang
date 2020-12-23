@@ -1,10 +1,9 @@
-﻿using Core;
+﻿using Business.Helper;
 using System;
 using System.Data;
 using System.Windows.Forms;
-using ThuVien.Helper;
 
-namespace ThuVien.Classes
+namespace Business.Classes
 {
 	public class Funcs_DienNangTieuThu
 	{

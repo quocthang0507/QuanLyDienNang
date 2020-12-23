@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Business.Classes;
+using System;
 using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Windows.Forms;
-using ThuVien.Classes;
 
-namespace ThuVien.Helper
+namespace Business.Helper
 {
 	public static class Common
 	{

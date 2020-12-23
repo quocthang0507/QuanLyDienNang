@@ -7,8 +7,8 @@
     <ProjectGuid>{4CBE36A4-9A8C-4B6C-BEEF-A9C2F2EBAF51}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ThuVien</RootNamespace>
-    <AssemblyName>ThuVien</AssemblyName>
+    <RootNamespace>Business</RootNamespace>
+    <AssemblyName>Business</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

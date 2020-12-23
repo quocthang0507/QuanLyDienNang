@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace Core
+namespace DataAccess
 {
 	public abstract class DataProvider
 	{

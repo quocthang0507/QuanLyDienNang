@@ -1,4 +1,4 @@
-﻿namespace ThuVien.Classes
+﻿namespace Business.Classes
 {
 	public class ImageResult
 	{

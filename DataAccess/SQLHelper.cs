@@ -28,7 +28,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Xml;
 
-namespace Microsoft.ApplicationBlocks.Data
+namespace DataAccess
 {
 	/// <summary>
 	/// The SqlHelper class is intended to encapsulate high performance, scalable best practices for 

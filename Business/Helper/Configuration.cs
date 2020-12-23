@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace ThuVien.Helper
+namespace Business.Helper
 {
 	public class Configuration
 	{
