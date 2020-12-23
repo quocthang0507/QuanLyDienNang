@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLyDienNang", "QuanLyDienNang\QuanLyDienNang.csproj", "{250EA250-4C3D-4ADD-B0E1-4E1C64C7C400}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThuVien", "ThuVien\ThuVien.csproj", "{4CBE36A4-9A8C-4B6C-BEEF-A9C2F2EBAF51}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{4CBE36A4-9A8C-4B6C-BEEF-A9C2F2EBAF51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{701E0A1F-B8FB-42A8-AFA7-972B5BBD6F62}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{701E0A1F-B8FB-42A8-AFA7-972B5BBD6F62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

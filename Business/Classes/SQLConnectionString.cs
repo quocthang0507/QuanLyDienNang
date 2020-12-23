@@ -1,4 +1,5 @@
 ﻿using System.Data.SqlClient;
+using ThuVien.Helper;
 
 namespace ThuVien.Classes
 {
@@ -12,7 +13,7 @@ namespace ThuVien.Classes
 		private readonly string cnn1 = @"Server={0};Database=;Integrated Security=True;";
 		private readonly string cnn2 = @"Server={0};Database={1};Integrated Security=True;";
 		private readonly string cnn3 = @"Server={0};Database={1};User Id={2};Password={3};Integrated Security=True;";
-		private readonly INI MyIni = new INI();
+		private readonly Configuration MyIni = new Configuration();
 		private readonly string SECTION_INI = "ChuoiKetNoiSQLServer";
 		private readonly string KEY_CONNSTR_INI = "ConnectionString";
 

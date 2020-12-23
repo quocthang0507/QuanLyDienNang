@@ -2,9 +2,9 @@
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace ThuVien.Classes
+namespace ThuVien.Helper
 {
-	public class INI
+	public class Configuration
 	{
 		private string Path;
 
@@ -18,16 +18,16 @@ namespace ThuVien.Classes
 		/// Khởi tạo tập tin cấu hình Settings.ini theo mặc định
 		/// </summary>
 		/// <param name="fullPath"></param>
-		public INI(string fullPath = "Settings.ini")
+		public Configuration(string fullPath = "Settings.ini")
 		{
 			Path = new FileInfo(fullPath).FullName;
 		}
 
 		public string Read(string key, string section)
 		{
-			var RetVal = new StringBuilder(255);
-			GetPrivateProfileString(section, key, "", RetVal, 255, Path);
-			return RetVal.ToString();
+			var @return = new StringBuilder(255);
+			GetPrivateProfileString(section, key, "", @return, 255, Path);
+			return @return.ToString();
 		}
 
 		public void Write(string key, string value, string section)

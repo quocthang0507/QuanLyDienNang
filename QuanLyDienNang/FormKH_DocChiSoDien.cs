@@ -12,7 +12,7 @@ namespace QuanLyDienNang
 	{
 		private Thread runAllThread;
 		private Thread runOneThread;
-		private readonly INI MyIni = new INI();
+		private readonly Configuration MyIni = new Configuration();
 		private readonly string SECTION_INI = "DocChiSoDien";
 		private readonly string KEY_IMAGEFOLDER_INI = "DuongDanThuMuc";
 

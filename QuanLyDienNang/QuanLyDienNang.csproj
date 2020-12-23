@@ -508,9 +508,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ThuVien\ThuVien.csproj">
+    <ProjectReference Include="..\ThuVien\Business.csproj">
       <Project>{4cbe36a4-9a8c-4b6c-beef-a9c2f2ebaf51}</Project>
-      <Name>ThuVien</Name>
+      <Name>Business</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

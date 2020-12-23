@@ -47,7 +47,7 @@
     <Compile Include="Classes\Funcs_CauHinh.cs" />
     <Compile Include="Classes\Funcs_DienNangTieuThu.cs" />
     <Compile Include="Classes\ImageResult.cs" />
-    <Compile Include="Classes\INI.cs" />
+    <Compile Include="Helper\Configuration.cs" />
     <Compile Include="Classes\SQLConnectionString.cs" />
     <Compile Include="Helper\Common.cs" />
     <Compile Include="Helper\FileUtils.cs" />
@@ -55,9 +55,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj">
+    <ProjectReference Include="..\Core\DataAccess.csproj">
       <Project>{701e0a1f-b8fb-42a8-afa7-972b5bbd6f62}</Project>
-      <Name>Core</Name>
+      <Name>DataAccess</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
