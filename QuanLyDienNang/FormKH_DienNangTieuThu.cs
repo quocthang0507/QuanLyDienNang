@@ -5,6 +5,8 @@ namespace QuanLyDienNang
 {
 	public partial class FormKH_DienNangTieuThu : Form
 	{
+		private Funcs_DienNangTieuThu funcs = new Funcs_DienNangTieuThu();
+
 		public FormKH_DienNangTieuThu()
 		{
 			InitializeComponent();
@@ -12,7 +14,7 @@ namespace QuanLyDienNang
 
 		private void FormKH_DienNangTieuThu_Load(object sender, System.EventArgs e)
 		{
-			dgvDienNangTieuThu.DataSource = Funcs_DienNangTieuThu.LoadTable();
+			dgvDienNangTieuThu.DataSource = funcs.LoadTable();
 		}
 	}
 }

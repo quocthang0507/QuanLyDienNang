@@ -7,12 +7,23 @@ namespace ThuVien.Helper
 	public class Configuration
 	{
 		private string Path;
+		private static Configuration Singleton;
 
 		[DllImport("kernel32", CharSet = CharSet.Unicode)]
-		static extern long WritePrivateProfileString(string section, string key, string value, string filePath);
+		private static extern long WritePrivateProfileString(string section, string key, string value, string filePath);
 
 		[DllImport("kernel32", CharSet = CharSet.Unicode)]
-		static extern int GetPrivateProfileString(string section, string key, string @default, StringBuilder @return, int size, string filePath);
+		private static extern int GetPrivateProfileString(string section, string key, string @default, StringBuilder @return, int size, string filePath);
+
+		public static Configuration Instance
+		{
+			get
+			{
+				if (Singleton == null)
+					Singleton = new Configuration();
+				return Singleton;
+			}
+		}
 
 		/// <summary>
 		/// Khởi tạo tập tin cấu hình Settings.ini theo mặc định

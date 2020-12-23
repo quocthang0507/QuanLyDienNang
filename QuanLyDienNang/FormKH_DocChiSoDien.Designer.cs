@@ -322,6 +322,7 @@ namespace QuanLyDienNang
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "FormKH_DocChiSoDien";
 			this.Text = "Đọc Chỉ Số Điện Năng Tiêu Thụ";
+			this.Load += new System.EventHandler(this.FormKH_DocChiSoDien_Load);
 			this.tableParent.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();

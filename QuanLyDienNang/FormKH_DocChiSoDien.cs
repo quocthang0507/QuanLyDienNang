@@ -12,16 +12,18 @@ namespace QuanLyDienNang
 	{
 		private Thread runAllThread;
 		private Thread runOneThread;
-		private readonly Configuration MyIni = new Configuration();
-		private readonly string SECTION_INI = "DocChiSoDien";
-		private readonly string KEY_IMAGEFOLDER_INI = "DuongDanThuMuc";
+		private Funcs_DienNangTieuThu funcs = new Funcs_DienNangTieuThu();
 
 		public FormKH_DocChiSoDien()
 		{
 			InitializeComponent();
 			lbxHinhAnh.DisplayMember = "DuongDan";
 			lbxHinhAnh.ValueMember = "DuongDan";
-			tbxDuongDan.Text = MyIni.Read(KEY_IMAGEFOLDER_INI, SECTION_INI);
+		}
+
+		private void FormKH_DocChiSoDien_Load(object sender, EventArgs e)
+		{
+			tbxDuongDan.Text = funcs.GetSavedLocation();
 		}
 
 		private void btnMoThuMuc_Click(object sender, EventArgs e)
@@ -40,7 +42,7 @@ namespace QuanLyDienNang
 				MessageBox.Show("Đường dẫn không hợp lệ hoặc không tìm thấy hình ảnh .jpg hay .png nào trong thư mục", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				return;
 			}
-			MyIni.Write(KEY_IMAGEFOLDER_INI, path, SECTION_INI);
+			funcs.WriteLocation(path);
 			lbxHinhAnh.Items.AddRange(files.ToArray());
 		}
 

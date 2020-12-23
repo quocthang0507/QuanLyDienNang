@@ -13,7 +13,6 @@ namespace ThuVien.Classes
 		private readonly string cnn1 = @"Server={0};Database=;Integrated Security=True;";
 		private readonly string cnn2 = @"Server={0};Database={1};Integrated Security=True;";
 		private readonly string cnn3 = @"Server={0};Database={1};User Id={2};Password={3};Integrated Security=True;";
-		private readonly Configuration MyIni = new Configuration();
 		private readonly string SECTION_INI = "ChuoiKetNoiSQLServer";
 		private readonly string KEY_CONNSTR_INI = "ConnectionString";
 
@@ -123,12 +122,12 @@ namespace ThuVien.Classes
 
 		public void SaveConnectionString()
 		{
-			MyIni.Write(KEY_CONNSTR_INI, ConnectionString, SECTION_INI);
+			Configuration.Instance.Write(KEY_CONNSTR_INI, ConnectionString, SECTION_INI);
 		}
 
 		public string GetSavedConnectionString()
 		{
-			return MyIni.Read(KEY_CONNSTR_INI, SECTION_INI);
+			return Configuration.Instance.Read(KEY_CONNSTR_INI, SECTION_INI);
 		}
 	}
 }
