@@ -44,9 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\DienNangTieuThu.cs" />
+    <Compile Include="Classes\Funcs_CauHinh.cs" />
+    <Compile Include="Classes\Funcs_DienNangTieuThu.cs" />
     <Compile Include="Classes\ImageResult.cs" />
     <Compile Include="Classes\INI.cs" />
+    <Compile Include="Classes\SQLConnectionString.cs" />
     <Compile Include="Helper\Common.cs" />
     <Compile Include="Helper\FileUtils.cs" />
     <Compile Include="Helper\ImageValidation.cs" />

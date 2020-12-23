@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace ThuVien.Classes
 {
-	public class DienNangTieuThu
+	public class Funcs_DienNangTieuThu
 	{
 		public static IDataReader LoadTable()
 		{

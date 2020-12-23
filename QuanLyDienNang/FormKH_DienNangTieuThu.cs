@@ -12,7 +12,7 @@ namespace QuanLyDienNang
 
 		private void FormKH_DienNangTieuThu_Load(object sender, System.EventArgs e)
 		{
-			dgvDienNangTieuThu.DataSource = DienNangTieuThu.LoadTable();
+			dgvDienNangTieuThu.DataSource = Funcs_DienNangTieuThu.LoadTable();
 		}
 	}
 }
