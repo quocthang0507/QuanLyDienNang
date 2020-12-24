@@ -14,8 +14,11 @@ namespace Business.Classes
 		private readonly string cnn1 = @"Server={0};Database=;Integrated Security=True";
 		private readonly string cnn2 = @"Server={0};Database={1};Integrated Security=True";
 		private readonly string cnn3 = @"Server={0};Database={1};User Id={2};Password={3};Integrated Security=True";
-		private readonly string SECTION_INI = "ChuoiKetNoiSQLServer";
-		private readonly string KEY_CONNSTR_INI = "ConnectionString";
+		private readonly string SECTION_INI = "ChuoiKetNoi";
+		private readonly string KEY_SERVER_INI = "Server";
+		private readonly string KEY_DATABASE_INI = "Database";
+		private readonly string KEY_USERNAME_INI = "Username";
+		private readonly string KEY_PASSWORD_INI = "Password";
 
 		/// <summary>
 		/// Khởi tạo chuỗi kết nối rỗng
@@ -123,30 +126,33 @@ namespace Business.Classes
 
 		public void SaveConnectionString()
 		{
-			Configuration.Instance.Write(KEY_CONNSTR_INI, ConnectionString, SECTION_INI);
+			if (!string.IsNullOrWhiteSpace(ServerName) && !string.IsNullOrWhiteSpace(Database))
+			{
+				if (!string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(Password))
+				{
+					Configuration.Instance.Write(KEY_USERNAME_INI, Username, SECTION_INI);
+					Configuration.Instance.Write(KEY_PASSWORD_INI, Password, SECTION_INI);
+				}
+				Configuration.Instance.Write(KEY_SERVER_INI, ServerName, SECTION_INI);
+				Configuration.Instance.Write(KEY_DATABASE_INI, Database, SECTION_INI);
+			}
 		}
 
 		public string GetSavedConnectionString()
 		{
-			return Configuration.Instance.Read(KEY_CONNSTR_INI, SECTION_INI);
-		}
-
-		public Dictionary<string, string> GetComponentsConnectionStr()
-		{
-			Dictionary<string, string> dict = new Dictionary<string, string>();
-			string cnnStr = GetSavedConnectionString();
-			string[] arr = cnnStr.Split(';');
-			// Nếu là Windows Authentication
-			if (arr.Length == 3)
+			string srv = Configuration.Instance.Read(KEY_SERVER_INI, SECTION_INI);
+			string db = Configuration.Instance.Read(KEY_DATABASE_INI, SECTION_INI);
+			string name = Configuration.Instance.Read(KEY_USERNAME_INI, SECTION_INI);
+			string pass = Configuration.Instance.Read(KEY_PASSWORD_INI, SECTION_INI);
+			if (!string.IsNullOrWhiteSpace(srv) && !string.IsNullOrWhiteSpace(db))
 			{
-
+				if (!string.IsNullOrWhiteSpace(name) && !string.IsNullOrWhiteSpace(pass))
+				{
+					return string.Format(cnn3, srv, db, name, pass);
+				}
+				return string.Format(cnn2, srv, db);
 			}
-			// Nếu là SQL Server Authentication
-			else if (arr.Length == 5)
-			{
-
-			}
-			return dict;
+			return null;
 		}
 	}
 }

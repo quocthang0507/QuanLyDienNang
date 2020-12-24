@@ -93,7 +93,7 @@ namespace QuanLyDienNang
 			string username = tbxTenDangNhap.Text;
 			string password = tbxMatKhau.Text;
 			// Kiểm tra các textbox có null không
-			if (string.IsNullOrEmpty(server) || string.IsNullOrEmpty(database))
+			if (string.IsNullOrWhiteSpace(server) || string.IsNullOrWhiteSpace(database))
 			{
 				return null;
 			}
@@ -104,7 +104,7 @@ namespace QuanLyDienNang
 			}
 			else
 			{
-				if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+				if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
 				{
 					return null;
 				}

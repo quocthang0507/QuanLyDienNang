@@ -32,7 +32,7 @@ namespace DataAccess
 
 		public override object ExecuteNonQueryWithOutput(string outputParam, string spName, params object[] parameterValues)
 		{
-			if (string.IsNullOrEmpty(outputParam))
+			if (string.IsNullOrWhiteSpace(outputParam))
 				throw new ArgumentException("OutputParam can't be null or empty!");
 			SqlParameter[] parameters = SqlHelperParameterCache.GetSpParameterSet(connectionString, spName);
 			SqlParameter sqlParameter = null;

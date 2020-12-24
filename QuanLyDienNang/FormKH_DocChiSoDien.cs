@@ -29,7 +29,7 @@ namespace QuanLyDienNang
 		private void btnMoThuMuc_Click(object sender, EventArgs e)
 		{
 			string path = tbxDuongDan.Text;
-			if (string.IsNullOrEmpty(tbxDuongDan.Text))
+			if (string.IsNullOrWhiteSpace(tbxDuongDan.Text))
 			{
 				var result = folderDialog.ShowDialog();
 				if (result != DialogResult.OK || string.IsNullOrWhiteSpace(folderDialog.SelectedPath))
@@ -124,7 +124,7 @@ namespace QuanLyDienNang
 			string result = selected.ProcessDigitInImage();
 			if (!onlyOne)
 			{
-				if (!string.IsNullOrEmpty(result))
+				if (!string.IsNullOrWhiteSpace(result))
 				{
 					selected.ChiSoDien = result;
 					UpdateListView(selected);
@@ -132,7 +132,7 @@ namespace QuanLyDienNang
 			}
 			else
 			{
-				if (string.IsNullOrEmpty(result))
+				if (string.IsNullOrWhiteSpace(result))
 				{
 					MessageBox.Show("Lỗi khi nhận diện số trên hình ảnh!", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					return;
