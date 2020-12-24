@@ -11,11 +11,14 @@ namespace Business.Classes
 		private readonly string SECTION_INI = "DocChiSoDien";
 		private readonly string KEY_IMAGEFOLDER_INI = "DuongDanThuMuc";
 
-		public IDataReader LoadTable()
+		public DataTable LoadTable()
 		{
 			try
 			{
-				return DataProvider.Instance.ExecuteReader();
+				var dt = new DataTable();
+				var reader = DataProvider.Instance.ExecuteReader("SELECT * FROM DienNangTieuThu");
+				dt.Load(reader);
+				return dt;
 			}
 			catch (Exception)
 			{

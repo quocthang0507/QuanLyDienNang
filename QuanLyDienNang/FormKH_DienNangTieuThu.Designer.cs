@@ -171,6 +171,7 @@
 			this.dgvDienNangTieuThu.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvDienNangTieuThu.Location = new System.Drawing.Point(3, 205);
 			this.dgvDienNangTieuThu.Name = "dgvDienNangTieuThu";
+			this.dgvDienNangTieuThu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dgvDienNangTieuThu.Size = new System.Drawing.Size(855, 388);
 			this.dgvDienNangTieuThu.TabIndex = 9;
 			// 

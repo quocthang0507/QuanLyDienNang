@@ -277,7 +277,7 @@
             this.btnDongForm});
 			this.toolBar.Location = new System.Drawing.Point(3, 0);
 			this.toolBar.Name = "toolBar";
-			this.toolBar.Size = new System.Drawing.Size(885, 25);
+			this.toolBar.Size = new System.Drawing.Size(916, 25);
 			this.toolBar.TabIndex = 3;
 			this.toolBar.Text = "Thanh công cụ";
 			// 
@@ -330,6 +330,7 @@
 			this.btnTrenCung.Name = "btnTrenCung";
 			this.btnTrenCung.Size = new System.Drawing.Size(110, 22);
 			this.btnTrenCung.Text = "Dòng trên cùng";
+			this.btnTrenCung.Click += new System.EventHandler(this.btnTrenCung_Click);
 			// 
 			// btnLen
 			// 
@@ -338,6 +339,7 @@
 			this.btnLen.Name = "btnLen";
 			this.btnLen.Size = new System.Drawing.Size(80, 22);
 			this.btnLen.Text = "Dòng trên";
+			this.btnLen.Click += new System.EventHandler(this.btnLen_Click);
 			// 
 			// btnXuong
 			// 
@@ -346,6 +348,7 @@
 			this.btnXuong.Name = "btnXuong";
 			this.btnXuong.Size = new System.Drawing.Size(83, 22);
 			this.btnXuong.Text = "Dòng dưới";
+			this.btnXuong.Click += new System.EventHandler(this.btnXuong_Click);
 			// 
 			// btnDuoiCung
 			// 
@@ -354,6 +357,7 @@
 			this.btnDuoiCung.Name = "btnDuoiCung";
 			this.btnDuoiCung.Size = new System.Drawing.Size(112, 22);
 			this.btnDuoiCung.Text = "Dòng cuối cùng";
+			this.btnDuoiCung.Click += new System.EventHandler(this.btnDuoiCung_Click);
 			// 
 			// separator3
 			// 
@@ -379,7 +383,7 @@
 			this.Font = new System.Drawing.Font("Segoe UI", 10F);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "Form_Main";
-			this.Text = " ";
+			this.Text = "ỨNG DỤNG QUẢN LÝ ĐIỆN NĂNG";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Main_FormClosing);
 			this.Load += new System.EventHandler(this.FormMain_Load);
 			this.menuBar.ResumeLayout(false);

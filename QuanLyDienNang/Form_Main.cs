@@ -7,6 +7,11 @@ namespace QuanLyDienNang
 {
 	public partial class Form_Main : Form
 	{
+		private Form_NguoiQuanLy form;
+		// Ủy quyền xử lý từ form main sang các form con
+		private delegate void MyDelegate();
+		MyDelegate GoUp;
+		// Kết thúc ủy quyền
 		private Funcs_Main funcs = new Funcs_Main();
 
 		public Form_Main()
@@ -76,6 +81,27 @@ namespace QuanLyDienNang
 			AddFormToTabPage(frmNQL);
 		}
 
+		private void btnLen_Click(object sender, EventArgs e)
+		{
+			SwitchFormObject();
+			GoUp.Invoke();
+		}
+
+		private void btnXuong_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnTrenCung_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnDuoiCung_Click(object sender, EventArgs e)
+		{
+
+		}
+
 		private void menuDong_Click(object sender, EventArgs e)
 		{
 			var tab = tabForms.SelectedTab;
@@ -139,6 +165,12 @@ namespace QuanLyDienNang
 		private void UpdateComputerName()
 		{
 			lblComputerName.Text = Environment.MachineName;
+		}
+
+		private void SwitchFormObject()
+		{
+			form = tabForms.SelectedTab.Controls[0] as Form_NguoiQuanLy;
+			GoUp = () => form.GoUp();
 		}
 
 	}
