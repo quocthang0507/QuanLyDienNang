@@ -2,12 +2,11 @@
 
 namespace QuanLyDienNang
 {
-	public partial class FormKH_NhapKhachHang : Form
+	public partial class Form_NguoiQuanLy : Form
 	{
-		public FormKH_NhapKhachHang()
+		public Form_NguoiQuanLy()
 		{
 			InitializeComponent();
 		}
-
 	}
 }

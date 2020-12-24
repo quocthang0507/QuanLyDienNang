@@ -1,7 +1,6 @@
-﻿using Business.Helper;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 
-namespace Business.Classes
+namespace DataAccess
 {
 	public class SQLConnectionString
 	{
@@ -14,11 +13,6 @@ namespace Business.Classes
 		private readonly string cnn1 = @"Server={0};Database=;Integrated Security=True";
 		private readonly string cnn2 = @"Server={0};Database={1};Integrated Security=True";
 		private readonly string cnn3 = @"Server={0};Database={1};User Id={2};Password={3};Integrated Security=True";
-		private readonly string SECTION_INI = "ChuoiKetNoi";
-		private readonly string KEY_SERVER_INI = "Server";
-		private readonly string KEY_DATABASE_INI = "Database";
-		private readonly string KEY_USERNAME_INI = "Username";
-		private readonly string KEY_PASSWORD_INI = "Password";
 
 		/// <summary>
 		/// Khởi tạo chuỗi kết nối
@@ -122,37 +116,6 @@ namespace Business.Classes
 			{
 				return false;
 			}
-		}
-
-		public void SaveConnectionString()
-		{
-			if (!string.IsNullOrWhiteSpace(ServerName) && !string.IsNullOrWhiteSpace(Database))
-			{
-				if (!string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(Password))
-				{
-					Configuration.Instance.Write(KEY_USERNAME_INI, Username, SECTION_INI);
-					Configuration.Instance.Write(KEY_PASSWORD_INI, Password, SECTION_INI);
-				}
-				Configuration.Instance.Write(KEY_SERVER_INI, ServerName, SECTION_INI);
-				Configuration.Instance.Write(KEY_DATABASE_INI, Database, SECTION_INI);
-			}
-		}
-
-		public SQLConnectionString GetSavedConnectionString()
-		{
-			string srv = Configuration.Instance.Read(KEY_SERVER_INI, SECTION_INI);
-			string db = Configuration.Instance.Read(KEY_DATABASE_INI, SECTION_INI);
-			string name = Configuration.Instance.Read(KEY_USERNAME_INI, SECTION_INI);
-			string pass = Configuration.Instance.Read(KEY_PASSWORD_INI, SECTION_INI);
-			if (!string.IsNullOrWhiteSpace(srv) && !string.IsNullOrWhiteSpace(db))
-			{
-				if (!string.IsNullOrWhiteSpace(name) && !string.IsNullOrWhiteSpace(pass))
-				{
-					return new SQLConnectionString(srv, db, name, pass);
-				}
-				return new SQLConnectionString(srv, db);
-			}
-			return null;
 		}
 	}
 }

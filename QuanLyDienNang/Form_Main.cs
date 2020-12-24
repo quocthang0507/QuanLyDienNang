@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business.Classes;
+using System;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -6,6 +7,8 @@ namespace QuanLyDienNang
 {
 	public partial class Form_Main : Form
 	{
+		private Funcs_Main funcs = new Funcs_Main();
+
 		public Form_Main()
 		{
 			Thread thread = new Thread(ShowSplashScreen);
@@ -17,6 +20,11 @@ namespace QuanLyDienNang
 
 		private void FormMain_Load(object sender, EventArgs e)
 		{
+			if (!funcs.CheckConnectionString())
+			{
+				Form frmCauHinh = new Form_CauHinh();
+				frmCauHinh.ShowDialog();
+			}
 			UpdateComputerName();
 			this.Activate();
 		}
@@ -29,11 +37,7 @@ namespace QuanLyDienNang
 
 		private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			DialogResult dialog = MessageBox.Show("Bạn có muốn thoát khỏi chương trình không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-			if (dialog == DialogResult.Yes)
-			{
-				Application.Exit();
-			}
+			this.Close();
 		}
 
 		private void giớiThiệuToolStripMenuItem_Click(object sender, EventArgs e)
@@ -66,6 +70,12 @@ namespace QuanLyDienNang
 			AddFormToTabPage(frmOCR);
 		}
 
+		private void quảnLýNhânViênToolStripMenuItem1_Click(object sender, EventArgs e)
+		{
+			Form frmNQL = new Form_NguoiQuanLy();
+			AddFormToTabPage(frmNQL);
+		}
+
 		private void menuDong_Click(object sender, EventArgs e)
 		{
 			var tab = tabForms.SelectedTab;
@@ -87,6 +97,15 @@ namespace QuanLyDienNang
 				toolBar.Visible = false;
 			else
 				toolBar.Visible = true;
+		}
+
+		private void Form_Main_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			DialogResult dialog = MessageBox.Show("Bạn có muốn thoát khỏi chương trình không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			if (dialog == DialogResult.No)
+			{
+				e.Cancel = true;
+			}
 		}
 
 		/// <summary>

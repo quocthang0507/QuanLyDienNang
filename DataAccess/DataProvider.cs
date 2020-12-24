@@ -11,6 +11,8 @@ namespace DataAccess
 		public abstract IDataReader ExecuteReader(string spName, params object[] parameterValues);
 		public abstract object ExecuteScalar(string spName, params object[] parameterValues);
 
+		public static string ConnectionString { get; set; }
+
 		private static DataProvider instance;
 
 		public static DataProvider Instance
@@ -18,7 +20,7 @@ namespace DataAccess
 			get
 			{
 				if (instance == null)
-					instance = new SqlDataProvider("ConnectionString");
+					instance = new SqlDataProvider(ConnectionString);
 				return instance;
 			}
 		}

@@ -50,9 +50,11 @@
   <ItemGroup>
     <Compile Include="Classes\Funcs_CauHinh.cs" />
     <Compile Include="Classes\Funcs_DienNangTieuThu.cs" />
+    <Compile Include="Classes\Funcs_Main.cs" />
+    <Compile Include="Classes\Funcs_NguoiQuanLy.cs" />
     <Compile Include="Classes\ImageResult.cs" />
+    <Compile Include="Classes\Funcs_ConnectionString.cs" />
     <Compile Include="Helper\Configuration.cs" />
-    <Compile Include="Classes\SQLConnectionString.cs" />
     <Compile Include="Helper\Common.cs" />
     <Compile Include="Helper\FileUtils.cs" />
     <Compile Include="Helper\ImageValidation.cs" />

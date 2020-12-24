@@ -106,7 +106,7 @@
 			// 
 			this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(386, 44);
+			this.label4.Location = new System.Drawing.Point(391, 44);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(66, 19);
 			this.label4.TabIndex = 3;
@@ -125,7 +125,7 @@
 			// 
 			this.label14.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(42, 71);
+			this.label14.Location = new System.Drawing.Point(48, 70);
 			this.label14.Name = "label14";
 			this.label14.Size = new System.Drawing.Size(53, 19);
 			this.label14.TabIndex = 7;
@@ -262,6 +262,7 @@
 			this.btnTimKiem.Text = "Tìm kiếm";
 			this.btnTimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnTimKiem.UseVisualStyleBackColor = true;
+			this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
 			// 
 			// tbxSoDienThoai
 			// 
@@ -270,12 +271,13 @@
 			this.tbxSoDienThoai.Name = "tbxSoDienThoai";
 			this.tbxSoDienThoai.Size = new System.Drawing.Size(175, 25);
 			this.tbxSoDienThoai.TabIndex = 5;
+			this.tbxSoDienThoai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxSoDienThoai_KeyPress);
 			// 
 			// label7
 			// 
 			this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(363, 75);
+			this.label7.Location = new System.Drawing.Point(365, 75);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(92, 19);
 			this.label7.TabIndex = 3;

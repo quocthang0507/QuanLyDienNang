@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -9,7 +8,10 @@ namespace DataAccess
 	{
 		private string connectionString;
 
-		public SqlDataProvider(string connectionStringName) => this.connectionString = ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
+		public SqlDataProvider(string connectionString)
+		{
+			this.connectionString = connectionString;
+		}
 
 		private void AssignParameterValues(SqlParameter[] commandParameters, object[] parameterValues)
 		{

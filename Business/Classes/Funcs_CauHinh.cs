@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using DataAccess;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 
@@ -7,6 +8,7 @@ namespace Business.Classes
 	public class Funcs_CauHinh
 	{
 		private SQLConnectionString sqlConnection = new SQLConnectionString();
+		private Funcs_ConnectionString funcs;
 
 		public static List<string> GetServers()
 		{
@@ -42,12 +44,16 @@ namespace Business.Classes
 		public void SaveConnectionString()
 		{
 			if (sqlConnection != null)
-				sqlConnection.SaveConnectionString();
+			{
+				funcs = new Funcs_ConnectionString(sqlConnection);
+				funcs.SaveConnectionString();
+			}
 		}
 
 		public void GetSavedConnectionString(ref string server, ref string database, ref string username, ref string password)
 		{
-			sqlConnection = sqlConnection.GetSavedConnectionString();
+			funcs = new Funcs_ConnectionString();
+			sqlConnection = funcs.GetSavedConnectionString();
 			if (sqlConnection != null)
 			{
 				server = sqlConnection.ServerName;
