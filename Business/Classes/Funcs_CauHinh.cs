@@ -6,7 +6,7 @@ namespace Business.Classes
 {
 	public class Funcs_CauHinh
 	{
-		private SQLConnectionString sqlConnection;
+		private SQLConnectionString sqlConnection = new SQLConnectionString();
 
 		public static List<string> GetServers()
 		{
@@ -45,11 +45,16 @@ namespace Business.Classes
 				sqlConnection.SaveConnectionString();
 		}
 
-		public string GetConnectionString()
+		public void GetSavedConnectionString(ref string server, ref string database, ref string username, ref string password)
 		{
+			sqlConnection = sqlConnection.GetSavedConnectionString();
 			if (sqlConnection != null)
-				return sqlConnection.GetSavedConnectionString();
-			return null;
+			{
+				server = sqlConnection.ServerName;
+				database = sqlConnection.Database;
+				username = sqlConnection.Username;
+				password = sqlConnection.Password;
+			}
 		}
 	}
 }

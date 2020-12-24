@@ -1,15 +1,15 @@
 ﻿using Business.Helper;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace Business.Classes
 {
 	public class SQLConnectionString
 	{
-		private string ServerName;
-		private string Database;
-		private string Username;
-		private string Password;
+		public string ServerName { get; set; }
+		public string Database { get; set; }
+		public string Username { get; set; }
+		public string Password { get; set; }
+
 		private int IndexFunction;
 		private readonly string cnn1 = @"Server={0};Database=;Integrated Security=True";
 		private readonly string cnn2 = @"Server={0};Database={1};Integrated Security=True";
@@ -21,7 +21,7 @@ namespace Business.Classes
 		private readonly string KEY_PASSWORD_INI = "Password";
 
 		/// <summary>
-		/// Khởi tạo chuỗi kết nối rỗng
+		/// Khởi tạo chuỗi kết nối
 		/// </summary>
 		public SQLConnectionString()
 		{
@@ -138,7 +138,7 @@ namespace Business.Classes
 			}
 		}
 
-		public string GetSavedConnectionString()
+		public SQLConnectionString GetSavedConnectionString()
 		{
 			string srv = Configuration.Instance.Read(KEY_SERVER_INI, SECTION_INI);
 			string db = Configuration.Instance.Read(KEY_DATABASE_INI, SECTION_INI);
@@ -148,9 +148,9 @@ namespace Business.Classes
 			{
 				if (!string.IsNullOrWhiteSpace(name) && !string.IsNullOrWhiteSpace(pass))
 				{
-					return string.Format(cnn3, srv, db, name, pass);
+					return new SQLConnectionString(srv, db, name, pass);
 				}
-				return string.Format(cnn2, srv, db);
+				return new SQLConnectionString(srv, db);
 			}
 			return null;
 		}

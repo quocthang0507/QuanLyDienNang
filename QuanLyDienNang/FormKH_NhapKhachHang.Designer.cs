@@ -169,7 +169,6 @@
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "FormKH_NhapKhachHang";
 			this.Text = "Nhập Thông Tin Khách Hàng Từ Excel";
-			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormKH_NhapKhachHang_FormClosing);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			this.tableParent.ResumeLayout(false);

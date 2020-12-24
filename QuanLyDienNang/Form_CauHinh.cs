@@ -19,6 +19,7 @@ namespace QuanLyDienNang
 		{
 			cbxServers.DataSource = Funcs_CauHinh.GetServers();
 			cbxChungThuc.SelectedIndex = 0;
+			LoadSavedConnectionString();
 		}
 
 		private void btnLuu_Click(object sender, EventArgs e)
@@ -110,6 +111,16 @@ namespace QuanLyDienNang
 				}
 				return funcs.TestConnectionString(server, database, username, password);
 			}
+		}
+
+		private void LoadSavedConnectionString()
+		{
+			string server = "", database = "", username = "", password = "";
+			funcs.GetSavedConnectionString(ref server, ref database, ref username, ref password);
+			cbxServers.Text = server;
+			tbxTenCSDL.Text = database;
+			tbxTenDangNhap.Text = username;
+			tbxMatKhau.Text = password;
 		}
 	}
 }
