@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanLyDienNang", "QuanLyDie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{4CBE36A4-9A8C-4B6C-BEEF-A9C2F2EBAF51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{701E0A1F-B8FB-42A8-AFA7-972B5BBD6F62}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{3360D289-E986-485D-B47E-EE27BA1B7569}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{4CBE36A4-9A8C-4B6C-BEEF-A9C2F2EBAF51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CBE36A4-9A8C-4B6C-BEEF-A9C2F2EBAF51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CBE36A4-9A8C-4B6C-BEEF-A9C2F2EBAF51}.Release|Any CPU.Build.0 = Release|Any CPU
-		{701E0A1F-B8FB-42A8-AFA7-972B5BBD6F62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{701E0A1F-B8FB-42A8-AFA7-972B5BBD6F62}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{701E0A1F-B8FB-42A8-AFA7-972B5BBD6F62}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{701E0A1F-B8FB-42A8-AFA7-972B5BBD6F62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3360D289-E986-485D-B47E-EE27BA1B7569}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3360D289-E986-485D-B47E-EE27BA1B7569}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3360D289-E986-485D-B47E-EE27BA1B7569}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3360D289-E986-485D-B47E-EE27BA1B7569}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

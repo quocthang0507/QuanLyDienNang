@@ -9,10 +9,7 @@ namespace DataAccess
 	{
 		private string connectionString;
 
-		public SqlDataProvider(string connectionStringName)
-		{
-			this.connectionString = ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
-		}
+		public SqlDataProvider(string connectionStringName) => this.connectionString = ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
 
 		private void AssignParameterValues(SqlParameter[] commandParameters, object[] parameterValues)
 		{
