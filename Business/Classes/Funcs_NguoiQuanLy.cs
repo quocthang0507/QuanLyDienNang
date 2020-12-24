@@ -12,16 +12,27 @@ namespace Business.Classes
 			try
 			{
 				var dt = new DataTable();
-				var reader = DataProvider.Instance.ExecuteReader("SELECT * FROM NguoiQuanLy");
+				var reader = DataProvider.Instance.ExecuteReader("proc_GetAll_NguoiQuanLy");
 				dt.Load(reader);
 				return dt;
 			}
 			catch (Exception)
 			{
-				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return null;
 			}
 		}
 
+		public bool Insert(string TenQuanLy, string SoDienThoai, string DiaChi, string Email)
+		{
+			try
+			{
+				DataProvider.Instance.ExecuteNonQuery("proc_Insert_NguoiQuanLy", TenQuanLy, SoDienThoai, DiaChi, Email);
+				return true;
+			}
+			catch (Exception)
+			{
+				return false;
+			}
+		}
 	}
 }

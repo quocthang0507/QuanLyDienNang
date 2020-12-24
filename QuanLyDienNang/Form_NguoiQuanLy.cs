@@ -14,7 +14,7 @@ namespace QuanLyDienNang
 
 		private void Form_NguoiQuanLy_Load(object sender, System.EventArgs e)
 		{
-			dgvNguoiQuanLy.DataSource = funcs.LoadTable();
+			LoadTable();
 		}
 
 		private void dgvNguoiQuanLy_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
@@ -27,6 +27,29 @@ namespace QuanLyDienNang
 				tbxSoDT.Text = row.Cells[2].Value.ToString();
 				tbxDiaChi.Text = row.Cells[3].Value.ToString();
 				tbxEmail.Text = row.Cells[4].Value.ToString();
+			}
+		}
+
+		private void btnThem_Click(object sender, System.EventArgs e)
+		{
+			string ten = tbxTenNQL.Text;
+			string sdt = tbxSoDT.Text;
+			string dc = tbxDiaChi.Text;
+			string email = tbxEmail.Text;
+			if (string.IsNullOrWhiteSpace(ten) || string.IsNullOrWhiteSpace(dc))
+			{
+				MessageBox.Show("Không được để trống các trường bắt buộc", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+			var ok = funcs.Insert(ten, sdt, dc, email);
+			if (ok)
+			{
+				MessageBox.Show("Thêm dữ liệu mới vào thành công", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				LoadTable();
+			}
+			else
+			{
+				MessageBox.Show("Thêm dữ liệu mới vào không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 
@@ -51,5 +74,17 @@ namespace QuanLyDienNang
 				dgvNguoiQuanLy.Rows[index].Selected = true;
 			}
 		}
+
+		private void LoadTable()
+		{
+			var data = funcs.LoadTable();
+			if (data == null)
+			{
+				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+			dgvNguoiQuanLy.DataSource = data;
+		}
+
 	}
 }

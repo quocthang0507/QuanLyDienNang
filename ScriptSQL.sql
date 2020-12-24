@@ -45,7 +45,39 @@ GO
 INSERT INTO NguoiQuanLy VALUES ('QL001', N'La Quốc Thắng', '0987610260', N'Đà Lạt - Lâm Đồng', 'quocthang_0507@yahoo.com.vn')
 INSERT INTO NguoiQuanLy VALUES ('QL002', N'Nguyễn Văn A', '0123456789', N'Đà Lạt - Lâm Đồng', 'nva@yahoo.com.vn')
 INSERT INTO NguoiQuanLy VALUES ('QL003', N'Trần Thị B', '0987654321', N'Đà Lạt - Lâm Đồng', 'ttb@yahoo.com.vn')
-SELECT * FROM NguoiQuanLy
+GO
+
+CREATE PROCEDURE proc_GetAll_NguoiQuanLy
+AS
+	SELECT * FROM NguoiQuanLy
+GO
+
+CREATE FUNCTION func_GenerateID_NguoiQuanLy()
+RETURNS CHAR(5)
+AS
+	BEGIN
+		DECLARE @ID INT
+		DECLARE @MA CHAR(5)
+		SET @MA = (SELECT MaQuanLy FROM NguoiQuanLy WHERE MaQuanLy=(SELECT max(MaQuanLy) FROM NguoiQuanLy))
+		SET @ID = CAST (RIGHT(@MA, 3) AS TINYINT) + 1
+		SET @MA = 'QL' + RIGHT('000' + CAST (@ID AS VARCHAR(3)), 3)
+		RETURN @MA
+	END
+GO
+
+/*
+PRINT DBO.func_GenerateID_NguoiQuanLy()
+*/
+
+CREATE PROCEDURE proc_Insert_NguoiQuanLy
+	@TenQuanLy nvarchar(150),
+	@SoDienThoai varchar(20),
+	@DiaChi nvarchar(200),
+	@Email nvarchar(100)
+AS
+	DECLARE @MA CHAR(5)
+	SET @MA = DBO.func_GenerateID_NguoiQuanLy()
+	INSERT INTO NguoiQuanLy VALUES (@MA, @TenQuanLy, @SoDienThoai, @DiaChi, @Email)
 GO
 
 --THÔNG TIN KHÁCH HÀNG
@@ -84,4 +116,9 @@ CREATE TABLE DienNangTieuThu (
 	ChiSoCu int,
 	DaThanhToan bit default 0 not null
 )
+GO
+
+CREATE PROCEDURE proc_GetAll_DienNangTieuThu
+AS
+SELECT * FROM DienNangTieuThu
 GO

@@ -16,7 +16,7 @@ namespace Business.Classes
 			try
 			{
 				var dt = new DataTable();
-				var reader = DataProvider.Instance.ExecuteReader("SELECT * FROM DienNangTieuThu");
+				var reader = DataProvider.Instance.ExecuteReader("proc_GetAll_DienNangTieuThu");
 				dt.Load(reader);
 				return dt;
 			}

@@ -60,11 +60,6 @@ namespace DataAccess
 			return SqlHelper.ExecuteReader(connectionString, spName, parameterValues);
 		}
 
-		public override IDataReader ExecuteReader(string query)
-		{
-			return SqlHelper.ExecuteReader(connectionString, CommandType.Text, query);
-		}
-
 		public override object ExecuteScalar(string spName, params object[] parameterValues)
 		{
 			return SqlHelper.ExecuteScalar(connectionString, spName, parameterValues);
