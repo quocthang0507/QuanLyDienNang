@@ -1,10 +1,11 @@
 ﻿using Business.Classes;
+using Business.Helper;
 using System.Windows.Forms;
 
 namespace QuanLyDienNang
 {
 	public partial class Form_NguoiQuanLy : Form
-	{
+	{		
 		private Funcs_NguoiQuanLy funcs = new Funcs_NguoiQuanLy();
 
 		public Form_NguoiQuanLy()
@@ -41,15 +42,18 @@ namespace QuanLyDienNang
 				MessageBox.Show("Không được để trống các trường bắt buộc", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
-			var ok = funcs.Insert(ten, sdt, dc, email);
-			if (ok)
+			if (Common.ShowQuestionDialog())
 			{
-				MessageBox.Show("Thêm dữ liệu mới vào thành công", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				LoadTable();
-			}
-			else
-			{
-				MessageBox.Show("Thêm dữ liệu mới vào không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				var ok = funcs.Insert(ten, sdt, dc, email);
+				if (ok)
+				{
+					MessageBox.Show("Thêm dữ liệu mới vào thành công", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					LoadTable();
+				}
+				else
+				{
+					MessageBox.Show("Thêm dữ liệu mới vào không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
 			}
 		}
 
@@ -65,31 +69,43 @@ namespace QuanLyDienNang
 				MessageBox.Show("Không được để trống các trường bắt buộc", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
-			var ok = funcs.Update(ma, ten, sdt, dc, email);
-			if (ok)
+			if (Common.ShowQuestionDialog())
 			{
-				MessageBox.Show("Cập nhật dữ liệu thành công", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				LoadTable();
-			}
-			else
-			{
-				MessageBox.Show("Cập nhật dữ liệu không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				var ok = funcs.Update(ma, ten, sdt, dc, email);
+				if (ok)
+				{
+					MessageBox.Show("Cập nhật dữ liệu thành công", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					LoadTable();
+				}
+				else
+				{
+					MessageBox.Show("Cập nhật dữ liệu không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
 			}
 		}
 
 		private void btnXoa_Click(object sender, System.EventArgs e)
 		{
 			string ma = tbxMaNQL.Text;
-			var ok = funcs.Delete(ma);
-			if (ok)
+			if (Common.ShowQuestionDialog())
 			{
-				MessageBox.Show("Xóa dữ liệu thành công", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				LoadTable();
+				var ok = funcs.Delete(ma);
+				if (ok)
+				{
+					MessageBox.Show("Xóa dữ liệu thành công", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					LoadTable();
+				}
+				else
+				{
+					MessageBox.Show("Xóa dữ liệu không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
 			}
-			else
-			{
-				MessageBox.Show("Xóa dữ liệu không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
+		}
+
+		public void GoToIndex(int index)
+		{
+			dgvNguoiQuanLy.ClearSelection();
+			dgvNguoiQuanLy.Rows[index].Selected = true;
 		}
 
 		public void GoUp()
@@ -97,9 +113,8 @@ namespace QuanLyDienNang
 			var index = dgvNguoiQuanLy.SelectedRows[0].Index;
 			if (index > 0)
 			{
-				dgvNguoiQuanLy.ClearSelection();
 				index--;
-				dgvNguoiQuanLy.Rows[index].Selected = true;
+				GoToIndex(index);
 			}
 		}
 
@@ -108,10 +123,19 @@ namespace QuanLyDienNang
 			var index = dgvNguoiQuanLy.SelectedRows[0].Index;
 			if (index < dgvNguoiQuanLy.Rows.Count - 1)
 			{
-				dgvNguoiQuanLy.ClearSelection();
 				index++;
-				dgvNguoiQuanLy.Rows[index].Selected = true;
+				GoToIndex(index);
 			}
+		}
+
+		public void GoToFirst()
+		{
+			GoToIndex(0);
+		}
+
+		public void GoToEnd()
+		{
+			GoToIndex(dgvNguoiQuanLy.Rows.Count - 1);
 		}
 
 		private void LoadTable()
@@ -124,6 +148,5 @@ namespace QuanLyDienNang
 			}
 			dgvNguoiQuanLy.DataSource = data;
 		}
-
 	}
 }

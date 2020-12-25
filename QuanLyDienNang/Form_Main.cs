@@ -1,4 +1,5 @@
 ﻿using Business.Classes;
+using Business.Helper;
 using System;
 using System.Threading;
 using System.Windows.Forms;
@@ -7,11 +8,13 @@ namespace QuanLyDienNang
 {
 	public partial class Form_Main : Form
 	{
-		private Form_NguoiQuanLy form;
+		private dynamic DynamicForm;
+
 		// Ủy quyền xử lý từ form main sang các form con
 		private delegate void MyDelegate();
-		MyDelegate GoUp;
+		MyDelegate GoUp, GoDown, GoToFirst, GoToEnd;
 		// Kết thúc ủy quyền
+
 		private Funcs_Main funcs = new Funcs_Main();
 
 		public Form_Main()
@@ -83,23 +86,22 @@ namespace QuanLyDienNang
 
 		private void btnLen_Click(object sender, EventArgs e)
 		{
-			SwitchFormObject();
 			GoUp.Invoke();
 		}
 
 		private void btnXuong_Click(object sender, EventArgs e)
 		{
-
+			GoDown.Invoke();
 		}
 
 		private void btnTrenCung_Click(object sender, EventArgs e)
 		{
-
+			GoToFirst.Invoke();
 		}
 
 		private void btnDuoiCung_Click(object sender, EventArgs e)
 		{
-
+			GoToEnd.Invoke();
 		}
 
 		private void menuDong_Click(object sender, EventArgs e)
@@ -122,7 +124,10 @@ namespace QuanLyDienNang
 			if (tabForms.SelectedIndex == 0)
 				toolBar.Visible = false;
 			else
+			{
 				toolBar.Visible = true;
+				SwitchFormObject();
+			}
 		}
 
 		private void Form_Main_FormClosing(object sender, FormClosingEventArgs e)
@@ -169,8 +174,19 @@ namespace QuanLyDienNang
 
 		private void SwitchFormObject()
 		{
-			form = tabForms.SelectedTab.Controls[0] as Form_NguoiQuanLy;
-			GoUp = () => form.GoUp();
+			if (tabForms.SelectedTab.Controls[0] is Form_NguoiQuanLy)
+			{
+				DynamicForm = tabForms.SelectedTab.Controls[0] as Form_NguoiQuanLy;
+			}
+			else if (tabForms.SelectedTab.Controls[0] is FormKH_DienNangTieuThu)
+			{
+				DynamicForm = tabForms.SelectedTab.Controls[0] as FormKH_DienNangTieuThu;
+			}
+			else return;
+			GoUp = () => DynamicForm.GoUp();
+			GoDown = () => DynamicForm.GoDown();
+			GoToFirst = () => DynamicForm.GoToFirst();
+			GoToEnd = () => DynamicForm.GoToEnd();
 		}
 
 	}

@@ -53,5 +53,11 @@ namespace Business.Helper
 				}
 			}
 		}
+
+		public static bool ShowQuestionDialog(string text = "Xác nhận sự đồng ý của bạn để thực hiện hành động này.")
+		{
+			DialogResult dialog = MessageBox.Show(text, "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			return dialog == DialogResult.Yes;
+		}
 	}
 }
