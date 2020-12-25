@@ -12,7 +12,7 @@ namespace QuanLyDienNang
 
 		// Ủy quyền xử lý từ form main sang các form con
 		private delegate void MyDelegate();
-		MyDelegate GoUp, GoDown, GoToFirst, GoToEnd;
+		MyDelegate GoUp, GoDown, GoToFirst, GoToEnd, Delete;
 		// Kết thúc ủy quyền
 
 		private Funcs_Main funcs = new Funcs_Main();
@@ -104,6 +104,25 @@ namespace QuanLyDienNang
 			GoToEnd.Invoke();
 		}
 
+		private void btnXoa_Click(object sender, EventArgs e)
+		{
+			Delete.Invoke();
+		}
+
+		private void btnSaoChep_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				string selected = DynamicForm.ToString();
+				Clipboard.SetText(selected);
+			}
+			catch (Exception)
+			{
+				MessageBox.Show("Đã có lỗi khi sao chép dòng này", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			MessageBox.Show("Sao chép dòng vào bảng tạm thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+		}
+
 		private void menuDong_Click(object sender, EventArgs e)
 		{
 			var tab = tabForms.SelectedTab;
@@ -138,6 +157,7 @@ namespace QuanLyDienNang
 				e.Cancel = true;
 			}
 		}
+
 
 		/// <summary>
 		/// Kiểm tra panel còn form nào hay không, nếu không có thì chèn form mới vào
@@ -187,6 +207,7 @@ namespace QuanLyDienNang
 			GoDown = () => DynamicForm.GoDown();
 			GoToFirst = () => DynamicForm.GoToFirst();
 			GoToEnd = () => DynamicForm.GoToEnd();
+			Delete = () => DynamicForm.btnXoa_Click(null, null);
 		}
 
 	}

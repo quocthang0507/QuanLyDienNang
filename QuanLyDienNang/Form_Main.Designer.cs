@@ -309,6 +309,7 @@
 			this.btnXoa.Name = "btnXoa";
 			this.btnXoa.Size = new System.Drawing.Size(90, 22);
 			this.btnXoa.Text = "Xóa bản ghi";
+			this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
 			// 
 			// btnSaoChep
 			// 
@@ -317,6 +318,7 @@
 			this.btnSaoChep.Name = "btnSaoChep";
 			this.btnSaoChep.Size = new System.Drawing.Size(118, 22);
 			this.btnSaoChep.Text = "Sao chép bản ghi";
+			this.btnSaoChep.Click += new System.EventHandler(this.btnSaoChep_Click);
 			// 
 			// separator2
 			// 

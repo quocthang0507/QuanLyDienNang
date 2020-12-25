@@ -1,11 +1,12 @@
 ﻿using Business.Classes;
 using Business.Helper;
+using System.Text;
 using System.Windows.Forms;
 
 namespace QuanLyDienNang
 {
 	public partial class Form_NguoiQuanLy : Form
-	{		
+	{
 		private Funcs_NguoiQuanLy funcs = new Funcs_NguoiQuanLy();
 
 		public Form_NguoiQuanLy()
@@ -84,7 +85,7 @@ namespace QuanLyDienNang
 			}
 		}
 
-		private void btnXoa_Click(object sender, System.EventArgs e)
+		public void btnXoa_Click(object sender, System.EventArgs e)
 		{
 			string ma = tbxMaNQL.Text;
 			if (Common.ShowQuestionDialog())
@@ -136,6 +137,22 @@ namespace QuanLyDienNang
 		public void GoToEnd()
 		{
 			GoToIndex(dgvNguoiQuanLy.Rows.Count - 1);
+		}
+
+		public override string ToString()
+		{
+			if (dgvNguoiQuanLy.SelectedRows.Count > 0)
+			{
+				var row = dgvNguoiQuanLy.SelectedRows[0];
+				StringBuilder builder = new StringBuilder();
+				builder.Append(row.Cells[0].Value.ToString() + '\t');
+				builder.Append(row.Cells[1].Value.ToString() + '\t');
+				builder.Append(row.Cells[2].Value.ToString() + '\t');
+				builder.Append(row.Cells[3].Value.ToString() + '\t');
+				builder.Append(row.Cells[4].Value.ToString() + '\t');
+				return builder.ToString();
+			}
+			return string.Empty;
 		}
 
 		private void LoadTable()
