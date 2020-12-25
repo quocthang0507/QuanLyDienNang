@@ -82,6 +82,10 @@ namespace QuanLyDienNang
 			// 
 			// dgvNguoiQuanLy
 			// 
+			this.dgvNguoiQuanLy.AllowUserToAddRows = false;
+			this.dgvNguoiQuanLy.AllowUserToDeleteRows = false;
+			this.dgvNguoiQuanLy.AllowUserToOrderColumns = true;
+			this.dgvNguoiQuanLy.AllowUserToResizeRows = false;
 			this.dgvNguoiQuanLy.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dgvNguoiQuanLy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvNguoiQuanLy.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -119,13 +123,14 @@ namespace QuanLyDienNang
 			this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnXoa.Image = global::QuanLyDienNang.Properties.Resources.Delete1;
 			this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnXoa.Location = new System.Drawing.Point(569, 115);
+			this.btnXoa.Location = new System.Drawing.Point(552, 115);
 			this.btnXoa.Name = "btnXoa";
 			this.btnXoa.Size = new System.Drawing.Size(87, 40);
 			this.btnXoa.TabIndex = 8;
 			this.btnXoa.Text = "Xóa";
 			this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnXoa.UseVisualStyleBackColor = true;
+			this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
 			// 
 			// btnCapNhat
 			// 
@@ -139,13 +144,14 @@ namespace QuanLyDienNang
 			this.btnCapNhat.Text = "Cập nhật";
 			this.btnCapNhat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnCapNhat.UseVisualStyleBackColor = true;
+			this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
 			// 
 			// btnThem
 			// 
 			this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnThem.Image = global::QuanLyDienNang.Properties.Resources.Add1;
 			this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnThem.Location = new System.Drawing.Point(315, 115);
+			this.btnThem.Location = new System.Drawing.Point(333, 115);
 			this.btnThem.Name = "btnThem";
 			this.btnThem.Size = new System.Drawing.Size(95, 40);
 			this.btnThem.TabIndex = 6;

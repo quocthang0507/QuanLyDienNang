@@ -26,8 +26,40 @@ namespace Business.Classes
 		{
 			try
 			{
-				DataProvider.Instance.ExecuteNonQuery("proc_Insert_NguoiQuanLy", TenQuanLy, SoDienThoai, DiaChi, Email);
-				return true;
+				int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_NguoiQuanLy", TenQuanLy, SoDienThoai, DiaChi, Email);
+				if (result > 0)
+					return true;
+				return false;
+			}
+			catch (Exception)
+			{
+				return false;
+			}
+		}
+
+		public bool Update(string MaQuanLy, string TenQuanLy, string SoDienThoai, string DiaChi, string Email)
+		{
+			try
+			{
+				int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_NguoiQuanLy", MaQuanLy, TenQuanLy, SoDienThoai, DiaChi, Email);
+				if (result > 0)
+					return true;
+				return false;
+			}
+			catch (Exception)
+			{
+				return false;
+			}
+		}
+
+		public bool Delete(string MaQuanLy)
+		{
+			try
+			{
+				int result = DataProvider.Instance.ExecuteNonQuery("proc_Delete_NguoiQuanLy", MaQuanLy);
+				if (result > 0)
+					return true;
+				return false;
 			}
 			catch (Exception)
 			{

@@ -48,8 +48,9 @@ INSERT INTO NguoiQuanLy VALUES ('QL003', N'Trần Thị B', '0987654321', N'Đà
 GO
 
 CREATE PROCEDURE proc_GetAll_NguoiQuanLy
+--ALTER PROCEDURE proc_GetAll_NguoiQuanLy
 AS
-	SELECT * FROM NguoiQuanLy
+	SELECT * FROM NguoiQuanLy ORDER BY MaQuanLy
 GO
 
 CREATE FUNCTION func_GenerateID_NguoiQuanLy()
@@ -78,6 +79,25 @@ AS
 	DECLARE @MA CHAR(5)
 	SET @MA = DBO.func_GenerateID_NguoiQuanLy()
 	INSERT INTO NguoiQuanLy VALUES (@MA, @TenQuanLy, @SoDienThoai, @DiaChi, @Email)
+GO
+
+CREATE PROCEDURE proc_Update_NguoiQuanLy
+--ALTER PROCEDURE proc_Update_NguoiQuanLy
+	@MaQuanLy char(5),
+	@TenQuanLy nvarchar(150),
+	@SoDienThoai varchar(20),
+	@DiaChi nvarchar(200),
+	@Email nvarchar(100)
+AS
+	UPDATE NguoiQuanLy
+	SET TenQuanLy = @TenQuanLy, SoDienThoai = @SoDienThoai, DiaChi = @DiaChi, Email = @Email
+	WHERE MaQuanLy = @MaQuanLy
+GO
+
+CREATE PROCEDURE proc_Delete_NguoiQuanLy
+	@MaQuanLy char(5)
+AS
+	DELETE FROM NguoiQuanLy WHERE MaQuanLy = @MaQuanLy
 GO
 
 --THÔNG TIN KHÁCH HÀNG

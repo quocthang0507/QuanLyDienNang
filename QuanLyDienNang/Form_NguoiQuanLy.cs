@@ -53,6 +53,45 @@ namespace QuanLyDienNang
 			}
 		}
 
+		private void btnCapNhat_Click(object sender, System.EventArgs e)
+		{
+			string ma = tbxMaNQL.Text;
+			string ten = tbxTenNQL.Text;
+			string sdt = tbxSoDT.Text;
+			string dc = tbxDiaChi.Text;
+			string email = tbxEmail.Text;
+			if (string.IsNullOrWhiteSpace(ten) || string.IsNullOrWhiteSpace(dc))
+			{
+				MessageBox.Show("Không được để trống các trường bắt buộc", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+			var ok = funcs.Update(ma, ten, sdt, dc, email);
+			if (ok)
+			{
+				MessageBox.Show("Cập nhật dữ liệu thành công", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				LoadTable();
+			}
+			else
+			{
+				MessageBox.Show("Cập nhật dữ liệu không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+
+		private void btnXoa_Click(object sender, System.EventArgs e)
+		{
+			string ma = tbxMaNQL.Text;
+			var ok = funcs.Delete(ma);
+			if (ok)
+			{
+				MessageBox.Show("Xóa dữ liệu thành công", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				LoadTable();
+			}
+			else
+			{
+				MessageBox.Show("Xóa dữ liệu không thành công", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+
 		public void GoUp()
 		{
 			var index = dgvNguoiQuanLy.SelectedRows[0].Index;
