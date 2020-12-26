@@ -5,7 +5,7 @@ namespace QuanLyDienNang
 {
 	public partial class FormKH_NhapKhachHang : Form
 	{
-		Funcs_DienNangTieuThu funcs = new Funcs_DienNangTieuThu();
+		Funcs_KH_DNTT funcs = new Funcs_KH_DNTT();
 
 		public FormKH_NhapKhachHang()
 		{

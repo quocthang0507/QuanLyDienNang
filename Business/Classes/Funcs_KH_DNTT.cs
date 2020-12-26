@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Business.Classes
 {
-	public class Funcs_DienNangTieuThu
+	public class Funcs_KH_DNTT
 	{
 		private readonly string SECTION_OCR_INI = "DocChiSoDien";
 		private readonly string KEY_IMAGEFOLDER_INI = "DuongDanThuMuc";

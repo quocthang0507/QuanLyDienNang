@@ -7,7 +7,7 @@ namespace QuanLyDienNang
 {
 	public partial class FormKH_DienNangTieuThu : Form
 	{
-		private Funcs_DienNangTieuThu funcs = new Funcs_DienNangTieuThu();
+		private Funcs_KH_DNTT funcs = new Funcs_KH_DNTT();
 
 		public FormKH_DienNangTieuThu()
 		{

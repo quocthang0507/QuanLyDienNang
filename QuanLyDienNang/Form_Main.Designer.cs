@@ -40,6 +40,7 @@
 			this.xuấtThôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.quảnLýĐiệnNăngTiêuThụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.quảnLýNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.quảnLýNhânViênToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextTabMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -64,7 +65,6 @@
 			this.btnDuoiCung = new System.Windows.Forms.ToolStripButton();
 			this.separator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.btnDongForm = new System.Windows.Forms.ToolStripButton();
-			this.quảnLýĐiệnNăngTiêuThụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuBar.SuspendLayout();
 			this.contextTabMenu.SuspendLayout();
 			this.tabForms.SuspendLayout();
@@ -130,9 +130,7 @@
 			// 
 			this.quảnLýKháchHàngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nhậpThôngTinToolStripMenuItem,
-            this.xuấtThôngTinToolStripMenuItem,
-            this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem,
-            this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem});
+            this.xuấtThôngTinToolStripMenuItem});
 			this.quảnLýKháchHàngToolStripMenuItem.Name = "quảnLýKháchHàngToolStripMenuItem";
 			this.quảnLýKháchHàngToolStripMenuItem.Size = new System.Drawing.Size(126, 20);
 			this.quảnLýKháchHàngToolStripMenuItem.Text = "Quản lý &Khách hàng";
@@ -141,7 +139,7 @@
 			// 
 			this.nhậpThôngTinToolStripMenuItem.Image = global::QuanLyDienNang.Properties.Resources.Add1;
 			this.nhậpThôngTinToolStripMenuItem.Name = "nhậpThôngTinToolStripMenuItem";
-			this.nhậpThôngTinToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+			this.nhậpThôngTinToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
 			this.nhậpThôngTinToolStripMenuItem.Text = "&Nhập thông tin từ Excel ";
 			this.nhậpThôngTinToolStripMenuItem.Click += new System.EventHandler(this.nhậpThôngTinToolStripMenuItem_Click);
 			// 
@@ -149,7 +147,7 @@
 			// 
 			this.xuấtThôngTinToolStripMenuItem.Image = global::QuanLyDienNang.Properties.Resources.Text_Document;
 			this.xuấtThôngTinToolStripMenuItem.Name = "xuấtThôngTinToolStripMenuItem";
-			this.xuấtThôngTinToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+			this.xuấtThôngTinToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
 			this.xuấtThôngTinToolStripMenuItem.Text = "&Xuất thông tin ra Excel";
 			this.xuấtThôngTinToolStripMenuItem.Click += new System.EventHandler(this.xuấtThôngTinToolStripMenuItem_Click);
 			// 
@@ -166,8 +164,17 @@
 			this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem.Image = global::QuanLyDienNang.Properties.Resources.Picture;
 			this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem.Name = "đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem";
 			this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
-			this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem.Text = "Đọc chỉ số điện năng &tiêu thụ";
+			this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem.Text = "Đọc &chỉ số điện năng tiêu thụ";
 			this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem.Click += new System.EventHandler(this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem_Click);
+			// 
+			// quảnLýĐiệnNăngTiêuThụToolStripMenuItem
+			// 
+			this.quảnLýĐiệnNăngTiêuThụToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem,
+            this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem});
+			this.quảnLýĐiệnNăngTiêuThụToolStripMenuItem.Name = "quảnLýĐiệnNăngTiêuThụToolStripMenuItem";
+			this.quảnLýĐiệnNăngTiêuThụToolStripMenuItem.Size = new System.Drawing.Size(161, 20);
+			this.quảnLýĐiệnNăngTiêuThụToolStripMenuItem.Text = "Quản lý Điện năng &tiêu thụ";
 			// 
 			// quảnLýNhânViênToolStripMenuItem
 			// 
@@ -402,12 +409,6 @@
 			this.btnDongForm.Text = "Đóng Form hiện tại";
 			this.btnDongForm.ToolTipText = "Đóng Form hiện hành";
 			this.btnDongForm.Click += new System.EventHandler(this.btnDongForm_Click);
-			// 
-			// quảnLýĐiệnNăngTiêuThụToolStripMenuItem
-			// 
-			this.quảnLýĐiệnNăngTiêuThụToolStripMenuItem.Name = "quảnLýĐiệnNăngTiêuThụToolStripMenuItem";
-			this.quảnLýĐiệnNăngTiêuThụToolStripMenuItem.Size = new System.Drawing.Size(161, 20);
-			this.quảnLýĐiệnNăngTiêuThụToolStripMenuItem.Text = "Quản lý Điện năng tiêu thụ";
 			// 
 			// Form_Main
 			// 
