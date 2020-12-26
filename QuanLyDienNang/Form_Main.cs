@@ -13,7 +13,6 @@ namespace QuanLyDienNang
 		// Ủy quyền xử lý từ form main sang các form con
 		private delegate void MyDelegate();
 		MyDelegate GoUp, GoDown, GoToFirst, GoToEnd, Delete;
-		// Kết thúc ủy quyền
 
 		private Funcs_Main funcs = new Funcs_Main();
 
@@ -33,7 +32,7 @@ namespace QuanLyDienNang
 				Form frmCauHinh = new Form_CauHinh();
 				frmCauHinh.ShowDialog();
 			}
-			UpdateComputerName();
+			UpdateStatusBar();
 			this.Activate();
 		}
 
@@ -187,9 +186,11 @@ namespace QuanLyDienNang
 			Application.Run(new FormWelcome());
 		}
 
-		private void UpdateComputerName()
+		private void UpdateStatusBar()
 		{
-			lblComputerName.Text = Environment.MachineName;
+			lblServer.Text = "Tên máy chủ SQL: " + funcs.GetSQLServerName();
+			lblCSDL.Text = "Tên cơ sở dữ liệu: " + funcs.GetDatabase();
+			lblComputerName.Text = "Tên máy tính: " + Environment.MachineName;
 		}
 
 		private void SwitchFormObject()

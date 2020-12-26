@@ -533,6 +533,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\Computer.png" />
+    <None Include="Resources\Camera.png" />
+    <None Include="Resources\Database.png" />
     <None Include="Resources\Top.png" />
     <None Include="Resources\Cut1.png" />
     <None Include="Resources\Export.png" />

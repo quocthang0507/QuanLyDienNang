@@ -18,5 +18,21 @@ namespace Business.Classes
 			}
 			return true;
 		}
+
+		public string GetSQLServerName()
+		{
+			Funcs_ConnectionString funcs = new Funcs_ConnectionString();
+			if (funcs.sqlConnectionString != null)
+				return funcs.sqlConnectionString.ServerName;
+			return null;
+		}
+
+		public string GetDatabase()
+		{
+			Funcs_ConnectionString funcs = new Funcs_ConnectionString();
+			if (funcs.sqlConnectionString != null)
+				return funcs.sqlConnectionString.Database;
+			return null;
+		}
 	}
 }
