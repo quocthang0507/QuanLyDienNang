@@ -1,7 +1,10 @@
 ﻿using Business.Helper;
 using DataAccess;
+using OfficeOpenXml;
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Business.Classes
@@ -12,7 +15,6 @@ namespace Business.Classes
 		private readonly string KEY_IMAGEFOLDER_INI = "DuongDanThuMuc";
 		private readonly string SECTION_IMPORT_INI = "NhapDienNangTieuThu";
 		private readonly string KEY_EXCELFILE_INI = "DuongDanTapTin";
-
 
 		public DataTable LoadTable_DienNangTieuThu()
 		{
@@ -64,6 +66,17 @@ namespace Business.Classes
 		public void Save_ExcelFilePath(string path)
 		{
 			Configuration.Instance.Write(KEY_EXCELFILE_INI, path, SECTION_IMPORT_INI);
+		}
+
+		public List<string> GetSheetNamesOnExcel(string excelFilePath)
+		{
+			ExcelPackage excel = new ExcelPackage(new FileInfo(excelFilePath));
+			List<string> sheets = new List<string>();
+			foreach (var sheet in excel.Workbook.Worksheets)
+			{
+				sheets.Add(sheet.Name);
+			}
+			return sheets;
 		}
 	}
 }

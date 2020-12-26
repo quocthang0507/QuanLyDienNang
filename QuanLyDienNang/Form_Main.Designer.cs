@@ -64,6 +64,7 @@
 			this.btnDuoiCung = new System.Windows.Forms.ToolStripButton();
 			this.separator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.btnDongForm = new System.Windows.Forms.ToolStripButton();
+			this.quảnLýĐiệnNăngTiêuThụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuBar.SuspendLayout();
 			this.contextTabMenu.SuspendLayout();
 			this.tabForms.SuspendLayout();
@@ -80,6 +81,7 @@
 			this.menuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.chươngTrìnhToolStripMenuItem,
             this.quảnLýKháchHàngToolStripMenuItem,
+            this.quảnLýĐiệnNăngTiêuThụToolStripMenuItem,
             this.quảnLýNhânViênToolStripMenuItem});
 			this.menuBar.Location = new System.Drawing.Point(0, 0);
 			this.menuBar.Name = "menuBar";
@@ -401,6 +403,12 @@
 			this.btnDongForm.ToolTipText = "Đóng Form hiện hành";
 			this.btnDongForm.Click += new System.EventHandler(this.btnDongForm_Click);
 			// 
+			// quảnLýĐiệnNăngTiêuThụToolStripMenuItem
+			// 
+			this.quảnLýĐiệnNăngTiêuThụToolStripMenuItem.Name = "quảnLýĐiệnNăngTiêuThụToolStripMenuItem";
+			this.quảnLýĐiệnNăngTiêuThụToolStripMenuItem.Size = new System.Drawing.Size(161, 20);
+			this.quảnLýĐiệnNăngTiêuThụToolStripMenuItem.Text = "Quản lý Điện năng tiêu thụ";
+			// 
 			// Form_Main
 			// 
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -469,6 +477,7 @@
 		private System.Windows.Forms.ToolStripMenuItem quảnLýNhânViênToolStripMenuItem1;
 		private System.Windows.Forms.ToolStripStatusLabel lblCSDL;
 		private System.Windows.Forms.ToolStripStatusLabel lblServer;
+		private System.Windows.Forms.ToolStripMenuItem quảnLýĐiệnNăngTiêuThụToolStripMenuItem;
 	}
 }
 

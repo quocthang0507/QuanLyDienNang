@@ -18,6 +18,7 @@ namespace QuanLyDienNang
 		{
 			tbxDuongDan.Text = funcs.GetSavedExcelPath();
 			cbxNguoiNhap.DataSource = funcs.LoadTable_NguoiQuanLy();
+			cbxSheet.DataSource = funcs.GetSheetNamesOnExcel(tbxDuongDan.Text);
 		}
 
 		private void btnChonTapTin_Click(object sender, System.EventArgs e)
@@ -32,6 +33,7 @@ namespace QuanLyDienNang
 			}
 			tbxDuongDan.Text = path;
 			funcs.Save_ExcelFilePath(path);
+			cbxSheet.DataSource = funcs.GetSheetNamesOnExcel(path);
 		}
 	}
 }
