@@ -30,6 +30,7 @@ namespace QuanLyDienNang
 					return;
 				path = fileDialog.FileName;
 			}
+			tbxDuongDan.Text = path;
 			funcs.Save_ExcelFilePath(path);
 		}
 	}

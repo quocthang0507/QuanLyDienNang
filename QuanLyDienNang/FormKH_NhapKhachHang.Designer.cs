@@ -33,16 +33,16 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.cbxSheet = new System.Windows.Forms.ComboBox();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.btnChonTapTin = new System.Windows.Forms.Button();
+			this.cbxNguoiNhap = new System.Windows.Forms.ComboBox();
+			this.label4 = new System.Windows.Forms.Label();
 			this.tableParent = new System.Windows.Forms.TableLayoutPanel();
 			this.panel2 = new System.Windows.Forms.Panel();
-			this.label3 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
-			this.cbxNguoiNhap = new System.Windows.Forms.ComboBox();
-			this.dgvDienNangTieuThu = new System.Windows.Forms.DataGridView();
 			this.btnLuu = new System.Windows.Forms.Button();
 			this.btnXemMau = new System.Windows.Forms.Button();
 			this.btnLoadExcel = new System.Windows.Forms.Button();
-			this.btnChonTapTin = new System.Windows.Forms.Button();
+			this.label3 = new System.Windows.Forms.Label();
+			this.dgvDienNangTieuThu = new System.Windows.Forms.DataGridView();
 			this.fileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.panel1.SuspendLayout();
 			this.tableParent.SuspendLayout();
@@ -105,6 +105,40 @@
 			this.panel1.Size = new System.Drawing.Size(855, 84);
 			this.panel1.TabIndex = 10;
 			// 
+			// btnChonTapTin
+			// 
+			this.btnChonTapTin.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnChonTapTin.Image = global::QuanLyDienNang.Properties.Resources.Xlsx;
+			this.btnChonTapTin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnChonTapTin.Location = new System.Drawing.Point(655, 4);
+			this.btnChonTapTin.Name = "btnChonTapTin";
+			this.btnChonTapTin.Size = new System.Drawing.Size(143, 40);
+			this.btnChonTapTin.TabIndex = 2;
+			this.btnChonTapTin.Text = "Chọn tập tin";
+			this.btnChonTapTin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnChonTapTin.UseVisualStyleBackColor = true;
+			this.btnChonTapTin.Click += new System.EventHandler(this.btnChonTapTin_Click);
+			// 
+			// cbxNguoiNhap
+			// 
+			this.cbxNguoiNhap.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.cbxNguoiNhap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbxNguoiNhap.FormattingEnabled = true;
+			this.cbxNguoiNhap.Location = new System.Drawing.Point(513, 49);
+			this.cbxNguoiNhap.Name = "cbxNguoiNhap";
+			this.cbxNguoiNhap.Size = new System.Drawing.Size(284, 25);
+			this.cbxNguoiNhap.TabIndex = 4;
+			// 
+			// label4
+			// 
+			this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(423, 52);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(84, 19);
+			this.label4.TabIndex = 8;
+			this.label4.Text = "Người nhập:";
+			// 
 			// tableParent
 			// 
 			this.tableParent.ColumnCount = 1;
@@ -134,46 +168,6 @@
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(855, 44);
 			this.panel2.TabIndex = 11;
-			// 
-			// label3
-			// 
-			this.label3.Dock = System.Windows.Forms.DockStyle.Top;
-			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(3, 0);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(855, 30);
-			this.label3.TabIndex = 12;
-			this.label3.Text = "NHẬP THÔNG TIN KHÁCH HÀNG SỬ DỤNG ĐIỆN";
-			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// label4
-			// 
-			this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(423, 52);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(84, 19);
-			this.label4.TabIndex = 8;
-			this.label4.Text = "Người nhập:";
-			// 
-			// cbxNguoiNhap
-			// 
-			this.cbxNguoiNhap.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.cbxNguoiNhap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbxNguoiNhap.FormattingEnabled = true;
-			this.cbxNguoiNhap.Location = new System.Drawing.Point(513, 49);
-			this.cbxNguoiNhap.Name = "cbxNguoiNhap";
-			this.cbxNguoiNhap.Size = new System.Drawing.Size(284, 25);
-			this.cbxNguoiNhap.TabIndex = 4;
-			// 
-			// dgvDienNangTieuThu
-			// 
-			this.dgvDienNangTieuThu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvDienNangTieuThu.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dgvDienNangTieuThu.Location = new System.Drawing.Point(3, 173);
-			this.dgvDienNangTieuThu.Name = "dgvDienNangTieuThu";
-			this.dgvDienNangTieuThu.Size = new System.Drawing.Size(855, 420);
-			this.dgvDienNangTieuThu.TabIndex = 13;
 			// 
 			// btnLuu
 			// 
@@ -214,19 +208,25 @@
 			this.btnLoadExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnLoadExcel.UseVisualStyleBackColor = true;
 			// 
-			// btnChonTapTin
+			// label3
 			// 
-			this.btnChonTapTin.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnChonTapTin.Image = global::QuanLyDienNang.Properties.Resources.Xlsx;
-			this.btnChonTapTin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnChonTapTin.Location = new System.Drawing.Point(655, 4);
-			this.btnChonTapTin.Name = "btnChonTapTin";
-			this.btnChonTapTin.Size = new System.Drawing.Size(143, 40);
-			this.btnChonTapTin.TabIndex = 2;
-			this.btnChonTapTin.Text = "Chọn tập tin";
-			this.btnChonTapTin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.btnChonTapTin.UseVisualStyleBackColor = true;
-			this.btnChonTapTin.Click += new System.EventHandler(this.btnChonTapTin_Click);
+			this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label3.Location = new System.Drawing.Point(3, 0);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(855, 30);
+			this.label3.TabIndex = 12;
+			this.label3.Text = "NHẬP THÔNG TIN KHÁCH HÀNG SỬ DỤNG ĐIỆN";
+			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// dgvDienNangTieuThu
+			// 
+			this.dgvDienNangTieuThu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvDienNangTieuThu.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dgvDienNangTieuThu.Location = new System.Drawing.Point(3, 173);
+			this.dgvDienNangTieuThu.Name = "dgvDienNangTieuThu";
+			this.dgvDienNangTieuThu.Size = new System.Drawing.Size(855, 420);
+			this.dgvDienNangTieuThu.TabIndex = 13;
 			// 
 			// fileDialog
 			// 
