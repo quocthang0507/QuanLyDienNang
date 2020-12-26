@@ -43,7 +43,6 @@
 			this.tableParent = new System.Windows.Forms.TableLayoutPanel();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.btnLuu = new System.Windows.Forms.Button();
-			this.btnThem = new System.Windows.Forms.Button();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.btnTimKiem = new System.Windows.Forms.Button();
 			this.tbxSoDienThoai = new System.Windows.Forms.TextBox();
@@ -144,11 +143,11 @@
 			this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnXoa.Image = global::QuanLyDienNang.Properties.Resources.Remove;
 			this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnXoa.Location = new System.Drawing.Point(423, 0);
+			this.btnXoa.Location = new System.Drawing.Point(379, 2);
 			this.btnXoa.Name = "btnXoa";
-			this.btnXoa.Size = new System.Drawing.Size(116, 42);
+			this.btnXoa.Size = new System.Drawing.Size(78, 42);
 			this.btnXoa.TabIndex = 9;
-			this.btnXoa.Text = "Xóa (Del)";
+			this.btnXoa.Text = "Xóa";
 			this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnXoa.UseVisualStyleBackColor = true;
 			// 
@@ -157,11 +156,11 @@
 			this.btnCapNhat.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnCapNhat.Image = global::QuanLyDienNang.Properties.Resources.Rename;
 			this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnCapNhat.Location = new System.Drawing.Point(545, 0);
+			this.btnCapNhat.Location = new System.Drawing.Point(463, 2);
 			this.btnCapNhat.Name = "btnCapNhat";
-			this.btnCapNhat.Size = new System.Drawing.Size(170, 42);
+			this.btnCapNhat.Size = new System.Drawing.Size(115, 42);
 			this.btnCapNhat.TabIndex = 10;
-			this.btnCapNhat.Text = "Cập nhật (Ctrl + U)";
+			this.btnCapNhat.Text = "Cập nhật";
 			this.btnCapNhat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnCapNhat.UseVisualStyleBackColor = true;
 			// 
@@ -197,7 +196,6 @@
 			// panel2
 			// 
 			this.panel2.Controls.Add(this.btnLuu);
-			this.panel2.Controls.Add(this.btnThem);
 			this.panel2.Controls.Add(this.btnXoa);
 			this.panel2.Controls.Add(this.btnCapNhat);
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -211,26 +209,13 @@
 			this.btnLuu.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnLuu.Image = global::QuanLyDienNang.Properties.Resources.Save;
 			this.btnLuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLuu.Location = new System.Drawing.Point(316, 0);
+			this.btnLuu.Location = new System.Drawing.Point(285, 2);
 			this.btnLuu.Name = "btnLuu";
-			this.btnLuu.Size = new System.Drawing.Size(102, 42);
+			this.btnLuu.Size = new System.Drawing.Size(88, 42);
 			this.btnLuu.TabIndex = 8;
 			this.btnLuu.Text = "Lưu lại";
 			this.btnLuu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnLuu.UseVisualStyleBackColor = true;
-			// 
-			// btnThem
-			// 
-			this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnThem.Image = global::QuanLyDienNang.Properties.Resources.Add1;
-			this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnThem.Location = new System.Drawing.Point(137, 0);
-			this.btnThem.Name = "btnThem";
-			this.btnThem.Size = new System.Drawing.Size(173, 42);
-			this.btnThem.TabIndex = 7;
-			this.btnThem.Text = "Thêm mới (Ctrl + N)";
-			this.btnThem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.btnThem.UseVisualStyleBackColor = true;
 			// 
 			// panel1
 			// 
@@ -324,6 +309,5 @@
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Button btnTimKiem;
 		private System.Windows.Forms.Button btnLuu;
-		private System.Windows.Forms.Button btnThem;
 	}
 }

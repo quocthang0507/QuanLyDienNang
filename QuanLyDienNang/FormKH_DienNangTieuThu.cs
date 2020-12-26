@@ -16,7 +16,7 @@ namespace QuanLyDienNang
 
 		private void FormKH_DienNangTieuThu_Load(object sender, EventArgs e)
 		{
-			dgvDienNangTieuThu.DataSource = funcs.LoadTable();
+			dgvDienNangTieuThu.DataSource = funcs.LoadTable_DienNangTieuThu();
 		}
 
 		private void tbxSoDienThoai_KeyPress(object sender, KeyPressEventArgs e)

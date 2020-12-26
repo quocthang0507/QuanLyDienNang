@@ -23,7 +23,7 @@ namespace QuanLyDienNang
 
 		private void FormKH_DocChiSoDien_Load(object sender, EventArgs e)
 		{
-			tbxDuongDan.Text = funcs.GetSavedLocation();
+			tbxDuongDan.Text = funcs.GetSavedImageFolderPath();
 		}
 
 		private void btnMoThuMuc_Click(object sender, EventArgs e)
@@ -42,7 +42,7 @@ namespace QuanLyDienNang
 				MessageBox.Show("Đường dẫn không hợp lệ hoặc không tìm thấy hình ảnh .jpg hay .png nào trong thư mục", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				return;
 			}
-			funcs.WriteLocation(path);
+			funcs.Save_ImageFolderPath(path);
 			lbxHinhAnh.Items.AddRange(files.ToArray());
 		}
 

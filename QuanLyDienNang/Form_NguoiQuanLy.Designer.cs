@@ -34,6 +34,8 @@ namespace QuanLyDienNang
 			this.label1 = new System.Windows.Forms.Label();
 			this.dgvNguoiQuanLy = new System.Windows.Forms.DataGridView();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.label8 = new System.Windows.Forms.Label();
+			this.label7 = new System.Windows.Forms.Label();
 			this.btnXoa = new System.Windows.Forms.Button();
 			this.btnCapNhat = new System.Windows.Forms.Button();
 			this.btnThem = new System.Windows.Forms.Button();
@@ -47,8 +49,6 @@ namespace QuanLyDienNang
 			this.label4 = new System.Windows.Forms.Label();
 			this.tbxMaNQL = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
-			this.label7 = new System.Windows.Forms.Label();
-			this.label8 = new System.Windows.Forms.Label();
 			this.tableParent.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvNguoiQuanLy)).BeginInit();
 			this.panel1.SuspendLayout();
@@ -121,6 +121,30 @@ namespace QuanLyDienNang
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(978, 164);
 			this.panel1.TabIndex = 2;
+			// 
+			// label8
+			// 
+			this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label8.AutoSize = true;
+			this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label8.ForeColor = System.Drawing.Color.Red;
+			this.label8.Location = new System.Drawing.Point(931, 49);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(21, 17);
+			this.label8.TabIndex = 9;
+			this.label8.Text = "(*)";
+			// 
+			// label7
+			// 
+			this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label7.AutoSize = true;
+			this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label7.ForeColor = System.Drawing.Color.Red;
+			this.label7.Location = new System.Drawing.Point(464, 49);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(21, 17);
+			this.label7.TabIndex = 9;
+			this.label7.Text = "(*)";
 			// 
 			// btnXoa
 			// 
@@ -259,28 +283,6 @@ namespace QuanLyDienNang
 			this.label2.Size = new System.Drawing.Size(120, 19);
 			this.label2.TabIndex = 0;
 			this.label2.Text = "Mã người quản lý:";
-			// 
-			// label7
-			// 
-			this.label7.AutoSize = true;
-			this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label7.ForeColor = System.Drawing.Color.Red;
-			this.label7.Location = new System.Drawing.Point(464, 54);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(21, 17);
-			this.label7.TabIndex = 9;
-			this.label7.Text = "(*)";
-			// 
-			// label8
-			// 
-			this.label8.AutoSize = true;
-			this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label8.ForeColor = System.Drawing.Color.Red;
-			this.label8.Location = new System.Drawing.Point(931, 52);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(21, 17);
-			this.label8.TabIndex = 9;
-			this.label8.Text = "(*)";
 			// 
 			// Form_NguoiQuanLy
 			// 

@@ -102,6 +102,7 @@ GO
 
 --THÔNG TIN KHÁCH HÀNG
 CREATE TABLE KhachHang (
+--ALTER TABLE KhachHang (
 	--KH000001
 	MaKhachHang char(8) primary key,
 	HoVaTen nvarchar(150) not null,
@@ -109,7 +110,7 @@ CREATE TABLE KhachHang (
 	MaBangGia char(5) references BangGia(MaBangGia),
 	MaTram char(5) references TramBienAp(MaTram),
 	SoHo tinyint not null default 1,
-	HeSo tinyint not null default 1,
+	HeSoNhan tinyint not null default 1,
 	MaSoThue varchar(20) null,
 	SoDienThoai varchar(20) null,
 	Email nvarchar(100) null,
