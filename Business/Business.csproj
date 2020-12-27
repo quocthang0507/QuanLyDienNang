@@ -56,16 +56,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\BangGia.cs" />
+    <Compile Include="Classes\DienNangTieuThu.cs" />
     <Compile Include="Classes\Funcs_CauHinh.cs" />
     <Compile Include="Classes\Funcs_KH_DNTT.cs" />
     <Compile Include="Classes\Funcs_Main.cs" />
     <Compile Include="Classes\Funcs_NguoiQuanLy.cs" />
     <Compile Include="Classes\ImageResult.cs" />
     <Compile Include="Classes\Funcs_ConnectionString.cs" />
+    <Compile Include="Classes\KhachHang.cs" />
+    <Compile Include="Classes\TramBienAp.cs" />
     <Compile Include="Helper\Configuration.cs" />
     <Compile Include="Helper\Common.cs" />
     <Compile Include="Helper\FileUtils.cs" />
     <Compile Include="Helper\ImageValidation.cs" />
+    <Compile Include="Classes\NguoiQuanLy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

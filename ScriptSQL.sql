@@ -16,7 +16,34 @@ INSERT INTO BangGia VALUES ('BG001', N'Điện sinh hoạt (hộ thường)')
 INSERT INTO BangGia VALUES ('BG002', N'Điện sinh hoạt (hộ nghèo)')
 INSERT INTO BangGia VALUES ('BG003', N'Điện kinh doanh - dịch vụ')
 INSERT INTO BangGia VALUES ('BG004', N'Điện sản xuất')
-SELECT * FROM BangGia
+GO
+
+CREATE PROCEDURE proc_GetAll_BangGia
+AS
+	SELECT * FROM BangGia
+GO
+
+CREATE PROCEDURE proc_Insert_BangGia
+	@MaBangGia char(5),
+	@TenBangGia nvarchar(100)
+AS
+	INSERT INTO BangGia VALUES (@MaBangGia, @TenBangGia)
+GO
+
+CREATE PROCEDURE proc_Update_BangGia
+	@MaBangGia char(5),
+	@TenBangGia nvarchar(100)
+AS
+	UPDATE BangGia
+	SET TenBangGia = @TenBangGia
+	WHERE MaBangGia = @MaBangGia
+GO
+
+CREATE PROCEDURE proc_Delete_BangGia
+	@MaBangGia char(5)
+AS
+	DELETE FROM BangGia
+	WHERE MaBangGia = @MaBangGia
 GO
 
 --TRẠM BIẾN ÁP ÁP DỤNG CHO KHÁCH HÀNG
@@ -30,6 +57,34 @@ INSERT INTO TramBienAp VALUES ('BA001', N'Trạm biến áp 1')
 INSERT INTO TramBienAp VALUES ('BA002', N'Trạm biến áp 2')
 INSERT INTO TramBienAp VALUES ('BA003', N'Trạm biến áp 3')
 SELECT * FROM TramBienAp
+GO
+
+CREATE PROCEDURE proc_GetAll_TramBienAp
+AS
+	SELECT * FROM TramBienAp
+GO
+
+CREATE PROCEDURE proc_Insert_TramBienAp
+	@MaTram char(5),
+	@TenTram nvarchar(100)
+AS
+	INSERT INTO TramBienAp VALUES (@MaTram, @TenTram)
+GO
+
+CREATE PROCEDURE proc_Update_TramBienAp
+	@MaTram char(5),
+	@TenTram nvarchar(100)
+AS
+	UPDATE TramBienAp
+	SET TenTram = @TenTram
+	WHERE MaTram = @MaTram
+GO
+
+CREATE PROCEDURE proc_Delete_TramBienAp
+	@MaTram char(5)
+AS
+	DELETE FROM TramBienAp
+	WHERE MaTram = @MaTram
 GO
 
 --NGƯỜI QUẢN LÝ KHÁCH HÀNG
@@ -183,7 +238,58 @@ AS
 		@SoDienThoai, @Email, @NgayTao, @NguoiTao, @NgayCapNhat, @NguoiCapNhat, @MaSoHopDong, @NgayHopDong, @MaCongTo, @SoNganHang, @TenNganHang)
 GO
 
-CREATE PROCEDURE func_Insert_KhachHang_Test
+CREATE PROCEDURE proc_Update_KhachHang
+	@MaKhachHang char(9),
+	@HoVaTen nvarchar(150),
+	@DiaChi nvarchar(200),
+	@MaBangGia char(5),
+	@MaTram char(5),
+	@SoHo tinyint,
+	@HeSoNhan tinyint,
+	@MaSoThue varchar(20),
+	@SoDienThoai varchar(20),
+	@Email nvarchar(100),
+	@NgayTao datetime,
+	@NguoiTao char(5),
+	@NgayCapNhat datetime,
+	@NguoiCapNhat char(5),
+	@MaSoHopDong nvarchar(20),
+	@NgayHopDong datetime,
+	@MaCongTo nvarchar(20),
+	@SoNganHang varchar(20),
+	@TenNganHang nvarchar(100)
+AS
+	UPDATE KhachHang
+	SET
+		HoVaTen = @HoVaTen,
+		DiaChi = @DiaChi,
+		MaBangGia = @MaBangGia,
+		MaTram = @MaTram,
+		SoHo = @SoHo,
+		HeSoNhan = @HeSoNhan,
+		MaSoThue = @MaSoThue,
+		SoDienThoai = @SoDienThoai,
+		Email = @Email,
+		NgayTao = @NgayTao,
+		NguoiTao = @NguoiTao,
+		NgayCapNhat = @NgayCapNhat,
+		NguoiCapNhat = @NguoiCapNhat,
+		MaSoHopDong = @MaSoHopDong,
+		NgayHopDong = @NgayHopDong,
+		MaCongTo = @MaCongTo,
+		SoNganHang = @SoNganHang,
+		TenNganHang = @TenNganHang
+	WHERE MaKhachHang = @MaKhachHang
+GO
+
+CREATE PROCEDURE proc_Delete_KhachHang
+	@MaKhachHang char(9)
+AS
+	DELETE FROM KhachHang
+	WHERE MaKhachHang = @MaKhachHang
+GO
+
+CREATE PROCEDURE proc_Insert_KhachHang_Test
 	@HoVaTen nvarchar(150),
 	@DiaChi nvarchar(200),
 	@MaBangGia char(5),
@@ -236,5 +342,26 @@ GO
 
 CREATE PROCEDURE proc_GetAll_DienNangTieuThu
 AS
-SELECT * FROM DienNangTieuThu
+	SELECT * FROM DienNangTieuThu
+GO
+
+CREATE PROCEDURE DienNangTieuThu_Insert
+-- ALTER PROCEDURE DienNangTieuThu_Insert
+	@MaKhachHang char(9),
+	@NgayGhi datetime,
+	@NguoiGhi char(5),
+	@NgayCapNhat datetime,
+	@NguoiCapNhat char(5),
+	@ChiSoMoi int,
+	@ChiSoCu int,
+	@DaThanhToan bit
+AS
+	INSERT INTO DienNangTieuThu VALUES (@MaKhachHang, @NgayGhi, @NguoiGhi, @NgayCapNhat, @NguoiCapNhat, @ChiSoMoi, @ChiSoCu, @DaThanhToan)
+GO
+
+CREATE PROCEDURE proc_Delete_DienNangTieuThu
+	@ID INT
+AS
+	DELETE FROM DienNangTieuThu
+	WHERE ID = @ID
 GO

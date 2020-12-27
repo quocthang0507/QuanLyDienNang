@@ -130,7 +130,7 @@ namespace Business.Classes
 		{
 			try
 			{
-				
+
 				//DataProvider.Instance.ExecuteNonQueryWithOutput("proc_Insert_KhachHang_Test",);
 			}
 			catch (Exception)
