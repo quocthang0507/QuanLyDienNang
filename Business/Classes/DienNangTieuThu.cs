@@ -68,7 +68,7 @@ namespace Business.Classes
 			try
 			{
 				var binding = new BindingSource();
-				var list = DienNangTieuThu.All();
+				var list = All();
 				binding.DataSource = list;
 				return binding;
 			}
