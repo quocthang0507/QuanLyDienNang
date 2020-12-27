@@ -7,8 +7,6 @@ namespace QuanLyDienNang
 {
 	public partial class Form_NguoiQuanLy : Form
 	{
-		private Funcs_NguoiQuanLy funcs = new Funcs_NguoiQuanLy();
-
 		public Form_NguoiQuanLy()
 		{
 			InitializeComponent();
@@ -45,7 +43,7 @@ namespace QuanLyDienNang
 			}
 			if (Common.ShowQuestionDialog())
 			{
-				var ok = funcs.Insert(ten, sdt, dc, email);
+				var ok = NguoiQuanLy.Add(new NguoiQuanLy(ten, sdt, dc, email));
 				if (ok)
 				{
 					MessageBox.Show("Thêm dữ liệu mới vào thành công", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -72,7 +70,7 @@ namespace QuanLyDienNang
 			}
 			if (Common.ShowQuestionDialog())
 			{
-				var ok = funcs.Update(ma, ten, sdt, dc, email);
+				var ok = NguoiQuanLy.Update(new NguoiQuanLy(ma, ten, sdt, dc, email));
 				if (ok)
 				{
 					MessageBox.Show("Cập nhật dữ liệu thành công", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -90,7 +88,7 @@ namespace QuanLyDienNang
 			string ma = tbxMaNQL.Text;
 			if (Common.ShowQuestionDialog())
 			{
-				var ok = funcs.Delete(ma);
+				var ok = NguoiQuanLy.Delete(ma);
 				if (ok)
 				{
 					MessageBox.Show("Xóa dữ liệu thành công", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -157,7 +155,7 @@ namespace QuanLyDienNang
 
 		private void LoadTable()
 		{
-			var data = funcs.LoadTable();
+			var data = NguoiQuanLy.LoadTable();
 			if (data == null)
 			{
 				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);

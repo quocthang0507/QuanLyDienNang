@@ -61,7 +61,6 @@
     <Compile Include="Classes\Funcs_CauHinh.cs" />
     <Compile Include="Classes\Funcs_KH_DNTT.cs" />
     <Compile Include="Classes\Funcs_Main.cs" />
-    <Compile Include="Classes\Funcs_NguoiQuanLy.cs" />
     <Compile Include="Classes\ImageResult.cs" />
     <Compile Include="Classes\Funcs_ConnectionString.cs" />
     <Compile Include="Classes\KhachHang.cs" />

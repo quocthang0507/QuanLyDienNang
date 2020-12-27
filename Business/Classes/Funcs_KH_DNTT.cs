@@ -16,22 +16,6 @@ namespace Business.Classes
 		private readonly string SECTION_IMPORT_INI = "NhapDienNangTieuThu";
 		private readonly string KEY_EXCELFILE_INI = "DuongDanTapTin";
 
-		public DataTable LoadTable_DienNangTieuThu()
-		{
-			try
-			{
-				var dt = new DataTable();
-				var reader = DataProvider.Instance.ExecuteReader("proc_GetAll_DienNangTieuThu");
-				dt.Load(reader);
-				return dt;
-			}
-			catch (Exception)
-			{
-				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return null;
-			}
-		}
-
 		public DataTable LoadTable_NguoiQuanLy()
 		{
 			try
@@ -126,18 +110,5 @@ namespace Business.Classes
 			}
 		}
 
-		public bool TryToInsert(DataRow dr)
-		{
-			try
-			{
-
-				//DataProvider.Instance.ExecuteNonQueryWithOutput("proc_Insert_KhachHang_Test",);
-			}
-			catch (Exception)
-			{
-
-				throw;
-			}
-		}
 	}
 }

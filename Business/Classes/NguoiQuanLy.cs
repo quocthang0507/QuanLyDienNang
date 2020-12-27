@@ -1,6 +1,7 @@
 ﻿using DataAccess;
 using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Business.Classes
 {
@@ -16,6 +17,14 @@ namespace Business.Classes
 		public NguoiQuanLy()
 		{
 
+		}
+
+		public NguoiQuanLy(string tenQuanLy, string soDienThoai, string diaChi, string email)
+		{
+			TenQuanLy = tenQuanLy;
+			SoDienThoai = soDienThoai;
+			DiaChi = diaChi;
+			Email = email;
 		}
 
 		public NguoiQuanLy(string maQuanLy, string tenQuanLy, string soDienThoai, string diaChi, string email)
@@ -55,5 +64,19 @@ namespace Business.Classes
 			}
 		}
 
+		public static BindingSource LoadTable()
+		{
+			try
+			{
+				var binding = new BindingSource();
+				var list = All();
+				binding.DataSource = list;
+				return binding;
+			}
+			catch (Exception)
+			{
+				return null;
+			}
+		}
 	}
 }

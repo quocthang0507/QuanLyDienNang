@@ -1,6 +1,7 @@
 ﻿using DataAccess;
 using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Business.Classes
 {
@@ -59,6 +60,22 @@ namespace Business.Classes
 			catch (Exception)
 			{
 				return false;
+			}
+		}
+
+		public static BindingSource LoadTable()
+		{
+			try
+			{
+				var binding = new BindingSource();
+				var list = DienNangTieuThu.All();
+				binding.DataSource = list;
+				return binding;
+			}
+			catch (Exception)
+			{
+				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return null;
 			}
 		}
 	}
