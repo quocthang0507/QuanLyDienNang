@@ -70,13 +70,60 @@ namespace Business.Classes
 
 		public List<string> GetSheetNamesOnExcel(string excelFilePath)
 		{
-			ExcelPackage excel = new ExcelPackage(new FileInfo(excelFilePath));
-			List<string> sheets = new List<string>();
-			foreach (var sheet in excel.Workbook.Worksheets)
+			try
 			{
-				sheets.Add(sheet.Name);
+				ExcelPackage excel = new ExcelPackage(new FileInfo(excelFilePath));
+				List<string> sheets = new List<string>();
+				foreach (var sheet in excel.Workbook.Worksheets)
+				{
+					sheets.Add(sheet.Name);
+				}
+				return sheets;
 			}
-			return sheets;
+			catch (Exception)
+			{
+				MessageBox.Show("Lỗi đọc dữ liệu từ tập tin Excel", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return null;
+			}
+		}
+
+		public DataTable GetDataTableFromExcel(string excelFilePath, string sheetname)
+		{
+			try
+			{
+				ExcelPackage excel = new ExcelPackage(new FileInfo(excelFilePath));
+				foreach (var sheet in excel.Workbook.Worksheets)
+				{
+					// Chọn đúng sheet
+					if (sheet.Name.Equals(sheetname, StringComparison.OrdinalIgnoreCase))
+					{
+						DataTable dt = new DataTable();
+						// Lấy tiêu đề cột
+						foreach (var firstRowCell in sheet.Cells[1, 1, 1, sheet.Dimension.End.Column])
+						{
+							dt.Columns.Add(firstRowCell.Text);
+						}
+						int startRow = 2;
+						// Lấy nội dung
+						for (int rowNum = startRow; rowNum <= sheet.Dimension.End.Row; rowNum++)
+						{
+							var row = sheet.Cells[rowNum, 1, rowNum, sheet.Dimension.End.Column];
+							DataRow dr = dt.Rows.Add();
+							foreach (var cell in row)
+							{
+								dr[cell.Start.Column - 1] = cell.Text;
+							}
+						}
+						return dt;
+					}
+				}
+				return null;
+			}
+			catch (Exception)
+			{
+				MessageBox.Show("Lỗi đọc dữ liệu từ tập tin Excel", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return null;
+			}
 		}
 	}
 }

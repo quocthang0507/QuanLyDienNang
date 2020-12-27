@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormKH_NhapKhachHang));
 			this.tbxDuongDan = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
@@ -40,14 +41,14 @@
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.btnLuu = new System.Windows.Forms.Button();
 			this.btnXemMau = new System.Windows.Forms.Button();
-			this.btnLoadExcel = new System.Windows.Forms.Button();
+			this.btnLoadNoiDung = new System.Windows.Forms.Button();
 			this.label3 = new System.Windows.Forms.Label();
-			this.dgvDienNangTieuThu = new System.Windows.Forms.DataGridView();
+			this.dgvThongTinKhachHang = new System.Windows.Forms.DataGridView();
 			this.fileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.panel1.SuspendLayout();
 			this.tableParent.SuspendLayout();
 			this.panel2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dgvDienNangTieuThu)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvThongTinKhachHang)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tbxDuongDan
@@ -145,7 +146,7 @@
 			this.tableParent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableParent.Controls.Add(this.panel2, 0, 2);
 			this.tableParent.Controls.Add(this.label3, 0, 0);
-			this.tableParent.Controls.Add(this.dgvDienNangTieuThu, 0, 3);
+			this.tableParent.Controls.Add(this.dgvThongTinKhachHang, 0, 3);
 			this.tableParent.Controls.Add(this.panel1, 0, 1);
 			this.tableParent.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableParent.Location = new System.Drawing.Point(0, 0);
@@ -162,7 +163,7 @@
 			// 
 			this.panel2.Controls.Add(this.btnLuu);
 			this.panel2.Controls.Add(this.btnXemMau);
-			this.panel2.Controls.Add(this.btnLoadExcel);
+			this.panel2.Controls.Add(this.btnLoadNoiDung);
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel2.Location = new System.Drawing.Point(3, 123);
 			this.panel2.Name = "panel2";
@@ -174,7 +175,7 @@
 			this.btnLuu.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnLuu.Image = global::QuanLyDienNang.Properties.Resources.Save;
 			this.btnLuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLuu.Location = new System.Drawing.Point(501, 3);
+			this.btnLuu.Location = new System.Drawing.Point(513, 2);
 			this.btnLuu.Name = "btnLuu";
 			this.btnLuu.Size = new System.Drawing.Size(88, 42);
 			this.btnLuu.TabIndex = 7;
@@ -187,7 +188,7 @@
 			this.btnXemMau.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnXemMau.Image = global::QuanLyDienNang.Properties.Resources.Xlsx;
 			this.btnXemMau.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnXemMau.Location = new System.Drawing.Point(251, 3);
+			this.btnXemMau.Location = new System.Drawing.Point(236, 1);
 			this.btnXemMau.Name = "btnXemMau";
 			this.btnXemMau.Size = new System.Drawing.Size(119, 42);
 			this.btnXemMau.TabIndex = 5;
@@ -195,18 +196,19 @@
 			this.btnXemMau.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnXemMau.UseVisualStyleBackColor = true;
 			// 
-			// btnLoadExcel
+			// btnLoadNoiDung
 			// 
-			this.btnLoadExcel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnLoadExcel.Image = global::QuanLyDienNang.Properties.Resources.Loading;
-			this.btnLoadExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLoadExcel.Location = new System.Drawing.Point(376, 3);
-			this.btnLoadExcel.Name = "btnLoadExcel";
-			this.btnLoadExcel.Size = new System.Drawing.Size(119, 42);
-			this.btnLoadExcel.TabIndex = 6;
-			this.btnLoadExcel.Text = "Load Excel";
-			this.btnLoadExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.btnLoadExcel.UseVisualStyleBackColor = true;
+			this.btnLoadNoiDung.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnLoadNoiDung.Image = global::QuanLyDienNang.Properties.Resources.Loading;
+			this.btnLoadNoiDung.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnLoadNoiDung.Location = new System.Drawing.Point(361, 2);
+			this.btnLoadNoiDung.Name = "btnLoadNoiDung";
+			this.btnLoadNoiDung.Size = new System.Drawing.Size(146, 42);
+			this.btnLoadNoiDung.TabIndex = 6;
+			this.btnLoadNoiDung.Text = "Load nội dung";
+			this.btnLoadNoiDung.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnLoadNoiDung.UseVisualStyleBackColor = true;
+			this.btnLoadNoiDung.Click += new System.EventHandler(this.btnLoadNoiDung_Click);
 			// 
 			// label3
 			// 
@@ -219,14 +221,21 @@
 			this.label3.Text = "NHẬP THÔNG TIN KHÁCH HÀNG SỬ DỤNG ĐIỆN";
 			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// dgvDienNangTieuThu
+			// dgvThongTinKhachHang
 			// 
-			this.dgvDienNangTieuThu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvDienNangTieuThu.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dgvDienNangTieuThu.Location = new System.Drawing.Point(3, 173);
-			this.dgvDienNangTieuThu.Name = "dgvDienNangTieuThu";
-			this.dgvDienNangTieuThu.Size = new System.Drawing.Size(855, 420);
-			this.dgvDienNangTieuThu.TabIndex = 13;
+			this.dgvThongTinKhachHang.AllowUserToAddRows = false;
+			this.dgvThongTinKhachHang.AllowUserToDeleteRows = false;
+			this.dgvThongTinKhachHang.AllowUserToOrderColumns = true;
+			this.dgvThongTinKhachHang.AllowUserToResizeRows = false;
+			this.dgvThongTinKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dgvThongTinKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvThongTinKhachHang.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dgvThongTinKhachHang.Location = new System.Drawing.Point(3, 173);
+			this.dgvThongTinKhachHang.MultiSelect = false;
+			this.dgvThongTinKhachHang.Name = "dgvThongTinKhachHang";
+			this.dgvThongTinKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.dgvThongTinKhachHang.Size = new System.Drawing.Size(855, 420);
+			this.dgvThongTinKhachHang.TabIndex = 13;
 			// 
 			// fileDialog
 			// 
@@ -239,6 +248,7 @@
 			this.ClientSize = new System.Drawing.Size(861, 596);
 			this.Controls.Add(this.tableParent);
 			this.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "FormKH_NhapKhachHang";
 			this.Text = "Nhập Thông Tin Khách Hàng Từ Excel";
@@ -247,14 +257,14 @@
 			this.panel1.PerformLayout();
 			this.tableParent.ResumeLayout(false);
 			this.panel2.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.dgvDienNangTieuThu)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvThongTinKhachHang)).EndInit();
 			this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.TextBox tbxDuongDan;
-		private System.Windows.Forms.Button btnLoadExcel;
+		private System.Windows.Forms.Button btnLoadNoiDung;
 		private System.Windows.Forms.Button btnLuu;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
@@ -265,7 +275,7 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.ComboBox cbxNguoiNhap;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.DataGridView dgvDienNangTieuThu;
+		private System.Windows.Forms.DataGridView dgvThongTinKhachHang;
 		private System.Windows.Forms.Button btnXemMau;
 		private System.Windows.Forms.Button btnChonTapTin;
 		private System.Windows.Forms.OpenFileDialog fileDialog;
