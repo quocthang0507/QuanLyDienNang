@@ -54,13 +54,17 @@ AS
 GO
 
 CREATE FUNCTION func_GenerateID_NguoiQuanLy()
+--ALTER FUNCTION func_GenerateID_NguoiQuanLy()
 RETURNS CHAR(5)
 AS
 	BEGIN
 		DECLARE @ID INT
 		DECLARE @MA CHAR(5)
-		SET @MA = (SELECT MaQuanLy FROM NguoiQuanLy WHERE MaQuanLy=(SELECT max(MaQuanLy) FROM NguoiQuanLy))
-		SET @ID = CAST (RIGHT(@MA, 3) AS TINYINT) + 1
+		IF EXISTS (SELECT MaQuanLy FROM NguoiQuanLy WHERE MaQuanLy=(SELECT max(MaQuanLy) FROM NguoiQuanLy))
+			SET @MA = (SELECT MaQuanLy FROM NguoiQuanLy WHERE MaQuanLy=(SELECT max(MaQuanLy) FROM NguoiQuanLy))
+		ELSE
+			SET @MA = 'QL000'
+		SET @ID = CAST (RIGHT(@MA, 3) AS INT) + 1
 		SET @MA = 'QL' + RIGHT('000' + CAST (@ID AS VARCHAR(3)), 3)
 		RETURN @MA
 	END
@@ -103,8 +107,8 @@ GO
 --THÔNG TIN KHÁCH HÀNG
 CREATE TABLE KhachHang (
 --ALTER TABLE KhachHang (
-	--KH000001
-	MaKhachHang char(8) primary key,
+	--KH0000001
+	MaKhachHang char(9) primary key,
 	HoVaTen nvarchar(150) not null,
 	DiaChi nvarchar(200) not null,
 	MaBangGia char(5) references BangGia(MaBangGia),
@@ -125,10 +129,101 @@ CREATE TABLE KhachHang (
 	TenNganHang nvarchar(100) null
 )
 GO 
+
+CREATE PROCEDURE proc_GetAll_KhachHang
+--ALTER PROCEDURE proc_GetAll_KhachHang
+AS
+	SELECT * FROM KhachHang ORDER BY MaKhachHang
+GO
+
+CREATE FUNCTION func_GenerateID_KhachHang()
+--ALTER FUNCTION func_GenerateID_KhachHang()
+RETURNS CHAR(9)
+AS
+	BEGIN
+		DECLARE @ID INT
+		DECLARE @MA CHAR(9)
+		IF EXISTS (SELECT MaKhachHang FROM KhachHang WHERE MaKhachHang=(SELECT max(MaKhachHang) FROM KhachHang))
+			SET @MA = (SELECT MaKhachHang FROM KhachHang WHERE MaKhachHang=(SELECT max(MaKhachHang) FROM KhachHang))
+		ELSE
+			SET @MA = 'KH0000000';
+		SET @ID = CAST (RIGHT(@MA, 7) AS INT) + 1
+		SET @MA = 'KH' + RIGHT('0000000' + CAST (@ID AS VARCHAR(7)), 7)
+		RETURN @MA
+	END
+GO
+
+/*
+PRINT DBO.func_GenerateID_KhachHang()
+*/
+
+CREATE PROCEDURE proc_Insert_KhachHang
+	@HoVaTen nvarchar(150),
+	@DiaChi nvarchar(200),
+	@MaBangGia char(5),
+	@MaTram char(5),
+	@SoHo tinyint,
+	@HeSoNhan tinyint,
+	@MaSoThue varchar(20),
+	@SoDienThoai varchar(20),
+	@Email nvarchar(100),
+	@NgayTao datetime,
+	@NguoiTao char(5),
+	@NgayCapNhat datetime,
+	@NguoiCapNhat char(5),
+	@MaSoHopDong nvarchar(20),
+	@NgayHopDong datetime,
+	@MaCongTo nvarchar(20),
+	@SoNganHang varchar(20),
+	@TenNganHang nvarchar(100)
+AS
+	DECLARE @MA CHAR(9)
+	SET @MA = DBO.func_GenerateID_KhachHang()
+	INSERT INTO KhachHang VALUES (@MA, @HoVaTen, @DiaChi, @MaBangGia, @MaTram, @SoHo, @HeSoNhan, @MaSoThue, 
+		@SoDienThoai, @Email, @NgayTao, @NguoiTao, @NgayCapNhat, @NguoiCapNhat, @MaSoHopDong, @NgayHopDong, @MaCongTo, @SoNganHang, @TenNganHang)
+GO
+
+CREATE PROCEDURE func_Insert_KhachHang_Test
+	@HoVaTen nvarchar(150),
+	@DiaChi nvarchar(200),
+	@MaBangGia char(5),
+	@MaTram char(5),
+	@SoHo tinyint,
+	@HeSoNhan tinyint,
+	@MaSoThue varchar(20),
+	@SoDienThoai varchar(20),
+	@Email nvarchar(100),
+	@NgayTao datetime,
+	@NguoiTao char(5),
+	@NgayCapNhat datetime,
+	@NguoiCapNhat char(5),
+	@MaSoHopDong nvarchar(20),
+	@NgayHopDong datetime,
+	@MaCongTo nvarchar(20),
+	@SoNganHang varchar(20),
+	@TenNganHang nvarchar(100),
+	@KQ bit OUTPUT
+AS
+	BEGIN
+		DECLARE @MA CHAR(9)
+		SET @KQ = 1
+		BEGIN TRANSACTION ADDCUSTOMER
+			BEGIN TRY
+				SET @MA = DBO.func_GenerateID_KhachHang()
+				INSERT INTO KhachHang VALUES (@MA, @HoVaTen, @DiaChi, @MaBangGia, @MaTram, @SoHo, @HeSoNhan, @MaSoThue, 
+					@SoDienThoai, @Email, @NgayTao, @NguoiTao, @NgayCapNhat, @NguoiCapNhat, @MaSoHopDong, @NgayHopDong, @MaCongTo, @SoNganHang, @TenNganHang)
+			END TRY
+			BEGIN CATCH
+				SET @KQ = 0
+			END CATCH
+		ROLLBACK TRANSACTION ADDCUSTOMER
+	END
+GO
+
 --THÔNG TIN ĐIỆN NĂNG TIÊU THỤ CỦA KHÁCH HÀNG
 CREATE TABLE DienNangTieuThu (
 	ID int not null identity(1, 1) primary key,
-	MaKhachHang char(8) references KhachHang(MaKhachHang) not null,
+	MaKhachHang char(9) references KhachHang(MaKhachHang) not null,
 	NgayGhi datetime not null,
 	NguoiGhi char(5) references NguoiQuanLy(MaQuanLy),
 	NgayCapNhat datetime not null,

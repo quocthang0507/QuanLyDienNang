@@ -42,7 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CBO.cs" />
     <Compile Include="DataProvider.cs" />
+    <Compile Include="Null.cs" />
     <Compile Include="SQLConnectionString.cs" />
     <Compile Include="SqlDataProvider.cs" />
     <Compile Include="SQLHelper.cs" />

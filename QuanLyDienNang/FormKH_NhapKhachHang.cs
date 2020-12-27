@@ -43,6 +43,11 @@ namespace QuanLyDienNang
 			dgvThongTinKhachHang.DataSource = funcs.GetDataTableFromExcel(tbxDuongDan.Text, cbxSheet.Text);
 		}
 
+		private void btnLuuCSDL_Click(object sender, System.EventArgs e)
+		{
+
+		}
+
 		private void UpdateSheetCombobox(string path)
 		{
 			thread = new Thread(() =>
@@ -66,5 +71,6 @@ namespace QuanLyDienNang
 			  });
 			thread.Start();
 		}
+
 	}
 }

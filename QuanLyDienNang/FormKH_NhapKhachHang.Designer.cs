@@ -39,7 +39,7 @@
 			this.label4 = new System.Windows.Forms.Label();
 			this.tableParent = new System.Windows.Forms.TableLayoutPanel();
 			this.panel2 = new System.Windows.Forms.Panel();
-			this.btnLuu = new System.Windows.Forms.Button();
+			this.btnLuuCSDL = new System.Windows.Forms.Button();
 			this.btnXemMau = new System.Windows.Forms.Button();
 			this.btnLoadNoiDung = new System.Windows.Forms.Button();
 			this.label3 = new System.Windows.Forms.Label();
@@ -161,7 +161,7 @@
 			// 
 			// panel2
 			// 
-			this.panel2.Controls.Add(this.btnLuu);
+			this.panel2.Controls.Add(this.btnLuuCSDL);
 			this.panel2.Controls.Add(this.btnXemMau);
 			this.panel2.Controls.Add(this.btnLoadNoiDung);
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -170,25 +170,26 @@
 			this.panel2.Size = new System.Drawing.Size(855, 44);
 			this.panel2.TabIndex = 11;
 			// 
-			// btnLuu
+			// btnLuuCSDL
 			// 
-			this.btnLuu.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnLuu.Image = global::QuanLyDienNang.Properties.Resources.Save;
-			this.btnLuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLuu.Location = new System.Drawing.Point(513, 2);
-			this.btnLuu.Name = "btnLuu";
-			this.btnLuu.Size = new System.Drawing.Size(88, 42);
-			this.btnLuu.TabIndex = 7;
-			this.btnLuu.Text = "Lưu lại";
-			this.btnLuu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.btnLuu.UseVisualStyleBackColor = true;
+			this.btnLuuCSDL.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnLuuCSDL.Image = global::QuanLyDienNang.Properties.Resources.Save;
+			this.btnLuuCSDL.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnLuuCSDL.Location = new System.Drawing.Point(480, 2);
+			this.btnLuuCSDL.Name = "btnLuuCSDL";
+			this.btnLuuCSDL.Size = new System.Drawing.Size(135, 42);
+			this.btnLuuCSDL.TabIndex = 7;
+			this.btnLuuCSDL.Text = "Lưu vào CSDL";
+			this.btnLuuCSDL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnLuuCSDL.UseVisualStyleBackColor = true;
+			this.btnLuuCSDL.Click += new System.EventHandler(this.btnLuuCSDL_Click);
 			// 
 			// btnXemMau
 			// 
 			this.btnXemMau.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnXemMau.Image = global::QuanLyDienNang.Properties.Resources.Xlsx;
 			this.btnXemMau.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnXemMau.Location = new System.Drawing.Point(236, 1);
+			this.btnXemMau.Location = new System.Drawing.Point(203, 1);
 			this.btnXemMau.Name = "btnXemMau";
 			this.btnXemMau.Size = new System.Drawing.Size(119, 42);
 			this.btnXemMau.TabIndex = 5;
@@ -201,7 +202,7 @@
 			this.btnLoadNoiDung.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnLoadNoiDung.Image = global::QuanLyDienNang.Properties.Resources.Loading;
 			this.btnLoadNoiDung.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLoadNoiDung.Location = new System.Drawing.Point(361, 2);
+			this.btnLoadNoiDung.Location = new System.Drawing.Point(328, 2);
 			this.btnLoadNoiDung.Name = "btnLoadNoiDung";
 			this.btnLoadNoiDung.Size = new System.Drawing.Size(146, 42);
 			this.btnLoadNoiDung.TabIndex = 6;
@@ -265,7 +266,7 @@
         #endregion
         private System.Windows.Forms.TextBox tbxDuongDan;
 		private System.Windows.Forms.Button btnLoadNoiDung;
-		private System.Windows.Forms.Button btnLuu;
+		private System.Windows.Forms.Button btnLuuCSDL;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.ComboBox cbxSheet;

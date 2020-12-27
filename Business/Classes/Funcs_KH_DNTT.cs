@@ -125,5 +125,19 @@ namespace Business.Classes
 				return null;
 			}
 		}
+
+		public bool TryToInsert(DataRow dr)
+		{
+			try
+			{
+				
+				//DataProvider.Instance.ExecuteNonQueryWithOutput("proc_Insert_KhachHang_Test",);
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+		}
 	}
 }
