@@ -1,13 +1,24 @@
 ﻿using DataAccess;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Windows.Forms;
 
 namespace Business.Classes
 {
+	[Table("BangGia")]
 	public class BangGia
 	{
+		[Key]
+		[DisplayName("Mã bảng giá")]
+		[StringLength(5)]
 		public string MaBangGia { get; set; }
+
+		[DisplayName("Tên bảng giá")]
+		[StringLength(100)]
+		[Required]
 		public string TenBangGia { get; set; }
 
 		public BangGia()

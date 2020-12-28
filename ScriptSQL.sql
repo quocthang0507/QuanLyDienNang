@@ -334,8 +334,8 @@ CREATE TABLE DienNangTieuThu (
 	NguoiGhi char(5) references NguoiQuanLy(MaQuanLy),
 	NgayCapNhat datetime not null,
 	NguoiCapNhat char(5) references NguoiQuanLy(MaQuanLy),
-	ChiSoMoi int,
-	ChiSoCu int,
+	ChiSoMoi int default 0 not null,
+	ChiSoCu int default 0 not null,
 	DaThanhToan bit default 0 not null
 )
 GO

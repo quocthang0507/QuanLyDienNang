@@ -1,30 +1,98 @@
 ﻿using DataAccess;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Windows.Forms;
 
 namespace Business.Classes
 {
+	[Table("KhachHang")]
 	public class KhachHang
 	{
+		[Key]
+		[DisplayName("Mã khách hàng")]
+		[StringLength(9)]
 		public string MaKhachHang { get; set; }
+
+		[DisplayName("Họ và tên")]
+		[StringLength(150)]
+		[Required]
 		public string HoVaTen { get; set; }
+
+		[DisplayName("Địa chỉ")]
+		[StringLength(200)]
+		[Required]
 		public string DiaChi { get; set; }
+
+		[DisplayName("Mã bảng giá")]
+		[StringLength(5)]
+		[Required]
 		public string MaBangGia { get; set; }
+
+		[DisplayName("Mã trạm biến áp")]
+		[StringLength(5)]
+		[Required]
 		public string MaTram { get; set; }
+
+		[DisplayName("Số hộ")]
+		[DefaultValue(1)]
+		[Required]
 		public byte SoHo { get; set; }
+
+		[DisplayName("Hệ số nhân")]
+		[DefaultValue(1)]
+		[Required]
 		public byte HeSoNhan { get; set; }
+
+		[DisplayName("Mã số thuế")]
+		[StringLength(20)]
 		public string MaSoThue { get; set; }
+
+		[DisplayName("Số điện thoại")]
+		[StringLength(20)]
 		public string SoDienThoai { get; set; }
+
+		[DisplayName("Email")]
+		[StringLength(100)]
 		public string Email { get; set; }
+
+		[DisplayName("Ngày tạo")]
+		[Required]
 		public DateTime NgayTao { get; set; }
+
+		[DisplayName("Người tạo")]
+		[StringLength(5)]
+		[Required]
 		public string NguoiTao { get; set; }
+
+		[DisplayName("Ngày cập nhật")]
+		[Required]
 		public DateTime NgayCapNhat { get; set; }
+
+		[DisplayName("Người cập nhật")]
+		[StringLength(5)]
+		[Required]
 		public string NguoiCapNhat { get; set; }
+
+		[DisplayName("Mã số hợp đồng")]
+		[StringLength(20)]
 		public string MaSoHopDong { get; set; }
+
+		[DisplayName("Ngày hợp đồng")]
 		public DateTime NgayHopDong { get; set; }
+
+		[DisplayName("Mã công tơ")]
+		[StringLength(20)]
 		public string MaCongTo { get; set; }
+
+		[DisplayName("Số ngân hàng")]
+		[StringLength(20)]
 		public string SoNganHang { get; set; }
+
+		[DisplayName("Tên ngân hàng")]
+		[StringLength(100)]
 		public string TenNganHang { get; set; }
 
 		public KhachHang()

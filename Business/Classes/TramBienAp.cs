@@ -1,13 +1,24 @@
 ﻿using DataAccess;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Windows.Forms;
 
 namespace Business.Classes
 {
+	[Table("TramBienAp")]
 	public class TramBienAp
 	{
+		[Key]
+		[DisplayName("Mã trạm biến áp")]
+		[StringLength(5)]
 		public string MaTram { get; set; }
+
+		[DisplayName("Tên trạm biến áp")]
+		[StringLength(100)]
+		[Required]
 		public string TenTram { get; set; }
 
 		public TramBienAp()

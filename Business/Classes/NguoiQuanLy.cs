@@ -1,17 +1,37 @@
 ﻿using DataAccess;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Windows.Forms;
 
 namespace Business.Classes
 {
+	[Table("NguoiQuanLy")]
 	public class NguoiQuanLy
 	{
-
+		[Key]
+		[DisplayName("Mã quản lý")]
+		[StringLength(5)]
 		public string MaQuanLy { get; set; }
+
+		[DisplayName("Tên quản lý")]
+		[StringLength(150)]
+		[Required]
 		public string TenQuanLy { get; set; }
+
+		[DisplayName("Số điện thoại")]
+		[StringLength(20)]
 		public string SoDienThoai { get; set; }
+
+		[DisplayName("Địa chỉ")]
+		[StringLength(200)]
+		[Required]
 		public string DiaChi { get; set; }
+
+		[DisplayName("Email")]
+		[StringLength(100)]
 		public string Email { get; set; }
 
 		public NguoiQuanLy()

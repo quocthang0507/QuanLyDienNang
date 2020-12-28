@@ -1,20 +1,56 @@
 ﻿using DataAccess;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Windows.Forms;
 
 namespace Business.Classes
 {
+	[Table("DienNangTieuThu")]
 	public class DienNangTieuThu
 	{
+		[Key]
+		[DisplayName("ID")]
 		public int ID { get; set; }
+
+		[DisplayName("Mã khách hàng")]
+		[StringLength(9)]
+		[Required]
 		public string MaKhachHang { get; set; }
+
+		[DisplayName("Ngày ghi")]
+		[Required]
 		public DateTime NgayGhi { get; set; }
+
+		[DisplayName("Người ghi")]
+		[StringLength(5)]
+		[Required]
 		public string NguoiGhi { get; set; }
+
+		[DisplayName("Ngày cập nhật")]
+		[Required]
 		public DateTime NgayCapNhat { get; set; }
+
+		[DisplayName("Người cập nhật")]
+		[StringLength(5)]
+		[Required]
 		public string NguoiCapNhat { get; set; }
+
+		[DisplayName("Chỉ số mới")]
+		[Required]
+		[DefaultValue(0)]
 		public int ChiSoMoi { get; set; }
+
+		[DisplayName("Chỉ số cũ")]
+		[Required]
+		[DefaultValue(0)]
 		public int ChiSoCu { get; set; }
+
+		[DisplayName("Đã thanh toán")]
+		[Required]
+		[DefaultValue(0)]
 		public bool DaThanhToan { get; set; }
 
 		public DienNangTieuThu()
