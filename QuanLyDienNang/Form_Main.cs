@@ -156,6 +156,11 @@ namespace QuanLyDienNang
 			}
 		}
 
+		private void btnThoat_Click(object sender, EventArgs e)
+		{
+			this.Close();
+		}
+
 
 		/// <summary>
 		/// Kiểm tra panel còn form nào hay không, nếu không có thì chèn form mới vào

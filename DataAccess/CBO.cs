@@ -2,10 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess
 {
@@ -239,10 +236,7 @@ namespace DataAccess
 			return objFillCollection;
 		}
 
-		public static List<T> FillCollection<T>(IDataReader dr) where T : class, new()
-		{
-			return FillCollection<T, List<T>>(dr);
-		}
+		public static List<T> FillCollection<T>(IDataReader dr) where T : class, new() => FillCollection<T, List<T>>(dr);
 
 		public static IList<T> FillCollection<T>(IDataReader dr, IList<T> objToFill) where T : class, new()
 		{
@@ -271,7 +265,7 @@ namespace DataAccess
 			{
 				if (objProperties[i].CanWrite)
 				{
-					objProperties[i].SetValue(objObject, Null.SetNull((PropertyInfo)objProperties[i]), null);
+					objProperties[i].SetValue(objObject, Null.SetNull(objProperties[i]), null);
 				}
 			}
 			return objObject;

@@ -38,9 +38,9 @@
 			this.quảnLýKháchHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.nhậpThôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.xuấtThôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.quảnLýĐiệnNăngTiêuThụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.quảnLýĐiệnNăngTiêuThụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.quảnLýNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.quảnLýNhânViênToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextTabMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -65,6 +65,7 @@
 			this.btnDuoiCung = new System.Windows.Forms.ToolStripButton();
 			this.separator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.btnDongForm = new System.Windows.Forms.ToolStripButton();
+			this.btnThoat = new System.Windows.Forms.ToolStripButton();
 			this.menuBar.SuspendLayout();
 			this.contextTabMenu.SuspendLayout();
 			this.tabForms.SuspendLayout();
@@ -151,6 +152,15 @@
 			this.xuấtThôngTinToolStripMenuItem.Text = "&Xuất thông tin ra Excel";
 			this.xuấtThôngTinToolStripMenuItem.Click += new System.EventHandler(this.xuấtThôngTinToolStripMenuItem_Click);
 			// 
+			// quảnLýĐiệnNăngTiêuThụToolStripMenuItem
+			// 
+			this.quảnLýĐiệnNăngTiêuThụToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem,
+            this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem});
+			this.quảnLýĐiệnNăngTiêuThụToolStripMenuItem.Name = "quảnLýĐiệnNăngTiêuThụToolStripMenuItem";
+			this.quảnLýĐiệnNăngTiêuThụToolStripMenuItem.Size = new System.Drawing.Size(161, 20);
+			this.quảnLýĐiệnNăngTiêuThụToolStripMenuItem.Text = "Quản lý Điện năng &tiêu thụ";
+			// 
 			// cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem
 			// 
 			this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem.Image = global::QuanLyDienNang.Properties.Resources.Modify;
@@ -166,15 +176,6 @@
 			this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
 			this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem.Text = "Đọc &chỉ số điện năng tiêu thụ";
 			this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem.Click += new System.EventHandler(this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem_Click);
-			// 
-			// quảnLýĐiệnNăngTiêuThụToolStripMenuItem
-			// 
-			this.quảnLýĐiệnNăngTiêuThụToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem,
-            this.đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem});
-			this.quảnLýĐiệnNăngTiêuThụToolStripMenuItem.Name = "quảnLýĐiệnNăngTiêuThụToolStripMenuItem";
-			this.quảnLýĐiệnNăngTiêuThụToolStripMenuItem.Size = new System.Drawing.Size(161, 20);
-			this.quảnLýĐiệnNăngTiêuThụToolStripMenuItem.Text = "Quản lý Điện năng &tiêu thụ";
 			// 
 			// quảnLýNhânViênToolStripMenuItem
 			// 
@@ -308,10 +309,11 @@
             this.btnXuong,
             this.btnDuoiCung,
             this.separator3,
-            this.btnDongForm});
+            this.btnDongForm,
+            this.btnThoat});
 			this.toolBar.Location = new System.Drawing.Point(3, 0);
 			this.toolBar.Name = "toolBar";
-			this.toolBar.Size = new System.Drawing.Size(885, 25);
+			this.toolBar.Size = new System.Drawing.Size(973, 25);
 			this.toolBar.TabIndex = 3;
 			this.toolBar.Text = "Thanh công cụ";
 			// 
@@ -410,6 +412,17 @@
 			this.btnDongForm.ToolTipText = "Đóng Form hiện hành";
 			this.btnDongForm.Click += new System.EventHandler(this.btnDongForm_Click);
 			// 
+			// btnThoat
+			// 
+			this.btnThoat.Image = global::QuanLyDienNang.Properties.Resources.Exit;
+			this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btnThoat.Name = "btnThoat";
+			this.btnThoat.Size = new System.Drawing.Size(57, 22);
+			this.btnThoat.Text = "Thoát";
+			this.btnThoat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+			// 
 			// Form_Main
 			// 
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -479,6 +492,7 @@
 		private System.Windows.Forms.ToolStripStatusLabel lblCSDL;
 		private System.Windows.Forms.ToolStripStatusLabel lblServer;
 		private System.Windows.Forms.ToolStripMenuItem quảnLýĐiệnNăngTiêuThụToolStripMenuItem;
+		private System.Windows.Forms.ToolStripButton btnThoat;
 	}
 }
 

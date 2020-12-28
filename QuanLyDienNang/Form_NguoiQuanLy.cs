@@ -157,11 +157,9 @@ namespace QuanLyDienNang
 		{
 			var data = NguoiQuanLy.LoadTable();
 			if (data == null)
-			{
 				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
-			}
-			dgvNguoiQuanLy.DataSource = data;
+			else
+				dgvNguoiQuanLy.DataSource = data;
 		}
 	}
 }

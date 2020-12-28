@@ -12,7 +12,7 @@ namespace QuanLyDienNang
 	{
 		private Thread runAllThread;
 		private Thread runOneThread;
-		private Funcs_KH_DNTT funcs = new Funcs_KH_DNTT();
+		private Funcs_NhapChiSoDien funcs = new Funcs_NhapChiSoDien();
 
 		public FormKH_DocChiSoDien()
 		{

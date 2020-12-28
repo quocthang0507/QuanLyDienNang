@@ -7,8 +7,6 @@ namespace QuanLyDienNang
 {
 	public partial class FormKH_DienNangTieuThu : Form
 	{
-		private Funcs_KH_DNTT funcs = new Funcs_KH_DNTT();
-
 		public FormKH_DienNangTieuThu()
 		{
 			InitializeComponent();
@@ -16,7 +14,11 @@ namespace QuanLyDienNang
 
 		private void FormKH_DienNangTieuThu_Load(object sender, EventArgs e)
 		{
-			dgvDienNangTieuThu.DataSource = DienNangTieuThu.LoadTable();
+			var data = DienNangTieuThu.LoadTable();
+			if (data == null)
+				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			else
+				dgvDienNangTieuThu.DataSource = data;
 		}
 
 		private void tbxSoDienThoai_KeyPress(object sender, KeyPressEventArgs e)

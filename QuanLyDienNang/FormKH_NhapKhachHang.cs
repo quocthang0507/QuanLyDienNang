@@ -6,7 +6,7 @@ namespace QuanLyDienNang
 {
 	public partial class FormKH_NhapKhachHang : Form
 	{
-		Funcs_KH_DNTT funcs = new Funcs_KH_DNTT();
+		Funcs_NhapKhachHang funcs = new Funcs_NhapKhachHang();
 		Thread thread;
 
 		public FormKH_NhapKhachHang()
@@ -19,7 +19,11 @@ namespace QuanLyDienNang
 		private void FormKH_NhapKhachHang_Load(object sender, System.EventArgs e)
 		{
 			tbxDuongDan.Text = funcs.GetSavedExcelPath();
-			cbxNguoiNhap.DataSource = funcs.LoadTable_NguoiQuanLy();
+			var data = NguoiQuanLy.LoadTable();
+			if (data == null)
+				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			else
+				cbxNguoiNhap.DataSource = data;
 			UpdateSheetCombobox(tbxDuongDan.Text);
 		}
 
@@ -45,7 +49,12 @@ namespace QuanLyDienNang
 
 		private void btnLuuCSDL_Click(object sender, System.EventArgs e)
 		{
-
+			if (dgvThongTinKhachHang.DataSource == null)
+			{
+				MessageBox.Show("Không thể thực hiện hành động này vì DataGridView đang trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+			funcs.TryToInsertDataTableToSQL(dgvThongTinKhachHang.DataSource as BindingSource);
 		}
 
 		private void UpdateSheetCombobox(string path)

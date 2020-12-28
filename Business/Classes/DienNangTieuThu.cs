@@ -110,7 +110,6 @@ namespace Business.Classes
 			}
 			catch (Exception)
 			{
-				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return null;
 			}
 		}
