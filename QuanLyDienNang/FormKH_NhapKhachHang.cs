@@ -1,5 +1,9 @@
 ﻿using Business.Classes;
+using Business.Helper;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -44,7 +48,7 @@ namespace QuanLyDienNang
 			  {
 				  dgvKhachHang.Invoke((MethodInvoker)delegate
 				  {
-					  var data = funcs.GetBindingSourceFromExcel(tbxDuongDan.Text, cbxSheet.Text, (cbxNguoiNhap.SelectedItem as NguoiQuanLy).MaQuanLy);
+					  var data = funcs.GetListKhachHangFromExcel(tbxDuongDan.Text, cbxSheet.Text, (cbxNguoiNhap.SelectedItem as NguoiQuanLy).MaQuanLy);
 					  if (data == null)
 						  MessageBox.Show("Lỗi đọc dữ liệu từ tập tin Excel", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					  else
@@ -72,6 +76,16 @@ namespace QuanLyDienNang
 				MessageBox.Show("Thêm vào CSDL không thành công, vui lòng kiểm tra dữ liệu hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
+
+		private void btnXemMau_Click(object sender, System.EventArgs e)
+		{
+			string filepath = AppDomain.CurrentDomain.BaseDirectory + "/Templates/NhapThongTinKhachHang_Sample.xlsx";
+			if (File.Exists(filepath))
+				Process.Start(filepath);
+			else
+				MessageBox.Show("Không tìm thấy tập tin theo yêu cầu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
 		#endregion
 
 		#region Methods
@@ -96,5 +110,6 @@ namespace QuanLyDienNang
 				cbxNguoiNhap.DataSource = data;
 		}
 		#endregion
+
 	}
 }

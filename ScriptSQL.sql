@@ -115,8 +115,8 @@ AS
 	BEGIN
 		DECLARE @ID INT
 		DECLARE @MA CHAR(5)
-		IF EXISTS (SELECT max(MaQuanLy) FROM NguoiQuanLy)
-			SET @MA = (SELECT MaQuanLy FROM NguoiQuanLy WHERE MaQuanLy=(SELECT max(MaQuanLy) FROM NguoiQuanLy))
+		IF EXISTS (SELECT * FROM NguoiQuanLy WHERE MaQuanLy = (SELECT max(MaQuanLy) FROM NguoiQuanLy))
+			SET @MA = (SELECT max(MaQuanLy) FROM NguoiQuanLy)
 		ELSE
 			SET @MA = 'QL000'
 		SET @ID = CAST (RIGHT(@MA, 3) AS INT) + 1
@@ -200,8 +200,8 @@ AS
 	BEGIN
 		DECLARE @ID INT
 		DECLARE @MA CHAR(9)
-		IF EXISTS (SELECT max(MaKhachHang) FROM KhachHang)
-			SET @MA = (SELECT MaKhachHang FROM KhachHang WHERE MaKhachHang=(SELECT max(MaKhachHang) FROM KhachHang))
+		IF EXISTS (SELECT * FROM KhachHang WHERE MaKhachHang = (SELECT max(MaKhachHang) FROM KhachHang))
+			SET @MA = (SELECT max(MaKhachHang) FROM KhachHang)
 		ELSE
 			SET @MA = 'KH0000000';
 		SET @ID = CAST (RIGHT(@MA, 7) AS INT) + 1
@@ -292,6 +292,7 @@ AS
 GO
 
 CREATE PROCEDURE proc_Insert_KhachHang_Test
+--ALTER PROCEDURE proc_Insert_KhachHang_Test
 	@HoVaTen nvarchar(150),
 	@DiaChi nvarchar(200),
 	@MaBangGia char(5),
@@ -309,11 +310,11 @@ CREATE PROCEDURE proc_Insert_KhachHang_Test
 	@NgayHopDong datetime,
 	@MaCongTo nvarchar(20),
 	@SoNganHang varchar(20),
-	@TenNganHang nvarchar(100),
-	@KQ bit OUTPUT
+	@TenNganHang nvarchar(100)
 AS
 	BEGIN
 		DECLARE @MA CHAR(9)
+		DECLARE @KQ BIT
 		SET @KQ = 1
 		BEGIN TRANSACTION ADDCUSTOMER
 			BEGIN TRY
@@ -325,6 +326,7 @@ AS
 				SET @KQ = 0
 			END CATCH
 		ROLLBACK TRANSACTION ADDCUSTOMER
+		RETURN @KQ
 	END
 GO
 

@@ -198,6 +198,7 @@
 			this.btnXemMau.Text = "Xem mẫu";
 			this.btnXemMau.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnXemMau.UseVisualStyleBackColor = true;
+			this.btnXemMau.Click += new System.EventHandler(this.btnXemMau_Click);
 			// 
 			// btnLoadNoiDung
 			// 

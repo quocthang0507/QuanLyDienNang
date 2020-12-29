@@ -83,7 +83,7 @@ namespace Business.Classes
 			}
 		}
 
-		public List<KhachHang> ConvertDataTableToBindingSource(DataTable dt, string MaQuanLy)
+		public List<KhachHang> ConvertDataTableToListKhachHang(DataTable dt, string MaQuanLy)
 		{
 			List<KhachHang> list = new List<KhachHang>();
 			foreach (DataRow row in dt.Rows)
@@ -115,10 +115,10 @@ namespace Business.Classes
 			return list;
 		}
 
-		public List<KhachHang> GetBindingSourceFromExcel(string excelFilePath, string sheetname, string MaQuanLy)
+		public List<KhachHang> GetListKhachHangFromExcel(string excelFilePath, string sheetname, string MaQuanLy)
 		{
 			DataTable dt = GetDataTableFromExcel(excelFilePath, sheetname);
-			return ConvertDataTableToBindingSource(dt, MaQuanLy);
+			return ConvertDataTableToListKhachHang(dt, MaQuanLy);
 		}
 
 		public bool TryAddingDataTableToSQL(List<KhachHang> list)

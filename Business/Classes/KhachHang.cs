@@ -133,9 +133,8 @@ namespace Business.Classes
 
 		public static bool TryAdding(KhachHang khachHang)
 		{
-			object result = DataProvider.Instance.ExecuteNonQueryWithOutput("@KQ", "proc_Insert_KhachHang_Test", khachHang.HoVaTen, khachHang.DiaChi, khachHang.MaBangGia, khachHang.MaTram, khachHang.SoHo, khachHang.HeSoNhan, khachHang.MaSoThue, khachHang.SoDienThoai, khachHang.Email, khachHang.NgayTao.ToString("yyyy-MM-dd HH:mm:ss"), khachHang.NguoiTao, khachHang.NgayCapNhat, khachHang.NguoiCapNhat, khachHang.MaSoHopDong, khachHang.NgayHopDong, khachHang.MaCongTo, khachHang.SoNganHang, khachHang.TenNganHang, null);
-			int KQ = Convert.ToInt32(result);
-			return KQ > 0;
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_KhachHang_Test", khachHang.HoVaTen, khachHang.DiaChi, khachHang.MaBangGia, khachHang.MaTram, khachHang.SoHo, khachHang.HeSoNhan, khachHang.MaSoThue, khachHang.SoDienThoai, khachHang.Email, khachHang.NgayTao.ToString("yyyy-MM-dd HH:mm:ss"), khachHang.NguoiTao, khachHang.NgayCapNhat, khachHang.NguoiCapNhat, khachHang.MaSoHopDong, khachHang.NgayHopDong, khachHang.MaCongTo, khachHang.SoNganHang, khachHang.TenNganHang);
+			return result > 0;
 		}
 
 		public static bool Update(KhachHang khachHang)
