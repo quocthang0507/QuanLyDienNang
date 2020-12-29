@@ -41,7 +41,7 @@ namespace Business.Classes
 					}
 					sheet.Column(col).AutoFit();
 				}
-				var bytes= excel.GetAsByteArray();
+				var bytes = excel.GetAsByteArray();
 				excel.Dispose();
 				return bytes;
 			}

@@ -101,7 +101,7 @@ namespace QuanLyDienNang
 				}
 			}
 		}
-#endregion
+		#endregion
 
 		#region Methods
 		public void GoToIndex(int index)

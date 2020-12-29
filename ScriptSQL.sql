@@ -115,7 +115,7 @@ AS
 	BEGIN
 		DECLARE @ID INT
 		DECLARE @MA CHAR(5)
-		IF EXISTS (SELECT MaQuanLy FROM NguoiQuanLy WHERE MaQuanLy=(SELECT max(MaQuanLy) FROM NguoiQuanLy))
+		IF EXISTS (SELECT max(MaQuanLy) FROM NguoiQuanLy)
 			SET @MA = (SELECT MaQuanLy FROM NguoiQuanLy WHERE MaQuanLy=(SELECT max(MaQuanLy) FROM NguoiQuanLy))
 		ELSE
 			SET @MA = 'QL000'
@@ -185,6 +185,8 @@ CREATE TABLE KhachHang (
 )
 GO 
 
+--DELETE FROM KHACHHANG
+
 CREATE PROCEDURE proc_GetAll_KhachHang
 --ALTER PROCEDURE proc_GetAll_KhachHang
 AS
@@ -198,7 +200,7 @@ AS
 	BEGIN
 		DECLARE @ID INT
 		DECLARE @MA CHAR(9)
-		IF EXISTS (SELECT MaKhachHang FROM KhachHang WHERE MaKhachHang=(SELECT max(MaKhachHang) FROM KhachHang))
+		IF EXISTS (SELECT max(MaKhachHang) FROM KhachHang)
 			SET @MA = (SELECT MaKhachHang FROM KhachHang WHERE MaKhachHang=(SELECT max(MaKhachHang) FROM KhachHang))
 		ELSE
 			SET @MA = 'KH0000000';
