@@ -82,6 +82,11 @@ namespace QuanLyDienNang
 			AddFormToTabPage(frmNQL);
 		}
 
+		private void cậpNhậtThôngTinTừExcelToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
+		}
+
 		private void btnLen_Click(object sender, EventArgs e)
 		{
 			GoUp.Invoke();

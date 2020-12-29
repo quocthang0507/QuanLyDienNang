@@ -76,18 +76,77 @@ namespace Business.Classes
 			}
 			catch (Exception)
 			{
-				MessageBox.Show("Lỗi đọc dữ liệu từ tập tin Excel", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return null;
 			}
 		}
 
-		public void TryToInsertDataTableToSQL(BindingSource binding)
+		public BindingSource ConvertDataTableToBindingSource(DataTable dt, string MaQuanLy)
+		{
+			BindingSource binding = new BindingSource();
+			List<KhachHang> list = new List<KhachHang>();
+			foreach (DataRow row in dt.Rows)
+			{
+				KhachHang khachHang = new KhachHang()
+				{
+					MaKhachHang = null,
+					HoVaTen = row["HoVaTen"].ToString(),
+					DiaChi = row["DiaChi"].ToString(),
+					MaBangGia = row["MaBangGia"].ToString(),
+					MaTram = row["MaTram"].ToString(),
+					SoHo = byte.Parse(row["SoHo"].ToString()),
+					HeSoNhan = byte.Parse(row["HeSoNhan"].ToString()),
+					MaSoThue = row["MaSoThue"].ToString(),
+					SoDienThoai = row["SoDienThoai"].ToString(),
+					Email = row["Email"].ToString(),
+					NgayTao = DateTime.Now,
+					NguoiTao = MaQuanLy,
+					NgayCapNhat = DateTime.Now,
+					NguoiCapNhat = MaQuanLy,
+					MaSoHopDong = row["MaSoHopDong"].ToString(),
+					NgayHopDong = string.IsNullOrWhiteSpace(row["NgayHopDong"].ToString()) ? DateTime.Now : DateTime.Parse(row["NgayHopDong"].ToString()),
+					MaCongTo = row["MaCongTo"].ToString(),
+					SoNganHang = row["SoNganHang"].ToString(),
+					TenNganHang = row["TenNganHang"].ToString()
+				};
+				list.Add(khachHang);
+			}
+			binding.DataSource = list;
+			return binding;
+		}
+
+		public BindingSource GetBindingSourceFromExcel(string excelFilePath, string sheetname, string MaQuanLy)
+		{
+			DataTable dt = GetDataTableFromExcel(excelFilePath, sheetname);
+			return ConvertDataTableToBindingSource(dt, MaQuanLy);
+		}
+
+		public bool TryAddingDataTableToSQL(BindingSource binding)
 		{
 			var list = binding.DataSource as List<KhachHang>;
 			foreach (var khach in list)
 			{
-
+				bool ok = KhachHang.TryAdding(khach);
+				if (!ok)
+					return false;
 			}
+			return true;
+		}
+
+		public bool AddDataTableToSQL(BindingSource binding)
+		{
+			try
+			{
+				var list = binding.DataSource as List<KhachHang>;
+				foreach (var khach in list)
+				{
+					KhachHang.Add(khach);
+				}
+			}
+			catch (Exception)
+			{
+				return false;
+			}
+			return true;
 		}
 	}
 }

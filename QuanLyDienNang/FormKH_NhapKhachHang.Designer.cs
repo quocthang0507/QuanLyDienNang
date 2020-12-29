@@ -43,12 +43,12 @@
 			this.btnXemMau = new System.Windows.Forms.Button();
 			this.btnLoadNoiDung = new System.Windows.Forms.Button();
 			this.label3 = new System.Windows.Forms.Label();
-			this.dgvThongTinKhachHang = new System.Windows.Forms.DataGridView();
+			this.dgvKhachHang = new System.Windows.Forms.DataGridView();
 			this.fileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.panel1.SuspendLayout();
 			this.tableParent.SuspendLayout();
 			this.panel2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dgvThongTinKhachHang)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tbxDuongDan
@@ -146,7 +146,7 @@
 			this.tableParent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableParent.Controls.Add(this.panel2, 0, 2);
 			this.tableParent.Controls.Add(this.label3, 0, 0);
-			this.tableParent.Controls.Add(this.dgvThongTinKhachHang, 0, 3);
+			this.tableParent.Controls.Add(this.dgvKhachHang, 0, 3);
 			this.tableParent.Controls.Add(this.panel1, 0, 1);
 			this.tableParent.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableParent.Location = new System.Drawing.Point(0, 0);
@@ -222,21 +222,21 @@
 			this.label3.Text = "NHẬP THÔNG TIN KHÁCH HÀNG SỬ DỤNG ĐIỆN";
 			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// dgvThongTinKhachHang
+			// dgvKhachHang
 			// 
-			this.dgvThongTinKhachHang.AllowUserToAddRows = false;
-			this.dgvThongTinKhachHang.AllowUserToDeleteRows = false;
-			this.dgvThongTinKhachHang.AllowUserToOrderColumns = true;
-			this.dgvThongTinKhachHang.AllowUserToResizeRows = false;
-			this.dgvThongTinKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.dgvThongTinKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvThongTinKhachHang.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dgvThongTinKhachHang.Location = new System.Drawing.Point(3, 173);
-			this.dgvThongTinKhachHang.MultiSelect = false;
-			this.dgvThongTinKhachHang.Name = "dgvThongTinKhachHang";
-			this.dgvThongTinKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgvThongTinKhachHang.Size = new System.Drawing.Size(855, 420);
-			this.dgvThongTinKhachHang.TabIndex = 13;
+			this.dgvKhachHang.AllowUserToAddRows = false;
+			this.dgvKhachHang.AllowUserToDeleteRows = false;
+			this.dgvKhachHang.AllowUserToOrderColumns = true;
+			this.dgvKhachHang.AllowUserToResizeRows = false;
+			this.dgvKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+			this.dgvKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvKhachHang.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dgvKhachHang.Location = new System.Drawing.Point(3, 173);
+			this.dgvKhachHang.MultiSelect = false;
+			this.dgvKhachHang.Name = "dgvKhachHang";
+			this.dgvKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.dgvKhachHang.Size = new System.Drawing.Size(855, 420);
+			this.dgvKhachHang.TabIndex = 13;
 			// 
 			// fileDialog
 			// 
@@ -258,7 +258,7 @@
 			this.panel1.PerformLayout();
 			this.tableParent.ResumeLayout(false);
 			this.panel2.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.dgvThongTinKhachHang)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).EndInit();
 			this.ResumeLayout(false);
 
         }
@@ -276,7 +276,7 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.ComboBox cbxNguoiNhap;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.DataGridView dgvThongTinKhachHang;
+		private System.Windows.Forms.DataGridView dgvKhachHang;
 		private System.Windows.Forms.Button btnXemMau;
 		private System.Windows.Forms.Button btnChonTapTin;
 		private System.Windows.Forms.OpenFileDialog fileDialog;

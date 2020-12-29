@@ -44,17 +44,37 @@ namespace QuanLyDienNang
 
 		private void btnLoadNoiDung_Click(object sender, System.EventArgs e)
 		{
-			dgvThongTinKhachHang.DataSource = funcs.GetDataTableFromExcel(tbxDuongDan.Text, cbxSheet.Text);
+			thread = new Thread(() =>
+			  {
+				  dgvKhachHang.Invoke((MethodInvoker)delegate
+				  {
+					  var data = funcs.GetBindingSourceFromExcel(tbxDuongDan.Text, cbxSheet.Text, (cbxNguoiNhap.SelectedItem as NguoiQuanLy).MaQuanLy);
+					  if (data == null)
+						  MessageBox.Show("Lỗi đọc dữ liệu từ tập tin Excel", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					  else
+						  dgvKhachHang.DataSource = data;
+				  });
+			  });
+			thread.Start();
 		}
 
 		private void btnLuuCSDL_Click(object sender, System.EventArgs e)
 		{
-			if (dgvThongTinKhachHang.DataSource == null)
+			if (dgvKhachHang.DataSource == null)
 			{
 				MessageBox.Show("Không thể thực hiện hành động này vì DataGridView đang trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
-			funcs.TryToInsertDataTableToSQL(dgvThongTinKhachHang.DataSource as BindingSource);
+			var ok = funcs.TryAddingDataTableToSQL(dgvKhachHang.DataSource as BindingSource);
+			if (ok)
+			{
+				funcs.AddDataTableToSQL(dgvKhachHang.DataSource as BindingSource);
+				MessageBox.Show("Thêm vào CSDL thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
+			else
+			{
+				MessageBox.Show("Thêm vào CSDL không thành công, vui lòng kiểm tra dữ liệu hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 		}
 
 		private void UpdateSheetCombobox(string path)
@@ -68,18 +88,5 @@ namespace QuanLyDienNang
 			});
 			thread.Start();
 		}
-
-		private void LoadDataTableFromExcel(string path, string sheet)
-		{
-			thread = new Thread(() =>
-			  {
-				  dgvThongTinKhachHang.Invoke((MethodInvoker)delegate
-				  {
-					  dgvThongTinKhachHang.DataSource = funcs.GetDataTableFromExcel(path, sheet);
-				  });
-			  });
-			thread.Start();
-		}
-
 	}
 }

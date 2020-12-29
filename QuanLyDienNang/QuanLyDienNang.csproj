@@ -539,6 +539,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\Search3.png" />
+    <None Include="Resources\update.png" />
     <None Include="Resources\Xlsx.png" />
     <None Include="Resources\PowerPoint.png" />
     <None Include="Resources\Word.png" />
