@@ -12,8 +12,8 @@ namespace Business.Classes
 {
 	public class Funcs_KhachHang
 	{
-		private readonly string SECTION_IMPORT_INI = "NhapDienNangTieuThu";
-		private readonly string KEY_EXCELFILE_INI = "DuongDanTapTin";
+		private readonly string SECTION_IMPORT_INSERT_INI = "NhapKhachHang";
+		private readonly string KEY_EXCELFILE_INSERT_INI = "DuongDanTapTin";
 
 		public List<KhachHang> FilterTable(string diaChi, string maBangGia, string maTram, string tenNganHang)
 		{
@@ -68,12 +68,12 @@ namespace Business.Classes
 
 		public string GetSavedExcelPath()
 		{
-			return Configuration.Instance.Read(KEY_EXCELFILE_INI, SECTION_IMPORT_INI);
+			return Configuration.Instance.Read(KEY_EXCELFILE_INSERT_INI, SECTION_IMPORT_INSERT_INI);
 		}
 
 		public void Save_ExcelFilePath(string path)
 		{
-			Configuration.Instance.Write(KEY_EXCELFILE_INI, path, SECTION_IMPORT_INI);
+			Configuration.Instance.Write(KEY_EXCELFILE_INSERT_INI, path, SECTION_IMPORT_INSERT_INI);
 		}
 
 		public List<string> GetSheetNamesOnExcel(string excelFilePath)
@@ -134,7 +134,7 @@ namespace Business.Classes
 			}
 		}
 
-		public List<KhachHang> ConvertDataTableToListKhachHang(DataTable dt, string MaQuanLy)
+		public List<KhachHang> ConvertDataTableToListForInserting(DataTable dt, string MaQuanLy)
 		{
 			List<KhachHang> list = new List<KhachHang>();
 			foreach (DataRow row in dt.Rows)
@@ -166,13 +166,51 @@ namespace Business.Classes
 			return list;
 		}
 
-		public List<KhachHang> GetListKhachHangFromExcel(string excelFilePath, string sheetname, string MaQuanLy)
+		public List<KhachHang> ConvertDataTableToListForUpdating(DataTable dt)
 		{
-			DataTable dt = GetDataTableFromExcel(excelFilePath, sheetname);
-			return ConvertDataTableToListKhachHang(dt, MaQuanLy);
+			List<KhachHang> list = new List<KhachHang>();
+			foreach (DataRow row in dt.Rows)
+			{
+				KhachHang khachHang = new KhachHang()
+				{
+					MaKhachHang = row["MaKhachHang"].ToString(),
+					HoVaTen = row["HoVaTen"].ToString(),
+					DiaChi = row["DiaChi"].ToString(),
+					MaBangGia = row["MaBangGia"].ToString(),
+					MaTram = row["MaTram"].ToString(),
+					SoHo = byte.Parse(row["SoHo"].ToString()),
+					HeSoNhan = byte.Parse(row["HeSoNhan"].ToString()),
+					MaSoThue = row["MaSoThue"].ToString(),
+					SoDienThoai = row["SoDienThoai"].ToString(),
+					Email = row["Email"].ToString(),
+					NgayTao = string.IsNullOrWhiteSpace(row["NgayTao"].ToString()) ? DateTime.Now : DateTime.Parse(row["NgayTao"].ToString()),
+					NguoiTao = row["NguoiTao"].ToString(),
+					NgayCapNhat = string.IsNullOrWhiteSpace(row["NgayCapNhat"].ToString()) ? DateTime.Now : DateTime.Parse(row["NgayCapNhat"].ToString()),
+					NguoiCapNhat = row["NguoiCapNhat"].ToString(),
+					MaSoHopDong = row["MaSoHopDong"].ToString(),
+					NgayHopDong = string.IsNullOrWhiteSpace(row["NgayHopDong"].ToString()) ? DateTime.Now : DateTime.Parse(row["NgayHopDong"].ToString()),
+					MaCongTo = row["MaCongTo"].ToString(),
+					SoNganHang = row["SoNganHang"].ToString(),
+					TenNganHang = row["TenNganHang"].ToString()
+				};
+				list.Add(khachHang);
+			}
+			return list;
 		}
 
-		public bool TryAddingDataTableToSQL(List<KhachHang> list)
+		public List<KhachHang> ReadExcelForInserting(string excelFilePath, string sheetname, string MaQuanLy)
+		{
+			DataTable dt = GetDataTableFromExcel(excelFilePath, sheetname);
+			return ConvertDataTableToListForInserting(dt, MaQuanLy);
+		}
+
+		public List<KhachHang> ReadExcelForUpdating(string excelFilePath, string sheetname)
+		{
+			DataTable dt = GetDataTableFromExcel(excelFilePath, sheetname);
+			return ConvertDataTableToListForUpdating(dt);
+		}
+
+		public bool TryInsertingDataTableToSQL(List<KhachHang> list)
 		{
 			foreach (var khach in list)
 			{
@@ -183,7 +221,18 @@ namespace Business.Classes
 			return true;
 		}
 
-		public bool AddDataTableToSQL(List<KhachHang> list)
+		public bool TryUpdatingDataTableToSQL(List<KhachHang> list)
+		{
+			foreach (var khach in list)
+			{
+				bool ok = KhachHang.TryUpdating(khach);
+				if (!ok)
+					return false;
+			}
+			return true;
+		}
+
+		public bool InsertSQL(List<KhachHang> list)
 		{
 			try
 			{
@@ -199,5 +248,20 @@ namespace Business.Classes
 			return true;
 		}
 
+		public bool UpdateSQL(List<KhachHang> list)
+		{
+			try
+			{
+				foreach (var khach in list)
+				{
+					KhachHang.Add(khach);
+				}
+			}
+			catch (Exception)
+			{
+				return false;
+			}
+			return true;
+		}
 	}
 }

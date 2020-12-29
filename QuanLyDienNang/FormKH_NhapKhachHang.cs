@@ -47,7 +47,7 @@ namespace QuanLyDienNang
 			  {
 				  dgvKhachHang.Invoke((MethodInvoker)delegate
 				  {
-					  var data = funcs.GetListKhachHangFromExcel(tbxDuongDan.Text, cbxSheet.Text, (cbxNguoiNhap.SelectedItem as NguoiQuanLy).MaQuanLy);
+					  var data = funcs.ReadExcelForInserting(tbxDuongDan.Text, cbxSheet.Text, (cbxNguoiNhap.SelectedItem as NguoiQuanLy).MaQuanLy);
 					  if (data == null)
 						  MessageBox.Show("Lỗi đọc dữ liệu từ tập tin Excel", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					  else
@@ -64,10 +64,10 @@ namespace QuanLyDienNang
 				MessageBox.Show("Không thể thực hiện hành động này vì DataGridView đang trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
-			var ok = funcs.TryAddingDataTableToSQL(dgvKhachHang.DataSource as List<KhachHang>);
+			var ok = funcs.TryInsertingDataTableToSQL(dgvKhachHang.DataSource as List<KhachHang>);
 			if (ok)
 			{
-				funcs.AddDataTableToSQL(dgvKhachHang.DataSource as List<KhachHang>);
+				funcs.InsertSQL(dgvKhachHang.DataSource as List<KhachHang>);
 				MessageBox.Show("Thêm vào CSDL thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			else
