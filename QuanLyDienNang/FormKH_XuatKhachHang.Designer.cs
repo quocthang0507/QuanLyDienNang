@@ -90,6 +90,7 @@
 			// 
 			this.dgvKhachHang.AllowUserToAddRows = false;
 			this.dgvKhachHang.AllowUserToDeleteRows = false;
+			this.dgvKhachHang.AllowUserToOrderColumns = true;
 			this.dgvKhachHang.AllowUserToResizeRows = false;
 			this.dgvKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
 			this.dgvKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -97,10 +98,9 @@
 			this.dgvKhachHang.Location = new System.Drawing.Point(3, 213);
 			this.dgvKhachHang.MultiSelect = false;
 			this.dgvKhachHang.Name = "dgvKhachHang";
-			this.dgvKhachHang.ReadOnly = true;
 			this.dgvKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dgvKhachHang.Size = new System.Drawing.Size(855, 452);
-			this.dgvKhachHang.TabIndex = 0;
+			this.dgvKhachHang.TabIndex = 9;
 			// 
 			// panel1
 			// 
@@ -128,7 +128,7 @@
 			// 
 			this.label14.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(25, 3);
+			this.label14.Location = new System.Drawing.Point(31, 3);
 			this.label14.Name = "label14";
 			this.label14.Size = new System.Drawing.Size(53, 19);
 			this.label14.TabIndex = 11;
@@ -138,16 +138,16 @@
 			// 
 			this.cbxTenTram.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.cbxTenTram.FormattingEnabled = true;
-			this.cbxTenTram.Location = new System.Drawing.Point(482, 3);
+			this.cbxTenTram.Location = new System.Drawing.Point(525, 3);
 			this.cbxTenTram.Name = "cbxTenTram";
-			this.cbxTenTram.Size = new System.Drawing.Size(252, 25);
+			this.cbxTenTram.Size = new System.Drawing.Size(291, 25);
 			this.cbxTenTram.TabIndex = 2;
 			// 
 			// label4
 			// 
 			this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(414, 6);
+			this.label4.Location = new System.Drawing.Point(457, 6);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(66, 19);
 			this.label4.TabIndex = 8;
@@ -156,9 +156,9 @@
 			// tbxDiaChi
 			// 
 			this.tbxDiaChi.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxDiaChi.Location = new System.Drawing.Point(89, 3);
+			this.tbxDiaChi.Location = new System.Drawing.Point(90, 3);
 			this.tbxDiaChi.Name = "tbxDiaChi";
-			this.tbxDiaChi.Size = new System.Drawing.Size(282, 25);
+			this.tbxDiaChi.Size = new System.Drawing.Size(309, 25);
 			this.tbxDiaChi.TabIndex = 1;
 			// 
 			// panel2
@@ -175,7 +175,7 @@
 			// 
 			this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(13, 37);
+			this.label2.Location = new System.Drawing.Point(19, 37);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(65, 19);
 			this.label2.TabIndex = 8;
@@ -185,16 +185,16 @@
 			// 
 			this.cbxBangGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.cbxBangGia.FormattingEnabled = true;
-			this.cbxBangGia.Location = new System.Drawing.Point(89, 34);
+			this.cbxBangGia.Location = new System.Drawing.Point(90, 34);
 			this.cbxBangGia.Name = "cbxBangGia";
-			this.cbxBangGia.Size = new System.Drawing.Size(282, 25);
+			this.cbxBangGia.Size = new System.Drawing.Size(309, 25);
 			this.cbxBangGia.TabIndex = 3;
 			// 
 			// label3
 			// 
 			this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(379, 38);
+			this.label3.Location = new System.Drawing.Point(422, 38);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(103, 19);
 			this.label3.TabIndex = 8;
@@ -204,9 +204,9 @@
 			// 
 			this.cbxNganHang.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.cbxNganHang.FormattingEnabled = true;
-			this.cbxNganHang.Location = new System.Drawing.Point(482, 34);
+			this.cbxNganHang.Location = new System.Drawing.Point(525, 34);
 			this.cbxNganHang.Name = "cbxNganHang";
-			this.cbxNganHang.Size = new System.Drawing.Size(252, 25);
+			this.cbxNganHang.Size = new System.Drawing.Size(291, 25);
 			this.cbxNganHang.TabIndex = 4;
 			// 
 			// rbtnXuatDieuKien
@@ -247,9 +247,9 @@
 			this.panelXuatDieuKien.Controls.Add(this.cbxNganHang);
 			this.panelXuatDieuKien.Controls.Add(this.label2);
 			this.panelXuatDieuKien.Enabled = false;
-			this.panelXuatDieuKien.Location = new System.Drawing.Point(39, 24);
+			this.panelXuatDieuKien.Location = new System.Drawing.Point(4, 24);
 			this.panelXuatDieuKien.Name = "panelXuatDieuKien";
-			this.panelXuatDieuKien.Size = new System.Drawing.Size(786, 65);
+			this.panelXuatDieuKien.Size = new System.Drawing.Size(842, 65);
 			this.panelXuatDieuKien.TabIndex = 12;
 			// 
 			// btnTimKiem

@@ -1,4 +1,5 @@
 ﻿using Business.Classes;
+using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -65,10 +66,10 @@ namespace QuanLyDienNang
 				MessageBox.Show("Không thể thực hiện hành động này vì DataGridView đang trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
-			var ok = funcs.TryAddingDataTableToSQL(dgvKhachHang.DataSource as BindingSource);
+			var ok = funcs.TryAddingDataTableToSQL(dgvKhachHang.DataSource as List<KhachHang>);
 			if (ok)
 			{
-				funcs.AddDataTableToSQL(dgvKhachHang.DataSource as BindingSource);
+				funcs.AddDataTableToSQL(dgvKhachHang.DataSource as List<KhachHang>);
 				MessageBox.Show("Thêm vào CSDL thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			else

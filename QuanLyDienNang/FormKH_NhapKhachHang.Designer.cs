@@ -175,7 +175,7 @@
 			this.btnLuuCSDL.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnLuuCSDL.Image = global::QuanLyDienNang.Properties.Resources.Save;
 			this.btnLuuCSDL.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLuuCSDL.Location = new System.Drawing.Point(480, 2);
+			this.btnLuuCSDL.Location = new System.Drawing.Point(493, 3);
 			this.btnLuuCSDL.Name = "btnLuuCSDL";
 			this.btnLuuCSDL.Size = new System.Drawing.Size(135, 42);
 			this.btnLuuCSDL.TabIndex = 7;
@@ -189,7 +189,7 @@
 			this.btnXemMau.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnXemMau.Image = global::QuanLyDienNang.Properties.Resources.Xlsx;
 			this.btnXemMau.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnXemMau.Location = new System.Drawing.Point(203, 1);
+			this.btnXemMau.Location = new System.Drawing.Point(216, 2);
 			this.btnXemMau.Name = "btnXemMau";
 			this.btnXemMau.Size = new System.Drawing.Size(119, 42);
 			this.btnXemMau.TabIndex = 5;
@@ -202,7 +202,7 @@
 			this.btnLoadNoiDung.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnLoadNoiDung.Image = global::QuanLyDienNang.Properties.Resources.Loading;
 			this.btnLoadNoiDung.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLoadNoiDung.Location = new System.Drawing.Point(328, 2);
+			this.btnLoadNoiDung.Location = new System.Drawing.Point(341, 3);
 			this.btnLoadNoiDung.Name = "btnLoadNoiDung";
 			this.btnLoadNoiDung.Size = new System.Drawing.Size(146, 42);
 			this.btnLoadNoiDung.TabIndex = 6;
@@ -236,7 +236,7 @@
 			this.dgvKhachHang.Name = "dgvKhachHang";
 			this.dgvKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dgvKhachHang.Size = new System.Drawing.Size(855, 420);
-			this.dgvKhachHang.TabIndex = 13;
+			this.dgvKhachHang.TabIndex = 8;
 			// 
 			// fileDialog
 			// 

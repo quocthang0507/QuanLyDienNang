@@ -62,6 +62,7 @@
     <Compile Include="Classes\Funcs_NhapChiSoDien.cs" />
     <Compile Include="Classes\Funcs_NhapKhachHang.cs" />
     <Compile Include="Classes\Funcs_Main.cs" />
+    <Compile Include="Classes\Funcs_XuatKhachHang.cs" />
     <Compile Include="Classes\ImageResult.cs" />
     <Compile Include="Classes\Funcs_ConnectionString.cs" />
     <Compile Include="Classes\KhachHang.cs" />

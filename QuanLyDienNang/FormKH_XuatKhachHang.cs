@@ -22,7 +22,7 @@ namespace QuanLyDienNang
 
 		private void btnTimKiem_Click(object sender, System.EventArgs e)
 		{
-			dgv KhachHang.All
+			dgvKhachHang.DataSource = KhachHang.All();
 		}
 	}
 }
