@@ -24,6 +24,7 @@ namespace QuanLyDienNang
 			toolBar.Visible = false;
 		}
 
+		#region Events
 		private void FormMain_Load(object sender, EventArgs e)
 		{
 			if (!funcs.CheckConnectionString())
@@ -165,8 +166,9 @@ namespace QuanLyDienNang
 		{
 			this.Close();
 		}
+		#endregion
 
-
+		#region Methods
 		/// <summary>
 		/// Kiểm tra panel còn form nào hay không, nếu không có thì chèn form mới vào
 		/// </summary>
@@ -219,6 +221,6 @@ namespace QuanLyDienNang
 			GoToEnd = () => DynamicForm.GoToEnd();
 			Delete = () => DynamicForm.btnXoa_Click(null, null);
 		}
-
+		#endregion
 	}
 }

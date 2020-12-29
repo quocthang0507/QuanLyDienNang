@@ -7,21 +7,21 @@ namespace QuanLyDienNang
 {
 	public partial class FormKH_NhapKhachHang : Form
 	{
-		Funcs_NhapKhachHang funcs = new Funcs_NhapKhachHang();
-		Thread thread;
+		private Funcs_NhapKhachHang funcs = new Funcs_NhapKhachHang();
+		private Thread thread;
 
 		public FormKH_NhapKhachHang()
 		{
 			InitializeComponent();
 		}
 
+		#region Events
 		private void FormKH_NhapKhachHang_Load(object sender, System.EventArgs e)
 		{
 			tbxDuongDan.Text = funcs.GetSavedExcelPath();
 			LoadNguoiQuanLy();
 			LoadSheet(tbxDuongDan.Text);
 		}
-
 
 		private void btnChonTapTin_Click(object sender, System.EventArgs e)
 		{
@@ -72,7 +72,9 @@ namespace QuanLyDienNang
 				MessageBox.Show("Thêm vào CSDL không thành công, vui lòng kiểm tra dữ liệu hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
+		#endregion
 
+		#region Methods
 		private void LoadSheet(string path)
 		{
 			thread = new Thread(() =>
@@ -93,5 +95,6 @@ namespace QuanLyDienNang
 			else
 				cbxNguoiNhap.DataSource = data;
 		}
+		#endregion
 	}
 }

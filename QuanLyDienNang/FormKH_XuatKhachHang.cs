@@ -14,6 +14,7 @@ namespace QuanLyDienNang
 			InitializeComponent();
 		}
 
+		#region Events
 		private void FormKH_XuatKhachHang_Load(object sender, System.EventArgs e)
 		{
 			LoadBangGia();
@@ -44,6 +45,13 @@ namespace QuanLyDienNang
 			}
 		}
 
+		private void btnXuat_Click(object sender, EventArgs e)
+		{
+
+		}
+#endregion
+
+		#region Methods
 		private void LoadTramQuanLy()
 		{
 			var data = TramBienAp.All();
@@ -67,5 +75,6 @@ namespace QuanLyDienNang
 		{
 			cbxNganHang.DataSource = KhachHang.All().Select(khach => khach.TenNganHang).Distinct().ToList();
 		}
+#endregion
 	}
 }

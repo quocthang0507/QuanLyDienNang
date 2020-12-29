@@ -15,6 +15,7 @@ namespace QuanLyDienNang
 			InitializeComponent();
 		}
 
+		#region Events
 		private void Form_CauHinh_Load(object sender, EventArgs e)
 		{
 			cbxServers.DataSource = Funcs_CauHinh.GetServers();
@@ -85,7 +86,9 @@ namespace QuanLyDienNang
 			else
 				gbxChungThuc.Enabled = true;
 		}
+		#endregion
 
+		#region Methods
 		private bool? TestConnection()
 		{
 			// Lấy thông tin từ textbox
@@ -122,5 +125,7 @@ namespace QuanLyDienNang
 			tbxTenDangNhap.Text = username;
 			tbxMatKhau.Text = password;
 		}
+
+		#endregion
 	}
 }

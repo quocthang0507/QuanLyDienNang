@@ -21,6 +21,7 @@ namespace QuanLyDienNang
 			lbxHinhAnh.ValueMember = "DuongDan";
 		}
 
+		#region Events
 		private void FormKH_DocChiSoDien_Load(object sender, EventArgs e)
 		{
 			tbxDuongDan.Text = funcs.GetSavedImageFolderPath();
@@ -98,7 +99,9 @@ namespace QuanLyDienNang
 				runOneThread = null;
 			}
 		}
+		#endregion
 
+		#region Methods
 		private void UpdateListView(ImageResult imageResult)
 		{
 			int id = lbxHinhAnh.FindString(imageResult.DuongDan);
@@ -155,6 +158,6 @@ namespace QuanLyDienNang
 			}
 			return false;
 		}
-
+		#endregion
 	}
 }

@@ -12,6 +12,7 @@ namespace QuanLyDienNang
 			InitializeComponent();
 		}
 
+		#region Events
 		private void Form_NguoiQuanLy_Load(object sender, System.EventArgs e)
 		{
 			LoadTable();
@@ -100,7 +101,9 @@ namespace QuanLyDienNang
 				}
 			}
 		}
+#endregion
 
+		#region Methods
 		public void GoToIndex(int index)
 		{
 			dgvNguoiQuanLy.ClearSelection();
@@ -161,5 +164,6 @@ namespace QuanLyDienNang
 			else
 				dgvNguoiQuanLy.DataSource = data;
 		}
+		#endregion
 	}
 }

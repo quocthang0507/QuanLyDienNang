@@ -268,6 +268,7 @@
 			this.btnXuat.Text = "Xuất Excel";
 			this.btnXuat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnXuat.UseVisualStyleBackColor = true;
+			this.btnXuat.Click += new System.EventHandler(this.btnXuat_Click);
 			// 
 			// btnTimKiem
 			// 
