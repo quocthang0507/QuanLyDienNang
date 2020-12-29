@@ -3,16 +3,68 @@ using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.IO;
-using System.Windows.Forms;
+using System.Linq;
+using System.Reflection;
 
 namespace Business.Classes
 {
-	public class Funcs_NhapKhachHang
+	public class Funcs_KhachHang
 	{
 		private readonly string SECTION_IMPORT_INI = "NhapDienNangTieuThu";
 		private readonly string KEY_EXCELFILE_INI = "DuongDanTapTin";
 
+		public List<KhachHang> FilterTable(string diaChi, string maBangGia, string maTram, string tenNganHang)
+		{
+			List<KhachHang> list = KhachHang.All();
+			if (!string.IsNullOrWhiteSpace(diaChi))
+				list = list.Where(khach => khach.DiaChi.Contains(diaChi)).ToList();
+			if (!string.IsNullOrWhiteSpace(maBangGia))
+				list = list.Where(khach => khach.MaBangGia.Equals(maBangGia)).ToList();
+			if (!string.IsNullOrWhiteSpace(maTram))
+				list = list.Where(khach => khach.MaTram.Equals(maTram)).ToList();
+			if (!string.IsNullOrWhiteSpace(tenNganHang))
+				list = list.Where(khach => khach.TenNganHang.Contains(tenNganHang)).ToList();
+			return list;
+		}
+
+		public byte[] ExportToExcel(List<KhachHang> list)
+		{
+			try
+			{
+				ExcelPackage excel = new ExcelPackage();
+				var sheet = excel.Workbook.Worksheets.Add("Danh sach khach hang");
+				PropertyInfo[] properties = typeof(KhachHang).GetProperties();
+				// Thêm dữ liệu theo từng cột, tương ứng với tên từng thuộc tính
+				for (int col = 1; col <= properties.Length; col++)
+				{
+					// Thêm tên cột
+					var prop = properties[col - 1];
+					sheet.Cells[1, col].Value = prop.Name;
+					sheet.Cells[1, col].Style.Font.Bold = true;
+					// Sửa lại định dạng ngày cho cột bắt đầu bằng chữ "Ngay"
+					if (prop.Name.StartsWith("Ngay"))
+						sheet.Column(col).Style.Numberformat.Format = CultureInfo.CurrentUICulture.DateTimeFormat.ShortDatePattern;
+					// Thêm dữ liệu cho các ô thuộc cột đó
+					for (int row = 1; row <= list.Count; row++)
+					{
+						var khach = list[row - 1];
+						var value = prop.GetValue(khach);
+						sheet.Cells[row + 1, col].Value = value;
+					}
+					// Chỉnh lại độ rộng cột
+					sheet.Column(col).AutoFit();
+				}
+				var bytes = excel.GetAsByteArray();
+				excel.Dispose();
+				return bytes;
+			}
+			catch (Exception)
+			{
+				return null;
+			}
+		}
 
 		public string GetSavedExcelPath()
 		{
@@ -39,7 +91,6 @@ namespace Business.Classes
 			}
 			catch (Exception)
 			{
-				MessageBox.Show("Lỗi đọc dữ liệu từ tập tin Excel", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return null;
 			}
 		}
@@ -147,5 +198,6 @@ namespace Business.Classes
 			}
 			return true;
 		}
+
 	}
 }

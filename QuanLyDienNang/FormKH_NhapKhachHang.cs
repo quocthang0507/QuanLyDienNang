@@ -1,5 +1,4 @@
 ﻿using Business.Classes;
-using Business.Helper;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,7 +10,7 @@ namespace QuanLyDienNang
 {
 	public partial class FormKH_NhapKhachHang : Form
 	{
-		private Funcs_NhapKhachHang funcs = new Funcs_NhapKhachHang();
+		private Funcs_KhachHang funcs = new Funcs_KhachHang();
 		private Thread thread;
 
 		public FormKH_NhapKhachHang()
@@ -91,14 +90,11 @@ namespace QuanLyDienNang
 		#region Methods
 		private void LoadSheet(string path)
 		{
-			thread = new Thread(() =>
-			{
-				cbxSheet.Invoke((MethodInvoker)delegate
-				{
-					cbxSheet.DataSource = funcs.GetSheetNamesOnExcel(path);
-				});
-			});
-			thread.Start();
+			var data = funcs.GetSheetNamesOnExcel(path);
+			if (data == null)
+				MessageBox.Show("Lỗi đọc dữ liệu từ tập tin Excel", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			else
+				cbxSheet.DataSource = data;
 		}
 
 		private void LoadNguoiQuanLy()

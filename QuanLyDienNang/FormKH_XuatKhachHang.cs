@@ -10,7 +10,7 @@ namespace QuanLyDienNang
 {
 	public partial class FormKH_XuatKhachHang : Form
 	{
-		private Funcs_XuatKhachHang funcs = new Funcs_XuatKhachHang();
+		private Funcs_KhachHang funcs = new Funcs_KhachHang();
 		private Thread thread;
 
 		public FormKH_XuatKhachHang()
