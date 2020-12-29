@@ -59,20 +59,5 @@ namespace Business.Classes
 				return false;
 			}
 		}
-
-		public static BindingSource LoadTable()
-		{
-			try
-			{
-				var binding = new BindingSource();
-				var list = All();
-				binding.DataSource = list;
-				return binding;
-			}
-			catch (Exception)
-			{
-				return null;
-			}
-		}
 	}
 }

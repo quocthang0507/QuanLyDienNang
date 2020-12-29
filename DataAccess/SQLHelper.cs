@@ -130,9 +130,8 @@ namespace DataAccess
 			for (int i = 0, j = commandParameters.Length; i < j; i++)
 			{
 				// If the current array value derives from IDbDataParameter, then assign its Value property
-				if (parameterValues[i] is IDbDataParameter)
+				if (parameterValues[i] is IDbDataParameter paramInstance)
 				{
-					IDbDataParameter paramInstance = (IDbDataParameter)parameterValues[i];
 					if (paramInstance.Value == null)
 					{
 						commandParameters[i].Value = DBNull.Value;
@@ -328,8 +327,7 @@ namespace DataAccess
 
 			// Create a command and prepare it for execution
 			SqlCommand cmd = new SqlCommand();
-			bool mustCloseConnection = false;
-			PrepareCommand(cmd, connection, (SqlTransaction)null, commandType, commandText, commandParameters, out mustCloseConnection);
+			PrepareCommand(cmd, connection, (SqlTransaction)null, commandType, commandText, commandParameters, out bool mustCloseConnection);
 
 			// Finally, execute the command
 			int retval = cmd.ExecuteNonQuery();
@@ -417,8 +415,7 @@ namespace DataAccess
 
 			// Create a command and prepare it for execution
 			SqlCommand cmd = new SqlCommand();
-			bool mustCloseConnection = false;
-			PrepareCommand(cmd, transaction.Connection, transaction, commandType, commandText, commandParameters, out mustCloseConnection);
+			PrepareCommand(cmd, transaction.Connection, transaction, commandType, commandText, commandParameters, out bool mustCloseConnection);
 
 			// Finally, execute the command
 			int retval = cmd.ExecuteNonQuery();
@@ -592,8 +589,7 @@ namespace DataAccess
 
 			// Create a command and prepare it for execution
 			SqlCommand cmd = new SqlCommand();
-			bool mustCloseConnection = false;
-			PrepareCommand(cmd, connection, (SqlTransaction)null, commandType, commandText, commandParameters, out mustCloseConnection);
+			PrepareCommand(cmd, connection, (SqlTransaction)null, commandType, commandText, commandParameters, out bool mustCloseConnection);
 
 			// Create the DataAdapter & DataSet
 			using (SqlDataAdapter da = new SqlDataAdapter(cmd))
@@ -690,8 +686,7 @@ namespace DataAccess
 
 			// Create a command and prepare it for execution
 			SqlCommand cmd = new SqlCommand();
-			bool mustCloseConnection = false;
-			PrepareCommand(cmd, transaction.Connection, transaction, commandType, commandText, commandParameters, out mustCloseConnection);
+			PrepareCommand(cmd, transaction.Connection, transaction, commandType, commandText, commandParameters, out bool mustCloseConnection);
 
 			// Create the DataAdapter & DataSet
 			using (SqlDataAdapter da = new SqlDataAdapter(cmd))
@@ -1191,8 +1186,7 @@ namespace DataAccess
 			// Create a command and prepare it for execution
 			SqlCommand cmd = new SqlCommand();
 
-			bool mustCloseConnection = false;
-			PrepareCommand(cmd, connection, (SqlTransaction)null, commandType, commandText, commandParameters, out mustCloseConnection);
+			PrepareCommand(cmd, connection, (SqlTransaction)null, commandType, commandText, commandParameters, out bool mustCloseConnection);
 
 			// Execute the command & return the results
 			object retval = cmd.ExecuteScalar();
@@ -1282,8 +1276,7 @@ namespace DataAccess
 
 			// Create a command and prepare it for execution
 			SqlCommand cmd = new SqlCommand();
-			bool mustCloseConnection = false;
-			PrepareCommand(cmd, transaction.Connection, transaction, commandType, commandText, commandParameters, out mustCloseConnection);
+			PrepareCommand(cmd, transaction.Connection, transaction, commandType, commandText, commandParameters, out bool mustCloseConnection);
 
 			// Execute the command & return the results
 			object retval = cmd.ExecuteScalar();
@@ -1469,8 +1462,7 @@ namespace DataAccess
 
 			// Create a command and prepare it for execution
 			SqlCommand cmd = new SqlCommand();
-			bool mustCloseConnection = false;
-			PrepareCommand(cmd, transaction.Connection, transaction, commandType, commandText, commandParameters, out mustCloseConnection);
+			PrepareCommand(cmd, transaction.Connection, transaction, commandType, commandText, commandParameters, out bool mustCloseConnection);
 
 			// Create the DataAdapter & DataSet
 			XmlReader retval = cmd.ExecuteXmlReader();
@@ -1822,8 +1814,7 @@ namespace DataAccess
 
 			// Create a command and prepare it for execution
 			SqlCommand command = new SqlCommand();
-			bool mustCloseConnection = false;
-			PrepareCommand(command, connection, transaction, commandType, commandText, commandParameters, out mustCloseConnection);
+			PrepareCommand(command, connection, transaction, commandType, commandText, commandParameters, out bool mustCloseConnection);
 
 			// Create the DataAdapter & DataSet
 			using (SqlDataAdapter dataAdapter = new SqlDataAdapter(command))
@@ -1909,8 +1900,10 @@ namespace DataAccess
 			if (spName == null || spName.Length == 0) throw new ArgumentNullException("spName");
 
 			// Create a SqlCommand
-			SqlCommand cmd = new SqlCommand(spName, connection);
-			cmd.CommandType = CommandType.StoredProcedure;
+			SqlCommand cmd = new SqlCommand(spName, connection)
+			{
+				CommandType = CommandType.StoredProcedure
+			};
 
 			// If we receive parameter values, we need to figure out where they go
 			if ((sourceColumns != null) && (sourceColumns.Length > 0))
@@ -1939,8 +1932,10 @@ namespace DataAccess
 			{
 				throw new ArgumentNullException("spName");
 			}
-			SqlCommand command = new SqlCommand(spName, connection);
-			command.CommandType = CommandType.StoredProcedure;
+			SqlCommand command = new SqlCommand(spName, connection)
+			{
+				CommandType = CommandType.StoredProcedure
+			};
 			if ((parameterValues != null) && (parameterValues.Length > 0))
 			{
 				SqlParameter[] spParameterSet = SqlHelperParameterCache.GetSpParameterSet(connection, spName);
@@ -2445,8 +2440,10 @@ namespace DataAccess
 			if (connection == null) throw new ArgumentNullException("connection");
 			if (spName == null || spName.Length == 0) throw new ArgumentNullException("spName");
 
-			SqlCommand cmd = new SqlCommand(spName, connection);
-			cmd.CommandType = CommandType.StoredProcedure;
+			SqlCommand cmd = new SqlCommand(spName, connection)
+			{
+				CommandType = CommandType.StoredProcedure
+			};
 
 			connection.Open();
 			SqlCommandBuilder.DeriveParameters(cmd);
@@ -2519,8 +2516,7 @@ namespace DataAccess
 
 			string hashKey = connectionString + ":" + commandText;
 
-			SqlParameter[] cachedParameters = paramCache[hashKey] as SqlParameter[];
-			if (cachedParameters == null)
+			if (!(paramCache[hashKey] is SqlParameter[] cachedParameters))
 			{
 				return null;
 			}

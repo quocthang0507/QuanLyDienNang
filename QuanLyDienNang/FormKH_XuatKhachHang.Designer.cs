@@ -34,26 +34,26 @@
 			this.dgvKhachHang = new System.Windows.Forms.DataGridView();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.label14 = new System.Windows.Forms.Label();
-			this.cbxTenTram = new System.Windows.Forms.ComboBox();
-			this.label4 = new System.Windows.Forms.Label();
-			this.tbxDiaChi = new System.Windows.Forms.TextBox();
-			this.panel2 = new System.Windows.Forms.Panel();
-			this.label2 = new System.Windows.Forms.Label();
-			this.cbxBangGia = new System.Windows.Forms.ComboBox();
-			this.label3 = new System.Windows.Forms.Label();
-			this.cbxNganHang = new System.Windows.Forms.ComboBox();
-			this.rbtnXuatDieuKien = new System.Windows.Forms.RadioButton();
-			this.fbtnXuatHet = new System.Windows.Forms.RadioButton();
 			this.panelXuatDieuKien = new System.Windows.Forms.Panel();
-			this.btnTimKiem = new System.Windows.Forms.Button();
+			this.cbxTenTram = new System.Windows.Forms.ComboBox();
+			this.tbxDiaChi = new System.Windows.Forms.TextBox();
+			this.label4 = new System.Windows.Forms.Label();
+			this.label14 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
+			this.cbxBangGia = new System.Windows.Forms.ComboBox();
+			this.cbxNganHang = new System.Windows.Forms.ComboBox();
+			this.label2 = new System.Windows.Forms.Label();
+			this.rbtnXuatHet = new System.Windows.Forms.RadioButton();
+			this.rbtnXuatDieuKien = new System.Windows.Forms.RadioButton();
+			this.panel2 = new System.Windows.Forms.Panel();
 			this.btnXuat = new System.Windows.Forms.Button();
+			this.btnTimKiem = new System.Windows.Forms.Button();
 			this.tableParent.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).BeginInit();
 			this.panel1.SuspendLayout();
 			this.groupBox1.SuspendLayout();
-			this.panel2.SuspendLayout();
 			this.panelXuatDieuKien.SuspendLayout();
+			this.panel2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -114,7 +114,7 @@
 			// groupBox1
 			// 
 			this.groupBox1.Controls.Add(this.panelXuatDieuKien);
-			this.groupBox1.Controls.Add(this.fbtnXuatHet);
+			this.groupBox1.Controls.Add(this.rbtnXuatHet);
 			this.groupBox1.Controls.Add(this.rbtnXuatDieuKien);
 			this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -123,117 +123,6 @@
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Điều kiện xuất";
-			// 
-			// label14
-			// 
-			this.label14.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(31, 3);
-			this.label14.Name = "label14";
-			this.label14.Size = new System.Drawing.Size(53, 19);
-			this.label14.TabIndex = 11;
-			this.label14.Text = "Địa chỉ:";
-			// 
-			// cbxTenTram
-			// 
-			this.cbxTenTram.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.cbxTenTram.FormattingEnabled = true;
-			this.cbxTenTram.Location = new System.Drawing.Point(525, 3);
-			this.cbxTenTram.Name = "cbxTenTram";
-			this.cbxTenTram.Size = new System.Drawing.Size(291, 25);
-			this.cbxTenTram.TabIndex = 2;
-			// 
-			// label4
-			// 
-			this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(457, 6);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(66, 19);
-			this.label4.TabIndex = 8;
-			this.label4.Text = "Tên trạm:";
-			// 
-			// tbxDiaChi
-			// 
-			this.tbxDiaChi.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxDiaChi.Location = new System.Drawing.Point(90, 3);
-			this.tbxDiaChi.Name = "tbxDiaChi";
-			this.tbxDiaChi.Size = new System.Drawing.Size(309, 25);
-			this.tbxDiaChi.TabIndex = 1;
-			// 
-			// panel2
-			// 
-			this.panel2.Controls.Add(this.btnXuat);
-			this.panel2.Controls.Add(this.btnTimKiem);
-			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel2.Location = new System.Drawing.Point(3, 163);
-			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(855, 44);
-			this.panel2.TabIndex = 4;
-			// 
-			// label2
-			// 
-			this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(19, 37);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(65, 19);
-			this.label2.TabIndex = 8;
-			this.label2.Text = "Bảng giá:";
-			// 
-			// cbxBangGia
-			// 
-			this.cbxBangGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.cbxBangGia.FormattingEnabled = true;
-			this.cbxBangGia.Location = new System.Drawing.Point(90, 34);
-			this.cbxBangGia.Name = "cbxBangGia";
-			this.cbxBangGia.Size = new System.Drawing.Size(309, 25);
-			this.cbxBangGia.TabIndex = 3;
-			// 
-			// label3
-			// 
-			this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(422, 38);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(103, 19);
-			this.label3.TabIndex = 8;
-			this.label3.Text = "Tên ngân hàng:";
-			// 
-			// cbxNganHang
-			// 
-			this.cbxNganHang.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.cbxNganHang.FormattingEnabled = true;
-			this.cbxNganHang.Location = new System.Drawing.Point(525, 34);
-			this.cbxNganHang.Name = "cbxNganHang";
-			this.cbxNganHang.Size = new System.Drawing.Size(291, 25);
-			this.cbxNganHang.TabIndex = 4;
-			// 
-			// rbtnXuatDieuKien
-			// 
-			this.rbtnXuatDieuKien.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.rbtnXuatDieuKien.AutoSize = true;
-			this.rbtnXuatDieuKien.Location = new System.Drawing.Point(297, 95);
-			this.rbtnXuatDieuKien.Name = "rbtnXuatDieuKien";
-			this.rbtnXuatDieuKien.Size = new System.Drawing.Size(146, 23);
-			this.rbtnXuatDieuKien.TabIndex = 5;
-			this.rbtnXuatDieuKien.Text = "Xuất theo điều kiện";
-			this.rbtnXuatDieuKien.UseVisualStyleBackColor = true;
-			this.rbtnXuatDieuKien.CheckedChanged += new System.EventHandler(this.rbtnXuatDieuKien_CheckedChanged);
-			// 
-			// fbtnXuatHet
-			// 
-			this.fbtnXuatHet.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.fbtnXuatHet.AutoCheck = false;
-			this.fbtnXuatHet.AutoSize = true;
-			this.fbtnXuatHet.Checked = true;
-			this.fbtnXuatHet.Location = new System.Drawing.Point(467, 95);
-			this.fbtnXuatHet.Name = "fbtnXuatHet";
-			this.fbtnXuatHet.Size = new System.Drawing.Size(79, 23);
-			this.fbtnXuatHet.TabIndex = 6;
-			this.fbtnXuatHet.Text = "Xuất hết";
-			this.fbtnXuatHet.UseVisualStyleBackColor = true;
-			this.fbtnXuatHet.CheckedChanged += new System.EventHandler(this.fbtnXuatHet_CheckedChanged);
 			// 
 			// panelXuatDieuKien
 			// 
@@ -252,19 +141,120 @@
 			this.panelXuatDieuKien.Size = new System.Drawing.Size(842, 65);
 			this.panelXuatDieuKien.TabIndex = 12;
 			// 
-			// btnTimKiem
+			// cbxTenTram
 			// 
-			this.btnTimKiem.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnTimKiem.Image = global::QuanLyDienNang.Properties.Resources.Search;
-			this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnTimKiem.Location = new System.Drawing.Point(325, 1);
-			this.btnTimKiem.Name = "btnTimKiem";
-			this.btnTimKiem.Size = new System.Drawing.Size(100, 42);
-			this.btnTimKiem.TabIndex = 7;
-			this.btnTimKiem.Text = "Tìm kiếm";
-			this.btnTimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.btnTimKiem.UseVisualStyleBackColor = true;
-			this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+			this.cbxTenTram.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.cbxTenTram.DisplayMember = "TenTram";
+			this.cbxTenTram.FormattingEnabled = true;
+			this.cbxTenTram.Location = new System.Drawing.Point(525, 3);
+			this.cbxTenTram.Name = "cbxTenTram";
+			this.cbxTenTram.Size = new System.Drawing.Size(291, 25);
+			this.cbxTenTram.TabIndex = 2;
+			this.cbxTenTram.ValueMember = "TenTram";
+			// 
+			// tbxDiaChi
+			// 
+			this.tbxDiaChi.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.tbxDiaChi.Location = new System.Drawing.Point(90, 3);
+			this.tbxDiaChi.Name = "tbxDiaChi";
+			this.tbxDiaChi.Size = new System.Drawing.Size(309, 25);
+			this.tbxDiaChi.TabIndex = 1;
+			// 
+			// label4
+			// 
+			this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(457, 6);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(66, 19);
+			this.label4.TabIndex = 8;
+			this.label4.Text = "Tên trạm:";
+			// 
+			// label14
+			// 
+			this.label14.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label14.AutoSize = true;
+			this.label14.Location = new System.Drawing.Point(31, 3);
+			this.label14.Name = "label14";
+			this.label14.Size = new System.Drawing.Size(53, 19);
+			this.label14.TabIndex = 11;
+			this.label14.Text = "Địa chỉ:";
+			// 
+			// label3
+			// 
+			this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(422, 38);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(103, 19);
+			this.label3.TabIndex = 8;
+			this.label3.Text = "Tên ngân hàng:";
+			// 
+			// cbxBangGia
+			// 
+			this.cbxBangGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.cbxBangGia.DisplayMember = "TenBangGia";
+			this.cbxBangGia.FormattingEnabled = true;
+			this.cbxBangGia.Location = new System.Drawing.Point(90, 34);
+			this.cbxBangGia.Name = "cbxBangGia";
+			this.cbxBangGia.Size = new System.Drawing.Size(309, 25);
+			this.cbxBangGia.TabIndex = 3;
+			this.cbxBangGia.ValueMember = "TenBangGia";
+			// 
+			// cbxNganHang
+			// 
+			this.cbxNganHang.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.cbxNganHang.FormattingEnabled = true;
+			this.cbxNganHang.Location = new System.Drawing.Point(525, 34);
+			this.cbxNganHang.Name = "cbxNganHang";
+			this.cbxNganHang.Size = new System.Drawing.Size(291, 25);
+			this.cbxNganHang.TabIndex = 4;
+			// 
+			// label2
+			// 
+			this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(19, 37);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(65, 19);
+			this.label2.TabIndex = 8;
+			this.label2.Text = "Bảng giá:";
+			// 
+			// rbtnXuatHet
+			// 
+			this.rbtnXuatHet.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.rbtnXuatHet.AutoSize = true;
+			this.rbtnXuatHet.Checked = true;
+			this.rbtnXuatHet.Location = new System.Drawing.Point(467, 95);
+			this.rbtnXuatHet.Name = "rbtnXuatHet";
+			this.rbtnXuatHet.Size = new System.Drawing.Size(79, 23);
+			this.rbtnXuatHet.TabIndex = 6;
+			this.rbtnXuatHet.TabStop = true;
+			this.rbtnXuatHet.Text = "Xuất hết";
+			this.rbtnXuatHet.UseVisualStyleBackColor = true;
+			this.rbtnXuatHet.CheckedChanged += new System.EventHandler(this.rbtnXuatHet_CheckedChanged);
+			// 
+			// rbtnXuatDieuKien
+			// 
+			this.rbtnXuatDieuKien.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.rbtnXuatDieuKien.AutoSize = true;
+			this.rbtnXuatDieuKien.Location = new System.Drawing.Point(297, 95);
+			this.rbtnXuatDieuKien.Name = "rbtnXuatDieuKien";
+			this.rbtnXuatDieuKien.Size = new System.Drawing.Size(146, 23);
+			this.rbtnXuatDieuKien.TabIndex = 5;
+			this.rbtnXuatDieuKien.Text = "Xuất theo điều kiện";
+			this.rbtnXuatDieuKien.UseVisualStyleBackColor = true;
+			this.rbtnXuatDieuKien.CheckedChanged += new System.EventHandler(this.rbtnXuatDieuKien_CheckedChanged);
+			// 
+			// panel2
+			// 
+			this.panel2.Controls.Add(this.btnXuat);
+			this.panel2.Controls.Add(this.btnTimKiem);
+			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel2.Location = new System.Drawing.Point(3, 163);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(855, 44);
+			this.panel2.TabIndex = 4;
 			// 
 			// btnXuat
 			// 
@@ -279,6 +269,20 @@
 			this.btnXuat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnXuat.UseVisualStyleBackColor = true;
 			// 
+			// btnTimKiem
+			// 
+			this.btnTimKiem.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnTimKiem.Image = global::QuanLyDienNang.Properties.Resources.Search;
+			this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnTimKiem.Location = new System.Drawing.Point(325, 1);
+			this.btnTimKiem.Name = "btnTimKiem";
+			this.btnTimKiem.Size = new System.Drawing.Size(100, 42);
+			this.btnTimKiem.TabIndex = 7;
+			this.btnTimKiem.Text = "Tìm kiếm";
+			this.btnTimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnTimKiem.UseVisualStyleBackColor = true;
+			this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+			// 
 			// FormKH_XuatKhachHang
 			// 
 			this.AcceptButton = this.btnTimKiem;
@@ -291,14 +295,15 @@
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "FormKH_XuatKhachHang";
 			this.Text = "Xuất Thông Tin Khách Hàng Ra Excel";
+			this.Load += new System.EventHandler(this.FormKH_XuatKhachHang_Load);
 			this.tableParent.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).EndInit();
 			this.panel1.ResumeLayout(false);
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
-			this.panel2.ResumeLayout(false);
 			this.panelXuatDieuKien.ResumeLayout(false);
 			this.panelXuatDieuKien.PerformLayout();
+			this.panel2.ResumeLayout(false);
 			this.ResumeLayout(false);
 
         }
@@ -318,7 +323,7 @@
 		private System.Windows.Forms.TextBox tbxDiaChi;
 		private System.Windows.Forms.ComboBox cbxBangGia;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.RadioButton fbtnXuatHet;
+		private System.Windows.Forms.RadioButton rbtnXuatHet;
 		private System.Windows.Forms.RadioButton rbtnXuatDieuKien;
 		private System.Windows.Forms.ComboBox cbxNganHang;
 		private System.Windows.Forms.Label label3;

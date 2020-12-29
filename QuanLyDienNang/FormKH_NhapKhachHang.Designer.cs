@@ -123,12 +123,14 @@
 			// cbxNguoiNhap
 			// 
 			this.cbxNguoiNhap.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.cbxNguoiNhap.DisplayMember = "TenQuanLy";
 			this.cbxNguoiNhap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbxNguoiNhap.FormattingEnabled = true;
 			this.cbxNguoiNhap.Location = new System.Drawing.Point(513, 49);
 			this.cbxNguoiNhap.Name = "cbxNguoiNhap";
 			this.cbxNguoiNhap.Size = new System.Drawing.Size(284, 25);
 			this.cbxNguoiNhap.TabIndex = 4;
+			this.cbxNguoiNhap.ValueMember = "TenQuanLy";
 			// 
 			// label4
 			// 
@@ -226,7 +228,6 @@
 			// 
 			this.dgvKhachHang.AllowUserToAddRows = false;
 			this.dgvKhachHang.AllowUserToDeleteRows = false;
-			this.dgvKhachHang.AllowUserToOrderColumns = true;
 			this.dgvKhachHang.AllowUserToResizeRows = false;
 			this.dgvKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
 			this.dgvKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -234,6 +235,7 @@
 			this.dgvKhachHang.Location = new System.Drawing.Point(3, 173);
 			this.dgvKhachHang.MultiSelect = false;
 			this.dgvKhachHang.Name = "dgvKhachHang";
+			this.dgvKhachHang.ReadOnly = true;
 			this.dgvKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dgvKhachHang.Size = new System.Drawing.Size(855, 420);
 			this.dgvKhachHang.TabIndex = 8;

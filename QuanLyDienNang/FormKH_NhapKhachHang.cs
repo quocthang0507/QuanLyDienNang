@@ -13,20 +13,15 @@ namespace QuanLyDienNang
 		public FormKH_NhapKhachHang()
 		{
 			InitializeComponent();
-			cbxNguoiNhap.DisplayMember = "TenQuanLy";
-			cbxNguoiNhap.ValueMember = "TenQuanLy";
 		}
 
 		private void FormKH_NhapKhachHang_Load(object sender, System.EventArgs e)
 		{
 			tbxDuongDan.Text = funcs.GetSavedExcelPath();
-			var data = NguoiQuanLy.LoadTable();
-			if (data == null)
-				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			else
-				cbxNguoiNhap.DataSource = data;
-			UpdateSheetCombobox(tbxDuongDan.Text);
+			LoadNguoiQuanLy();
+			LoadSheet(tbxDuongDan.Text);
 		}
+
 
 		private void btnChonTapTin_Click(object sender, System.EventArgs e)
 		{
@@ -40,7 +35,7 @@ namespace QuanLyDienNang
 			}
 			tbxDuongDan.Text = path;
 			funcs.Save_ExcelFilePath(path);
-			UpdateSheetCombobox(path);
+			LoadSheet(path);
 		}
 
 		private void btnLoadNoiDung_Click(object sender, System.EventArgs e)
@@ -78,7 +73,7 @@ namespace QuanLyDienNang
 			}
 		}
 
-		private void UpdateSheetCombobox(string path)
+		private void LoadSheet(string path)
 		{
 			thread = new Thread(() =>
 			{
@@ -88,6 +83,15 @@ namespace QuanLyDienNang
 				});
 			});
 			thread.Start();
+		}
+
+		private void LoadNguoiQuanLy()
+		{
+			var data = NguoiQuanLy.All();
+			if (data == null)
+				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			else
+				cbxNguoiNhap.DataSource = data;
 		}
 	}
 }

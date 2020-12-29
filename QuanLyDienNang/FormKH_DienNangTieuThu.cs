@@ -14,7 +14,7 @@ namespace QuanLyDienNang
 
 		private void FormKH_DienNangTieuThu_Load(object sender, EventArgs e)
 		{
-			var data = DienNangTieuThu.LoadTable();
+			var data = DienNangTieuThu.All();
 			if (data == null)
 				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else

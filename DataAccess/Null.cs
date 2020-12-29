@@ -52,9 +52,8 @@ namespace DataAccess
 				if (objField.ToString() == NullString)
 					return objDBNull;
 			}
-			if (objField is Guid)
+			if (objField is Guid guild)
 			{
-				Guid guild = (Guid)objField;
 				if (guild.Equals(NullGuid))
 					return objDBNull;
 			}

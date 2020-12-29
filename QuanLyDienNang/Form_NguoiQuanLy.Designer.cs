@@ -86,14 +86,14 @@ namespace QuanLyDienNang
 			// 
 			this.dgvNguoiQuanLy.AllowUserToAddRows = false;
 			this.dgvNguoiQuanLy.AllowUserToDeleteRows = false;
-			this.dgvNguoiQuanLy.AllowUserToOrderColumns = true;
 			this.dgvNguoiQuanLy.AllowUserToResizeRows = false;
-			this.dgvNguoiQuanLy.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dgvNguoiQuanLy.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
 			this.dgvNguoiQuanLy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvNguoiQuanLy.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvNguoiQuanLy.Location = new System.Drawing.Point(3, 203);
 			this.dgvNguoiQuanLy.MultiSelect = false;
 			this.dgvNguoiQuanLy.Name = "dgvNguoiQuanLy";
+			this.dgvNguoiQuanLy.ReadOnly = true;
 			this.dgvNguoiQuanLy.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dgvNguoiQuanLy.Size = new System.Drawing.Size(978, 355);
 			this.dgvNguoiQuanLy.TabIndex = 1;

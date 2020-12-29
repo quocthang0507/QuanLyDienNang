@@ -155,7 +155,7 @@ namespace QuanLyDienNang
 
 		private void LoadTable()
 		{
-			var data = NguoiQuanLy.LoadTable();
+			var data = NguoiQuanLy.All();
 			if (data == null)
 				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else

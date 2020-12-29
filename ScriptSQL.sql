@@ -5,7 +5,7 @@ GO
 USE QuanLyDienNang
 GO 
 
---BẢNG GIÁ ÁP DỤNG CHO KHÁCH HÀNG
+--====================BẢNG GIÁ ÁP DỤNG CHO KHÁCH HÀNG====================
 CREATE TABLE BangGia (
 	--BG001
 	MaBangGia char(5) primary key,
@@ -46,7 +46,7 @@ AS
 	WHERE MaBangGia = @MaBangGia
 GO
 
---TRẠM BIẾN ÁP ÁP DỤNG CHO KHÁCH HÀNG
+--====================TRẠM BIẾN ÁP ÁP DỤNG CHO KHÁCH HÀNG====================
 CREATE TABLE TramBienAp (
 	--BA001
 	MaTram char(5) primary key,
@@ -87,7 +87,7 @@ AS
 	WHERE MaTram = @MaTram
 GO
 
---NGƯỜI QUẢN LÝ KHÁCH HÀNG
+--====================NGƯỜI QUẢN LÝ KHÁCH HÀNG====================
 CREATE TABLE NguoiQuanLy (
 	--QL001
 	MaQuanLy char(5) primary key,
@@ -159,7 +159,7 @@ AS
 	DELETE FROM NguoiQuanLy WHERE MaQuanLy = @MaQuanLy
 GO
 
---THÔNG TIN KHÁCH HÀNG
+--====================THÔNG TIN KHÁCH HÀNG====================
 CREATE TABLE KhachHang (
 --ALTER TABLE KhachHang (
 	--KH0000001
@@ -326,7 +326,7 @@ AS
 	END
 GO
 
---THÔNG TIN ĐIỆN NĂNG TIÊU THỤ CỦA KHÁCH HÀNG
+--====================THÔNG TIN ĐIỆN NĂNG TIÊU THỤ CỦA KHÁCH HÀNG====================
 CREATE TABLE DienNangTieuThu (
 	ID int not null identity(1, 1) primary key,
 	MaKhachHang char(9) references KhachHang(MaKhachHang) not null,
