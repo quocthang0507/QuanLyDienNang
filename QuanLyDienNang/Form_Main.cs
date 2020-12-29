@@ -85,7 +85,8 @@ namespace QuanLyDienNang
 
 		private void cậpNhậtThôngTinTừExcelToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-
+			Form frmCapNhatKH = new FormKH_CapNhatKhachHang();
+			AddFormToTabPage(frmCapNhatKH);
 		}
 
 		private void btnLen_Click(object sender, EventArgs e)
