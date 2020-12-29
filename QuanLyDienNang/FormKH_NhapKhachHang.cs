@@ -28,10 +28,10 @@ namespace QuanLyDienNang
 			string path = tbxDuongDan.Text;
 			if (string.IsNullOrWhiteSpace(tbxDuongDan.Text))
 			{
-				var result = fileDialog.ShowDialog();
-				if (result != DialogResult.OK || string.IsNullOrWhiteSpace(fileDialog.FileName))
+				var result = openDialog.ShowDialog();
+				if (result != DialogResult.OK || string.IsNullOrWhiteSpace(openDialog.FileName))
 					return;
-				path = fileDialog.FileName;
+				path = openDialog.FileName;
 			}
 			tbxDuongDan.Text = path;
 			funcs.Save_ExcelFilePath(path);

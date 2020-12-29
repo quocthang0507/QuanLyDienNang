@@ -48,6 +48,7 @@
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.btnXuat = new System.Windows.Forms.Button();
 			this.btnTimKiem = new System.Windows.Forms.Button();
+			this.saveDialog = new System.Windows.Forms.SaveFileDialog();
 			this.tableParent.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).BeginInit();
 			this.panel1.SuspendLayout();
@@ -284,6 +285,14 @@
 			this.btnTimKiem.UseVisualStyleBackColor = true;
 			this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
 			// 
+			// saveDialog
+			// 
+			this.saveDialog.DefaultExt = "xlsx";
+			this.saveDialog.FileName = "Danh sách khách hàng.xlsx";
+			this.saveDialog.Filter = "Excel Workbook (*.xlsx)|*.xlsx";
+			this.saveDialog.RestoreDirectory = true;
+			this.saveDialog.Title = "Lưu danh sách khách hàng";
+			// 
 			// FormKH_XuatKhachHang
 			// 
 			this.AcceptButton = this.btnTimKiem;
@@ -329,5 +338,6 @@
 		private System.Windows.Forms.ComboBox cbxNganHang;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Panel panelXuatDieuKien;
+		private System.Windows.Forms.SaveFileDialog saveDialog;
 	}
 }

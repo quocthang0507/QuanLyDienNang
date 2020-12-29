@@ -34,6 +34,7 @@ namespace Business.Classes
 				{
 					sheets.Add(sheet.Name);
 				}
+				excel.Dispose();
 				return sheets;
 			}
 			catch (Exception)
@@ -69,9 +70,11 @@ namespace Business.Classes
 								dr[cell.Start.Column - 1] = cell.Text;
 							}
 						}
+						excel.Dispose();
 						return dt;
 					}
 				}
+				excel.Dispose();
 				return null;
 			}
 			catch (Exception)

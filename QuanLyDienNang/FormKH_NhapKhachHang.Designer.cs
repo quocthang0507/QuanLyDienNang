@@ -44,7 +44,7 @@
 			this.btnLoadNoiDung = new System.Windows.Forms.Button();
 			this.label3 = new System.Windows.Forms.Label();
 			this.dgvKhachHang = new System.Windows.Forms.DataGridView();
-			this.fileDialog = new System.Windows.Forms.OpenFileDialog();
+			this.openDialog = new System.Windows.Forms.OpenFileDialog();
 			this.panel1.SuspendLayout();
 			this.tableParent.SuspendLayout();
 			this.panel2.SuspendLayout();
@@ -240,9 +240,9 @@
 			this.dgvKhachHang.Size = new System.Drawing.Size(855, 420);
 			this.dgvKhachHang.TabIndex = 8;
 			// 
-			// fileDialog
+			// openDialog
 			// 
-			this.fileDialog.Filter = "Tập tin Excel 2007 (.xlsx)|*.xlsx|Tập tin Excel 2003 (.xls)|*.xls";
+			this.openDialog.Filter = "Excel Workbook (.xlsx)|*.xlsx|Excel 97-2003 Workbook (.xls)|*.xls";
 			// 
 			// FormKH_NhapKhachHang
 			// 
@@ -281,6 +281,6 @@
 		private System.Windows.Forms.DataGridView dgvKhachHang;
 		private System.Windows.Forms.Button btnXemMau;
 		private System.Windows.Forms.Button btnChonTapTin;
-		private System.Windows.Forms.OpenFileDialog fileDialog;
+		private System.Windows.Forms.OpenFileDialog openDialog;
 	}
 }
