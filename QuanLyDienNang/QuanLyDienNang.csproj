@@ -548,6 +548,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\VND1.png" />
+    <None Include="Resources\VNDong.png" />
+    <None Include="Resources\VND2.png" />
     <None Include="Resources\MSN.png" />
     <None Include="Resources\Save2.png" />
     <None Include="Resources\Internet.png" />
