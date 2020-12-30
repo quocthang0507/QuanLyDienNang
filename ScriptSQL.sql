@@ -16,6 +16,10 @@ INSERT INTO BangGia VALUES ('BG001', N'Điện sinh hoạt (hộ thường)')
 INSERT INTO BangGia VALUES ('BG002', N'Điện sinh hoạt (hộ nghèo)')
 INSERT INTO BangGia VALUES ('BG003', N'Điện kinh doanh - dịch vụ')
 INSERT INTO BangGia VALUES ('BG004', N'Điện sản xuất')
+INSERT INTO BangGia VALUES ('BG005', N'Điện hành chính, sự nghiệp')
+INSERT INTO BangGia VALUES ('BG006', N'Điện cho bệnh viện, trường học')
+INSERT INTO BangGia VALUES ('BG007', N'Điện cho bơm nước, tưới tiêu')
+INSERT INTO BangGia VALUES ('BG008', N'Điện chiếu sáng công cộng')
 GO
 
 CREATE PROCEDURE proc_GetAll_BangGia
@@ -45,6 +49,94 @@ AS
 	DELETE FROM BangGia
 	WHERE MaBangGia = @MaBangGia
 GO
+
+--====================CHI TIẾT BẢNG GIÁ ĐIỆN====================
+CREATE TABLE ChiTietBangGia
+(
+	ID int not null identity(1, 1) primary key,
+	MaBangGia char(5) references BangGia(MaBangGia),
+	BatDau int not null,
+	KetThuc int not null,
+	GiaTruocVAT int not null,
+	VAT float not null,
+	GiaSauVAT int null,
+	MoTa nvarchar(200) null,
+	HoatDong bit default 1 not null
+)
+GO
+
+EXEC proc_Insert_ChiTietBangGia 'BG001', 0, 50, 1678, 0.1, N'Bậc 1: Cho kWh từ 0 - 50'
+EXEC proc_Insert_ChiTietBangGia 'BG001', 51, 100, 1734, 0.1, N'Bậc 2: Cho kWh từ 51 - 100'
+EXEC proc_Insert_ChiTietBangGia 'BG001', 101, 200, 2014, 0.1, N'Bậc 3: Cho kWh từ 101 - 200'
+EXEC proc_Insert_ChiTietBangGia 'BG001', 201, 300, 2536, 0.1, N'Bậc 4: Cho kWh từ 201 - 300'
+EXEC proc_Insert_ChiTietBangGia 'BG001', 301, 400, 2834, 0.1, N'Bậc 5: Cho kWh từ 301 - 400'
+EXEC proc_Insert_ChiTietBangGia 'BG001', 401, 0, 2927, 0.1, N'Bậc 6: Cho kWh từ 401 trở lên'
+GO
+
+CREATE TRIGGER trg_CapNhatChiTietBangGia ON ChiTietBangGia FOR INSERT, UPDATE
+--ALTER TRIGGER trg_CapNhatChiTietBangGia ON ChiTietBangGia FOR INSERT, UPDATE
+AS
+	IF UPDATE(GiaTruocVAT) or UPDATE(VAT)
+		BEGIN
+			DECLARE @GiaTruocVAT INT
+			DECLARE @GiaSauVAT INT
+			DECLARE @VAT FLOAT
+			SET @GiaTruocVAT = (SELECT GiaTruocVAT FROM inserted)
+			SET @VAT = (SELECT VAT FROM inserted)
+			SET @GIASAUVAT = ROUND(@GiaTruocVAT + @GiaTruocVAT * @VAT, 0)
+			UPDATE ChiTietBangGia
+			SET GiaSauVAT = @GiaSauVAT
+			WHERE ID = (SELECT ID FROM inserted)
+		END
+GO
+
+SELECT 
+
+CREATE PROCEDURE proc_GetAll_ChiTietBangGia
+AS
+	SELECT * FROM ChiTietBangGia WHERE HoatDong = 1
+GO
+
+CREATE PROCEDURE proc_Insert_ChiTietBangGia
+	@MaBangGia char(5),
+	@BatDau int,
+	@KetThuc int,
+	@GiaTruocVAT int,
+	@VAT float,
+	@MoTa nvarchar(200)
+AS
+	INSERT INTO ChiTietBangGia (MaBangGia, BatDau, KetThuc, GiaTruocVAT, VAT, MoTa) VALUES (@MaBangGia, @BatDau, @KetThuc, @GiaTruocVAT, @VAT, @MoTa)
+GO
+
+CREATE PROCEDURE proc_Update_ChiTietBangGia
+	@ID int,
+	@MaBangGia char(5),
+	@BatDau int,
+	@KetThuc int,
+	@GiaTruocVAT int,
+	@VAT float,
+	@MoTa nvarchar(200)
+AS
+	UPDATE ChiTietBangGia
+	SET MaBangGia = @MaBangGia, BatDau = @BatDau, KetThuc = @KetThuc, GiaTruocVAT = @GiaTruocVAT, VAT = @VAT
+	WHERE ID = @ID
+GO
+
+CREATE PROCEDURE proc_Delete_ChiTietBangGia
+	@ID int
+AS
+	UPDATE ChiTietBangGia
+	SET HoatDong = 0
+	WHERE ID = @ID
+GO
+
+CREATE PROCEDURE proc_Reset_ChiTietBangGia
+AS
+	DELETE FROM ChiTietBangGia
+	DBCC CHECKIDENT ('[ChiTietBangGia]', RESEED, 0);
+GO
+
+--EXEC proc_Reset_ChiTietBangGia
 
 --====================TRẠM BIẾN ÁP ÁP DỤNG CHO KHÁCH HÀNG====================
 CREATE TABLE TramBienAp (
@@ -430,4 +522,10 @@ CREATE PROCEDURE proc_Delete_DienNangTieuThu
 AS
 	DELETE FROM DienNangTieuThu
 	WHERE ID = @ID
+GO
+
+CREATE PROCEDURE proc_Reset_DienNangTieuThu
+AS
+	DELETE FROM DienNangTieuThu
+	DBCC CHECKIDENT ('[DienNangTieuThu]', RESEED, 0);
 GO
