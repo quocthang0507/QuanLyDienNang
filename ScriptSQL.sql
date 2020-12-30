@@ -9,7 +9,8 @@ GO
 CREATE TABLE BangGia (
 	--BG001
 	MaBangGia char(5) primary key,
-	TenBangGia nvarchar(100) not null
+	TenBangGia nvarchar(100) not null,
+	KichHoat bit default 1 not null
 )
 GO 
 INSERT INTO BangGia VALUES ('BG001', N'Điện sinh hoạt (hộ thường)')
@@ -23,8 +24,9 @@ INSERT INTO BangGia VALUES ('BG008', N'Điện chiếu sáng công cộng')
 GO
 
 CREATE PROCEDURE proc_GetAll_BangGia
+--ALTER PROCEDURE proc_GetAll_BangGia
 AS
-	SELECT * FROM BangGia
+	SELECT * FROM BangGia WHERE KichHoat = 1
 GO
 
 CREATE PROCEDURE proc_Insert_BangGia
@@ -44,9 +46,11 @@ AS
 GO
 
 CREATE PROCEDURE proc_Delete_BangGia
+--ALTER PROCEDURE proc_Delete_BangGia
 	@MaBangGia char(5)
 AS
-	DELETE FROM BangGia
+	UPDATE BangGia
+	SET KichHoat = 0
 	WHERE MaBangGia = @MaBangGia
 GO
 
@@ -61,7 +65,7 @@ CREATE TABLE ChiTietBangGia
 	VAT float not null,
 	GiaSauVAT int null,
 	MoTa nvarchar(200) null,
-	HoatDong bit default 1 not null
+	KichHoat bit default 1 not null
 )
 GO
 
@@ -90,11 +94,10 @@ AS
 		END
 GO
 
-SELECT 
-
 CREATE PROCEDURE proc_GetAll_ChiTietBangGia
+--ALTER PROCEDURE proc_GetAll_ChiTietBangGia
 AS
-	SELECT * FROM ChiTietBangGia WHERE HoatDong = 1
+	SELECT * FROM ChiTietBangGia WHERE KichHoat = 1
 GO
 
 CREATE PROCEDURE proc_Insert_ChiTietBangGia
@@ -123,10 +126,11 @@ AS
 GO
 
 CREATE PROCEDURE proc_Delete_ChiTietBangGia
+--ALTER PROCEDURE proc_Delete_ChiTietBangGia
 	@ID int
 AS
 	UPDATE ChiTietBangGia
-	SET HoatDong = 0
+	SET KichHoat = 0
 	WHERE ID = @ID
 GO
 
@@ -140,20 +144,27 @@ GO
 
 --====================TRẠM BIẾN ÁP ÁP DỤNG CHO KHÁCH HÀNG====================
 CREATE TABLE TramBienAp (
+--ALTER TABLE TramBienAp (
 	--BA001
 	MaTram char(5) primary key,
-	TenTram nvarchar(100) not null
+	TenTram nvarchar(100) not null,
+	DiaChi nvarchar(200) null,
+	NguoiPhuTrach nvarchar(100) null,
+	MaSoCongTo nvarchar(20) null,
+	HeSoNhan tinyint default 1 not null,
+	KichHoat bit default 1 not null
 )
 GO 
+
 INSERT INTO TramBienAp VALUES ('BA001', N'Trạm biến áp 1')
 INSERT INTO TramBienAp VALUES ('BA002', N'Trạm biến áp 2')
 INSERT INTO TramBienAp VALUES ('BA003', N'Trạm biến áp 3')
-SELECT * FROM TramBienAp
 GO
 
 CREATE PROCEDURE proc_GetAll_TramBienAp
+--ALTER PROCEDURE proc_GetAll_TramBienAp
 AS
-	SELECT * FROM TramBienAp
+	SELECT * FROM TramBienAp WHERE KichHoat = 1
 GO
 
 CREATE PROCEDURE proc_Insert_TramBienAp
@@ -173,9 +184,11 @@ AS
 GO
 
 CREATE PROCEDURE proc_Delete_TramBienAp
+--ALTER PROCEDURE proc_Delete_TramBienAp
 	@MaTram char(5)
 AS
-	DELETE FROM TramBienAp
+	UPDATE TramBienAp
+	SET KichHoat = 0
 	WHERE MaTram = @MaTram
 GO
 
@@ -274,7 +287,7 @@ CREATE TABLE KhachHang (
 	MaCongTo nvarchar(20) null,
 	SoNganHang varchar(20) null,
 	TenNganHang nvarchar(100) null,
-	DaXoa bit default 0
+	KichHoat bit default 1 not null
 )
 GO 
 
@@ -283,7 +296,7 @@ GO
 CREATE PROCEDURE proc_GetAll_KhachHang
 --ALTER PROCEDURE proc_GetAll_KhachHang
 AS
-	SELECT * FROM KhachHang WHERE DaXoa = 0 ORDER BY MaKhachHang
+	SELECT * FROM KhachHang WHERE KichHoat = 0 ORDER BY MaKhachHang
 GO
 
 CREATE FUNCTION func_GenerateID_KhachHang()
@@ -381,10 +394,8 @@ CREATE PROCEDURE proc_Delete_KhachHang
 --ALTER PROCEDURE proc_Delete_KhachHang
 	@MaKhachHang char(9)
 AS
-	--DELETE FROM KhachHang
-	--WHERE MaKhachHang = @MaKhachHang
 	UPDATE KhachHang
-	SET DaXoa = 1
+	SET KichHoat = 0
 	WHERE MaKhachHang = @MaKhachHang
 GO
 
