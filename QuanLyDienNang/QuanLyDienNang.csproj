@@ -548,9 +548,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\MSN.png" />
+    <None Include="Resources\Save2.png" />
+    <None Include="Resources\Internet.png" />
+    <None Include="Resources\Pdf.png" />
+    <None Include="Resources\Archive2.png" />
+    <None Include="Resources\Search2.png" />
+    <None Include="Resources\Image.png" />
+    <None Include="Resources\Xlsx1.png" />
+    <None Include="Resources\Xlsx.png" />
     <None Include="Resources\Search3.png" />
     <None Include="Resources\update.png" />
-    <None Include="Resources\Xlsx.png" />
     <None Include="Resources\PowerPoint.png" />
     <None Include="Resources\Word.png" />
     <None Include="Resources\Excel.png" />

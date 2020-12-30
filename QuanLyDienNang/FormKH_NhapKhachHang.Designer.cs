@@ -58,7 +58,8 @@
 			this.tbxDuongDan.Location = new System.Drawing.Point(104, 14);
 			this.tbxDuongDan.Margin = new System.Windows.Forms.Padding(4);
 			this.tbxDuongDan.Name = "tbxDuongDan";
-			this.tbxDuongDan.Size = new System.Drawing.Size(544, 23);
+			this.tbxDuongDan.ReadOnly = true;
+			this.tbxDuongDan.Size = new System.Drawing.Size(565, 23);
 			this.tbxDuongDan.TabIndex = 1;
 			// 
 			// label1
@@ -111,9 +112,9 @@
 			this.btnChonTapTin.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnChonTapTin.Image = global::QuanLyDienNang.Properties.Resources.Xlsx;
 			this.btnChonTapTin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnChonTapTin.Location = new System.Drawing.Point(655, 4);
+			this.btnChonTapTin.Location = new System.Drawing.Point(676, 4);
 			this.btnChonTapTin.Name = "btnChonTapTin";
-			this.btnChonTapTin.Size = new System.Drawing.Size(143, 40);
+			this.btnChonTapTin.Size = new System.Drawing.Size(122, 40);
 			this.btnChonTapTin.TabIndex = 2;
 			this.btnChonTapTin.Text = "Chọn tập tin";
 			this.btnChonTapTin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -191,9 +192,9 @@
 			this.btnXemMau.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnXemMau.Image = global::QuanLyDienNang.Properties.Resources.Xlsx;
 			this.btnXemMau.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnXemMau.Location = new System.Drawing.Point(216, 2);
+			this.btnXemMau.Location = new System.Drawing.Point(228, 2);
 			this.btnXemMau.Name = "btnXemMau";
-			this.btnXemMau.Size = new System.Drawing.Size(119, 42);
+			this.btnXemMau.Size = new System.Drawing.Size(107, 42);
 			this.btnXemMau.TabIndex = 5;
 			this.btnXemMau.Text = "Xem mẫu";
 			this.btnXemMau.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -203,7 +204,7 @@
 			// btnLoadNoiDung
 			// 
 			this.btnLoadNoiDung.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnLoadNoiDung.Image = global::QuanLyDienNang.Properties.Resources.Loading;
+			this.btnLoadNoiDung.Image = global::QuanLyDienNang.Properties.Resources.Text_Document;
 			this.btnLoadNoiDung.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.btnLoadNoiDung.Location = new System.Drawing.Point(341, 3);
 			this.btnLoadNoiDung.Name = "btnLoadNoiDung";

@@ -128,9 +128,9 @@ namespace QuanLyDienNang
 			this.btnChonTapTin.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnChonTapTin.Image = global::QuanLyDienNang.Properties.Resources.Xlsx;
 			this.btnChonTapTin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnChonTapTin.Location = new System.Drawing.Point(738, 4);
+			this.btnChonTapTin.Location = new System.Drawing.Point(754, 4);
 			this.btnChonTapTin.Name = "btnChonTapTin";
-			this.btnChonTapTin.Size = new System.Drawing.Size(143, 40);
+			this.btnChonTapTin.Size = new System.Drawing.Size(127, 40);
 			this.btnChonTapTin.TabIndex = 2;
 			this.btnChonTapTin.Text = "Chọn tập tin";
 			this.btnChonTapTin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -176,7 +176,8 @@ namespace QuanLyDienNang
 			this.tbxDuongDan.Location = new System.Drawing.Point(166, 14);
 			this.tbxDuongDan.Margin = new System.Windows.Forms.Padding(4);
 			this.tbxDuongDan.Name = "tbxDuongDan";
-			this.tbxDuongDan.Size = new System.Drawing.Size(544, 23);
+			this.tbxDuongDan.ReadOnly = true;
+			this.tbxDuongDan.Size = new System.Drawing.Size(581, 23);
 			this.tbxDuongDan.TabIndex = 1;
 			// 
 			// label2

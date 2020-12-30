@@ -146,6 +146,7 @@
 			// 
 			this.cbxTenTram.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.cbxTenTram.DisplayMember = "TenTram";
+			this.cbxTenTram.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbxTenTram.FormattingEnabled = true;
 			this.cbxTenTram.Location = new System.Drawing.Point(525, 3);
 			this.cbxTenTram.Name = "cbxTenTram";
@@ -195,6 +196,7 @@
 			// 
 			this.cbxBangGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.cbxBangGia.DisplayMember = "TenBangGia";
+			this.cbxBangGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbxBangGia.FormattingEnabled = true;
 			this.cbxBangGia.Location = new System.Drawing.Point(90, 34);
 			this.cbxBangGia.Name = "cbxBangGia";
@@ -205,6 +207,7 @@
 			// cbxNganHang
 			// 
 			this.cbxNganHang.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.cbxNganHang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbxNganHang.FormattingEnabled = true;
 			this.cbxNganHang.Location = new System.Drawing.Point(525, 34);
 			this.cbxNganHang.Name = "cbxNganHang";
