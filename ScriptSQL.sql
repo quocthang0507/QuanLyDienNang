@@ -496,17 +496,20 @@ AS
 GO
 
 --====================THÔNG TIN ĐIỆN NĂNG TIÊU THỤ CỦA KHÁCH HÀNG====================
+--DROP TABLE DienNangTieuThu
 CREATE TABLE DienNangTieuThu (
 --ALTER TABLE DienNangTieuThu (
 	ID int not null identity(1, 1) primary key,
 	MaKhachHang char(9) references KhachHang(MaKhachHang) not null,
-	NgayGhi datetime not null,
+	NgayGhi datetime null,
 	NguoiGhi char(5) references NguoiQuanLy(MaQuanLy),
-	ChuKyThang tinyint not null,
-	NgayCapNhat datetime not null,
+	ChuKyThang tinyint null,
+	NgayCapNhat datetime null,
 	NguoiCapNhat char(5) references NguoiQuanLy(MaQuanLy),
-	ChiSoMoi int default 0 not null,
-	ChiSoCu int default 0 not null,
+	NgayHoaDon datetime null,
+	NgayTraTien datetime null,
+	ChiSoMoi int default 0 null,
+	ChiSoCu int default 0 null,
 	TongTienTruocVAT money null,
 	TongTienSauVAT money null,
 	DaTra money default 0 null,
@@ -527,6 +530,8 @@ CREATE PROCEDURE DienNangTieuThu_Insert
 	@ChuKyThang tinyint,
 	@NgayCapNhat datetime,
 	@NguoiCapNhat char(5),
+	@NgayHoaDon datetime,
+	@NgayTraTien datetime,
 	@ChiSoMoi int,
 	@ChiSoCu int,
 	@TongTienTruocVAT money,
@@ -534,7 +539,7 @@ CREATE PROCEDURE DienNangTieuThu_Insert
 	@DaTra money,
 	@ConLai money
 AS
-	INSERT INTO DienNangTieuThu VALUES (@MaKhachHang, @NgayGhi, @NguoiGhi, @ChuKyThang, @NgayCapNhat, @NguoiCapNhat, @ChiSoMoi, @ChiSoCu, @TongTienTruocVAT, @TongTienSauVAT, @DaTra, @ConLai)
+	INSERT INTO DienNangTieuThu VALUES (@MaKhachHang, @NgayGhi, @NguoiGhi, @ChuKyThang, @NgayCapNhat, @NguoiCapNhat, @NgayHoaDon, @NgayTraTien, @ChiSoMoi, @ChiSoCu, @TongTienTruocVAT, @TongTienSauVAT, @DaTra, @ConLai)
 GO
 
 CREATE PROCEDURE proc_Delete_DienNangTieuThu
