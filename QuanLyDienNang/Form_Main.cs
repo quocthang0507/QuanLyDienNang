@@ -216,6 +216,18 @@ namespace QuanLyDienNang
 			{
 				DynamicForm = tabForms.SelectedTab.Controls[0] as FormKH_DienNangTieuThu;
 			}
+			else if (tabForms.SelectedTab.Controls[0] is FormKH_CapNhatKhachHang)
+			{
+				DynamicForm = tabForms.SelectedTab.Controls[0] as FormKH_CapNhatKhachHang;
+			}
+			else if (tabForms.SelectedTab.Controls[0] is FormKH_XuatKhachHang)
+			{
+				DynamicForm = tabForms.SelectedTab.Controls[0] as FormKH_XuatKhachHang;
+			}
+			else if (tabForms.SelectedTab.Controls[0] is FormKH_NhapKhachHang)
+			{
+				DynamicForm = tabForms.SelectedTab.Controls[0] as FormKH_NhapKhachHang;
+			}
 			else return;
 			GoUp = () => DynamicForm.GoUp();
 			GoDown = () => DynamicForm.GoDown();

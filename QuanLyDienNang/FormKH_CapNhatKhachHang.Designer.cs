@@ -218,6 +218,7 @@ namespace QuanLyDienNang
 			this.dgvKhachHang.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvKhachHang.Location = new System.Drawing.Point(3, 183);
 			this.dgvKhachHang.Name = "dgvKhachHang";
+			this.dgvKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dgvKhachHang.Size = new System.Drawing.Size(978, 375);
 			this.dgvKhachHang.TabIndex = 13;
 			// 

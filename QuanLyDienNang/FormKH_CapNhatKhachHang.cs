@@ -1,6 +1,7 @@
 ﻿using Business.Classes;
 using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -91,6 +92,58 @@ namespace QuanLyDienNang
 			else
 				cbxNguoiCapNhat.DataSource = data;
 		}
+
+		public void GoToIndex(int index)
+		{
+			dgvKhachHang.ClearSelection();
+			dgvKhachHang.Rows[index].Selected = true;
+		}
+
+		public void GoUp()
+		{
+			var index = dgvKhachHang.SelectedRows[0].Index;
+			if (index > 0)
+			{
+				index--;
+				GoToIndex(index);
+			}
+		}
+
+		public void GoDown()
+		{
+			var index = dgvKhachHang.SelectedRows[0].Index;
+			if (index < dgvKhachHang.Rows.Count - 1)
+			{
+				index++;
+				GoToIndex(index);
+			}
+		}
+
+		public void GoToFirst()
+		{
+			GoToIndex(0);
+		}
+
+		public void GoToEnd()
+		{
+			GoToIndex(dgvKhachHang.Rows.Count - 1);
+		}
+
+		public override string ToString()
+		{
+			if (dgvKhachHang.SelectedRows.Count > 0)
+			{
+				var row = dgvKhachHang.SelectedRows[0];
+				StringBuilder builder = new StringBuilder();
+				for (int i = 0; i < row.Cells.Count; i++)
+				{
+					builder.Append(row.Cells[i].Value.ToString() + '\t');
+				}
+				return builder.ToString();
+			}
+			return string.Empty;
+		}
+
 		#endregion
 
 	}
