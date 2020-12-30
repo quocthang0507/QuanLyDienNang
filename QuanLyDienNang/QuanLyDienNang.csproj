@@ -96,11 +96,11 @@
     <Compile Include="FormPhanQuyenQuanLy.Designer.cs">
       <DependentUpon>FormPhanQuyenQuanLy.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormKH_DienNangTieuThu.cs">
+    <Compile Include="Form_DienNangTieuThu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormKH_DienNangTieuThu.Designer.cs">
-      <DependentUpon>FormKH_DienNangTieuThu.cs</DependentUpon>
+    <Compile Include="Form_DienNangTieuThu.Designer.cs">
+      <DependentUpon>Form_DienNangTieuThu.cs</DependentUpon>
     </Compile>
     <Compile Include="FormWelcome.cs">
       <SubType>Form</SubType>
@@ -158,8 +158,8 @@
     <EmbeddedResource Include="FormPhanQuyenQuanLy.resx">
       <DependentUpon>FormPhanQuyenQuanLy.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormKH_DienNangTieuThu.resx">
-      <DependentUpon>FormKH_DienNangTieuThu.cs</DependentUpon>
+    <EmbeddedResource Include="Form_DienNangTieuThu.resx">
+      <DependentUpon>Form_DienNangTieuThu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormWelcome.resx">
       <DependentUpon>FormWelcome.cs</DependentUpon>

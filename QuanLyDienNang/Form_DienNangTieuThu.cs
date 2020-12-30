@@ -6,9 +6,9 @@ using System.Windows.Forms;
 
 namespace QuanLyDienNang
 {
-	public partial class FormKH_DienNangTieuThu : Form
+	public partial class Form_DienNangTieuThu : Form
 	{
-		public FormKH_DienNangTieuThu()
+		public Form_DienNangTieuThu()
 		{
 			InitializeComponent();
 		}
@@ -16,11 +16,7 @@ namespace QuanLyDienNang
 		#region Events
 		private void FormKH_DienNangTieuThu_Shown(object sender, EventArgs e)
 		{
-			var data = DienNangTieuThu.GetAll();
-			if (data == null)
-				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			else
-				dgvDienNangTieuThu.DataSource = data;
+			LoadTable();
 		}
 
 		private void tbxSoDienThoai_KeyPress(object sender, KeyPressEventArgs e)
@@ -35,6 +31,15 @@ namespace QuanLyDienNang
 		#endregion
 
 		#region Methods
+		private void LoadTable()
+		{
+			var data = DienNangTieuThu.GetAll();
+			if (data == null)
+				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			else
+				dgvDienNangTieuThu.DataSource = data;
+		}
+		
 		public void GoToIndex(int index)
 		{
 			dgvDienNangTieuThu.ClearSelection();

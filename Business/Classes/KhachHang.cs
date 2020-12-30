@@ -94,12 +94,15 @@ namespace Business.Classes
 		[StringLength(100)]
 		public string TenNganHang { get; set; }
 
+		[DisplayName("Đã xóa")]
+		public bool DaXoa { get; set; }
+
 		public KhachHang()
 		{
 
 		}
 
-		public KhachHang(string maKhachHang, string hoVaTen, string diaChi, string maBangGia, string maTram, byte soHo, byte heSoNhan, string maSoThue, string soDienThoai, string email, DateTime ngayTao, string nguoiTao, DateTime ngayCapNhat, string nguoiCapNhat, string maSoHopDong, DateTime ngayHopDong, string maCongTo, string soNganHang, string tenNganHang)
+		public KhachHang(string maKhachHang, string hoVaTen, string diaChi, string maBangGia, string maTram, byte soHo, byte heSoNhan, string maSoThue, string soDienThoai, string email, DateTime ngayTao, string nguoiTao, DateTime ngayCapNhat, string nguoiCapNhat, string maSoHopDong, DateTime ngayHopDong, string maCongTo, string soNganHang, string tenNganHang, bool daXoa)
 		{
 			MaKhachHang = maKhachHang;
 			HoVaTen = hoVaTen;
@@ -120,6 +123,7 @@ namespace Business.Classes
 			MaCongTo = maCongTo;
 			SoNganHang = soNganHang;
 			TenNganHang = tenNganHang;
+			DaXoa = daXoa;
 		}
 
 		public static List<KhachHang> All()

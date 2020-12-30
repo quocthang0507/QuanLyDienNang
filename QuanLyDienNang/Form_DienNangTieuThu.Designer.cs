@@ -1,6 +1,6 @@
 ﻿namespace QuanLyDienNang
 {
-    partial class FormKH_DienNangTieuThu
+    partial class Form_DienNangTieuThu
     {
         /// <summary>
         /// Required designer variable.
@@ -87,7 +87,7 @@
 			// 
 			this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(30, 41);
+			this.label3.Location = new System.Drawing.Point(30, 45);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(94, 19);
 			this.label3.TabIndex = 3;
@@ -96,7 +96,7 @@
 			// tbxHoVaTen
 			// 
 			this.tbxHoVaTen.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxHoVaTen.Location = new System.Drawing.Point(130, 38);
+			this.tbxHoVaTen.Location = new System.Drawing.Point(130, 42);
 			this.tbxHoVaTen.Name = "tbxHoVaTen";
 			this.tbxHoVaTen.Size = new System.Drawing.Size(291, 25);
 			this.tbxHoVaTen.TabIndex = 2;
@@ -105,7 +105,7 @@
 			// 
 			this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(453, 43);
+			this.label4.Location = new System.Drawing.Point(453, 47);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(66, 19);
 			this.label4.TabIndex = 3;
@@ -115,7 +115,7 @@
 			// 
 			this.cbxTenTram.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.cbxTenTram.FormattingEnabled = true;
-			this.cbxTenTram.Location = new System.Drawing.Point(525, 37);
+			this.cbxTenTram.Location = new System.Drawing.Point(525, 41);
 			this.cbxTenTram.Name = "cbxTenTram";
 			this.cbxTenTram.Size = new System.Drawing.Size(295, 25);
 			this.cbxTenTram.TabIndex = 4;
@@ -124,7 +124,7 @@
 			// 
 			this.label14.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(71, 72);
+			this.label14.Location = new System.Drawing.Point(71, 76);
 			this.label14.Name = "label14";
 			this.label14.Size = new System.Drawing.Size(53, 19);
 			this.label14.TabIndex = 7;
@@ -133,7 +133,7 @@
 			// tbxDiaChi
 			// 
 			this.tbxDiaChi.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxDiaChi.Location = new System.Drawing.Point(130, 69);
+			this.tbxDiaChi.Location = new System.Drawing.Point(130, 73);
 			this.tbxDiaChi.Name = "tbxDiaChi";
 			this.tbxDiaChi.Size = new System.Drawing.Size(291, 25);
 			this.tbxDiaChi.TabIndex = 3;
@@ -254,7 +254,7 @@
 			// tbxSoDienThoai
 			// 
 			this.tbxSoDienThoai.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxSoDienThoai.Location = new System.Drawing.Point(525, 68);
+			this.tbxSoDienThoai.Location = new System.Drawing.Point(525, 72);
 			this.tbxSoDienThoai.Name = "tbxSoDienThoai";
 			this.tbxSoDienThoai.Size = new System.Drawing.Size(218, 25);
 			this.tbxSoDienThoai.TabIndex = 5;
@@ -264,13 +264,13 @@
 			// 
 			this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(427, 72);
+			this.label7.Location = new System.Drawing.Point(427, 76);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(92, 19);
 			this.label7.TabIndex = 3;
 			this.label7.Text = "Số điện thoại:";
 			// 
-			// FormKH_DienNangTieuThu
+			// Form_DienNangTieuThu
 			// 
 			this.AcceptButton = this.btnTimKiem;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -279,7 +279,7 @@
 			this.Controls.Add(this.tableParent);
 			this.Font = new System.Drawing.Font("Segoe UI", 10F);
 			this.Margin = new System.Windows.Forms.Padding(4);
-			this.Name = "FormKH_DienNangTieuThu";
+			this.Name = "Form_DienNangTieuThu";
 			this.Text = "Thông Tin Điện Năng Tiêu Thụ Của Khách Hàng";
 			this.Shown += new System.EventHandler(this.FormKH_DienNangTieuThu_Shown);
 			((System.ComponentModel.ISupportInitialize)(this.dgvDienNangTieuThu)).EndInit();

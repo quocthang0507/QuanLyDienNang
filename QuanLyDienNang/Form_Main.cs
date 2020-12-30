@@ -67,7 +67,7 @@ namespace QuanLyDienNang
 
 		private void cậpNhậtĐiệnNăngTiêuThụToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Form frmDNTT = new FormKH_DienNangTieuThu();
+			Form frmDNTT = new Form_DienNangTieuThu();
 			AddFormToTabPage(frmDNTT);
 		}
 
@@ -177,6 +177,19 @@ namespace QuanLyDienNang
 		/// <param name="form"></param>
 		private void AddFormToTabPage(Form form)
 		{
+			// Kiểm tra form có nằm trong tabControl trước đó hay không
+			foreach (TabPage tabPage in tabForms.TabPages)
+			{
+				if (tabPage.Controls.Count > 0 && tabPage.Controls[0] is Form)
+				{
+					var existedForm = tabPage.Controls[0] as Form;
+					if (form.Text == existedForm.Text)
+					{
+						tabForms.SelectedTab = tabPage;
+						return;
+					}
+				}
+			}
 			// Chỉnh sửa form trước khi thêm vào tab
 			form.TopLevel = false;
 			form.FormBorderStyle = FormBorderStyle.None;
@@ -212,9 +225,9 @@ namespace QuanLyDienNang
 			{
 				DynamicForm = tabForms.SelectedTab.Controls[0] as Form_NguoiQuanLy;
 			}
-			else if (tabForms.SelectedTab.Controls[0] is FormKH_DienNangTieuThu)
+			else if (tabForms.SelectedTab.Controls[0] is Form_DienNangTieuThu)
 			{
-				DynamicForm = tabForms.SelectedTab.Controls[0] as FormKH_DienNangTieuThu;
+				DynamicForm = tabForms.SelectedTab.Controls[0] as Form_DienNangTieuThu;
 			}
 			else if (tabForms.SelectedTab.Controls[0] is FormKH_CapNhatKhachHang)
 			{

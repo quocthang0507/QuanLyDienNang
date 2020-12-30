@@ -181,7 +181,8 @@ CREATE TABLE KhachHang (
 	NgayHopDong datetime null,
 	MaCongTo nvarchar(20) null,
 	SoNganHang varchar(20) null,
-	TenNganHang nvarchar(100) null
+	TenNganHang nvarchar(100) null,
+	DaXoa bit default 0
 )
 GO 
 
@@ -190,7 +191,7 @@ GO
 CREATE PROCEDURE proc_GetAll_KhachHang
 --ALTER PROCEDURE proc_GetAll_KhachHang
 AS
-	SELECT * FROM KhachHang ORDER BY MaKhachHang
+	SELECT * FROM KhachHang WHERE DaXoa = 0 ORDER BY MaKhachHang
 GO
 
 CREATE FUNCTION func_GenerateID_KhachHang()
@@ -285,9 +286,13 @@ AS
 GO
 
 CREATE PROCEDURE proc_Delete_KhachHang
+--ALTER PROCEDURE proc_Delete_KhachHang
 	@MaKhachHang char(9)
 AS
-	DELETE FROM KhachHang
+	--DELETE FROM KhachHang
+	--WHERE MaKhachHang = @MaKhachHang
+	UPDATE KhachHang
+	SET DaXoa = 1
 	WHERE MaKhachHang = @MaKhachHang
 GO
 
