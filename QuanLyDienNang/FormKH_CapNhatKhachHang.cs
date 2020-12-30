@@ -54,22 +54,24 @@ namespace QuanLyDienNang
 			thread.Start();
 		}
 
-		private void btnLuuCSDL_Click(object sender, System.EventArgs e)
+		private void btnCapNhat_Click(object sender, System.EventArgs e)
 		{
 			if (dgvKhachHang.DataSource == null)
 			{
 				MessageBox.Show("Không thể thực hiện hành động này vì DataGridView đang trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
-			var ok = funcs.TryUpdatingDataTableToSQL(dgvKhachHang.DataSource as List<KhachHang>);
+			var maQL = (cbxNguoiCapNhat.SelectedItem as NguoiQuanLy).MaQuanLy;
+			var data = funcs.UpdateListForUpdating(dgvKhachHang.DataSource as List<KhachHang>, maQL);
+			var ok = funcs.TryUpdatingDataTableToSQL(data);
 			if (ok)
 			{
 				funcs.UpdateSQL(dgvKhachHang.DataSource as List<KhachHang>);
-				MessageBox.Show("Thêm vào CSDL thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show("Cập nhật vào CSDL thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			else
 			{
-				MessageBox.Show("Thêm vào CSDL không thành công, vui lòng kiểm tra dữ liệu hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Cập nhật vào CSDL không thành công, vui lòng kiểm tra dữ liệu hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 		#endregion

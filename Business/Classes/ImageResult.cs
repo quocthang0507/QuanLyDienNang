@@ -1,5 +1,8 @@
 ﻿namespace Business.Classes
 {
+	/// <summary>
+	/// Lớp đại diện kết quả OCR
+	/// </summary>
 	public class ImageResult
 	{
 		public string DuongDan { get; set; }

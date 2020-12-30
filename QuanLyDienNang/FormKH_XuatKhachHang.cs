@@ -94,7 +94,7 @@ namespace QuanLyDienNang
 
 		private void LoadBangGia()
 		{
-			var data = BangGia.All();
+			var data = BangGia.GetAll();
 			if (data == null)
 				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else

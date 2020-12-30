@@ -5,11 +5,18 @@ using System.Collections.Generic;
 
 namespace Business.Classes
 {
+	/// <summary>
+	/// Lớp chức năng cho form cấu hình
+	/// </summary>
 	public class Funcs_CauHinh
 	{
 		private SQLConnectionString sqlConnection = new SQLConnectionString();
 		private Funcs_ConnectionString funcs;
 
+		/// <summary>
+		/// Lấy danh sách máy chủ SQL Server trên máy tính
+		/// </summary>
+		/// <returns>Danh sách máy chủ</returns>
 		public static List<string> GetServers()
 		{
 			List<string> servers = new List<string>();
@@ -29,18 +36,35 @@ namespace Business.Classes
 			return servers;
 		}
 
+		/// <summary>
+		/// Kiểm tra kết nối
+		/// </summary>
+		/// <param name="server"></param>
+		/// <param name="database"></param>
+		/// <returns></returns>
 		public bool TestConnectionString(string server, string database)
 		{
 			sqlConnection = new SQLConnectionString(server, database);
 			return sqlConnection.TestConnection();
 		}
 
+		/// <summary>
+		/// Kiểm tra kết nối
+		/// </summary>
+		/// <param name="server"></param>
+		/// <param name="database"></param>
+		/// <param name="username"></param>
+		/// <param name="password"></param>
+		/// <returns></returns>
 		public bool TestConnectionString(string server, string database, string username, string password)
 		{
 			sqlConnection = new SQLConnectionString(server, database, username, password);
 			return sqlConnection.TestConnection();
 		}
 
+		/// <summary>
+		/// Lưu kết nối vào tập tin INI
+		/// </summary>
 		public void SaveConnectionString()
 		{
 			if (sqlConnection != null)
@@ -50,6 +74,13 @@ namespace Business.Classes
 			}
 		}
 
+		/// <summary>
+		/// Lấy các tham số của chuỗi kết nối đã được lưu trước đó
+		/// </summary>
+		/// <param name="server"></param>
+		/// <param name="database"></param>
+		/// <param name="username"></param>
+		/// <param name="password"></param>
 		public void GetSavedConnectionString(ref string server, ref string database, ref string username, ref string password)
 		{
 			funcs = new Funcs_ConnectionString();

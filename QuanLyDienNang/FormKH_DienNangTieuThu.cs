@@ -16,7 +16,7 @@ namespace QuanLyDienNang
 		#region Events
 		private void FormKH_DienNangTieuThu_Shown(object sender, EventArgs e)
 		{
-			var data = DienNangTieuThu.All();
+			var data = DienNangTieuThu.GetAll();
 			if (data == null)
 				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else

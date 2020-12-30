@@ -22,7 +22,7 @@ namespace QuanLyDienNang
 		#region Events
 		private void FormKH_NhapKhachHang_Shown(object sender, EventArgs e)
 		{
-			tbxDuongDan.Text = funcs.GetSavedExcelPath();
+			tbxDuongDan.Text = funcs.GetSavedExcelPathForImporting();
 			LoadNguoiQuanLy();
 			LoadSheet(tbxDuongDan.Text);
 		}
@@ -34,7 +34,7 @@ namespace QuanLyDienNang
 				return;
 			var path = openDialog.FileName;
 			tbxDuongDan.Text = path;
-			funcs.Save_ExcelFilePath(path);
+			funcs.SaveExcelPathForImporting(path);
 			LoadSheet(path);
 		}
 
@@ -49,7 +49,7 @@ namespace QuanLyDienNang
 						  MessageBox.Show("Phải chọn tập tin trước khi thực hiện hành động này", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 						  return;
 					  }
-					  var data = funcs.ReadExcelForInserting(tbxDuongDan.Text, cbxSheet.Text, (cbxNguoiNhap.SelectedItem as NguoiQuanLy).MaQuanLy);
+					  var data = funcs.ReadExcelForInserting(tbxDuongDan.Text, cbxSheet.Text);
 					  if (data == null)
 						  MessageBox.Show("Lỗi đọc dữ liệu từ tập tin Excel", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					  else
@@ -66,7 +66,9 @@ namespace QuanLyDienNang
 				MessageBox.Show("Không thể thực hiện hành động này vì DataGridView đang trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
-			var ok = funcs.TryInsertingDataTableToSQL(dgvKhachHang.DataSource as List<KhachHang>);
+			var maQL = (cbxNguoiNhap.SelectedItem as NguoiQuanLy).MaQuanLy;
+			var data = funcs.UpdateListForInserting(dgvKhachHang.DataSource as List<KhachHang>, maQL);
+			var ok = funcs.TryInsertingDataTableToSQL(data);
 			if (ok)
 			{
 				funcs.InsertSQL(dgvKhachHang.DataSource as List<KhachHang>);

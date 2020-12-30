@@ -99,6 +99,7 @@
 			this.dgvKhachHang.Location = new System.Drawing.Point(3, 213);
 			this.dgvKhachHang.MultiSelect = false;
 			this.dgvKhachHang.Name = "dgvKhachHang";
+			this.dgvKhachHang.ReadOnly = true;
 			this.dgvKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dgvKhachHang.Size = new System.Drawing.Size(978, 452);
 			this.dgvKhachHang.TabIndex = 9;

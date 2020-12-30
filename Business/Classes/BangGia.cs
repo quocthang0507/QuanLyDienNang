@@ -31,10 +31,10 @@ namespace Business.Classes
 			TenBangGia = tenBangGia;
 		}
 
-		public static List<BangGia> All()
+		public static List<BangGia> GetAll()
 			=> CBO.FillCollection<BangGia>(DataProvider.Instance.ExecuteReader("proc_GetAll_BangGia"));
 
-		public static bool Add(BangGia bangGia)
+		public static bool Insert(BangGia bangGia)
 		{
 			int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_BangGia", bangGia.MaBangGia, bangGia.TenBangGia);
 			return result > 0;

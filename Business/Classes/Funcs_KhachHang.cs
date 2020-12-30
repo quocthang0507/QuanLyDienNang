@@ -10,11 +10,22 @@ using System.Reflection;
 
 namespace Business.Classes
 {
+	/// <summary>
+	/// Lớp chức năng cho ba forms: nhập, cập nhật và xuất danh sách khách hàng
+	/// </summary>
 	public class Funcs_KhachHang
 	{
 		private readonly string SECTION_IMPORT_INSERT_INI = "NhapKhachHang";
 		private readonly string KEY_EXCELFILE_INSERT_INI = "DuongDanTapTin";
 
+		/// <summary>
+		/// Lọc danh sách khách hàng theo các điều kiện
+		/// </summary>
+		/// <param name="diaChi"></param>
+		/// <param name="maBangGia"></param>
+		/// <param name="maTram"></param>
+		/// <param name="tenNganHang"></param>
+		/// <returns></returns>
 		public List<KhachHang> FilterTable(string diaChi, string maBangGia, string maTram, string tenNganHang)
 		{
 			List<KhachHang> list = KhachHang.All();
@@ -29,6 +40,11 @@ namespace Business.Classes
 			return list;
 		}
 
+		/// <summary>
+		/// Xuất dữ liệu sang Excel, dữ liệu trả về ở dạng mảng bytes
+		/// </summary>
+		/// <param name="list"></param>
+		/// <returns></returns>
 		public byte[] ExportToExcel(List<KhachHang> list)
 		{
 			try
@@ -66,16 +82,29 @@ namespace Business.Classes
 			}
 		}
 
-		public string GetSavedExcelPath()
+		/// <summary>
+		/// Lấy đường dẫn Excel đã lưu trước đó
+		/// </summary>
+		/// <returns></returns>
+		public string GetSavedExcelPathForImporting()
 		{
 			return Configuration.Instance.Read(KEY_EXCELFILE_INSERT_INI, SECTION_IMPORT_INSERT_INI);
 		}
 
-		public void Save_ExcelFilePath(string path)
+		/// <summary>
+		/// Lưu đường dẫn Excel
+		/// </summary>
+		/// <param name="path"></param>
+		public void SaveExcelPathForImporting(string path)
 		{
 			Configuration.Instance.Write(KEY_EXCELFILE_INSERT_INI, path, SECTION_IMPORT_INSERT_INI);
 		}
 
+		/// <summary>
+		/// Lấy tên các sheet trong tập tin Excel
+		/// </summary>
+		/// <param name="excelFilePath"></param>
+		/// <returns></returns>
 		public List<string> GetSheetNamesOnExcel(string excelFilePath)
 		{
 			try
@@ -95,7 +124,13 @@ namespace Business.Classes
 			}
 		}
 
-		public DataTable GetDataTableFromExcel(string excelFilePath, string sheetname)
+		/// <summary>
+		/// Đọc tập tin Excel dưới dạng DataTable
+		/// </summary>
+		/// <param name="excelFilePath"></param>
+		/// <param name="sheetname"></param>
+		/// <returns></returns>
+		public DataTable ReadExcelAsDataTable(string excelFilePath, string sheetname)
 		{
 			try
 			{
@@ -134,14 +169,18 @@ namespace Business.Classes
 			}
 		}
 
-		public List<KhachHang> ConvertDataTableToListForInserting(DataTable dt, string MaQuanLy)
+		/// <summary>
+		/// Đổi DataTable sang List dùng cho chức năng thêm khách hàng
+		/// </summary>
+		/// <param name="dt"></param>
+		/// <returns></returns>
+		public List<KhachHang> ConvertDataTableToListForInserting(DataTable dt)
 		{
 			List<KhachHang> list = new List<KhachHang>();
 			foreach (DataRow row in dt.Rows)
 			{
 				KhachHang khachHang = new KhachHang()
 				{
-					MaKhachHang = null,
 					HoVaTen = row["HoVaTen"].ToString(),
 					DiaChi = row["DiaChi"].ToString(),
 					MaBangGia = row["MaBangGia"].ToString(),
@@ -151,10 +190,6 @@ namespace Business.Classes
 					MaSoThue = row["MaSoThue"].ToString(),
 					SoDienThoai = row["SoDienThoai"].ToString(),
 					Email = row["Email"].ToString(),
-					NgayTao = DateTime.Now,
-					NguoiTao = MaQuanLy,
-					NgayCapNhat = DateTime.Now,
-					NguoiCapNhat = MaQuanLy,
 					MaSoHopDong = row["MaSoHopDong"].ToString(),
 					NgayHopDong = string.IsNullOrWhiteSpace(row["NgayHopDong"].ToString()) ? DateTime.Now : DateTime.Parse(row["NgayHopDong"].ToString()),
 					MaCongTo = row["MaCongTo"].ToString(),
@@ -166,6 +201,29 @@ namespace Business.Classes
 			return list;
 		}
 
+		/// <summary>
+		/// Cập nhật lại thông tin danh sách khách hàng dùng cho chức năng thêm khách hàng
+		/// </summary>
+		/// <param name="list"></param>
+		/// <param name="maQL"></param>
+		/// <returns></returns>
+		public List<KhachHang> UpdateListForInserting(List<KhachHang> list, string maQL)
+		{
+			foreach (var khach in list)
+			{
+				khach.NgayTao = DateTime.Now;
+				khach.NguoiTao = maQL;
+				khach.NgayCapNhat = DateTime.Now;
+				khach.NguoiCapNhat = maQL;
+			}
+			return list;
+		}
+
+		/// <summary>
+		/// Đổi DataTable sang List dùng cho chức năng cập nhật khách hàng
+		/// </summary>
+		/// <param name="dt"></param>
+		/// <returns></returns>
 		public List<KhachHang> ConvertDataTableToListForUpdating(DataTable dt)
 		{
 			List<KhachHang> list = new List<KhachHang>();
@@ -198,18 +256,51 @@ namespace Business.Classes
 			return list;
 		}
 
-		public List<KhachHang> ReadExcelForInserting(string excelFilePath, string sheetname, string MaQuanLy)
+		/// <summary>
+		/// Cập nhật lại thông tin danh sách khách hàng dùng cho chức năng cập nhật khách hàng
+		/// </summary>
+		/// <param name="list"></param>
+		/// <param name="maQL"></param>
+		/// <returns></returns>
+		public List<KhachHang> UpdateListForUpdating(List<KhachHang> list, string maQL)
 		{
-			DataTable dt = GetDataTableFromExcel(excelFilePath, sheetname);
-			return ConvertDataTableToListForInserting(dt, MaQuanLy);
+			foreach (var khach in list)
+			{
+				khach.NgayCapNhat = DateTime.Now;
+				khach.NguoiCapNhat = maQL;
+			}
+			return list;
 		}
 
+		/// <summary>
+		/// Đọc Excel và trả về danh sách khách hàng, dùng cho chức năng thêm khách hàng
+		/// </summary>
+		/// <param name="excelFilePath"></param>
+		/// <param name="sheetname"></param>
+		/// <returns></returns>
+		public List<KhachHang> ReadExcelForInserting(string excelFilePath, string sheetname)
+		{
+			DataTable dt = ReadExcelAsDataTable(excelFilePath, sheetname);
+			return ConvertDataTableToListForInserting(dt);
+		}
+
+		/// <summary>
+		/// Đọc Excel và trả về danh sách khách hàng, dùng cho chức năng cập nhật khách hàng
+		/// </summary>
+		/// <param name="excelFilePath"></param>
+		/// <param name="sheetname"></param>
+		/// <returns></returns>
 		public List<KhachHang> ReadExcelForUpdating(string excelFilePath, string sheetname)
 		{
-			DataTable dt = GetDataTableFromExcel(excelFilePath, sheetname);
+			DataTable dt = ReadExcelAsDataTable(excelFilePath, sheetname);
 			return ConvertDataTableToListForUpdating(dt);
 		}
 
+		/// <summary>
+		/// Thử thêm dữ liệu khách hàng vào SQL
+		/// </summary>
+		/// <param name="list"></param>
+		/// <returns></returns>
 		public bool TryInsertingDataTableToSQL(List<KhachHang> list)
 		{
 			foreach (var khach in list)
@@ -221,6 +312,11 @@ namespace Business.Classes
 			return true;
 		}
 
+		/// <summary>
+		/// Thử cập nhật dữ liệu vào SQL
+		/// </summary>
+		/// <param name="list"></param>
+		/// <returns></returns>
 		public bool TryUpdatingDataTableToSQL(List<KhachHang> list)
 		{
 			foreach (var khach in list)
@@ -232,7 +328,12 @@ namespace Business.Classes
 			return true;
 		}
 
-		public bool InsertSQL(List<KhachHang> list)
+		/// <summary>
+		/// Thêm danh sách khách hàng vào SQL
+		/// </summary>
+		/// <param name="list"></param>
+		/// <returns></returns>
+		public void InsertSQL(List<KhachHang> list)
 		{
 			try
 			{
@@ -243,25 +344,26 @@ namespace Business.Classes
 			}
 			catch (Exception)
 			{
-				return false;
 			}
-			return true;
 		}
 
-		public bool UpdateSQL(List<KhachHang> list)
+		/// <summary>
+		/// Cập nhật danh sách khách hàng vào SQL
+		/// </summary>
+		/// <param name="list"></param>
+		/// <returns></returns>
+		public void UpdateSQL(List<KhachHang> list)
 		{
 			try
 			{
 				foreach (var khach in list)
 				{
-					KhachHang.Add(khach);
+					KhachHang.Update(khach);
 				}
 			}
 			catch (Exception)
 			{
-				return false;
 			}
-			return true;
 		}
 	}
 }

@@ -43,7 +43,7 @@ namespace QuanLyDienNang
 				MessageBox.Show("Đường dẫn không hợp lệ hoặc không tìm thấy hình ảnh .jpg hay .png nào trong thư mục", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				return;
 			}
-			funcs.Save_ImageFolderPath(path);
+			funcs.SaveImageFolderPath(path);
 			lbxHinhAnh.Items.AddRange(files.ToArray());
 		}
 

@@ -32,7 +32,7 @@ namespace QuanLyDienNang
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormKH_CapNhatKhachHang));
 			this.tableParent = new System.Windows.Forms.TableLayoutPanel();
 			this.panel2 = new System.Windows.Forms.Panel();
-			this.btnLuuCSDL = new System.Windows.Forms.Button();
+			this.btnCapNhat = new System.Windows.Forms.Button();
 			this.btnLoadNoiDung = new System.Windows.Forms.Button();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.btnChonTapTin = new System.Windows.Forms.Button();
@@ -72,7 +72,7 @@ namespace QuanLyDienNang
 			// 
 			// panel2
 			// 
-			this.panel2.Controls.Add(this.btnLuuCSDL);
+			this.panel2.Controls.Add(this.btnCapNhat);
 			this.panel2.Controls.Add(this.btnLoadNoiDung);
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel2.Location = new System.Drawing.Point(3, 133);
@@ -80,19 +80,19 @@ namespace QuanLyDienNang
 			this.panel2.Size = new System.Drawing.Size(978, 44);
 			this.panel2.TabIndex = 12;
 			// 
-			// btnLuuCSDL
+			// btnCapNhat
 			// 
-			this.btnLuuCSDL.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnLuuCSDL.Image = global::QuanLyDienNang.Properties.Resources.Save;
-			this.btnLuuCSDL.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLuuCSDL.Location = new System.Drawing.Point(504, 3);
-			this.btnLuuCSDL.Name = "btnLuuCSDL";
-			this.btnLuuCSDL.Size = new System.Drawing.Size(135, 42);
-			this.btnLuuCSDL.TabIndex = 6;
-			this.btnLuuCSDL.Text = "Lưu vào CSDL";
-			this.btnLuuCSDL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.btnLuuCSDL.UseVisualStyleBackColor = true;
-			this.btnLuuCSDL.Click += new System.EventHandler(this.btnLuuCSDL_Click);
+			this.btnCapNhat.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnCapNhat.Image = global::QuanLyDienNang.Properties.Resources.Save;
+			this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnCapNhat.Location = new System.Drawing.Point(504, 3);
+			this.btnCapNhat.Name = "btnCapNhat";
+			this.btnCapNhat.Size = new System.Drawing.Size(135, 42);
+			this.btnCapNhat.TabIndex = 6;
+			this.btnCapNhat.Text = "Cập nhật CSDL";
+			this.btnCapNhat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnCapNhat.UseVisualStyleBackColor = true;
+			this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
 			// 
 			// btnLoadNoiDung
 			// 
@@ -218,6 +218,7 @@ namespace QuanLyDienNang
 			this.dgvKhachHang.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvKhachHang.Location = new System.Drawing.Point(3, 183);
 			this.dgvKhachHang.Name = "dgvKhachHang";
+			this.dgvKhachHang.ReadOnly = true;
 			this.dgvKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dgvKhachHang.Size = new System.Drawing.Size(978, 375);
 			this.dgvKhachHang.TabIndex = 13;
@@ -261,7 +262,7 @@ namespace QuanLyDienNang
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Panel panel2;
-		private System.Windows.Forms.Button btnLuuCSDL;
+		private System.Windows.Forms.Button btnCapNhat;
 		private System.Windows.Forms.Button btnLoadNoiDung;
 		private System.Windows.Forms.DataGridView dgvKhachHang;
 		private System.Windows.Forms.OpenFileDialog openDialog;

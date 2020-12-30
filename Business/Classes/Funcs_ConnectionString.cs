@@ -3,6 +3,9 @@ using DataAccess;
 
 namespace Business.Classes
 {
+	/// <summary>
+	/// Lớp chức năng cho chuỗi kết nối
+	/// </summary>
 	public class Funcs_ConnectionString
 	{
 		public SQLConnectionString sqlConnectionString { get; set; }
@@ -23,6 +26,9 @@ namespace Business.Classes
 			this.sqlConnectionString = sqlConnectionString;
 		}
 
+		/// <summary>
+		/// Lưu chuỗi kết nối hiện tại vào tập tin INI
+		/// </summary>
 		public void SaveConnectionString()
 		{
 			if (sqlConnectionString != null)
@@ -39,6 +45,10 @@ namespace Business.Classes
 				}
 		}
 
+		/// <summary>
+		/// Lấy chuỗi kết nối đã được lưu từ trước
+		/// </summary>
+		/// <returns></returns>
 		public SQLConnectionString GetSavedConnectionString()
 		{
 			string srv = Configuration.Instance.Read(KEY_SERVER_INI, SECTION_INI);

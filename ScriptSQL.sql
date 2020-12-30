@@ -330,6 +330,63 @@ AS
 	END
 GO
 
+CREATE PROCEDURE proc_Update_KhachHang_Test
+--ALTER PROCEDURE proc_Update_KhachHang_Test
+	@MaKhachHang char(9),
+	@HoVaTen nvarchar(150),
+	@DiaChi nvarchar(200),
+	@MaBangGia char(5),
+	@MaTram char(5),
+	@SoHo tinyint,
+	@HeSoNhan tinyint,
+	@MaSoThue varchar(20),
+	@SoDienThoai varchar(20),
+	@Email nvarchar(100),
+	@NgayTao datetime,
+	@NguoiTao char(5),
+	@NgayCapNhat datetime,
+	@NguoiCapNhat char(5),
+	@MaSoHopDong nvarchar(20),
+	@NgayHopDong datetime,
+	@MaCongTo nvarchar(20),
+	@SoNganHang varchar(20),
+	@TenNganHang nvarchar(100)
+AS
+	BEGIN
+		DECLARE @KQ BIT
+		SET @KQ = 1
+		BEGIN TRANSACTION UPDATECUSTOMER
+			BEGIN TRY
+				UPDATE KhachHang
+				SET
+					HoVaTen = @HoVaTen,
+					DiaChi = @DiaChi,
+					MaBangGia = @MaBangGia,
+					MaTram = @MaTram,
+					SoHo = @SoHo,
+					HeSoNhan = @HeSoNhan,
+					MaSoThue = @MaSoThue,
+					SoDienThoai = @SoDienThoai,
+					Email = @Email,
+					NgayTao = @NgayTao,
+					NguoiTao = @NguoiTao,
+					NgayCapNhat = @NgayCapNhat,
+					NguoiCapNhat = @NguoiCapNhat,
+					MaSoHopDong = @MaSoHopDong,
+					NgayHopDong = @NgayHopDong,
+					MaCongTo = @MaCongTo,
+					SoNganHang = @SoNganHang,
+					TenNganHang = @TenNganHang
+				WHERE MaKhachHang = @MaKhachHang
+			END TRY
+			BEGIN CATCH
+				SET @KQ = 0
+			END CATCH
+		ROLLBACK TRANSACTION UPDATECUSTOMER
+		RETURN @KQ
+	END
+GO
+
 --====================THÔNG TIN ĐIỆN NĂNG TIÊU THỤ CỦA KHÁCH HÀNG====================
 CREATE TABLE DienNangTieuThu (
 	ID int not null identity(1, 1) primary key,

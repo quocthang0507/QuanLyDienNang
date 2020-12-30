@@ -70,10 +70,10 @@ namespace Business.Classes
 			DaThanhToan = daThanhToan;
 		}
 
-		public static List<DienNangTieuThu> All()
+		public static List<DienNangTieuThu> GetAll()
 			=> CBO.FillCollection<DienNangTieuThu>(DataProvider.Instance.ExecuteReader("proc_GetAll_DienNangTieuThu"));
 
-		public static bool Add(DienNangTieuThu dienNangTieuThu)
+		public static bool Insert(DienNangTieuThu dienNangTieuThu)
 		{
 			int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_DienNangTieuThu", dienNangTieuThu.ID, dienNangTieuThu.MaKhachHang, dienNangTieuThu.NgayGhi, dienNangTieuThu.NguoiGhi, dienNangTieuThu.NgayCapNhat, dienNangTieuThu.NguoiCapNhat, dienNangTieuThu.ChiSoMoi, dienNangTieuThu.ChiSoCu, dienNangTieuThu.DaThanhToan);
 			return result > 0;
