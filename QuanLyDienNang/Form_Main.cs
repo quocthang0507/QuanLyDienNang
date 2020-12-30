@@ -49,7 +49,7 @@ namespace QuanLyDienNang
 
 		private void giớiThiệuToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Form frmGioiThieu = new Form_GioiThieu();
+			Form frmGioiThieu = new Form_GioiThieu_New();
 			frmGioiThieu.ShowDialog();
 		}
 
