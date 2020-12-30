@@ -1,4 +1,5 @@
 ﻿using Business.Classes;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
@@ -16,12 +17,12 @@ namespace QuanLyDienNang
 		}
 
 		#region Events
-		private void FormKH_CapNhatKhachHang_Load(object sender, System.EventArgs e)
+		private void FormKH_CapNhatKhachHang_Shown(object sender, EventArgs e)
 		{
 			LoadNguoiQuanLy();
 		}
 
-		private void btnChonTapTin_Click(object sender, System.EventArgs e)
+		private void btnChonTapTin_Click(object sender, EventArgs e)
 		{
 			var result = openDialog.ShowDialog();
 			if (result != DialogResult.OK || string.IsNullOrWhiteSpace(openDialog.FileName))
@@ -37,7 +38,12 @@ namespace QuanLyDienNang
 			{
 				dgvKhachHang.Invoke((MethodInvoker)delegate
 				{
-					var data = funcs.ReadExcelForInserting(tbxDuongDan.Text, cbxSheet.Text, (cbxNguoiCapNhat.SelectedItem as NguoiQuanLy).MaQuanLy);
+					if (string.IsNullOrWhiteSpace(tbxDuongDan.Text))
+					{
+						MessageBox.Show("Phải chọn tập tin trước khi thực hiện hành động này", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+						return;
+					}
+					var data = funcs.ReadExcelForUpdating(tbxDuongDan.Text, cbxSheet.Text);
 					if (data == null)
 						MessageBox.Show("Lỗi đọc dữ liệu từ tập tin Excel", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					else
@@ -86,5 +92,6 @@ namespace QuanLyDienNang
 				cbxNguoiCapNhat.DataSource = data;
 		}
 		#endregion
+
 	}
 }

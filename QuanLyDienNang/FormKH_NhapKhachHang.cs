@@ -19,7 +19,7 @@ namespace QuanLyDienNang
 		}
 
 		#region Events
-		private void FormKH_NhapKhachHang_Load(object sender, System.EventArgs e)
+		private void FormKH_NhapKhachHang_Shown(object sender, EventArgs e)
 		{
 			tbxDuongDan.Text = funcs.GetSavedExcelPath();
 			LoadNguoiQuanLy();
@@ -43,6 +43,11 @@ namespace QuanLyDienNang
 			  {
 				  dgvKhachHang.Invoke((MethodInvoker)delegate
 				  {
+					  if (string.IsNullOrWhiteSpace(tbxDuongDan.Text))
+					  {
+						  MessageBox.Show("Phải chọn tập tin trước khi thực hiện hành động này", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+						  return;
+					  }
 					  var data = funcs.ReadExcelForInserting(tbxDuongDan.Text, cbxSheet.Text, (cbxNguoiNhap.SelectedItem as NguoiQuanLy).MaQuanLy);
 					  if (data == null)
 						  MessageBox.Show("Lỗi đọc dữ liệu từ tập tin Excel", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);

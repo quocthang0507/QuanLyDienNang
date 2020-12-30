@@ -43,7 +43,7 @@ namespace QuanLyDienNang
 			// 
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(65, 36);
+			this.label1.Location = new System.Drawing.Point(65, 25);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(360, 25);
 			this.label1.TabIndex = 0;
@@ -72,7 +72,7 @@ namespace QuanLyDienNang
 			this.textBox1.Location = new System.Drawing.Point(187, 93);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.ReadOnly = true;
-			this.textBox1.Size = new System.Drawing.Size(153, 25);
+			this.textBox1.Size = new System.Drawing.Size(211, 25);
 			this.textBox1.TabIndex = 3;
 			this.textBox1.Text = "La Quốc Thắng";
 			this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -91,7 +91,7 @@ namespace QuanLyDienNang
 			this.textBox2.Location = new System.Drawing.Point(187, 124);
 			this.textBox2.Name = "textBox2";
 			this.textBox2.ReadOnly = true;
-			this.textBox2.Size = new System.Drawing.Size(153, 25);
+			this.textBox2.Size = new System.Drawing.Size(211, 25);
 			this.textBox2.TabIndex = 3;
 			this.textBox2.Text = "Đà Lạt, Việt Nam";
 			this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

@@ -1,5 +1,6 @@
 ﻿using Business.Classes;
 using Business.Helper;
+using System;
 using System.Text;
 using System.Windows.Forms;
 
@@ -13,7 +14,7 @@ namespace QuanLyDienNang
 		}
 
 		#region Events
-		private void Form_NguoiQuanLy_Load(object sender, System.EventArgs e)
+		private void Form_NguoiQuanLy_Shown(object sender, EventArgs e)
 		{
 			LoadTable();
 		}
@@ -165,5 +166,6 @@ namespace QuanLyDienNang
 				dgvNguoiQuanLy.DataSource = data;
 		}
 		#endregion
+
 	}
 }

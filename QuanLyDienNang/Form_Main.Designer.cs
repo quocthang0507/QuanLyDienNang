@@ -444,7 +444,7 @@
 			this.Name = "Form_Main";
 			this.Text = "ỨNG DỤNG QUẢN LÝ ĐIỆN NĂNG";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Main_FormClosing);
-			this.Load += new System.EventHandler(this.FormMain_Load);
+			this.Shown += new System.EventHandler(this.Form_Main_Shown);
 			this.menuBar.ResumeLayout(false);
 			this.menuBar.PerformLayout();
 			this.contextTabMenu.ResumeLayout(false);

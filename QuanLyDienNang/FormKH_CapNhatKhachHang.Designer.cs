@@ -213,6 +213,7 @@ namespace QuanLyDienNang
 			// 
 			// dgvKhachHang
 			// 
+			this.dgvKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
 			this.dgvKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvKhachHang.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvKhachHang.Location = new System.Drawing.Point(3, 183);
@@ -236,7 +237,7 @@ namespace QuanLyDienNang
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "FormKH_CapNhatKhachHang";
 			this.Text = "Cập Nhật Thông Tin Khách Hàng Từ Excel";
-			this.Load += new System.EventHandler(this.FormKH_CapNhatKhachHang_Load);
+			this.Shown += new System.EventHandler(this.FormKH_CapNhatKhachHang_Shown);
 			this.tableParent.ResumeLayout(false);
 			this.panel2.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);

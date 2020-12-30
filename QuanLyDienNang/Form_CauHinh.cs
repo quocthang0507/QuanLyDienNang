@@ -16,7 +16,7 @@ namespace QuanLyDienNang
 		}
 
 		#region Events
-		private void Form_CauHinh_Load(object sender, EventArgs e)
+		private void Form_CauHinh_Shown(object sender, EventArgs e)
 		{
 			cbxServers.DataSource = Funcs_CauHinh.GetServers();
 			cbxChungThuc.SelectedIndex = 0;
@@ -127,5 +127,6 @@ namespace QuanLyDienNang
 		}
 
 		#endregion
+
 	}
 }

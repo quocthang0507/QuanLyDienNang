@@ -12,7 +12,7 @@ namespace QuanLyDienNang
 			InitializeComponent();
 		}
 
-		private void FormKH_DienNangTieuThu_Load(object sender, EventArgs e)
+		private void FormKH_DienNangTieuThu_Shown(object sender, EventArgs e)
 		{
 			var data = DienNangTieuThu.All();
 			if (data == null)

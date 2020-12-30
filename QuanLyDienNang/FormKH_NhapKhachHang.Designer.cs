@@ -55,7 +55,7 @@
 			// 
 			this.tbxDuongDan.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.tbxDuongDan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.tbxDuongDan.Location = new System.Drawing.Point(104, 14);
+			this.tbxDuongDan.Location = new System.Drawing.Point(166, 14);
 			this.tbxDuongDan.Margin = new System.Windows.Forms.Padding(4);
 			this.tbxDuongDan.Name = "tbxDuongDan";
 			this.tbxDuongDan.ReadOnly = true;
@@ -66,7 +66,7 @@
 			// 
 			this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(16, 18);
+			this.label1.Location = new System.Drawing.Point(78, 18);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(81, 19);
 			this.label1.TabIndex = 8;
@@ -76,7 +76,7 @@
 			// 
 			this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(15, 52);
+			this.label2.Location = new System.Drawing.Point(77, 52);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(82, 19);
 			this.label2.TabIndex = 8;
@@ -87,7 +87,7 @@
 			this.cbxSheet.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.cbxSheet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbxSheet.FormattingEnabled = true;
-			this.cbxSheet.Location = new System.Drawing.Point(105, 48);
+			this.cbxSheet.Location = new System.Drawing.Point(167, 48);
 			this.cbxSheet.Name = "cbxSheet";
 			this.cbxSheet.Size = new System.Drawing.Size(284, 25);
 			this.cbxSheet.TabIndex = 3;
@@ -104,7 +104,7 @@
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel1.Location = new System.Drawing.Point(3, 33);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(855, 84);
+			this.panel1.Size = new System.Drawing.Size(978, 84);
 			this.panel1.TabIndex = 10;
 			// 
 			// btnChonTapTin
@@ -112,7 +112,7 @@
 			this.btnChonTapTin.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnChonTapTin.Image = global::QuanLyDienNang.Properties.Resources.Xlsx;
 			this.btnChonTapTin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnChonTapTin.Location = new System.Drawing.Point(676, 4);
+			this.btnChonTapTin.Location = new System.Drawing.Point(738, 4);
 			this.btnChonTapTin.Name = "btnChonTapTin";
 			this.btnChonTapTin.Size = new System.Drawing.Size(122, 40);
 			this.btnChonTapTin.TabIndex = 2;
@@ -127,7 +127,7 @@
 			this.cbxNguoiNhap.DisplayMember = "TenQuanLy";
 			this.cbxNguoiNhap.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbxNguoiNhap.FormattingEnabled = true;
-			this.cbxNguoiNhap.Location = new System.Drawing.Point(513, 49);
+			this.cbxNguoiNhap.Location = new System.Drawing.Point(575, 49);
 			this.cbxNguoiNhap.Name = "cbxNguoiNhap";
 			this.cbxNguoiNhap.Size = new System.Drawing.Size(284, 25);
 			this.cbxNguoiNhap.TabIndex = 4;
@@ -137,7 +137,7 @@
 			// 
 			this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(423, 52);
+			this.label4.Location = new System.Drawing.Point(485, 52);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(84, 19);
 			this.label4.TabIndex = 8;
@@ -159,7 +159,7 @@
 			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
 			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
 			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableParent.Size = new System.Drawing.Size(861, 596);
+			this.tableParent.Size = new System.Drawing.Size(984, 561);
 			this.tableParent.TabIndex = 11;
 			// 
 			// panel2
@@ -170,7 +170,7 @@
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel2.Location = new System.Drawing.Point(3, 123);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(855, 44);
+			this.panel2.Size = new System.Drawing.Size(978, 44);
 			this.panel2.TabIndex = 11;
 			// 
 			// btnLuuCSDL
@@ -178,7 +178,7 @@
 			this.btnLuuCSDL.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnLuuCSDL.Image = global::QuanLyDienNang.Properties.Resources.Save;
 			this.btnLuuCSDL.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLuuCSDL.Location = new System.Drawing.Point(493, 3);
+			this.btnLuuCSDL.Location = new System.Drawing.Point(555, 3);
 			this.btnLuuCSDL.Name = "btnLuuCSDL";
 			this.btnLuuCSDL.Size = new System.Drawing.Size(135, 42);
 			this.btnLuuCSDL.TabIndex = 7;
@@ -192,7 +192,7 @@
 			this.btnXemMau.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnXemMau.Image = global::QuanLyDienNang.Properties.Resources.Xlsx;
 			this.btnXemMau.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnXemMau.Location = new System.Drawing.Point(228, 2);
+			this.btnXemMau.Location = new System.Drawing.Point(290, 2);
 			this.btnXemMau.Name = "btnXemMau";
 			this.btnXemMau.Size = new System.Drawing.Size(107, 42);
 			this.btnXemMau.TabIndex = 5;
@@ -206,7 +206,7 @@
 			this.btnLoadNoiDung.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnLoadNoiDung.Image = global::QuanLyDienNang.Properties.Resources.Text_Document;
 			this.btnLoadNoiDung.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLoadNoiDung.Location = new System.Drawing.Point(341, 3);
+			this.btnLoadNoiDung.Location = new System.Drawing.Point(403, 3);
 			this.btnLoadNoiDung.Name = "btnLoadNoiDung";
 			this.btnLoadNoiDung.Size = new System.Drawing.Size(146, 42);
 			this.btnLoadNoiDung.TabIndex = 6;
@@ -221,7 +221,7 @@
 			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label3.Location = new System.Drawing.Point(3, 0);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(855, 30);
+			this.label3.Size = new System.Drawing.Size(978, 30);
 			this.label3.TabIndex = 12;
 			this.label3.Text = "NHẬP THÔNG TIN KHÁCH HÀNG SỬ DỤNG ĐIỆN";
 			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -239,7 +239,7 @@
 			this.dgvKhachHang.Name = "dgvKhachHang";
 			this.dgvKhachHang.ReadOnly = true;
 			this.dgvKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgvKhachHang.Size = new System.Drawing.Size(855, 420);
+			this.dgvKhachHang.Size = new System.Drawing.Size(978, 420);
 			this.dgvKhachHang.TabIndex = 8;
 			// 
 			// openDialog
@@ -251,14 +251,14 @@
 			this.AcceptButton = this.btnLoadNoiDung;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(861, 596);
+			this.ClientSize = new System.Drawing.Size(984, 561);
 			this.Controls.Add(this.tableParent);
 			this.Font = new System.Drawing.Font("Segoe UI", 10F);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "FormKH_NhapKhachHang";
 			this.Text = "Nhập Thông Tin Khách Hàng Từ Excel";
-			this.Load += new System.EventHandler(this.FormKH_NhapKhachHang_Load);
+			this.Shown += new System.EventHandler(this.FormKH_NhapKhachHang_Shown);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			this.tableParent.ResumeLayout(false);

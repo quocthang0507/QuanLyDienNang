@@ -261,7 +261,7 @@ namespace QuanLyDienNang
 			this.MinimizeBox = false;
 			this.Name = "Form_CauHinh";
 			this.Text = "Cấu hình SQL Server";
-			this.Load += new System.EventHandler(this.Form_CauHinh_Load);
+			this.Shown += new System.EventHandler(this.Form_CauHinh_Shown);
 			this.gbxChungThuc.ResumeLayout(false);
 			this.gbxChungThuc.PerformLayout();
 			this.ResumeLayout(false);

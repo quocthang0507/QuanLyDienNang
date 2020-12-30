@@ -92,7 +92,7 @@
 			// 
 			this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(115, 10);
+			this.label4.Location = new System.Drawing.Point(111, 13);
 			this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(89, 17);
@@ -151,7 +151,7 @@
 			this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnThem.Image = global::QuanLyDienNang.Properties.Resources.Add1;
 			this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnThem.Location = new System.Drawing.Point(187, 3);
+			this.btnThem.Location = new System.Drawing.Point(262, 1);
 			this.btnThem.Margin = new System.Windows.Forms.Padding(4);
 			this.btnThem.Name = "btnThem";
 			this.btnThem.Size = new System.Drawing.Size(88, 42);
@@ -165,7 +165,7 @@
 			this.btnLuu.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnLuu.Image = global::QuanLyDienNang.Properties.Resources.Save;
 			this.btnLuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLuu.Location = new System.Drawing.Point(325, 3);
+			this.btnLuu.Location = new System.Drawing.Point(358, 1);
 			this.btnLuu.Margin = new System.Windows.Forms.Padding(4);
 			this.btnLuu.Name = "btnLuu";
 			this.btnLuu.Size = new System.Drawing.Size(88, 42);
@@ -179,7 +179,7 @@
 			this.btnSua.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnSua.Image = global::QuanLyDienNang.Properties.Resources.Rename;
 			this.btnSua.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnSua.Location = new System.Drawing.Point(454, 3);
+			this.btnSua.Location = new System.Drawing.Point(454, 1);
 			this.btnSua.Margin = new System.Windows.Forms.Padding(4);
 			this.btnSua.Name = "btnSua";
 			this.btnSua.Size = new System.Drawing.Size(88, 42);
@@ -193,7 +193,7 @@
 			this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnXoa.Image = global::QuanLyDienNang.Properties.Resources.Remove;
 			this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnXoa.Location = new System.Drawing.Point(577, 4);
+			this.btnXoa.Location = new System.Drawing.Point(550, 1);
 			this.btnXoa.Margin = new System.Windows.Forms.Padding(4);
 			this.btnXoa.Name = "btnXoa";
 			this.btnXoa.Size = new System.Drawing.Size(88, 42);

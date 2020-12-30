@@ -295,7 +295,7 @@ namespace QuanLyDienNang
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "Form_NguoiQuanLy";
 			this.Text = "DANH SÁCH NGƯỜI QUẢN LÝ";
-			this.Load += new System.EventHandler(this.Form_NguoiQuanLy_Load);
+			this.Shown += new System.EventHandler(this.Form_NguoiQuanLy_Shown);
 			this.tableParent.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dgvNguoiQuanLy)).EndInit();
 			this.panel1.ResumeLayout(false);

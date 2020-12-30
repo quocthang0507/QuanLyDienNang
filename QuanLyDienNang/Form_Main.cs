@@ -25,7 +25,7 @@ namespace QuanLyDienNang
 		}
 
 		#region Events
-		private void FormMain_Load(object sender, EventArgs e)
+		private void Form_Main_Shown(object sender, EventArgs e)
 		{
 			if (!funcs.CheckConnectionString())
 			{
@@ -167,6 +167,7 @@ namespace QuanLyDienNang
 		{
 			this.Close();
 		}
+
 		#endregion
 
 		#region Methods

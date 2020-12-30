@@ -20,7 +20,7 @@ namespace QuanLyDienNang
 		}
 
 		#region Events
-		private void FormKH_XuatKhachHang_Load(object sender, System.EventArgs e)
+		private void FormKH_XuatKhachHang_Shown(object sender, EventArgs e)
 		{
 			thread = new Thread(() =>
 			{

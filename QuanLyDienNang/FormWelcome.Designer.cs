@@ -72,8 +72,9 @@ namespace QuanLyDienNang
 			// 
 			// pictureBox1
 			// 
+			this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.pictureBox1.Image = global::QuanLyDienNang.Properties.Resources.anh_nen_3;
-			this.pictureBox1.Location = new System.Drawing.Point(63, 53);
+			this.pictureBox1.Location = new System.Drawing.Point(70, 49);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(206, 201);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

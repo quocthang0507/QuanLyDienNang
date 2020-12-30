@@ -22,7 +22,7 @@ namespace QuanLyDienNang
 		}
 
 		#region Events
-		private void FormKH_DocChiSoDien_Load(object sender, EventArgs e)
+		private void FormKH_DocChiSoDien_Shown(object sender, EventArgs e)
 		{
 			tbxDuongDan.Text = funcs.GetSavedImageFolderPath();
 		}
@@ -159,5 +159,6 @@ namespace QuanLyDienNang
 			return false;
 		}
 		#endregion
+
 	}
 }
