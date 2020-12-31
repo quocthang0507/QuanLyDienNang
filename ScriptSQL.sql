@@ -696,8 +696,9 @@ AS
 GO
 
 CREATE VIEW View_DienNangTieuThu
+--ALTER VIEW View_DienNangTieuThu
 AS
-	SELECT ID, D.MaKhachHang, TenNganHang, DiaChi, MaTram, MaBangGia, NgayGhi, NguoiGhi, NgayBatDau, NgayKetThuc, D.NgayCapNhat, D.NguoiCapNhat, NgayHoaDon, NgayTraTien, ChiSoMoi, ChiSoCu, TongTienTruocVAT, TongTienSauVAT, DaTra, ConLai
+	SELECT ID, D.MaKhachHang, HoVaTen, DiaChi, MaTram, MaBangGia, NgayGhi, NguoiGhi, NgayBatDau, NgayKetThuc, D.NgayCapNhat, D.NguoiCapNhat, NgayHoaDon, NgayTraTien, ChiSoMoi, ChiSoCu, TongTienTruocVAT, TongTienSauVAT, DaTra, ConLai
 	FROM DienNangTieuThu D, KhachHang K
 	WHERE D.MaKhachHang = K.MaKhachHang
 GO
