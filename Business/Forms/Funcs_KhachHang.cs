@@ -19,48 +19,6 @@ namespace Business.Forms
 		private readonly string KEY_EXCELFILE_INSERT_INI = "DuongDanTapTin";
 
 		/// <summary>
-		/// Xuất dữ liệu sang Excel, dữ liệu trả về ở dạng mảng bytes
-		/// </summary>
-		/// <param name="list"></param>
-		/// <returns></returns>
-		public byte[] ExportToExcel(List<KhachHang> list)
-		{
-			try
-			{
-				ExcelPackage excel = new ExcelPackage();
-				var sheet = excel.Workbook.Worksheets.Add("Danh sach khach hang");
-				PropertyInfo[] properties = typeof(KhachHang).GetProperties();
-				// Thêm dữ liệu theo từng cột, tương ứng với tên từng thuộc tính
-				for (int col = 1; col <= properties.Length; col++)
-				{
-					// Thêm tên cột
-					var prop = properties[col - 1];
-					sheet.Cells[1, col].Value = prop.Name;
-					sheet.Cells[1, col].Style.Font.Bold = true;
-					// Sửa lại định dạng ngày cho cột bắt đầu bằng chữ "Ngay"
-					if (prop.Name.StartsWith("Ngay"))
-						sheet.Column(col).Style.Numberformat.Format = CultureInfo.CurrentUICulture.DateTimeFormat.ShortDatePattern;
-					// Thêm dữ liệu cho các ô thuộc cột đó
-					for (int row = 1; row <= list.Count; row++)
-					{
-						var khach = list[row - 1];
-						var value = prop.GetValue(khach);
-						sheet.Cells[row + 1, col].Value = value;
-					}
-					// Chỉnh lại độ rộng cột
-					sheet.Column(col).AutoFit();
-				}
-				var bytes = excel.GetAsByteArray();
-				excel.Dispose();
-				return bytes;
-			}
-			catch (Exception)
-			{
-				return null;
-			}
-		}
-
-		/// <summary>
 		/// Lấy đường dẫn Excel đã lưu trước đó
 		/// </summary>
 		/// <returns></returns>

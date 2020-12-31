@@ -71,6 +71,24 @@ namespace QuanLyDienNang
 
 		}
 
+		private void btnXuatExcel_Click(object sender, EventArgs e)
+		{
+			var bytes = Excel.ExportToExcel(dgvDienNangTieuThu.DataSource);
+			if (bytes == null)
+			{
+				MessageBox.Show("Lỗi khi xuất dữ liệu sang tập tin Excel", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+			var dialog = saveDialog.ShowDialog();
+			if (dialog == DialogResult.OK)
+			{
+				string filepath = saveDialog.FileName;
+				FileStream stream = File.Create(filepath);
+				stream.Close();
+				File.WriteAllBytes(filepath, bytes);
+				MessageBox.Show("Xuất dữ liệu sang tập tin Excel thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
+		}
 		#endregion
 
 		#region Methods

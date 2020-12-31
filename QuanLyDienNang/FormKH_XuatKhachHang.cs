@@ -1,5 +1,6 @@
 ﻿using Business.Classes;
 using Business.Forms;
+using Business.Helper;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -62,22 +63,20 @@ namespace QuanLyDienNang
 
 		private void btnXuat_Click(object sender, EventArgs e)
 		{
-			try
-			{
-				var bytes = funcs.ExportToExcel(dgvKhachHang.DataSource as List<KhachHang>);
-				var dialog = saveDialog.ShowDialog();
-				if (dialog == DialogResult.OK)
-				{
-					string filepath = saveDialog.FileName;
-					FileStream stream = File.Create(filepath);
-					stream.Close();
-					File.WriteAllBytes(filepath, bytes);
-					MessageBox.Show("Xuất dữ liệu sang tập tin Excel thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				}
-			}
-			catch (Exception)
+			var bytes = Excel.ExportToExcel(dgvKhachHang.DataSource);
+			if (bytes == null)
 			{
 				MessageBox.Show("Lỗi khi xuất dữ liệu sang tập tin Excel", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+			var dialog = saveDialog.ShowDialog();
+			if (dialog == DialogResult.OK)
+			{
+				string filepath = saveDialog.FileName;
+				FileStream stream = File.Create(filepath);
+				stream.Close();
+				File.WriteAllBytes(filepath, bytes);
+				MessageBox.Show("Xuất dữ liệu sang tập tin Excel thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 		}
 

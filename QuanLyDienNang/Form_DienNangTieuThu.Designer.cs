@@ -36,12 +36,14 @@
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.tableRightTop = new System.Windows.Forms.TableLayoutPanel();
 			this.panel4 = new System.Windows.Forms.Panel();
-			this.dtpBatDau_TK = new System.Windows.Forms.DateTimePicker();
+			this.cbxNguoiQuanLy = new System.Windows.Forms.ComboBox();
 			this.label8 = new System.Windows.Forms.Label();
 			this.dtpNgayHoaDon = new System.Windows.Forms.DateTimePicker();
+			this.label11 = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
 			this.btnCapNhatKy = new System.Windows.Forms.Button();
 			this.label10 = new System.Windows.Forms.Label();
+			this.dtpBatDau = new System.Windows.Forms.DateTimePicker();
 			this.dtpKetThuc = new System.Windows.Forms.DateTimePicker();
 			this.panel3 = new System.Windows.Forms.Panel();
 			this.btnXuatExcel = new System.Windows.Forms.Button();
@@ -55,19 +57,18 @@
 			this.btnTimKiem = new System.Windows.Forms.Button();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.chkConNo = new System.Windows.Forms.CheckBox();
+			this.dtpKetThuc_TK = new System.Windows.Forms.DateTimePicker();
+			this.dtpBatDau_TK = new System.Windows.Forms.DateTimePicker();
+			this.label6 = new System.Windows.Forms.Label();
 			this.tbxDiaChi = new System.Windows.Forms.TextBox();
+			this.label2 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.cbxBangGia = new System.Windows.Forms.ComboBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.cbxTenTram = new System.Windows.Forms.ComboBox();
 			this.label7 = new System.Windows.Forms.Label();
-			this.label11 = new System.Windows.Forms.Label();
-			this.cbxNguoiQuanLy = new System.Windows.Forms.ComboBox();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
-			this.dtpKetThuc_TK = new System.Windows.Forms.DateTimePicker();
-			this.dtpBatDau = new System.Windows.Forms.DateTimePicker();
+			this.saveDialog = new System.Windows.Forms.SaveFileDialog();
 			this.tableParent.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvDienNangTieuThu)).BeginInit();
 			this.tableTop.SuspendLayout();
@@ -183,15 +184,17 @@
 			this.panel4.Size = new System.Drawing.Size(575, 86);
 			this.panel4.TabIndex = 18;
 			// 
-			// dtpBatDau_TK
+			// cbxNguoiQuanLy
 			// 
-			this.dtpBatDau_TK.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.dtpBatDau_TK.CustomFormat = "MM/yyyy";
-			this.dtpBatDau_TK.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.dtpBatDau_TK.Location = new System.Drawing.Point(81, 6);
-			this.dtpBatDau_TK.Name = "dtpBatDau_TK";
-			this.dtpBatDau_TK.Size = new System.Drawing.Size(100, 25);
-			this.dtpBatDau_TK.TabIndex = 9;
+			this.cbxNguoiQuanLy.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.cbxNguoiQuanLy.DisplayMember = "TenQuanLy";
+			this.cbxNguoiQuanLy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbxNguoiQuanLy.FormattingEnabled = true;
+			this.cbxNguoiQuanLy.Location = new System.Drawing.Point(324, 51);
+			this.cbxNguoiQuanLy.Name = "cbxNguoiQuanLy";
+			this.cbxNguoiQuanLy.Size = new System.Drawing.Size(139, 25);
+			this.cbxNguoiQuanLy.TabIndex = 12;
+			this.cbxNguoiQuanLy.ValueMember = "TenQuanLy";
 			// 
 			// label8
 			// 
@@ -212,6 +215,16 @@
 			this.dtpNgayHoaDon.Name = "dtpNgayHoaDon";
 			this.dtpNgayHoaDon.Size = new System.Drawing.Size(140, 25);
 			this.dtpNgayHoaDon.TabIndex = 11;
+			// 
+			// label11
+			// 
+			this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label11.AutoSize = true;
+			this.label11.Location = new System.Drawing.Point(225, 55);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(98, 19);
+			this.label11.TabIndex = 0;
+			this.label11.Text = "Người quản lý:";
 			// 
 			// label9
 			// 
@@ -247,6 +260,16 @@
 			this.label10.TabIndex = 0;
 			this.label10.Text = "Ngày HĐ:";
 			// 
+			// dtpBatDau
+			// 
+			this.dtpBatDau.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.dtpBatDau.CustomFormat = "dd/MM/yyyy";
+			this.dtpBatDau.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.dtpBatDau.Location = new System.Drawing.Point(77, 12);
+			this.dtpBatDau.Name = "dtpBatDau";
+			this.dtpBatDau.Size = new System.Drawing.Size(140, 25);
+			this.dtpBatDau.TabIndex = 10;
+			// 
 			// dtpKetThuc
 			// 
 			this.dtpKetThuc.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -281,6 +304,7 @@
 			this.btnXuatExcel.Text = "Xuất Excel";
 			this.btnXuatExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnXuatExcel.UseVisualStyleBackColor = true;
+			this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
 			// 
 			// btnLapHoaDon
 			// 
@@ -421,6 +445,36 @@
 			this.chkConNo.Text = "Còn nợ";
 			this.chkConNo.UseVisualStyleBackColor = true;
 			// 
+			// dtpKetThuc_TK
+			// 
+			this.dtpKetThuc_TK.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.dtpKetThuc_TK.CustomFormat = "MM/yyyy";
+			this.dtpKetThuc_TK.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.dtpKetThuc_TK.Location = new System.Drawing.Point(259, 6);
+			this.dtpKetThuc_TK.Name = "dtpKetThuc_TK";
+			this.dtpKetThuc_TK.Size = new System.Drawing.Size(100, 25);
+			this.dtpKetThuc_TK.TabIndex = 9;
+			// 
+			// dtpBatDau_TK
+			// 
+			this.dtpBatDau_TK.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.dtpBatDau_TK.CustomFormat = "MM/yyyy";
+			this.dtpBatDau_TK.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+			this.dtpBatDau_TK.Location = new System.Drawing.Point(81, 6);
+			this.dtpBatDau_TK.Name = "dtpBatDau_TK";
+			this.dtpBatDau_TK.Size = new System.Drawing.Size(100, 25);
+			this.dtpBatDau_TK.TabIndex = 9;
+			// 
+			// label6
+			// 
+			this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(216, 12);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(37, 19);
+			this.label6.TabIndex = 0;
+			this.label6.Text = "Đến:";
+			// 
 			// tbxDiaChi
 			// 
 			this.tbxDiaChi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -429,6 +483,16 @@
 			this.tbxDiaChi.Name = "tbxDiaChi";
 			this.tbxDiaChi.Size = new System.Drawing.Size(278, 25);
 			this.tbxDiaChi.TabIndex = 4;
+			// 
+			// label2
+			// 
+			this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(48, 12);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(27, 19);
+			this.label2.TabIndex = 0;
+			this.label2.Text = "Từ:";
 			// 
 			// label4
 			// 
@@ -500,67 +564,13 @@
 			this.label7.TabIndex = 1;
 			this.label7.Text = "Trạng thái:";
 			// 
-			// label11
+			// saveDialog
 			// 
-			this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(225, 55);
-			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(98, 19);
-			this.label11.TabIndex = 0;
-			this.label11.Text = "Người quản lý:";
-			// 
-			// cbxNguoiQuanLy
-			// 
-			this.cbxNguoiQuanLy.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.cbxNguoiQuanLy.DisplayMember = "TenQuanLy";
-			this.cbxNguoiQuanLy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbxNguoiQuanLy.FormattingEnabled = true;
-			this.cbxNguoiQuanLy.Location = new System.Drawing.Point(324, 51);
-			this.cbxNguoiQuanLy.Name = "cbxNguoiQuanLy";
-			this.cbxNguoiQuanLy.Size = new System.Drawing.Size(139, 25);
-			this.cbxNguoiQuanLy.TabIndex = 12;
-			this.cbxNguoiQuanLy.ValueMember = "TenQuanLy";
-			// 
-			// label2
-			// 
-			this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(48, 12);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(27, 19);
-			this.label2.TabIndex = 0;
-			this.label2.Text = "Từ:";
-			// 
-			// label6
-			// 
-			this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(216, 12);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(37, 19);
-			this.label6.TabIndex = 0;
-			this.label6.Text = "Đến:";
-			// 
-			// dtpKetThuc_TK
-			// 
-			this.dtpKetThuc_TK.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.dtpKetThuc_TK.CustomFormat = "MM/yyyy";
-			this.dtpKetThuc_TK.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.dtpKetThuc_TK.Location = new System.Drawing.Point(259, 6);
-			this.dtpKetThuc_TK.Name = "dtpKetThuc_TK";
-			this.dtpKetThuc_TK.Size = new System.Drawing.Size(100, 25);
-			this.dtpKetThuc_TK.TabIndex = 9;
-			// 
-			// dtpBatDau
-			// 
-			this.dtpBatDau.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.dtpBatDau.CustomFormat = "dd/MM/yyyy";
-			this.dtpBatDau.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.dtpBatDau.Location = new System.Drawing.Point(77, 12);
-			this.dtpBatDau.Name = "dtpBatDau";
-			this.dtpBatDau.Size = new System.Drawing.Size(140, 25);
-			this.dtpBatDau.TabIndex = 10;
+			this.saveDialog.DefaultExt = "xlsx";
+			this.saveDialog.FileName = "Danh sách DNTT.xlsx";
+			this.saveDialog.Filter = "Excel Workbook (*.xlsx)|*.xlsx";
+			this.saveDialog.RestoreDirectory = true;
+			this.saveDialog.Title = "Lưu danh sách khách hàng cùng với điện năng tiêu thụ";
 			// 
 			// Form_DienNangTieuThu
 			// 
@@ -633,5 +643,6 @@
 		private System.Windows.Forms.DateTimePicker dtpKetThuc_TK;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.SaveFileDialog saveDialog;
 	}
 }
