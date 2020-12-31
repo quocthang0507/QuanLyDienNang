@@ -18,7 +18,7 @@ namespace Business.Forms
 				DienNangTieuThu dienNangTieuThu = new DienNangTieuThu()
 				{
 					MaKhachHang = khach.MaKhachHang,
-					TenKhachHang = khach.HoVaTen,
+					HoVaTen = khach.HoVaTen,
 					DiaChi = khach.DiaChi,
 					MaTram = khach.MaTram,
 					MaBangGia = khach.MaBangGia,

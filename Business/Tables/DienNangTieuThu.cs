@@ -24,7 +24,7 @@ namespace Business.Classes
 		/// Tên khách hàng từ mã khách hàng ở trên, lưu ý cột này không có trong bảng DienNangTieuThu
 		/// </summary>
 		[DisplayName("Tên khách hàng")]
-		public string TenKhachHang { get; set; }
+		public string HoVaTen { get; set; }
 
 		/// <summary>
 		/// Địa chỉ của khách hàng từ mã khách hàng ở trên, lưu ý cột này không có trong bảng DienNangTieuThu
