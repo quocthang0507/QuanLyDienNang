@@ -16,7 +16,9 @@ namespace QuanLyDienNang
 		#region Events
 		private void FormKH_DienNangTieuThu_Shown(object sender, EventArgs e)
 		{
-			LoadTable();
+			UpdateControls();
+			LoadTramBienAp();
+			LoadBangGia();
 		}
 
 		private void tbxSoDienThoai_KeyPress(object sender, KeyPressEventArgs e)
@@ -24,14 +26,7 @@ namespace QuanLyDienNang
 			Common.IsDigitEvent(ref e);
 		}
 
-		private void btnTimKiem_Click(object sender, EventArgs e)
-		{
-
-		}
-		#endregion
-
-		#region Methods
-		private void LoadTable()
+		private void btnTimKiemTatCa_Click(object sender, EventArgs e)
 		{
 			var data = DienNangTieuThu.GetAll();
 			if (data == null)
@@ -39,7 +34,50 @@ namespace QuanLyDienNang
 			else
 				dgvDienNangTieuThu.DataSource = data;
 		}
-		
+
+		private void btnTimKiem_Click(object sender, EventArgs e)
+		{
+			var data = DienNangTieuThu.Filter((int)nudThang.Value, (int)nudNam.Value, (cbxTenTram.SelectedItem as TramBienAp).MaTram, tbxDiaChi.Text, (cbxBangGia.SelectedItem as BangGia).MaBangGia, chkConNo.Checked);
+			if (data == null)
+				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			else
+				dgvDienNangTieuThu.DataSource = data;
+		}
+
+		private void btnCapNhatKy_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		#endregion
+
+		#region Methods
+		private void LoadTramBienAp()
+		{
+			var data = TramBienAp.GetAll();
+			if (data == null)
+				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			else
+				cbxTenTram.DataSource = data;
+		}
+
+		private void LoadBangGia()
+		{
+			var data = BangGia.GetAll();
+			if (data == null)
+				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			else
+				cbxBangGia.DataSource = data;
+		}
+
+		private void UpdateControls()
+		{
+			nudThang.Value = DateTime.Now.Month;
+			nudNam.Value = DateTime.Now.Year;
+			dtpKetThuc.Value = DateTime.Now;
+			dtpBatDau.Value = DateTime.Now.AddMonths(-1);
+		}
+
 		public void GoToIndex(int index)
 		{
 			dgvDienNangTieuThu.ClearSelection();
@@ -92,5 +130,6 @@ namespace QuanLyDienNang
 		}
 
 		#endregion
+
 	}
 }

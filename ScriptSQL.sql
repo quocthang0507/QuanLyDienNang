@@ -504,6 +504,7 @@ CREATE TABLE DienNangTieuThu (
 	NgayGhi datetime null,
 	NguoiGhi char(5) references NguoiQuanLy(MaQuanLy),
 	ChuKyThang tinyint null,
+	ChuKyNam int null,
 	NgayCapNhat datetime null,
 	NguoiCapNhat char(5) references NguoiQuanLy(MaQuanLy),
 	NgayHoaDon datetime null,
@@ -528,6 +529,7 @@ CREATE PROCEDURE DienNangTieuThu_Insert
 	@NgayGhi datetime,
 	@NguoiGhi char(5),
 	@ChuKyThang tinyint,
+	@ChuKyNam int,
 	@NgayCapNhat datetime,
 	@NguoiCapNhat char(5),
 	@NgayHoaDon datetime,
@@ -539,7 +541,7 @@ CREATE PROCEDURE DienNangTieuThu_Insert
 	@DaTra money,
 	@ConLai money
 AS
-	INSERT INTO DienNangTieuThu VALUES (@MaKhachHang, @NgayGhi, @NguoiGhi, @ChuKyThang, @NgayCapNhat, @NguoiCapNhat, @NgayHoaDon, @NgayTraTien, @ChiSoMoi, @ChiSoCu, @TongTienTruocVAT, @TongTienSauVAT, @DaTra, @ConLai)
+	INSERT INTO DienNangTieuThu VALUES (@MaKhachHang, @NgayGhi, @NguoiGhi, @ChuKyThang, @ChuKyNam, @NgayCapNhat, @NguoiCapNhat, @NgayHoaDon, @NgayTraTien, @ChiSoMoi, @ChiSoCu, @TongTienTruocVAT, @TongTienSauVAT, @DaTra, @ConLai)
 GO
 
 CREATE PROCEDURE proc_Delete_DienNangTieuThu
@@ -556,11 +558,13 @@ AS
 GO
 
 CREATE PROCEDURE proc_Update_DienNangTieuThu
+--ALTER PROCEDURE proc_Update_DienNangTieuThu
 	@ID int,
 	@MaKhachHang char(9),
 	@NgayGhi datetime,
 	@NguoiGhi char(5),
 	@ChuKyThang tinyint,
+	@ChuKyNam int,
 	@NgayCapNhat datetime,
 	@NguoiCapNhat char(5),
 	@NgayHoaDon datetime,
@@ -578,6 +582,7 @@ AS
 		NgayGhi = @NgayGhi,
 		NguoiGhi = @NguoiGhi,
 		ChuKyThang = @ChuKyThang,
+		ChuKyNam = @ChuKyNam,
 		NgayCapNhat = @NgayCapNhat,
 		NguoiCapNhat = @NguoiCapNhat,
 		NgayHoaDon = @NgayHoaDon,
