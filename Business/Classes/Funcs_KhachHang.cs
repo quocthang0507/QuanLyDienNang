@@ -19,28 +19,6 @@ namespace Business.Classes
 		private readonly string KEY_EXCELFILE_INSERT_INI = "DuongDanTapTin";
 
 		/// <summary>
-		/// Lọc danh sách khách hàng theo các điều kiện
-		/// </summary>
-		/// <param name="diaChi"></param>
-		/// <param name="maBangGia"></param>
-		/// <param name="maTram"></param>
-		/// <param name="tenNganHang"></param>
-		/// <returns></returns>
-		public List<KhachHang> FilterTable(string diaChi, string maBangGia, string maTram, string tenNganHang)
-		{
-			List<KhachHang> list = KhachHang.All();
-			if (!string.IsNullOrWhiteSpace(diaChi))
-				list = list.Where(khach => khach.DiaChi.Contains(diaChi)).ToList();
-			if (!string.IsNullOrWhiteSpace(maBangGia))
-				list = list.Where(khach => khach.MaBangGia.Equals(maBangGia)).ToList();
-			if (!string.IsNullOrWhiteSpace(maTram))
-				list = list.Where(khach => khach.MaTram.Equals(maTram)).ToList();
-			if (!string.IsNullOrWhiteSpace(tenNganHang))
-				list = list.Where(khach => khach.TenNganHang.Contains(tenNganHang)).ToList();
-			return list;
-		}
-
-		/// <summary>
 		/// Xuất dữ liệu sang Excel, dữ liệu trả về ở dạng mảng bytes
 		/// </summary>
 		/// <param name="list"></param>

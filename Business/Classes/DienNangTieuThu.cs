@@ -97,5 +97,12 @@ namespace Business.Classes
 				return false;
 			}
 		}
+
+		public static List<DienNangTieuThu> Filter()
+		{
+			List<DienNangTieuThu> list = GetAll();
+
+			return list;
+		}
 	}
 }

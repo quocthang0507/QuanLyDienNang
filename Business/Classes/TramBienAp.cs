@@ -31,7 +31,7 @@ namespace Business.Classes
 			TenTram = tenTram;
 		}
 
-		public static List<TramBienAp> All()
+		public static List<TramBienAp> GetAll()
 			=> CBO.FillCollection<TramBienAp>(DataProvider.Instance.ExecuteReader("proc_GetAll_TramBienAp"));
 
 		public static bool Add(TramBienAp tramBienAp)

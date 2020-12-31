@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace Business.Classes
 {
@@ -126,7 +127,7 @@ namespace Business.Classes
 			DaXoa = daXoa;
 		}
 
-		public static List<KhachHang> All()
+		public static List<KhachHang> GetAll()
 			=> CBO.FillCollection<KhachHang>(DataProvider.Instance.ExecuteReader("proc_GetAll_KhachHang"));
 
 		public static bool Add(KhachHang khachHang)
@@ -164,6 +165,20 @@ namespace Business.Classes
 			{
 				return false;
 			}
+		}
+
+		public static List<KhachHang> Filter(string diaChi, string maBangGia, string maTram, string tenNganHang)
+		{
+			List<KhachHang> list = GetAll();
+			if (!string.IsNullOrWhiteSpace(diaChi))
+				list = list.Where(khach => khach.DiaChi.Contains(diaChi)).ToList();
+			if (!string.IsNullOrWhiteSpace(maBangGia))
+				list = list.Where(khach => khach.MaBangGia.Equals(maBangGia)).ToList();
+			if (!string.IsNullOrWhiteSpace(maTram))
+				list = list.Where(khach => khach.MaTram.Equals(maTram)).ToList();
+			if (!string.IsNullOrWhiteSpace(tenNganHang))
+				list = list.Where(khach => khach.TenNganHang.Contains(tenNganHang)).ToList();
+			return list;
 		}
 	}
 }

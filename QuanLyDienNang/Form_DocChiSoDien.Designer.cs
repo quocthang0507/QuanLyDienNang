@@ -1,7 +1,7 @@
 ﻿
 namespace QuanLyDienNang
 {
-	partial class FormKH_DocChiSoDien
+	partial class Form_DocChiSoDien
 	{
 		/// <summary>
 		/// Required designer variable.

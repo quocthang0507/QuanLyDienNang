@@ -49,13 +49,13 @@ namespace QuanLyDienNang
 		private void btnTimKiem_Click(object sender, System.EventArgs e)
 		{
 			if (rbtnXuatHet.Checked)
-				dgvKhachHang.DataSource = KhachHang.All();
+				dgvKhachHang.DataSource = KhachHang.GetAll();
 			else
 			{
 				string maBangGia, maTram;
 				maBangGia = (cbxBangGia.SelectedItem as BangGia).MaBangGia;
 				maTram = (cbxTenTram.SelectedItem as TramBienAp).MaTram;
-				dgvKhachHang.DataSource = funcs.FilterTable(tbxDiaChi.Text, maBangGia, maTram, cbxNganHang.Text);
+				dgvKhachHang.DataSource = KhachHang.Filter(tbxDiaChi.Text, maBangGia, maTram, cbxNganHang.Text);
 			}
 		}
 
@@ -85,7 +85,7 @@ namespace QuanLyDienNang
 		#region Methods
 		private void LoadTramQuanLy()
 		{
-			var data = TramBienAp.All();
+			var data = TramBienAp.GetAll();
 			if (data == null)
 				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
@@ -103,7 +103,7 @@ namespace QuanLyDienNang
 
 		private void LoadDanhSachNganHang()
 		{
-			cbxNganHang.DataSource = KhachHang.All().Select(khach => khach.TenNganHang).Distinct().ToList();
+			cbxNganHang.DataSource = KhachHang.GetAll().Select(khach => khach.TenNganHang).Distinct().ToList();
 		}
 
 		public void GoToIndex(int index)

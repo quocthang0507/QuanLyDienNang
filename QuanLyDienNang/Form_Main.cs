@@ -73,7 +73,7 @@ namespace QuanLyDienNang
 
 		private void đọcChỉSốĐiệnNăngTiêuThụToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Form frmOCR = new FormKH_DocChiSoDien();
+			Form frmOCR = new Form_DocChiSoDien();
 			AddFormToTabPage(frmOCR);
 		}
 

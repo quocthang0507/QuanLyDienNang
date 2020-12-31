@@ -55,7 +55,7 @@ namespace Business.Classes
 			Email = email;
 		}
 
-		public static List<NguoiQuanLy> All()
+		public static List<NguoiQuanLy> GetAll()
 			=> CBO.FillCollection<NguoiQuanLy>(DataProvider.Instance.ExecuteReader("proc_GetAll_NguoiQuanLy"));
 
 		public static bool Add(NguoiQuanLy nguoiQuanLy)

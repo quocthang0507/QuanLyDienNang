@@ -8,13 +8,13 @@ using System.Windows.Forms;
 
 namespace QuanLyDienNang
 {
-	public partial class FormKH_DocChiSoDien : Form
+	public partial class Form_DocChiSoDien : Form
 	{
 		private Thread runAllThread;
 		private Thread runOneThread;
 		private Funcs_NhapChiSoDien funcs = new Funcs_NhapChiSoDien();
 
-		public FormKH_DocChiSoDien()
+		public Form_DocChiSoDien()
 		{
 			InitializeComponent();
 			lbxHinhAnh.DisplayMember = "DuongDan";
