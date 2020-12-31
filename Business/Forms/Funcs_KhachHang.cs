@@ -1,4 +1,5 @@
-﻿using Business.Helper;
+﻿using Business.Classes;
+using Business.Helper;
 using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Globalization;
 using System.IO;
 using System.Reflection;
 
-namespace Business.Classes
+namespace Business.Forms
 {
 	/// <summary>
 	/// Lớp chức năng cho ba forms: nhập, cập nhật và xuất danh sách khách hàng
@@ -282,7 +283,7 @@ namespace Business.Classes
 		{
 			foreach (var khach in list)
 			{
-				bool ok = KhachHang.TryAdding(khach);
+				bool ok = KhachHang.TryInserting(khach);
 				if (!ok)
 					return false;
 			}
@@ -316,7 +317,7 @@ namespace Business.Classes
 			{
 				foreach (var khach in list)
 				{
-					KhachHang.Add(khach);
+					KhachHang.Insert(khach);
 				}
 			}
 			catch (Exception)

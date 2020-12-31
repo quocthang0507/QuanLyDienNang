@@ -3,7 +3,7 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 
-namespace Business.Classes
+namespace Business.Forms
 {
 	/// <summary>
 	/// Lớp chức năng cho form cấu hình

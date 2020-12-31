@@ -503,8 +503,8 @@ CREATE TABLE DienNangTieuThu (
 	MaKhachHang char(9) references KhachHang(MaKhachHang) not null,
 	NgayGhi datetime null,
 	NguoiGhi char(5) references NguoiQuanLy(MaQuanLy),
-	ChuKyThang tinyint null,
-	ChuKyNam int null,
+	NgayBatDau datetime null,
+	NgayKetThuc datetime null,
 	NgayCapNhat datetime null,
 	NguoiCapNhat char(5) references NguoiQuanLy(MaQuanLy),
 	NgayHoaDon datetime null,
@@ -523,13 +523,13 @@ AS
 	SELECT * FROM DienNangTieuThu
 GO
 
-CREATE PROCEDURE DienNangTieuThu_Insert
---ALTER PROCEDURE DienNangTieuThu_Insert
+CREATE PROCEDURE proc_Insert_DienNangTieuThu
+--ALTER PROCEDURE proc_Insert_DienNangTieuThu
 	@MaKhachHang char(9),
 	@NgayGhi datetime,
 	@NguoiGhi char(5),
-	@ChuKyThang tinyint,
-	@ChuKyNam int,
+	@NgayBatDau datetime,
+	@NgayKetThuc datetime,
 	@NgayCapNhat datetime,
 	@NguoiCapNhat char(5),
 	@NgayHoaDon datetime,
@@ -541,7 +541,40 @@ CREATE PROCEDURE DienNangTieuThu_Insert
 	@DaTra money,
 	@ConLai money
 AS
-	INSERT INTO DienNangTieuThu VALUES (@MaKhachHang, @NgayGhi, @NguoiGhi, @ChuKyThang, @ChuKyNam, @NgayCapNhat, @NguoiCapNhat, @NgayHoaDon, @NgayTraTien, @ChiSoMoi, @ChiSoCu, @TongTienTruocVAT, @TongTienSauVAT, @DaTra, @ConLai)
+	INSERT INTO DienNangTieuThu VALUES (@MaKhachHang, @NgayGhi, @NguoiGhi, @NgayBatDau, @NgayKetThuc, @NgayCapNhat, @NguoiCapNhat, @NgayHoaDon, @NgayTraTien, @ChiSoMoi, @ChiSoCu, @TongTienTruocVAT, @TongTienSauVAT, @DaTra, @ConLai)
+GO
+
+CREATE PROCEDURE proc_Insert_DienNangTieuThu_Test
+--ALTER PROCEDURE proc_Insert_DienNangTieuThu_Test
+	@MaKhachHang char(9),
+	@NgayGhi datetime,
+	@NguoiGhi char(5),
+	@NgayBatDau datetime,
+	@NgayKetThuc datetime,
+	@NgayCapNhat datetime,
+	@NguoiCapNhat char(5),
+	@NgayHoaDon datetime,
+	@NgayTraTien datetime,
+	@ChiSoMoi int,
+	@ChiSoCu int,
+	@TongTienTruocVAT money,
+	@TongTienSauVAT money,
+	@DaTra money,
+	@ConLai money
+AS
+	BEGIN
+		DECLARE @KQ BIT
+		SET @KQ = 1
+		BEGIN TRANSACTION ADDDNTT
+			BEGIN TRY
+				INSERT INTO DienNangTieuThu VALUES (@MaKhachHang, @NgayGhi, @NguoiGhi, @NgayBatDau, @NgayKetThuc, @NgayCapNhat, @NguoiCapNhat, @NgayHoaDon, @NgayTraTien, @ChiSoMoi, @ChiSoCu, @TongTienTruocVAT, @TongTienSauVAT, @DaTra, @ConLai)
+			END TRY
+			BEGIN CATCH
+				SET @KQ = 0
+			END CATCH
+		ROLLBACK TRANSACTION ADDDNTT
+		RETURN @KQ
+	END
 GO
 
 CREATE PROCEDURE proc_Delete_DienNangTieuThu
@@ -563,8 +596,8 @@ CREATE PROCEDURE proc_Update_DienNangTieuThu
 	@MaKhachHang char(9),
 	@NgayGhi datetime,
 	@NguoiGhi char(5),
-	@ChuKyThang tinyint,
-	@ChuKyNam int,
+	@NgayBatDau datetime,
+	@NgayKetThuc datetime,
 	@NgayCapNhat datetime,
 	@NguoiCapNhat char(5),
 	@NgayHoaDon datetime,
@@ -581,8 +614,8 @@ AS
 		MaKhachHang = @MaKhachHang,
 		NgayGhi = @NgayGhi,
 		NguoiGhi = @NguoiGhi,
-		ChuKyThang = @ChuKyThang,
-		ChuKyNam = @ChuKyNam,
+		NgayBatDau = @NgayBatDau,
+		NgayKetThuc = @NgayKetThuc,
 		NgayCapNhat = @NgayCapNhat,
 		NguoiCapNhat = @NguoiCapNhat,
 		NgayHoaDon = @NgayHoaDon,
@@ -593,5 +626,57 @@ AS
 		TongTienSauVAT = @TongTienSauVAT,
 		DaTra = @DaTra,
 		ConLai = @ConLai
-	Where ID = @ID
+	WHERE ID = @ID
+GO
+
+CREATE PROCEDURE proc_Update_DienNangTieuThu_Test
+--ALTER PROCEDURE proc_Update_DienNangTieuThu_Test
+	@ID int,
+	@MaKhachHang char(9),
+	@NgayGhi datetime,
+	@NguoiGhi char(5),
+	@NgayBatDau datetime,
+	@NgayKetThuc datetime,
+	@NgayCapNhat datetime,
+	@NguoiCapNhat char(5),
+	@NgayHoaDon datetime,
+	@NgayTraTien datetime,
+	@ChiSoMoi int,
+	@ChiSoCu int,
+	@TongTienTruocVAT money,
+	@TongTienSauVAT money,
+	@DaTra money,
+	@ConLai money
+AS
+	BEGIN
+		DECLARE @KQ BIT
+		SET @KQ = 1
+		BEGIN TRANSACTION UPDATEDNTT
+			BEGIN TRY
+				UPDATE DienNangTieuThu
+				SET
+					MaKhachHang = @MaKhachHang,
+					NgayGhi = @NgayGhi,
+					NguoiGhi = @NguoiGhi,
+					NgayBatDau = @NgayBatDau,
+					NgayKetThuc = @NgayKetThuc,
+					NgayCapNhat = @NgayCapNhat,
+					NguoiCapNhat = @NguoiCapNhat,
+					NgayHoaDon = @NgayHoaDon,
+					NgayTraTien = @NgayTraTien,
+					ChiSoMoi = @ChiSoMoi,
+					ChiSoCu = @ChiSoCu,
+					TongTienTruocVAT = @TongTienTruocVAT,
+					TongTienSauVAT = @TongTienSauVAT,
+					DaTra = @DaTra,
+					ConLai = @ConLai
+				WHERE ID = @ID
+			END TRY
+			BEGIN CATCH
+				SET @KQ = 0
+			END CATCH
+		ROLLBACK TRANSACTION UPDATEDNTT
+		RETURN @KQ
+	END
+
 GO

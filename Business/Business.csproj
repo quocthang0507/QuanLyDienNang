@@ -56,23 +56,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Tables\BangGia.cs" />
-    <Compile Include="Classes\Tables\ChiTietBangGia.cs" />
-    <Compile Include="Classes\Tables\DienNangTieuThu.cs" />
-    <Compile Include="Classes\Forms\Funcs_CauHinh.cs" />
-    <Compile Include="Classes\Forms\Funcs_DienNangTieuThu.cs" />
-    <Compile Include="Classes\Forms\Funcs_NhapChiSoDien.cs" />
-    <Compile Include="Classes\Forms\Funcs_Main.cs" />
-    <Compile Include="Classes\Forms\Funcs_KhachHang.cs" />
-    <Compile Include="Classes\ImageResult.cs" />
-    <Compile Include="Classes\Forms\Funcs_ConnectionString.cs" />
-    <Compile Include="Classes\Tables\KhachHang.cs" />
-    <Compile Include="Classes\Tables\TramBienAp.cs" />
+    <Compile Include="Tables\BangGia.cs" />
+    <Compile Include="Tables\ChiTietBangGia.cs" />
+    <Compile Include="Tables\DienNangTieuThu.cs" />
+    <Compile Include="Forms\Funcs_CauHinh.cs" />
+    <Compile Include="Forms\Funcs_DienNangTieuThu.cs" />
+    <Compile Include="Forms\Funcs_NhapChiSoDien.cs" />
+    <Compile Include="Forms\Funcs_Main.cs" />
+    <Compile Include="Forms\Funcs_KhachHang.cs" />
+    <Compile Include="ImageResult.cs" />
+    <Compile Include="Forms\Funcs_ConnectionString.cs" />
+    <Compile Include="Tables\KhachHang.cs" />
+    <Compile Include="Tables\TramBienAp.cs" />
     <Compile Include="Helper\Configuration.cs" />
     <Compile Include="Helper\Common.cs" />
     <Compile Include="Helper\FileUtils.cs" />
     <Compile Include="Helper\ImageValidation.cs" />
-    <Compile Include="Classes\Tables\NguoiQuanLy.cs" />
+    <Compile Include="Tables\NguoiQuanLy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

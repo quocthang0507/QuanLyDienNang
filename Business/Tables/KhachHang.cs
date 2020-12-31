@@ -108,13 +108,13 @@ namespace Business.Classes
 		public static List<KhachHang> GetAll()
 			=> CBO.FillCollection<KhachHang>(DataProvider.Instance.ExecuteReader("proc_GetAll_KhachHang"));
 
-		public static bool Add(KhachHang khachHang)
+		public static bool Insert(KhachHang khachHang)
 		{
 			int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_KhachHang", khachHang.HoVaTen, khachHang.DiaChi, khachHang.MaBangGia, khachHang.MaTram, khachHang.SoHo, khachHang.HeSoNhan, khachHang.MaSoThue, khachHang.SoDienThoai, khachHang.Email, khachHang.NgayTao, khachHang.NguoiTao, khachHang.NgayCapNhat, khachHang.NguoiCapNhat, khachHang.MaSoHopDong, khachHang.NgayHopDong, khachHang.MaCongTo, khachHang.SoNganHang, khachHang.TenNganHang);
 			return result > 0;
 		}
 
-		public static bool TryAdding(KhachHang khachHang)
+		public static bool TryInserting(KhachHang khachHang)
 		{
 			int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_KhachHang_Test", khachHang.HoVaTen, khachHang.DiaChi, khachHang.MaBangGia, khachHang.MaTram, khachHang.SoHo, khachHang.HeSoNhan, khachHang.MaSoThue, khachHang.SoDienThoai, khachHang.Email, khachHang.NgayTao, khachHang.NguoiTao, khachHang.NgayCapNhat, khachHang.NguoiCapNhat, khachHang.MaSoHopDong, khachHang.NgayHopDong, khachHang.MaCongTo, khachHang.SoNganHang, khachHang.TenNganHang);
 			return result > 0;

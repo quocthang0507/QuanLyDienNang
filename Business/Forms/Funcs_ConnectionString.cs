@@ -1,14 +1,14 @@
 ﻿using Business.Helper;
 using DataAccess;
 
-namespace Business.Classes
+namespace Business.Forms
 {
 	/// <summary>
 	/// Lớp chức năng cho chuỗi kết nối
 	/// </summary>
 	public class Funcs_ConnectionString
 	{
-		public SQLConnectionString sqlConnectionString { get; set; }
+		public SQLConnectionString SqlConnectionString { get; set; }
 
 		private readonly string SECTION_INI = "ChuoiKetNoi";
 		private readonly string KEY_SERVER_INI = "Server";
@@ -18,12 +18,12 @@ namespace Business.Classes
 
 		public Funcs_ConnectionString()
 		{
-			sqlConnectionString = GetSavedConnectionString();
+			SqlConnectionString = GetSavedConnectionString();
 		}
 
 		public Funcs_ConnectionString(SQLConnectionString sqlConnectionString)
 		{
-			this.sqlConnectionString = sqlConnectionString;
+			this.SqlConnectionString = sqlConnectionString;
 		}
 
 		/// <summary>
@@ -31,17 +31,17 @@ namespace Business.Classes
 		/// </summary>
 		public void SaveConnectionString()
 		{
-			if (sqlConnectionString != null)
-				if (!string.IsNullOrWhiteSpace(sqlConnectionString.ServerName) && !string.IsNullOrWhiteSpace(sqlConnectionString.Database))
+			if (SqlConnectionString != null)
+				if (!string.IsNullOrWhiteSpace(SqlConnectionString.ServerName) && !string.IsNullOrWhiteSpace(SqlConnectionString.Database))
 				{
-					if (!string.IsNullOrWhiteSpace(sqlConnectionString.Username) && !string.IsNullOrWhiteSpace(sqlConnectionString.Password))
+					if (!string.IsNullOrWhiteSpace(SqlConnectionString.Username) && !string.IsNullOrWhiteSpace(SqlConnectionString.Password))
 					{
-						Configuration.Instance.Write(KEY_USERNAME_INI, sqlConnectionString.Username, SECTION_INI);
-						Configuration.Instance.Write(KEY_PASSWORD_INI, sqlConnectionString.Password, SECTION_INI);
+						Configuration.Instance.Write(KEY_USERNAME_INI, SqlConnectionString.Username, SECTION_INI);
+						Configuration.Instance.Write(KEY_PASSWORD_INI, SqlConnectionString.Password, SECTION_INI);
 					}
-					Configuration.Instance.Write(KEY_SERVER_INI, sqlConnectionString.ServerName, SECTION_INI);
-					Configuration.Instance.Write(KEY_DATABASE_INI, sqlConnectionString.Database, SECTION_INI);
-					DataProvider.ConnectionString = sqlConnectionString.ConnectionString;
+					Configuration.Instance.Write(KEY_SERVER_INI, SqlConnectionString.ServerName, SECTION_INI);
+					Configuration.Instance.Write(KEY_DATABASE_INI, SqlConnectionString.Database, SECTION_INI);
+					DataProvider.ConnectionString = SqlConnectionString.ConnectionString;
 				}
 		}
 

@@ -1,6 +1,6 @@
 ﻿using Business.Helper;
 
-namespace Business.Classes
+namespace Business.Forms
 {
 	/// <summary>
 	/// Lớp chức năng cho form nhập chỉ số điện

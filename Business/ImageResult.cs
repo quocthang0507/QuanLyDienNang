@@ -1,4 +1,4 @@
-﻿namespace Business.Classes
+﻿namespace Business
 {
 	/// <summary>
 	/// Lớp đại diện kết quả OCR

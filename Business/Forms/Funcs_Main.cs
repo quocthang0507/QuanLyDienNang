@@ -1,6 +1,6 @@
 ﻿using DataAccess;
 
-namespace Business.Classes
+namespace Business.Forms
 {
 	/// <summary>
 	/// Lớp chức năng cho form chính
@@ -16,9 +16,9 @@ namespace Business.Classes
 			if (string.IsNullOrWhiteSpace(DataProvider.ConnectionString))
 			{
 				Funcs_ConnectionString funcs = new Funcs_ConnectionString();
-				if (funcs.sqlConnectionString != null)
+				if (funcs.SqlConnectionString != null)
 				{
-					DataProvider.ConnectionString = funcs.sqlConnectionString.ConnectionString;
+					DataProvider.ConnectionString = funcs.SqlConnectionString.ConnectionString;
 					return true;
 				}
 				return false;
@@ -33,8 +33,8 @@ namespace Business.Classes
 		public string GetSQLServerName()
 		{
 			Funcs_ConnectionString funcs = new Funcs_ConnectionString();
-			if (funcs.sqlConnectionString != null)
-				return funcs.sqlConnectionString.ServerName;
+			if (funcs.SqlConnectionString != null)
+				return funcs.SqlConnectionString.ServerName;
 			return null;
 		}
 
@@ -45,8 +45,8 @@ namespace Business.Classes
 		public string GetDatabase()
 		{
 			Funcs_ConnectionString funcs = new Funcs_ConnectionString();
-			if (funcs.sqlConnectionString != null)
-				return funcs.sqlConnectionString.Database;
+			if (funcs.SqlConnectionString != null)
+				return funcs.SqlConnectionString.Database;
 			return null;
 		}
 	}

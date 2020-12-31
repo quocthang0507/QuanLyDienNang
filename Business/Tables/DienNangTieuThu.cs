@@ -53,11 +53,11 @@ namespace Business.Classes
 		[Required]
 		public string NguoiGhi { get; set; }
 
-		[DisplayName("Chu kỳ tháng")]
-		public int ChuKyThang { get; set; }
+		[DisplayName("Ngày bắt đầu")]
+		public DateTime NgayBatDau { get; set; }
 
-		[DisplayName("Chu kỳ năm")]
-		public int ChuKyNam { get; set; }
+		[DisplayName("Ngày kết thúc")]
+		public DateTime NgayKetThuc { get; set; }
 
 		[DisplayName("Ngày cập nhật")]
 		[Required]
@@ -107,13 +107,25 @@ namespace Business.Classes
 
 		public static bool Insert(DienNangTieuThu dienNangTieuThu)
 		{
-			int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_DienNangTieuThu", dienNangTieuThu.MaKhachHang, dienNangTieuThu.NgayGhi, dienNangTieuThu.NguoiGhi, dienNangTieuThu.ChuKyThang, dienNangTieuThu.ChuKyNam, dienNangTieuThu.NgayCapNhat, dienNangTieuThu.NguoiCapNhat, dienNangTieuThu.NgayHoaDon, dienNangTieuThu.NgayTraTien, dienNangTieuThu.ChiSoMoi, dienNangTieuThu.ChiSoCu, dienNangTieuThu.TongTienTruocVAT, dienNangTieuThu.TongTienSauVAT, dienNangTieuThu.DaTra, dienNangTieuThu.ConLai);
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_DienNangTieuThu", dienNangTieuThu.MaKhachHang, dienNangTieuThu.NgayGhi, dienNangTieuThu.NguoiGhi, dienNangTieuThu.NgayBatDau, dienNangTieuThu.NgayKetThuc, dienNangTieuThu.NgayCapNhat, dienNangTieuThu.NguoiCapNhat, dienNangTieuThu.NgayHoaDon, dienNangTieuThu.NgayTraTien, dienNangTieuThu.ChiSoMoi, dienNangTieuThu.ChiSoCu, dienNangTieuThu.TongTienTruocVAT, dienNangTieuThu.TongTienSauVAT, dienNangTieuThu.DaTra, dienNangTieuThu.ConLai);
+			return result > 0;
+		}
+
+		public static bool TryInserting(DienNangTieuThu dienNangTieuThu)
+		{
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_DienNangTieuThu_Test", dienNangTieuThu.MaKhachHang, dienNangTieuThu.NgayGhi, dienNangTieuThu.NguoiGhi, dienNangTieuThu.NgayBatDau, dienNangTieuThu.NgayKetThuc, dienNangTieuThu.NgayCapNhat, dienNangTieuThu.NguoiCapNhat, dienNangTieuThu.NgayHoaDon, dienNangTieuThu.NgayTraTien, dienNangTieuThu.ChiSoMoi, dienNangTieuThu.ChiSoCu, dienNangTieuThu.TongTienTruocVAT, dienNangTieuThu.TongTienSauVAT, dienNangTieuThu.DaTra, dienNangTieuThu.ConLai);
 			return result > 0;
 		}
 
 		public static bool Update(DienNangTieuThu dienNangTieuThu)
 		{
-			int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_DienNangTieuThu", dienNangTieuThu.ID, dienNangTieuThu.MaKhachHang, dienNangTieuThu.NgayGhi, dienNangTieuThu.NguoiGhi, dienNangTieuThu.ChuKyThang, dienNangTieuThu.ChuKyNam, dienNangTieuThu.NgayCapNhat, dienNangTieuThu.NguoiCapNhat, dienNangTieuThu.NgayHoaDon, dienNangTieuThu.NgayTraTien, dienNangTieuThu.ChiSoMoi, dienNangTieuThu.ChiSoCu, dienNangTieuThu.TongTienTruocVAT, dienNangTieuThu.TongTienSauVAT, dienNangTieuThu.DaTra, dienNangTieuThu.ConLai);
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_DienNangTieuThu", dienNangTieuThu.ID, dienNangTieuThu.MaKhachHang, dienNangTieuThu.NgayGhi, dienNangTieuThu.NguoiGhi, dienNangTieuThu.NgayBatDau, dienNangTieuThu.NgayKetThuc, dienNangTieuThu.NgayCapNhat, dienNangTieuThu.NguoiCapNhat, dienNangTieuThu.NgayHoaDon, dienNangTieuThu.NgayTraTien, dienNangTieuThu.ChiSoMoi, dienNangTieuThu.ChiSoCu, dienNangTieuThu.TongTienTruocVAT, dienNangTieuThu.TongTienSauVAT, dienNangTieuThu.DaTra, dienNangTieuThu.ConLai);
+			return result > 0;
+		}
+
+		public static bool TryUpdating(DienNangTieuThu dienNangTieuThu)
+		{
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_DienNangTieuThu_Test", dienNangTieuThu.ID, dienNangTieuThu.MaKhachHang, dienNangTieuThu.NgayGhi, dienNangTieuThu.NguoiGhi, dienNangTieuThu.NgayBatDau, dienNangTieuThu.NgayKetThuc, dienNangTieuThu.NgayCapNhat, dienNangTieuThu.NguoiCapNhat, dienNangTieuThu.NgayHoaDon, dienNangTieuThu.NgayTraTien, dienNangTieuThu.ChiSoMoi, dienNangTieuThu.ChiSoCu, dienNangTieuThu.TongTienTruocVAT, dienNangTieuThu.TongTienSauVAT, dienNangTieuThu.DaTra, dienNangTieuThu.ConLai);
 			return result > 0;
 		}
 
@@ -130,10 +142,11 @@ namespace Business.Classes
 			}
 		}
 
-		public static List<DienNangTieuThu> Filter(int thang, int nam, string maTram, string diaChi, string maBangGia, bool conNo)
+		public static List<DienNangTieuThu> Filter(DateTime batDau, DateTime ketThuc, string maTram, string diaChi, string maBangGia, bool conNo)
 		{
 			List<DienNangTieuThu> list = GetAll();
-			list = list.Where(dntt => dntt.ChuKyThang == thang && dntt.ChuKyNam == nam && dntt.MaTram == maTram && dntt.DiaChi.Contains(diaChi) && dntt.MaBangGia == maBangGia).ToList();
+			list = list.Where(dntt => dntt.NgayBatDau.Month == batDau.Month && dntt.NgayKetThuc.Month == ketThuc.Month && dntt.NgayBatDau.Year == batDau.Year && dntt.NgayKetThuc.Year == ketThuc.Year).ToList();
+			list = list.Where(dntt => dntt.MaTram == maTram && dntt.DiaChi.Contains(diaChi) && dntt.MaBangGia == maBangGia).ToList();
 			if (conNo)
 				list = list.Where(dntt => dntt.ConLai > 0).ToList();
 			return list;
