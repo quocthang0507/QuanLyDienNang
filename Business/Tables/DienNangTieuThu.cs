@@ -69,10 +69,10 @@ namespace Business.Classes
 		public string NguoiCapNhat { get; set; }
 
 		[DisplayName("Ngày hóa đơn")]
-		public DateTime NgayHoaDon { get; set; }
+		public DateTime? NgayHoaDon { get; set; }
 
 		[DisplayName("Ngày trả tiền")]
-		public DateTime NgayTraTien { get; set; }
+		public DateTime? NgayTraTien { get; set; }
 
 		[DisplayName("Chỉ số mới")]
 		[Required]

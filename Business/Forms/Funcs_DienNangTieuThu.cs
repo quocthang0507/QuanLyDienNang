@@ -28,6 +28,8 @@ namespace Business.Forms
 					NgayKetThuc = NgayKT,
 					NgayCapNhat = DateTime.Now,
 					NguoiCapNhat = MaQuanLy,
+					NgayHoaDon = null,
+					NgayTraTien = null,
 					ChiSoMoi = 0,
 					ChiSoCu = 0,
 					TongTienTruocVAT = 0,
