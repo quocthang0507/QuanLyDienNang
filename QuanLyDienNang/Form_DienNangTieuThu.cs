@@ -3,6 +3,7 @@ using Business.Forms;
 using Business.Helper;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
@@ -10,6 +11,14 @@ namespace QuanLyDienNang
 {
 	public partial class Form_DienNangTieuThu : Form
 	{
+		private const string ERROR_QUERY_MESSAGE = "Lỗi thực hiện truy vấn đến cơ sở dữ liệu";
+		private const string ERROR = "Lỗi";
+		private const string SUCCESS = "Thành công";
+		private const string SUCCESS_INSERT_MESSAGE = "Thêm vào CSDL thành công";
+		private const string ERROR_INSERT_MESSAGE = "Thêm vào CSDL không thành công, vui lòng kiểm tra dữ liệu hợp lệ";
+		private const string ERROR_EXPORT_MESSAGE = "Lỗi khi xuất dữ liệu sang tập tin Excel";
+		private const string SUCCESS_EXPORT_MESSAGE = "Xuất dữ liệu sang tập tin Excel thành công";
+		private const string QUESTION = "Xác nhận";
 		private Funcs_DienNangTieuThu funcs = new Funcs_DienNangTieuThu();
 
 		public Form_DienNangTieuThu()
@@ -31,11 +40,11 @@ namespace QuanLyDienNang
 			Common.IsDigitEvent(ref e);
 		}
 
-		private void btnTimKiemTatCa_Click(object sender, EventArgs e)
+		private void btnXuatTatCa_Click(object sender, EventArgs e)
 		{
 			var data = DienNangTieuThu.GetAll();
 			if (data == null)
-				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ERROR_QUERY_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
 				dgvDienNangTieuThu.DataSource = data;
 		}
@@ -44,17 +53,20 @@ namespace QuanLyDienNang
 		{
 			var data = DienNangTieuThu.Filter(dtpBatDau_TK.Value, dtpKetThuc_TK.Value, (cbxTenTram.SelectedItem as TramBienAp).MaTram, tbxDiaChi.Text, (cbxBangGia.SelectedItem as BangGia).MaBangGia, chkConNo.Checked);
 			if (data == null)
-				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ERROR_QUERY_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
 				dgvDienNangTieuThu.DataSource = data;
 		}
 
-		private void btnCapNhatKy_Click(object sender, EventArgs e)
+		private void btnLapDanhSach_Click(object sender, EventArgs e)
 		{
-			List<DienNangTieuThu> data = funcs.AddDienNangTieuThuFromKhachHang((cbxNguoiQuanLy.SelectedItem as NguoiQuanLy).MaQuanLy, dtpBatDau.Value, dtpKetThuc.Value);
+			var dialog = MessageBox.Show("Chức năng này dùng để lập danh sách mới theo kỳ được xác định, dữ liệu lấy từ danh sách khách hàng. Bạn có muốn tiếp tục?", QUESTION, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			if (dialog == DialogResult.No)
+				return;
+			List<DienNangTieuThu> data = funcs.AddDienNangTieuThuFromKhachHang((cbxNguoiQuanLy.SelectedItem as NguoiQuanLy).MaQuanLy, dtpDauKy.Value, dtpCuoiKy.Value);
 			if (data == null)
 			{
-				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ERROR_QUERY_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 			var ok = funcs.TryInsertingListToSQL(data);
@@ -62,13 +74,26 @@ namespace QuanLyDienNang
 			{
 				funcs.InsertSQL(data);
 				dgvDienNangTieuThu.DataSource = data;
-				MessageBox.Show("Thêm vào CSDL thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show(SUCCESS_INSERT_MESSAGE, SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			else
 			{
-				MessageBox.Show("Thêm vào CSDL không thành công, vui lòng kiểm tra dữ liệu hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ERROR_INSERT_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 
+		}
+
+		private void btnLoadKyHienTai_Click(object sender, EventArgs e)
+		{
+			var dialog = MessageBox.Show("Chức năng này dùng để tải danh sách theo kỳ được xác định, nếu dữ liệu đã có từ trước. Bạn có muốn tiếp tục?", QUESTION, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			if (dialog == DialogResult.No)
+				return;
+			var data = DienNangTieuThu.GetByDate(dtpCuoiKy.Value);
+			if (data == null)
+			{
+				MessageBox.Show(ERROR_QUERY_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
 		}
 
 		private void btnXuatExcel_Click(object sender, EventArgs e)
@@ -76,7 +101,7 @@ namespace QuanLyDienNang
 			var bytes = Excel.ExportToExcel(dgvDienNangTieuThu.DataSource);
 			if (bytes == null)
 			{
-				MessageBox.Show("Lỗi khi xuất dữ liệu sang tập tin Excel", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ERROR_EXPORT_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 			var dialog = saveDialog.ShowDialog();
@@ -86,7 +111,7 @@ namespace QuanLyDienNang
 				FileStream stream = File.Create(filepath);
 				stream.Close();
 				File.WriteAllBytes(filepath, bytes);
-				MessageBox.Show("Xuất dữ liệu sang tập tin Excel thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show(SUCCESS_EXPORT_MESSAGE, SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 		}
 		#endregion
@@ -96,7 +121,7 @@ namespace QuanLyDienNang
 		{
 			var data = TramBienAp.GetAll();
 			if (data == null)
-				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ERROR_QUERY_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
 				cbxTenTram.DataSource = data;
 		}
@@ -105,7 +130,7 @@ namespace QuanLyDienNang
 		{
 			var data = BangGia.GetAll();
 			if (data == null)
-				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ERROR_QUERY_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
 				cbxBangGia.DataSource = data;
 		}
@@ -114,7 +139,7 @@ namespace QuanLyDienNang
 		{
 			var data = NguoiQuanLy.GetAll();
 			if (data == null)
-				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ERROR_QUERY_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
 				cbxNguoiQuanLy.DataSource = data;
 		}
@@ -122,8 +147,8 @@ namespace QuanLyDienNang
 		private void UpdateControls()
 		{
 			dtpBatDau_TK.Value = DateTime.Now.AddMonths(-1);
-			dtpKetThuc.Value = DateTime.Now;
-			dtpBatDau.Value = DateTime.Now.AddMonths(-1);
+			dtpCuoiKy.Value = DateTime.Now;
+			dtpDauKy.Value = DateTime.Now.AddMonths(-1);
 		}
 
 		public void GoToIndex(int index)

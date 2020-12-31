@@ -30,6 +30,7 @@ AS
 GO
 
 CREATE PROCEDURE proc_Insert_BangGia
+--ALTER PROCEDURE proc_Insert_BangGia
 	@MaBangGia char(5),
 	@TenBangGia nvarchar(100)
 AS
@@ -37,6 +38,7 @@ AS
 GO
 
 CREATE PROCEDURE proc_Update_BangGia
+--ALTER PROCEDURE proc_Update_BangGia
 	@MaBangGia char(5),
 	@TenBangGia nvarchar(100)
 AS
@@ -101,6 +103,7 @@ AS
 GO
 
 CREATE PROCEDURE proc_Insert_ChiTietBangGia
+--ALTER PROCEDURE proc_Insert_ChiTietBangGia
 	@MaBangGia char(5),
 	@BatDau int,
 	@KetThuc int,
@@ -523,6 +526,13 @@ AS
 	SELECT * FROM DienNangTieuThu
 GO
 
+CREATE PROCEDURE proc_GetByDate_DienNangTieuThu
+	@MONTH TINYINT,
+	@YEAR INT
+AS
+	SELECT * FROM DienNangTieuThu WHERE MONTH(NgayKetThuc) = @MONTH AND YEAR(NgayKetThuc) = @YEAR
+GO
+
 CREATE PROCEDURE proc_Insert_DienNangTieuThu
 --ALTER PROCEDURE proc_Insert_DienNangTieuThu
 	@MaKhachHang char(9),
@@ -589,6 +599,8 @@ AS
 	DELETE FROM DienNangTieuThu
 	DBCC CHECKIDENT ('[DienNangTieuThu]', RESEED, 0);
 GO
+
+--EXEC proc_Reset_DienNangTieuThu
 
 CREATE PROCEDURE proc_Update_DienNangTieuThu
 --ALTER PROCEDURE proc_Update_DienNangTieuThu

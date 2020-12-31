@@ -238,7 +238,7 @@ namespace QuanLyDienNang
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "FormKH_CapNhatKhachHang";
-			this.Text = "Cập Nhật Thông Tin Khách Hàng Từ Excel";
+			this.SUCCESS_UPDATE_MESSAGE = "Cập Nhật Thông Tin Khách Hàng Từ Excel";
 			this.Shown += new System.EventHandler(this.FormKH_CapNhatKhachHang_Shown);
 			this.tableParent.ResumeLayout(false);
 			this.panel2.ResumeLayout(false);

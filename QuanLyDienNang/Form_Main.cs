@@ -8,6 +8,12 @@ namespace QuanLyDienNang
 {
 	public partial class Form_Main : Form
 	{
+		private const string ERROR_COPY_MESSAGE = "Đã có lỗi khi sao chép dòng này";
+		private const string ERROR = "Lỗi";
+		private const string SUCCESS_COPY_MESSAGE = "Sao chép dòng vào bảng tạm thành công";
+		private const string SUCCESS = "Thành công";
+		private const string QUESTION = "Xác nhận";
+		private const string QUESTION_QUIT_MESSAGE = "Bạn có muốn thoát khỏi chương trình không?";
 		private dynamic DynamicForm;
 
 		// Ủy quyền xử lý từ form main sang các form con
@@ -124,9 +130,9 @@ namespace QuanLyDienNang
 			}
 			catch (Exception)
 			{
-				MessageBox.Show("Đã có lỗi khi sao chép dòng này", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ERROR_COPY_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
-			MessageBox.Show("Sao chép dòng vào bảng tạm thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			MessageBox.Show(SUCCESS_COPY_MESSAGE, SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 
 		private void menuDong_Click(object sender, EventArgs e)
@@ -157,7 +163,7 @@ namespace QuanLyDienNang
 
 		private void Form_Main_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			DialogResult dialog = MessageBox.Show("Bạn có muốn thoát khỏi chương trình không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			DialogResult dialog = MessageBox.Show(QUESTION_QUIT_MESSAGE, QUESTION, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 			if (dialog == DialogResult.No)
 			{
 				e.Cancel = true;

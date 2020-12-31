@@ -474,7 +474,7 @@
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MinimumSize = new System.Drawing.Size(1000, 600);
 			this.Name = "Form_Main";
-			this.Text = "ỨNG DỤNG QUẢN LÝ ĐIỆN NĂNG";
+			this.ERROR_COPY_MESSAGE = "ỨNG DỤNG QUẢN LÝ ĐIỆN NĂNG";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Main_FormClosing);
 			this.Shown += new System.EventHandler(this.Form_Main_Shown);

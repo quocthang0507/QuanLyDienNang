@@ -257,7 +257,7 @@
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "FormKH_NhapKhachHang";
-			this.Text = "Nhập Thông Tin Khách Hàng Từ Excel";
+			this.ERROR_QUERY_MESSAGE = "Nhập Thông Tin Khách Hàng Từ Excel";
 			this.Shown += new System.EventHandler(this.FormKH_NhapKhachHang_Shown);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();

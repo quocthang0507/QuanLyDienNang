@@ -12,6 +12,17 @@ namespace QuanLyDienNang
 {
 	public partial class FormKH_NhapKhachHang : Form
 	{
+		private const string ERROR = "Lỗi";
+		private const string SUCCESS = "Thành công";
+		private const string WARNING = "Cảnh báo";
+		private const string ERROR_QUERY_MESSAGE = "Lỗi thực hiện truy vấn đến cơ sở dữ liệu";
+		private const string ERROR_IMPORT_EXCEL = "Lỗi đọc dữ liệu từ tập tin Excel";
+		private const string ERROR_NOT_FOUND_MESSAGE = "Không tìm thấy tập tin theo yêu cầu";
+		private const string SAMPLE_PATH = "/Templates/NhapThongTinKhachHang_Sample.xlsx";
+		private const string ERROR_INSERT_MESSAGE = "Thêm vào CSDL không thành công, vui lòng kiểm tra dữ liệu hợp lệ";
+		private const string SUCCESS_INSERT_MESSAGE = "Thêm vào CSDL thành công";
+		private const string WARNING_MISS_DGV_MESSAGE = "Không thể thực hiện hành động này vì DataGridView đang trống";
+		private const string WARNING_MISS_FILE_MESSAGE = "Phải chọn tập tin trước khi thực hiện hành động này";
 		private Funcs_KhachHang funcs = new Funcs_KhachHang();
 		private Thread thread;
 
@@ -47,12 +58,12 @@ namespace QuanLyDienNang
 				  {
 					  if (string.IsNullOrWhiteSpace(tbxDuongDan.Text))
 					  {
-						  MessageBox.Show("Phải chọn tập tin trước khi thực hiện hành động này", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+						  MessageBox.Show(WARNING_MISS_FILE_MESSAGE, WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 						  return;
 					  }
 					  var data = funcs.ReadExcelForInserting(tbxDuongDan.Text, cbxSheet.Text);
 					  if (data == null)
-						  MessageBox.Show("Lỗi đọc dữ liệu từ tập tin Excel", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						  MessageBox.Show(ERROR_IMPORT_EXCEL, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 					  else
 						  dgvKhachHang.DataSource = data;
 				  });
@@ -64,7 +75,7 @@ namespace QuanLyDienNang
 		{
 			if (dgvKhachHang.DataSource == null)
 			{
-				MessageBox.Show("Không thể thực hiện hành động này vì DataGridView đang trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				MessageBox.Show(WARNING_MISS_DGV_MESSAGE, WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
 			var maQL = (cbxNguoiNhap.SelectedItem as NguoiQuanLy).MaQuanLy;
@@ -73,21 +84,21 @@ namespace QuanLyDienNang
 			if (ok)
 			{
 				funcs.InsertSQL(dgvKhachHang.DataSource as List<KhachHang>);
-				MessageBox.Show("Thêm vào CSDL thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show(SUCCESS_INSERT_MESSAGE, SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			else
 			{
-				MessageBox.Show("Thêm vào CSDL không thành công, vui lòng kiểm tra dữ liệu hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ERROR_INSERT_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 
 		private void btnXemMau_Click(object sender, System.EventArgs e)
 		{
-			string filepath = AppDomain.CurrentDomain.BaseDirectory + "/Templates/NhapThongTinKhachHang_Sample.xlsx";
+			string filepath = AppDomain.CurrentDomain.BaseDirectory + SAMPLE_PATH;
 			if (File.Exists(filepath))
 				Process.Start(filepath);
 			else
-				MessageBox.Show("Không tìm thấy tập tin theo yêu cầu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ERROR_NOT_FOUND_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
 		#endregion
@@ -97,7 +108,7 @@ namespace QuanLyDienNang
 		{
 			var data = funcs.GetSheetNamesOnExcel(path);
 			if (data == null)
-				MessageBox.Show("Lỗi đọc dữ liệu từ tập tin Excel", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ERROR_IMPORT_EXCEL, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
 				cbxSheet.DataSource = data;
 		}
@@ -106,7 +117,7 @@ namespace QuanLyDienNang
 		{
 			var data = NguoiQuanLy.GetAll();
 			if (data == null)
-				MessageBox.Show("Lỗi thực hiện truy vấn đến cơ sở dữ liệu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ERROR_QUERY_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
 				cbxNguoiNhap.DataSource = data;
 		}

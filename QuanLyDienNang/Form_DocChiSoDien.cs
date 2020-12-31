@@ -12,6 +12,11 @@ namespace QuanLyDienNang
 {
 	public partial class Form_DocChiSoDien : Form
 	{
+		private const string ERROR_PATH_MESSAGE = "Đường dẫn không hợp lệ hoặc không tìm thấy hình ảnh .jpg hay .png nào trong thư mục";
+		private const string ERROR_OCR_MESSAGE = "Lỗi khi nhận diện số trên hình ảnh!";
+		private const string WARNING = "Cảnh báo";
+		private const string ERROR = "Lỗi";
+		private const string WARNING_THREAD_MESSAGE = "Có một tiến trình tương tự đang chạy, bạn phải đợi cho tiến trình đó hoàn tất hoặc nhấn vào nút 'Dừng' và chạy lại!";
 		private Thread runAllThread;
 		private Thread runOneThread;
 		private Funcs_NhapChiSoDien funcs = new Funcs_NhapChiSoDien();
@@ -42,7 +47,7 @@ namespace QuanLyDienNang
 			var files = FileUtils.LoadImagesFromDirectory(path);
 			if (files == null || files.Count() == 0)
 			{
-				MessageBox.Show("Đường dẫn không hợp lệ hoặc không tìm thấy hình ảnh .jpg hay .png nào trong thư mục", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				MessageBox.Show(ERROR_PATH_MESSAGE, WARNING, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				return;
 			}
 			funcs.SaveImageFolderPath(path);
@@ -139,7 +144,7 @@ namespace QuanLyDienNang
 			{
 				if (string.IsNullOrWhiteSpace(result))
 				{
-					MessageBox.Show("Lỗi khi nhận diện số trên hình ảnh!", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show(ERROR_OCR_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 					return;
 				}
 				tbxChiSoDien.Invoke((MethodInvoker)delegate
@@ -155,7 +160,7 @@ namespace QuanLyDienNang
 		{
 			if (runOneThread != null && runOneThread.IsAlive || runAllThread != null && runAllThread.IsAlive)
 			{
-				MessageBox.Show("Có một tiến trình tương tự đang chạy, bạn phải đợi cho tiến trình đó hoàn tất hoặc nhấn vào nút 'Dừng' và chạy lại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				MessageBox.Show(WARNING_THREAD_MESSAGE, WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return true;
 			}
 			return false;
