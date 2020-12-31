@@ -35,7 +35,6 @@
 			this.tableTop = new System.Windows.Forms.TableLayoutPanel();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.tableRightTop = new System.Windows.Forms.TableLayoutPanel();
-			this.panel4 = new System.Windows.Forms.Panel();
 			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
 			this.cbxNguoiQuanLy = new System.Windows.Forms.ComboBox();
 			this.label10 = new System.Windows.Forms.Label();
@@ -46,7 +45,6 @@
 			this.btnLapDanhSach = new System.Windows.Forms.Button();
 			this.dtpDauKy = new System.Windows.Forms.DateTimePicker();
 			this.dtpCuoiKy = new System.Windows.Forms.DateTimePicker();
-			this.panel3 = new System.Windows.Forms.Panel();
 			this.btnXuatExcel = new System.Windows.Forms.Button();
 			this.btnLapHoaDon = new System.Windows.Forms.Button();
 			this.btnNhapExcel = new System.Windows.Forms.Button();
@@ -70,18 +68,18 @@
 			this.cbxTenTram = new System.Windows.Forms.ComboBox();
 			this.label7 = new System.Windows.Forms.Label();
 			this.saveDialog = new System.Windows.Forms.SaveFileDialog();
+			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.tableParent.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvDienNangTieuThu)).BeginInit();
 			this.tableTop.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.tableRightTop.SuspendLayout();
-			this.panel4.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-			this.panel3.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.tableLeftTop.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.panel1.SuspendLayout();
+			this.groupBox3.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tableParent
@@ -133,7 +131,7 @@
 			this.tableTop.ColumnCount = 2;
 			this.tableTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
 			this.tableTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55F));
-			this.tableTop.Controls.Add(this.groupBox1, 1, 0);
+			this.tableTop.Controls.Add(this.tableRightTop, 1, 0);
 			this.tableTop.Controls.Add(this.groupBox2, 0, 0);
 			this.tableTop.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableTop.Location = new System.Drawing.Point(3, 33);
@@ -145,11 +143,20 @@
 			// 
 			// groupBox1
 			// 
-			this.groupBox1.Controls.Add(this.tableRightTop);
+			this.groupBox1.Controls.Add(this.numericUpDown1);
+			this.groupBox1.Controls.Add(this.cbxNguoiQuanLy);
+			this.groupBox1.Controls.Add(this.dtpCuoiKy);
+			this.groupBox1.Controls.Add(this.label10);
+			this.groupBox1.Controls.Add(this.dtpDauKy);
+			this.groupBox1.Controls.Add(this.label8);
+			this.groupBox1.Controls.Add(this.btnLapDanhSach);
+			this.groupBox1.Controls.Add(this.label11);
+			this.groupBox1.Controls.Add(this.btnLoadKyHienTai);
+			this.groupBox1.Controls.Add(this.label9);
 			this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBox1.Location = new System.Drawing.Point(488, 3);
+			this.groupBox1.Location = new System.Drawing.Point(3, 3);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(587, 208);
+			this.groupBox1.Size = new System.Drawing.Size(581, 129);
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Thông tin về kỳ hiện tại";
@@ -158,38 +165,21 @@
 			// 
 			this.tableRightTop.ColumnCount = 1;
 			this.tableRightTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableRightTop.Controls.Add(this.panel4, 0, 0);
-			this.tableRightTop.Controls.Add(this.panel3, 0, 1);
+			this.tableRightTop.Controls.Add(this.groupBox1, 0, 0);
+			this.tableRightTop.Controls.Add(this.groupBox3, 0, 1);
 			this.tableRightTop.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableRightTop.Location = new System.Drawing.Point(3, 21);
+			this.tableRightTop.Location = new System.Drawing.Point(488, 3);
 			this.tableRightTop.Name = "tableRightTop";
 			this.tableRightTop.RowCount = 2;
 			this.tableRightTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
 			this.tableRightTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
-			this.tableRightTop.Size = new System.Drawing.Size(581, 184);
+			this.tableRightTop.Size = new System.Drawing.Size(587, 208);
 			this.tableRightTop.TabIndex = 19;
-			// 
-			// panel4
-			// 
-			this.panel4.Controls.Add(this.numericUpDown1);
-			this.panel4.Controls.Add(this.cbxNguoiQuanLy);
-			this.panel4.Controls.Add(this.label10);
-			this.panel4.Controls.Add(this.label8);
-			this.panel4.Controls.Add(this.label11);
-			this.panel4.Controls.Add(this.label9);
-			this.panel4.Controls.Add(this.btnLoadKyHienTai);
-			this.panel4.Controls.Add(this.btnLapDanhSach);
-			this.panel4.Controls.Add(this.dtpDauKy);
-			this.panel4.Controls.Add(this.dtpCuoiKy);
-			this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel4.Location = new System.Drawing.Point(3, 3);
-			this.panel4.Name = "panel4";
-			this.panel4.Size = new System.Drawing.Size(575, 113);
-			this.panel4.TabIndex = 18;
 			// 
 			// numericUpDown1
 			// 
-			this.numericUpDown1.Location = new System.Drawing.Point(35, 7);
+			this.numericUpDown1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.numericUpDown1.Location = new System.Drawing.Point(47, 24);
 			this.numericUpDown1.Maximum = new decimal(new int[] {
             10,
             0,
@@ -215,7 +205,7 @@
 			this.cbxNguoiQuanLy.DisplayMember = "TenQuanLy";
 			this.cbxNguoiQuanLy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbxNguoiQuanLy.FormattingEnabled = true;
-			this.cbxNguoiQuanLy.Location = new System.Drawing.Point(201, 38);
+			this.cbxNguoiQuanLy.Location = new System.Drawing.Point(213, 55);
 			this.cbxNguoiQuanLy.Name = "cbxNguoiQuanLy";
 			this.cbxNguoiQuanLy.Size = new System.Drawing.Size(245, 25);
 			this.cbxNguoiQuanLy.TabIndex = 12;
@@ -225,7 +215,7 @@
 			// 
 			this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(3, 9);
+			this.label10.Location = new System.Drawing.Point(15, 26);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(26, 19);
 			this.label10.TabIndex = 0;
@@ -235,7 +225,7 @@
 			// 
 			this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(96, 9);
+			this.label8.Location = new System.Drawing.Point(108, 26);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(89, 19);
 			this.label8.TabIndex = 0;
@@ -245,7 +235,7 @@
 			// 
 			this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(97, 41);
+			this.label11.Location = new System.Drawing.Point(109, 58);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(98, 19);
 			this.label11.TabIndex = 0;
@@ -255,7 +245,7 @@
 			// 
 			this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(335, 9);
+			this.label9.Location = new System.Drawing.Point(347, 26);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(91, 19);
 			this.label9.TabIndex = 0;
@@ -266,7 +256,7 @@
 			this.btnLoadKyHienTai.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnLoadKyHienTai.Image = global::QuanLyDienNang.Properties.Resources.Refresh;
 			this.btnLoadKyHienTai.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLoadKyHienTai.Location = new System.Drawing.Point(286, 67);
+			this.btnLoadKyHienTai.Location = new System.Drawing.Point(298, 84);
 			this.btnLoadKyHienTai.Name = "btnLoadKyHienTai";
 			this.btnLoadKyHienTai.Size = new System.Drawing.Size(210, 40);
 			this.btnLoadKyHienTai.TabIndex = 14;
@@ -280,7 +270,7 @@
 			this.btnLapDanhSach.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnLapDanhSach.Image = global::QuanLyDienNang.Properties.Resources.Text_Document;
 			this.btnLapDanhSach.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLapDanhSach.Location = new System.Drawing.Point(118, 67);
+			this.btnLapDanhSach.Location = new System.Drawing.Point(130, 84);
 			this.btnLapDanhSach.Name = "btnLapDanhSach";
 			this.btnLapDanhSach.Size = new System.Drawing.Size(162, 40);
 			this.btnLapDanhSach.TabIndex = 13;
@@ -294,7 +284,7 @@
 			this.dtpDauKy.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.dtpDauKy.CustomFormat = "dd/MM/yyyy";
 			this.dtpDauKy.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.dtpDauKy.Location = new System.Drawing.Point(191, 7);
+			this.dtpDauKy.Location = new System.Drawing.Point(203, 24);
 			this.dtpDauKy.Name = "dtpDauKy";
 			this.dtpDauKy.Size = new System.Drawing.Size(130, 25);
 			this.dtpDauKy.TabIndex = 10;
@@ -304,31 +294,19 @@
 			this.dtpCuoiKy.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.dtpCuoiKy.CustomFormat = "dd/MM/yyyy";
 			this.dtpCuoiKy.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.dtpCuoiKy.Location = new System.Drawing.Point(432, 7);
+			this.dtpCuoiKy.Location = new System.Drawing.Point(444, 24);
 			this.dtpCuoiKy.Name = "dtpCuoiKy";
 			this.dtpCuoiKy.Size = new System.Drawing.Size(130, 25);
 			this.dtpCuoiKy.TabIndex = 11;
-			// 
-			// panel3
-			// 
-			this.panel3.Controls.Add(this.btnXuatExcel);
-			this.panel3.Controls.Add(this.btnLapHoaDon);
-			this.panel3.Controls.Add(this.btnNhapExcel);
-			this.panel3.Controls.Add(this.button1);
-			this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel3.Location = new System.Drawing.Point(3, 122);
-			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(575, 59);
-			this.panel3.TabIndex = 17;
 			// 
 			// btnXuatExcel
 			// 
 			this.btnXuatExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
 			this.btnXuatExcel.Image = global::QuanLyDienNang.Properties.Resources.Xlsx;
 			this.btnXuatExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnXuatExcel.Location = new System.Drawing.Point(437, 7);
+			this.btnXuatExcel.Location = new System.Drawing.Point(437, 19);
 			this.btnXuatExcel.Name = "btnXuatExcel";
-			this.btnXuatExcel.Size = new System.Drawing.Size(122, 47);
+			this.btnXuatExcel.Size = new System.Drawing.Size(122, 40);
 			this.btnXuatExcel.TabIndex = 18;
 			this.btnXuatExcel.Text = "Xuất Excel";
 			this.btnXuatExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -340,9 +318,9 @@
 			this.btnLapHoaDon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
 			this.btnLapHoaDon.Image = global::QuanLyDienNang.Properties.Resources.Modify;
 			this.btnLapHoaDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLapHoaDon.Location = new System.Drawing.Point(158, 7);
+			this.btnLapHoaDon.Location = new System.Drawing.Point(158, 19);
 			this.btnLapHoaDon.Name = "btnLapHoaDon";
-			this.btnLapHoaDon.Size = new System.Drawing.Size(122, 47);
+			this.btnLapHoaDon.Size = new System.Drawing.Size(122, 40);
 			this.btnLapHoaDon.TabIndex = 16;
 			this.btnLapHoaDon.Text = "Lập hóa đơn";
 			this.btnLapHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -353,9 +331,9 @@
 			this.btnNhapExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
 			this.btnNhapExcel.Image = global::QuanLyDienNang.Properties.Resources.Import;
 			this.btnNhapExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnNhapExcel.Location = new System.Drawing.Point(286, 7);
+			this.btnNhapExcel.Location = new System.Drawing.Point(286, 19);
 			this.btnNhapExcel.Name = "btnNhapExcel";
-			this.btnNhapExcel.Size = new System.Drawing.Size(145, 47);
+			this.btnNhapExcel.Size = new System.Drawing.Size(145, 40);
 			this.btnNhapExcel.TabIndex = 17;
 			this.btnNhapExcel.Text = "Nhập từ Excel";
 			this.btnNhapExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -366,9 +344,9 @@
 			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
 			this.button1.Image = global::QuanLyDienNang.Properties.Resources.Save;
 			this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button1.Location = new System.Drawing.Point(19, 7);
+			this.button1.Location = new System.Drawing.Point(19, 19);
 			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(133, 47);
+			this.button1.Size = new System.Drawing.Size(133, 40);
 			this.button1.TabIndex = 15;
 			this.button1.Text = "Lưu thông tin";
 			this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -601,6 +579,20 @@
 			this.saveDialog.RestoreDirectory = true;
 			this.saveDialog.Title = "Lưu danh sách khách hàng cùng với điện năng tiêu thụ";
 			// 
+			// groupBox3
+			// 
+			this.groupBox3.Controls.Add(this.btnXuatExcel);
+			this.groupBox3.Controls.Add(this.button1);
+			this.groupBox3.Controls.Add(this.btnLapHoaDon);
+			this.groupBox3.Controls.Add(this.btnNhapExcel);
+			this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.groupBox3.Location = new System.Drawing.Point(3, 138);
+			this.groupBox3.Name = "groupBox3";
+			this.groupBox3.Size = new System.Drawing.Size(581, 67);
+			this.groupBox3.TabIndex = 1;
+			this.groupBox3.TabStop = false;
+			this.groupBox3.Text = "Lệnh";
+			// 
 			// Form_DienNangTieuThu
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -611,23 +603,22 @@
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "Form_DienNangTieuThu";
-			this.ERROR_QUERY_MESSAGE = "Thông Tin Điện Năng Tiêu Thụ Của Khách Hàng";
+			this.Text = "Thông Tin Điện Năng Tiêu Thụ Của Khách Hàng";
 			this.Shown += new System.EventHandler(this.FormKH_DienNangTieuThu_Shown);
 			this.tableParent.ResumeLayout(false);
 			this.tableParent.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvDienNangTieuThu)).EndInit();
 			this.tableTop.ResumeLayout(false);
 			this.groupBox1.ResumeLayout(false);
+			this.groupBox1.PerformLayout();
 			this.tableRightTop.ResumeLayout(false);
-			this.panel4.ResumeLayout(false);
-			this.panel4.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-			this.panel3.ResumeLayout(false);
 			this.groupBox2.ResumeLayout(false);
 			this.tableLeftTop.ResumeLayout(false);
 			this.panel2.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
+			this.groupBox3.ResumeLayout(false);
 			this.ResumeLayout(false);
 
         }
@@ -663,8 +654,6 @@
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.TableLayoutPanel tableRightTop;
-		private System.Windows.Forms.Panel panel4;
-		private System.Windows.Forms.Panel panel3;
 		private System.Windows.Forms.ComboBox cbxNguoiQuanLy;
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.DateTimePicker dtpDauKy;
@@ -675,5 +664,6 @@
 		private System.Windows.Forms.NumericUpDown numericUpDown1;
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.Button btnLoadKyHienTai;
+		private System.Windows.Forms.GroupBox groupBox3;
 	}
 }

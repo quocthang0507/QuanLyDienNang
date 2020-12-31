@@ -63,7 +63,7 @@ namespace QuanLyDienNang
 			var dialog = MessageBox.Show("Chức năng này dùng để lập danh sách mới theo kỳ được xác định, dữ liệu lấy từ danh sách khách hàng. Bạn có muốn tiếp tục?", QUESTION, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 			if (dialog == DialogResult.No)
 				return;
-			List<DienNangTieuThu> data = funcs.AddDienNangTieuThuFromKhachHang((cbxNguoiQuanLy.SelectedItem as NguoiQuanLy).MaQuanLy, dtpDauKy.Value, dtpCuoiKy.Value);
+			List<DienNangTieuThu> data = funcs.AddNewDNTTFromKH((cbxNguoiQuanLy.SelectedItem as NguoiQuanLy).MaQuanLy, dtpDauKy.Value, dtpCuoiKy.Value);
 			if (data == null)
 			{
 				MessageBox.Show(ERROR_QUERY_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -94,6 +94,7 @@ namespace QuanLyDienNang
 				MessageBox.Show(ERROR_QUERY_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
+			dgvDienNangTieuThu.DataSource = data;
 		}
 
 		private void btnXuatExcel_Click(object sender, EventArgs e)

@@ -308,7 +308,7 @@
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "FormKH_XuatKhachHang";
-			this.ERROR_QUERY_MESSAGE = "Xuất Thông Tin Khách Hàng Ra Excel";
+			this.Text = "Xuất Thông Tin Khách Hàng Ra Excel";
 			this.Shown += new System.EventHandler(this.FormKH_XuatKhachHang_Shown);
 			this.tableParent.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).EndInit();

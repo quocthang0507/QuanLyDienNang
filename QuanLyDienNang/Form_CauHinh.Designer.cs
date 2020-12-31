@@ -260,7 +260,7 @@ namespace QuanLyDienNang
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "Form_CauHinh";
-			this.SUCCESS_SAVE_CNNSTR_MESSAGE = "Cấu hình SQL Server";
+			this.Text = "Cấu hình SQL Server";
 			this.Shown += new System.EventHandler(this.Form_CauHinh_Shown);
 			this.gbxChungThuc.ResumeLayout(false);
 			this.gbxChungThuc.PerformLayout();

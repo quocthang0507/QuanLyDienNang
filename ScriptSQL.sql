@@ -522,15 +522,17 @@ CREATE TABLE DienNangTieuThu (
 GO
 
 CREATE PROCEDURE proc_GetAll_DienNangTieuThu
+--ALTER PROCEDURE proc_GetAll_DienNangTieuThu
 AS
-	SELECT * FROM DienNangTieuThu
+	SELECT * FROM View_DienNangTieuThu
 GO
 
 CREATE PROCEDURE proc_GetByDate_DienNangTieuThu
+--ALTER PROCEDURE proc_GetByDate_DienNangTieuThu
 	@MONTH TINYINT,
 	@YEAR INT
 AS
-	SELECT * FROM DienNangTieuThu WHERE MONTH(NgayKetThuc) = @MONTH AND YEAR(NgayKetThuc) = @YEAR
+	SELECT * FROM View_DienNangTieuThu WHERE MONTH(NgayKetThuc) = @MONTH AND YEAR(NgayKetThuc) = @YEAR
 GO
 
 CREATE PROCEDURE proc_Insert_DienNangTieuThu
@@ -583,6 +585,7 @@ AS
 				SET @KQ = 0
 			END CATCH
 		ROLLBACK TRANSACTION ADDDNTT
+		DBCC CHECKIDENT ('[DienNangTieuThu]', RESEED, 0);
 		RETURN @KQ
 	END
 GO
@@ -690,4 +693,11 @@ AS
 		ROLLBACK TRANSACTION UPDATEDNTT
 		RETURN @KQ
 	END
+GO
+
+CREATE VIEW View_DienNangTieuThu
+AS
+	SELECT ID, D.MaKhachHang, TenNganHang, DiaChi, MaTram, MaBangGia, NgayGhi, NguoiGhi, NgayBatDau, NgayKetThuc, D.NgayCapNhat, D.NguoiCapNhat, NgayHoaDon, NgayTraTien, ChiSoMoi, ChiSoCu, TongTienTruocVAT, TongTienSauVAT, DaTra, ConLai
+	FROM DienNangTieuThu D, KhachHang K
+	WHERE D.MaKhachHang = K.MaKhachHang
 GO

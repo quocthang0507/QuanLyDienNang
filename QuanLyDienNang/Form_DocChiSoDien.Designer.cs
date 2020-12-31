@@ -320,7 +320,7 @@ namespace QuanLyDienNang
 			this.Font = new System.Drawing.Font("Segoe UI", 10F);
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "FormKH_DocChiSoDien";
-			this.ERROR_PATH_MESSAGE = "Đọc Chỉ Số Điện Năng Tiêu Thụ";
+			this.Text = "Đọc Chỉ Số Điện Năng Tiêu Thụ";
 			this.Shown += new System.EventHandler(this.FormKH_DocChiSoDien_Shown);
 			this.tableParent.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);

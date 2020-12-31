@@ -9,7 +9,7 @@ namespace Business.Forms
 {
 	public class Funcs_DienNangTieuThu
 	{
-		public List<DienNangTieuThu> AddDienNangTieuThuFromKhachHang(string MaQuanLy, DateTime NgayBD, DateTime NgayKT)
+		public List<DienNangTieuThu> AddNewDNTTFromKH(string MaQuanLy, DateTime NgayBD, DateTime NgayKT)
 		{
 			List<KhachHang> listKH = KhachHang.GetAll();
 			List<DienNangTieuThu> listDNTT = new List<DienNangTieuThu>();
