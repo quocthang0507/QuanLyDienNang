@@ -28,6 +28,9 @@ namespace Business.Classes
 		[Required]
 		public string NguoiGhi { get; set; }
 
+		[DisplayName("Chu kỳ tháng")]
+		public int ChuKyThang { get; set; }
+
 		[DisplayName("Ngày cập nhật")]
 		[Required]
 		public DateTime NgayCapNhat { get; set; }
@@ -36,6 +39,12 @@ namespace Business.Classes
 		[StringLength(5)]
 		[Required]
 		public string NguoiCapNhat { get; set; }
+
+		[DisplayName("Ngày hóa đơn")]
+		public DateTime NgayHoaDon { get; set; }
+
+		[DisplayName("Ngày trả tiền")]
+		public DateTime NgayTraTien { get; set; }
 
 		[DisplayName("Chỉ số mới")]
 		[Required]
@@ -47,27 +56,22 @@ namespace Business.Classes
 		[DefaultValue(0)]
 		public int ChiSoCu { get; set; }
 
-		[DisplayName("Đã thanh toán")]
-		[Required]
+		[DisplayName("Tổng tiền trước VAT")]
+		public int TongTienTruocVAT { get; set; }
+
+		[DisplayName("Tổng tiền sau VAT")]
+		public int TongTienSauVAT { get; set; }
+
+		[DisplayName("Đã trả")]
 		[DefaultValue(0)]
-		public bool DaThanhToan { get; set; }
+		public int DaTra { get; set; }
+
+		[DisplayName("Còn lại")]
+		public int ConLai { get; set; }
 
 		public DienNangTieuThu()
 		{
 
-		}
-
-		public DienNangTieuThu(int iD, string maKhachHang, DateTime ngayGhi, string nguoiGhi, DateTime ngayCapNhat, string nguoiCapNhat, int chiSoMoi, int chiSoCu, bool daThanhToan)
-		{
-			ID = iD;
-			MaKhachHang = maKhachHang;
-			NgayGhi = ngayGhi;
-			NguoiGhi = nguoiGhi;
-			NgayCapNhat = ngayCapNhat;
-			NguoiCapNhat = nguoiCapNhat;
-			ChiSoMoi = chiSoMoi;
-			ChiSoCu = chiSoCu;
-			DaThanhToan = daThanhToan;
 		}
 
 		public static List<DienNangTieuThu> GetAll()
@@ -75,13 +79,13 @@ namespace Business.Classes
 
 		public static bool Insert(DienNangTieuThu dienNangTieuThu)
 		{
-			int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_DienNangTieuThu", dienNangTieuThu.ID, dienNangTieuThu.MaKhachHang, dienNangTieuThu.NgayGhi, dienNangTieuThu.NguoiGhi, dienNangTieuThu.NgayCapNhat, dienNangTieuThu.NguoiCapNhat, dienNangTieuThu.ChiSoMoi, dienNangTieuThu.ChiSoCu, dienNangTieuThu.DaThanhToan);
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_DienNangTieuThu", dienNangTieuThu.MaKhachHang, dienNangTieuThu.NgayGhi, dienNangTieuThu.NguoiGhi, dienNangTieuThu.ChuKyThang, dienNangTieuThu.NgayCapNhat, dienNangTieuThu.NguoiCapNhat, dienNangTieuThu.NgayHoaDon, dienNangTieuThu.NgayTraTien, dienNangTieuThu.ChiSoMoi, dienNangTieuThu.ChiSoCu, dienNangTieuThu.TongTienTruocVAT, dienNangTieuThu.TongTienSauVAT, dienNangTieuThu.DaTra, dienNangTieuThu.ConLai);
 			return result > 0;
 		}
 
 		public static bool Update(DienNangTieuThu dienNangTieuThu)
 		{
-			int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_DienNangTieuThu", dienNangTieuThu.ID, dienNangTieuThu.MaKhachHang, dienNangTieuThu.NgayGhi, dienNangTieuThu.NguoiGhi, dienNangTieuThu.NgayCapNhat, dienNangTieuThu.NguoiCapNhat, dienNangTieuThu.ChiSoMoi, dienNangTieuThu.ChiSoCu, dienNangTieuThu.DaThanhToan);
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_DienNangTieuThu", dienNangTieuThu.ID, dienNangTieuThu.MaKhachHang, dienNangTieuThu.NgayGhi, dienNangTieuThu.NguoiGhi, dienNangTieuThu.ChuKyThang, dienNangTieuThu.NgayCapNhat, dienNangTieuThu.NguoiCapNhat, dienNangTieuThu.NgayHoaDon, dienNangTieuThu.NgayTraTien, dienNangTieuThu.ChiSoMoi, dienNangTieuThu.ChiSoCu, dienNangTieuThu.TongTienTruocVAT, dienNangTieuThu.TongTienSauVAT, dienNangTieuThu.DaTra, dienNangTieuThu.ConLai);
 			return result > 0;
 		}
 

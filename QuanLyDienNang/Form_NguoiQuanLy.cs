@@ -45,7 +45,13 @@ namespace QuanLyDienNang
 			}
 			if (Common.ShowQuestionDialog())
 			{
-				var ok = NguoiQuanLy.Add(new NguoiQuanLy(ten, sdt, dc, email));
+				var ok = NguoiQuanLy.Add(new NguoiQuanLy()
+				{
+					TenQuanLy = ten,
+					SoDienThoai = sdt,
+					DiaChi = dc,
+					Email = email
+				});
 				if (ok)
 				{
 					MessageBox.Show("Thêm dữ liệu mới vào thành công", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -72,7 +78,14 @@ namespace QuanLyDienNang
 			}
 			if (Common.ShowQuestionDialog())
 			{
-				var ok = NguoiQuanLy.Update(new NguoiQuanLy(ma, ten, sdt, dc, email));
+				var ok = NguoiQuanLy.Update(new NguoiQuanLy()
+				{
+					MaQuanLy = ma,
+					TenQuanLy = ten,
+					SoDienThoai = sdt,
+					DiaChi = dc,
+					Email = email
+				});
 				if (ok)
 				{
 					MessageBox.Show("Cập nhật dữ liệu thành công", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);

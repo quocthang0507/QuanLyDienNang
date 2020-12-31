@@ -554,3 +554,39 @@ AS
 	DELETE FROM DienNangTieuThu
 	DBCC CHECKIDENT ('[DienNangTieuThu]', RESEED, 0);
 GO
+
+CREATE PROCEDURE proc_Update_DienNangTieuThu
+	@ID int,
+	@MaKhachHang char(9),
+	@NgayGhi datetime,
+	@NguoiGhi char(5),
+	@ChuKyThang tinyint,
+	@NgayCapNhat datetime,
+	@NguoiCapNhat char(5),
+	@NgayHoaDon datetime,
+	@NgayTraTien datetime,
+	@ChiSoMoi int,
+	@ChiSoCu int,
+	@TongTienTruocVAT money,
+	@TongTienSauVAT money,
+	@DaTra money,
+	@ConLai money
+AS
+	UPDATE DienNangTieuThu
+	SET
+		MaKhachHang = @MaKhachHang,
+		NgayGhi = @NgayGhi,
+		NguoiGhi = @NguoiGhi,
+		ChuKyThang = @ChuKyThang,
+		NgayCapNhat = @NgayCapNhat,
+		NguoiCapNhat = @NguoiCapNhat,
+		NgayHoaDon = @NgayHoaDon,
+		NgayTraTien = @NgayTraTien,
+		ChiSoMoi = @ChiSoMoi,
+		ChiSoCu = @ChiSoCu,
+		TongTienTruocVAT = @TongTienTruocVAT,
+		TongTienSauVAT = @TongTienSauVAT,
+		DaTra = @DaTra,
+		ConLai = @ConLai
+	Where ID = @ID
+GO

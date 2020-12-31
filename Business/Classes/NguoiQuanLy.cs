@@ -38,23 +38,6 @@ namespace Business.Classes
 
 		}
 
-		public NguoiQuanLy(string tenQuanLy, string soDienThoai, string diaChi, string email)
-		{
-			TenQuanLy = tenQuanLy;
-			SoDienThoai = soDienThoai;
-			DiaChi = diaChi;
-			Email = email;
-		}
-
-		public NguoiQuanLy(string maQuanLy, string tenQuanLy, string soDienThoai, string diaChi, string email)
-		{
-			MaQuanLy = maQuanLy;
-			TenQuanLy = tenQuanLy;
-			SoDienThoai = soDienThoai;
-			DiaChi = diaChi;
-			Email = email;
-		}
-
 		public static List<NguoiQuanLy> GetAll()
 			=> CBO.FillCollection<NguoiQuanLy>(DataProvider.Instance.ExecuteReader("proc_GetAll_NguoiQuanLy"));
 

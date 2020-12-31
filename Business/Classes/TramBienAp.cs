@@ -20,15 +20,31 @@ namespace Business.Classes
 		[Required]
 		public string TenTram { get; set; }
 
+		[DisplayName("Địa chỉ")]
+		[StringLength(200)]
+		public string DiaChi { get; set; }
+
+		[DisplayName("Người phụ trách")]
+		[StringLength(100)]
+		public string NguoiPhuTrach { get; set; }
+
+		[DisplayName("Mã số công tơ")]
+		[StringLength(20)]
+		public string MaSoCongTo { get; set; }
+
+		[DisplayName("Hệ số nhân")]
+		[DefaultValue(1)]
+		[Required]
+		public int HeSoNhan { get; set; }
+
+		[DisplayName("Kích hoạt")]
+		[DefaultValue(true)]
+		[Required]
+		public bool KichHoat { get; set; }
+
 		public TramBienAp()
 		{
 
-		}
-
-		public TramBienAp(string maTram, string tenTram)
-		{
-			MaTram = maTram;
-			TenTram = tenTram;
 		}
 
 		public static List<TramBienAp> GetAll()

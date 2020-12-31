@@ -96,35 +96,13 @@ namespace Business.Classes
 		public string TenNganHang { get; set; }
 
 		[DisplayName("Đã xóa")]
-		public bool DaXoa { get; set; }
+		[DefaultValue(true)]
+		[Required]
+		public bool KichHoat { get; set; }
 
 		public KhachHang()
 		{
 
-		}
-
-		public KhachHang(string maKhachHang, string hoVaTen, string diaChi, string maBangGia, string maTram, byte soHo, byte heSoNhan, string maSoThue, string soDienThoai, string email, DateTime ngayTao, string nguoiTao, DateTime ngayCapNhat, string nguoiCapNhat, string maSoHopDong, DateTime ngayHopDong, string maCongTo, string soNganHang, string tenNganHang, bool daXoa)
-		{
-			MaKhachHang = maKhachHang;
-			HoVaTen = hoVaTen;
-			DiaChi = diaChi;
-			MaBangGia = maBangGia;
-			MaTram = maTram;
-			SoHo = soHo;
-			HeSoNhan = heSoNhan;
-			MaSoThue = maSoThue;
-			SoDienThoai = soDienThoai;
-			Email = email;
-			NgayTao = ngayTao;
-			NguoiTao = nguoiTao;
-			NgayCapNhat = ngayCapNhat;
-			NguoiCapNhat = nguoiCapNhat;
-			MaSoHopDong = maSoHopDong;
-			NgayHopDong = ngayHopDong;
-			MaCongTo = maCongTo;
-			SoNganHang = soNganHang;
-			TenNganHang = tenNganHang;
-			DaXoa = daXoa;
 		}
 
 		public static List<KhachHang> GetAll()

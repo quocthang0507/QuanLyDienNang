@@ -34,10 +34,21 @@
 			this.dgvDienNangTieuThu = new System.Windows.Forms.DataGridView();
 			this.tableTop = new System.Windows.Forms.TableLayoutPanel();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.dtpNgayHoaDon = new System.Windows.Forms.DateTimePicker();
+			this.btnNhapExcel = new System.Windows.Forms.Button();
+			this.btnXuatExcel = new System.Windows.Forms.Button();
+			this.btnCapNhatKy = new System.Windows.Forms.Button();
+			this.button1 = new System.Windows.Forms.Button();
+			this.btnLapHoaDon = new System.Windows.Forms.Button();
+			this.dtpKetThuc = new System.Windows.Forms.DateTimePicker();
 			this.dtpBatDau = new System.Windows.Forms.DateTimePicker();
+			this.label10 = new System.Windows.Forms.Label();
+			this.label9 = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.chkConNo = new System.Windows.Forms.CheckBox();
+			this.btnTimKiemTatCa = new System.Windows.Forms.Button();
+			this.btnTimKiem = new System.Windows.Forms.Button();
 			this.tbxDiaChi = new System.Windows.Forms.TextBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.cbxBangGia = new System.Windows.Forms.ComboBox();
@@ -49,17 +60,6 @@
 			this.nudNam = new System.Windows.Forms.NumericUpDown();
 			this.label2 = new System.Windows.Forms.Label();
 			this.nudThang = new System.Windows.Forms.NumericUpDown();
-			this.label9 = new System.Windows.Forms.Label();
-			this.dtpKetThuc = new System.Windows.Forms.DateTimePicker();
-			this.label10 = new System.Windows.Forms.Label();
-			this.dtpNgayHoaDon = new System.Windows.Forms.DateTimePicker();
-			this.btnNhapExcel = new System.Windows.Forms.Button();
-			this.btnXuatExcel = new System.Windows.Forms.Button();
-			this.btnCapNhatKy = new System.Windows.Forms.Button();
-			this.btnLapHoaDon = new System.Windows.Forms.Button();
-			this.btnTimKiemTatCa = new System.Windows.Forms.Button();
-			this.btnTimKiem = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
 			this.tableParent.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvDienNangTieuThu)).BeginInit();
 			this.tableTop.SuspendLayout();
@@ -149,6 +149,89 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Thông tin về chu kỳ";
 			// 
+			// dtpNgayHoaDon
+			// 
+			this.dtpNgayHoaDon.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.dtpNgayHoaDon.CustomFormat = "dd/MM/yyyy";
+			this.dtpNgayHoaDon.Location = new System.Drawing.Point(245, 59);
+			this.dtpNgayHoaDon.Name = "dtpNgayHoaDon";
+			this.dtpNgayHoaDon.Size = new System.Drawing.Size(180, 25);
+			this.dtpNgayHoaDon.TabIndex = 11;
+			// 
+			// btnNhapExcel
+			// 
+			this.btnNhapExcel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnNhapExcel.Image = global::QuanLyDienNang.Properties.Resources.Import;
+			this.btnNhapExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnNhapExcel.Location = new System.Drawing.Point(336, 102);
+			this.btnNhapExcel.Name = "btnNhapExcel";
+			this.btnNhapExcel.Size = new System.Drawing.Size(145, 40);
+			this.btnNhapExcel.TabIndex = 15;
+			this.btnNhapExcel.Text = "Nhập từ Excel";
+			this.btnNhapExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnNhapExcel.UseVisualStyleBackColor = true;
+			// 
+			// btnXuatExcel
+			// 
+			this.btnXuatExcel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnXuatExcel.Image = global::QuanLyDienNang.Properties.Resources.Xlsx;
+			this.btnXuatExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnXuatExcel.Location = new System.Drawing.Point(487, 102);
+			this.btnXuatExcel.Name = "btnXuatExcel";
+			this.btnXuatExcel.Size = new System.Drawing.Size(122, 40);
+			this.btnXuatExcel.TabIndex = 16;
+			this.btnXuatExcel.Text = "Xuất Excel";
+			this.btnXuatExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnXuatExcel.UseVisualStyleBackColor = true;
+			// 
+			// btnCapNhatKy
+			// 
+			this.btnCapNhatKy.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnCapNhatKy.Image = global::QuanLyDienNang.Properties.Resources.Refresh;
+			this.btnCapNhatKy.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.btnCapNhatKy.Location = new System.Drawing.Point(540, 26);
+			this.btnCapNhatKy.Name = "btnCapNhatKy";
+			this.btnCapNhatKy.Size = new System.Drawing.Size(95, 60);
+			this.btnCapNhatKy.TabIndex = 12;
+			this.btnCapNhatKy.Text = "Cập nhật kỳ";
+			this.btnCapNhatKy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.btnCapNhatKy.UseVisualStyleBackColor = true;
+			// 
+			// button1
+			// 
+			this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.button1.Image = global::QuanLyDienNang.Properties.Resources.Save;
+			this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.button1.Location = new System.Drawing.Point(69, 102);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(133, 40);
+			this.button1.TabIndex = 13;
+			this.button1.Text = "Lưu thông tin";
+			this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.button1.UseVisualStyleBackColor = true;
+			// 
+			// btnLapHoaDon
+			// 
+			this.btnLapHoaDon.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnLapHoaDon.Image = global::QuanLyDienNang.Properties.Resources.Modify;
+			this.btnLapHoaDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnLapHoaDon.Location = new System.Drawing.Point(208, 102);
+			this.btnLapHoaDon.Name = "btnLapHoaDon";
+			this.btnLapHoaDon.Size = new System.Drawing.Size(122, 40);
+			this.btnLapHoaDon.TabIndex = 14;
+			this.btnLapHoaDon.Text = "Lập hóa đơn";
+			this.btnLapHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnLapHoaDon.UseVisualStyleBackColor = true;
+			// 
+			// dtpKetThuc
+			// 
+			this.dtpKetThuc.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.dtpKetThuc.CustomFormat = "dd/MM/yyyy";
+			this.dtpKetThuc.Location = new System.Drawing.Point(344, 26);
+			this.dtpKetThuc.Name = "dtpKetThuc";
+			this.dtpKetThuc.Size = new System.Drawing.Size(180, 25);
+			this.dtpKetThuc.TabIndex = 10;
+			// 
 			// dtpBatDau
 			// 
 			this.dtpBatDau.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -157,6 +240,26 @@
 			this.dtpBatDau.Name = "dtpBatDau";
 			this.dtpBatDau.Size = new System.Drawing.Size(180, 25);
 			this.dtpBatDau.TabIndex = 9;
+			// 
+			// label10
+			// 
+			this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label10.AutoSize = true;
+			this.label10.Location = new System.Drawing.Point(140, 61);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(99, 19);
+			this.label10.TabIndex = 0;
+			this.label10.Text = "Ngày hóa đơn:";
+			// 
+			// label9
+			// 
+			this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label9.AutoSize = true;
+			this.label9.Location = new System.Drawing.Point(267, 32);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(71, 19);
+			this.label9.TabIndex = 0;
+			this.label9.Text = "Đến ngày:";
 			// 
 			// label8
 			// 
@@ -202,6 +305,32 @@
 			this.chkConNo.TabIndex = 6;
 			this.chkConNo.Text = "Còn nợ";
 			this.chkConNo.UseVisualStyleBackColor = true;
+			// 
+			// btnTimKiemTatCa
+			// 
+			this.btnTimKiemTatCa.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnTimKiemTatCa.Image = global::QuanLyDienNang.Properties.Resources.Search1;
+			this.btnTimKiemTatCa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnTimKiemTatCa.Location = new System.Drawing.Point(310, 102);
+			this.btnTimKiemTatCa.Name = "btnTimKiemTatCa";
+			this.btnTimKiemTatCa.Size = new System.Drawing.Size(106, 43);
+			this.btnTimKiemTatCa.TabIndex = 8;
+			this.btnTimKiemTatCa.Text = "TK tất cả";
+			this.btnTimKiemTatCa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnTimKiemTatCa.UseVisualStyleBackColor = true;
+			// 
+			// btnTimKiem
+			// 
+			this.btnTimKiem.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnTimKiem.Image = global::QuanLyDienNang.Properties.Resources.Search;
+			this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnTimKiem.Location = new System.Drawing.Point(310, 55);
+			this.btnTimKiem.Name = "btnTimKiem";
+			this.btnTimKiem.Size = new System.Drawing.Size(106, 41);
+			this.btnTimKiem.TabIndex = 7;
+			this.btnTimKiem.Text = "Tìm kiếm";
+			this.btnTimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnTimKiem.UseVisualStyleBackColor = true;
 			// 
 			// tbxDiaChi
 			// 
@@ -336,135 +465,6 @@
             0,
             0,
             0});
-			// 
-			// label9
-			// 
-			this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(267, 32);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(71, 19);
-			this.label9.TabIndex = 0;
-			this.label9.Text = "Đến ngày:";
-			// 
-			// dtpKetThuc
-			// 
-			this.dtpKetThuc.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.dtpKetThuc.CustomFormat = "dd/MM/yyyy";
-			this.dtpKetThuc.Location = new System.Drawing.Point(344, 26);
-			this.dtpKetThuc.Name = "dtpKetThuc";
-			this.dtpKetThuc.Size = new System.Drawing.Size(180, 25);
-			this.dtpKetThuc.TabIndex = 10;
-			// 
-			// label10
-			// 
-			this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(140, 61);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(99, 19);
-			this.label10.TabIndex = 0;
-			this.label10.Text = "Ngày hóa đơn:";
-			// 
-			// dtpNgayHoaDon
-			// 
-			this.dtpNgayHoaDon.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.dtpNgayHoaDon.CustomFormat = "dd/MM/yyyy";
-			this.dtpNgayHoaDon.Location = new System.Drawing.Point(245, 59);
-			this.dtpNgayHoaDon.Name = "dtpNgayHoaDon";
-			this.dtpNgayHoaDon.Size = new System.Drawing.Size(180, 25);
-			this.dtpNgayHoaDon.TabIndex = 11;
-			// 
-			// btnNhapExcel
-			// 
-			this.btnNhapExcel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnNhapExcel.Image = global::QuanLyDienNang.Properties.Resources.Import;
-			this.btnNhapExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnNhapExcel.Location = new System.Drawing.Point(336, 102);
-			this.btnNhapExcel.Name = "btnNhapExcel";
-			this.btnNhapExcel.Size = new System.Drawing.Size(145, 40);
-			this.btnNhapExcel.TabIndex = 15;
-			this.btnNhapExcel.Text = "Nhập từ Excel";
-			this.btnNhapExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.btnNhapExcel.UseVisualStyleBackColor = true;
-			// 
-			// btnXuatExcel
-			// 
-			this.btnXuatExcel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnXuatExcel.Image = global::QuanLyDienNang.Properties.Resources.Xlsx;
-			this.btnXuatExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnXuatExcel.Location = new System.Drawing.Point(487, 102);
-			this.btnXuatExcel.Name = "btnXuatExcel";
-			this.btnXuatExcel.Size = new System.Drawing.Size(122, 40);
-			this.btnXuatExcel.TabIndex = 16;
-			this.btnXuatExcel.Text = "Xuất Excel";
-			this.btnXuatExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.btnXuatExcel.UseVisualStyleBackColor = true;
-			// 
-			// btnCapNhatKy
-			// 
-			this.btnCapNhatKy.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnCapNhatKy.Image = global::QuanLyDienNang.Properties.Resources.Refresh;
-			this.btnCapNhatKy.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.btnCapNhatKy.Location = new System.Drawing.Point(540, 26);
-			this.btnCapNhatKy.Name = "btnCapNhatKy";
-			this.btnCapNhatKy.Size = new System.Drawing.Size(95, 60);
-			this.btnCapNhatKy.TabIndex = 12;
-			this.btnCapNhatKy.Text = "Cập nhật kỳ";
-			this.btnCapNhatKy.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-			this.btnCapNhatKy.UseVisualStyleBackColor = true;
-			// 
-			// btnLapHoaDon
-			// 
-			this.btnLapHoaDon.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnLapHoaDon.Image = global::QuanLyDienNang.Properties.Resources.Modify;
-			this.btnLapHoaDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLapHoaDon.Location = new System.Drawing.Point(208, 102);
-			this.btnLapHoaDon.Name = "btnLapHoaDon";
-			this.btnLapHoaDon.Size = new System.Drawing.Size(122, 40);
-			this.btnLapHoaDon.TabIndex = 14;
-			this.btnLapHoaDon.Text = "Lập hóa đơn";
-			this.btnLapHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.btnLapHoaDon.UseVisualStyleBackColor = true;
-			// 
-			// btnTimKiemTatCa
-			// 
-			this.btnTimKiemTatCa.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnTimKiemTatCa.Image = global::QuanLyDienNang.Properties.Resources.Search1;
-			this.btnTimKiemTatCa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnTimKiemTatCa.Location = new System.Drawing.Point(310, 102);
-			this.btnTimKiemTatCa.Name = "btnTimKiemTatCa";
-			this.btnTimKiemTatCa.Size = new System.Drawing.Size(106, 40);
-			this.btnTimKiemTatCa.TabIndex = 8;
-			this.btnTimKiemTatCa.Text = "TK tất cả";
-			this.btnTimKiemTatCa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.btnTimKiemTatCa.UseVisualStyleBackColor = true;
-			// 
-			// btnTimKiem
-			// 
-			this.btnTimKiem.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnTimKiem.Image = global::QuanLyDienNang.Properties.Resources.Search;
-			this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnTimKiem.Location = new System.Drawing.Point(310, 56);
-			this.btnTimKiem.Name = "btnTimKiem";
-			this.btnTimKiem.Size = new System.Drawing.Size(106, 40);
-			this.btnTimKiem.TabIndex = 7;
-			this.btnTimKiem.Text = "Tìm kiếm";
-			this.btnTimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.btnTimKiem.UseVisualStyleBackColor = true;
-			// 
-			// button1
-			// 
-			this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.button1.Image = global::QuanLyDienNang.Properties.Resources.Save;
-			this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button1.Location = new System.Drawing.Point(69, 102);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(133, 40);
-			this.button1.TabIndex = 13;
-			this.button1.Text = "Lưu thông tin";
-			this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.button1.UseVisualStyleBackColor = true;
 			// 
 			// Form_DienNangTieuThu
 			// 

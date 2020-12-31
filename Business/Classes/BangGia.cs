@@ -20,15 +20,14 @@ namespace Business.Classes
 		[Required]
 		public string TenBangGia { get; set; }
 
+		[DisplayName("Kích hoạt")]
+		[DefaultValue(true)]
+		[Required]
+		public bool KichHoat { get; set; }
+
 		public BangGia()
 		{
 
-		}
-
-		public BangGia(string maBangGia, string tenBangGia)
-		{
-			MaBangGia = maBangGia;
-			TenBangGia = tenBangGia;
 		}
 
 		public static List<BangGia> GetAll()

@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\BangGia.cs" />
+    <Compile Include="Classes\ChiTietBangGia.cs" />
     <Compile Include="Classes\DienNangTieuThu.cs" />
     <Compile Include="Classes\Funcs_CauHinh.cs" />
     <Compile Include="Classes\Funcs_NhapChiSoDien.cs" />
