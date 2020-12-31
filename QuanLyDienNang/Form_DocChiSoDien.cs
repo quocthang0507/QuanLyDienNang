@@ -1,4 +1,6 @@
-﻿using Business.Classes;
+﻿using Business;
+using Business.Classes;
+using Business.Forms;
 using Business.Helper;
 using System;
 using System.Drawing;
