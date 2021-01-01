@@ -1,5 +1,4 @@
-﻿using Business.Classes;
-using Business.Forms;
+﻿using Business.Forms;
 using System;
 using System.Threading;
 using System.Windows.Forms;
@@ -20,7 +19,7 @@ namespace QuanLyDienNang
 		private delegate void MyDelegate();
 		MyDelegate GoUp, GoDown, GoToFirst, GoToEnd, Delete;
 
-		private Funcs_Main funcs = new Funcs_Main();
+		private readonly Funcs_Main funcs = new Funcs_Main();
 
 		public Form_Main()
 		{

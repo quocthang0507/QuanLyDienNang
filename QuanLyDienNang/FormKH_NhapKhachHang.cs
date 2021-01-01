@@ -23,7 +23,7 @@ namespace QuanLyDienNang
 		private const string SUCCESS_INSERT_MESSAGE = "Thêm vào CSDL thành công";
 		private const string WARNING_MISS_DGV_MESSAGE = "Không thể thực hiện hành động này vì DataGridView đang trống";
 		private const string WARNING_MISS_FILE_MESSAGE = "Phải chọn tập tin trước khi thực hiện hành động này";
-		private Funcs_KhachHang funcs = new Funcs_KhachHang();
+		private readonly Funcs_KhachHang funcs = new Funcs_KhachHang();
 		private Thread thread;
 
 		public FormKH_NhapKhachHang()

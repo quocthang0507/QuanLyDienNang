@@ -2,11 +2,10 @@
 using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
-using System.Linq;
+using System.IO;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Helper
 {
@@ -61,5 +60,49 @@ namespace Business.Helper
 			}
 		}
 
+		/// <summary>
+		/// Đọc dữ liệu từ excel, chọn tên sheet hoặc số thứ tự
+		/// </summary>
+		/// <param name="excelFilePath"></param>
+		/// <param name="sheetname"></param>
+		/// <returns></returns>
+		public static DataTable ReadExcelAsDataTable(string excelFilePath, string sheetname = "", int index = 0)
+		{
+			try
+			{
+				ExcelPackage excel = new ExcelPackage(new FileInfo(excelFilePath));
+				foreach (var sheet in excel.Workbook.Worksheets)
+				{
+					// Chọn đúng sheet
+					if (sheetname == "" && sheet.Index == index || sheet.Name.Equals(sheetname, StringComparison.OrdinalIgnoreCase))
+					{
+						DataTable dt = new DataTable();
+						// Lấy tiêu đề cột
+						foreach (var firstRowCell in sheet.Cells[1, 1, 1, sheet.Dimension.End.Column])
+						{
+							dt.Columns.Add(firstRowCell.Text);
+						}
+						// Lấy nội dung từ dòng thứ hai
+						for (int rowNum = 2; rowNum <= sheet.Dimension.End.Row; rowNum++)
+						{
+							var row = sheet.Cells[rowNum, 1, rowNum, sheet.Dimension.End.Column];
+							DataRow dr = dt.Rows.Add();
+							foreach (var cell in row)
+							{
+								dr[cell.Start.Column - 1] = cell.Text;
+							}
+						}
+						excel.Dispose();
+						return dt;
+					}
+				}
+				excel.Dispose();
+				return null;
+			}
+			catch (Exception)
+			{
+				return null;
+			}
+		}
 	}
 }

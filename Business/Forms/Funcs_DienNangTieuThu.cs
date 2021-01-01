@@ -1,9 +1,7 @@
 ﻿using Business.Classes;
-using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Reflection;
+using System.Data;
 
 namespace Business.Forms
 {
@@ -41,6 +39,40 @@ namespace Business.Forms
 			}
 			return listDNTT;
 		}
+
+		public List<DienNangTieuThu> ConvertDataTableToListForUpdating(DataTable dt)
+		{
+			List<DienNangTieuThu> list = new List<DienNangTieuThu>();
+			foreach (DataRow row in dt.Rows)
+			{
+				DienNangTieuThu dienNangTieuThu = new DienNangTieuThu()
+				{
+					ID = int.Parse(row["ID"].ToString()),
+					MaKhachHang = row["MaKhachHang"].ToString(),
+					HoVaTen = row["HoVaTen"].ToString(),
+					DiaChi = row["DiaChi"].ToString(),
+					MaBangGia = row["MaBangGia"].ToString(),
+					MaTram = row["MaTram"].ToString(),
+					NgayGhi = string.IsNullOrWhiteSpace(row["NgayGhi"].ToString()) ? DateTime.Now : DateTime.Parse(row["NgayGhi"].ToString()),
+					NguoiGhi = row["NguoiGhi"].ToString(),
+					NgayBatDau = string.IsNullOrWhiteSpace(row["NgayBatDau"].ToString()) ? DateTime.Now : DateTime.Parse(row["NgayBatDau"].ToString()),
+					NgayKetThuc = string.IsNullOrWhiteSpace(row["NgayKetThuc"].ToString()) ? DateTime.Now : DateTime.Parse(row["NgayKetThuc"].ToString()),
+					NgayCapNhat = string.IsNullOrWhiteSpace(row["NgayCapNhat"].ToString()) ? DateTime.Now : DateTime.Parse(row["NgayCapNhat"].ToString()),
+					NguoiCapNhat = row["NguoiCapNhat"].ToString(),
+					NgayHoaDon = string.IsNullOrWhiteSpace(row["NgayHoaDon"].ToString()) ? DateTime.Now : DateTime.Parse(row["NgayHoaDon"].ToString()),
+					NgayTraTien = string.IsNullOrWhiteSpace(row["NgayTraTien"].ToString()) ? DateTime.Now : DateTime.Parse(row["NgayTraTien"].ToString()),
+					ChiSoMoi = int.Parse(row["ChiSoMoi"].ToString()),
+					ChiSoCu = int.Parse(row["ChiSoCu"].ToString()),
+					TongTienTruocVAT = int.Parse(row["TongTienTruocVAT"].ToString()),
+					TongTienSauVAT = int.Parse(row["TongTienSauVAT"].ToString()),
+					DaTra = int.Parse(row["DaTra"].ToString()),
+					ConLai = int.Parse(row["ConLai"].ToString())
+				};
+				list.Add(dienNangTieuThu);
+			}
+			return list;
+		}
+
 
 		public bool TryInsertingListToSQL(List<DienNangTieuThu> list)
 		{
@@ -90,6 +122,16 @@ namespace Business.Forms
 			catch (Exception)
 			{
 			}
+		}
+
+		public List<DienNangTieuThu> UpdateListForUpdating(List<DienNangTieuThu> list, string maQL)
+		{
+			foreach (var dienNangTieuThu in list)
+			{
+				dienNangTieuThu.NgayCapNhat = DateTime.Now;
+				dienNangTieuThu.NguoiCapNhat = maQL;
+			}
+			return list;
 		}
 	}
 }

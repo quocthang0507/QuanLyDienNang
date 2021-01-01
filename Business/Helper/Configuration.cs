@@ -6,7 +6,7 @@ namespace Business.Helper
 {
 	public class Configuration
 	{
-		private string Path;
+		private readonly string Path;
 		private static Configuration Singleton;
 
 		[DllImport("kernel32", CharSet = CharSet.Unicode)]

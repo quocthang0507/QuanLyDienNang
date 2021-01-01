@@ -2,7 +2,6 @@
 using Business.Forms;
 using Business.Helper;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -18,7 +17,7 @@ namespace QuanLyDienNang
 		private const string ERROR_QUERY_MESSAGE = "Lỗi thực hiện truy vấn đến cơ sở dữ liệu";
 		private const string SUCCESS_EXPORT_MESSAGE = "Xuất dữ liệu sang tập tin Excel thành công";
 		private const string ERROR_EXPORT_MESSAGE = "Lỗi khi xuất dữ liệu sang tập tin Excel";
-		private Funcs_KhachHang funcs = new Funcs_KhachHang();
+		private readonly Funcs_KhachHang funcs = new Funcs_KhachHang();
 		private Thread thread;
 
 		public FormKH_XuatKhachHang()

@@ -1,5 +1,4 @@
 ﻿using Business;
-using Business.Classes;
 using Business.Forms;
 using Business.Helper;
 using System;
@@ -19,7 +18,7 @@ namespace QuanLyDienNang
 		private const string WARNING_THREAD_MESSAGE = "Có một tiến trình tương tự đang chạy, bạn phải đợi cho tiến trình đó hoàn tất hoặc nhấn vào nút 'Dừng' và chạy lại!";
 		private Thread runAllThread;
 		private Thread runOneThread;
-		private Funcs_NhapChiSoDien funcs = new Funcs_NhapChiSoDien();
+		private readonly Funcs_NhapChiSoDien funcs = new Funcs_NhapChiSoDien();
 
 		public Form_DocChiSoDien()
 		{

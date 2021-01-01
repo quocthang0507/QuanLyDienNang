@@ -1,5 +1,4 @@
-﻿using Business.Classes;
-using Business.Forms;
+﻿using Business.Forms;
 using System;
 using System.Threading;
 using System.Windows.Forms;
@@ -16,7 +15,7 @@ namespace QuanLyDienNang
 		private const string SUCCESS = "Thành công";
 		private const string WARNING = "Cảnh báo";
 		private const string ERROR = "Lỗi";
-		private Funcs_CauHinh funcs = new Funcs_CauHinh();
+		private readonly Funcs_CauHinh funcs = new Funcs_CauHinh();
 		private Thread thread;
 
 		public Form_CauHinh()

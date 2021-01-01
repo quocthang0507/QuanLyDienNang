@@ -4,9 +4,7 @@ using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Globalization;
 using System.IO;
-using System.Reflection;
 
 namespace Business.Forms
 {
@@ -53,51 +51,6 @@ namespace Business.Forms
 				}
 				excel.Dispose();
 				return sheets;
-			}
-			catch (Exception)
-			{
-				return null;
-			}
-		}
-
-		/// <summary>
-		/// Đọc tập tin Excel dưới dạng DataTable
-		/// </summary>
-		/// <param name="excelFilePath"></param>
-		/// <param name="sheetname"></param>
-		/// <returns></returns>
-		public DataTable ReadExcelAsDataTable(string excelFilePath, string sheetname)
-		{
-			try
-			{
-				ExcelPackage excel = new ExcelPackage(new FileInfo(excelFilePath));
-				foreach (var sheet in excel.Workbook.Worksheets)
-				{
-					// Chọn đúng sheet
-					if (sheet.Name.Equals(sheetname, StringComparison.OrdinalIgnoreCase))
-					{
-						DataTable dt = new DataTable();
-						// Lấy tiêu đề cột
-						foreach (var firstRowCell in sheet.Cells[1, 1, 1, sheet.Dimension.End.Column])
-						{
-							dt.Columns.Add(firstRowCell.Text);
-						}
-						// Lấy nội dung từ dòng thứ hai
-						for (int rowNum = 2; rowNum <= sheet.Dimension.End.Row; rowNum++)
-						{
-							var row = sheet.Cells[rowNum, 1, rowNum, sheet.Dimension.End.Column];
-							DataRow dr = dt.Rows.Add();
-							foreach (var cell in row)
-							{
-								dr[cell.Start.Column - 1] = cell.Text;
-							}
-						}
-						excel.Dispose();
-						return dt;
-					}
-				}
-				excel.Dispose();
-				return null;
 			}
 			catch (Exception)
 			{
@@ -216,7 +169,7 @@ namespace Business.Forms
 		/// <returns></returns>
 		public List<KhachHang> ReadExcelForInserting(string excelFilePath, string sheetname)
 		{
-			DataTable dt = ReadExcelAsDataTable(excelFilePath, sheetname);
+			DataTable dt = Excel.ReadExcelAsDataTable(excelFilePath, sheetname);
 			return ConvertDataTableToListForInserting(dt);
 		}
 
@@ -228,7 +181,7 @@ namespace Business.Forms
 		/// <returns></returns>
 		public List<KhachHang> ReadExcelForUpdating(string excelFilePath, string sheetname)
 		{
-			DataTable dt = ReadExcelAsDataTable(excelFilePath, sheetname);
+			DataTable dt = Excel.ReadExcelAsDataTable(excelFilePath, sheetname);
 			return ConvertDataTableToListForUpdating(dt);
 		}
 

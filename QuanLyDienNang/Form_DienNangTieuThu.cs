@@ -3,6 +3,7 @@ using Business.Forms;
 using Business.Helper;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
@@ -14,12 +15,14 @@ namespace QuanLyDienNang
 		private const string ERROR_QUERY_MESSAGE = "Lỗi thực hiện truy vấn đến cơ sở dữ liệu";
 		private const string ERROR = "Lỗi";
 		private const string SUCCESS = "Thành công";
-		private const string SUCCESS_INSERT_MESSAGE = "Thêm vào CSDL thành công";
-		private const string ERROR_INSERT_MESSAGE = "Thêm vào CSDL không thành công, vui lòng kiểm tra dữ liệu hợp lệ";
+		private const string WARNING = "Cảnh báo";
+		private const string SUCCESS_UPDATE_MESSAGE = "Lưu thông tin vào CSDL thành công";
+		private const string ERROR_UPDATE_MESSAGE = "Lưu thông tin vào CSDL không thành công, vui lòng kiểm tra dữ liệu hợp lệ";
 		private const string ERROR_EXPORT_MESSAGE = "Lỗi khi xuất dữ liệu sang tập tin Excel";
 		private const string SUCCESS_EXPORT_MESSAGE = "Xuất dữ liệu sang tập tin Excel thành công";
+		private const string WARNING_MISS_DGV_MESSAGE = "Không thể thực hiện hành động này vì DataGridView đang trống";
 		private const string QUESTION = "Xác nhận";
-		private Funcs_DienNangTieuThu funcs = new Funcs_DienNangTieuThu();
+		private readonly Funcs_DienNangTieuThu funcs = new Funcs_DienNangTieuThu();
 
 		public Form_DienNangTieuThu()
 		{
@@ -74,11 +77,11 @@ namespace QuanLyDienNang
 			{
 				funcs.InsertSQL(data);
 				dgvDienNangTieuThu.DataSource = data;
-				MessageBox.Show(SUCCESS_INSERT_MESSAGE, SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show(SUCCESS_UPDATE_MESSAGE, SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			else
 			{
-				MessageBox.Show(ERROR_INSERT_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ERROR_UPDATE_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 
 		}
@@ -113,6 +116,49 @@ namespace QuanLyDienNang
 				stream.Close();
 				File.WriteAllBytes(filepath, bytes);
 				MessageBox.Show(SUCCESS_EXPORT_MESSAGE, SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
+		}
+
+		private void dtpCuoiKy_ValueChanged(object sender, EventArgs e)
+		{
+			dtpDauKy.Value = dtpCuoiKy.Value.AddMonths(-1);
+		}
+
+		private void btnNhapExcel_Click(object sender, EventArgs e)
+		{
+			var result = openDialog.ShowDialog();
+			if (result != DialogResult.OK || string.IsNullOrWhiteSpace(openDialog.FileName))
+				return;
+			var path = openDialog.FileName;
+			// Đọc sheet đầu tiên
+			DataTable dt = Excel.ReadExcelAsDataTable(path, "");
+			var data = funcs.ConvertDataTableToListForUpdating(dt);
+			dgvDienNangTieuThu.DataSource = data;
+		}
+
+		private void btnLapHoaDon_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnLuu_Click(object sender, EventArgs e)
+		{
+			if (dgvDienNangTieuThu.DataSource == null)
+			{
+				MessageBox.Show(WARNING_MISS_DGV_MESSAGE, WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+			var maQL = (cbxNguoiQuanLy.SelectedItem as NguoiQuanLy).MaQuanLy;
+			var data = funcs.UpdateListForUpdating(dgvDienNangTieuThu.DataSource as List<DienNangTieuThu>, maQL);
+			var ok = funcs.TryUpdatingListToSQL(data);
+			if (ok)
+			{
+				funcs.UpdateSQL(dgvDienNangTieuThu.DataSource as List<DienNangTieuThu>);
+				MessageBox.Show(SUCCESS_UPDATE_MESSAGE, SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
+			else
+			{
+				MessageBox.Show(ERROR_UPDATE_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 		#endregion

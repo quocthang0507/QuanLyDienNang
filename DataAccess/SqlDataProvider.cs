@@ -6,7 +6,7 @@ namespace DataAccess
 {
 	public class SqlDataProvider : DataProvider
 	{
-		private string connectionString;
+		private readonly string connectionString;
 
 		public SqlDataProvider(string connectionString)
 		{
