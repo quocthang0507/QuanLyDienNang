@@ -48,7 +48,7 @@ namespace Business.Forms
 		/// <summary>
 		/// Lấy chuỗi kết nối đã được lưu từ trước
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>SQLConnectionString</returns>
 		public SQLConnectionString GetSavedConnectionString()
 		{
 			string srv = Configuration.Instance.Read(KEY_SERVER_INI, SECTION_INI);

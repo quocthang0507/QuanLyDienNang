@@ -19,6 +19,7 @@ namespace QuanLyDienNang
 		private const string SUCCESS_UPDATE_MESSAGE = "Lưu thông tin vào CSDL thành công";
 		private const string ERROR_UPDATE_MESSAGE = "Lưu thông tin vào CSDL không thành công, vui lòng kiểm tra dữ liệu hợp lệ";
 		private const string ERROR_EXPORT_MESSAGE = "Lỗi khi xuất dữ liệu sang tập tin Excel";
+		private const string ERROR_IMPORT_MESSAGE = "Lỗi khi nhập dữ liệu từ tập tin Excel, vui lòng kiểm tra dữ liệu hợp lệ";
 		private const string SUCCESS_EXPORT_MESSAGE = "Xuất dữ liệu sang tập tin Excel thành công";
 		private const string WARNING_MISS_DGV_MESSAGE = "Không thể thực hiện hành động này vì DataGridView đang trống";
 		private const string QUESTION = "Xác nhận";
@@ -133,6 +134,11 @@ namespace QuanLyDienNang
 			// Đọc sheet đầu tiên
 			DataTable dt = Excel.ReadExcelAsDataTable(path, "");
 			var data = funcs.ConvertDataTableToListForUpdating(dt);
+			if (data == null)
+			{
+				MessageBox.Show(ERROR_IMPORT_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
 			dgvDienNangTieuThu.DataSource = data;
 		}
 

@@ -39,8 +39,8 @@ namespace Business.Forms
 		/// <summary>
 		/// Kiểm tra kết nối
 		/// </summary>
-		/// <param name="server"></param>
-		/// <param name="database"></param>
+		/// <param name="server">Tên máy chủ SQL</param>
+		/// <param name="database">Tên cơ sở dữ liệu</param>
 		/// <returns></returns>
 		public bool TestConnectionString(string server, string database)
 		{
@@ -51,10 +51,10 @@ namespace Business.Forms
 		/// <summary>
 		/// Kiểm tra kết nối
 		/// </summary>
-		/// <param name="server"></param>
-		/// <param name="database"></param>
-		/// <param name="username"></param>
-		/// <param name="password"></param>
+		/// <param name="server">Tên máy chủ SQL</param>
+		/// <param name="database">Tên cơ sở dữ liệu</param>
+		/// <param name="username">Tên đăng nhập</param>
+		/// <param name="password">Mật khẩu</param>
 		/// <returns></returns>
 		public bool TestConnectionString(string server, string database, string username, string password)
 		{
@@ -77,10 +77,10 @@ namespace Business.Forms
 		/// <summary>
 		/// Lấy các tham số của chuỗi kết nối đã được lưu trước đó
 		/// </summary>
-		/// <param name="server"></param>
-		/// <param name="database"></param>
-		/// <param name="username"></param>
-		/// <param name="password"></param>
+		/// <param name="server">Tên máy chủ SQL</param>
+		/// <param name="database">Tên cơ sở dữ liệu</param>
+		/// <param name="username">Tên đăng nhập</param>
+		/// <param name="password">Mật khẩu</param>
 		public void GetSavedConnectionString(ref string server, ref string database, ref string username, ref string password)
 		{
 			funcs = new Funcs_ConnectionString();

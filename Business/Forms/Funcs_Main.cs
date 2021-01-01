@@ -10,7 +10,7 @@ namespace Business.Forms
 		/// <summary>
 		/// Kiểm tra chuỗi kết nối có lấy được từ tập tin INI hay không
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>Chuỗi hợp lệ hay không</returns>
 		public bool CheckConnectionString()
 		{
 			if (string.IsNullOrWhiteSpace(DataProvider.ConnectionString))
@@ -27,9 +27,9 @@ namespace Business.Forms
 		}
 
 		/// <summary>
-		/// Lấy tên server từ chuỗi kết nối
+		/// Lấy tên máy chủ từ chuỗi kết nối
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>Null hoặc tên máy chủ</returns>
 		public string GetSQLServerName()
 		{
 			Funcs_ConnectionString funcs = new Funcs_ConnectionString();
@@ -41,7 +41,7 @@ namespace Business.Forms
 		/// <summary>
 		/// Lấy tên cơ sở dữ liệu từ chuỗi kết nối
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>Null hoặc tên cơ sở dữ liệu</returns>
 		public string GetDatabase()
 		{
 			Funcs_ConnectionString funcs = new Funcs_ConnectionString();

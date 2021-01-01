@@ -13,7 +13,7 @@ namespace Business.Forms
 		/// <summary>
 		/// Lấy đường dẫn thư mục hình ảnh đã lưu từ trước
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>Đường dẫn đến thư mục hình ảnh</returns>
 		public string GetSavedImageFolderPath()
 		{
 			return Configuration.Instance.Read(KEY_IMAGEFOLDER_INI, SECTION_OCR_INI);
@@ -22,7 +22,7 @@ namespace Business.Forms
 		/// <summary>
 		/// Lưu đường dẫn thư mục hình ảnh vào tập tin INI
 		/// </summary>
-		/// <param name="path"></param>
+		/// <param name="path">Đường dẫn đến thư mục hình ảnh</param>
 		public void SaveImageFolderPath(string path)
 		{
 			Configuration.Instance.Write(KEY_IMAGEFOLDER_INI, path, SECTION_OCR_INI);

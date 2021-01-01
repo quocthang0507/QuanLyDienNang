@@ -123,6 +123,7 @@
 			this.dgvDienNangTieuThu.Location = new System.Drawing.Point(3, 253);
 			this.dgvDienNangTieuThu.MultiSelect = false;
 			this.dgvDienNangTieuThu.Name = "dgvDienNangTieuThu";
+			this.dgvDienNangTieuThu.ReadOnly = true;
 			this.dgvDienNangTieuThu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dgvDienNangTieuThu.Size = new System.Drawing.Size(1078, 435);
 			this.dgvDienNangTieuThu.TabIndex = 1;
