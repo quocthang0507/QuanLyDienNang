@@ -144,7 +144,8 @@ namespace QuanLyDienNang
 
 		private void btnLapHoaDon_Click(object sender, EventArgs e)
 		{
-
+			Form form = new Form_BaoCao();
+			form.ShowDialog();
 		}
 
 		private void btnLuu_Click(object sender, EventArgs e)

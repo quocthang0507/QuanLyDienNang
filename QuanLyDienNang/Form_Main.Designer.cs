@@ -354,7 +354,7 @@
             this.btnThoat});
 			this.toolBar.Location = new System.Drawing.Point(3, 0);
 			this.toolBar.Name = "toolBar";
-			this.toolBar.Size = new System.Drawing.Size(933, 25);
+			this.toolBar.Size = new System.Drawing.Size(964, 25);
 			this.toolBar.TabIndex = 3;
 			this.toolBar.Text = "Thanh công cụ";
 			// 
@@ -365,6 +365,7 @@
 			this.btnXuat.Name = "btnXuat";
 			this.btnXuat.Size = new System.Drawing.Size(96, 22);
 			this.btnXuat.Text = "Xuất báo cáo";
+			this.btnXuat.Click += new System.EventHandler(this.btnXuat_Click);
 			// 
 			// btnIn
 			// 
@@ -373,6 +374,7 @@
 			this.btnIn.Name = "btnIn";
 			this.btnIn.Size = new System.Drawing.Size(37, 22);
 			this.btnIn.Text = "In";
+			this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
 			// 
 			// separator1
 			// 

@@ -174,6 +174,17 @@ namespace QuanLyDienNang
 			this.Close();
 		}
 
+		private void btnXuat_Click(object sender, EventArgs e)
+		{
+			Form frmBaoCao = new Form_BaoCao();
+			frmBaoCao.ShowDialog();
+		}
+
+		private void btnIn_Click(object sender, EventArgs e)
+		{
+
+		}
+
 		#endregion
 
 		#region Methods
