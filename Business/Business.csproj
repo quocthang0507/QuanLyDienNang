@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helper\VietnameseNumber2Text.cs" />
     <Compile Include="Helper\Excel.cs" />
     <Compile Include="Tables\BangGia.cs" />
     <Compile Include="Tables\ChiTietBangGia.cs" />
