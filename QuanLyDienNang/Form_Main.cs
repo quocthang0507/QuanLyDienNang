@@ -13,7 +13,11 @@ namespace QuanLyDienNang
 		private const string SUCCESS = "Thành công";
 		private const string QUESTION = "Xác nhận";
 		private const string QUESTION_QUIT_MESSAGE = "Bạn có muốn thoát khỏi chương trình không?";
+		private const string WARNING = "Cảnh báo";
+		private const string WARNING_NO_SQL_CONNECTION_MESSAGE = "Bạn không thiết lập kết nối đến máy chủ SQL nên chương trình sẽ thoát tại đây!";
+		private bool EXIT_WITHOUT_DIALOG = false;
 		private dynamic DynamicForm;
+		private Form frmCauHinh = new Form_CauHinh();
 
 		// Ủy quyền xử lý từ form main sang các form con
 		private delegate void MyDelegate();
@@ -33,18 +37,27 @@ namespace QuanLyDienNang
 		#region Events
 		private void Form_Main_Shown(object sender, EventArgs e)
 		{
+			frmCauHinh.FormClosing += FrmCauHinh_FormClosing;
 			if (!funcs.CheckConnectionString())
 			{
-				Form frmCauHinh = new Form_CauHinh();
 				frmCauHinh.ShowDialog();
 			}
 			UpdateStatusBar();
 			this.Activate();
 		}
 
+		private void FrmCauHinh_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			if (!funcs.CheckConnectionString())
+			{
+				MessageBox.Show(WARNING_NO_SQL_CONNECTION_MESSAGE, WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				EXIT_WITHOUT_DIALOG = true;
+				thoátToolStripMenuItem.PerformClick();
+			}
+		}
+
 		private void cấuHìnhSQLStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Form frmCauHinh = new Form_CauHinh();
 			frmCauHinh.ShowDialog();
 		}
 
@@ -162,10 +175,13 @@ namespace QuanLyDienNang
 
 		private void Form_Main_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			DialogResult dialog = MessageBox.Show(QUESTION_QUIT_MESSAGE, QUESTION, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-			if (dialog == DialogResult.No)
+			if (!EXIT_WITHOUT_DIALOG)
 			{
-				e.Cancel = true;
+				DialogResult dialog = MessageBox.Show(QUESTION_QUIT_MESSAGE, QUESTION, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+				if (dialog == DialogResult.No)
+				{
+					e.Cancel = true;
+				}
 			}
 		}
 
