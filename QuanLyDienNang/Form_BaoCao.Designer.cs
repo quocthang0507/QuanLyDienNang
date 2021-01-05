@@ -30,37 +30,40 @@ namespace QuanLyDienNang
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_BaoCao));
-			this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+			this.crystalViewer = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+			this.hoaDonTienDien = new QuanLyDienNang.Reports.HoaDonTienDien();
 			this.SuspendLayout();
 			// 
-			// crystalReportViewer1
+			// crystalViewer
 			// 
-			this.crystalReportViewer1.ActiveViewIndex = -1;
-			this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
-			this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
-			this.crystalReportViewer1.Name = "crystalReportViewer1";
-			this.crystalReportViewer1.Size = new System.Drawing.Size(984, 561);
-			this.crystalReportViewer1.TabIndex = 0;
+			this.crystalViewer.ActiveViewIndex = -1;
+			this.crystalViewer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.crystalViewer.Cursor = System.Windows.Forms.Cursors.Default;
+			this.crystalViewer.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.crystalViewer.Location = new System.Drawing.Point(0, 0);
+			this.crystalViewer.Name = "crystalViewer";
+			this.crystalViewer.Size = new System.Drawing.Size(984, 561);
+			this.crystalViewer.TabIndex = 0;
 			// 
 			// Form_BaoCao
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(984, 561);
-			this.Controls.Add(this.crystalReportViewer1);
+			this.Controls.Add(this.crystalViewer);
 			this.Font = new System.Drawing.Font("Segoe UI", 10F);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "Form_BaoCao";
 			this.Text = "Xuất báo cáo";
+			this.Load += new System.EventHandler(this.Form_BaoCao_Load);
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
-		private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+		private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalViewer;
+		private Reports.HoaDonTienDien hoaDonTienDien;
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using Business.Classes;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 
 namespace Business.Forms
@@ -93,6 +94,26 @@ namespace Business.Forms
 				return null;
 			}
 			return list;
+		}
+
+		public DataTable ConvertListToDataTableForReporting(List<DienNangTieuThu> list)
+		{
+			DataTable dt = new DataTable();
+			var properties = TypeDescriptor.GetProperties(typeof(DienNangTieuThu));
+			foreach (PropertyDescriptor property in properties)
+			{
+				dt.Columns.Add(property.Name, Nullable.GetUnderlyingType(property.PropertyType) ?? property.PropertyType);
+			}
+			foreach (var dienNangTieuThu in list)
+			{
+				object[] values = new object[properties.Count];
+				for (int i = 0; i < values.Length; i++)
+				{
+					values[i] = properties[i].GetValue(dienNangTieuThu);
+				}
+				dt.Rows.Add(values);
+			}
+			return dt;
 		}
 
 		/// <summary>

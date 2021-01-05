@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace QuanLyDienNang
@@ -24,6 +25,7 @@ namespace QuanLyDienNang
 		private const string WARNING_MISS_DGV_MESSAGE = "Không thể thực hiện hành động này vì DataGridView đang trống";
 		private const string QUESTION = "Xác nhận";
 		private readonly Funcs_DienNangTieuThu funcs = new Funcs_DienNangTieuThu();
+		private Thread thread;
 
 		public Form_DienNangTieuThu()
 		{
@@ -87,7 +89,7 @@ namespace QuanLyDienNang
 
 		}
 
-		private void btnLoadKyHienTai_Click(object sender, EventArgs e)
+		private void btnLoadTheoKy_Click(object sender, EventArgs e)
 		{
 			var dialog = MessageBox.Show("Chức năng này dùng để tải danh sách theo kỳ được xác định, nếu dữ liệu đã có từ trước. Bạn có muốn tiếp tục?", QUESTION, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 			if (dialog == DialogResult.No)
@@ -144,8 +146,23 @@ namespace QuanLyDienNang
 
 		private void btnLapHoaDon_Click(object sender, EventArgs e)
 		{
-			Form form = new Form_BaoCao();
-			form.ShowDialog();
+			thread = new Thread(() =>
+			  {
+				  dgvDienNangTieuThu.Invoke((MethodInvoker)delegate
+				  {
+					  if (dgvDienNangTieuThu.DataSource == null)
+					  {
+						  MessageBox.Show(WARNING_MISS_DGV_MESSAGE, WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+						  return;
+					  }
+					  Cursor.Current = Cursors.WaitCursor;
+					  DataTable dt = funcs.ConvertListToDataTableForReporting(dgvDienNangTieuThu.DataSource as List<DienNangTieuThu>);
+					  Cursor.Current = Cursors.Default;
+					  Form form = new Form_BaoCao(dt);
+					  form.ShowDialog();
+				  });
+			  });
+			thread.Start();
 		}
 
 		private void btnLuu_Click(object sender, EventArgs e)
