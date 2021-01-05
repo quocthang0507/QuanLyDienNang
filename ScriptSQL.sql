@@ -578,7 +578,7 @@ AS
 		DECLARE @KQ BIT
 		DECLARE @MAX_ID INT
 		SET @KQ = 1
-		SET @MAX_ID = (SELECT CASE WHEN MAX(ID) IS NULL THEN 0 ELSE MAX(ID) END FROM DienNangTieuThu)
+		SET @MAX_ID = IDENT_CURRENT('[DienNangTieuThu]')
 		BEGIN TRANSACTION ADDDNTT
 			BEGIN TRY
 				INSERT INTO DienNangTieuThu VALUES (@MaKhachHang, @NgayGhi, @NguoiGhi, @NgayBatDau, @NgayKetThuc, @NgayCapNhat, @NguoiCapNhat, @NgayHoaDon, @NgayTraTien, @ChiSoMoi, @ChiSoCu, @TongTienTruocVAT, @TongTienSauVAT, @DaTra, @ConLai)
@@ -587,7 +587,7 @@ AS
 				SET @KQ = 0
 			END CATCH
 		ROLLBACK TRANSACTION ADDDNTT
-		DBCC CHECKIDENT ('[DienNangTieuThu]', RESEED, 0);
+		DBCC CHECKIDENT ('[DienNangTieuThu]', RESEED, @MAX_ID)
 		RETURN @KQ
 	END
 GO
