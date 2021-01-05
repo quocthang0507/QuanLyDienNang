@@ -140,7 +140,7 @@ namespace Business.Forms
 		{
 			foreach (var dienNangTieuThu in list)
 			{
-				if (DienNangTieuThu.TryUpdating(dienNangTieuThu))
+				if (!DienNangTieuThu.TryUpdating(dienNangTieuThu))
 					return false;
 			}
 			return true;

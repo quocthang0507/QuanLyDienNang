@@ -70,6 +70,8 @@
 			this.label7 = new System.Windows.Forms.Label();
 			this.saveDialog = new System.Windows.Forms.SaveFileDialog();
 			this.openDialog = new System.Windows.Forms.OpenFileDialog();
+			this.btnKyTruoc = new System.Windows.Forms.Button();
+			this.btnKySau = new System.Windows.Forms.Button();
 			this.tableParent.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvDienNangTieuThu)).BeginInit();
 			this.tableTop.SuspendLayout();
@@ -160,6 +162,8 @@
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.btnKySau);
+			this.groupBox1.Controls.Add(this.btnKyTruoc);
 			this.groupBox1.Controls.Add(this.numericUpDown1);
 			this.groupBox1.Controls.Add(this.cbxNguoiQuanLy);
 			this.groupBox1.Controls.Add(this.dtpCuoiKy);
@@ -259,10 +263,10 @@
 			this.btnLapDanhSach.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnLapDanhSach.Image = global::QuanLyDienNang.Properties.Resources.Text_Document;
 			this.btnLapDanhSach.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLapDanhSach.Location = new System.Drawing.Point(140, 82);
+			this.btnLapDanhSach.Location = new System.Drawing.Point(118, 83);
 			this.btnLapDanhSach.Name = "btnLapDanhSach";
 			this.btnLapDanhSach.Size = new System.Drawing.Size(162, 40);
-			this.btnLapDanhSach.TabIndex = 13;
+			this.btnLapDanhSach.TabIndex = 14;
 			this.btnLapDanhSach.Text = "Lập danh sách mới";
 			this.btnLapDanhSach.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnLapDanhSach.UseVisualStyleBackColor = true;
@@ -283,10 +287,10 @@
 			this.btnLoadTheoKy.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnLoadTheoKy.Image = global::QuanLyDienNang.Properties.Resources.Refresh;
 			this.btnLoadTheoKy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLoadTheoKy.Location = new System.Drawing.Point(308, 82);
+			this.btnLoadTheoKy.Location = new System.Drawing.Point(286, 83);
 			this.btnLoadTheoKy.Name = "btnLoadTheoKy";
 			this.btnLoadTheoKy.Size = new System.Drawing.Size(180, 40);
-			this.btnLoadTheoKy.TabIndex = 14;
+			this.btnLoadTheoKy.TabIndex = 15;
 			this.btnLoadTheoKy.Text = "Lấy danh sách theo kỳ";
 			this.btnLoadTheoKy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnLoadTheoKy.UseVisualStyleBackColor = true;
@@ -324,7 +328,7 @@
 			this.btnXuatExcel.Location = new System.Drawing.Point(447, 21);
 			this.btnXuatExcel.Name = "btnXuatExcel";
 			this.btnXuatExcel.Size = new System.Drawing.Size(110, 40);
-			this.btnXuatExcel.TabIndex = 18;
+			this.btnXuatExcel.TabIndex = 20;
 			this.btnXuatExcel.Text = "Xuất Excel";
 			this.btnXuatExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnXuatExcel.UseVisualStyleBackColor = true;
@@ -338,7 +342,7 @@
 			this.btnLuu.Location = new System.Drawing.Point(37, 21);
 			this.btnLuu.Name = "btnLuu";
 			this.btnLuu.Size = new System.Drawing.Size(125, 40);
-			this.btnLuu.TabIndex = 15;
+			this.btnLuu.TabIndex = 17;
 			this.btnLuu.Text = "Lưu thông tin";
 			this.btnLuu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnLuu.UseVisualStyleBackColor = true;
@@ -352,7 +356,7 @@
 			this.btnLapHoaDon.Location = new System.Drawing.Point(168, 21);
 			this.btnLapHoaDon.Name = "btnLapHoaDon";
 			this.btnLapHoaDon.Size = new System.Drawing.Size(120, 40);
-			this.btnLapHoaDon.TabIndex = 16;
+			this.btnLapHoaDon.TabIndex = 18;
 			this.btnLapHoaDon.Text = "Lập hóa đơn";
 			this.btnLapHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnLapHoaDon.UseVisualStyleBackColor = true;
@@ -366,7 +370,7 @@
 			this.btnNhapExcel.Location = new System.Drawing.Point(295, 21);
 			this.btnNhapExcel.Name = "btnNhapExcel";
 			this.btnNhapExcel.Size = new System.Drawing.Size(145, 40);
-			this.btnNhapExcel.TabIndex = 17;
+			this.btnNhapExcel.TabIndex = 19;
 			this.btnNhapExcel.Text = "Nhập từ Excel";
 			this.btnNhapExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnNhapExcel.UseVisualStyleBackColor = true;
@@ -603,6 +607,28 @@
 			// 
 			this.openDialog.Filter = "Excel Workbook (.xlsx)|*.xlsx|Excel 97-2003 Workbook (.xls)|*.xls";
 			// 
+			// btnKyTruoc
+			// 
+			this.btnKyTruoc.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnKyTruoc.Location = new System.Drawing.Point(8, 82);
+			this.btnKyTruoc.Name = "btnKyTruoc";
+			this.btnKyTruoc.Size = new System.Drawing.Size(104, 40);
+			this.btnKyTruoc.TabIndex = 13;
+			this.btnKyTruoc.Text = "< Kỳ trước";
+			this.btnKyTruoc.UseVisualStyleBackColor = true;
+			this.btnKyTruoc.Click += new System.EventHandler(this.btnKyTruoc_Click);
+			// 
+			// btnKySau
+			// 
+			this.btnKySau.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnKySau.Location = new System.Drawing.Point(470, 83);
+			this.btnKySau.Name = "btnKySau";
+			this.btnKySau.Size = new System.Drawing.Size(104, 40);
+			this.btnKySau.TabIndex = 16;
+			this.btnKySau.Text = "Kỳ sau >";
+			this.btnKySau.UseVisualStyleBackColor = true;
+			this.btnKySau.Click += new System.EventHandler(this.btnKySau_Click);
+			// 
 			// Form_DienNangTieuThu
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -676,5 +702,7 @@
 		private System.Windows.Forms.Button btnLoadTheoKy;
 		private System.Windows.Forms.GroupBox groupBox3;
 		private System.Windows.Forms.OpenFileDialog openDialog;
+		private System.Windows.Forms.Button btnKySau;
+		private System.Windows.Forms.Button btnKyTruoc;
 	}
 }

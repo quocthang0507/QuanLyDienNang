@@ -185,6 +185,16 @@ namespace QuanLyDienNang
 				MessageBox.Show(ERROR_UPDATE_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
+
+		private void btnKyTruoc_Click(object sender, EventArgs e)
+		{
+			dtpCuoiKy.Value = dtpCuoiKy.Value.AddMonths(-1);
+		}
+
+		private void btnKySau_Click(object sender, EventArgs e)
+		{
+			dtpCuoiKy.Value = dtpCuoiKy.Value.AddMonths(1);
+		}
 		#endregion
 
 		#region Methods
@@ -274,6 +284,7 @@ namespace QuanLyDienNang
 		}
 
 		#endregion
+
 
 	}
 }
