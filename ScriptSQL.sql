@@ -13,14 +13,15 @@ CREATE TABLE BangGia (
 	KichHoat bit default 1 not null
 )
 GO 
-INSERT INTO BangGia VALUES ('BG001', N'Điện sinh hoạt (hộ thường)')
-INSERT INTO BangGia VALUES ('BG002', N'Điện sinh hoạt (hộ nghèo)')
-INSERT INTO BangGia VALUES ('BG003', N'Điện kinh doanh - dịch vụ')
-INSERT INTO BangGia VALUES ('BG004', N'Điện sản xuất')
-INSERT INTO BangGia VALUES ('BG005', N'Điện hành chính, sự nghiệp')
-INSERT INTO BangGia VALUES ('BG006', N'Điện cho bệnh viện, trường học')
-INSERT INTO BangGia VALUES ('BG007', N'Điện cho bơm nước, tưới tiêu')
-INSERT INTO BangGia VALUES ('BG008', N'Điện chiếu sáng công cộng')
+
+INSERT INTO BangGia VALUES ('BG001', N'Điện sinh hoạt (hộ thường)', 1)
+INSERT INTO BangGia VALUES ('BG002', N'Điện sinh hoạt (hộ nghèo)', 1)
+INSERT INTO BangGia VALUES ('BG003', N'Điện kinh doanh - dịch vụ', 1)
+INSERT INTO BangGia VALUES ('BG004', N'Điện sản xuất', 1)
+INSERT INTO BangGia VALUES ('BG005', N'Điện hành chính, sự nghiệp', 1)
+INSERT INTO BangGia VALUES ('BG006', N'Điện cho bệnh viện, trường học', 1)
+INSERT INTO BangGia VALUES ('BG007', N'Điện cho bơm nước, tưới tiêu', 1)
+INSERT INTO BangGia VALUES ('BG008', N'Điện chiếu sáng công cộng', 1)
 GO
 
 CREATE PROCEDURE proc_GetAll_BangGia
@@ -34,7 +35,7 @@ CREATE PROCEDURE proc_Insert_BangGia
 	@MaBangGia char(5),
 	@TenBangGia nvarchar(100)
 AS
-	INSERT INTO BangGia VALUES (@MaBangGia, @TenBangGia)
+	INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES (@MaBangGia, @TenBangGia)
 GO
 
 CREATE PROCEDURE proc_Update_BangGia
@@ -71,14 +72,6 @@ CREATE TABLE ChiTietBangGia
 )
 GO
 
-EXEC proc_Insert_ChiTietBangGia 'BG001', 0, 50, 1678, 0.1, N'Bậc 1: Cho kWh từ 0 - 50'
-EXEC proc_Insert_ChiTietBangGia 'BG001', 51, 100, 1734, 0.1, N'Bậc 2: Cho kWh từ 51 - 100'
-EXEC proc_Insert_ChiTietBangGia 'BG001', 101, 200, 2014, 0.1, N'Bậc 3: Cho kWh từ 101 - 200'
-EXEC proc_Insert_ChiTietBangGia 'BG001', 201, 300, 2536, 0.1, N'Bậc 4: Cho kWh từ 201 - 300'
-EXEC proc_Insert_ChiTietBangGia 'BG001', 301, 400, 2834, 0.1, N'Bậc 5: Cho kWh từ 301 - 400'
-EXEC proc_Insert_ChiTietBangGia 'BG001', 401, 0, 2927, 0.1, N'Bậc 6: Cho kWh từ 401 trở lên'
-GO
-
 CREATE TRIGGER trg_CapNhatChiTietBangGia ON ChiTietBangGia FOR INSERT, UPDATE
 --ALTER TRIGGER trg_CapNhatChiTietBangGia ON ChiTietBangGia FOR INSERT, UPDATE
 AS
@@ -112,6 +105,14 @@ CREATE PROCEDURE proc_Insert_ChiTietBangGia
 	@MoTa nvarchar(200)
 AS
 	INSERT INTO ChiTietBangGia (MaBangGia, BatDau, KetThuc, GiaTruocVAT, VAT, MoTa) VALUES (@MaBangGia, @BatDau, @KetThuc, @GiaTruocVAT, @VAT, @MoTa)
+GO
+
+EXEC proc_Insert_ChiTietBangGia 'BG001', 0, 50, 1678, 0.1, N'Bậc 1: Cho kWh từ 0 - 50'
+EXEC proc_Insert_ChiTietBangGia 'BG001', 51, 100, 1734, 0.1, N'Bậc 2: Cho kWh từ 51 - 100'
+EXEC proc_Insert_ChiTietBangGia 'BG001', 101, 200, 2014, 0.1, N'Bậc 3: Cho kWh từ 101 - 200'
+EXEC proc_Insert_ChiTietBangGia 'BG001', 201, 300, 2536, 0.1, N'Bậc 4: Cho kWh từ 201 - 300'
+EXEC proc_Insert_ChiTietBangGia 'BG001', 301, 400, 2834, 0.1, N'Bậc 5: Cho kWh từ 301 - 400'
+EXEC proc_Insert_ChiTietBangGia 'BG001', 401, 0, 2927, 0.1, N'Bậc 6: Cho kWh từ 401 trở lên'
 GO
 
 CREATE PROCEDURE proc_Update_ChiTietBangGia
@@ -159,9 +160,9 @@ CREATE TABLE TramBienAp (
 )
 GO 
 
-INSERT INTO TramBienAp VALUES ('BA001', N'Trạm biến áp 1')
-INSERT INTO TramBienAp VALUES ('BA002', N'Trạm biến áp 2')
-INSERT INTO TramBienAp VALUES ('BA003', N'Trạm biến áp 3')
+INSERT INTO TramBienAp (MaTram, TenTram) VALUES ('BA001', N'Trạm biến áp 1')
+INSERT INTO TramBienAp (MaTram, TenTram) VALUES ('BA002', N'Trạm biến áp 2')
+INSERT INTO TramBienAp (MaTram, TenTram) VALUES ('BA003', N'Trạm biến áp 3')
 GO
 
 CREATE PROCEDURE proc_GetAll_TramBienAp
@@ -174,7 +175,7 @@ CREATE PROCEDURE proc_Insert_TramBienAp
 	@MaTram char(5),
 	@TenTram nvarchar(100)
 AS
-	INSERT INTO TramBienAp VALUES (@MaTram, @TenTram)
+	INSERT INTO TramBienAp (MaTram, TenTram) VALUES (@MaTram, @TenTram)
 GO
 
 CREATE PROCEDURE proc_Update_TramBienAp
@@ -205,6 +206,7 @@ CREATE TABLE NguoiQuanLy (
 	Email nvarchar(100) null
 )
 GO
+
 INSERT INTO NguoiQuanLy VALUES ('QL001', N'La Quốc Thắng', '0987610260', N'Đà Lạt - Lâm Đồng', 'quocthang_0507@yahoo.com.vn')
 INSERT INTO NguoiQuanLy VALUES ('QL002', N'Nguyễn Văn A', '0123456789', N'Đà Lạt - Lâm Đồng', 'nva@yahoo.com.vn')
 INSERT INTO NguoiQuanLy VALUES ('QL003', N'Trần Thị B', '0987654321', N'Đà Lạt - Lâm Đồng', 'ttb@yahoo.com.vn')
@@ -346,7 +348,7 @@ AS
 	DECLARE @MA CHAR(9)
 	SET @MA = DBO.func_GenerateID_KhachHang()
 	INSERT INTO KhachHang VALUES (@MA, @HoVaTen, @DiaChi, @MaBangGia, @MaTram, @SoHo, @HeSoNhan, @MaSoThue, 
-		@SoDienThoai, @Email, @NgayTao, @NguoiTao, @NgayCapNhat, @NguoiCapNhat, @MaSoHopDong, @NgayHopDong, @MaCongTo, @SoNganHang, @TenNganHang)
+		@SoDienThoai, @Email, @NgayTao, @NguoiTao, @NgayCapNhat, @NguoiCapNhat, @MaSoHopDong, @NgayHopDong, @MaCongTo, @SoNganHang, @TenNganHang, 1)
 GO
 
 CREATE PROCEDURE proc_Update_KhachHang
@@ -431,7 +433,7 @@ AS
 			BEGIN TRY
 				SET @MA = DBO.func_GenerateID_KhachHang()
 				INSERT INTO KhachHang VALUES (@MA, @HoVaTen, @DiaChi, @MaBangGia, @MaTram, @SoHo, @HeSoNhan, @MaSoThue, 
-					@SoDienThoai, @Email, @NgayTao, @NguoiTao, @NgayCapNhat, @NguoiCapNhat, @MaSoHopDong, @NgayHopDong, @MaCongTo, @SoNganHang, @TenNganHang)
+					@SoDienThoai, @Email, @NgayTao, @NguoiTao, @NgayCapNhat, @NguoiCapNhat, @MaSoHopDong, @NgayHopDong, @MaCongTo, @SoNganHang, @TenNganHang, 1)
 			END TRY
 			BEGIN CATCH
 				SET @KQ = 0
