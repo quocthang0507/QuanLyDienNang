@@ -6,6 +6,9 @@ using System.Reflection;
 
 namespace DataAccess
 {
+	/// <summary>
+	/// Lớp chuyển đổi bản ghi từ cơ sở dữ liệu sang đối tượng trong C#
+	/// </summary>
 	public class CBO
 	{
 		public static List<PropertyInfo> GetPropertyInfo(Type objType)

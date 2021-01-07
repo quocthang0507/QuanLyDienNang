@@ -2,6 +2,9 @@
 
 namespace DataAccess
 {
+	/// <summary>
+	/// Lớp truy cập chính đến cơ sở dữ liệu
+	/// </summary>
 	public abstract class DataProvider
 	{
 		public abstract object ExecuteNonQueryWithOutput(string outputParam, string spName, params object[] parameterValues);

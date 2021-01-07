@@ -96,6 +96,11 @@ namespace Business.Forms
 			return list;
 		}
 
+		/// <summary>
+		/// Đưa danh sách DienNangTieuThu sang DataTable vì CrystalReport đọc dữ liệu bằng DataSet
+		/// </summary>
+		/// <param name="list"></param>
+		/// <returns></returns>
 		public DataTable ConvertListToDataTableForReporting(List<DienNangTieuThu> list)
 		{
 			DataTable dt = new DataTable();

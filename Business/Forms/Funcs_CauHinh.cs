@@ -20,8 +20,11 @@ namespace Business.Forms
 		public static List<string> GetServers()
 		{
 			List<string> servers = new List<string>();
+			// Lấy tên máy tính
 			string ComputerName = Environment.MachineName;
+			// Phiên bản 32 hay 64 bit
 			RegistryView registryView = Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32;
+			// Lấy các tên máy chủ trong máy
 			using (RegistryKey hklm = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, registryView))
 			{
 				RegistryKey InstanceName = hklm.OpenSubKey(@"SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL", false);

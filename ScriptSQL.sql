@@ -301,7 +301,7 @@ GO
 CREATE PROCEDURE proc_GetAll_KhachHang
 --ALTER PROCEDURE proc_GetAll_KhachHang
 AS
-	SELECT * FROM KhachHang WHERE KichHoat = 0 ORDER BY MaKhachHang
+	SELECT * FROM KhachHang WHERE KichHoat = 1 ORDER BY MaKhachHang
 GO
 
 CREATE FUNCTION func_GenerateID_KhachHang()

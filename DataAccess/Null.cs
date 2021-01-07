@@ -3,9 +3,10 @@ using System.Reflection;
 
 namespace DataAccess
 {
-	// Null Class
-	// Class for dealing with the translation of database null values. 
-
+	/// <summary>
+	/// Null Class:
+	/// Class for dealing with the translation of database null values. 
+	/// </summary>
 	public class Null
 	{
 		public static string NullString => "";
@@ -26,7 +27,12 @@ namespace DataAccess
 
 		public static float NullSingle => float.MinValue;
 
-		// convert an application encoded null value to a database null value ( used in DAL )
+		/// <summary>
+		/// Converts an application encoded null value to a database null value ( used in DAL )
+		/// </summary>
+		/// <param name="objField"></param>
+		/// <param name="objDBNull"></param>
+		/// <returns></returns>
 		public static object GetNull(object objField, object objDBNull)
 		{
 			if (objField == null)
@@ -60,7 +66,11 @@ namespace DataAccess
 			return objField;
 		}
 
-		// checks if a field contains an application encoded null value
+		/// <summary>
+		/// Checks if a field contains an application encoded null value
+		/// </summary>
+		/// <param name="objField"></param>
+		/// <returns></returns>
 		public static bool IsNull(object objField)
 		{
 			if (objField != null)
@@ -103,7 +113,12 @@ namespace DataAccess
 			return true;
 		}
 
-		// sets a field to an application encoded null value ( used in BLL layer )
+		/// <summary>
+		/// Sets a field to an application encoded null value ( used in BLL layer )
+		/// </summary>
+		/// <param name="objValue"></param>
+		/// <param name="objField"></param>
+		/// <returns></returns>
 		public static object SetNull(object objValue, object objField)
 		{
 			if (Convert.IsDBNull(objValue))

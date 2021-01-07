@@ -4,6 +4,9 @@ using System.Data.SqlClient;
 
 namespace DataAccess
 {
+	/// <summary>
+	/// Lớp xử lý tham số truyền vào SQL theo kiểu C#
+	/// </summary>
 	public class SqlDataProvider : DataProvider
 	{
 		private readonly string connectionString;
@@ -13,6 +16,11 @@ namespace DataAccess
 			this.connectionString = connectionString;
 		}
 
+		/// <summary>
+		/// Gán từng tham số trong SQL thành các đối tượng tham số trong C#
+		/// </summary>
+		/// <param name="commandParameters"></param>
+		/// <param name="parameterValues"></param>
 		private void AssignParameterValues(SqlParameter[] commandParameters, object[] parameterValues)
 		{
 			if (commandParameters == null || parameterValues == null) return;

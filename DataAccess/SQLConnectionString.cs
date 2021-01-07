@@ -2,6 +2,9 @@
 
 namespace DataAccess
 {
+	/// <summary>
+	/// Lớp tạo chuỗi kết nối và kiểm tra kết nối
+	/// </summary>
 	public class SQLConnectionString
 	{
 		public string ServerName { get; set; }

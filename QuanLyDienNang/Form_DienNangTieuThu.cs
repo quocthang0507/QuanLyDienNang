@@ -79,7 +79,8 @@ namespace QuanLyDienNang
 			if (ok)
 			{
 				funcs.InsertSQL(data);
-				dgvDienNangTieuThu.DataSource = data;
+				//dgvDienNangTieuThu.DataSource = data;
+				btnLoadTheoKy.PerformClick();
 				MessageBox.Show(SUCCESS_UPDATE_MESSAGE, SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			else
@@ -91,9 +92,6 @@ namespace QuanLyDienNang
 
 		private void btnLoadTheoKy_Click(object sender, EventArgs e)
 		{
-			var dialog = MessageBox.Show("Chức năng này dùng để tải danh sách theo kỳ được xác định, nếu dữ liệu đã có từ trước. Bạn có muốn tiếp tục?", QUESTION, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-			if (dialog == DialogResult.No)
-				return;
 			var data = DienNangTieuThu.GetByDate(dtpCuoiKy.Value);
 			if (data == null)
 			{
