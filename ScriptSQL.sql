@@ -326,6 +326,7 @@ PRINT DBO.func_GenerateID_KhachHang()
 */
 
 CREATE PROCEDURE proc_Insert_KhachHang
+--ALTER PROCEDURE proc_Insert_KhachHang
 	@HoVaTen nvarchar(150),
 	@DiaChi nvarchar(200),
 	@MaBangGia char(5),

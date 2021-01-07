@@ -106,11 +106,14 @@ namespace QuanLyDienNang
 		#region Methods
 		private void LoadSheet(string path)
 		{
-			var data = funcs.GetSheetNamesOnExcel(path);
-			if (data == null)
-				MessageBox.Show(ERROR_IMPORT_EXCEL, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-			else
-				cbxSheet.DataSource = data;
+			if (!string.IsNullOrWhiteSpace(path))
+			{
+				var data = funcs.GetSheetNamesOnExcel(path);
+				if (data == null)
+					MessageBox.Show(ERROR_IMPORT_EXCEL, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				else
+					cbxSheet.DataSource = data;
+			}
 		}
 
 		private void LoadNguoiQuanLy()

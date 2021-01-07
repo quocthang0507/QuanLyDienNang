@@ -214,7 +214,7 @@ namespace Business.Forms
 		{
 			foreach (var khach in list)
 			{
-				if (KhachHang.TryInserting(khach))
+				if (!KhachHang.TryInserting(khach))
 					return false;
 			}
 			return true;
