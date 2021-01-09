@@ -91,16 +91,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DienNangTieuThuDataset.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Foms\Form_BangGia.cs">
+    <Compile Include="Foms\QuanLyBangGia\Form_BangGia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Foms\Form_BangGia.Designer.cs">
+    <Compile Include="Foms\QuanLyBangGia\Form_BangGia.Designer.cs">
       <DependentUpon>Form_BangGia.cs</DependentUpon>
     </Compile>
-    <Compile Include="Foms\Form_BaoCao.cs">
+    <Compile Include="Foms\QuanLyDien\Form_BaoCao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Foms\Form_BaoCao.Designer.cs">
+    <Compile Include="Foms\QuanLyDien\Form_BaoCao.Designer.cs">
       <DependentUpon>Form_BaoCao.cs</DependentUpon>
     </Compile>
     <Compile Include="Foms\Form_GioiThieu_New.cs">
@@ -109,16 +109,16 @@
     <Compile Include="Foms\Form_GioiThieu_New.Designer.cs">
       <DependentUpon>Form_GioiThieu_New.cs</DependentUpon>
     </Compile>
-    <Compile Include="Foms\FormKH_CapNhatKhachHang.cs">
+    <Compile Include="Foms\QuanLyKhachHang\FormKH_CapNhatKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Foms\FormKH_CapNhatKhachHang.Designer.cs">
+    <Compile Include="Foms\QuanLyKhachHang\FormKH_CapNhatKhachHang.Designer.cs">
       <DependentUpon>FormKH_CapNhatKhachHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="Foms\Form_DocChiSoDien.cs">
+    <Compile Include="Foms\QuanLyDien\Form_DocChiSoDien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Foms\Form_DocChiSoDien.Designer.cs">
+    <Compile Include="Foms\QuanLyDien\Form_DocChiSoDien.Designer.cs">
       <DependentUpon>Form_DocChiSoDien.cs</DependentUpon>
     </Compile>
     <Compile Include="Foms\Form_Main.cs">
@@ -127,16 +127,16 @@
     <Compile Include="Foms\Form_Main.Designer.cs">
       <DependentUpon>Form_Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Foms\FormKH_NhapKhachHang.cs">
+    <Compile Include="Foms\QuanLyKhachHang\FormKH_NhapKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Foms\FormKH_NhapKhachHang.Designer.cs">
+    <Compile Include="Foms\QuanLyKhachHang\FormKH_NhapKhachHang.Designer.cs">
       <DependentUpon>FormKH_NhapKhachHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="Foms\Form_DienNangTieuThu.cs">
+    <Compile Include="Foms\QuanLyDien\Form_DienNangTieuThu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Foms\Form_DienNangTieuThu.Designer.cs">
+    <Compile Include="Foms\QuanLyDien\Form_DienNangTieuThu.Designer.cs">
       <DependentUpon>Form_DienNangTieuThu.cs</DependentUpon>
     </Compile>
     <Compile Include="Foms\FormWelcome.cs">
@@ -157,19 +157,19 @@
     <Compile Include="Foms\Form_GioiThieu.Designer.cs">
       <DependentUpon>Form_GioiThieu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Foms\Form_NguoiQuanLy.cs">
+    <Compile Include="Foms\QuanLyNhanVien\Form_NguoiQuanLy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Foms\Form_NguoiQuanLy.Designer.cs">
+    <Compile Include="Foms\QuanLyNhanVien\Form_NguoiQuanLy.Designer.cs">
       <DependentUpon>Form_NguoiQuanLy.cs</DependentUpon>
     </Compile>
     <Compile Include="STRINGS.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Foms\FormKH_XuatKhachHang.cs">
+    <Compile Include="Foms\QuanLyKhachHang\FormKH_XuatKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Foms\FormKH_XuatKhachHang.Designer.cs">
+    <Compile Include="Foms\QuanLyKhachHang\FormKH_XuatKhachHang.Designer.cs">
       <DependentUpon>FormKH_XuatKhachHang.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\HoaDonTienDien.cs">
@@ -178,19 +178,19 @@
       <DependentUpon>HoaDonTienDien.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="Foms\Form_BangGia.resx">
+    <EmbeddedResource Include="Foms\QuanLyBangGia\Form_BangGia.resx">
       <DependentUpon>Form_BangGia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Foms\Form_BaoCao.resx">
+    <EmbeddedResource Include="Foms\QuanLyDien\Form_BaoCao.resx">
       <DependentUpon>Form_BaoCao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Foms\Form_GioiThieu_New.resx">
       <DependentUpon>Form_GioiThieu_New.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Foms\FormKH_CapNhatKhachHang.resx">
+    <EmbeddedResource Include="Foms\QuanLyKhachHang\FormKH_CapNhatKhachHang.resx">
       <DependentUpon>FormKH_CapNhatKhachHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Foms\Form_DocChiSoDien.resx">
+    <EmbeddedResource Include="Foms\QuanLyDien\Form_DocChiSoDien.resx">
       <DependentUpon>Form_DocChiSoDien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Foms\Form_CauHinh.resx">
@@ -199,10 +199,10 @@
     <EmbeddedResource Include="Foms\Form_Main.resx">
       <DependentUpon>Form_Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Foms\FormKH_NhapKhachHang.resx">
+    <EmbeddedResource Include="Foms\QuanLyKhachHang\FormKH_NhapKhachHang.resx">
       <DependentUpon>FormKH_NhapKhachHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Foms\Form_DienNangTieuThu.resx">
+    <EmbeddedResource Include="Foms\QuanLyDien\Form_DienNangTieuThu.resx">
       <DependentUpon>Form_DienNangTieuThu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Foms\FormWelcome.resx">
@@ -211,7 +211,7 @@
     <EmbeddedResource Include="Foms\Form_GioiThieu.resx">
       <DependentUpon>Form_GioiThieu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Foms\Form_NguoiQuanLy.resx">
+    <EmbeddedResource Include="Foms\QuanLyNhanVien\Form_NguoiQuanLy.resx">
       <DependentUpon>Form_NguoiQuanLy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -224,7 +224,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Foms\FormKH_XuatKhachHang.resx">
+    <EmbeddedResource Include="Foms\QuanLyKhachHang\FormKH_XuatKhachHang.resx">
       <DependentUpon>FormKH_XuatKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\HoaDonTienDien.rpt">
@@ -614,6 +614,7 @@
       <Name>Business</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

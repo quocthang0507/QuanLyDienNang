@@ -2,6 +2,7 @@
 using Business.Forms;
 using Business.Helper;
 using System;
+using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
@@ -20,7 +21,7 @@ namespace QuanLyDienNang.Forms
 		private void Form_BangGia_Shown(object sender, EventArgs e)
 		{
 			LoadTable();
-			dgvBangGia.Columns[0].ReadOnly = true;
+			UpdateColumnFormat();
 		}
 
 		private void btnThem_Click(object sender, EventArgs e)
@@ -104,6 +105,7 @@ namespace QuanLyDienNang.Forms
 			}
 
 		}
+
 		#endregion
 
 		#region Methods
@@ -164,6 +166,12 @@ namespace QuanLyDienNang.Forms
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
 				dgvBangGia.DataSource = data;
+		}
+
+		private void UpdateColumnFormat()
+		{
+			dgvBangGia.Columns[0].ReadOnly = true;
+			dgvBangGia.Columns[0].DefaultCellStyle.Font = new Font(DefaultFont, FontStyle.Bold);
 		}
 		#endregion
 
