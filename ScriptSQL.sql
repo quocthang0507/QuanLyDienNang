@@ -31,6 +31,15 @@ AS
 	SELECT * FROM BangGia
 GO
 
+CREATE PROCEDURE proc_IsDuplicated_MaBangGia
+	@MaBangGia varchar(10)
+AS
+	IF EXISTS (SELECT * FROM BangGia WHERE MaBangGia = @MaBangGia)
+		RETURN 1
+	ELSE
+		RETURN 0
+GO
+
 CREATE PROCEDURE proc_Insert_BangGia
 --ALTER PROCEDURE proc_Insert_BangGia
 	@MaBangGia varchar(10),

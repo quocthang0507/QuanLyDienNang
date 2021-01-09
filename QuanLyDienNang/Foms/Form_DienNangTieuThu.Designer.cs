@@ -639,7 +639,7 @@
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "Form_DienNangTieuThu";
-			this.Text = "Thông Tin Điện Năng Tiêu Thụ Của Khách Hàng";
+			this.QUESTION_LAPDANHSACH = "Thông Tin Điện Năng Tiêu Thụ Của Khách Hàng";
 			this.Shown += new System.EventHandler(this.FormKH_DienNangTieuThu_Shown);
 			this.tableParent.ResumeLayout(false);
 			this.tableParent.PerformLayout();

@@ -41,7 +41,7 @@ namespace Business.Classes
 		public static List<NguoiQuanLy> GetAll()
 			=> CBO.FillCollection<NguoiQuanLy>(DataProvider.Instance.ExecuteReader("proc_GetAll_NguoiQuanLy"));
 
-		public static bool Add(NguoiQuanLy nguoiQuanLy)
+		public static bool Insert(NguoiQuanLy nguoiQuanLy)
 		{
 			int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_NguoiQuanLy", nguoiQuanLy.TenQuanLy, nguoiQuanLy.SoDienThoai, nguoiQuanLy.DiaChi, nguoiQuanLy.Email);
 			return result > 0;

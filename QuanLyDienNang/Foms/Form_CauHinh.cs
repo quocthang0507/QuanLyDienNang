@@ -7,14 +7,6 @@ namespace QuanLyDienNang
 {
 	public partial class Form_CauHinh : Form
 	{
-		private const string SUCCESS_SAVE_CNNSTR_MESSAGE = "Lưu thành công chuỗi kết nối";
-		private const string ERROR_SAVE_CNNSTR_MESSAGE = "Không thể lưu chuỗi kết nối, vui lòng kiểm tra lại các thông tin cho hợp lệ!";
-		private const string SUCCESS_CNNSTR_MESSAGE = "Kết nối đến cơ sở dữ liệu thành công!";
-		private const string WARNING_MISS_FIELDS_MESSAGE = "Không được để trống các trường bắt buộc!";
-		private const string ERROR_CNNSTR_MESSAGE = "Kết nối đến cơ sở dữ liệu không thành công!";
-		private const string SUCCESS = "Thành công";
-		private const string WARNING = "Cảnh báo";
-		private const string ERROR = "Lỗi";
 		private readonly Funcs_CauHinh funcs = new Funcs_CauHinh();
 		private Thread thread;
 
@@ -43,11 +35,11 @@ namespace QuanLyDienNang
 					if (connectable != null && connectable.Value)
 					{
 						funcs.SaveConnectionString();
-						MessageBox.Show(SUCCESS_SAVE_CNNSTR_MESSAGE, SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
+						MessageBox.Show(STRINGS.SUCCESS_SAVE_CNNSTR_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
 					}
 					else
 					{
-						MessageBox.Show(ERROR_SAVE_CNNSTR_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+						MessageBox.Show(STRINGS.ERROR_SAVE_CNNSTR_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 					}
 				});
 			});
@@ -67,17 +59,17 @@ namespace QuanLyDienNang
 					{
 						if (connectable == null)
 						{
-							MessageBox.Show(WARNING_MISS_FIELDS_MESSAGE, WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+							MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 							btnLuu.Enabled = false;
 						}
 						else if (connectable.Value)
 						{
-							MessageBox.Show(SUCCESS_CNNSTR_MESSAGE, SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
+							MessageBox.Show(STRINGS.SUCCESS_CNNSTR_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
 							btnLuu.Enabled = true;
 						}
 						else
 						{
-							MessageBox.Show(ERROR_CNNSTR_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+							MessageBox.Show(STRINGS.ERROR_CNNSTR_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 							btnLuu.Enabled = false;
 						}
 					}

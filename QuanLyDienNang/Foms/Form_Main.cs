@@ -7,14 +7,6 @@ namespace QuanLyDienNang
 {
 	public partial class Form_Main : Form
 	{
-		private const string ERROR_COPY_MESSAGE = "Đã có lỗi khi sao chép dòng này";
-		private const string ERROR = "Lỗi";
-		private const string SUCCESS_COPY_MESSAGE = "Sao chép dòng vào bảng tạm thành công";
-		private const string SUCCESS = "Thành công";
-		private const string QUESTION = "Xác nhận";
-		private const string QUESTION_QUIT_MESSAGE = "Bạn có muốn thoát khỏi chương trình không?";
-		private const string WARNING = "Cảnh báo";
-		private const string WARNING_NO_SQL_CONNECTION_MESSAGE = "Bạn không thiết lập kết nối đến máy chủ SQL nên chương trình sẽ thoát tại đây!";
 		private bool EXIT_WITHOUT_DIALOG = false;
 		private dynamic DynamicForm;
 		private Form frmCauHinh = new Form_CauHinh();
@@ -50,7 +42,7 @@ namespace QuanLyDienNang
 		{
 			if (!funcs.CheckConnectionString())
 			{
-				MessageBox.Show(WARNING_NO_SQL_CONNECTION_MESSAGE, WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				MessageBox.Show(STRINGS.WARNING_NO_SQL_CONNECTION_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				EXIT_WITHOUT_DIALOG = true;
 				thoátToolStripMenuItem.PerformClick();
 			}
@@ -142,9 +134,9 @@ namespace QuanLyDienNang
 			}
 			catch (Exception)
 			{
-				MessageBox.Show(ERROR_COPY_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(STRINGS.ERROR_COPY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
-			MessageBox.Show(SUCCESS_COPY_MESSAGE, SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
+			MessageBox.Show(STRINGS.SUCCESS_COPY_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 
 		private void menuDong_Click(object sender, EventArgs e)
@@ -177,7 +169,7 @@ namespace QuanLyDienNang
 		{
 			if (!EXIT_WITHOUT_DIALOG)
 			{
-				DialogResult dialog = MessageBox.Show(QUESTION_QUIT_MESSAGE, QUESTION, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+				DialogResult dialog = MessageBox.Show(STRINGS.QUESTION_QUIT_MESSAGE, STRINGS.QUESTION, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 				if (dialog == DialogResult.No)
 				{
 					e.Cancel = true;

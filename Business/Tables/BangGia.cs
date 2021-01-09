@@ -33,6 +33,12 @@ namespace Business.Classes
 		public static List<BangGia> GetAll()
 			=> CBO.FillCollection<BangGia>(DataProvider.Instance.ExecuteReader("proc_GetAll_BangGia"));
 
+		public static bool IsDuplicatedMaBangGia(string MaBangGia)
+		{
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_IsDuplicated_MaBangGia", MaBangGia);
+			return result == 1;
+		}
+
 		public static bool Insert(BangGia bangGia)
 		{
 			int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_BangGia", bangGia.MaBangGia, bangGia.TenBangGia);

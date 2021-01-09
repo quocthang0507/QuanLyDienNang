@@ -91,97 +91,86 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DienNangTieuThuDataset.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form_BangGia.cs">
+    <Compile Include="Foms\Form_BangGia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_BangGia.Designer.cs">
+    <Compile Include="Foms\Form_BangGia.Designer.cs">
       <DependentUpon>Form_BangGia.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_BaoCao.cs">
+    <Compile Include="Foms\Form_BaoCao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_BaoCao.Designer.cs">
+    <Compile Include="Foms\Form_BaoCao.Designer.cs">
       <DependentUpon>Form_BaoCao.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_GioiThieu_New.cs">
+    <Compile Include="Foms\Form_GioiThieu_New.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_GioiThieu_New.Designer.cs">
+    <Compile Include="Foms\Form_GioiThieu_New.Designer.cs">
       <DependentUpon>Form_GioiThieu_New.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormKH_CapNhatKhachHang.cs">
+    <Compile Include="Foms\FormKH_CapNhatKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormKH_CapNhatKhachHang.Designer.cs">
+    <Compile Include="Foms\FormKH_CapNhatKhachHang.Designer.cs">
       <DependentUpon>FormKH_CapNhatKhachHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_DocChiSoDien.cs">
+    <Compile Include="Foms\Form_DocChiSoDien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_DocChiSoDien.Designer.cs">
+    <Compile Include="Foms\Form_DocChiSoDien.Designer.cs">
       <DependentUpon>Form_DocChiSoDien.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Main.cs">
+    <Compile Include="Foms\Form_Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Main.Designer.cs">
+    <Compile Include="Foms\Form_Main.Designer.cs">
       <DependentUpon>Form_Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormKH_NhapKhachHang.cs">
+    <Compile Include="Foms\FormKH_NhapKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormKH_NhapKhachHang.Designer.cs">
+    <Compile Include="Foms\FormKH_NhapKhachHang.Designer.cs">
       <DependentUpon>FormKH_NhapKhachHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPhanQuyenQuanLy.cs">
+    <Compile Include="Foms\Form_DienNangTieuThu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPhanQuyenQuanLy.Designer.cs">
-      <DependentUpon>FormPhanQuyenQuanLy.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form_DienNangTieuThu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form_DienNangTieuThu.Designer.cs">
+    <Compile Include="Foms\Form_DienNangTieuThu.Designer.cs">
       <DependentUpon>Form_DienNangTieuThu.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormWelcome.cs">
+    <Compile Include="Foms\FormWelcome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormWelcome.Designer.cs">
+    <Compile Include="Foms\FormWelcome.Designer.cs">
       <DependentUpon>FormWelcome.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_CauHinh.cs">
+    <Compile Include="Foms\Form_CauHinh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_CauHinh.Designer.cs">
+    <Compile Include="Foms\Form_CauHinh.Designer.cs">
       <DependentUpon>Form_CauHinh.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_GioiThieu.cs">
+    <Compile Include="Foms\Form_GioiThieu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_GioiThieu.Designer.cs">
+    <Compile Include="Foms\Form_GioiThieu.Designer.cs">
       <DependentUpon>Form_GioiThieu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_NguoiQuanLy.cs">
+    <Compile Include="Foms\Form_NguoiQuanLy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_NguoiQuanLy.Designer.cs">
+    <Compile Include="Foms\Form_NguoiQuanLy.Designer.cs">
       <DependentUpon>Form_NguoiQuanLy.cs</DependentUpon>
     </Compile>
+    <Compile Include="STRINGS.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="FormKH_XuatKhachHang.cs">
+    <Compile Include="Foms\FormKH_XuatKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormKH_XuatKhachHang.Designer.cs">
+    <Compile Include="Foms\FormKH_XuatKhachHang.Designer.cs">
       <DependentUpon>FormKH_XuatKhachHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormThongTinDoanhNghiep.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormThongTinDoanhNghiep.Designer.cs">
-      <DependentUpon>FormThongTinDoanhNghiep.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\HoaDonTienDien.cs">
       <AutoGen>True</AutoGen>
@@ -189,43 +178,40 @@
       <DependentUpon>HoaDonTienDien.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="Form_BangGia.resx">
+    <EmbeddedResource Include="Foms\Form_BangGia.resx">
       <DependentUpon>Form_BangGia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_BaoCao.resx">
+    <EmbeddedResource Include="Foms\Form_BaoCao.resx">
       <DependentUpon>Form_BaoCao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_GioiThieu_New.resx">
+    <EmbeddedResource Include="Foms\Form_GioiThieu_New.resx">
       <DependentUpon>Form_GioiThieu_New.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormKH_CapNhatKhachHang.resx">
+    <EmbeddedResource Include="Foms\FormKH_CapNhatKhachHang.resx">
       <DependentUpon>FormKH_CapNhatKhachHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_DocChiSoDien.resx">
+    <EmbeddedResource Include="Foms\Form_DocChiSoDien.resx">
       <DependentUpon>Form_DocChiSoDien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_CauHinh.resx">
+    <EmbeddedResource Include="Foms\Form_CauHinh.resx">
       <DependentUpon>Form_CauHinh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Main.resx">
+    <EmbeddedResource Include="Foms\Form_Main.resx">
       <DependentUpon>Form_Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormKH_NhapKhachHang.resx">
+    <EmbeddedResource Include="Foms\FormKH_NhapKhachHang.resx">
       <DependentUpon>FormKH_NhapKhachHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPhanQuyenQuanLy.resx">
-      <DependentUpon>FormPhanQuyenQuanLy.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form_DienNangTieuThu.resx">
+    <EmbeddedResource Include="Foms\Form_DienNangTieuThu.resx">
       <DependentUpon>Form_DienNangTieuThu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormWelcome.resx">
+    <EmbeddedResource Include="Foms\FormWelcome.resx">
       <DependentUpon>FormWelcome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_GioiThieu.resx">
+    <EmbeddedResource Include="Foms\Form_GioiThieu.resx">
       <DependentUpon>Form_GioiThieu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_NguoiQuanLy.resx">
+    <EmbeddedResource Include="Foms\Form_NguoiQuanLy.resx">
       <DependentUpon>Form_NguoiQuanLy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -238,11 +224,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="FormKH_XuatKhachHang.resx">
+    <EmbeddedResource Include="Foms\FormKH_XuatKhachHang.resx">
       <DependentUpon>FormKH_XuatKhachHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormThongTinDoanhNghiep.resx">
-      <DependentUpon>FormThongTinDoanhNghiep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\HoaDonTienDien.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

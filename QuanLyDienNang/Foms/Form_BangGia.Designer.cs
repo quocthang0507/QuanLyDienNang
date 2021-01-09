@@ -35,7 +35,7 @@ namespace QuanLyDienNang
 			this.dgvBangGia = new System.Windows.Forms.DataGridView();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.label2 = new System.Windows.Forms.Label();
-			this.tbxBangGia = new System.Windows.Forms.TextBox();
+			this.tbxMaBangGia = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.tbxTenBangGia = new System.Windows.Forms.TextBox();
 			this.chkKichHoat = new System.Windows.Forms.CheckBox();
@@ -61,7 +61,7 @@ namespace QuanLyDienNang
 			this.tableParent.Name = "tableParent";
 			this.tableParent.RowCount = 3;
 			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
 			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableParent.Size = new System.Drawing.Size(984, 561);
 			this.tableParent.TabIndex = 0;
@@ -86,13 +86,14 @@ namespace QuanLyDienNang
 			this.dgvBangGia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dgvBangGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvBangGia.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dgvBangGia.Location = new System.Drawing.Point(3, 183);
+			this.dgvBangGia.Location = new System.Drawing.Point(3, 153);
 			this.dgvBangGia.MultiSelect = false;
 			this.dgvBangGia.Name = "dgvBangGia";
 			this.dgvBangGia.ReadOnly = true;
 			this.dgvBangGia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgvBangGia.Size = new System.Drawing.Size(978, 375);
+			this.dgvBangGia.Size = new System.Drawing.Size(978, 405);
 			this.dgvBangGia.TabIndex = 1;
+			this.dgvBangGia.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvBangGia_RowStateChanged);
 			// 
 			// panel1
 			// 
@@ -102,13 +103,13 @@ namespace QuanLyDienNang
 			this.panel1.Controls.Add(this.btnThem);
 			this.panel1.Controls.Add(this.chkKichHoat);
 			this.panel1.Controls.Add(this.tbxTenBangGia);
-			this.panel1.Controls.Add(this.tbxBangGia);
+			this.panel1.Controls.Add(this.tbxMaBangGia);
 			this.panel1.Controls.Add(this.label3);
 			this.panel1.Controls.Add(this.label2);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel1.Location = new System.Drawing.Point(3, 33);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(978, 144);
+			this.panel1.Size = new System.Drawing.Size(978, 114);
 			this.panel1.TabIndex = 2;
 			// 
 			// label2
@@ -121,19 +122,20 @@ namespace QuanLyDienNang
 			this.label2.TabIndex = 0;
 			this.label2.Text = "Mã bảng giá:";
 			// 
-			// tbxBangGia
+			// tbxMaBangGia
 			// 
-			this.tbxBangGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxBangGia.Location = new System.Drawing.Point(118, 23);
-			this.tbxBangGia.Name = "tbxBangGia";
-			this.tbxBangGia.Size = new System.Drawing.Size(207, 25);
-			this.tbxBangGia.TabIndex = 1;
+			this.tbxMaBangGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.tbxMaBangGia.Location = new System.Drawing.Point(118, 23);
+			this.tbxMaBangGia.MaxLength = 10;
+			this.tbxMaBangGia.Name = "tbxMaBangGia";
+			this.tbxMaBangGia.Size = new System.Drawing.Size(164, 25);
+			this.tbxMaBangGia.TabIndex = 1;
 			// 
 			// label3
 			// 
 			this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(423, 26);
+			this.label3.Location = new System.Drawing.Point(324, 26);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(90, 19);
 			this.label3.TabIndex = 0;
@@ -142,16 +144,18 @@ namespace QuanLyDienNang
 			// tbxTenBangGia
 			// 
 			this.tbxTenBangGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxTenBangGia.Location = new System.Drawing.Point(518, 23);
+			this.tbxTenBangGia.Location = new System.Drawing.Point(419, 23);
+			this.tbxTenBangGia.MaxLength = 100;
 			this.tbxTenBangGia.Name = "tbxTenBangGia";
-			this.tbxTenBangGia.Size = new System.Drawing.Size(207, 25);
+			this.tbxTenBangGia.Size = new System.Drawing.Size(391, 25);
 			this.tbxTenBangGia.TabIndex = 2;
 			// 
 			// chkKichHoat
 			// 
 			this.chkKichHoat.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.chkKichHoat.AutoSize = true;
-			this.chkKichHoat.Location = new System.Drawing.Point(806, 22);
+			this.chkKichHoat.Enabled = false;
+			this.chkKichHoat.Location = new System.Drawing.Point(835, 24);
 			this.chkKichHoat.Name = "chkKichHoat";
 			this.chkKichHoat.Size = new System.Drawing.Size(85, 23);
 			this.chkKichHoat.TabIndex = 3;
@@ -163,7 +167,7 @@ namespace QuanLyDienNang
 			this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnThem.Image = global::QuanLyDienNang.Properties.Resources.Add1;
 			this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnThem.Location = new System.Drawing.Point(237, 86);
+			this.btnThem.Location = new System.Drawing.Point(237, 63);
 			this.btnThem.Name = "btnThem";
 			this.btnThem.Size = new System.Drawing.Size(88, 40);
 			this.btnThem.TabIndex = 4;
@@ -177,7 +181,7 @@ namespace QuanLyDienNang
 			this.btnCapNhat.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnCapNhat.Image = global::QuanLyDienNang.Properties.Resources.Rename;
 			this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnCapNhat.Location = new System.Drawing.Point(331, 86);
+			this.btnCapNhat.Location = new System.Drawing.Point(331, 63);
 			this.btnCapNhat.Name = "btnCapNhat";
 			this.btnCapNhat.Size = new System.Drawing.Size(111, 40);
 			this.btnCapNhat.TabIndex = 5;
@@ -191,7 +195,7 @@ namespace QuanLyDienNang
 			this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnXoa.Image = global::QuanLyDienNang.Properties.Resources.Remove;
 			this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnXoa.Location = new System.Drawing.Point(583, 86);
+			this.btnXoa.Location = new System.Drawing.Point(583, 63);
 			this.btnXoa.Name = "btnXoa";
 			this.btnXoa.Size = new System.Drawing.Size(164, 40);
 			this.btnXoa.TabIndex = 7;
@@ -205,7 +209,7 @@ namespace QuanLyDienNang
 			this.btnXemChiTiet.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnXemChiTiet.Image = global::QuanLyDienNang.Properties.Resources.Preview;
 			this.btnXemChiTiet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnXemChiTiet.Location = new System.Drawing.Point(448, 86);
+			this.btnXemChiTiet.Location = new System.Drawing.Point(448, 63);
 			this.btnXemChiTiet.Name = "btnXemChiTiet";
 			this.btnXemChiTiet.Size = new System.Drawing.Size(129, 40);
 			this.btnXemChiTiet.TabIndex = 6;
@@ -241,7 +245,7 @@ namespace QuanLyDienNang
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.DataGridView dgvBangGia;
 		private System.Windows.Forms.Panel panel1;
-		private System.Windows.Forms.TextBox tbxBangGia;
+		private System.Windows.Forms.TextBox tbxMaBangGia;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Button btnCapNhat;
 		private System.Windows.Forms.Button btnThem;

@@ -12,11 +12,6 @@ namespace QuanLyDienNang
 {
 	public partial class FormKH_XuatKhachHang : Form
 	{
-		private const string ERROR = "Lỗi";
-		private const string SUCCESS = "Thành công";
-		private const string ERROR_QUERY_MESSAGE = "Lỗi thực hiện truy vấn đến cơ sở dữ liệu";
-		private const string SUCCESS_EXPORT_MESSAGE = "Xuất dữ liệu sang tập tin Excel thành công";
-		private const string ERROR_EXPORT_MESSAGE = "Lỗi khi xuất dữ liệu sang tập tin Excel";
 		private readonly Funcs_KhachHang funcs = new Funcs_KhachHang();
 		private Thread thread;
 
@@ -70,7 +65,7 @@ namespace QuanLyDienNang
 			var bytes = Excel.ExportToExcel(dgvKhachHang.DataSource);
 			if (bytes == null)
 			{
-				MessageBox.Show(ERROR_EXPORT_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(STRINGS.ERROR_EXPORT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 			var dialog = saveDialog.ShowDialog();
@@ -80,7 +75,7 @@ namespace QuanLyDienNang
 				FileStream stream = File.Create(filepath);
 				stream.Close();
 				File.WriteAllBytes(filepath, bytes);
-				MessageBox.Show(SUCCESS_EXPORT_MESSAGE, SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show(STRINGS.SUCCESS_EXPORT_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 		}
 
@@ -91,7 +86,7 @@ namespace QuanLyDienNang
 		{
 			var data = TramBienAp.GetAll();
 			if (data == null)
-				MessageBox.Show(ERROR_QUERY_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
 				cbxTenTram.DataSource = data;
 		}
@@ -100,7 +95,7 @@ namespace QuanLyDienNang
 		{
 			var data = BangGia.GetAll();
 			if (data == null)
-				MessageBox.Show(ERROR_QUERY_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
 				cbxBangGia.DataSource = data;
 		}

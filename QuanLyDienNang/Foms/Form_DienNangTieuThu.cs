@@ -13,17 +13,6 @@ namespace QuanLyDienNang
 {
 	public partial class Form_DienNangTieuThu : Form
 	{
-		private const string ERROR_QUERY_MESSAGE = "Lỗi thực hiện truy vấn đến cơ sở dữ liệu";
-		private const string ERROR = "Lỗi";
-		private const string SUCCESS = "Thành công";
-		private const string WARNING = "Cảnh báo";
-		private const string SUCCESS_UPDATE_MESSAGE = "Lưu thông tin vào CSDL thành công";
-		private const string ERROR_UPDATE_MESSAGE = "Lưu thông tin vào CSDL không thành công, vui lòng kiểm tra dữ liệu hợp lệ";
-		private const string ERROR_EXPORT_MESSAGE = "Lỗi khi xuất dữ liệu sang tập tin Excel";
-		private const string ERROR_IMPORT_MESSAGE = "Lỗi khi nhập dữ liệu từ tập tin Excel, vui lòng kiểm tra dữ liệu hợp lệ";
-		private const string SUCCESS_EXPORT_MESSAGE = "Xuất dữ liệu sang tập tin Excel thành công";
-		private const string WARNING_MISS_DGV_MESSAGE = "Không thể thực hiện hành động này vì DataGridView đang trống";
-		private const string QUESTION = "Xác nhận";
 		private readonly Funcs_DienNangTieuThu funcs = new Funcs_DienNangTieuThu();
 		private Thread thread;
 
@@ -50,7 +39,7 @@ namespace QuanLyDienNang
 		{
 			var data = DienNangTieuThu.GetAll();
 			if (data == null)
-				MessageBox.Show(ERROR_QUERY_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
 				dgvDienNangTieuThu.DataSource = data;
 		}
@@ -59,20 +48,20 @@ namespace QuanLyDienNang
 		{
 			var data = DienNangTieuThu.Filter(dtpBatDau_TK.Value, dtpKetThuc_TK.Value, (cbxTenTram.SelectedItem as TramBienAp).MaTram, tbxDiaChi.Text, (cbxBangGia.SelectedItem as BangGia).MaBangGia, chkConNo.Checked);
 			if (data == null)
-				MessageBox.Show(ERROR_QUERY_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
 				dgvDienNangTieuThu.DataSource = data;
 		}
 
 		private void btnLapDanhSach_Click(object sender, EventArgs e)
 		{
-			var dialog = MessageBox.Show("Chức năng này dùng để lập danh sách mới theo kỳ được xác định, dữ liệu lấy từ danh sách khách hàng. Bạn có muốn tiếp tục?", QUESTION, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			var dialog = MessageBox.Show(STRINGS.QUESTION_LAPDANHSACH_MESSAGE, STRINGS.QUESTION, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 			if (dialog == DialogResult.No)
 				return;
 			List<DienNangTieuThu> data = funcs.AddNewDNTTFromKH((cbxNguoiQuanLy.SelectedItem as NguoiQuanLy).MaQuanLy, dtpDauKy.Value, dtpCuoiKy.Value);
 			if (data == null)
 			{
-				MessageBox.Show(ERROR_QUERY_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 			var ok = funcs.TryInsertingListToSQL(data);
@@ -81,11 +70,11 @@ namespace QuanLyDienNang
 				funcs.InsertSQL(data);
 				//dgvDienNangTieuThu.DataSource = data;
 				btnLoadTheoKy.PerformClick();
-				MessageBox.Show(SUCCESS_UPDATE_MESSAGE, SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show(STRINGS.SUCCESS_UPDATE_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			else
 			{
-				MessageBox.Show(ERROR_UPDATE_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(STRINGS.ERROR_UPDATE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 
 		}
@@ -95,7 +84,7 @@ namespace QuanLyDienNang
 			var data = DienNangTieuThu.GetByDate(dtpCuoiKy.Value);
 			if (data == null)
 			{
-				MessageBox.Show(ERROR_QUERY_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 			dgvDienNangTieuThu.DataSource = data;
@@ -106,7 +95,7 @@ namespace QuanLyDienNang
 			var bytes = Excel.ExportToExcel(dgvDienNangTieuThu.DataSource);
 			if (bytes == null)
 			{
-				MessageBox.Show(ERROR_EXPORT_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(STRINGS.ERROR_EXPORT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 			var dialog = saveDialog.ShowDialog();
@@ -116,7 +105,7 @@ namespace QuanLyDienNang
 				FileStream stream = File.Create(filepath);
 				stream.Close();
 				File.WriteAllBytes(filepath, bytes);
-				MessageBox.Show(SUCCESS_EXPORT_MESSAGE, SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show(STRINGS.SUCCESS_EXPORT_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 		}
 
@@ -136,7 +125,7 @@ namespace QuanLyDienNang
 			var data = funcs.ConvertDataTableToListForUpdating(dt);
 			if (data == null)
 			{
-				MessageBox.Show(ERROR_IMPORT_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(STRINGS.ERROR_IMPORT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 			dgvDienNangTieuThu.DataSource = data;
@@ -150,7 +139,7 @@ namespace QuanLyDienNang
 				  {
 					  if (dgvDienNangTieuThu.DataSource == null)
 					  {
-						  MessageBox.Show(WARNING_MISS_DGV_MESSAGE, WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+						  MessageBox.Show(STRINGS.WARNING_MISS_DGV_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 						  return;
 					  }
 					  Cursor.Current = Cursors.WaitCursor;
@@ -167,7 +156,7 @@ namespace QuanLyDienNang
 		{
 			if (dgvDienNangTieuThu.DataSource == null)
 			{
-				MessageBox.Show(WARNING_MISS_DGV_MESSAGE, WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				MessageBox.Show(STRINGS.WARNING_MISS_DGV_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
 			var maQL = (cbxNguoiQuanLy.SelectedItem as NguoiQuanLy).MaQuanLy;
@@ -176,11 +165,11 @@ namespace QuanLyDienNang
 			if (ok)
 			{
 				funcs.UpdateSQL(dgvDienNangTieuThu.DataSource as List<DienNangTieuThu>);
-				MessageBox.Show(SUCCESS_UPDATE_MESSAGE, SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show(STRINGS.SUCCESS_UPDATE_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			else
 			{
-				MessageBox.Show(ERROR_UPDATE_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(STRINGS.ERROR_UPDATE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 
@@ -200,7 +189,7 @@ namespace QuanLyDienNang
 		{
 			var data = TramBienAp.GetAll();
 			if (data == null)
-				MessageBox.Show(ERROR_QUERY_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
 				cbxTenTram.DataSource = data;
 		}
@@ -209,7 +198,7 @@ namespace QuanLyDienNang
 		{
 			var data = BangGia.GetAll();
 			if (data == null)
-				MessageBox.Show(ERROR_QUERY_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
 				cbxBangGia.DataSource = data;
 		}
@@ -218,7 +207,7 @@ namespace QuanLyDienNang
 		{
 			var data = NguoiQuanLy.GetAll();
 			if (data == null)
-				MessageBox.Show(ERROR_QUERY_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
 				cbxNguoiQuanLy.DataSource = data;
 		}

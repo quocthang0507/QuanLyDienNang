@@ -10,15 +10,6 @@ namespace QuanLyDienNang
 {
 	public partial class FormKH_CapNhatKhachHang : Form
 	{
-		private const string ERROR = "Lỗi";
-		private const string SUCCESS = "Thành công";
-		private const string WARNING = "Cảnh báo";
-		private const string SUCCESS_UPDATE_MESSAGE = "Cập nhật vào CSDL thành công";
-		private const string ERROR_UPDATE_MESSAGE = "Cập nhật vào CSDL không thành công, vui lòng kiểm tra dữ liệu hợp lệ";
-		private const string ERROR_IMPORT_MESSAGE = "Lỗi đọc dữ liệu từ tập tin Excel";
-		private const string ERROR_QUERY_MESSAGE = "Lỗi thực hiện truy vấn đến cơ sở dữ liệu";
-		private const string WARNING_MISS_DGV_MESSAGE = "Không thể thực hiện hành động này vì DataGridView đang trống";
-		private const string WARNING_MISS_PATH_MESSAGE = "Phải chọn tập tin trước khi thực hiện hành động này";
 		private readonly Funcs_KhachHang funcs = new Funcs_KhachHang();
 		private Thread thread;
 
@@ -51,12 +42,12 @@ namespace QuanLyDienNang
 				{
 					if (string.IsNullOrWhiteSpace(tbxDuongDan.Text))
 					{
-						MessageBox.Show(WARNING_MISS_PATH_MESSAGE, WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+						MessageBox.Show(STRINGS.WARNING_MISS_PATH_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 						return;
 					}
 					var data = funcs.ReadExcelForUpdating(tbxDuongDan.Text, cbxSheet.Text);
 					if (data == null)
-						MessageBox.Show(ERROR_IMPORT_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+						MessageBox.Show(STRINGS.ERROR_IMPORT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 					else
 						dgvKhachHang.DataSource = data;
 				});
@@ -68,7 +59,7 @@ namespace QuanLyDienNang
 		{
 			if (dgvKhachHang.DataSource == null)
 			{
-				MessageBox.Show(WARNING_MISS_DGV_MESSAGE, WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				MessageBox.Show(STRINGS.WARNING_MISS_DGV_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
 			var maQL = (cbxNguoiCapNhat.SelectedItem as NguoiQuanLy).MaQuanLy;
@@ -77,11 +68,11 @@ namespace QuanLyDienNang
 			if (ok)
 			{
 				funcs.UpdateSQL(dgvKhachHang.DataSource as List<KhachHang>);
-				MessageBox.Show(SUCCESS_UPDATE_MESSAGE, SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show(STRINGS.SUCCESS_UPDATE_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			else
 			{
-				MessageBox.Show(ERROR_UPDATE_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(STRINGS.ERROR_UPDATE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 		#endregion
@@ -91,7 +82,7 @@ namespace QuanLyDienNang
 		{
 			var data = funcs.GetSheetNamesOnExcel(path);
 			if (data == null)
-				MessageBox.Show(ERROR_IMPORT_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(STRINGS.ERROR_IMPORT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
 				cbxSheet.DataSource = data;
 		}
@@ -100,7 +91,7 @@ namespace QuanLyDienNang
 		{
 			var data = NguoiQuanLy.GetAll();
 			if (data == null)
-				MessageBox.Show(ERROR_QUERY_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
 				cbxNguoiCapNhat.DataSource = data;
 		}

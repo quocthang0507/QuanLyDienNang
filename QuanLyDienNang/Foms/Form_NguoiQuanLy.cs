@@ -8,18 +8,6 @@ namespace QuanLyDienNang
 {
 	public partial class Form_NguoiQuanLy : Form
 	{
-		private const string WARNING_MISS_FIELDS_MESSAGE = "Không được để trống các trường bắt buộc";
-		private const string WARNING = "Cảnh báo";
-		private const string SUCCESS = "Thành công";
-		private const string SUCCESS_INSERT_MESSAGE = "Thêm dữ liệu mới vào thành công";
-		private const string ERROR_INSERT_MESSAGE = "Thêm dữ liệu mới vào không thành công";
-		private const string ERROR = "Lỗi";
-		private const string SUCCESS_UPDATE_MESSAGE = "Cập nhật dữ liệu thành công";
-		private const string ERROR_UPDATE_MESSAGE = "Cập nhật dữ liệu không thành công";
-		private const string SUCCESS_DELETE_MESSAGE = "Xóa dữ liệu thành công";
-		private const string ERROR_DELETE_MESSAGE = "Xóa dữ liệu không thành công";
-		private const string ERROR_QUERY_MESSAGE = "Lỗi thực hiện truy vấn đến cơ sở dữ liệu";
-
 		public Form_NguoiQuanLy()
 		{
 			InitializeComponent();
@@ -52,12 +40,12 @@ namespace QuanLyDienNang
 			string email = tbxEmail.Text;
 			if (string.IsNullOrWhiteSpace(ten) || string.IsNullOrWhiteSpace(dc))
 			{
-				MessageBox.Show(WARNING_MISS_FIELDS_MESSAGE, WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
 			if (Common.ShowQuestionDialog())
 			{
-				var ok = NguoiQuanLy.Add(new NguoiQuanLy()
+				var ok = NguoiQuanLy.Insert(new NguoiQuanLy()
 				{
 					TenQuanLy = ten,
 					SoDienThoai = sdt,
@@ -66,12 +54,12 @@ namespace QuanLyDienNang
 				});
 				if (ok)
 				{
-					MessageBox.Show(SUCCESS_INSERT_MESSAGE, SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
+					MessageBox.Show(STRINGS.SUCCESS_INSERT_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
 					LoadTable();
 				}
 				else
 				{
-					MessageBox.Show(ERROR_INSERT_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show(STRINGS.ERROR_INSERT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
 		}
@@ -85,7 +73,7 @@ namespace QuanLyDienNang
 			string email = tbxEmail.Text;
 			if (string.IsNullOrWhiteSpace(ten) || string.IsNullOrWhiteSpace(dc))
 			{
-				MessageBox.Show(WARNING_MISS_FIELDS_MESSAGE, WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
 			if (Common.ShowQuestionDialog())
@@ -100,12 +88,12 @@ namespace QuanLyDienNang
 				});
 				if (ok)
 				{
-					MessageBox.Show(SUCCESS_UPDATE_MESSAGE, SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
+					MessageBox.Show(STRINGS.SUCCESS_UPDATE_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
 					LoadTable();
 				}
 				else
 				{
-					MessageBox.Show(ERROR_UPDATE_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show(STRINGS.ERROR_UPDATE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
 		}
@@ -118,12 +106,12 @@ namespace QuanLyDienNang
 				var ok = NguoiQuanLy.Delete(ma);
 				if (ok)
 				{
-					MessageBox.Show(SUCCESS_DELETE_MESSAGE, SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
+					MessageBox.Show(STRINGS.SUCCESS_DELETE_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
 					LoadTable();
 				}
 				else
 				{
-					MessageBox.Show(ERROR_DELETE_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show(STRINGS.ERROR_DELETE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
 		}
@@ -186,7 +174,7 @@ namespace QuanLyDienNang
 		{
 			var data = NguoiQuanLy.GetAll();
 			if (data == null)
-				MessageBox.Show(ERROR_QUERY_MESSAGE, ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
 				dgvNguoiQuanLy.DataSource = data;
 		}
