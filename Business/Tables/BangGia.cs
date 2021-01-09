@@ -12,7 +12,7 @@ namespace Business.Classes
 	{
 		[Key]
 		[DisplayName("Mã bảng giá")]
-		[StringLength(5)]
+		[StringLength(10)]
 		public string MaBangGia { get; set; }
 
 		[DisplayName("Tên bảng giá")]

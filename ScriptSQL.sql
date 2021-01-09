@@ -8,31 +8,32 @@ GO
 --====================BẢNG GIÁ ÁP DỤNG CHO KHÁCH HÀNG====================
 CREATE TABLE BangGia (
 	--BG001
-	MaBangGia char(5) primary key,
+	MaBangGia varchar(10) primary key,
 	TenBangGia nvarchar(100) not null,
 	KichHoat bit default 1 not null
 )
-GO 
+GO
 
-INSERT INTO BangGia VALUES ('BG001', N'Điện sinh hoạt (hộ thường)', 1)
-INSERT INTO BangGia VALUES ('BG002', N'Điện sinh hoạt (hộ nghèo)', 1)
-INSERT INTO BangGia VALUES ('BG003', N'Điện kinh doanh - dịch vụ', 1)
-INSERT INTO BangGia VALUES ('BG004', N'Điện sản xuất', 1)
-INSERT INTO BangGia VALUES ('BG005', N'Điện hành chính, sự nghiệp', 1)
-INSERT INTO BangGia VALUES ('BG006', N'Điện cho bệnh viện, trường học', 1)
-INSERT INTO BangGia VALUES ('BG007', N'Điện cho bơm nước, tưới tiêu', 1)
-INSERT INTO BangGia VALUES ('BG008', N'Điện chiếu sáng công cộng', 1)
+-- MÃ BẢNG GIÁ TỰ ĐỊNH NGHĨA
+INSERT INTO BangGia VALUES ('SH-THUONG', N'Điện sinh hoạt (hộ thường)', 1)
+INSERT INTO BangGia VALUES ('SH-NGHEO', N'Điện sinh hoạt (hộ nghèo)', 1)
+INSERT INTO BangGia VALUES ('KD-DV', N'Điện kinh doanh - dịch vụ', 1)
+INSERT INTO BangGia VALUES ('SX', N'Điện sản xuất', 1)
+INSERT INTO BangGia VALUES ('HC-SN', N'Điện hành chính, sự nghiệp', 1)
+INSERT INTO BangGia VALUES ('BV-TH', N'Điện cho bệnh viện, trường học', 1)
+INSERT INTO BangGia VALUES ('BN-TT', N'Điện cho bơm nước, tưới tiêu', 1)
+INSERT INTO BangGia VALUES ('CHIEUSANG', N'Điện chiếu sáng công cộng', 1)
 GO
 
 CREATE PROCEDURE proc_GetAll_BangGia
 --ALTER PROCEDURE proc_GetAll_BangGia
 AS
-	SELECT * FROM BangGia WHERE KichHoat = 1
+	SELECT * FROM BangGia
 GO
 
 CREATE PROCEDURE proc_Insert_BangGia
 --ALTER PROCEDURE proc_Insert_BangGia
-	@MaBangGia char(5),
+	@MaBangGia varchar(10),
 	@TenBangGia nvarchar(100)
 AS
 	INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES (@MaBangGia, @TenBangGia)
@@ -40,11 +41,12 @@ GO
 
 CREATE PROCEDURE proc_Update_BangGia
 --ALTER PROCEDURE proc_Update_BangGia
-	@MaBangGia char(5),
-	@TenBangGia nvarchar(100)
+	@MaBangGia varchar(10),
+	@TenBangGia nvarchar(100),
+	@KichHoat bit
 AS
 	UPDATE BangGia
-	SET TenBangGia = @TenBangGia
+	SET TenBangGia = @TenBangGia, KichHoat = @KichHoat
 	WHERE MaBangGia = @MaBangGia
 GO
 

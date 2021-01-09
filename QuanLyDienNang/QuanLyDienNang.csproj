@@ -91,6 +91,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DienNangTieuThuDataset.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Form_BangGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_BangGia.Designer.cs">
+      <DependentUpon>Form_BangGia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_BaoCao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +189,9 @@
       <DependentUpon>HoaDonTienDien.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="Form_BangGia.resx">
+      <DependentUpon>Form_BangGia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_BaoCao.resx">
       <DependentUpon>Form_BaoCao.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,0 +1,254 @@
+﻿
+namespace QuanLyDienNang
+{
+	partial class Form_BangGia
+	{
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		private System.ComponentModel.IContainer components = null;
+
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing && (components != null))
+			{
+				components.Dispose();
+			}
+			base.Dispose(disposing);
+		}
+
+		#region Windows Form Designer generated code
+
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent()
+		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_BangGia));
+			this.tableParent = new System.Windows.Forms.TableLayoutPanel();
+			this.label1 = new System.Windows.Forms.Label();
+			this.dgvBangGia = new System.Windows.Forms.DataGridView();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.label2 = new System.Windows.Forms.Label();
+			this.tbxBangGia = new System.Windows.Forms.TextBox();
+			this.label3 = new System.Windows.Forms.Label();
+			this.tbxTenBangGia = new System.Windows.Forms.TextBox();
+			this.chkKichHoat = new System.Windows.Forms.CheckBox();
+			this.btnThem = new System.Windows.Forms.Button();
+			this.btnCapNhat = new System.Windows.Forms.Button();
+			this.btnXoa = new System.Windows.Forms.Button();
+			this.btnXemChiTiet = new System.Windows.Forms.Button();
+			this.tableParent.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgvBangGia)).BeginInit();
+			this.panel1.SuspendLayout();
+			this.SuspendLayout();
+			// 
+			// tableParent
+			// 
+			this.tableParent.ColumnCount = 1;
+			this.tableParent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableParent.Controls.Add(this.label1, 0, 0);
+			this.tableParent.Controls.Add(this.dgvBangGia, 0, 2);
+			this.tableParent.Controls.Add(this.panel1, 0, 1);
+			this.tableParent.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableParent.Location = new System.Drawing.Point(0, 0);
+			this.tableParent.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.tableParent.Name = "tableParent";
+			this.tableParent.RowCount = 3;
+			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableParent.Size = new System.Drawing.Size(984, 561);
+			this.tableParent.TabIndex = 0;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Location = new System.Drawing.Point(3, 0);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(978, 30);
+			this.label1.TabIndex = 0;
+			this.label1.Text = "BẢNG GIÁ ĐIỆN";
+			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// dgvBangGia
+			// 
+			this.dgvBangGia.AllowUserToAddRows = false;
+			this.dgvBangGia.AllowUserToDeleteRows = false;
+			this.dgvBangGia.AllowUserToResizeRows = false;
+			this.dgvBangGia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dgvBangGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgvBangGia.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dgvBangGia.Location = new System.Drawing.Point(3, 183);
+			this.dgvBangGia.MultiSelect = false;
+			this.dgvBangGia.Name = "dgvBangGia";
+			this.dgvBangGia.ReadOnly = true;
+			this.dgvBangGia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.dgvBangGia.Size = new System.Drawing.Size(978, 375);
+			this.dgvBangGia.TabIndex = 1;
+			// 
+			// panel1
+			// 
+			this.panel1.Controls.Add(this.btnXemChiTiet);
+			this.panel1.Controls.Add(this.btnXoa);
+			this.panel1.Controls.Add(this.btnCapNhat);
+			this.panel1.Controls.Add(this.btnThem);
+			this.panel1.Controls.Add(this.chkKichHoat);
+			this.panel1.Controls.Add(this.tbxTenBangGia);
+			this.panel1.Controls.Add(this.tbxBangGia);
+			this.panel1.Controls.Add(this.label3);
+			this.panel1.Controls.Add(this.label2);
+			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel1.Location = new System.Drawing.Point(3, 33);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(978, 144);
+			this.panel1.TabIndex = 2;
+			// 
+			// label2
+			// 
+			this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(23, 26);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(89, 19);
+			this.label2.TabIndex = 0;
+			this.label2.Text = "Mã bảng giá:";
+			// 
+			// tbxBangGia
+			// 
+			this.tbxBangGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.tbxBangGia.Location = new System.Drawing.Point(118, 23);
+			this.tbxBangGia.Name = "tbxBangGia";
+			this.tbxBangGia.Size = new System.Drawing.Size(207, 25);
+			this.tbxBangGia.TabIndex = 1;
+			// 
+			// label3
+			// 
+			this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(423, 26);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(90, 19);
+			this.label3.TabIndex = 0;
+			this.label3.Text = "Tên bảng giá:";
+			// 
+			// tbxTenBangGia
+			// 
+			this.tbxTenBangGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.tbxTenBangGia.Location = new System.Drawing.Point(518, 23);
+			this.tbxTenBangGia.Name = "tbxTenBangGia";
+			this.tbxTenBangGia.Size = new System.Drawing.Size(207, 25);
+			this.tbxTenBangGia.TabIndex = 2;
+			// 
+			// chkKichHoat
+			// 
+			this.chkKichHoat.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.chkKichHoat.AutoSize = true;
+			this.chkKichHoat.Location = new System.Drawing.Point(806, 22);
+			this.chkKichHoat.Name = "chkKichHoat";
+			this.chkKichHoat.Size = new System.Drawing.Size(85, 23);
+			this.chkKichHoat.TabIndex = 3;
+			this.chkKichHoat.Text = "Kích hoạt";
+			this.chkKichHoat.UseVisualStyleBackColor = true;
+			// 
+			// btnThem
+			// 
+			this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnThem.Image = global::QuanLyDienNang.Properties.Resources.Add1;
+			this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnThem.Location = new System.Drawing.Point(237, 86);
+			this.btnThem.Name = "btnThem";
+			this.btnThem.Size = new System.Drawing.Size(88, 40);
+			this.btnThem.TabIndex = 4;
+			this.btnThem.Text = "Thêm";
+			this.btnThem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnThem.UseVisualStyleBackColor = true;
+			this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+			// 
+			// btnCapNhat
+			// 
+			this.btnCapNhat.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnCapNhat.Image = global::QuanLyDienNang.Properties.Resources.Rename;
+			this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnCapNhat.Location = new System.Drawing.Point(331, 86);
+			this.btnCapNhat.Name = "btnCapNhat";
+			this.btnCapNhat.Size = new System.Drawing.Size(111, 40);
+			this.btnCapNhat.TabIndex = 5;
+			this.btnCapNhat.Text = "Cập nhật";
+			this.btnCapNhat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnCapNhat.UseVisualStyleBackColor = true;
+			this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
+			// 
+			// btnXoa
+			// 
+			this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnXoa.Image = global::QuanLyDienNang.Properties.Resources.Remove;
+			this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnXoa.Location = new System.Drawing.Point(583, 86);
+			this.btnXoa.Name = "btnXoa";
+			this.btnXoa.Size = new System.Drawing.Size(164, 40);
+			this.btnXoa.TabIndex = 7;
+			this.btnXoa.Text = "Xóa (hủy kích hoạt)";
+			this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnXoa.UseVisualStyleBackColor = true;
+			this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+			// 
+			// btnXemChiTiet
+			// 
+			this.btnXemChiTiet.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnXemChiTiet.Image = global::QuanLyDienNang.Properties.Resources.Preview;
+			this.btnXemChiTiet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnXemChiTiet.Location = new System.Drawing.Point(448, 86);
+			this.btnXemChiTiet.Name = "btnXemChiTiet";
+			this.btnXemChiTiet.Size = new System.Drawing.Size(129, 40);
+			this.btnXemChiTiet.TabIndex = 6;
+			this.btnXemChiTiet.Text = "Xem chi tiết";
+			this.btnXemChiTiet.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnXemChiTiet.UseVisualStyleBackColor = true;
+			this.btnXemChiTiet.Click += new System.EventHandler(this.btnXemChiTiet_Click);
+			// 
+			// Form_BangGia
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(984, 561);
+			this.Controls.Add(this.tableParent);
+			this.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.Name = "Form_BangGia";
+			this.Text = "Bảng Giá";
+			this.Shown += new System.EventHandler(this.Form_BangGia_Shown);
+			this.tableParent.ResumeLayout(false);
+			this.tableParent.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgvBangGia)).EndInit();
+			this.panel1.ResumeLayout(false);
+			this.panel1.PerformLayout();
+			this.ResumeLayout(false);
+
+		}
+
+		#endregion
+
+		private System.Windows.Forms.TableLayoutPanel tableParent;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.DataGridView dgvBangGia;
+		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.TextBox tbxBangGia;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Button btnCapNhat;
+		private System.Windows.Forms.Button btnThem;
+		private System.Windows.Forms.CheckBox chkKichHoat;
+		private System.Windows.Forms.TextBox tbxTenBangGia;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Button btnXoa;
+		private System.Windows.Forms.Button btnXemChiTiet;
+	}
+}

@@ -201,6 +201,12 @@ namespace QuanLyDienNang
 
 		}
 
+		private void quảnLýBảngGiáToolStripMenuItem1_Click(object sender, EventArgs e)
+		{
+			Form frmBangGia = new Form_BangGia();
+			AddFormToTabPage(frmBangGia);
+		}
+
 		#endregion
 
 		#region Methods
