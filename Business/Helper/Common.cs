@@ -8,10 +8,46 @@ namespace Business.Helper
 {
 	public static class Common
 	{
+		/// <summary>
+		/// Kiểm tra phím vừa nhấn là số (số nguyên không dấu)
+		/// </summary>
+		/// <param name="e"></param>
 		public static void IsDigitEvent(ref KeyPressEventArgs e)
 		{
 			if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
 				e.Handled = true;
+		}
+
+		/// <summary>
+		/// Kiểm tra phím vừa nhấn là số (số thập phân)
+		/// </summary>
+		/// <param name="e"></param>
+		/// <param name="sender"></param>
+		public static void IsDecimalEvent(ref KeyPressEventArgs e, object sender = null)
+		{
+			if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+				e.Handled = true;
+
+			// only allow one decimal point
+			if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+			{
+				e.Handled = true;
+			}
+		}
+
+		/// <summary>
+		/// Kiểm tra mỗi mảng các chuỗi có trống
+		/// </summary>
+		/// <param name="strings"></param>
+		/// <returns></returns>
+		public static bool IsNullOrWhiteSpace(string[] strings)
+		{
+			foreach (var str in strings)
+			{
+				if (string.IsNullOrWhiteSpace(str))
+					return true;
+			}
+			return false;
 		}
 
 		/// <summary>

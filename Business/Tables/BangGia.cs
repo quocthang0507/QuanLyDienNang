@@ -20,6 +20,11 @@ namespace Business.Classes
 		[Required]
 		public string TenBangGia { get; set; }
 
+		[DisplayName("Thuế VAT")]
+		[Required]
+		[DefaultValue(0.1)]
+		public float Thue { get; set; }
+
 		[DisplayName("Kích hoạt")]
 		[DefaultValue(true)]
 		[Required]
@@ -41,13 +46,13 @@ namespace Business.Classes
 
 		public static bool Insert(BangGia bangGia)
 		{
-			int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_BangGia", bangGia.MaBangGia, bangGia.TenBangGia);
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_BangGia", bangGia.MaBangGia, bangGia.TenBangGia, bangGia.Thue);
 			return result > 0;
 		}
 
 		public static bool Update(BangGia bangGia)
 		{
-			int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_BangGia", bangGia.MaBangGia, bangGia.TenBangGia, bangGia.KichHoat);
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_BangGia", bangGia.MaBangGia, bangGia.TenBangGia, bangGia.Thue, bangGia.KichHoat);
 			return result > 0;
 		}
 

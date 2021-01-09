@@ -6,23 +6,25 @@ USE QuanLyDienNang
 GO 
 
 --====================BẢNG GIÁ ÁP DỤNG CHO KHÁCH HÀNG====================
+--DROP TABLE BangGia
 CREATE TABLE BangGia (
 	--BG001
 	MaBangGia varchar(10) primary key,
 	TenBangGia nvarchar(100) not null,
+	Thue float default 0.1 not null,
 	KichHoat bit default 1 not null
 )
 GO
 
 -- MÃ BẢNG GIÁ TỰ ĐỊNH NGHĨA
-INSERT INTO BangGia VALUES ('SH-THUONG', N'Điện sinh hoạt (hộ thường)', 1)
-INSERT INTO BangGia VALUES ('SH-NGHEO', N'Điện sinh hoạt (hộ nghèo)', 1)
-INSERT INTO BangGia VALUES ('KD-DV', N'Điện kinh doanh - dịch vụ', 1)
-INSERT INTO BangGia VALUES ('SX', N'Điện sản xuất', 1)
-INSERT INTO BangGia VALUES ('HC-SN', N'Điện hành chính, sự nghiệp', 1)
-INSERT INTO BangGia VALUES ('BV-TH', N'Điện cho bệnh viện, trường học', 1)
-INSERT INTO BangGia VALUES ('BN-TT', N'Điện cho bơm nước, tưới tiêu', 1)
-INSERT INTO BangGia VALUES ('CHIEUSANG', N'Điện chiếu sáng công cộng', 1)
+INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('SH-THUONG', N'Điện sinh hoạt (hộ thường)')
+INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('SH-NGHEO', N'Điện sinh hoạt (hộ nghèo)')
+INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('KD-DV', N'Điện kinh doanh - dịch vụ')
+INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('SX', N'Điện sản xuất')
+INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('HC-SN', N'Điện hành chính, sự nghiệp')
+INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('BV-TH', N'Điện cho bệnh viện, trường học')
+INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('BN-TT', N'Điện cho bơm nước, tưới tiêu')
+INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('CHIEUSANG', N'Điện chiếu sáng công cộng')
 GO
 
 CREATE PROCEDURE proc_GetAll_BangGia
@@ -43,19 +45,21 @@ GO
 CREATE PROCEDURE proc_Insert_BangGia
 --ALTER PROCEDURE proc_Insert_BangGia
 	@MaBangGia varchar(10),
-	@TenBangGia nvarchar(100)
+	@TenBangGia nvarchar(100),
+	@Thue float
 AS
-	INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES (@MaBangGia, @TenBangGia)
+	INSERT INTO BangGia (MaBangGia, TenBangGia, Thue) VALUES (@MaBangGia, @TenBangGia, @Thue)
 GO
 
 CREATE PROCEDURE proc_Update_BangGia
 --ALTER PROCEDURE proc_Update_BangGia
 	@MaBangGia varchar(10),
 	@TenBangGia nvarchar(100),
+	@Thue float,
 	@KichHoat bit
 AS
 	UPDATE BangGia
-	SET TenBangGia = @TenBangGia, KichHoat = @KichHoat
+	SET TenBangGia = @TenBangGia, KichHoat = @KichHoat, Thue = @Thue
 	WHERE MaBangGia = @MaBangGia
 GO
 
@@ -74,58 +78,62 @@ GO
 CREATE TABLE ChiTietBangGia
 (
 	ID int not null identity(1, 1) primary key,
-	MaBangGia char(5) references BangGia(MaBangGia),
+	MaBangGia varchar(10) references BangGia(MaBangGia),
 	BatDau int not null,
 	KetThuc int not null,
-	GiaTruocVAT int not null,
-	VAT float not null,
-	GiaSauVAT int null,
+	DonGia int not null,
 	MoTa nvarchar(200) null,
 	KichHoat bit default 1 not null
 )
 GO
 
-CREATE TRIGGER trg_CapNhatChiTietBangGia ON ChiTietBangGia FOR INSERT, UPDATE
---ALTER TRIGGER trg_CapNhatChiTietBangGia ON ChiTietBangGia FOR INSERT, UPDATE
-AS
-	IF UPDATE(GiaTruocVAT) or UPDATE(VAT)
-		BEGIN
-			DECLARE @GiaTruocVAT INT
-			DECLARE @GiaSauVAT INT
-			DECLARE @VAT FLOAT
-			SET @GiaTruocVAT = (SELECT GiaTruocVAT FROM inserted)
-			SET @VAT = (SELECT VAT FROM inserted)
-			SET @GIASAUVAT = ROUND(@GiaTruocVAT + @GiaTruocVAT * @VAT, 0)
-			UPDATE ChiTietBangGia
-			SET GiaSauVAT = @GiaSauVAT
-			WHERE ID = (SELECT ID FROM inserted)
-		END
-GO
+--CREATE TRIGGER trg_CapNhatChiTietBangGia ON ChiTietBangGia FOR INSERT, UPDATE
+----ALTER TRIGGER trg_CapNhatChiTietBangGia ON ChiTietBangGia FOR INSERT, UPDATE
+--AS
+--	IF UPDATE(GiaTruocVAT) or UPDATE(VAT)
+--		BEGIN
+--			DECLARE @GiaTruocVAT INT
+--			DECLARE @GiaSauVAT INT
+--			DECLARE @VAT FLOAT
+--			SET @GiaTruocVAT = (SELECT GiaTruocVAT FROM inserted)
+--			SET @VAT = (SELECT VAT FROM inserted)
+--			SET @GIASAUVAT = ROUND(@GiaTruocVAT + @GiaTruocVAT * @VAT, 0)
+--			UPDATE ChiTietBangGia
+--			SET GiaSauVAT = @GiaSauVAT
+--			WHERE ID = (SELECT ID FROM inserted)
+--		END
+--GO
 
 CREATE PROCEDURE proc_GetAll_ChiTietBangGia
 --ALTER PROCEDURE proc_GetAll_ChiTietBangGia
 AS
-	SELECT * FROM ChiTietBangGia WHERE KichHoat = 1
+	SELECT * FROM ChiTietBangGia ORDER BY KichHoat DESC, ID ASC
+GO
+
+CREATE PROCEDURE proc_GetByBangGia_ChiTietBangGia
+	@MaBangGia varchar(10)
+--ALTER PROCEDURE proc_GetAll_ChiTietBangGia
+AS
+	SELECT * FROM ChiTietBangGia WHERE MaBangGia = @MaBangGia ORDER BY KichHoat DESC, ID ASC
 GO
 
 CREATE PROCEDURE proc_Insert_ChiTietBangGia
 --ALTER PROCEDURE proc_Insert_ChiTietBangGia
-	@MaBangGia char(5),
+	@MaBangGia varchar(10),
 	@BatDau int,
 	@KetThuc int,
-	@GiaTruocVAT int,
-	@VAT float,
+	@DonGia int,
 	@MoTa nvarchar(200)
 AS
-	INSERT INTO ChiTietBangGia (MaBangGia, BatDau, KetThuc, GiaTruocVAT, VAT, MoTa) VALUES (@MaBangGia, @BatDau, @KetThuc, @GiaTruocVAT, @VAT, @MoTa)
+	INSERT INTO ChiTietBangGia (MaBangGia, BatDau, KetThuc, DonGia, MoTa) VALUES (@MaBangGia, @BatDau, @KetThuc, @DonGia, @MoTa)
 GO
 
-EXEC proc_Insert_ChiTietBangGia 'BG001', 0, 50, 1678, 0.1, N'Bậc 1: Cho kWh từ 0 - 50'
-EXEC proc_Insert_ChiTietBangGia 'BG001', 51, 100, 1734, 0.1, N'Bậc 2: Cho kWh từ 51 - 100'
-EXEC proc_Insert_ChiTietBangGia 'BG001', 101, 200, 2014, 0.1, N'Bậc 3: Cho kWh từ 101 - 200'
-EXEC proc_Insert_ChiTietBangGia 'BG001', 201, 300, 2536, 0.1, N'Bậc 4: Cho kWh từ 201 - 300'
-EXEC proc_Insert_ChiTietBangGia 'BG001', 301, 400, 2834, 0.1, N'Bậc 5: Cho kWh từ 301 - 400'
-EXEC proc_Insert_ChiTietBangGia 'BG001', 401, 0, 2927, 0.1, N'Bậc 6: Cho kWh từ 401 trở lên'
+EXEC proc_Insert_ChiTietBangGia 'SH-THUONG', 0, 50, 1678, N'Bậc 1: Cho kWh từ 0 - 50'
+EXEC proc_Insert_ChiTietBangGia 'SH-THUONG', 51, 100, 1734, N'Bậc 2: Cho kWh từ 51 - 100'
+EXEC proc_Insert_ChiTietBangGia 'SH-THUONG', 101, 200, 2014, N'Bậc 3: Cho kWh từ 101 - 200'
+EXEC proc_Insert_ChiTietBangGia 'SH-THUONG', 201, 300, 2536, N'Bậc 4: Cho kWh từ 201 - 300'
+EXEC proc_Insert_ChiTietBangGia 'SH-THUONG', 301, 400, 2834, N'Bậc 5: Cho kWh từ 301 - 400'
+EXEC proc_Insert_ChiTietBangGia 'SH-THUONG', 401, 0, 2927, N'Bậc 6: Cho kWh từ 401 trở lên'
 GO
 
 CREATE PROCEDURE proc_Update_ChiTietBangGia

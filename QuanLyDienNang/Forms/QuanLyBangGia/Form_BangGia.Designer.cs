@@ -35,14 +35,19 @@ namespace QuanLyDienNang.Forms
 			this.dgvBangGia = new System.Windows.Forms.DataGridView();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.tbxThue = new System.Windows.Forms.TextBox();
 			this.tbxMaBangGia = new System.Windows.Forms.TextBox();
+			this.label5 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
+			this.btnThem = new System.Windows.Forms.Button();
 			this.tbxTenBangGia = new System.Windows.Forms.TextBox();
 			this.chkKichHoat = new System.Windows.Forms.CheckBox();
 			this.label4 = new System.Windows.Forms.Label();
-			this.btnThem = new System.Windows.Forms.Button();
 			this.btnXemChiTiet = new System.Windows.Forms.Button();
+			this.label6 = new System.Windows.Forms.Label();
+			this.label7 = new System.Windows.Forms.Label();
+			this.label8 = new System.Windows.Forms.Label();
 			this.tableParent.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvBangGia)).BeginInit();
 			this.panel1.SuspendLayout();
@@ -109,7 +114,12 @@ namespace QuanLyDienNang.Forms
 			// groupBox1
 			// 
 			this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.groupBox1.Controls.Add(this.label8);
+			this.groupBox1.Controls.Add(this.label7);
+			this.groupBox1.Controls.Add(this.label6);
+			this.groupBox1.Controls.Add(this.tbxThue);
 			this.groupBox1.Controls.Add(this.tbxMaBangGia);
+			this.groupBox1.Controls.Add(this.label5);
 			this.groupBox1.Controls.Add(this.label2);
 			this.groupBox1.Controls.Add(this.label3);
 			this.groupBox1.Controls.Add(this.btnThem);
@@ -117,10 +127,20 @@ namespace QuanLyDienNang.Forms
 			this.groupBox1.Controls.Add(this.chkKichHoat);
 			this.groupBox1.Location = new System.Drawing.Point(9, 3);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(679, 104);
+			this.groupBox1.Size = new System.Drawing.Size(679, 108);
 			this.groupBox1.TabIndex = 8;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Thêm bảng giá:";
+			// 
+			// tbxThue
+			// 
+			this.tbxThue.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.tbxThue.Location = new System.Drawing.Point(301, 21);
+			this.tbxThue.MaxLength = 10;
+			this.tbxThue.Name = "tbxThue";
+			this.tbxThue.Size = new System.Drawing.Size(76, 25);
+			this.tbxThue.TabIndex = 2;
+			this.tbxThue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxThue_KeyPress);
 			// 
 			// tbxMaBangGia
 			// 
@@ -128,8 +148,18 @@ namespace QuanLyDienNang.Forms
 			this.tbxMaBangGia.Location = new System.Drawing.Point(101, 21);
 			this.tbxMaBangGia.MaxLength = 10;
 			this.tbxMaBangGia.Name = "tbxMaBangGia";
-			this.tbxMaBangGia.Size = new System.Drawing.Size(164, 25);
+			this.tbxMaBangGia.Size = new System.Drawing.Size(122, 25);
 			this.tbxMaBangGia.TabIndex = 1;
+			// 
+			// label5
+			// 
+			this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(253, 24);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(42, 19);
+			this.label5.TabIndex = 0;
+			this.label5.Text = "Thuế:";
 			// 
 			// label2
 			// 
@@ -151,6 +181,20 @@ namespace QuanLyDienNang.Forms
 			this.label3.TabIndex = 0;
 			this.label3.Text = "Tên bảng giá:";
 			// 
+			// btnThem
+			// 
+			this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnThem.Image = global::QuanLyDienNang.Properties.Resources.Add1;
+			this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnThem.Location = new System.Drawing.Point(535, 42);
+			this.btnThem.Name = "btnThem";
+			this.btnThem.Size = new System.Drawing.Size(88, 40);
+			this.btnThem.TabIndex = 5;
+			this.btnThem.Text = "Thêm";
+			this.btnThem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnThem.UseVisualStyleBackColor = true;
+			this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+			// 
 			// tbxTenBangGia
 			// 
 			this.tbxTenBangGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -159,17 +203,16 @@ namespace QuanLyDienNang.Forms
 			this.tbxTenBangGia.Multiline = true;
 			this.tbxTenBangGia.Name = "tbxTenBangGia";
 			this.tbxTenBangGia.Size = new System.Drawing.Size(391, 50);
-			this.tbxTenBangGia.TabIndex = 3;
+			this.tbxTenBangGia.TabIndex = 4;
 			// 
 			// chkKichHoat
 			// 
 			this.chkKichHoat.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.chkKichHoat.AutoSize = true;
-			this.chkKichHoat.Enabled = false;
-			this.chkKichHoat.Location = new System.Drawing.Point(407, 21);
+			this.chkKichHoat.Location = new System.Drawing.Point(412, 22);
 			this.chkKichHoat.Name = "chkKichHoat";
 			this.chkKichHoat.Size = new System.Drawing.Size(85, 23);
-			this.chkKichHoat.TabIndex = 2;
+			this.chkKichHoat.TabIndex = 3;
 			this.chkKichHoat.Text = "Kích hoạt";
 			this.chkKichHoat.UseVisualStyleBackColor = true;
 			// 
@@ -184,20 +227,6 @@ namespace QuanLyDienNang.Forms
 			this.label4.TabIndex = 7;
 			this.label4.Text = "* Các thay đổi trên bảng đều được lưu tự động";
 			// 
-			// btnThem
-			// 
-			this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnThem.Image = global::QuanLyDienNang.Properties.Resources.Add1;
-			this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnThem.Location = new System.Drawing.Point(535, 42);
-			this.btnThem.Name = "btnThem";
-			this.btnThem.Size = new System.Drawing.Size(88, 40);
-			this.btnThem.TabIndex = 4;
-			this.btnThem.Text = "Thêm";
-			this.btnThem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.btnThem.UseVisualStyleBackColor = true;
-			this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-			// 
 			// btnXemChiTiet
 			// 
 			this.btnXemChiTiet.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -206,11 +235,44 @@ namespace QuanLyDienNang.Forms
 			this.btnXemChiTiet.Location = new System.Drawing.Point(782, 42);
 			this.btnXemChiTiet.Name = "btnXemChiTiet";
 			this.btnXemChiTiet.Size = new System.Drawing.Size(129, 40);
-			this.btnXemChiTiet.TabIndex = 5;
+			this.btnXemChiTiet.TabIndex = 6;
 			this.btnXemChiTiet.Text = "Xem chi tiết";
 			this.btnXemChiTiet.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnXemChiTiet.UseVisualStyleBackColor = true;
 			this.btnXemChiTiet.Click += new System.EventHandler(this.btnXemChiTiet_Click);
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
+			this.label6.ForeColor = System.Drawing.Color.Red;
+			this.label6.Location = new System.Drawing.Point(498, 63);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(23, 19);
+			this.label6.TabIndex = 6;
+			this.label6.Text = "(*)";
+			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
+			this.label7.ForeColor = System.Drawing.Color.Red;
+			this.label7.Location = new System.Drawing.Point(224, 24);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(23, 19);
+			this.label7.TabIndex = 6;
+			this.label7.Text = "(*)";
+			// 
+			// label8
+			// 
+			this.label8.AutoSize = true;
+			this.label8.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
+			this.label8.ForeColor = System.Drawing.Color.Red;
+			this.label8.Location = new System.Drawing.Point(383, 24);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(23, 19);
+			this.label8.TabIndex = 6;
+			this.label8.Text = "(*)";
 			// 
 			// Form_BangGia
 			// 
@@ -250,5 +312,10 @@ namespace QuanLyDienNang.Forms
 		private System.Windows.Forms.Button btnXemChiTiet;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.TextBox tbxThue;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.Label label6;
 	}
 }
