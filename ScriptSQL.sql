@@ -28,7 +28,7 @@ GO
 CREATE PROCEDURE proc_GetAll_BangGia
 --ALTER PROCEDURE proc_GetAll_BangGia
 AS
-	SELECT * FROM BangGia
+	SELECT * FROM BangGia ORDER BY KichHoat DESC, MaBangGia ASC
 GO
 
 CREATE PROCEDURE proc_IsDuplicated_MaBangGia
@@ -61,12 +61,14 @@ GO
 
 CREATE PROCEDURE proc_Delete_BangGia
 --ALTER PROCEDURE proc_Delete_BangGia
-	@MaBangGia char(5)
+	@MaBangGia varchar(10)
 AS
 	UPDATE BangGia
 	SET KichHoat = 0
 	WHERE MaBangGia = @MaBangGia
 GO
+
+--EXEC proc_Delete_BangGia 'SH-NGHEO'
 
 --====================CHI TIẾT BẢNG GIÁ ĐIỆN====================
 CREATE TABLE ChiTietBangGia

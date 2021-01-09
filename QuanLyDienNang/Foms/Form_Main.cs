@@ -272,6 +272,10 @@ namespace QuanLyDienNang.Forms
 			{
 				DynamicForm = tabForms.SelectedTab.Controls[0] as FormKH_NhapKhachHang;
 			}
+			else if (tabForms.SelectedTab.Controls[0] is Form_BangGia)
+			{
+				DynamicForm = tabForms.SelectedTab.Controls[0] as Form_BangGia;
+			}
 			else return;
 			GoUp = () => DynamicForm.GoUp();
 			GoDown = () => DynamicForm.GoDown();

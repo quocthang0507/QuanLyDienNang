@@ -20,37 +20,7 @@ namespace QuanLyDienNang.Forms
 		private void Form_BangGia_Shown(object sender, EventArgs e)
 		{
 			LoadTable();
-		}
-
-		private void btnCapNhat_Click(object sender, EventArgs e)
-		{
-			string maBangGia = tbxMaBangGia.Text;
-			string tenBangGia = tbxTenBangGia.Text;
-			if (string.IsNullOrWhiteSpace(maBangGia) || string.IsNullOrWhiteSpace(tenBangGia))
-			{
-				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-			}
-			else if (BangGia.IsDuplicatedMaBangGia(maBangGia))
-			{
-				MessageBox.Show(STRINGS.WARNING_DUPLICATE_MABANGGIA, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-			}
-			else if (Common.ShowQuestionDialog())
-			{
-				var ok = BangGia.Update(new BangGia()
-				{
-					MaBangGia = maBangGia,
-					TenBangGia = tenBangGia,
-				});
-				if (ok)
-				{
-					MessageBox.Show(STRINGS.SUCCESS_UPDATE_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
-					LoadTable();
-				}
-				else
-				{
-					MessageBox.Show(STRINGS.ERROR_UPDATE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-				}
-			}
+			dgvBangGia.Columns[0].ReadOnly = true;
 		}
 
 		private void btnThem_Click(object sender, EventArgs e)
@@ -87,7 +57,24 @@ namespace QuanLyDienNang.Forms
 
 		private void btnXoa_Click(object sender, EventArgs e)
 		{
-
+			string maBangGia = tbxMaBangGia.Text;
+			if (string.IsNullOrWhiteSpace(maBangGia))
+			{
+				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}
+			else
+			{
+				var ok = BangGia.Delete(maBangGia);
+				if (ok)
+				{
+					MessageBox.Show(STRINGS.SUCCESS_DEACTIVATE_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
+					LoadTable();
+				}
+				else
+				{
+					MessageBox.Show(STRINGS.ERROR_DEACTIVATE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
 		}
 
 		private void btnXemChiTiet_Click(object sender, EventArgs e)
@@ -95,15 +82,27 @@ namespace QuanLyDienNang.Forms
 
 		}
 
-		private void dgvBangGia_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+		private void dgvBangGia_CellValueChanged(object sender, DataGridViewCellEventArgs e)
 		{
-			if (dgvBangGia.SelectedRows.Count > 0)
+			var changedRowIndex = e.RowIndex;
+			var changedRow = dgvBangGia.Rows[changedRowIndex];
+			string maBangGia = changedRow.Cells[0].Value.ToString();
+			string tenBangGia = changedRow.Cells[1].Value.ToString();
+			bool kichHoat = (bool)changedRow.Cells[2].Value;
+			if (string.IsNullOrWhiteSpace(maBangGia) || string.IsNullOrWhiteSpace(tenBangGia))
 			{
-				var row = dgvBangGia.SelectedRows[0];
-				tbxMaBangGia.Text = row.Cells[0].Value.ToString();
-				tbxTenBangGia.Text = row.Cells[1].Value.ToString();
-				chkKichHoat.Checked = (bool)row.Cells[2].Value;
+				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
+			else
+			{
+				BangGia.Update(new BangGia()
+				{
+					MaBangGia = maBangGia,
+					TenBangGia = tenBangGia,
+					KichHoat = kichHoat
+				});
+			}
+
 		}
 		#endregion
 

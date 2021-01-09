@@ -47,7 +47,7 @@ namespace Business.Classes
 
 		public static bool Update(BangGia bangGia)
 		{
-			int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_BangGia", bangGia.MaBangGia, bangGia.TenBangGia);
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_BangGia", bangGia.MaBangGia, bangGia.TenBangGia, bangGia.KichHoat);
 			return result > 0;
 		}
 
