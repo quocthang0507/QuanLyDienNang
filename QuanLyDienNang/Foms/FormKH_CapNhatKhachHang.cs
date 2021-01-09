@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace QuanLyDienNang
+namespace QuanLyDienNang.Forms
 {
 	public partial class FormKH_CapNhatKhachHang : Form
 	{

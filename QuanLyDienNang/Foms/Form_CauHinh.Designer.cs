@@ -1,5 +1,5 @@
 ﻿
-namespace QuanLyDienNang
+namespace QuanLyDienNang.Forms
 {
 	partial class Form_CauHinh
 	{
@@ -96,8 +96,8 @@ namespace QuanLyDienNang
 			this.cbxChungThuc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbxChungThuc.FormattingEnabled = true;
 			this.cbxChungThuc.Items.AddRange(new object[] {
-            "Windows Authentication",
-            "SQL Server Authentication"});
+			"Windows Authentication",
+			"SQL Server Authentication"});
 			this.cbxChungThuc.Location = new System.Drawing.Point(204, 75);
 			this.cbxChungThuc.Name = "cbxChungThuc";
 			this.cbxChungThuc.Size = new System.Drawing.Size(219, 25);

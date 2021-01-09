@@ -1,5 +1,5 @@
 ﻿
-namespace QuanLyDienNang
+namespace QuanLyDienNang.Forms
 {
 	partial class Form_GioiThieu_New
 	{

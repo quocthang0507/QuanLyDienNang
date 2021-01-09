@@ -5,7 +5,7 @@ using System;
 using System.Text;
 using System.Windows.Forms;
 
-namespace QuanLyDienNang
+namespace QuanLyDienNang.Forms
 {
 	public partial class Form_BangGia : Form
 	{

@@ -3,7 +3,7 @@ using System;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace QuanLyDienNang
+namespace QuanLyDienNang.Forms
 {
 	public partial class Form_CauHinh : Form
 	{

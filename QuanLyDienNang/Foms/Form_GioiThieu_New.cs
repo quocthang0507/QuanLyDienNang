@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace QuanLyDienNang
+namespace QuanLyDienNang.Forms
 {
 	partial class Form_GioiThieu_New : Form
 	{

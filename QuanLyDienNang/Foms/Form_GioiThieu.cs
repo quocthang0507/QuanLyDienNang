@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace QuanLyDienNang
+namespace QuanLyDienNang.Forms
 {
 	public partial class Form_GioiThieu : Form
 	{

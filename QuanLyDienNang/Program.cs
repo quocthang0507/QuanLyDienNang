@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyDienNang.Forms;
+using System;
 using System.Threading;
 using System.Windows.Forms;
 

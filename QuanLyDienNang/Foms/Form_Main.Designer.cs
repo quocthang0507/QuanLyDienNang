@@ -1,4 +1,4 @@
-﻿namespace QuanLyDienNang
+﻿namespace QuanLyDienNang.Forms
 {
     partial class Form_Main
     {
