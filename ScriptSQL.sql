@@ -141,12 +141,12 @@ CREATE PROCEDURE proc_Update_ChiTietBangGia
 	@MaBangGia char(5),
 	@BatDau int,
 	@KetThuc int,
-	@GiaTruocVAT int,
-	@VAT float,
-	@MoTa nvarchar(200)
+	@DonGia int,
+	@MoTa nvarchar(200),
+	@KichHoat bit
 AS
 	UPDATE ChiTietBangGia
-	SET MaBangGia = @MaBangGia, BatDau = @BatDau, KetThuc = @KetThuc, GiaTruocVAT = @GiaTruocVAT, VAT = @VAT
+	SET MaBangGia = @MaBangGia, BatDau = @BatDau, KetThuc = @KetThuc, DonGia = @DonGia, MoTa = @MoTa, KichHoat = @KichHoat
 	WHERE ID = @ID
 GO
 
