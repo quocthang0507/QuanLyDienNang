@@ -38,7 +38,7 @@ namespace QuanLyDienNang.Forms
 			string sdt = tbxSoDT.Text;
 			string dc = tbxDiaChi.Text;
 			string email = tbxEmail.Text;
-			if (string.IsNullOrWhiteSpace(ten) || string.IsNullOrWhiteSpace(dc))
+			if (Common.IsNullOrWhiteSpace(ten, dc))
 			{
 				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
@@ -71,7 +71,7 @@ namespace QuanLyDienNang.Forms
 			string sdt = tbxSoDT.Text;
 			string dc = tbxDiaChi.Text;
 			string email = tbxEmail.Text;
-			if (string.IsNullOrWhiteSpace(ten) || string.IsNullOrWhiteSpace(dc))
+			if (Common.IsNullOrWhiteSpace(ten, dc))
 			{
 				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;

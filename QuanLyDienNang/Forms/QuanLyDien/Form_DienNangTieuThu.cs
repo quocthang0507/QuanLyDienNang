@@ -117,7 +117,7 @@ namespace QuanLyDienNang.Forms
 		private void btnNhapExcel_Click(object sender, EventArgs e)
 		{
 			var result = openDialog.ShowDialog();
-			if (result != DialogResult.OK || string.IsNullOrWhiteSpace(openDialog.FileName))
+			if (result != DialogResult.OK || Common.IsNullOrWhiteSpace(openDialog.FileName))
 				return;
 			var path = openDialog.FileName;
 			// Đọc sheet đầu tiên

@@ -45,7 +45,7 @@ namespace QuanLyDienNang.Forms
 			string donGia = tbxDonGia.Text;
 			string batDau = tbxBatDau.Text;
 			string ketThuc = tbxKetThuc.Text;
-			if (string.IsNullOrWhiteSpace(maBangGia) || string.IsNullOrWhiteSpace(batDau) || string.IsNullOrWhiteSpace(ketThuc) || string.IsNullOrWhiteSpace(donGia))
+			if (Common.IsNullOrWhiteSpace(maBangGia, batDau, ketThuc, donGia))
 			{
 				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
@@ -73,7 +73,7 @@ namespace QuanLyDienNang.Forms
 			string ketThuc = changedRow.Cells[3].Value.ToString();
 			string donGia = changedRow.Cells[4].Value.ToString();
 			string moTa = changedRow.Cells[5].Value.ToString();
-			if (string.IsNullOrWhiteSpace(maBangGia) || string.IsNullOrWhiteSpace(batDau) || string.IsNullOrWhiteSpace(ketThuc) || string.IsNullOrWhiteSpace(donGia))
+			if (Common.IsNullOrWhiteSpace(maBangGia, batDau, ketThuc, donGia))
 			{
 				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}

@@ -29,7 +29,7 @@ namespace QuanLyDienNang.Forms
 			string maBangGia = tbxMaBangGia.Text;
 			string tenBangGia = tbxTenBangGia.Text;
 			string thue = tbxThue.Text;
-			if (string.IsNullOrWhiteSpace(maBangGia) || string.IsNullOrWhiteSpace(tenBangGia) || string.IsNullOrWhiteSpace(thue))
+			if (Common.IsNullOrWhiteSpace(maBangGia, tenBangGia, thue))
 			{
 				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
@@ -73,7 +73,7 @@ namespace QuanLyDienNang.Forms
 			string tenBangGia = changedRow.Cells[1].Value.ToString();
 			string thue = changedRow.Cells[2].Value.ToString();
 			bool kichHoat = (bool)changedRow.Cells[3].Value;
-			if (string.IsNullOrWhiteSpace(maBangGia) || string.IsNullOrWhiteSpace(tenBangGia) || string.IsNullOrWhiteSpace(thue))
+			if (Common.IsNullOrWhiteSpace(maBangGia, tenBangGia, thue))
 			{
 				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}

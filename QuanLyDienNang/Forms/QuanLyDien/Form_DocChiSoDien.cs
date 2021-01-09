@@ -31,10 +31,10 @@ namespace QuanLyDienNang.Forms
 		private void btnMoThuMuc_Click(object sender, EventArgs e)
 		{
 			string path = tbxDuongDan.Text;
-			if (string.IsNullOrWhiteSpace(tbxDuongDan.Text))
+			if (Common.IsNullOrWhiteSpace(tbxDuongDan.Text))
 			{
 				var result = folderDialog.ShowDialog();
-				if (result != DialogResult.OK || string.IsNullOrWhiteSpace(folderDialog.SelectedPath))
+				if (result != DialogResult.OK || Common.IsNullOrWhiteSpace(folderDialog.SelectedPath))
 					return;
 				path = folderDialog.SelectedPath;
 			}
@@ -128,7 +128,7 @@ namespace QuanLyDienNang.Forms
 			string result = selected.ProcessDigitInImage();
 			if (!onlyOne)
 			{
-				if (!string.IsNullOrWhiteSpace(result))
+				if (!Common.IsNullOrWhiteSpace(result))
 				{
 					selected.ChiSoDien = result;
 					UpdateListView(selected);
@@ -136,7 +136,7 @@ namespace QuanLyDienNang.Forms
 			}
 			else
 			{
-				if (string.IsNullOrWhiteSpace(result))
+				if (Common.IsNullOrWhiteSpace(result))
 				{
 					MessageBox.Show(STRINGS.ERROR_OCR_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 					return;

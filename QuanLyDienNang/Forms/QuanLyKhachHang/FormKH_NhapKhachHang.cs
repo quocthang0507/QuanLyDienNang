@@ -1,5 +1,6 @@
 ﻿using Business.Classes;
 using Business.Forms;
+using Business.Helper;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -31,7 +32,7 @@ namespace QuanLyDienNang.Forms
 		private void btnChonTapTin_Click(object sender, System.EventArgs e)
 		{
 			var result = openDialog.ShowDialog();
-			if (result != DialogResult.OK || string.IsNullOrWhiteSpace(openDialog.FileName))
+			if (result != DialogResult.OK || Common.IsNullOrWhiteSpace(openDialog.FileName))
 				return;
 			var path = openDialog.FileName;
 			tbxDuongDan.Text = path;
@@ -45,7 +46,7 @@ namespace QuanLyDienNang.Forms
 			  {
 				  dgvKhachHang.Invoke((MethodInvoker)delegate
 				  {
-					  if (string.IsNullOrWhiteSpace(tbxDuongDan.Text))
+					  if (Common.IsNullOrWhiteSpace(tbxDuongDan.Text))
 					  {
 						  MessageBox.Show(STRINGS.WARNING_MISS_FILE_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 						  return;
@@ -95,7 +96,7 @@ namespace QuanLyDienNang.Forms
 		#region Methods
 		private void LoadSheet(string path)
 		{
-			if (!string.IsNullOrWhiteSpace(path))
+			if (!Common.IsNullOrWhiteSpace(path))
 			{
 				var data = funcs.GetSheetNamesOnExcel(path);
 				if (data == null)

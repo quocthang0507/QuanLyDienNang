@@ -1,4 +1,5 @@
 ﻿using Business.Forms;
+using Business.Helper;
 using System;
 using System.Threading;
 using System.Windows.Forms;
@@ -97,7 +98,7 @@ namespace QuanLyDienNang.Forms
 			string username = tbxTenDangNhap.Text;
 			string password = tbxMatKhau.Text;
 			// Kiểm tra các textbox có null không
-			if (string.IsNullOrWhiteSpace(server) || string.IsNullOrWhiteSpace(database))
+			if (Common.IsNullOrWhiteSpace(server, database))
 			{
 				return null;
 			}
@@ -108,7 +109,7 @@ namespace QuanLyDienNang.Forms
 			}
 			else
 			{
-				if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+				if (Common.IsNullOrWhiteSpace(username, password))
 				{
 					return null;
 				}

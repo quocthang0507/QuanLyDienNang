@@ -40,7 +40,7 @@ namespace Business.Helper
 		/// </summary>
 		/// <param name="strings"></param>
 		/// <returns></returns>
-		public static bool IsNullOrWhiteSpace(string[] strings)
+		public static bool IsNullOrWhiteSpace(params string[] strings)
 		{
 			foreach (var str in strings)
 			{

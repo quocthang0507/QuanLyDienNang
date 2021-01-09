@@ -1,5 +1,6 @@
 ﻿using Business.Classes;
 using Business.Forms;
+using Business.Helper;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -27,7 +28,7 @@ namespace QuanLyDienNang.Forms
 		private void btnChonTapTin_Click(object sender, EventArgs e)
 		{
 			var result = openDialog.ShowDialog();
-			if (result != DialogResult.OK || string.IsNullOrWhiteSpace(openDialog.FileName))
+			if (result != DialogResult.OK || Common.IsNullOrWhiteSpace(openDialog.FileName))
 				return;
 			var path = openDialog.FileName;
 			tbxDuongDan.Text = path;
@@ -40,7 +41,7 @@ namespace QuanLyDienNang.Forms
 			{
 				dgvKhachHang.Invoke((MethodInvoker)delegate
 				{
-					if (string.IsNullOrWhiteSpace(tbxDuongDan.Text))
+					if (Common.IsNullOrWhiteSpace(tbxDuongDan.Text))
 					{
 						MessageBox.Show(STRINGS.WARNING_MISS_PATH_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 						return;
