@@ -34,15 +34,15 @@ namespace QuanLyDienNang.Forms
 			this.label1 = new System.Windows.Forms.Label();
 			this.dgvBangGia = new System.Windows.Forms.DataGridView();
 			this.panel1 = new System.Windows.Forms.Panel();
-			this.btnXemChiTiet = new System.Windows.Forms.Button();
-			this.btnThem = new System.Windows.Forms.Button();
-			this.chkKichHoat = new System.Windows.Forms.CheckBox();
-			this.tbxTenBangGia = new System.Windows.Forms.TextBox();
-			this.tbxMaBangGia = new System.Windows.Forms.TextBox();
-			this.label3 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.tbxMaBangGia = new System.Windows.Forms.TextBox();
+			this.label2 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
+			this.tbxTenBangGia = new System.Windows.Forms.TextBox();
+			this.chkKichHoat = new System.Windows.Forms.CheckBox();
+			this.label4 = new System.Windows.Forms.Label();
+			this.btnThem = new System.Windows.Forms.Button();
+			this.btnXemChiTiet = new System.Windows.Forms.Button();
 			this.tableParent.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvBangGia)).BeginInit();
 			this.panel1.SuspendLayout();
@@ -106,96 +106,6 @@ namespace QuanLyDienNang.Forms
 			this.panel1.Size = new System.Drawing.Size(978, 114);
 			this.panel1.TabIndex = 2;
 			// 
-			// btnXemChiTiet
-			// 
-			this.btnXemChiTiet.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnXemChiTiet.Image = global::QuanLyDienNang.Properties.Resources.Preview;
-			this.btnXemChiTiet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnXemChiTiet.Location = new System.Drawing.Point(782, 42);
-			this.btnXemChiTiet.Name = "btnXemChiTiet";
-			this.btnXemChiTiet.Size = new System.Drawing.Size(129, 40);
-			this.btnXemChiTiet.TabIndex = 5;
-			this.btnXemChiTiet.Text = "Xem chi tiết";
-			this.btnXemChiTiet.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.btnXemChiTiet.UseVisualStyleBackColor = true;
-			this.btnXemChiTiet.Click += new System.EventHandler(this.btnXemChiTiet_Click);
-			// 
-			// btnThem
-			// 
-			this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnThem.Image = global::QuanLyDienNang.Properties.Resources.Add1;
-			this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnThem.Location = new System.Drawing.Point(535, 42);
-			this.btnThem.Name = "btnThem";
-			this.btnThem.Size = new System.Drawing.Size(88, 40);
-			this.btnThem.TabIndex = 4;
-			this.btnThem.Text = "Thêm";
-			this.btnThem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.btnThem.UseVisualStyleBackColor = true;
-			this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-			// 
-			// chkKichHoat
-			// 
-			this.chkKichHoat.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.chkKichHoat.AutoSize = true;
-			this.chkKichHoat.Enabled = false;
-			this.chkKichHoat.Location = new System.Drawing.Point(407, 21);
-			this.chkKichHoat.Name = "chkKichHoat";
-			this.chkKichHoat.Size = new System.Drawing.Size(85, 23);
-			this.chkKichHoat.TabIndex = 2;
-			this.chkKichHoat.Text = "Kích hoạt";
-			this.chkKichHoat.UseVisualStyleBackColor = true;
-			// 
-			// tbxTenBangGia
-			// 
-			this.tbxTenBangGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxTenBangGia.Location = new System.Drawing.Point(101, 51);
-			this.tbxTenBangGia.MaxLength = 100;
-			this.tbxTenBangGia.Multiline = true;
-			this.tbxTenBangGia.Name = "tbxTenBangGia";
-			this.tbxTenBangGia.Size = new System.Drawing.Size(391, 50);
-			this.tbxTenBangGia.TabIndex = 3;
-			// 
-			// tbxMaBangGia
-			// 
-			this.tbxMaBangGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxMaBangGia.Location = new System.Drawing.Point(101, 21);
-			this.tbxMaBangGia.MaxLength = 10;
-			this.tbxMaBangGia.Name = "tbxMaBangGia";
-			this.tbxMaBangGia.Size = new System.Drawing.Size(164, 25);
-			this.tbxMaBangGia.TabIndex = 1;
-			// 
-			// label3
-			// 
-			this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(6, 54);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(90, 19);
-			this.label3.TabIndex = 0;
-			this.label3.Text = "Tên bảng giá:";
-			// 
-			// label2
-			// 
-			this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(6, 24);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(89, 19);
-			this.label2.TabIndex = 0;
-			this.label2.Text = "Mã bảng giá:";
-			// 
-			// label4
-			// 
-			this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(707, 84);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(271, 17);
-			this.label4.TabIndex = 7;
-			this.label4.Text = "* Các thay đổi trên bảng đều được lưu tự động";
-			// 
 			// groupBox1
 			// 
 			this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -211,6 +121,96 @@ namespace QuanLyDienNang.Forms
 			this.groupBox1.TabIndex = 8;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Thêm bảng giá:";
+			// 
+			// tbxMaBangGia
+			// 
+			this.tbxMaBangGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.tbxMaBangGia.Location = new System.Drawing.Point(101, 21);
+			this.tbxMaBangGia.MaxLength = 10;
+			this.tbxMaBangGia.Name = "tbxMaBangGia";
+			this.tbxMaBangGia.Size = new System.Drawing.Size(164, 25);
+			this.tbxMaBangGia.TabIndex = 1;
+			// 
+			// label2
+			// 
+			this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(6, 24);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(89, 19);
+			this.label2.TabIndex = 0;
+			this.label2.Text = "Mã bảng giá:";
+			// 
+			// label3
+			// 
+			this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(6, 54);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(90, 19);
+			this.label3.TabIndex = 0;
+			this.label3.Text = "Tên bảng giá:";
+			// 
+			// tbxTenBangGia
+			// 
+			this.tbxTenBangGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.tbxTenBangGia.Location = new System.Drawing.Point(101, 51);
+			this.tbxTenBangGia.MaxLength = 100;
+			this.tbxTenBangGia.Multiline = true;
+			this.tbxTenBangGia.Name = "tbxTenBangGia";
+			this.tbxTenBangGia.Size = new System.Drawing.Size(391, 50);
+			this.tbxTenBangGia.TabIndex = 3;
+			// 
+			// chkKichHoat
+			// 
+			this.chkKichHoat.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.chkKichHoat.AutoSize = true;
+			this.chkKichHoat.Enabled = false;
+			this.chkKichHoat.Location = new System.Drawing.Point(407, 21);
+			this.chkKichHoat.Name = "chkKichHoat";
+			this.chkKichHoat.Size = new System.Drawing.Size(85, 23);
+			this.chkKichHoat.TabIndex = 2;
+			this.chkKichHoat.Text = "Kích hoạt";
+			this.chkKichHoat.UseVisualStyleBackColor = true;
+			// 
+			// label4
+			// 
+			this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.Location = new System.Drawing.Point(707, 84);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(271, 17);
+			this.label4.TabIndex = 7;
+			this.label4.Text = "* Các thay đổi trên bảng đều được lưu tự động";
+			// 
+			// btnThem
+			// 
+			this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnThem.Image = global::QuanLyDienNang.Properties.Resources.Add1;
+			this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnThem.Location = new System.Drawing.Point(535, 42);
+			this.btnThem.Name = "btnThem";
+			this.btnThem.Size = new System.Drawing.Size(88, 40);
+			this.btnThem.TabIndex = 4;
+			this.btnThem.Text = "Thêm";
+			this.btnThem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnThem.UseVisualStyleBackColor = true;
+			this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+			// 
+			// btnXemChiTiet
+			// 
+			this.btnXemChiTiet.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnXemChiTiet.Image = global::QuanLyDienNang.Properties.Resources.Preview;
+			this.btnXemChiTiet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnXemChiTiet.Location = new System.Drawing.Point(782, 42);
+			this.btnXemChiTiet.Name = "btnXemChiTiet";
+			this.btnXemChiTiet.Size = new System.Drawing.Size(129, 40);
+			this.btnXemChiTiet.TabIndex = 5;
+			this.btnXemChiTiet.Text = "Xem chi tiết";
+			this.btnXemChiTiet.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnXemChiTiet.UseVisualStyleBackColor = true;
+			this.btnXemChiTiet.Click += new System.EventHandler(this.btnXemChiTiet_Click);
 			// 
 			// Form_BangGia
 			// 

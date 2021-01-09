@@ -80,7 +80,9 @@ namespace QuanLyDienNang.Forms
 
 		private void btnXemChiTiet_Click(object sender, EventArgs e)
 		{
-
+			var selected = (BangGia)dgvBangGia.SelectedRows[0].DataBoundItem;
+			Form frmChiTiet = new Form_ChiTietBangGia(selected);
+			frmChiTiet.ShowDialog();
 		}
 
 		private void dgvBangGia_CellValueChanged(object sender, DataGridViewCellEventArgs e)
