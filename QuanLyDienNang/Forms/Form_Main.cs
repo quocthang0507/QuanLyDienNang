@@ -199,6 +199,12 @@ namespace QuanLyDienNang.Forms
 			AddFormToTabPage(frmBangGia);
 		}
 
+		private void quảnLýTrạmBiếnÁpToolStripMenuItem1_Click(object sender, EventArgs e)
+		{
+			Form frmTramBienAp = new Form_TramBienAp();
+			AddFormToTabPage(frmTramBienAp);
+		}
+
 		#endregion
 
 		#region Methods
@@ -275,6 +281,10 @@ namespace QuanLyDienNang.Forms
 			else if (tabForms.SelectedTab.Controls[0] is Form_BangGia)
 			{
 				DynamicForm = tabForms.SelectedTab.Controls[0] as Form_BangGia;
+			}
+			else if (tabForms.SelectedTab.Controls[0] is Form_TramBienAp)
+			{
+				DynamicForm = tabForms.SelectedTab.Controls[0] as Form_TramBienAp;
 			}
 			else return;
 			GoUp = () => DynamicForm.GoUp();
