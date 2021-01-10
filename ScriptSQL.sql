@@ -196,7 +196,7 @@ GO
 CREATE TABLE TramBienAp (
 --ALTER TABLE TramBienAp (
 	--BA001
-	MaTram char(5) primary key,
+	MaTram varchar(10) primary key,
 	TenTram nvarchar(100) not null,
 	DiaChi nvarchar(200) null,
 	NguoiPhuTrach nvarchar(100) null,
@@ -217,11 +217,24 @@ AS
 	SELECT * FROM TramBienAp WHERE KichHoat = 1
 GO
 
+CREATE PROCEDURE proc_IsDuplicated_MaTram
+	@MaTram varchar(10)
+AS
+	IF EXISTS (SELECT * FROM TramBienAp WHERE MaTram = @MaTram)
+		RETURN 1
+	ELSE
+		RETURN 0
+GO
+
 CREATE PROCEDURE proc_Insert_TramBienAp
 	@MaTram char(5),
-	@TenTram nvarchar(100)
+	@TenTram nvarchar(100),
+	@DiaChi nvarchar(200),
+	@NguoiPhuTrach nvarchar(100),
+	@MaSoCongTo nvarchar(20),
+	@HeSoNhan tinyint
 AS
-	INSERT INTO TramBienAp (MaTram, TenTram) VALUES (@MaTram, @TenTram)
+	INSERT INTO TramBienAp (MaTram, TenTram, DiaChi, NguoiPhuTrach, MaSoCongTo, HeSoNhan) VALUES (@MaTram, @TenTram, @DiaChi, @NguoiPhuTrach, @MaSoCongTo, @HeSoNhan)
 GO
 
 CREATE PROCEDURE proc_Update_TramBienAp

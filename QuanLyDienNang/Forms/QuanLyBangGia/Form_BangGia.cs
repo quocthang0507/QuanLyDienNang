@@ -43,8 +43,7 @@ namespace QuanLyDienNang.Forms
 				{
 					MaBangGia = maBangGia,
 					TenBangGia = tenBangGia,
-					Thue = float.Parse(tbxThue.Text),
-					KichHoat = chkKichHoat.Checked
+					Thue = float.Parse(tbxThue.Text)
 				});
 				if (ok)
 				{

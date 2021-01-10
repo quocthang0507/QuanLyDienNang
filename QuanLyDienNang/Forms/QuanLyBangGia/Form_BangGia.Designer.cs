@@ -35,6 +35,9 @@ namespace QuanLyDienNang.Forms
 			this.dgvBangGia = new System.Windows.Forms.DataGridView();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.label8 = new System.Windows.Forms.Label();
+			this.label7 = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
 			this.tbxThue = new System.Windows.Forms.TextBox();
 			this.tbxMaBangGia = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
@@ -42,12 +45,8 @@ namespace QuanLyDienNang.Forms
 			this.label3 = new System.Windows.Forms.Label();
 			this.btnThem = new System.Windows.Forms.Button();
 			this.tbxTenBangGia = new System.Windows.Forms.TextBox();
-			this.chkKichHoat = new System.Windows.Forms.CheckBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.btnXemChiTiet = new System.Windows.Forms.Button();
-			this.label6 = new System.Windows.Forms.Label();
-			this.label7 = new System.Windows.Forms.Label();
-			this.label8 = new System.Windows.Forms.Label();
 			this.tableParent.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvBangGia)).BeginInit();
 			this.panel1.SuspendLayout();
@@ -124,7 +123,6 @@ namespace QuanLyDienNang.Forms
 			this.groupBox1.Controls.Add(this.label3);
 			this.groupBox1.Controls.Add(this.btnThem);
 			this.groupBox1.Controls.Add(this.tbxTenBangGia);
-			this.groupBox1.Controls.Add(this.chkKichHoat);
 			this.groupBox1.Location = new System.Drawing.Point(9, 3);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Size = new System.Drawing.Size(679, 108);
@@ -132,10 +130,43 @@ namespace QuanLyDienNang.Forms
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Thêm bảng giá:";
 			// 
+			// label8
+			// 
+			this.label8.AutoSize = true;
+			this.label8.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
+			this.label8.ForeColor = System.Drawing.Color.Red;
+			this.label8.Location = new System.Drawing.Point(469, 24);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(23, 19);
+			this.label8.TabIndex = 6;
+			this.label8.Text = "(*)";
+			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
+			this.label7.ForeColor = System.Drawing.Color.Red;
+			this.label7.Location = new System.Drawing.Point(224, 24);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(23, 19);
+			this.label7.TabIndex = 6;
+			this.label7.Text = "(*)";
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
+			this.label6.ForeColor = System.Drawing.Color.Red;
+			this.label6.Location = new System.Drawing.Point(498, 63);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(23, 19);
+			this.label6.TabIndex = 6;
+			this.label6.Text = "(*)";
+			// 
 			// tbxThue
 			// 
 			this.tbxThue.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxThue.Location = new System.Drawing.Point(301, 21);
+			this.tbxThue.Location = new System.Drawing.Point(387, 21);
 			this.tbxThue.MaxLength = 10;
 			this.tbxThue.Name = "tbxThue";
 			this.tbxThue.Size = new System.Drawing.Size(76, 25);
@@ -155,7 +186,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(253, 24);
+			this.label5.Location = new System.Drawing.Point(339, 24);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(42, 19);
 			this.label5.TabIndex = 0;
@@ -205,17 +236,6 @@ namespace QuanLyDienNang.Forms
 			this.tbxTenBangGia.Size = new System.Drawing.Size(391, 50);
 			this.tbxTenBangGia.TabIndex = 4;
 			// 
-			// chkKichHoat
-			// 
-			this.chkKichHoat.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.chkKichHoat.AutoSize = true;
-			this.chkKichHoat.Location = new System.Drawing.Point(412, 22);
-			this.chkKichHoat.Name = "chkKichHoat";
-			this.chkKichHoat.Size = new System.Drawing.Size(85, 23);
-			this.chkKichHoat.TabIndex = 3;
-			this.chkKichHoat.Text = "Kích hoạt";
-			this.chkKichHoat.UseVisualStyleBackColor = true;
-			// 
 			// label4
 			// 
 			this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -240,39 +260,6 @@ namespace QuanLyDienNang.Forms
 			this.btnXemChiTiet.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnXemChiTiet.UseVisualStyleBackColor = true;
 			this.btnXemChiTiet.Click += new System.EventHandler(this.btnXemChiTiet_Click);
-			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
-			this.label6.ForeColor = System.Drawing.Color.Red;
-			this.label6.Location = new System.Drawing.Point(498, 63);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(23, 19);
-			this.label6.TabIndex = 6;
-			this.label6.Text = "(*)";
-			// 
-			// label7
-			// 
-			this.label7.AutoSize = true;
-			this.label7.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
-			this.label7.ForeColor = System.Drawing.Color.Red;
-			this.label7.Location = new System.Drawing.Point(224, 24);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(23, 19);
-			this.label7.TabIndex = 6;
-			this.label7.Text = "(*)";
-			// 
-			// label8
-			// 
-			this.label8.AutoSize = true;
-			this.label8.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
-			this.label8.ForeColor = System.Drawing.Color.Red;
-			this.label8.Location = new System.Drawing.Point(383, 24);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(23, 19);
-			this.label8.TabIndex = 6;
-			this.label8.Text = "(*)";
 			// 
 			// Form_BangGia
 			// 
@@ -306,7 +293,6 @@ namespace QuanLyDienNang.Forms
 		private System.Windows.Forms.TextBox tbxMaBangGia;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Button btnThem;
-		private System.Windows.Forms.CheckBox chkKichHoat;
 		private System.Windows.Forms.TextBox tbxTenBangGia;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Button btnXemChiTiet;

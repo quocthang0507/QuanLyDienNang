@@ -1,4 +1,5 @@
 ﻿using Business.Classes;
+using Business.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +26,73 @@ namespace QuanLyDienNang.Forms
 			UpdateColumnFormat();
 		}
 
+		private void btnThem_Click(object sender, EventArgs e)
+		{
+			string maTram = tbxMaTram.Text;
+			string tenTram = tbxTenTram.Text;
+			string diaChi = tbxDiaChi.Text;
+			string nguoiPhuTrach = tbxNguoiPhuTrach.Text;
+			string maSoCongTo = tbxMaSoCongTo.Text;
+			if (Common.IsNullOrWhiteSpace(maTram, tenTram))
+			{
+				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}
+			else if (TramBienAp.IsDuplicatedMaBangGia(maTram))
+			{
+				MessageBox.Show(STRINGS.WARNING_DUPLICATE_MATRAM, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}
+			else if (Common.ShowQuestionDialog())
+			{
+				var ok = TramBienAp.Insert(new TramBienAp()
+				{
+					MaTram = maTram,
+					TenTram = tenTram,
+					DiaChi = diaChi,
+					NguoiPhuTrach = nguoiPhuTrach,
+					MaSoCongTo = maSoCongTo,
+					HeSoNhan = (int)nudHeSoNhan.Value
+				});
+				if (ok)
+				{
+					MessageBox.Show(STRINGS.SUCCESS_INSERT_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
+					LoadTable();
+				}
+				else
+				{
+					MessageBox.Show(STRINGS.ERROR_INSERT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
+			}
+		}
+
+		private void dgvTramBienAp_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+		{
+			var changedRowIndex = e.RowIndex;
+			var changedRow = dgvTramBienAp.Rows[changedRowIndex];
+			string maTram = changedRow.Cells[0].Value.ToString();
+			string tenTram = changedRow.Cells[1].Value.ToString();
+			string diaChi = changedRow.Cells[2].Value.ToString();
+			string nguoiPhuTrach = changedRow.Cells[3].Value.ToString();
+			string maSoCongTo = changedRow.Cells[4].Value.ToString();
+			string heSoNhan = changedRow.Cells[5].Value.ToString();
+			bool kichHoat = (bool)changedRow.Cells[6].Value;
+			if (Common.IsNullOrWhiteSpace(maTram, tenTram, heSoNhan))
+			{
+				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}
+			else
+			{
+				TramBienAp.Update(new TramBienAp()
+				{
+					MaTram = maTram,
+					TenTram = tenTram,
+					DiaChi = diaChi,
+					NguoiPhuTrach = nguoiPhuTrach,
+					MaSoCongTo = maSoCongTo,
+					HeSoNhan = int.Parse(heSoNhan),
+					KichHoat = kichHoat
+				});
+			}
+		}
 		#endregion
 
 		#region Methods

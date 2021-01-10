@@ -21,6 +21,7 @@
 		public static readonly string WARNING = "Cảnh báo";
 		public static readonly string WARNING_MISS_FIELDS_MESSAGE = "Không được để trống các trường bắt buộc.";
 		public static readonly string WARNING_DUPLICATE_MABANGGIA = "Mã bảng giá đã tồn tại trong CSDL, vui lòng thử mã khác.";
+		public static readonly string WARNING_DUPLICATE_MATRAM = "Mã trạm đã tồn tại trong CSDL, vui lòng thử mã khác.";
 		public static readonly string WARNING_MISS_DGV_MESSAGE = "Không thể thực hiện hành động này vì DataGridView đang trống.";
 		public static readonly string WARNING_THREAD_MESSAGE = "Có một tiến trình tương tự đang chạy, bạn phải đợi cho tiến trình đó hoàn tất hoặc nhấn vào nút 'Dừng' và chạy lại!";
 		public static readonly string WARNING_NO_SQL_CONNECTION_MESSAGE = "Bạn không thiết lập kết nối đến máy chủ SQL nên chương trình sẽ thoát tại đây!";

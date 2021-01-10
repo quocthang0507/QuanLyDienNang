@@ -58,7 +58,6 @@ namespace QuanLyDienNang.Forms
 					DonGia = int.Parse(donGia),
 					BatDau = int.Parse(batDau),
 					KetThuc = int.Parse(ketThuc),
-					KichHoat = chkKichHoat.Checked
 				});
 			}
 		}
@@ -73,6 +72,7 @@ namespace QuanLyDienNang.Forms
 			string ketThuc = changedRow.Cells[3].Value.ToString();
 			string donGia = changedRow.Cells[4].Value.ToString();
 			string moTa = changedRow.Cells[5].Value.ToString();
+			bool kichHoat = (bool)changedRow.Cells[6].Value;
 			if (Common.IsNullOrWhiteSpace(maBangGia, batDau, ketThuc, donGia))
 			{
 				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -87,7 +87,7 @@ namespace QuanLyDienNang.Forms
 					DonGia = int.Parse(donGia),
 					BatDau = int.Parse(batDau),
 					KetThuc = int.Parse(ketThuc),
-					KichHoat = chkKichHoat.Checked
+					KichHoat = kichHoat
 				});
 			}
 		}

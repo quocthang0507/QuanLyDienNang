@@ -47,12 +47,18 @@ namespace Business.Classes
 
 		}
 
+		public static bool IsDuplicatedMaBangGia(string maTram)
+		{
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_IsDuplicated_MaTram", maTram);
+			return result == 1;
+		}
+
 		public static List<TramBienAp> GetAll()
 			=> CBO.FillCollection<TramBienAp>(DataProvider.Instance.ExecuteReader("proc_GetAll_TramBienAp"));
 
-		public static bool Add(TramBienAp tramBienAp)
+		public static bool Insert(TramBienAp tramBienAp)
 		{
-			int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_TramBienAp", tramBienAp.MaTram, tramBienAp.TenTram);
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_TramBienAp", tramBienAp.MaTram, tramBienAp.TenTram, tramBienAp.DiaChi, tramBienAp.NguoiPhuTrach, tramBienAp.MaSoCongTo, tramBienAp.HeSoNhan);
 			return result > 0;
 		}
 

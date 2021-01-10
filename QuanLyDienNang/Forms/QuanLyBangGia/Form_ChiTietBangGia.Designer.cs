@@ -34,23 +34,22 @@ namespace QuanLyDienNang.Forms
 			this.lblTitle = new System.Windows.Forms.Label();
 			this.dgvChiTietGia = new System.Windows.Forms.DataGridView();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.label9 = new System.Windows.Forms.Label();
+			this.label7 = new System.Windows.Forms.Label();
 			this.btnThem = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.label6 = new System.Windows.Forms.Label();
+			this.label1 = new System.Windows.Forms.Label();
 			this.tbxKetThuc = new System.Windows.Forms.TextBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.tbxBatDau = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
+			this.tbxDonGia = new System.Windows.Forms.TextBox();
 			this.tbxMaBangGia = new System.Windows.Forms.TextBox();
+			this.label8 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.tbxMoTa = new System.Windows.Forms.TextBox();
-			this.chkKichHoat = new System.Windows.Forms.CheckBox();
-			this.label7 = new System.Windows.Forms.Label();
-			this.label1 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
-			this.label8 = new System.Windows.Forms.Label();
-			this.tbxDonGia = new System.Windows.Forms.TextBox();
-			this.label9 = new System.Windows.Forms.Label();
 			this.tableParent.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvChiTietGia)).BeginInit();
 			this.panel1.SuspendLayout();
@@ -118,12 +117,33 @@ namespace QuanLyDienNang.Forms
 			this.panel1.Controls.Add(this.label2);
 			this.panel1.Controls.Add(this.label3);
 			this.panel1.Controls.Add(this.tbxMoTa);
-			this.panel1.Controls.Add(this.chkKichHoat);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel1.Location = new System.Drawing.Point(3, 33);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(978, 144);
 			this.panel1.TabIndex = 2;
+			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
+			this.label9.ForeColor = System.Drawing.Color.Red;
+			this.label9.Location = new System.Drawing.Point(622, 12);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(23, 19);
+			this.label9.TabIndex = 10;
+			this.label9.Text = "(*)";
+			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
+			this.label7.ForeColor = System.Drawing.Color.Red;
+			this.label7.Location = new System.Drawing.Point(266, 12);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(23, 19);
+			this.label7.TabIndex = 10;
+			this.label7.Text = "(*)";
 			// 
 			// btnThem
 			// 
@@ -154,6 +174,28 @@ namespace QuanLyDienNang.Forms
 			this.groupBox1.TabIndex = 9;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Phạm vi:";
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
+			this.label6.ForeColor = System.Drawing.Color.Red;
+			this.label6.Location = new System.Drawing.Point(539, 25);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(23, 19);
+			this.label6.TabIndex = 8;
+			this.label6.Text = "(*)";
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
+			this.label1.ForeColor = System.Drawing.Color.Red;
+			this.label1.Location = new System.Drawing.Point(275, 25);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(23, 19);
+			this.label1.TabIndex = 7;
+			this.label1.Text = "(*)";
 			// 
 			// tbxKetThuc
 			// 
@@ -195,6 +237,16 @@ namespace QuanLyDienNang.Forms
 			this.label5.TabIndex = 4;
 			this.label5.Text = "Giá trị kết thúc:";
 			// 
+			// tbxDonGia
+			// 
+			this.tbxDonGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.tbxDonGia.Location = new System.Drawing.Point(496, 9);
+			this.tbxDonGia.MaxLength = 10;
+			this.tbxDonGia.Name = "tbxDonGia";
+			this.tbxDonGia.Size = new System.Drawing.Size(120, 25);
+			this.tbxDonGia.TabIndex = 2;
+			this.tbxDonGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxDonGia_KeyPress);
+			// 
 			// tbxMaBangGia
 			// 
 			this.tbxMaBangGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -203,6 +255,16 @@ namespace QuanLyDienNang.Forms
 			this.tbxMaBangGia.Name = "tbxMaBangGia";
 			this.tbxMaBangGia.Size = new System.Drawing.Size(120, 25);
 			this.tbxMaBangGia.TabIndex = 1;
+			// 
+			// label8
+			// 
+			this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label8.AutoSize = true;
+			this.label8.Location = new System.Drawing.Point(430, 12);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(60, 19);
+			this.label8.TabIndex = 4;
+			this.label8.Text = "Đơn giá:";
 			// 
 			// label2
 			// 
@@ -233,81 +295,6 @@ namespace QuanLyDienNang.Forms
 			this.tbxMoTa.Name = "tbxMoTa";
 			this.tbxMoTa.Size = new System.Drawing.Size(318, 67);
 			this.tbxMoTa.TabIndex = 5;
-			// 
-			// chkKichHoat
-			// 
-			this.chkKichHoat.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.chkKichHoat.AutoSize = true;
-			this.chkKichHoat.Location = new System.Drawing.Point(538, 13);
-			this.chkKichHoat.Name = "chkKichHoat";
-			this.chkKichHoat.Size = new System.Drawing.Size(85, 23);
-			this.chkKichHoat.TabIndex = 2;
-			this.chkKichHoat.Text = "Kích hoạt";
-			this.chkKichHoat.UseVisualStyleBackColor = true;
-			// 
-			// label7
-			// 
-			this.label7.AutoSize = true;
-			this.label7.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
-			this.label7.ForeColor = System.Drawing.Color.Red;
-			this.label7.Location = new System.Drawing.Point(266, 12);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(23, 19);
-			this.label7.TabIndex = 10;
-			this.label7.Text = "(*)";
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
-			this.label1.ForeColor = System.Drawing.Color.Red;
-			this.label1.Location = new System.Drawing.Point(275, 25);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(23, 19);
-			this.label1.TabIndex = 7;
-			this.label1.Text = "(*)";
-			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
-			this.label6.ForeColor = System.Drawing.Color.Red;
-			this.label6.Location = new System.Drawing.Point(539, 25);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(23, 19);
-			this.label6.TabIndex = 8;
-			this.label6.Text = "(*)";
-			// 
-			// label8
-			// 
-			this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(295, 15);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(60, 19);
-			this.label8.TabIndex = 4;
-			this.label8.Text = "Đơn giá:";
-			// 
-			// tbxDonGia
-			// 
-			this.tbxDonGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxDonGia.Location = new System.Drawing.Point(361, 9);
-			this.tbxDonGia.MaxLength = 10;
-			this.tbxDonGia.Name = "tbxDonGia";
-			this.tbxDonGia.Size = new System.Drawing.Size(120, 25);
-			this.tbxDonGia.TabIndex = 2;
-			this.tbxDonGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxDonGia_KeyPress);
-			// 
-			// label9
-			// 
-			this.label9.AutoSize = true;
-			this.label9.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
-			this.label9.ForeColor = System.Drawing.Color.Red;
-			this.label9.Location = new System.Drawing.Point(487, 12);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(23, 19);
-			this.label9.TabIndex = 10;
-			this.label9.Text = "(*)";
 			// 
 			// Form_ChiTietBangGia
 			// 
@@ -342,7 +329,6 @@ namespace QuanLyDienNang.Forms
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.TextBox tbxMoTa;
-		private System.Windows.Forms.CheckBox chkKichHoat;
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.TextBox tbxKetThuc;
 		private System.Windows.Forms.Label label4;
