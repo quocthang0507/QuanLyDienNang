@@ -59,6 +59,7 @@
     <Compile Include="Forms\Funcs_BangGia.cs" />
     <Compile Include="Helper\VietnameseNumber2Text.cs" />
     <Compile Include="Helper\Excel.cs" />
+    <Compile Include="Tables\BangDienApGia.cs" />
     <Compile Include="Tables\BangGia.cs" />
     <Compile Include="Tables\ChiTietBangGia.cs" />
     <Compile Include="Tables\DienNangTieuThu.cs" />

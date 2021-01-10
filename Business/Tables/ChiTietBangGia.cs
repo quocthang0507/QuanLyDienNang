@@ -1,5 +1,4 @@
 ﻿using DataAccess;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -12,7 +11,7 @@ namespace Business.Classes
 	{
 		[Key]
 		[DisplayName("Mã chi tiết")]
-		[StringLength(20)]
+		[StringLength(30)]
 		public string MaChiTiet { get; set; }
 
 		[DisplayName("Mã bảng giá")]
@@ -36,6 +35,11 @@ namespace Business.Classes
 		[StringLength(250)]
 		public string MoTa { get; set; }
 
+		[DisplayName("Áp giá phần trăm")]
+		[Required]
+		[DefaultValue(false)]
+		public bool ApGia { get; set; }
+
 		[DisplayName("Kích hoạt")]
 		[DefaultValue(true)]
 		[Required]
@@ -58,13 +62,13 @@ namespace Business.Classes
 
 		public static bool Insert(ChiTietBangGia chiTietBangGia)
 		{
-			int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_ChiTietBangGia", chiTietBangGia.MaBangGia, chiTietBangGia.BatDau, chiTietBangGia.KetThuc, chiTietBangGia.DonGia, chiTietBangGia.MoTa);
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_ChiTietBangGia", chiTietBangGia.MaBangGia, chiTietBangGia.BatDau, chiTietBangGia.KetThuc, chiTietBangGia.DonGia, chiTietBangGia.MoTa, chiTietBangGia.ApGia);
 			return result > 0;
 		}
 
 		public static bool Update(ChiTietBangGia chiTietBangGia)
 		{
-			int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_ChiTietBangGia", chiTietBangGia.MaBangGia, chiTietBangGia.MaBangGia, chiTietBangGia.BatDau, chiTietBangGia.KetThuc, chiTietBangGia.DonGia, chiTietBangGia.MoTa, chiTietBangGia.KichHoat);
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_ChiTietBangGia", chiTietBangGia.MaBangGia, chiTietBangGia.MaBangGia, chiTietBangGia.BatDau, chiTietBangGia.KetThuc, chiTietBangGia.DonGia, chiTietBangGia.MoTa, chiTietBangGia.ApGia, chiTietBangGia.KichHoat);
 			return result > 0;
 		}
 

@@ -243,7 +243,7 @@ namespace QuanLyDienNang.Forms
 			this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(707, 84);
+			this.label4.Location = new System.Drawing.Point(704, 91);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(271, 17);
 			this.label4.TabIndex = 7;
@@ -254,9 +254,9 @@ namespace QuanLyDienNang.Forms
 			this.btnXemChiTiet.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnXemChiTiet.Image = global::QuanLyDienNang.Properties.Resources.Preview;
 			this.btnXemChiTiet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnXemChiTiet.Location = new System.Drawing.Point(782, 42);
+			this.btnXemChiTiet.Location = new System.Drawing.Point(760, 36);
 			this.btnXemChiTiet.Name = "btnXemChiTiet";
-			this.btnXemChiTiet.Size = new System.Drawing.Size(129, 40);
+			this.btnXemChiTiet.Size = new System.Drawing.Size(151, 40);
 			this.btnXemChiTiet.TabIndex = 6;
 			this.btnXemChiTiet.Text = "Xem chi tiết";
 			this.btnXemChiTiet.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

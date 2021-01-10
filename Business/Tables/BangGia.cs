@@ -1,5 +1,4 @@
 ﻿using DataAccess;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -20,7 +19,7 @@ namespace Business.Classes
 		[Required]
 		public string TenBangGia { get; set; }
 
-		[DisplayName("Thuế VAT")]
+		[DisplayName("Thuế VAT (0..1)")]
 		[Required]
 		[DefaultValue(0.1)]
 		public float Thue { get; set; }

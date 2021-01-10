@@ -1,5 +1,5 @@
 ﻿
-namespace QuanLyDienNang.Forms.QuanLyBangGia
+namespace QuanLyDienNang.Forms
 {
 	partial class Form_BangDienApGia
 	{

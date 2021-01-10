@@ -34,6 +34,7 @@ namespace QuanLyDienNang.Forms
 			this.lblTitle = new System.Windows.Forms.Label();
 			this.dgvChiTietGia = new System.Windows.Forms.DataGridView();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.btnBangDienApGia = new System.Windows.Forms.Button();
 			this.label9 = new System.Windows.Forms.Label();
 			this.label11 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
@@ -54,6 +55,7 @@ namespace QuanLyDienNang.Forms
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.tbxMoTa = new System.Windows.Forms.TextBox();
+			this.chkApGia = new System.Windows.Forms.CheckBox();
 			this.tableParent.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvChiTietGia)).BeginInit();
 			this.panel1.SuspendLayout();
@@ -72,12 +74,8 @@ namespace QuanLyDienNang.Forms
 			this.tableParent.Name = "tableParent";
 			this.tableParent.RowCount = 3;
 			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 170F));
 			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableParent.Size = new System.Drawing.Size(984, 561);
 			this.tableParent.TabIndex = 0;
 			// 
@@ -101,7 +99,7 @@ namespace QuanLyDienNang.Forms
 			this.dgvChiTietGia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dgvChiTietGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvChiTietGia.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dgvChiTietGia.Location = new System.Drawing.Point(3, 183);
+			this.dgvChiTietGia.Location = new System.Drawing.Point(3, 203);
 			this.dgvChiTietGia.MultiSelect = false;
 			this.dgvChiTietGia.Name = "dgvChiTietGia";
 			this.dgvChiTietGia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -113,6 +111,9 @@ namespace QuanLyDienNang.Forms
 			// 
 			// panel1
 			// 
+			this.panel1.Controls.Add(this.chkApGia);
+			this.panel1.Controls.Add(this.label6);
+			this.panel1.Controls.Add(this.btnBangDienApGia);
 			this.panel1.Controls.Add(this.label9);
 			this.panel1.Controls.Add(this.label11);
 			this.panel1.Controls.Add(this.label7);
@@ -129,8 +130,22 @@ namespace QuanLyDienNang.Forms
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel1.Location = new System.Drawing.Point(3, 33);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(978, 144);
+			this.panel1.Size = new System.Drawing.Size(978, 164);
 			this.panel1.TabIndex = 2;
+			// 
+			// btnBangDienApGia
+			// 
+			this.btnBangDienApGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnBangDienApGia.Image = global::QuanLyDienNang.Properties.Resources.percent;
+			this.btnBangDienApGia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnBangDienApGia.Location = new System.Drawing.Point(470, 119);
+			this.btnBangDienApGia.Name = "btnBangDienApGia";
+			this.btnBangDienApGia.Size = new System.Drawing.Size(151, 40);
+			this.btnBangDienApGia.TabIndex = 8;
+			this.btnBangDienApGia.Text = "Bảng điện áp giá";
+			this.btnBangDienApGia.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnBangDienApGia.UseVisualStyleBackColor = true;
+			this.btnBangDienApGia.Click += new System.EventHandler(this.btnBangDienApGia_Click);
 			// 
 			// label9
 			// 
@@ -138,7 +153,7 @@ namespace QuanLyDienNang.Forms
 			this.label9.AutoSize = true;
 			this.label9.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
 			this.label9.ForeColor = System.Drawing.Color.Red;
-			this.label9.Location = new System.Drawing.Point(646, 12);
+			this.label9.Location = new System.Drawing.Point(646, 17);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(23, 19);
 			this.label9.TabIndex = 10;
@@ -150,7 +165,7 @@ namespace QuanLyDienNang.Forms
 			this.label11.AutoSize = true;
 			this.label11.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
 			this.label11.ForeColor = System.Drawing.Color.Red;
-			this.label11.Location = new System.Drawing.Point(176, 12);
+			this.label11.Location = new System.Drawing.Point(191, 17);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(23, 19);
 			this.label11.TabIndex = 10;
@@ -162,7 +177,7 @@ namespace QuanLyDienNang.Forms
 			this.label7.AutoSize = true;
 			this.label7.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
 			this.label7.ForeColor = System.Drawing.Color.Red;
-			this.label7.Location = new System.Drawing.Point(426, 12);
+			this.label7.Location = new System.Drawing.Point(431, 17);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(23, 19);
 			this.label7.TabIndex = 10;
@@ -173,7 +188,7 @@ namespace QuanLyDienNang.Forms
 			this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnThem.Image = global::QuanLyDienNang.Properties.Resources.Add1;
 			this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnThem.Location = new System.Drawing.Point(460, 100);
+			this.btnThem.Location = new System.Drawing.Point(376, 119);
 			this.btnThem.Name = "btnThem";
 			this.btnThem.Size = new System.Drawing.Size(88, 40);
 			this.btnThem.TabIndex = 7;
@@ -186,15 +201,14 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.groupBox1.Controls.Add(this.label12);
-			this.groupBox1.Controls.Add(this.label6);
 			this.groupBox1.Controls.Add(this.label1);
 			this.groupBox1.Controls.Add(this.tbxKetThuc);
 			this.groupBox1.Controls.Add(this.label4);
 			this.groupBox1.Controls.Add(this.tbxBatDau);
 			this.groupBox1.Controls.Add(this.label5);
-			this.groupBox1.Location = new System.Drawing.Point(9, 34);
+			this.groupBox1.Location = new System.Drawing.Point(9, 41);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(661, 64);
+			this.groupBox1.Size = new System.Drawing.Size(661, 73);
 			this.groupBox1.TabIndex = 9;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Phạm vi:";
@@ -203,7 +217,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.label12.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label12.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
-			this.label12.Location = new System.Drawing.Point(540, 16);
+			this.label12.Location = new System.Drawing.Point(540, 20);
 			this.label12.Name = "label12";
 			this.label12.Size = new System.Drawing.Size(115, 40);
 			this.label12.TabIndex = 9;
@@ -215,7 +229,7 @@ namespace QuanLyDienNang.Forms
 			this.label6.AutoSize = true;
 			this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
 			this.label6.ForeColor = System.Drawing.Color.Red;
-			this.label6.Location = new System.Drawing.Point(502, 28);
+			this.label6.Location = new System.Drawing.Point(811, 92);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(23, 19);
 			this.label6.TabIndex = 8;
@@ -227,7 +241,7 @@ namespace QuanLyDienNang.Forms
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
 			this.label1.ForeColor = System.Drawing.Color.Red;
-			this.label1.Location = new System.Drawing.Point(238, 28);
+			this.label1.Location = new System.Drawing.Point(238, 32);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(23, 19);
 			this.label1.TabIndex = 7;
@@ -236,7 +250,7 @@ namespace QuanLyDienNang.Forms
 			// tbxKetThuc
 			// 
 			this.tbxKetThuc.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxKetThuc.Location = new System.Drawing.Point(376, 25);
+			this.tbxKetThuc.Location = new System.Drawing.Point(376, 29);
 			this.tbxKetThuc.MaxLength = 10;
 			this.tbxKetThuc.Name = "tbxKetThuc";
 			this.tbxKetThuc.Size = new System.Drawing.Size(120, 25);
@@ -248,7 +262,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(6, 28);
+			this.label4.Location = new System.Drawing.Point(6, 32);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(100, 19);
 			this.label4.TabIndex = 4;
@@ -257,7 +271,7 @@ namespace QuanLyDienNang.Forms
 			// tbxBatDau
 			// 
 			this.tbxBatDau.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxBatDau.Location = new System.Drawing.Point(112, 25);
+			this.tbxBatDau.Location = new System.Drawing.Point(112, 29);
 			this.tbxBatDau.MaxLength = 10;
 			this.tbxBatDau.Name = "tbxBatDau";
 			this.tbxBatDau.Size = new System.Drawing.Size(120, 25);
@@ -269,7 +283,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(267, 28);
+			this.label5.Location = new System.Drawing.Point(267, 32);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(103, 19);
 			this.label5.TabIndex = 4;
@@ -278,7 +292,7 @@ namespace QuanLyDienNang.Forms
 			// tbxDonGia
 			// 
 			this.tbxDonGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxDonGia.Location = new System.Drawing.Point(522, 9);
+			this.tbxDonGia.Location = new System.Drawing.Point(522, 14);
 			this.tbxDonGia.MaxLength = 10;
 			this.tbxDonGia.Name = "tbxDonGia";
 			this.tbxDonGia.Size = new System.Drawing.Size(120, 25);
@@ -289,16 +303,16 @@ namespace QuanLyDienNang.Forms
 			// tbxMaChiTiet
 			// 
 			this.tbxMaChiTiet.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxMaChiTiet.Location = new System.Drawing.Point(50, 6);
-			this.tbxMaChiTiet.MaxLength = 20;
+			this.tbxMaChiTiet.Location = new System.Drawing.Point(50, 14);
+			this.tbxMaChiTiet.MaxLength = 30;
 			this.tbxMaChiTiet.Name = "tbxMaChiTiet";
-			this.tbxMaChiTiet.Size = new System.Drawing.Size(120, 25);
+			this.tbxMaChiTiet.Size = new System.Drawing.Size(135, 25);
 			this.tbxMaChiTiet.TabIndex = 1;
 			// 
 			// tbxMaBangGia
 			// 
 			this.tbxMaBangGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxMaBangGia.Location = new System.Drawing.Point(300, 9);
+			this.tbxMaBangGia.Location = new System.Drawing.Point(305, 14);
 			this.tbxMaBangGia.MaxLength = 20;
 			this.tbxMaBangGia.Name = "tbxMaBangGia";
 			this.tbxMaBangGia.Size = new System.Drawing.Size(120, 25);
@@ -308,7 +322,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(12, 9);
+			this.label10.Location = new System.Drawing.Point(12, 17);
 			this.label10.Name = "label10";
 			this.label10.Size = new System.Drawing.Size(32, 19);
 			this.label10.TabIndex = 4;
@@ -318,7 +332,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(456, 12);
+			this.label8.Location = new System.Drawing.Point(456, 17);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(60, 19);
 			this.label8.TabIndex = 4;
@@ -328,7 +342,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(205, 12);
+			this.label2.Location = new System.Drawing.Point(213, 17);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(89, 19);
 			this.label2.TabIndex = 4;
@@ -338,7 +352,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(672, 9);
+			this.label3.Location = new System.Drawing.Point(675, 17);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(49, 19);
 			this.label3.TabIndex = 5;
@@ -347,12 +361,23 @@ namespace QuanLyDienNang.Forms
 			// tbxMoTa
 			// 
 			this.tbxMoTa.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxMoTa.Location = new System.Drawing.Point(676, 34);
+			this.tbxMoTa.Location = new System.Drawing.Point(730, 14);
 			this.tbxMoTa.MaxLength = 250;
 			this.tbxMoTa.Multiline = true;
 			this.tbxMoTa.Name = "tbxMoTa";
-			this.tbxMoTa.Size = new System.Drawing.Size(293, 67);
+			this.tbxMoTa.Size = new System.Drawing.Size(239, 75);
 			this.tbxMoTa.TabIndex = 6;
+			// 
+			// chkApGia
+			// 
+			this.chkApGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.chkApGia.AutoSize = true;
+			this.chkApGia.Location = new System.Drawing.Point(679, 90);
+			this.chkApGia.Name = "chkApGia";
+			this.chkApGia.Size = new System.Drawing.Size(135, 23);
+			this.chkApGia.TabIndex = 11;
+			this.chkApGia.Text = "Áp giá phần trăm";
+			this.chkApGia.UseVisualStyleBackColor = true;
 			// 
 			// Form_ChiTietBangGia
 			// 
@@ -403,5 +428,7 @@ namespace QuanLyDienNang.Forms
 		private System.Windows.Forms.TextBox tbxMaChiTiet;
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.Label label12;
+		private System.Windows.Forms.Button btnBangDienApGia;
+		private System.Windows.Forms.CheckBox chkApGia;
 	}
 }

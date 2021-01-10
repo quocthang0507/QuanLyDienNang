@@ -16,7 +16,7 @@ namespace Business.Classes
 		public int ID { get; set; }
 
 		[DisplayName("Mã khách hàng")]
-		[StringLength(9)]
+		[StringLength(10)]
 		[Required]
 		public string MaKhachHang { get; set; }
 
@@ -24,24 +24,28 @@ namespace Business.Classes
 		/// Tên khách hàng từ mã khách hàng ở trên, lưu ý cột này không có trong bảng DienNangTieuThu
 		/// </summary>
 		[DisplayName("Tên khách hàng")]
+		[StringLength(100)]
 		public string HoVaTen { get; set; }
 
 		/// <summary>
 		/// Địa chỉ của khách hàng từ mã khách hàng ở trên, lưu ý cột này không có trong bảng DienNangTieuThu
 		/// </summary>
 		[DisplayName("Địa chỉ")]
+		[StringLength(250)]
 		public string DiaChi { get; set; }
 
 		/// <summary>
 		/// Mã trạm của khách hàng thuộc về, lưu ý cột này không có trong bảng DienNangTieuThu
 		/// </summary>
 		[DisplayName("Mã trạm")]
+		[StringLength(20)]
 		public string MaTram { get; set; }
 
 		/// <summary>
 		/// Mã bảng giá của khách hàng thuộc về, lưu ý cột này không có trong bảng DienNangTieuThu
 		/// </summary>
 		[DisplayName("Mã bảng giá")]
+		[StringLength(20)]
 		public string MaBangGia { get; set; }
 
 		[DisplayName("Ngày ghi")]
@@ -49,7 +53,7 @@ namespace Business.Classes
 		public DateTime NgayGhi { get; set; }
 
 		[DisplayName("Người ghi")]
-		[StringLength(5)]
+		[StringLength(20)]
 		[Required]
 		public string NguoiGhi { get; set; }
 
@@ -64,7 +68,7 @@ namespace Business.Classes
 		public DateTime NgayCapNhat { get; set; }
 
 		[DisplayName("Người cập nhật")]
-		[StringLength(5)]
+		[StringLength(20)]
 		[Required]
 		public string NguoiCapNhat { get; set; }
 

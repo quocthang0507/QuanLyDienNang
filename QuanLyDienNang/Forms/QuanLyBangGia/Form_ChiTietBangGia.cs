@@ -45,6 +45,7 @@ namespace QuanLyDienNang.Forms
 			string donGia = tbxDonGia.Text;
 			string batDau = tbxBatDau.Text;
 			string ketThuc = tbxKetThuc.Text;
+			bool apGia = chkApGia.Checked;
 			if (Common.IsNullOrWhiteSpace(maBangGia, batDau, ketThuc, donGia))
 			{
 				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -58,6 +59,7 @@ namespace QuanLyDienNang.Forms
 					DonGia = int.Parse(donGia),
 					BatDau = int.Parse(batDau),
 					KetThuc = int.Parse(ketThuc),
+					ApGia = apGia
 				});
 			}
 		}
@@ -72,7 +74,8 @@ namespace QuanLyDienNang.Forms
 			string ketThuc = changedRow.Cells[3].Value.ToString();
 			string donGia = changedRow.Cells[4].Value.ToString();
 			string moTa = changedRow.Cells[5].Value.ToString();
-			bool kichHoat = (bool)changedRow.Cells[6].Value;
+			bool apGia = (bool)changedRow.Cells[6].Value;
+			bool kichHoat = (bool)changedRow.Cells[7].Value;
 			if (Common.IsNullOrWhiteSpace(maBangGia, batDau, ketThuc, donGia))
 			{
 				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -87,6 +90,7 @@ namespace QuanLyDienNang.Forms
 					DonGia = int.Parse(donGia),
 					BatDau = int.Parse(batDau),
 					KetThuc = int.Parse(ketThuc),
+					ApGia = apGia,
 					KichHoat = kichHoat
 				});
 			}
@@ -100,6 +104,12 @@ namespace QuanLyDienNang.Forms
 		private void dgvChiTietGia_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
 		{
 			dgvChiTietGia.AutoResizeColumns();
+		}
+
+		private void btnBangDienApGia_Click(object sender, EventArgs e)
+		{
+			Form frmBangDienApGia = new Form_BangDienApGia();
+			frmBangDienApGia.ShowDialog();
 		}
 		#endregion
 

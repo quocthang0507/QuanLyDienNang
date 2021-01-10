@@ -567,6 +567,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\percent.png" />
+    <None Include="Resources\check1.png" />
+    <None Include="Resources\shutdown.png" />
+    <None Include="Resources\settings1.png" />
+    <None Include="Resources\files.png" />
+    <None Include="Resources\computer1.png" />
+    <None Include="Resources\configure1.png" />
+    <None Include="Resources\settings2.png" />
+    <None Include="Resources\text document 1.png" />
+    <None Include="Resources\report.png" />
     <None Include="Resources\station.png" />
     <None Include="Resources\Money.ico" />
     <None Include="Resources\VND1.png" />

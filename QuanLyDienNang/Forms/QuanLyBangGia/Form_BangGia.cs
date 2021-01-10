@@ -102,6 +102,7 @@ namespace QuanLyDienNang.Forms
 		{
 			dgvBangGia.AutoResizeColumns();
 		}
+
 		#endregion
 
 		#region Methods
@@ -170,5 +171,6 @@ namespace QuanLyDienNang.Forms
 			dgvBangGia.Columns[0].DefaultCellStyle.Font = new Font(DefaultFont, FontStyle.Bold);
 		}
 		#endregion
+
 	}
 }
