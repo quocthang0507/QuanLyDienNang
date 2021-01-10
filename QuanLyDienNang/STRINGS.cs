@@ -17,6 +17,7 @@
 		public static readonly string ERROR_IMPORT_EXCEL = "Lỗi đọc dữ liệu từ tập tin Excel.";
 		public static readonly string ERROR_NOT_FOUND_MESSAGE = "Không tìm thấy tập tin theo yêu cầu.";
 		public static readonly string ERROR_DEACTIVATE_MESSAGE = "Hủy kích hoạt bản ghi không thành công.";
+		public static readonly string ERROR_COMMIT_DATAGRIDVIEW_MESSAGE = "Đã có lỗi xảy ra khi nhận dữ liệu vào DataGridView: ";
 
 		public static readonly string WARNING = "Cảnh báo";
 		public static readonly string WARNING_MISS_FIELDS_MESSAGE = "Không được để trống các trường bắt buộc.";

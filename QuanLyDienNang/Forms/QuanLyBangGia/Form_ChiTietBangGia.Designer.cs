@@ -104,6 +104,7 @@ namespace QuanLyDienNang.Forms
 			this.dgvChiTietGia.Size = new System.Drawing.Size(978, 375);
 			this.dgvChiTietGia.TabIndex = 1;
 			this.dgvChiTietGia.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChiTietGia_CellValueChanged);
+			this.dgvChiTietGia.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvChiTietGia_DataError);
 			// 
 			// panel1
 			// 

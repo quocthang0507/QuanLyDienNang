@@ -93,6 +93,10 @@ namespace QuanLyDienNang.Forms
 				});
 			}
 		}
+		private void dgvTramBienAp_DataError(object sender, DataGridViewDataErrorEventArgs e)
+		{
+			MessageBox.Show(STRINGS.ERROR_COMMIT_DATAGRIDVIEW_MESSAGE + e.Context.ToString(), STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
 		#endregion
 
 		#region Methods

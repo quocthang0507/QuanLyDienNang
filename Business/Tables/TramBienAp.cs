@@ -64,7 +64,7 @@ namespace Business.Classes
 
 		public static bool Update(TramBienAp tramBienAp)
 		{
-			int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_TramBienAp", tramBienAp.MaTram, tramBienAp.TenTram);
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_TramBienAp", tramBienAp.MaTram, tramBienAp.TenTram, tramBienAp.DiaChi, tramBienAp.NguoiPhuTrach, tramBienAp.MaSoCongTo, tramBienAp.HeSoNhan, tramBienAp.KichHoat);
 			return result > 0;
 		}
 

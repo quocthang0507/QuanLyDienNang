@@ -98,6 +98,7 @@ namespace QuanLyDienNang.Forms
 			this.dgvBangGia.Size = new System.Drawing.Size(978, 405);
 			this.dgvBangGia.TabIndex = 1;
 			this.dgvBangGia.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBangGia_CellValueChanged);
+			this.dgvBangGia.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvBangGia_DataError);
 			// 
 			// panel1
 			// 
@@ -166,7 +167,7 @@ namespace QuanLyDienNang.Forms
 			// tbxThue
 			// 
 			this.tbxThue.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxThue.Location = new System.Drawing.Point(387, 21);
+			this.tbxThue.Location = new System.Drawing.Point(389, 21);
 			this.tbxThue.MaxLength = 10;
 			this.tbxThue.Name = "tbxThue";
 			this.tbxThue.Size = new System.Drawing.Size(76, 25);
@@ -186,7 +187,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(339, 24);
+			this.label5.Location = new System.Drawing.Point(341, 24);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(42, 19);
 			this.label5.TabIndex = 0;

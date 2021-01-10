@@ -34,22 +34,22 @@ namespace QuanLyDienNang.Forms
 			this.label1 = new System.Windows.Forms.Label();
 			this.dgvTramBienAp = new System.Windows.Forms.DataGridView();
 			this.panel1 = new System.Windows.Forms.Panel();
-			this.label2 = new System.Windows.Forms.Label();
-			this.tbxMaTram = new System.Windows.Forms.TextBox();
-			this.label3 = new System.Windows.Forms.Label();
+			this.label10 = new System.Windows.Forms.Label();
+			this.label9 = new System.Windows.Forms.Label();
+			this.label8 = new System.Windows.Forms.Label();
+			this.nudHeSoNhan = new System.Windows.Forms.NumericUpDown();
+			this.btnThem = new System.Windows.Forms.Button();
+			this.tbxDiaChi = new System.Windows.Forms.TextBox();
 			this.tbxTenTram = new System.Windows.Forms.TextBox();
 			this.label4 = new System.Windows.Forms.Label();
-			this.tbxDiaChi = new System.Windows.Forms.TextBox();
-			this.label5 = new System.Windows.Forms.Label();
-			this.tbxNguoiPhuTrach = new System.Windows.Forms.TextBox();
-			this.label6 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
 			this.tbxMaSoCongTo = new System.Windows.Forms.TextBox();
 			this.label7 = new System.Windows.Forms.Label();
-			this.btnThem = new System.Windows.Forms.Button();
-			this.nudHeSoNhan = new System.Windows.Forms.NumericUpDown();
-			this.label8 = new System.Windows.Forms.Label();
-			this.label9 = new System.Windows.Forms.Label();
-			this.label10 = new System.Windows.Forms.Label();
+			this.tbxNguoiPhuTrach = new System.Windows.Forms.TextBox();
+			this.label6 = new System.Windows.Forms.Label();
+			this.tbxMaTram = new System.Windows.Forms.TextBox();
+			this.label5 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
 			this.tableParent.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvTramBienAp)).BeginInit();
 			this.panel1.SuspendLayout();
@@ -100,6 +100,7 @@ namespace QuanLyDienNang.Forms
 			this.dgvTramBienAp.Size = new System.Drawing.Size(978, 385);
 			this.dgvTramBienAp.TabIndex = 1;
 			this.dgvTramBienAp.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTramBienAp_CellValueChanged);
+			this.dgvTramBienAp.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvTramBienAp_DataError);
 			// 
 			// panel1
 			// 
@@ -125,125 +126,41 @@ namespace QuanLyDienNang.Forms
 			this.panel1.Size = new System.Drawing.Size(978, 134);
 			this.panel1.TabIndex = 2;
 			// 
-			// label2
+			// label10
 			// 
-			this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(28, 11);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(65, 19);
-			this.label2.TabIndex = 0;
-			this.label2.Text = "Mã trạm:";
+			this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label10.AutoSize = true;
+			this.label10.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
+			this.label10.ForeColor = System.Drawing.Color.Red;
+			this.label10.Location = new System.Drawing.Point(717, 77);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(23, 19);
+			this.label10.TabIndex = 11;
+			this.label10.Text = "(*)";
 			// 
-			// tbxMaTram
+			// label9
 			// 
-			this.tbxMaTram.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxMaTram.Location = new System.Drawing.Point(99, 8);
-			this.tbxMaTram.MaxLength = 10;
-			this.tbxMaTram.Name = "tbxMaTram";
-			this.tbxMaTram.Size = new System.Drawing.Size(169, 25);
-			this.tbxMaTram.TabIndex = 1;
+			this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label9.AutoSize = true;
+			this.label9.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
+			this.label9.ForeColor = System.Drawing.Color.Red;
+			this.label9.Location = new System.Drawing.Point(464, 42);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(23, 19);
+			this.label9.TabIndex = 10;
+			this.label9.Text = "(*)";
 			// 
-			// label3
+			// label8
 			// 
-			this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(28, 42);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(66, 19);
-			this.label3.TabIndex = 0;
-			this.label3.Text = "Tên trạm:";
-			// 
-			// tbxTenTram
-			// 
-			this.tbxTenTram.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxTenTram.Location = new System.Drawing.Point(99, 39);
-			this.tbxTenTram.MaxLength = 100;
-			this.tbxTenTram.Name = "tbxTenTram";
-			this.tbxTenTram.Size = new System.Drawing.Size(359, 25);
-			this.tbxTenTram.TabIndex = 2;
-			// 
-			// label4
-			// 
-			this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(40, 74);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(53, 19);
-			this.label4.TabIndex = 0;
-			this.label4.Text = "Địa chỉ:";
-			// 
-			// tbxDiaChi
-			// 
-			this.tbxDiaChi.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxDiaChi.Location = new System.Drawing.Point(99, 71);
-			this.tbxDiaChi.MaxLength = 200;
-			this.tbxDiaChi.Multiline = true;
-			this.tbxDiaChi.Name = "tbxDiaChi";
-			this.tbxDiaChi.Size = new System.Drawing.Size(359, 50);
-			this.tbxDiaChi.TabIndex = 3;
-			// 
-			// label5
-			// 
-			this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(508, 14);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(112, 19);
-			this.label5.TabIndex = 0;
-			this.label5.Text = "Người phụ trách:";
-			// 
-			// tbxNguoiPhuTrach
-			// 
-			this.tbxNguoiPhuTrach.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxNguoiPhuTrach.Location = new System.Drawing.Point(626, 11);
-			this.tbxNguoiPhuTrach.MaxLength = 100;
-			this.tbxNguoiPhuTrach.Name = "tbxNguoiPhuTrach";
-			this.tbxNguoiPhuTrach.Size = new System.Drawing.Size(314, 25);
-			this.tbxNguoiPhuTrach.TabIndex = 4;
-			// 
-			// label6
-			// 
-			this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(519, 45);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(101, 19);
-			this.label6.TabIndex = 0;
-			this.label6.Text = "Mã số công tơ:";
-			// 
-			// tbxMaSoCongTo
-			// 
-			this.tbxMaSoCongTo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxMaSoCongTo.Location = new System.Drawing.Point(626, 42);
-			this.tbxMaSoCongTo.MaxLength = 20;
-			this.tbxMaSoCongTo.Name = "tbxMaSoCongTo";
-			this.tbxMaSoCongTo.Size = new System.Drawing.Size(169, 25);
-			this.tbxMaSoCongTo.TabIndex = 5;
-			// 
-			// label7
-			// 
-			this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(538, 77);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(82, 19);
-			this.label7.TabIndex = 0;
-			this.label7.Text = "Hệ số nhân:";
-			// 
-			// btnThem
-			// 
-			this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnThem.Image = global::QuanLyDienNang.Properties.Resources.Add1;
-			this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnThem.Location = new System.Drawing.Point(842, 50);
-			this.btnThem.Name = "btnThem";
-			this.btnThem.Size = new System.Drawing.Size(88, 40);
-			this.btnThem.TabIndex = 8;
-			this.btnThem.Text = "Thêm";
-			this.btnThem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.btnThem.UseVisualStyleBackColor = true;
-			this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+			this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label8.AutoSize = true;
+			this.label8.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
+			this.label8.ForeColor = System.Drawing.Color.Red;
+			this.label8.Location = new System.Drawing.Point(274, 11);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(23, 19);
+			this.label8.TabIndex = 9;
+			this.label8.Text = "(*)";
 			// 
 			// nudHeSoNhan
 			// 
@@ -264,41 +181,125 @@ namespace QuanLyDienNang.Forms
             0,
             0});
 			// 
-			// label8
+			// btnThem
 			// 
-			this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label8.AutoSize = true;
-			this.label8.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
-			this.label8.ForeColor = System.Drawing.Color.Red;
-			this.label8.Location = new System.Drawing.Point(274, 11);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(23, 19);
-			this.label8.TabIndex = 9;
-			this.label8.Text = "(*)";
+			this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnThem.Image = global::QuanLyDienNang.Properties.Resources.Add1;
+			this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnThem.Location = new System.Drawing.Point(842, 50);
+			this.btnThem.Name = "btnThem";
+			this.btnThem.Size = new System.Drawing.Size(88, 40);
+			this.btnThem.TabIndex = 8;
+			this.btnThem.Text = "Thêm";
+			this.btnThem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnThem.UseVisualStyleBackColor = true;
+			this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
 			// 
-			// label9
+			// tbxDiaChi
 			// 
-			this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label9.AutoSize = true;
-			this.label9.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
-			this.label9.ForeColor = System.Drawing.Color.Red;
-			this.label9.Location = new System.Drawing.Point(464, 42);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(23, 19);
-			this.label9.TabIndex = 10;
-			this.label9.Text = "(*)";
+			this.tbxDiaChi.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.tbxDiaChi.Location = new System.Drawing.Point(99, 71);
+			this.tbxDiaChi.MaxLength = 200;
+			this.tbxDiaChi.Multiline = true;
+			this.tbxDiaChi.Name = "tbxDiaChi";
+			this.tbxDiaChi.Size = new System.Drawing.Size(359, 50);
+			this.tbxDiaChi.TabIndex = 3;
 			// 
-			// label10
+			// tbxTenTram
 			// 
-			this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label10.AutoSize = true;
-			this.label10.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
-			this.label10.ForeColor = System.Drawing.Color.Red;
-			this.label10.Location = new System.Drawing.Point(717, 77);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(23, 19);
-			this.label10.TabIndex = 11;
-			this.label10.Text = "(*)";
+			this.tbxTenTram.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.tbxTenTram.Location = new System.Drawing.Point(99, 39);
+			this.tbxTenTram.MaxLength = 100;
+			this.tbxTenTram.Name = "tbxTenTram";
+			this.tbxTenTram.Size = new System.Drawing.Size(359, 25);
+			this.tbxTenTram.TabIndex = 2;
+			// 
+			// label4
+			// 
+			this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(40, 74);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(53, 19);
+			this.label4.TabIndex = 0;
+			this.label4.Text = "Địa chỉ:";
+			// 
+			// label3
+			// 
+			this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(28, 42);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(66, 19);
+			this.label3.TabIndex = 0;
+			this.label3.Text = "Tên trạm:";
+			// 
+			// tbxMaSoCongTo
+			// 
+			this.tbxMaSoCongTo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.tbxMaSoCongTo.Location = new System.Drawing.Point(626, 42);
+			this.tbxMaSoCongTo.MaxLength = 20;
+			this.tbxMaSoCongTo.Name = "tbxMaSoCongTo";
+			this.tbxMaSoCongTo.Size = new System.Drawing.Size(169, 25);
+			this.tbxMaSoCongTo.TabIndex = 5;
+			// 
+			// label7
+			// 
+			this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label7.AutoSize = true;
+			this.label7.Location = new System.Drawing.Point(538, 77);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(82, 19);
+			this.label7.TabIndex = 0;
+			this.label7.Text = "Hệ số nhân:";
+			// 
+			// tbxNguoiPhuTrach
+			// 
+			this.tbxNguoiPhuTrach.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.tbxNguoiPhuTrach.Location = new System.Drawing.Point(626, 11);
+			this.tbxNguoiPhuTrach.MaxLength = 100;
+			this.tbxNguoiPhuTrach.Name = "tbxNguoiPhuTrach";
+			this.tbxNguoiPhuTrach.Size = new System.Drawing.Size(314, 25);
+			this.tbxNguoiPhuTrach.TabIndex = 4;
+			// 
+			// label6
+			// 
+			this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(519, 45);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(101, 19);
+			this.label6.TabIndex = 0;
+			this.label6.Text = "Mã số công tơ:";
+			// 
+			// tbxMaTram
+			// 
+			this.tbxMaTram.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.tbxMaTram.Location = new System.Drawing.Point(99, 8);
+			this.tbxMaTram.MaxLength = 10;
+			this.tbxMaTram.Name = "tbxMaTram";
+			this.tbxMaTram.Size = new System.Drawing.Size(169, 25);
+			this.tbxMaTram.TabIndex = 1;
+			// 
+			// label5
+			// 
+			this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(508, 14);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(112, 19);
+			this.label5.TabIndex = 0;
+			this.label5.Text = "Người phụ trách:";
+			// 
+			// label2
+			// 
+			this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(28, 11);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(65, 19);
+			this.label2.TabIndex = 0;
+			this.label2.Text = "Mã trạm:";
 			// 
 			// Form_TramBienAp
 			// 

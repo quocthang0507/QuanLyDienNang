@@ -239,10 +239,15 @@ GO
 
 CREATE PROCEDURE proc_Update_TramBienAp
 	@MaTram char(5),
-	@TenTram nvarchar(100)
+	@TenTram nvarchar(100),
+	@DiaChi nvarchar(200),
+	@NguoiPhuTrach nvarchar(100),
+	@MaSoCongTo nvarchar(20),
+	@HeSoNhan tinyint,
+	@KichHoat bit
 AS
 	UPDATE TramBienAp
-	SET TenTram = @TenTram
+	SET TenTram = @TenTram, DiaChi = @DiaChi, NguoiPhuTrach = @NguoiPhuTrach, MaSoCongTo = @MaSoCongTo, HeSoNhan = @HeSoNhan, KichHoat = @KichHoat
 	WHERE MaTram = @MaTram
 GO
 
