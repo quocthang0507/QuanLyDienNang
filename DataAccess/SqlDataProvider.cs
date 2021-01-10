@@ -46,7 +46,7 @@ namespace DataAccess
 				throw new ArgumentException("OutputParam can't be null or empty!");
 			SqlParameter[] parameters = SqlHelperParameterCache.GetSpParameterSet(connectionString, spName);
 			SqlParameter sqlParameter = null;
-			foreach (var item in parameters)
+			foreach (SqlParameter item in parameters)
 			{
 				if (string.Compare(item.ParameterName, outputParam, true) == 0)
 				{

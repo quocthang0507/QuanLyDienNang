@@ -5,7 +5,7 @@ namespace QuanLyDienNang.Forms
 {
 	public partial class Form_BaoCao : Form
 	{
-		private DataTable dt;
+		private readonly DataTable dt;
 
 		public Form_BaoCao()
 		{

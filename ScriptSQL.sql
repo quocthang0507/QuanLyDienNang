@@ -34,6 +34,7 @@ AS
 GO
 
 CREATE PROCEDURE proc_IsDuplicated_MaBangGia
+--ALTER PROCEDURE proc_IsDuplicated_MaBangGia
 	@MaBangGia varchar(10)
 AS
 	IF EXISTS (SELECT * FROM BangGia WHERE MaBangGia = @MaBangGia)
@@ -75,6 +76,7 @@ GO
 --EXEC proc_Delete_BangGia 'SH-NGHEO'
 
 --====================CHI TIẾT BẢNG GIÁ ĐIỆN====================
+--DROP TABLE ChiTietBangGia
 CREATE TABLE ChiTietBangGia
 (
 	ID int not null identity(1, 1) primary key,
@@ -111,8 +113,8 @@ AS
 GO
 
 CREATE PROCEDURE proc_GetByBangGia_ChiTietBangGia
-	@MaBangGia varchar(10)
 --ALTER PROCEDURE proc_GetAll_ChiTietBangGia
+	@MaBangGia varchar(10)
 AS
 	SELECT * FROM ChiTietBangGia WHERE MaBangGia = @MaBangGia ORDER BY KichHoat DESC, ID ASC
 GO
@@ -162,6 +164,7 @@ EXEC proc_Insert_ChiTietBangGia 'KD-DV', 0, 0, 4587, N'Cấp điện áp dưới
 GO
 
 CREATE PROCEDURE proc_Update_ChiTietBangGia
+--ALTER PROCEDURE proc_Update_ChiTietBangGia
 	@ID int,
 	@MaBangGia char(5),
 	@BatDau int,
@@ -185,6 +188,7 @@ AS
 GO
 
 CREATE PROCEDURE proc_Reset_ChiTietBangGia
+--ALTER PROCEDURE proc_Reset_ChiTietBangGia
 AS
 	DELETE FROM ChiTietBangGia
 	DBCC CHECKIDENT ('[ChiTietBangGia]', RESEED, 0);
@@ -193,8 +197,8 @@ GO
 --EXEC proc_Reset_ChiTietBangGia
 
 --====================TRẠM BIẾN ÁP ÁP DỤNG CHO KHÁCH HÀNG====================
+--DROP TABLE TramBienAp
 CREATE TABLE TramBienAp (
---ALTER TABLE TramBienAp (
 	--BA001
 	MaTram varchar(10) primary key,
 	TenTram nvarchar(100) not null,
@@ -218,6 +222,7 @@ AS
 GO
 
 CREATE PROCEDURE proc_IsDuplicated_MaTram
+--ALTER PROCEDURE proc_IsDuplicated_MaTram
 	@MaTram varchar(10)
 AS
 	IF EXISTS (SELECT * FROM TramBienAp WHERE MaTram = @MaTram)
@@ -227,7 +232,8 @@ AS
 GO
 
 CREATE PROCEDURE proc_Insert_TramBienAp
-	@MaTram char(5),
+--ALTER PROCEDURE proc_Insert_TramBienAp
+	@MaTram varchar(10),
 	@TenTram nvarchar(100),
 	@DiaChi nvarchar(200),
 	@NguoiPhuTrach nvarchar(100),
@@ -238,7 +244,8 @@ AS
 GO
 
 CREATE PROCEDURE proc_Update_TramBienAp
-	@MaTram char(5),
+--ALTER PROCEDURE proc_Update_TramBienAp
+	@MaTram varchar(10),
 	@TenTram nvarchar(100),
 	@DiaChi nvarchar(200),
 	@NguoiPhuTrach nvarchar(100),
@@ -253,7 +260,7 @@ GO
 
 CREATE PROCEDURE proc_Delete_TramBienAp
 --ALTER PROCEDURE proc_Delete_TramBienAp
-	@MaTram char(5)
+	@MaTram varchar(10)
 AS
 	UPDATE TramBienAp
 	SET KichHoat = 0
@@ -261,9 +268,9 @@ AS
 GO
 
 --====================NGƯỜI QUẢN LÝ KHÁCH HÀNG====================
+--DROP TABLE NguoiQuanLy
 CREATE TABLE NguoiQuanLy (
-	--QL001
-	MaQuanLy char(5) primary key,
+	MaQuanLy varchar(10) primary key,
 	TenQuanLy nvarchar(150) not null,
 	SoDienThoai varchar(20) null,
 	DiaChi nvarchar(200) not null,
@@ -280,6 +287,16 @@ CREATE PROCEDURE proc_GetAll_NguoiQuanLy
 --ALTER PROCEDURE proc_GetAll_NguoiQuanLy
 AS
 	SELECT * FROM NguoiQuanLy ORDER BY MaQuanLy
+GO
+
+CREATE PROCEDURE proc_IsDuplicated_MaQuanLy
+--ALTER PROCEDURE proc_IsDuplicated_MaQuanLy
+	@MaQuanLy varchar(10)
+AS
+	IF EXISTS (SELECT * FROM NguoiQuanLy WHERE MaQuanLy = @MaQuanLy)
+		RETURN 1
+	ELSE
+		RETURN 0
 GO
 
 CREATE FUNCTION func_GenerateID_NguoiQuanLy()

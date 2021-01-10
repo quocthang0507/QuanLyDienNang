@@ -33,12 +33,12 @@ namespace QuanLyDienNang.Forms
 			string path = tbxDuongDan.Text;
 			if (Common.IsNullOrWhiteSpace(tbxDuongDan.Text))
 			{
-				var result = folderDialog.ShowDialog();
+				DialogResult result = folderDialog.ShowDialog();
 				if (result != DialogResult.OK || Common.IsNullOrWhiteSpace(folderDialog.SelectedPath))
 					return;
 				path = folderDialog.SelectedPath;
 			}
-			var files = FileUtils.LoadImagesFromDirectory(path);
+			System.Collections.Generic.IEnumerable<ImageResult> files = FileUtils.LoadImagesFromDirectory(path);
 			if (files == null || files.Count() == 0)
 			{
 				MessageBox.Show(STRINGS.ERROR_PATH_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

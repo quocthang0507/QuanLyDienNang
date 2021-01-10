@@ -10,8 +10,8 @@ namespace Business.Helper
 	/// </summary>
 	public class VietnameseNumber2Text
 	{
-		private string[] Digit = { "không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín" };
-		private long Number;
+		private readonly string[] Digit = { "không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín" };
+		private readonly long Number;
 
 		public VietnameseNumber2Text(long number)
 		{

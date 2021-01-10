@@ -2,12 +2,8 @@
 using Business.Helper;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyDienNang.Forms
@@ -37,13 +33,13 @@ namespace QuanLyDienNang.Forms
 			{
 				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
-			else if (TramBienAp.IsDuplicatedMaBangGia(maTram))
+			else if (TramBienAp.IsDuplicatedMaTram(maTram))
 			{
 				MessageBox.Show(STRINGS.WARNING_DUPLICATE_MATRAM, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
 			else if (Common.ShowQuestionDialog())
 			{
-				var ok = TramBienAp.Insert(new TramBienAp()
+				bool ok = TramBienAp.Insert(new TramBienAp()
 				{
 					MaTram = maTram,
 					TenTram = tenTram,
@@ -66,8 +62,8 @@ namespace QuanLyDienNang.Forms
 
 		private void dgvTramBienAp_CellValueChanged(object sender, DataGridViewCellEventArgs e)
 		{
-			var changedRowIndex = e.RowIndex;
-			var changedRow = dgvTramBienAp.Rows[changedRowIndex];
+			int changedRowIndex = e.RowIndex;
+			DataGridViewRow changedRow = dgvTramBienAp.Rows[changedRowIndex];
 			string maTram = changedRow.Cells[0].Value.ToString();
 			string tenTram = changedRow.Cells[1].Value.ToString();
 			string diaChi = changedRow.Cells[2].Value.ToString();
@@ -108,7 +104,7 @@ namespace QuanLyDienNang.Forms
 
 		public void GoUp()
 		{
-			var index = dgvTramBienAp.SelectedRows[0].Index;
+			int index = dgvTramBienAp.SelectedRows[0].Index;
 			if (index > 0)
 			{
 				index--;
@@ -118,7 +114,7 @@ namespace QuanLyDienNang.Forms
 
 		public void GoDown()
 		{
-			var index = dgvTramBienAp.SelectedRows[0].Index;
+			int index = dgvTramBienAp.SelectedRows[0].Index;
 			if (index < dgvTramBienAp.Rows.Count - 1)
 			{
 				index++;
@@ -140,7 +136,7 @@ namespace QuanLyDienNang.Forms
 		{
 			if (dgvTramBienAp.SelectedRows.Count > 0)
 			{
-				var row = dgvTramBienAp.SelectedRows[0];
+				DataGridViewRow row = dgvTramBienAp.SelectedRows[0];
 				StringBuilder builder = new StringBuilder();
 				builder.Append(row.Cells[0].Value.ToString() + '\t');
 				builder.Append(row.Cells[1].Value.ToString() + '\t');
@@ -155,7 +151,7 @@ namespace QuanLyDienNang.Forms
 
 		private void LoadTable()
 		{
-			var data = TramBienAp.GetAll();
+			List<TramBienAp> data = TramBienAp.GetAll();
 			if (data == null)
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else

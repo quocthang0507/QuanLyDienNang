@@ -239,7 +239,10 @@ namespace DataAccess
 			return objFillCollection;
 		}
 
-		public static List<T> FillCollection<T>(IDataReader dr) where T : class, new() => FillCollection<T, List<T>>(dr);
+		public static List<T> FillCollection<T>(IDataReader dr) where T : class, new()
+		{
+			return FillCollection<T, List<T>>(dr);
+		}
 
 		public static IList<T> FillCollection<T>(IDataReader dr, IList<T> objToFill) where T : class, new()
 		{

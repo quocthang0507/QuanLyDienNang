@@ -37,7 +37,6 @@ namespace QuanLyDienNang.Forms
 			this.label8 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
 			this.btnXoa = new System.Windows.Forms.Button();
-			this.btnCapNhat = new System.Windows.Forms.Button();
 			this.btnThem = new System.Windows.Forms.Button();
 			this.tbxEmail = new System.Windows.Forms.TextBox();
 			this.tbxDiaChi = new System.Windows.Forms.TextBox();
@@ -49,6 +48,7 @@ namespace QuanLyDienNang.Forms
 			this.label4 = new System.Windows.Forms.Label();
 			this.tbxMaNQL = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
+			this.label9 = new System.Windows.Forms.Label();
 			this.tableParent.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvNguoiQuanLy)).BeginInit();
 			this.panel1.SuspendLayout();
@@ -93,18 +93,18 @@ namespace QuanLyDienNang.Forms
 			this.dgvNguoiQuanLy.Location = new System.Drawing.Point(3, 203);
 			this.dgvNguoiQuanLy.MultiSelect = false;
 			this.dgvNguoiQuanLy.Name = "dgvNguoiQuanLy";
-			this.dgvNguoiQuanLy.ReadOnly = true;
 			this.dgvNguoiQuanLy.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dgvNguoiQuanLy.Size = new System.Drawing.Size(978, 355);
 			this.dgvNguoiQuanLy.TabIndex = 1;
-			this.dgvNguoiQuanLy.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dgvNguoiQuanLy_RowStateChanged);
+			this.dgvNguoiQuanLy.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNguoiQuanLy_CellValueChanged);
+			this.dgvNguoiQuanLy.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvNguoiQuanLy_DataError);
 			// 
 			// panel1
 			// 
 			this.panel1.Controls.Add(this.label8);
+			this.panel1.Controls.Add(this.label9);
 			this.panel1.Controls.Add(this.label7);
 			this.panel1.Controls.Add(this.btnXoa);
-			this.panel1.Controls.Add(this.btnCapNhat);
 			this.panel1.Controls.Add(this.btnThem);
 			this.panel1.Controls.Add(this.tbxEmail);
 			this.panel1.Controls.Add(this.tbxDiaChi);
@@ -160,20 +160,6 @@ namespace QuanLyDienNang.Forms
 			this.btnXoa.UseVisualStyleBackColor = true;
 			this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
 			// 
-			// btnCapNhat
-			// 
-			this.btnCapNhat.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnCapNhat.Image = global::QuanLyDienNang.Properties.Resources.Rename;
-			this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnCapNhat.Location = new System.Drawing.Point(434, 115);
-			this.btnCapNhat.Name = "btnCapNhat";
-			this.btnCapNhat.Size = new System.Drawing.Size(112, 40);
-			this.btnCapNhat.TabIndex = 7;
-			this.btnCapNhat.Text = "Cập nhật";
-			this.btnCapNhat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.btnCapNhat.UseVisualStyleBackColor = true;
-			this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
-			// 
 			// btnThem
 			// 
 			this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -201,7 +187,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.tbxDiaChi.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.tbxDiaChi.Location = new System.Drawing.Point(552, 49);
-			this.tbxDiaChi.MaxLength = 2000;
+			this.tbxDiaChi.MaxLength = 200;
 			this.tbxDiaChi.Name = "tbxDiaChi";
 			this.tbxDiaChi.Size = new System.Drawing.Size(373, 25);
 			this.tbxDiaChi.TabIndex = 4;
@@ -220,7 +206,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.tbxTenNQL.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.tbxTenNQL.Location = new System.Drawing.Point(168, 49);
-			this.tbxTenNQL.MaxLength = 200;
+			this.tbxTenNQL.MaxLength = 150;
 			this.tbxTenNQL.Name = "tbxTenNQL";
 			this.tbxTenNQL.Size = new System.Drawing.Size(290, 25);
 			this.tbxTenNQL.TabIndex = 2;
@@ -268,9 +254,8 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.tbxMaNQL.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.tbxMaNQL.Location = new System.Drawing.Point(485, 15);
-			this.tbxMaNQL.MaxLength = 20;
+			this.tbxMaNQL.MaxLength = 10;
 			this.tbxMaNQL.Name = "tbxMaNQL";
-			this.tbxMaNQL.ReadOnly = true;
 			this.tbxMaNQL.Size = new System.Drawing.Size(159, 25);
 			this.tbxMaNQL.TabIndex = 1;
 			// 
@@ -283,6 +268,18 @@ namespace QuanLyDienNang.Forms
 			this.label2.Size = new System.Drawing.Size(120, 19);
 			this.label2.TabIndex = 0;
 			this.label2.Text = "Mã người quản lý:";
+			// 
+			// label9
+			// 
+			this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label9.AutoSize = true;
+			this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label9.ForeColor = System.Drawing.Color.Red;
+			this.label9.Location = new System.Drawing.Point(650, 20);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(21, 17);
+			this.label9.TabIndex = 9;
+			this.label9.Text = "(*)";
 			// 
 			// Form_NguoiQuanLy
 			// 
@@ -321,9 +318,9 @@ namespace QuanLyDienNang.Forms
 		private System.Windows.Forms.TextBox tbxEmail;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Button btnXoa;
-		private System.Windows.Forms.Button btnCapNhat;
 		private System.Windows.Forms.Button btnThem;
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.Label label9;
 	}
 }

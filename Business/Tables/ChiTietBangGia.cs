@@ -46,10 +46,14 @@ namespace Business.Classes
 		}
 
 		public static List<ChiTietBangGia> GetAll()
-			=> CBO.FillCollection<ChiTietBangGia>(DataProvider.Instance.ExecuteReader("proc_GetAll_ChiTietBangGia"));
+		{
+			return CBO.FillCollection<ChiTietBangGia>(DataProvider.Instance.ExecuteReader("proc_GetAll_ChiTietBangGia"));
+		}
 
 		public static List<ChiTietBangGia> GetByBangGia(string maBangGia)
-			=> CBO.FillCollection<ChiTietBangGia>(DataProvider.Instance.ExecuteReader("proc_GetByBangGia_ChiTietBangGia", maBangGia));
+		{
+			return CBO.FillCollection<ChiTietBangGia>(DataProvider.Instance.ExecuteReader("proc_GetByBangGia_ChiTietBangGia", maBangGia));
+		}
 
 		public static bool Insert(ChiTietBangGia chiTietBangGia)
 		{

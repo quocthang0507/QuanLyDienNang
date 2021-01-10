@@ -9,7 +9,7 @@ namespace QuanLyDienNang.Forms
 	{
 		private bool EXIT_WITHOUT_DIALOG = false;
 		private dynamic DynamicForm;
-		private Form frmCauHinh = new Form_CauHinh();
+		private readonly Form frmCauHinh = new Form_CauHinh();
 
 		// Ủy quyền xử lý từ form main sang các form con
 		private delegate void MyDelegate();
@@ -141,10 +141,10 @@ namespace QuanLyDienNang.Forms
 
 		private void menuDong_Click(object sender, EventArgs e)
 		{
-			var tab = tabForms.SelectedTab;
+			TabPage tab = tabForms.SelectedTab;
 			if (tab.Name == "tabMain")
 				return;
-			var form = tab.Controls[0] as Form;
+			Form form = tab.Controls[0] as Form;
 			form.Close();
 			tabForms.TabPages.Remove(tab);
 		}
@@ -219,7 +219,7 @@ namespace QuanLyDienNang.Forms
 			{
 				if (tabPage.Controls.Count > 0 && tabPage.Controls[0] is Form)
 				{
-					var existedForm = tabPage.Controls[0] as Form;
+					Form existedForm = tabPage.Controls[0] as Form;
 					if (form.Text == existedForm.Text)
 					{
 						tabForms.SelectedTab = tabPage;

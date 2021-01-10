@@ -36,7 +36,9 @@ namespace Business.Classes
 		}
 
 		public static List<BangGia> GetAll()
-			=> CBO.FillCollection<BangGia>(DataProvider.Instance.ExecuteReader("proc_GetAll_BangGia"));
+		{
+			return CBO.FillCollection<BangGia>(DataProvider.Instance.ExecuteReader("proc_GetAll_BangGia"));
+		}
 
 		public static bool IsDuplicatedMaBangGia(string MaBangGia)
 		{

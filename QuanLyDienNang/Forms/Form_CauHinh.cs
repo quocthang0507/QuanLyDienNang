@@ -32,7 +32,7 @@ namespace QuanLyDienNang.Forms
 				// Ủy quyền xử lý cho thread chính
 				btnLuu.Invoke((MethodInvoker)delegate
 				{
-					var connectable = TestConnection();
+					bool? connectable = TestConnection();
 					if (connectable != null && connectable.Value)
 					{
 						funcs.SaveConnectionString();
@@ -56,7 +56,7 @@ namespace QuanLyDienNang.Forms
 				btnKiemTra.Invoke((MethodInvoker)delegate
 				{
 					progressBar.Style = ProgressBarStyle.Marquee;
-					var connectable = TestConnection();
+					bool? connectable = TestConnection();
 					{
 						if (connectable == null)
 						{

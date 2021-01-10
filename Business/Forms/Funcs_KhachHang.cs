@@ -45,7 +45,7 @@ namespace Business.Forms
 			{
 				ExcelPackage excel = new ExcelPackage(new FileInfo(excelFilePath));
 				List<string> sheets = new List<string>();
-				foreach (var sheet in excel.Workbook.Worksheets)
+				foreach (ExcelWorksheet sheet in excel.Workbook.Worksheets)
 				{
 					sheets.Add(sheet.Name);
 				}
@@ -105,7 +105,7 @@ namespace Business.Forms
 		/// <returns>Danh sách khách hàng</returns>
 		public List<KhachHang> UpdateListForInserting(List<KhachHang> list, string maQL)
 		{
-			foreach (var khach in list)
+			foreach (KhachHang khach in list)
 			{
 				khach.NgayTao = DateTime.Now;
 				khach.NguoiTao = maQL;
@@ -167,7 +167,7 @@ namespace Business.Forms
 		/// <returns>Danh sách khách hàng</returns>
 		public List<KhachHang> UpdateListForUpdating(List<KhachHang> list, string maQL)
 		{
-			foreach (var khach in list)
+			foreach (KhachHang khach in list)
 			{
 				khach.NgayCapNhat = DateTime.Now;
 				khach.NguoiCapNhat = maQL;
@@ -212,7 +212,7 @@ namespace Business.Forms
 		/// <returns>Thành công hay không</returns>
 		public bool TryInsertingDataTableToSQL(List<KhachHang> list)
 		{
-			foreach (var khach in list)
+			foreach (KhachHang khach in list)
 			{
 				if (!KhachHang.TryInserting(khach))
 					return false;
@@ -227,7 +227,7 @@ namespace Business.Forms
 		/// <returns>Thành công hay không</returns>
 		public bool TryUpdatingDataTableToSQL(List<KhachHang> list)
 		{
-			foreach (var khach in list)
+			foreach (KhachHang khach in list)
 			{
 				bool ok = KhachHang.TryUpdating(khach);
 				if (!ok)
@@ -242,7 +242,7 @@ namespace Business.Forms
 		/// <param name="list">Danh sách khách hàng</param>
 		public void InsertSQL(List<KhachHang> list)
 		{
-			foreach (var khach in list)
+			foreach (KhachHang khach in list)
 			{
 				KhachHang.Insert(khach);
 			}
@@ -254,7 +254,7 @@ namespace Business.Forms
 		/// <param name="list">Danh sách khách hàng</param>
 		public void UpdateSQL(List<KhachHang> list)
 		{
-			foreach (var khach in list)
+			foreach (KhachHang khach in list)
 			{
 				KhachHang.Update(khach);
 			}

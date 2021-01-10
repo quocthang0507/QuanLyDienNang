@@ -62,13 +62,13 @@ namespace QuanLyDienNang.Forms
 
 		private void btnXuat_Click(object sender, EventArgs e)
 		{
-			var bytes = Excel.ExportToExcel(dgvKhachHang.DataSource);
+			byte[] bytes = Excel.ExportToExcel(dgvKhachHang.DataSource);
 			if (bytes == null)
 			{
 				MessageBox.Show(STRINGS.ERROR_EXPORT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-			var dialog = saveDialog.ShowDialog();
+			DialogResult dialog = saveDialog.ShowDialog();
 			if (dialog == DialogResult.OK)
 			{
 				string filepath = saveDialog.FileName;
@@ -84,7 +84,7 @@ namespace QuanLyDienNang.Forms
 		#region Methods
 		private void LoadTramQuanLy()
 		{
-			var data = TramBienAp.GetAll();
+			System.Collections.Generic.List<TramBienAp> data = TramBienAp.GetAll();
 			if (data == null)
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
@@ -93,7 +93,7 @@ namespace QuanLyDienNang.Forms
 
 		private void LoadBangGia()
 		{
-			var data = BangGia.GetAll();
+			System.Collections.Generic.List<BangGia> data = BangGia.GetAll();
 			if (data == null)
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
@@ -113,7 +113,7 @@ namespace QuanLyDienNang.Forms
 
 		public void GoUp()
 		{
-			var index = dgvKhachHang.SelectedRows[0].Index;
+			int index = dgvKhachHang.SelectedRows[0].Index;
 			if (index > 0)
 			{
 				index--;
@@ -123,7 +123,7 @@ namespace QuanLyDienNang.Forms
 
 		public void GoDown()
 		{
-			var index = dgvKhachHang.SelectedRows[0].Index;
+			int index = dgvKhachHang.SelectedRows[0].Index;
 			if (index < dgvKhachHang.Rows.Count - 1)
 			{
 				index++;
@@ -145,7 +145,7 @@ namespace QuanLyDienNang.Forms
 		{
 			if (dgvKhachHang.SelectedRows.Count > 0)
 			{
-				var row = dgvKhachHang.SelectedRows[0];
+				DataGridViewRow row = dgvKhachHang.SelectedRows[0];
 				StringBuilder builder = new StringBuilder();
 				for (int i = 0; i < row.Cells.Count; i++)
 				{

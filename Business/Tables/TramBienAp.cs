@@ -12,7 +12,7 @@ namespace Business.Classes
 	{
 		[Key]
 		[DisplayName("Mã trạm biến áp")]
-		[StringLength(5)]
+		[StringLength(10)]
 		public string MaTram { get; set; }
 
 		[DisplayName("Tên trạm biến áp")]
@@ -47,14 +47,16 @@ namespace Business.Classes
 
 		}
 
-		public static bool IsDuplicatedMaBangGia(string maTram)
+		public static bool IsDuplicatedMaTram(string maTram)
 		{
 			int result = DataProvider.Instance.ExecuteNonQuery("proc_IsDuplicated_MaTram", maTram);
 			return result == 1;
 		}
 
 		public static List<TramBienAp> GetAll()
-			=> CBO.FillCollection<TramBienAp>(DataProvider.Instance.ExecuteReader("proc_GetAll_TramBienAp"));
+		{
+			return CBO.FillCollection<TramBienAp>(DataProvider.Instance.ExecuteReader("proc_GetAll_TramBienAp"));
+		}
 
 		public static bool Insert(TramBienAp tramBienAp)
 		{

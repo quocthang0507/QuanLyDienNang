@@ -48,7 +48,7 @@ namespace Business.Helper
 		/// <returns></returns>
 		public string Read(string key, string section)
 		{
-			var @return = new StringBuilder(255);
+			StringBuilder @return = new StringBuilder(255);
 			GetPrivateProfileString(section, key, "", @return, 255, Path);
 			return @return.ToString();
 		}

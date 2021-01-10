@@ -37,7 +37,7 @@ namespace QuanLyDienNang.Forms
 
 		private void btnXuatTatCa_Click(object sender, EventArgs e)
 		{
-			var data = DienNangTieuThu.GetAll();
+			List<DienNangTieuThu> data = DienNangTieuThu.GetAll();
 			if (data == null)
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
@@ -46,7 +46,7 @@ namespace QuanLyDienNang.Forms
 
 		private void btnTimKiem_Click(object sender, EventArgs e)
 		{
-			var data = DienNangTieuThu.Filter(dtpBatDau_TK.Value, dtpKetThuc_TK.Value, (cbxTenTram.SelectedItem as TramBienAp).MaTram, tbxDiaChi.Text, (cbxBangGia.SelectedItem as BangGia).MaBangGia, chkConNo.Checked);
+			List<DienNangTieuThu> data = DienNangTieuThu.Filter(dtpBatDau_TK.Value, dtpKetThuc_TK.Value, (cbxTenTram.SelectedItem as TramBienAp).MaTram, tbxDiaChi.Text, (cbxBangGia.SelectedItem as BangGia).MaBangGia, chkConNo.Checked);
 			if (data == null)
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
@@ -55,7 +55,7 @@ namespace QuanLyDienNang.Forms
 
 		private void btnLapDanhSach_Click(object sender, EventArgs e)
 		{
-			var dialog = MessageBox.Show(STRINGS.QUESTION_LAPDANHSACH_MESSAGE, STRINGS.QUESTION, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+			DialogResult dialog = MessageBox.Show(STRINGS.QUESTION_LAPDANHSACH_MESSAGE, STRINGS.QUESTION, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 			if (dialog == DialogResult.No)
 				return;
 			List<DienNangTieuThu> data = funcs.AddNewDNTTFromKH((cbxNguoiQuanLy.SelectedItem as NguoiQuanLy).MaQuanLy, dtpDauKy.Value, dtpCuoiKy.Value);
@@ -64,7 +64,7 @@ namespace QuanLyDienNang.Forms
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-			var ok = funcs.TryInsertingListToSQL(data);
+			bool ok = funcs.TryInsertingListToSQL(data);
 			if (ok)
 			{
 				funcs.InsertSQL(data);
@@ -81,7 +81,7 @@ namespace QuanLyDienNang.Forms
 
 		private void btnLoadTheoKy_Click(object sender, EventArgs e)
 		{
-			var data = DienNangTieuThu.GetByDate(dtpCuoiKy.Value);
+			List<DienNangTieuThu> data = DienNangTieuThu.GetByDate(dtpCuoiKy.Value);
 			if (data == null)
 			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -92,13 +92,13 @@ namespace QuanLyDienNang.Forms
 
 		private void btnXuatExcel_Click(object sender, EventArgs e)
 		{
-			var bytes = Excel.ExportToExcel(dgvDienNangTieuThu.DataSource);
+			byte[] bytes = Excel.ExportToExcel(dgvDienNangTieuThu.DataSource);
 			if (bytes == null)
 			{
 				MessageBox.Show(STRINGS.ERROR_EXPORT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-			var dialog = saveDialog.ShowDialog();
+			DialogResult dialog = saveDialog.ShowDialog();
 			if (dialog == DialogResult.OK)
 			{
 				string filepath = saveDialog.FileName;
@@ -116,13 +116,13 @@ namespace QuanLyDienNang.Forms
 
 		private void btnNhapExcel_Click(object sender, EventArgs e)
 		{
-			var result = openDialog.ShowDialog();
+			DialogResult result = openDialog.ShowDialog();
 			if (result != DialogResult.OK || Common.IsNullOrWhiteSpace(openDialog.FileName))
 				return;
-			var path = openDialog.FileName;
+			string path = openDialog.FileName;
 			// Đọc sheet đầu tiên
 			DataTable dt = Excel.ReadExcelAsDataTable(path, "");
-			var data = funcs.ConvertDataTableToListForUpdating(dt);
+			List<DienNangTieuThu> data = funcs.ConvertDataTableToListForUpdating(dt);
 			if (data == null)
 			{
 				MessageBox.Show(STRINGS.ERROR_IMPORT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -159,9 +159,9 @@ namespace QuanLyDienNang.Forms
 				MessageBox.Show(STRINGS.WARNING_MISS_DGV_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
-			var maQL = (cbxNguoiQuanLy.SelectedItem as NguoiQuanLy).MaQuanLy;
-			var data = funcs.UpdateListForUpdating(dgvDienNangTieuThu.DataSource as List<DienNangTieuThu>, maQL);
-			var ok = funcs.TryUpdatingListToSQL(data);
+			string maQL = (cbxNguoiQuanLy.SelectedItem as NguoiQuanLy).MaQuanLy;
+			List<DienNangTieuThu> data = funcs.UpdateListForUpdating(dgvDienNangTieuThu.DataSource as List<DienNangTieuThu>, maQL);
+			bool ok = funcs.TryUpdatingListToSQL(data);
 			if (ok)
 			{
 				funcs.UpdateSQL(dgvDienNangTieuThu.DataSource as List<DienNangTieuThu>);
@@ -187,7 +187,7 @@ namespace QuanLyDienNang.Forms
 		#region Methods
 		private void LoadTramBienAp()
 		{
-			var data = TramBienAp.GetAll();
+			List<TramBienAp> data = TramBienAp.GetAll();
 			if (data == null)
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
@@ -196,7 +196,7 @@ namespace QuanLyDienNang.Forms
 
 		private void LoadBangGia()
 		{
-			var data = BangGia.GetAll();
+			List<BangGia> data = BangGia.GetAll();
 			if (data == null)
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
@@ -205,7 +205,7 @@ namespace QuanLyDienNang.Forms
 
 		private void LoadNguoiQuanLy()
 		{
-			var data = NguoiQuanLy.GetAll();
+			List<NguoiQuanLy> data = NguoiQuanLy.GetAll();
 			if (data == null)
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
@@ -227,7 +227,7 @@ namespace QuanLyDienNang.Forms
 
 		public void GoUp()
 		{
-			var index = dgvDienNangTieuThu.SelectedRows[0].Index;
+			int index = dgvDienNangTieuThu.SelectedRows[0].Index;
 			if (index > 0)
 			{
 				index--;
@@ -237,7 +237,7 @@ namespace QuanLyDienNang.Forms
 
 		public void GoDown()
 		{
-			var index = dgvDienNangTieuThu.SelectedRows[0].Index;
+			int index = dgvDienNangTieuThu.SelectedRows[0].Index;
 			if (index < dgvDienNangTieuThu.Rows.Count - 1)
 			{
 				index++;
@@ -259,7 +259,7 @@ namespace QuanLyDienNang.Forms
 		{
 			if (dgvDienNangTieuThu.SelectedRows.Count > 0)
 			{
-				var row = dgvDienNangTieuThu.SelectedRows[0];
+				DataGridViewRow row = dgvDienNangTieuThu.SelectedRows[0];
 				StringBuilder builder = new StringBuilder();
 				for (int i = 0; i < row.Cells.Count; i++)
 				{

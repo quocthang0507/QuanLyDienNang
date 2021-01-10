@@ -1,6 +1,7 @@
 ﻿using Business.Classes;
 using Business.Helper;
 using System;
+using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
@@ -17,22 +18,10 @@ namespace QuanLyDienNang.Forms
 		private void Form_NguoiQuanLy_Shown(object sender, EventArgs e)
 		{
 			LoadTable();
+			UpdateColumnFormat();
 		}
 
-		private void dgvNguoiQuanLy_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
-		{
-			if (dgvNguoiQuanLy.SelectedRows.Count > 0)
-			{
-				var row = dgvNguoiQuanLy.SelectedRows[0];
-				tbxMaNQL.Text = row.Cells[0].Value.ToString();
-				tbxTenNQL.Text = row.Cells[1].Value.ToString();
-				tbxSoDT.Text = row.Cells[2].Value.ToString();
-				tbxDiaChi.Text = row.Cells[3].Value.ToString();
-				tbxEmail.Text = row.Cells[4].Value.ToString();
-			}
-		}
-
-		private void btnThem_Click(object sender, System.EventArgs e)
+		private void btnThem_Click(object sender, EventArgs e)
 		{
 			string ten = tbxTenNQL.Text;
 			string sdt = tbxSoDT.Text;
@@ -45,7 +34,7 @@ namespace QuanLyDienNang.Forms
 			}
 			if (Common.ShowQuestionDialog())
 			{
-				var ok = NguoiQuanLy.Insert(new NguoiQuanLy()
+				bool ok = NguoiQuanLy.Insert(new NguoiQuanLy()
 				{
 					TenQuanLy = ten,
 					SoDienThoai = sdt,
@@ -64,46 +53,13 @@ namespace QuanLyDienNang.Forms
 			}
 		}
 
-		private void btnCapNhat_Click(object sender, System.EventArgs e)
+		public void btnXoa_Click(object sender, EventArgs e)
 		{
-			string ma = tbxMaNQL.Text;
-			string ten = tbxTenNQL.Text;
-			string sdt = tbxSoDT.Text;
-			string dc = tbxDiaChi.Text;
-			string email = tbxEmail.Text;
-			if (Common.IsNullOrWhiteSpace(ten, dc))
-			{
-				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				return;
-			}
+			DataGridViewRow selectedRow = dgvNguoiQuanLy.SelectedRows[0];
+			string maQuanLy = selectedRow.Cells[0].Value.ToString();
 			if (Common.ShowQuestionDialog())
 			{
-				var ok = NguoiQuanLy.Update(new NguoiQuanLy()
-				{
-					MaQuanLy = ma,
-					TenQuanLy = ten,
-					SoDienThoai = sdt,
-					DiaChi = dc,
-					Email = email
-				});
-				if (ok)
-				{
-					MessageBox.Show(STRINGS.SUCCESS_UPDATE_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
-					LoadTable();
-				}
-				else
-				{
-					MessageBox.Show(STRINGS.ERROR_UPDATE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-				}
-			}
-		}
-
-		public void btnXoa_Click(object sender, System.EventArgs e)
-		{
-			string ma = tbxMaNQL.Text;
-			if (Common.ShowQuestionDialog())
-			{
-				var ok = NguoiQuanLy.Delete(ma);
+				bool ok = NguoiQuanLy.Delete(maQuanLy);
 				if (ok)
 				{
 					MessageBox.Show(STRINGS.SUCCESS_DELETE_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -114,6 +70,37 @@ namespace QuanLyDienNang.Forms
 					MessageBox.Show(STRINGS.ERROR_DELETE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
+		}
+
+		private void dgvNguoiQuanLy_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+		{
+			int changedRowIndex = e.RowIndex;
+			DataGridViewRow changedRow = dgvNguoiQuanLy.Rows[changedRowIndex];
+			string maQuanLy = changedRow.Cells[0].Value.ToString();
+			string tenQuanLy = changedRow.Cells[1].Value.ToString();
+			string soDienThoai = changedRow.Cells[2].Value.ToString();
+			string diaChi = changedRow.Cells[3].Value.ToString();
+			string email = changedRow.Cells[4].ToString();
+			if (Common.IsNullOrWhiteSpace(maQuanLy, tenQuanLy, diaChi))
+			{
+				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}
+			else
+			{
+				NguoiQuanLy.Update(new NguoiQuanLy()
+				{
+					MaQuanLy = maQuanLy,
+					TenQuanLy = tenQuanLy,
+					SoDienThoai = soDienThoai,
+					DiaChi = diaChi,
+					Email = email
+				});
+			}
+		}
+
+		private void dgvNguoiQuanLy_DataError(object sender, DataGridViewDataErrorEventArgs e)
+		{
+
 		}
 		#endregion
 
@@ -126,7 +113,7 @@ namespace QuanLyDienNang.Forms
 
 		public void GoUp()
 		{
-			var index = dgvNguoiQuanLy.SelectedRows[0].Index;
+			int index = dgvNguoiQuanLy.SelectedRows[0].Index;
 			if (index > 0)
 			{
 				index--;
@@ -136,7 +123,7 @@ namespace QuanLyDienNang.Forms
 
 		public void GoDown()
 		{
-			var index = dgvNguoiQuanLy.SelectedRows[0].Index;
+			int index = dgvNguoiQuanLy.SelectedRows[0].Index;
 			if (index < dgvNguoiQuanLy.Rows.Count - 1)
 			{
 				index++;
@@ -158,7 +145,7 @@ namespace QuanLyDienNang.Forms
 		{
 			if (dgvNguoiQuanLy.SelectedRows.Count > 0)
 			{
-				var row = dgvNguoiQuanLy.SelectedRows[0];
+				DataGridViewRow row = dgvNguoiQuanLy.SelectedRows[0];
 				StringBuilder builder = new StringBuilder();
 				builder.Append(row.Cells[0].Value.ToString() + '\t');
 				builder.Append(row.Cells[1].Value.ToString() + '\t');
@@ -172,11 +159,17 @@ namespace QuanLyDienNang.Forms
 
 		private void LoadTable()
 		{
-			var data = NguoiQuanLy.GetAll();
+			System.Collections.Generic.List<NguoiQuanLy> data = NguoiQuanLy.GetAll();
 			if (data == null)
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
 				dgvNguoiQuanLy.DataSource = data;
+		}
+
+		private void UpdateColumnFormat()
+		{
+			dgvNguoiQuanLy.Columns[0].ReadOnly = true;
+			dgvNguoiQuanLy.Columns[0].DefaultCellStyle.Font = new Font(DefaultFont, FontStyle.Bold);
 		}
 		#endregion
 

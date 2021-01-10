@@ -103,10 +103,14 @@ namespace Business.Classes
 		}
 
 		public static List<DienNangTieuThu> GetAll()
-			=> CBO.FillCollection<DienNangTieuThu>(DataProvider.Instance.ExecuteReader("proc_GetAll_DienNangTieuThu"));
+		{
+			return CBO.FillCollection<DienNangTieuThu>(DataProvider.Instance.ExecuteReader("proc_GetAll_DienNangTieuThu"));
+		}
 
 		public static List<DienNangTieuThu> GetByDate(DateTime ngayCuoiKy)
-			=> CBO.FillCollection<DienNangTieuThu>(DataProvider.Instance.ExecuteReader("proc_GetByDate_DienNangTieuThu", ngayCuoiKy.Month, ngayCuoiKy.Year));
+		{
+			return CBO.FillCollection<DienNangTieuThu>(DataProvider.Instance.ExecuteReader("proc_GetByDate_DienNangTieuThu", ngayCuoiKy.Month, ngayCuoiKy.Year));
+		}
 
 		public static bool Insert(DienNangTieuThu dienNangTieuThu)
 		{

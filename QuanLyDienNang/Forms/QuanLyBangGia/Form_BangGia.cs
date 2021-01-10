@@ -10,7 +10,7 @@ namespace QuanLyDienNang.Forms
 {
 	public partial class Form_BangGia : Form
 	{
-		private Funcs_BangGia funcs = new Funcs_BangGia();
+		private readonly Funcs_BangGia funcs = new Funcs_BangGia();
 
 		public Form_BangGia()
 		{
@@ -39,7 +39,7 @@ namespace QuanLyDienNang.Forms
 			}
 			else if (Common.ShowQuestionDialog())
 			{
-				var ok = BangGia.Insert(new BangGia()
+				bool ok = BangGia.Insert(new BangGia()
 				{
 					MaBangGia = maBangGia,
 					TenBangGia = tenBangGia,
@@ -59,15 +59,15 @@ namespace QuanLyDienNang.Forms
 
 		private void btnXemChiTiet_Click(object sender, EventArgs e)
 		{
-			var selected = (BangGia)dgvBangGia.SelectedRows[0].DataBoundItem;
+			BangGia selected = (BangGia)dgvBangGia.SelectedRows[0].DataBoundItem;
 			Form frmChiTiet = new Form_ChiTietBangGia(selected);
 			frmChiTiet.ShowDialog();
 		}
 
 		private void dgvBangGia_CellValueChanged(object sender, DataGridViewCellEventArgs e)
 		{
-			var changedRowIndex = e.RowIndex;
-			var changedRow = dgvBangGia.Rows[changedRowIndex];
+			int changedRowIndex = e.RowIndex;
+			DataGridViewRow changedRow = dgvBangGia.Rows[changedRowIndex];
 			string maBangGia = changedRow.Cells[0].Value.ToString();
 			string tenBangGia = changedRow.Cells[1].Value.ToString();
 			string thue = changedRow.Cells[2].Value.ToString();
@@ -108,7 +108,7 @@ namespace QuanLyDienNang.Forms
 
 		public void GoUp()
 		{
-			var index = dgvBangGia.SelectedRows[0].Index;
+			int index = dgvBangGia.SelectedRows[0].Index;
 			if (index > 0)
 			{
 				index--;
@@ -118,7 +118,7 @@ namespace QuanLyDienNang.Forms
 
 		public void GoDown()
 		{
-			var index = dgvBangGia.SelectedRows[0].Index;
+			int index = dgvBangGia.SelectedRows[0].Index;
 			if (index < dgvBangGia.Rows.Count - 1)
 			{
 				index++;
@@ -140,7 +140,7 @@ namespace QuanLyDienNang.Forms
 		{
 			if (dgvBangGia.SelectedRows.Count > 0)
 			{
-				var row = dgvBangGia.SelectedRows[0];
+				DataGridViewRow row = dgvBangGia.SelectedRows[0];
 				StringBuilder builder = new StringBuilder();
 				builder.Append(row.Cells[0].Value.ToString() + '\t');
 				builder.Append(row.Cells[1].Value.ToString() + '\t');
@@ -152,7 +152,7 @@ namespace QuanLyDienNang.Forms
 
 		private void LoadTable()
 		{
-			var data = BangGia.GetAll();
+			System.Collections.Generic.List<BangGia> data = BangGia.GetAll();
 			if (data == null)
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else

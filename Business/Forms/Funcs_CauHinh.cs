@@ -30,7 +30,7 @@ namespace Business.Forms
 				RegistryKey InstanceName = hklm.OpenSubKey(@"SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL", false);
 				if (InstanceName != null)
 				{
-					foreach (var instanceName in InstanceName.GetValueNames())
+					foreach (string instanceName in InstanceName.GetValueNames())
 					{
 						servers.Add(ComputerName + "\\" + instanceName);
 					}

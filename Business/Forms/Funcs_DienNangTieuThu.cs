@@ -22,7 +22,7 @@ namespace Business.Forms
 		{
 			List<KhachHang> listKH = KhachHang.GetAll();
 			List<DienNangTieuThu> listDNTT = new List<DienNangTieuThu>();
-			foreach (var khach in listKH)
+			foreach (KhachHang khach in listKH)
 			{
 				DienNangTieuThu dienNangTieuThu = new DienNangTieuThu()
 				{
@@ -104,12 +104,12 @@ namespace Business.Forms
 		public DataTable ConvertListToDataTableForReporting(List<DienNangTieuThu> list)
 		{
 			DataTable dt = new DataTable();
-			var properties = TypeDescriptor.GetProperties(typeof(DienNangTieuThu));
+			PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(DienNangTieuThu));
 			foreach (PropertyDescriptor property in properties)
 			{
 				dt.Columns.Add(property.Name, Nullable.GetUnderlyingType(property.PropertyType) ?? property.PropertyType);
 			}
-			foreach (var dienNangTieuThu in list)
+			foreach (DienNangTieuThu dienNangTieuThu in list)
 			{
 				object[] values = new object[properties.Count];
 				for (int i = 0; i < values.Length; i++)
@@ -128,7 +128,7 @@ namespace Business.Forms
 		/// <returns>Thành công hay không</returns>
 		public bool TryInsertingListToSQL(List<DienNangTieuThu> list)
 		{
-			foreach (var dienNangTieuThu in list)
+			foreach (DienNangTieuThu dienNangTieuThu in list)
 			{
 				if (!DienNangTieuThu.TryInserting(dienNangTieuThu))
 					return false;
@@ -143,7 +143,7 @@ namespace Business.Forms
 		/// <returns>Thành công hay không</returns>
 		public bool TryUpdatingListToSQL(List<DienNangTieuThu> list)
 		{
-			foreach (var dienNangTieuThu in list)
+			foreach (DienNangTieuThu dienNangTieuThu in list)
 			{
 				if (!DienNangTieuThu.TryUpdating(dienNangTieuThu))
 					return false;
@@ -157,7 +157,7 @@ namespace Business.Forms
 		/// <param name="list">Danh sách DienNangTieuThu</param>
 		public void InsertSQL(List<DienNangTieuThu> list)
 		{
-			foreach (var dienNangTieuThu in list)
+			foreach (DienNangTieuThu dienNangTieuThu in list)
 			{
 				DienNangTieuThu.Insert(dienNangTieuThu);
 			}
@@ -169,7 +169,7 @@ namespace Business.Forms
 		/// <param name="list">Danh sách DienNangTieuThu</param>
 		public void UpdateSQL(List<DienNangTieuThu> list)
 		{
-			foreach (var dienNangTieuThu in list)
+			foreach (DienNangTieuThu dienNangTieuThu in list)
 			{
 				DienNangTieuThu.Update(dienNangTieuThu);
 			}
@@ -183,7 +183,7 @@ namespace Business.Forms
 		/// <returns>Danh sách DienNangTieuThu</returns>
 		public List<DienNangTieuThu> UpdateListForUpdating(List<DienNangTieuThu> list, string maQL)
 		{
-			foreach (var dienNangTieuThu in list)
+			foreach (DienNangTieuThu dienNangTieuThu in list)
 			{
 				dienNangTieuThu.NgayCapNhat = DateTime.Now;
 				dienNangTieuThu.NguoiCapNhat = maQL;

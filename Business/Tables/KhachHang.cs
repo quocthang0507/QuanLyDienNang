@@ -106,7 +106,9 @@ namespace Business.Classes
 		}
 
 		public static List<KhachHang> GetAll()
-			=> CBO.FillCollection<KhachHang>(DataProvider.Instance.ExecuteReader("proc_GetAll_KhachHang"));
+		{
+			return CBO.FillCollection<KhachHang>(DataProvider.Instance.ExecuteReader("proc_GetAll_KhachHang"));
+		}
 
 		public static bool Insert(KhachHang khachHang)
 		{

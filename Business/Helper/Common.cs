@@ -42,7 +42,7 @@ namespace Business.Helper
 		/// <returns></returns>
 		public static bool IsNullOrWhiteSpace(params string[] strings)
 		{
-			foreach (var str in strings)
+			foreach (string str in strings)
 			{
 				if (string.IsNullOrWhiteSpace(str))
 					return true;

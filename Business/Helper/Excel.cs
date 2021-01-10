@@ -27,14 +27,14 @@ namespace Business.Helper
 			try
 			{
 				ExcelPackage excel = new ExcelPackage();
-				var sheet = excel.Workbook.Worksheets.Add(sheetname);
+				ExcelWorksheet sheet = excel.Workbook.Worksheets.Add(sheetname);
 				Type type = list.GetType().GetGenericArguments()[0];
 				PropertyInfo[] properties = type.GetProperties();
 				// Thêm dữ liệu theo từng cột, tương ứng với tên từng thuộc tính
 				for (int col = 1; col <= properties.Length; col++)
 				{
 					// Thêm tên cột
-					var prop = properties[col - 1];
+					PropertyInfo prop = properties[col - 1];
 					sheet.Cells[1, col].Value = prop.Name;
 					sheet.Cells[1, col].Style.Font.Bold = true;
 					// Sửa lại định dạng ngày cho cột bắt đầu bằng chữ "Ngay"
@@ -43,14 +43,14 @@ namespace Business.Helper
 					// Thêm dữ liệu cho các ô thuộc cột đó
 					for (int row = 1; row <= list.Count; row++)
 					{
-						var khach = list[row - 1];
-						var value = prop.GetValue(khach);
+						dynamic khach = list[row - 1];
+						dynamic value = prop.GetValue(khach);
 						sheet.Cells[row + 1, col].Value = value;
 					}
 					// Chỉnh lại độ rộng cột
 					sheet.Column(col).AutoFit();
 				}
-				var bytes = excel.GetAsByteArray();
+				byte[] bytes = excel.GetAsByteArray();
 				excel.Dispose();
 				return bytes;
 			}
@@ -71,23 +71,23 @@ namespace Business.Helper
 			try
 			{
 				ExcelPackage excel = new ExcelPackage(new FileInfo(excelFilePath));
-				foreach (var sheet in excel.Workbook.Worksheets)
+				foreach (ExcelWorksheet sheet in excel.Workbook.Worksheets)
 				{
 					// Chọn đúng sheet
 					if (sheetname == "" && sheet.Index == index || sheet.Name.Equals(sheetname, StringComparison.OrdinalIgnoreCase))
 					{
 						DataTable dt = new DataTable();
 						// Lấy tiêu đề cột
-						foreach (var firstRowCell in sheet.Cells[1, 1, 1, sheet.Dimension.End.Column])
+						foreach (ExcelRangeBase firstRowCell in sheet.Cells[1, 1, 1, sheet.Dimension.End.Column])
 						{
 							dt.Columns.Add(firstRowCell.Text);
 						}
 						// Lấy nội dung từ dòng thứ hai
 						for (int rowNum = 2; rowNum <= sheet.Dimension.End.Row; rowNum++)
 						{
-							var row = sheet.Cells[rowNum, 1, rowNum, sheet.Dimension.End.Column];
+							ExcelRange row = sheet.Cells[rowNum, 1, rowNum, sheet.Dimension.End.Column];
 							DataRow dr = dt.Rows.Add();
-							foreach (var cell in row)
+							foreach (ExcelRangeBase cell in row)
 							{
 								dr[cell.Start.Column - 1] = cell.Text;
 							}

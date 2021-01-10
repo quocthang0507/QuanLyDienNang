@@ -12,7 +12,7 @@ namespace Business.Classes
 	{
 		[Key]
 		[DisplayName("Mã quản lý")]
-		[StringLength(5)]
+		[StringLength(10)]
 		public string MaQuanLy { get; set; }
 
 		[DisplayName("Tên quản lý")]
@@ -39,7 +39,15 @@ namespace Business.Classes
 		}
 
 		public static List<NguoiQuanLy> GetAll()
-			=> CBO.FillCollection<NguoiQuanLy>(DataProvider.Instance.ExecuteReader("proc_GetAll_NguoiQuanLy"));
+		{
+			return CBO.FillCollection<NguoiQuanLy>(DataProvider.Instance.ExecuteReader("proc_GetAll_NguoiQuanLy"));
+		}
+
+		public static bool IsDuplicatedMaQuanLy(string maQuanLy)
+		{
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_IsDuplicated_MaQuanLy", maQuanLy);
+			return result == 1;
+		}
 
 		public static bool Insert(NguoiQuanLy nguoiQuanLy)
 		{

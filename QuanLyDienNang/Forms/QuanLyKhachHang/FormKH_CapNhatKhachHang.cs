@@ -27,10 +27,10 @@ namespace QuanLyDienNang.Forms
 
 		private void btnChonTapTin_Click(object sender, EventArgs e)
 		{
-			var result = openDialog.ShowDialog();
+			DialogResult result = openDialog.ShowDialog();
 			if (result != DialogResult.OK || Common.IsNullOrWhiteSpace(openDialog.FileName))
 				return;
-			var path = openDialog.FileName;
+			string path = openDialog.FileName;
 			tbxDuongDan.Text = path;
 			LoadSheet(path);
 		}
@@ -46,7 +46,7 @@ namespace QuanLyDienNang.Forms
 						MessageBox.Show(STRINGS.WARNING_MISS_PATH_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 						return;
 					}
-					var data = funcs.ReadExcelForUpdating(tbxDuongDan.Text, cbxSheet.Text);
+					List<KhachHang> data = funcs.ReadExcelForUpdating(tbxDuongDan.Text, cbxSheet.Text);
 					if (data == null)
 						MessageBox.Show(STRINGS.ERROR_IMPORT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 					else
@@ -63,9 +63,9 @@ namespace QuanLyDienNang.Forms
 				MessageBox.Show(STRINGS.WARNING_MISS_DGV_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
-			var maQL = (cbxNguoiCapNhat.SelectedItem as NguoiQuanLy).MaQuanLy;
-			var data = funcs.UpdateListForUpdating(dgvKhachHang.DataSource as List<KhachHang>, maQL);
-			var ok = funcs.TryUpdatingDataTableToSQL(data);
+			string maQL = (cbxNguoiCapNhat.SelectedItem as NguoiQuanLy).MaQuanLy;
+			List<KhachHang> data = funcs.UpdateListForUpdating(dgvKhachHang.DataSource as List<KhachHang>, maQL);
+			bool ok = funcs.TryUpdatingDataTableToSQL(data);
 			if (ok)
 			{
 				funcs.UpdateSQL(dgvKhachHang.DataSource as List<KhachHang>);
@@ -81,7 +81,7 @@ namespace QuanLyDienNang.Forms
 		#region Methods
 		private void LoadSheet(string path)
 		{
-			var data = funcs.GetSheetNamesOnExcel(path);
+			List<string> data = funcs.GetSheetNamesOnExcel(path);
 			if (data == null)
 				MessageBox.Show(STRINGS.ERROR_IMPORT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
@@ -90,7 +90,7 @@ namespace QuanLyDienNang.Forms
 
 		private void LoadNguoiQuanLy()
 		{
-			var data = NguoiQuanLy.GetAll();
+			List<NguoiQuanLy> data = NguoiQuanLy.GetAll();
 			if (data == null)
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
@@ -105,7 +105,7 @@ namespace QuanLyDienNang.Forms
 
 		public void GoUp()
 		{
-			var index = dgvKhachHang.SelectedRows[0].Index;
+			int index = dgvKhachHang.SelectedRows[0].Index;
 			if (index > 0)
 			{
 				index--;
@@ -115,7 +115,7 @@ namespace QuanLyDienNang.Forms
 
 		public void GoDown()
 		{
-			var index = dgvKhachHang.SelectedRows[0].Index;
+			int index = dgvKhachHang.SelectedRows[0].Index;
 			if (index < dgvKhachHang.Rows.Count - 1)
 			{
 				index++;
@@ -137,7 +137,7 @@ namespace QuanLyDienNang.Forms
 		{
 			if (dgvKhachHang.SelectedRows.Count > 0)
 			{
-				var row = dgvKhachHang.SelectedRows[0];
+				DataGridViewRow row = dgvKhachHang.SelectedRows[0];
 				StringBuilder builder = new StringBuilder();
 				for (int i = 0; i < row.Cells.Count; i++)
 				{

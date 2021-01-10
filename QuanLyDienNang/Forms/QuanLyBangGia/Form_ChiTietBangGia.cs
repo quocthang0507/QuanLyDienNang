@@ -8,7 +8,7 @@ namespace QuanLyDienNang.Forms
 {
 	public partial class Form_ChiTietBangGia : Form
 	{
-		private BangGia bangGia;
+		private readonly BangGia bangGia;
 
 		public Form_ChiTietBangGia(BangGia bangGia)
 		{
@@ -64,8 +64,8 @@ namespace QuanLyDienNang.Forms
 
 		private void dgvChiTietGia_CellValueChanged(object sender, DataGridViewCellEventArgs e)
 		{
-			var changedRowIndex = e.RowIndex;
-			var changedRow = dgvChiTietGia.Rows[changedRowIndex];
+			int changedRowIndex = e.RowIndex;
+			DataGridViewRow changedRow = dgvChiTietGia.Rows[changedRowIndex];
 			string id = changedRow.Cells[0].Value.ToString();
 			string maBangGia = changedRow.Cells[1].Value.ToString();
 			string batDau = changedRow.Cells[2].Value.ToString();
@@ -100,7 +100,7 @@ namespace QuanLyDienNang.Forms
 		#region Methods
 		private void LoadTableByMaBangGia()
 		{
-			var data = ChiTietBangGia.GetByBangGia(bangGia.MaBangGia);
+			System.Collections.Generic.List<ChiTietBangGia> data = ChiTietBangGia.GetByBangGia(bangGia.MaBangGia);
 			if (data == null)
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
