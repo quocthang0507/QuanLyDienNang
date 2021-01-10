@@ -108,8 +108,17 @@ namespace QuanLyDienNang.Forms
 
 		private void btnBangDienApGia_Click(object sender, EventArgs e)
 		{
-			Form frmBangDienApGia = new Form_BangDienApGia();
-			frmBangDienApGia.ShowDialog();
+			DataGridViewRow selectedRow = dgvChiTietGia.SelectedRows[0];
+			ChiTietBangGia chiTietBangGia = selectedRow.DataBoundItem as ChiTietBangGia;
+			if (chiTietBangGia.ApGia)
+			{
+				Form frmBangDienApGia = new Form_BangDienApGia();
+				frmBangDienApGia.ShowDialog();
+			}
+			else
+			{
+				MessageBox.Show(STRINGS.WARNING_NO_PERCENT_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}
 		}
 		#endregion
 

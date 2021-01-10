@@ -13,6 +13,7 @@ namespace Business.Tables
 		public string MaBangGia { get; set; }
 
 		[DisplayName("Tỷ lệ (0..1)")]
+		[DefaultValue(0f)]
 		public float TyLe { get; set; }
 
 		[DisplayName("Tên bảng điện áp gía")]

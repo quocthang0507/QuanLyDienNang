@@ -185,7 +185,7 @@ CREATE TABLE BangDienApGia
 (
 	MaChiTiet varchar(30) not null references ChiTietBangGia(MaChiTiet),
 	MaBangGia varchar(20) not null references BangGia(MaBangGia),
-	TyLe tinyint not null,
+	TyLe tinyint not null default 0,
 	TenBangDien nvarchar(150) not null,
 	Constraint PK_BangDienApGia primary key (MaChiTiet, MaBangGia)
 )
