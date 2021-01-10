@@ -66,7 +66,7 @@ namespace QuanLyDienNang.Forms
 		{
 			int changedRowIndex = e.RowIndex;
 			DataGridViewRow changedRow = dgvChiTietGia.Rows[changedRowIndex];
-			string id = changedRow.Cells[0].Value.ToString();
+			string maChiTiet = changedRow.Cells[0].Value.ToString();
 			string maBangGia = changedRow.Cells[1].Value.ToString();
 			string batDau = changedRow.Cells[2].Value.ToString();
 			string ketThuc = changedRow.Cells[3].Value.ToString();
@@ -81,7 +81,7 @@ namespace QuanLyDienNang.Forms
 			{
 				ChiTietBangGia.Update(new ChiTietBangGia()
 				{
-					ID = int.Parse(id),
+					MaChiTiet = maChiTiet,
 					MaBangGia = maBangGia,
 					MoTa = moTa,
 					DonGia = int.Parse(donGia),
@@ -91,9 +91,15 @@ namespace QuanLyDienNang.Forms
 				});
 			}
 		}
+
 		private void dgvChiTietGia_DataError(object sender, DataGridViewDataErrorEventArgs e)
 		{
 			MessageBox.Show(STRINGS.ERROR_COMMIT_DATAGRIDVIEW_MESSAGE + e.Context.ToString(), STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+
+		private void dgvChiTietGia_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+		{
+			dgvChiTietGia.AutoResizeColumns();
 		}
 		#endregion
 

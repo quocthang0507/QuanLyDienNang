@@ -13,26 +13,26 @@ namespace Business.Classes
 	{
 		[Key]
 		[DisplayName("Mã khách hàng")]
-		[StringLength(9)]
+		[StringLength(10)]
 		public string MaKhachHang { get; set; }
 
 		[DisplayName("Họ và tên")]
-		[StringLength(150)]
+		[StringLength(100)]
 		[Required]
 		public string HoVaTen { get; set; }
 
 		[DisplayName("Địa chỉ")]
-		[StringLength(200)]
+		[StringLength(250)]
 		[Required]
 		public string DiaChi { get; set; }
 
 		[DisplayName("Mã bảng giá")]
-		[StringLength(5)]
+		[StringLength(20)]
 		[Required]
 		public string MaBangGia { get; set; }
 
 		[DisplayName("Mã trạm biến áp")]
-		[StringLength(5)]
+		[StringLength(20)]
 		[Required]
 		public string MaTram { get; set; }
 
@@ -63,7 +63,7 @@ namespace Business.Classes
 		public DateTime NgayTao { get; set; }
 
 		[DisplayName("Người tạo")]
-		[StringLength(5)]
+		[StringLength(20)]
 		[Required]
 		public string NguoiTao { get; set; }
 
@@ -72,7 +72,7 @@ namespace Business.Classes
 		public DateTime NgayCapNhat { get; set; }
 
 		[DisplayName("Người cập nhật")]
-		[StringLength(5)]
+		[StringLength(20)]
 		[Required]
 		public string NguoiCapNhat { get; set; }
 
@@ -92,7 +92,7 @@ namespace Business.Classes
 		public string SoNganHang { get; set; }
 
 		[DisplayName("Tên ngân hàng")]
-		[StringLength(100)]
+		[StringLength(150)]
 		public string TenNganHang { get; set; }
 
 		[DisplayName("Đã xóa")]
@@ -136,15 +136,8 @@ namespace Business.Classes
 
 		public static bool Delete(string id)
 		{
-			try
-			{
-				int result = DataProvider.Instance.ExecuteNonQuery("proc_Delete_KhachHang", id);
-				return result > 0;
-			}
-			catch (Exception)
-			{
-				return false;
-			}
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_Delete_KhachHang", id);
+			return result > 0;
 		}
 
 		public static List<KhachHang> Filter(string diaChi, string maBangGia, string maTram, string tenNganHang)

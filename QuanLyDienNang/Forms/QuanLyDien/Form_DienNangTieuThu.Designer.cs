@@ -35,6 +35,8 @@
 			this.tableTop = new System.Windows.Forms.TableLayoutPanel();
 			this.tableRightTop = new System.Windows.Forms.TableLayoutPanel();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.btnKySau = new System.Windows.Forms.Button();
+			this.btnKyTruoc = new System.Windows.Forms.Button();
 			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
 			this.cbxNguoiQuanLy = new System.Windows.Forms.ComboBox();
 			this.dtpCuoiKy = new System.Windows.Forms.DateTimePicker();
@@ -70,8 +72,6 @@
 			this.label7 = new System.Windows.Forms.Label();
 			this.saveDialog = new System.Windows.Forms.SaveFileDialog();
 			this.openDialog = new System.Windows.Forms.OpenFileDialog();
-			this.btnKyTruoc = new System.Windows.Forms.Button();
-			this.btnKySau = new System.Windows.Forms.Button();
 			this.tableParent.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvDienNangTieuThu)).BeginInit();
 			this.tableTop.SuspendLayout();
@@ -129,6 +129,7 @@
 			this.dgvDienNangTieuThu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dgvDienNangTieuThu.Size = new System.Drawing.Size(1078, 435);
 			this.dgvDienNangTieuThu.TabIndex = 1;
+			this.dgvDienNangTieuThu.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvDienNangTieuThu_DataBindingComplete);
 			// 
 			// tableTop
 			// 
@@ -182,28 +183,50 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Thông tin về kỳ hiện tại";
 			// 
+			// btnKySau
+			// 
+			this.btnKySau.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnKySau.Location = new System.Drawing.Point(470, 83);
+			this.btnKySau.Name = "btnKySau";
+			this.btnKySau.Size = new System.Drawing.Size(104, 40);
+			this.btnKySau.TabIndex = 16;
+			this.btnKySau.Text = "Kỳ sau >";
+			this.btnKySau.UseVisualStyleBackColor = true;
+			this.btnKySau.Click += new System.EventHandler(this.btnKySau_Click);
+			// 
+			// btnKyTruoc
+			// 
+			this.btnKyTruoc.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnKyTruoc.Location = new System.Drawing.Point(8, 82);
+			this.btnKyTruoc.Name = "btnKyTruoc";
+			this.btnKyTruoc.Size = new System.Drawing.Size(104, 40);
+			this.btnKyTruoc.TabIndex = 13;
+			this.btnKyTruoc.Text = "< Kỳ trước";
+			this.btnKyTruoc.UseVisualStyleBackColor = true;
+			this.btnKyTruoc.Click += new System.EventHandler(this.btnKyTruoc_Click);
+			// 
 			// numericUpDown1
 			// 
 			this.numericUpDown1.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.numericUpDown1.Location = new System.Drawing.Point(47, 24);
 			this.numericUpDown1.Maximum = new decimal(new int[] {
-			10,
-			0,
-			0,
-			0});
+            10,
+            0,
+            0,
+            0});
 			this.numericUpDown1.Minimum = new decimal(new int[] {
-			1,
-			0,
-			0,
-			0});
+            1,
+            0,
+            0,
+            0});
 			this.numericUpDown1.Name = "numericUpDown1";
 			this.numericUpDown1.Size = new System.Drawing.Size(50, 25);
 			this.numericUpDown1.TabIndex = 9;
 			this.numericUpDown1.Value = new decimal(new int[] {
-			1,
-			0,
-			0,
-			0});
+            1,
+            0,
+            0,
+            0});
 			// 
 			// cbxNguoiQuanLy
 			// 
@@ -414,9 +437,9 @@
 			// 
 			// btnXuatTatCa
 			// 
-			this.btnXuatTatCa.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-			| System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.btnXuatTatCa.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.btnXuatTatCa.Image = global::QuanLyDienNang.Properties.Resources.Search1;
 			this.btnXuatTatCa.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.btnXuatTatCa.Location = new System.Drawing.Point(5, 85);
@@ -430,9 +453,9 @@
 			// 
 			// btnTimKiem
 			// 
-			this.btnTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-			| System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.btnTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.btnTimKiem.Image = global::QuanLyDienNang.Properties.Resources.Search;
 			this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.btnTimKiem.Location = new System.Drawing.Point(5, 26);
@@ -466,8 +489,8 @@
 			// 
 			// chkConNo
 			// 
-			this.chkConNo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.chkConNo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.chkConNo.AutoSize = true;
 			this.chkConNo.Location = new System.Drawing.Point(85, 136);
 			this.chkConNo.Name = "chkConNo";
@@ -508,8 +531,8 @@
 			// 
 			// tbxDiaChi
 			// 
-			this.tbxDiaChi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.tbxDiaChi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.tbxDiaChi.Location = new System.Drawing.Point(85, 76);
 			this.tbxDiaChi.Name = "tbxDiaChi";
 			this.tbxDiaChi.Size = new System.Drawing.Size(278, 25);
@@ -527,8 +550,8 @@
 			// 
 			// label4
 			// 
-			this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.label4.AutoSize = true;
 			this.label4.Location = new System.Drawing.Point(27, 79);
 			this.label4.Name = "label4";
@@ -538,8 +561,8 @@
 			// 
 			// label3
 			// 
-			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.label3.AutoSize = true;
 			this.label3.Location = new System.Drawing.Point(37, 50);
 			this.label3.Name = "label3";
@@ -549,8 +572,8 @@
 			// 
 			// cbxBangGia
 			// 
-			this.cbxBangGia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.cbxBangGia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.cbxBangGia.DisplayMember = "TenBangGia";
 			this.cbxBangGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbxBangGia.FormattingEnabled = true;
@@ -562,8 +585,8 @@
 			// 
 			// label5
 			// 
-			this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.label5.AutoSize = true;
 			this.label5.Location = new System.Drawing.Point(15, 108);
 			this.label5.Name = "label5";
@@ -573,8 +596,8 @@
 			// 
 			// cbxTenTram
 			// 
-			this.cbxTenTram.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.cbxTenTram.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.cbxTenTram.DisplayMember = "TenTram";
 			this.cbxTenTram.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbxTenTram.FormattingEnabled = true;
@@ -586,8 +609,8 @@
 			// 
 			// label7
 			// 
-			this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-			| System.Windows.Forms.AnchorStyles.Right)));
+			this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.label7.AutoSize = true;
 			this.label7.Location = new System.Drawing.Point(7, 136);
 			this.label7.Name = "label7";
@@ -606,28 +629,6 @@
 			// openDialog
 			// 
 			this.openDialog.Filter = "Excel Workbook (.xlsx)|*.xlsx|Excel 97-2003 Workbook (.xls)|*.xls";
-			// 
-			// btnKyTruoc
-			// 
-			this.btnKyTruoc.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnKyTruoc.Location = new System.Drawing.Point(8, 82);
-			this.btnKyTruoc.Name = "btnKyTruoc";
-			this.btnKyTruoc.Size = new System.Drawing.Size(104, 40);
-			this.btnKyTruoc.TabIndex = 13;
-			this.btnKyTruoc.Text = "< Kỳ trước";
-			this.btnKyTruoc.UseVisualStyleBackColor = true;
-			this.btnKyTruoc.Click += new System.EventHandler(this.btnKyTruoc_Click);
-			// 
-			// btnKySau
-			// 
-			this.btnKySau.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnKySau.Location = new System.Drawing.Point(470, 83);
-			this.btnKySau.Name = "btnKySau";
-			this.btnKySau.Size = new System.Drawing.Size(104, 40);
-			this.btnKySau.TabIndex = 16;
-			this.btnKySau.Text = "Kỳ sau >";
-			this.btnKySau.UseVisualStyleBackColor = true;
-			this.btnKySau.Click += new System.EventHandler(this.btnKySau_Click);
 			// 
 			// Form_DienNangTieuThu
 			// 

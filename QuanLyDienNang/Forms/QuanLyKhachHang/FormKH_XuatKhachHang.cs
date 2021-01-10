@@ -79,6 +79,10 @@ namespace QuanLyDienNang.Forms
 			}
 		}
 
+		private void dgvKhachHang_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+		{
+			dgvKhachHang.AutoResizeColumns();
+		}
 		#endregion
 
 		#region Methods

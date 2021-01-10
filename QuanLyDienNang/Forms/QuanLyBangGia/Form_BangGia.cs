@@ -97,6 +97,11 @@ namespace QuanLyDienNang.Forms
 		{
 			MessageBox.Show(STRINGS.ERROR_COMMIT_DATAGRIDVIEW_MESSAGE + e.Context.ToString(), STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
+
+		private void dgvBangGia_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+		{
+			dgvBangGia.AutoResizeColumns();
+		}
 		#endregion
 
 		#region Methods
@@ -165,6 +170,5 @@ namespace QuanLyDienNang.Forms
 			dgvBangGia.Columns[0].DefaultCellStyle.Font = new Font(DefaultFont, FontStyle.Bold);
 		}
 		#endregion
-
 	}
 }

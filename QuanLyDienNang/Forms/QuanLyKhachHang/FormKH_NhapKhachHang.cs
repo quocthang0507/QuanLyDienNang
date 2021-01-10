@@ -91,6 +91,10 @@ namespace QuanLyDienNang.Forms
 				MessageBox.Show(STRINGS.ERROR_NOT_FOUND_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
+		private void dgvKhachHang_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+		{
+			dgvKhachHang.AutoResizeColumns();
+		}
 		#endregion
 
 		#region Methods

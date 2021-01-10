@@ -35,8 +35,8 @@ namespace QuanLyDienNang.Forms
 			this.dgvNguoiQuanLy = new System.Windows.Forms.DataGridView();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.label8 = new System.Windows.Forms.Label();
+			this.label9 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
-			this.btnXoa = new System.Windows.Forms.Button();
 			this.btnThem = new System.Windows.Forms.Button();
 			this.tbxEmail = new System.Windows.Forms.TextBox();
 			this.tbxDiaChi = new System.Windows.Forms.TextBox();
@@ -48,7 +48,6 @@ namespace QuanLyDienNang.Forms
 			this.label4 = new System.Windows.Forms.Label();
 			this.tbxMaNQL = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
-			this.label9 = new System.Windows.Forms.Label();
 			this.tableParent.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvNguoiQuanLy)).BeginInit();
 			this.panel1.SuspendLayout();
@@ -97,6 +96,7 @@ namespace QuanLyDienNang.Forms
 			this.dgvNguoiQuanLy.Size = new System.Drawing.Size(978, 355);
 			this.dgvNguoiQuanLy.TabIndex = 1;
 			this.dgvNguoiQuanLy.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNguoiQuanLy_CellValueChanged);
+			this.dgvNguoiQuanLy.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvNguoiQuanLy_DataBindingComplete);
 			this.dgvNguoiQuanLy.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvNguoiQuanLy_DataError);
 			// 
 			// panel1
@@ -104,7 +104,6 @@ namespace QuanLyDienNang.Forms
 			this.panel1.Controls.Add(this.label8);
 			this.panel1.Controls.Add(this.label9);
 			this.panel1.Controls.Add(this.label7);
-			this.panel1.Controls.Add(this.btnXoa);
 			this.panel1.Controls.Add(this.btnThem);
 			this.panel1.Controls.Add(this.tbxEmail);
 			this.panel1.Controls.Add(this.tbxDiaChi);
@@ -128,11 +127,23 @@ namespace QuanLyDienNang.Forms
 			this.label8.AutoSize = true;
 			this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label8.ForeColor = System.Drawing.Color.Red;
-			this.label8.Location = new System.Drawing.Point(931, 49);
+			this.label8.Location = new System.Drawing.Point(931, 39);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(21, 17);
 			this.label8.TabIndex = 9;
 			this.label8.Text = "(*)";
+			// 
+			// label9
+			// 
+			this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label9.AutoSize = true;
+			this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label9.ForeColor = System.Drawing.Color.Red;
+			this.label9.Location = new System.Drawing.Point(650, 10);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(21, 17);
+			this.label9.TabIndex = 9;
+			this.label9.Text = "(*)";
 			// 
 			// label7
 			// 
@@ -140,32 +151,18 @@ namespace QuanLyDienNang.Forms
 			this.label7.AutoSize = true;
 			this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label7.ForeColor = System.Drawing.Color.Red;
-			this.label7.Location = new System.Drawing.Point(464, 49);
+			this.label7.Location = new System.Drawing.Point(464, 39);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(21, 17);
 			this.label7.TabIndex = 9;
 			this.label7.Text = "(*)";
-			// 
-			// btnXoa
-			// 
-			this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnXoa.Image = global::QuanLyDienNang.Properties.Resources.Delete1;
-			this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnXoa.Location = new System.Drawing.Point(552, 115);
-			this.btnXoa.Name = "btnXoa";
-			this.btnXoa.Size = new System.Drawing.Size(87, 40);
-			this.btnXoa.TabIndex = 8;
-			this.btnXoa.Text = "Xóa";
-			this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.btnXoa.UseVisualStyleBackColor = true;
-			this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
 			// 
 			// btnThem
 			// 
 			this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnThem.Image = global::QuanLyDienNang.Properties.Resources.Add1;
 			this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnThem.Location = new System.Drawing.Point(333, 115);
+			this.btnThem.Location = new System.Drawing.Point(698, 110);
 			this.btnThem.Name = "btnThem";
 			this.btnThem.Size = new System.Drawing.Size(95, 40);
 			this.btnThem.TabIndex = 6;
@@ -177,26 +174,27 @@ namespace QuanLyDienNang.Forms
 			// tbxEmail
 			// 
 			this.tbxEmail.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxEmail.Location = new System.Drawing.Point(552, 77);
+			this.tbxEmail.Location = new System.Drawing.Point(168, 101);
 			this.tbxEmail.MaxLength = 100;
 			this.tbxEmail.Name = "tbxEmail";
-			this.tbxEmail.Size = new System.Drawing.Size(373, 25);
-			this.tbxEmail.TabIndex = 5;
+			this.tbxEmail.Size = new System.Drawing.Size(290, 25);
+			this.tbxEmail.TabIndex = 4;
 			// 
 			// tbxDiaChi
 			// 
 			this.tbxDiaChi.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxDiaChi.Location = new System.Drawing.Point(552, 49);
-			this.tbxDiaChi.MaxLength = 200;
+			this.tbxDiaChi.Location = new System.Drawing.Point(552, 39);
+			this.tbxDiaChi.MaxLength = 250;
+			this.tbxDiaChi.Multiline = true;
 			this.tbxDiaChi.Name = "tbxDiaChi";
-			this.tbxDiaChi.Size = new System.Drawing.Size(373, 25);
-			this.tbxDiaChi.TabIndex = 4;
+			this.tbxDiaChi.Size = new System.Drawing.Size(373, 60);
+			this.tbxDiaChi.TabIndex = 5;
 			// 
 			// label6
 			// 
 			this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(502, 80);
+			this.label6.Location = new System.Drawing.Point(116, 104);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(44, 19);
 			this.label6.TabIndex = 0;
@@ -205,8 +203,8 @@ namespace QuanLyDienNang.Forms
 			// tbxTenNQL
 			// 
 			this.tbxTenNQL.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxTenNQL.Location = new System.Drawing.Point(168, 49);
-			this.tbxTenNQL.MaxLength = 150;
+			this.tbxTenNQL.Location = new System.Drawing.Point(168, 42);
+			this.tbxTenNQL.MaxLength = 100;
 			this.tbxTenNQL.Name = "tbxTenNQL";
 			this.tbxTenNQL.Size = new System.Drawing.Size(290, 25);
 			this.tbxTenNQL.TabIndex = 2;
@@ -215,7 +213,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(493, 52);
+			this.label5.Location = new System.Drawing.Point(493, 42);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(53, 19);
 			this.label5.TabIndex = 0;
@@ -225,7 +223,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(39, 49);
+			this.label3.Location = new System.Drawing.Point(39, 39);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(121, 19);
 			this.label3.TabIndex = 0;
@@ -234,7 +232,7 @@ namespace QuanLyDienNang.Forms
 			// tbxSoDT
 			// 
 			this.tbxSoDT.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxSoDT.Location = new System.Drawing.Point(168, 80);
+			this.tbxSoDT.Location = new System.Drawing.Point(168, 70);
 			this.tbxSoDT.MaxLength = 20;
 			this.tbxSoDT.Name = "tbxSoDT";
 			this.tbxSoDT.Size = new System.Drawing.Size(153, 25);
@@ -244,7 +242,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(68, 80);
+			this.label4.Location = new System.Drawing.Point(68, 70);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(92, 19);
 			this.label4.TabIndex = 0;
@@ -253,8 +251,8 @@ namespace QuanLyDienNang.Forms
 			// tbxMaNQL
 			// 
 			this.tbxMaNQL.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxMaNQL.Location = new System.Drawing.Point(485, 15);
-			this.tbxMaNQL.MaxLength = 10;
+			this.tbxMaNQL.Location = new System.Drawing.Point(485, 5);
+			this.tbxMaNQL.MaxLength = 20;
 			this.tbxMaNQL.Name = "tbxMaNQL";
 			this.tbxMaNQL.Size = new System.Drawing.Size(159, 25);
 			this.tbxMaNQL.TabIndex = 1;
@@ -263,23 +261,11 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(346, 18);
+			this.label2.Location = new System.Drawing.Point(346, 8);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(120, 19);
 			this.label2.TabIndex = 0;
 			this.label2.Text = "Mã người quản lý:";
-			// 
-			// label9
-			// 
-			this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label9.AutoSize = true;
-			this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label9.ForeColor = System.Drawing.Color.Red;
-			this.label9.Location = new System.Drawing.Point(650, 20);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(21, 17);
-			this.label9.TabIndex = 9;
-			this.label9.Text = "(*)";
 			// 
 			// Form_NguoiQuanLy
 			// 
@@ -317,7 +303,6 @@ namespace QuanLyDienNang.Forms
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox tbxEmail;
 		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.Button btnXoa;
 		private System.Windows.Forms.Button btnThem;
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.Label label7;

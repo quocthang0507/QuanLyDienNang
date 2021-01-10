@@ -12,16 +12,16 @@ namespace Business.Classes
 	{
 		[Key]
 		[DisplayName("Mã trạm biến áp")]
-		[StringLength(10)]
+		[StringLength(20)]
 		public string MaTram { get; set; }
 
 		[DisplayName("Tên trạm biến áp")]
-		[StringLength(100)]
+		[StringLength(150)]
 		[Required]
 		public string TenTram { get; set; }
 
 		[DisplayName("Địa chỉ")]
-		[StringLength(200)]
+		[StringLength(250)]
 		public string DiaChi { get; set; }
 
 		[DisplayName("Người phụ trách")]
@@ -72,15 +72,8 @@ namespace Business.Classes
 
 		public static bool Delete(string id)
 		{
-			try
-			{
-				int result = DataProvider.Instance.ExecuteNonQuery("proc_Delete_TramBienAp", id);
-				return result > 0;
-			}
-			catch (Exception)
-			{
-				return false;
-			}
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_Delete_TramBienAp", id);
+			return result > 0;
 		}
 	}
 }

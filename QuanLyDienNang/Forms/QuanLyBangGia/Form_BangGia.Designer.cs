@@ -98,6 +98,7 @@ namespace QuanLyDienNang.Forms
 			this.dgvBangGia.Size = new System.Drawing.Size(978, 405);
 			this.dgvBangGia.TabIndex = 1;
 			this.dgvBangGia.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBangGia_CellValueChanged);
+			this.dgvBangGia.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvBangGia_DataBindingComplete);
 			this.dgvBangGia.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvBangGia_DataError);
 			// 
 			// panel1
@@ -178,7 +179,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.tbxMaBangGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.tbxMaBangGia.Location = new System.Drawing.Point(101, 21);
-			this.tbxMaBangGia.MaxLength = 10;
+			this.tbxMaBangGia.MaxLength = 20;
 			this.tbxMaBangGia.Name = "tbxMaBangGia";
 			this.tbxMaBangGia.Size = new System.Drawing.Size(122, 25);
 			this.tbxMaBangGia.TabIndex = 1;
@@ -231,7 +232,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.tbxTenBangGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.tbxTenBangGia.Location = new System.Drawing.Point(101, 51);
-			this.tbxTenBangGia.MaxLength = 100;
+			this.tbxTenBangGia.MaxLength = 150;
 			this.tbxTenBangGia.Multiline = true;
 			this.tbxTenBangGia.Name = "tbxTenBangGia";
 			this.tbxTenBangGia.Size = new System.Drawing.Size(391, 50);

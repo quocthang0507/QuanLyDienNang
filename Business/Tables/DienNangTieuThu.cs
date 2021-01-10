@@ -138,15 +138,8 @@ namespace Business.Classes
 
 		public static bool Delete(int id)
 		{
-			try
-			{
-				int result = DataProvider.Instance.ExecuteNonQuery("proc_Delete_DienNangTieuThu", id);
-				return result > 0;
-			}
-			catch (Exception)
-			{
-				return false;
-			}
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_Delete_DienNangTieuThu", id);
+			return result > 0;
 		}
 
 		public static List<DienNangTieuThu> Filter(DateTime batDau, DateTime ketThuc, string maTram, string diaChi, string maBangGia, bool conNo)

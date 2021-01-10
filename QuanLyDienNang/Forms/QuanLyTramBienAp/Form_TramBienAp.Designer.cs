@@ -100,6 +100,7 @@ namespace QuanLyDienNang.Forms
 			this.dgvTramBienAp.Size = new System.Drawing.Size(978, 385);
 			this.dgvTramBienAp.TabIndex = 1;
 			this.dgvTramBienAp.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTramBienAp_CellValueChanged);
+			this.dgvTramBienAp.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvTramBienAp_DataBindingComplete);
 			this.dgvTramBienAp.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvTramBienAp_DataError);
 			// 
 			// panel1
@@ -165,7 +166,7 @@ namespace QuanLyDienNang.Forms
 			// nudHeSoNhan
 			// 
 			this.nudHeSoNhan.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.nudHeSoNhan.Location = new System.Drawing.Point(626, 72);
+			this.nudHeSoNhan.Location = new System.Drawing.Point(626, 75);
 			this.nudHeSoNhan.Minimum = new decimal(new int[] {
             1,
             0,
@@ -199,7 +200,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.tbxDiaChi.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.tbxDiaChi.Location = new System.Drawing.Point(99, 71);
-			this.tbxDiaChi.MaxLength = 200;
+			this.tbxDiaChi.MaxLength = 250;
 			this.tbxDiaChi.Multiline = true;
 			this.tbxDiaChi.Name = "tbxDiaChi";
 			this.tbxDiaChi.Size = new System.Drawing.Size(359, 50);
@@ -209,7 +210,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.tbxTenTram.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.tbxTenTram.Location = new System.Drawing.Point(99, 39);
-			this.tbxTenTram.MaxLength = 100;
+			this.tbxTenTram.MaxLength = 150;
 			this.tbxTenTram.Name = "tbxTenTram";
 			this.tbxTenTram.Size = new System.Drawing.Size(359, 25);
 			this.tbxTenTram.TabIndex = 2;
@@ -276,7 +277,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.tbxMaTram.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.tbxMaTram.Location = new System.Drawing.Point(99, 8);
-			this.tbxMaTram.MaxLength = 10;
+			this.tbxMaTram.MaxLength = 20;
 			this.tbxMaTram.Name = "tbxMaTram";
 			this.tbxMaTram.Size = new System.Drawing.Size(169, 25);
 			this.tbxMaTram.TabIndex = 1;

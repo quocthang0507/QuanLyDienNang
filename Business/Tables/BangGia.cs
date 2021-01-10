@@ -12,11 +12,11 @@ namespace Business.Classes
 	{
 		[Key]
 		[DisplayName("Mã bảng giá")]
-		[StringLength(10)]
+		[StringLength(20)]
 		public string MaBangGia { get; set; }
 
 		[DisplayName("Tên bảng giá")]
-		[StringLength(100)]
+		[StringLength(150)]
 		[Required]
 		public string TenBangGia { get; set; }
 
@@ -60,15 +60,8 @@ namespace Business.Classes
 
 		public static bool Delete(string id)
 		{
-			try
-			{
-				int result = DataProvider.Instance.ExecuteNonQuery("proc_Delete_BangGia", id);
-				return result > 0;
-			}
-			catch (Exception)
-			{
-				return false;
-			}
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_Delete_BangGia", id);
+			return result > 0;
 		}
 	}
 }

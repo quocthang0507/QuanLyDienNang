@@ -222,6 +222,7 @@ namespace QuanLyDienNang.Forms
 			this.dgvKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dgvKhachHang.Size = new System.Drawing.Size(978, 375);
 			this.dgvKhachHang.TabIndex = 13;
+			this.dgvKhachHang.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvKhachHang_DataBindingComplete);
 			// 
 			// openDialog
 			// 

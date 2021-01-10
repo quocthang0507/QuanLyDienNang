@@ -182,6 +182,11 @@ namespace QuanLyDienNang.Forms
 		{
 			dtpCuoiKy.Value = dtpCuoiKy.Value.AddMonths(1);
 		}
+
+		private void dgvDienNangTieuThu_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+		{
+			dgvDienNangTieuThu.AutoResizeColumns();
+		}
 		#endregion
 
 		#region Methods
@@ -270,8 +275,8 @@ namespace QuanLyDienNang.Forms
 			return string.Empty;
 		}
 
-		#endregion
 
+		#endregion
 
 	}
 }

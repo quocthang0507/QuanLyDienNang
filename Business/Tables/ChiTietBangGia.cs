@@ -11,11 +11,12 @@ namespace Business.Classes
 	public class ChiTietBangGia
 	{
 		[Key]
-		[DisplayName("ID")]
-		public int ID { get; set; }
+		[DisplayName("Mã chi tiết")]
+		[StringLength(20)]
+		public string MaChiTiet { get; set; }
 
 		[DisplayName("Mã bảng giá")]
-		[StringLength(10)]
+		[StringLength(20)]
 		[Required]
 		public string MaBangGia { get; set; }
 
@@ -32,7 +33,7 @@ namespace Business.Classes
 		public int DonGia { get; set; }
 
 		[DisplayName("Mô tả")]
-		[StringLength(200)]
+		[StringLength(250)]
 		public string MoTa { get; set; }
 
 		[DisplayName("Kích hoạt")]
@@ -63,21 +64,14 @@ namespace Business.Classes
 
 		public static bool Update(ChiTietBangGia chiTietBangGia)
 		{
-			int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_ChiTietBangGia", chiTietBangGia.ID, chiTietBangGia.MaBangGia, chiTietBangGia.BatDau, chiTietBangGia.KetThuc, chiTietBangGia.DonGia, chiTietBangGia.MoTa, chiTietBangGia.KichHoat);
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_ChiTietBangGia", chiTietBangGia.MaBangGia, chiTietBangGia.MaBangGia, chiTietBangGia.BatDau, chiTietBangGia.KetThuc, chiTietBangGia.DonGia, chiTietBangGia.MoTa, chiTietBangGia.KichHoat);
 			return result > 0;
 		}
 
 		public static bool Delete(int id)
 		{
-			try
-			{
-				int result = DataProvider.Instance.ExecuteNonQuery("proc_Delete_ChiTietBangGia", id);
-				return result > 0;
-			}
-			catch (Exception)
-			{
-				return false;
-			}
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_Delete_ChiTietBangGia", id);
+			return result > 0;
 		}
 
 	}

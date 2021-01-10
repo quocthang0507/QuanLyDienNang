@@ -23,11 +23,12 @@ namespace QuanLyDienNang.Forms
 
 		private void btnThem_Click(object sender, EventArgs e)
 		{
-			string ten = tbxTenNQL.Text;
-			string sdt = tbxSoDT.Text;
-			string dc = tbxDiaChi.Text;
+			string maQuanLy = tbxMaNQL.Text;
+			string tenQuanLy = tbxTenNQL.Text;
+			string soDienThoai = tbxSoDT.Text;
+			string diaChi = tbxDiaChi.Text;
 			string email = tbxEmail.Text;
-			if (Common.IsNullOrWhiteSpace(ten, dc))
+			if (Common.IsNullOrWhiteSpace(maQuanLy, tenQuanLy, diaChi))
 			{
 				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
@@ -36,9 +37,10 @@ namespace QuanLyDienNang.Forms
 			{
 				bool ok = NguoiQuanLy.Insert(new NguoiQuanLy()
 				{
-					TenQuanLy = ten,
-					SoDienThoai = sdt,
-					DiaChi = dc,
+					MaQuanLy = maQuanLy,
+					TenQuanLy = tenQuanLy,
+					SoDienThoai = soDienThoai,
+					DiaChi = diaChi,
 					Email = email
 				});
 				if (ok)
@@ -53,25 +55,6 @@ namespace QuanLyDienNang.Forms
 			}
 		}
 
-		public void btnXoa_Click(object sender, EventArgs e)
-		{
-			DataGridViewRow selectedRow = dgvNguoiQuanLy.SelectedRows[0];
-			string maQuanLy = selectedRow.Cells[0].Value.ToString();
-			if (Common.ShowQuestionDialog())
-			{
-				bool ok = NguoiQuanLy.Delete(maQuanLy);
-				if (ok)
-				{
-					MessageBox.Show(STRINGS.SUCCESS_DELETE_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
-					LoadTable();
-				}
-				else
-				{
-					MessageBox.Show(STRINGS.ERROR_DELETE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-				}
-			}
-		}
-
 		private void dgvNguoiQuanLy_CellValueChanged(object sender, DataGridViewCellEventArgs e)
 		{
 			int changedRowIndex = e.RowIndex;
@@ -80,7 +63,7 @@ namespace QuanLyDienNang.Forms
 			string tenQuanLy = changedRow.Cells[1].Value.ToString();
 			string soDienThoai = changedRow.Cells[2].Value.ToString();
 			string diaChi = changedRow.Cells[3].Value.ToString();
-			string email = changedRow.Cells[4].ToString();
+			string email = changedRow.Cells[4].Value.ToString();
 			if (Common.IsNullOrWhiteSpace(maQuanLy, tenQuanLy, diaChi))
 			{
 				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -100,7 +83,12 @@ namespace QuanLyDienNang.Forms
 
 		private void dgvNguoiQuanLy_DataError(object sender, DataGridViewDataErrorEventArgs e)
 		{
+			MessageBox.Show(STRINGS.ERROR_COMMIT_DATAGRIDVIEW_MESSAGE + e.Context.ToString(), STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
 
+		private void dgvNguoiQuanLy_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+		{
+			dgvNguoiQuanLy.AutoResizeColumns();
 		}
 		#endregion
 
