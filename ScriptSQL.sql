@@ -513,7 +513,7 @@ CREATE PROCEDURE proc_Insert_KhachHang
 --ALTER PROCEDURE proc_Insert_KhachHang
 	@HoVaTen nvarchar(100),
 	@DiaChi nvarchar(250),
-	@MaBangGia varchar(20),
+	@MaChiTietBangGia varchar(20),
 	@MaTram varchar(20),
 	@SoHo tinyint,
 	@HeSoNhan tinyint,
@@ -532,7 +532,7 @@ CREATE PROCEDURE proc_Insert_KhachHang
 AS
 	DECLARE @MA CHAR(10)
 	SET @MA = DBO.func_GenerateID_KhachHang()
-	INSERT INTO KhachHang VALUES (@MA, @HoVaTen, @DiaChi, @MaBangGia, @MaTram, @SoHo, @HeSoNhan, @MaSoThue, 
+	INSERT INTO KhachHang VALUES (@MA, @HoVaTen, @DiaChi, @MaChiTietBangGia, @MaTram, @SoHo, @HeSoNhan, @MaSoThue, 
 		@SoDienThoai, @Email, @NgayTao, @NguoiTao, @NgayCapNhat, @NguoiCapNhat, @MaSoHopDong, @NgayHopDong, @MaCongTo, @SoNganHang, @TenNganHang, 1)
 GO
 
@@ -540,7 +540,7 @@ CREATE PROCEDURE proc_Update_KhachHang
 	@MaKhachHang char(10),
 	@HoVaTen nvarchar(100),
 	@DiaChi nvarchar(250),
-	@MaBangGia varchar(20),
+	@MaChiTietBangGia varchar(20),
 	@MaTram varchar(20),
 	@SoHo tinyint,
 	@HeSoNhan tinyint,
@@ -561,7 +561,7 @@ AS
 	SET
 		HoVaTen = @HoVaTen,
 		DiaChi = @DiaChi,
-		MaBangGia = @MaBangGia,
+		MaChiTietBangGia = @MaChiTietBangGia,
 		MaTram = @MaTram,
 		SoHo = @SoHo,
 		HeSoNhan = @HeSoNhan,
@@ -593,7 +593,7 @@ CREATE PROCEDURE proc_Insert_KhachHang_Test
 --ALTER PROCEDURE proc_Insert_KhachHang_Test
 	@HoVaTen nvarchar(100),
 	@DiaChi nvarchar(250),
-	@MaBangGia varchar(20),
+	@MaChiTietBangGia varchar(20),
 	@MaTram varchar(20),
 	@SoHo tinyint,
 	@HeSoNhan tinyint,
@@ -617,7 +617,7 @@ AS
 		BEGIN TRANSACTION ADDCUSTOMER
 			BEGIN TRY
 				SET @MA = DBO.func_GenerateID_KhachHang()
-				INSERT INTO KhachHang VALUES (@MA, @HoVaTen, @DiaChi, @MaBangGia, @MaTram, @SoHo, @HeSoNhan, @MaSoThue, 
+				INSERT INTO KhachHang VALUES (@MA, @HoVaTen, @DiaChi, @MaChiTietBangGia, @MaTram, @SoHo, @HeSoNhan, @MaSoThue, 
 					@SoDienThoai, @Email, @NgayTao, @NguoiTao, @NgayCapNhat, @NguoiCapNhat, @MaSoHopDong, @NgayHopDong, @MaCongTo, @SoNganHang, @TenNganHang, 1)
 			END TRY
 			BEGIN CATCH
@@ -706,6 +706,14 @@ CREATE TABLE DienNangTieuThu (
 	DaTra money default 0 null,
 	ConLai money null,
 )
+GO
+
+CREATE VIEW View_DienNangTieuThu
+--ALTER VIEW View_DienNangTieuThu
+AS
+	SELECT ID, D.MaKhachHang, HoVaTen, DiaChi, MaTram, MaChiTietBangGia, NgayGhi, NguoiGhi, NgayBatDau, NgayKetThuc, D.NgayCapNhat, D.NguoiCapNhat, NgayHoaDon, NgayTraTien, ChiSoMoi, ChiSoCu, TongTienTruocVAT, TongTienSauVAT, DaTra, ConLai
+	FROM DienNangTieuThu D, KhachHang K
+	WHERE D.MaKhachHang = K.MaKhachHang
 GO
 
 CREATE PROCEDURE proc_GetAll_DienNangTieuThu
@@ -882,12 +890,4 @@ AS
 		ROLLBACK TRANSACTION UPDATEDNTT
 		RETURN @KQ
 	END
-GO
-
-CREATE VIEW View_DienNangTieuThu
---ALTER VIEW View_DienNangTieuThu
-AS
-	SELECT ID, D.MaKhachHang, HoVaTen, DiaChi, MaTram, MaBangGia, NgayGhi, NguoiGhi, NgayBatDau, NgayKetThuc, D.NgayCapNhat, D.NguoiCapNhat, NgayHoaDon, NgayTraTien, ChiSoMoi, ChiSoCu, TongTienTruocVAT, TongTienSauVAT, DaTra, ConLai
-	FROM DienNangTieuThu D, KhachHang K
-	WHERE D.MaKhachHang = K.MaKhachHang
 GO
