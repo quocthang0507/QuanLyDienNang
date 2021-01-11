@@ -112,7 +112,7 @@ namespace QuanLyDienNang.Forms
 			ChiTietBangGia chiTietBangGia = selectedRow.DataBoundItem as ChiTietBangGia;
 			if (chiTietBangGia.ApGia)
 			{
-				Form frmBangDienApGia = new Form_BangDienApGia();
+				Form frmBangDienApGia = new Form_BangDienApGia(chiTietBangGia);
 				frmBangDienApGia.ShowDialog();
 			}
 			else

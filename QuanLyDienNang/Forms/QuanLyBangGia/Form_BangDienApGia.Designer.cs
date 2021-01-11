@@ -76,9 +76,12 @@ namespace QuanLyDienNang.Forms
 			this.dgvBangDienApGia.Location = new System.Drawing.Point(3, 33);
 			this.dgvBangDienApGia.MultiSelect = false;
 			this.dgvBangDienApGia.Name = "dgvBangDienApGia";
+			this.dgvBangDienApGia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dgvBangDienApGia.Size = new System.Drawing.Size(978, 525);
 			this.dgvBangDienApGia.TabIndex = 1;
+			this.dgvBangDienApGia.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBangDienApGia_CellValueChanged);
 			this.dgvBangDienApGia.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvBangDienApGia_DataBindingComplete);
+			this.dgvBangDienApGia.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvBangDienApGia_DataError);
 			// 
 			// Form_BangDienApGia
 			// 

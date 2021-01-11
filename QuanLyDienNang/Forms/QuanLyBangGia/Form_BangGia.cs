@@ -2,6 +2,7 @@
 using Business.Forms;
 using Business.Helper;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -158,7 +159,7 @@ namespace QuanLyDienNang.Forms
 
 		private void LoadTable()
 		{
-			System.Collections.Generic.List<BangGia> data = BangGia.GetAll();
+			List<BangGia> data = BangGia.GetAll();
 			if (data == null)
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else

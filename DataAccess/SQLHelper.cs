@@ -222,7 +222,7 @@ namespace DataAccess
 		public static int ExecuteNonQuery(string connectionString, CommandType commandType, string commandText)
 		{
 			// Pass through the call providing null for the set of SqlParameters
-			return ExecuteNonQuery(connectionString, commandType, commandText, (SqlParameter[])null);
+			return ExecuteNonQuery(connectionString, commandType, commandText, null);
 		}
 
 		/// <summary>
@@ -305,7 +305,7 @@ namespace DataAccess
 		public static int ExecuteNonQuery(SqlConnection connection, CommandType commandType, string commandText)
 		{
 			// Pass through the call providing null for the set of SqlParameters
-			return ExecuteNonQuery(connection, commandType, commandText, (SqlParameter[])null);
+			return ExecuteNonQuery(connection, commandType, commandText, null);
 		}
 
 		/// <summary>
@@ -327,7 +327,7 @@ namespace DataAccess
 
 			// Create a command and prepare it for execution
 			SqlCommand cmd = new SqlCommand();
-			PrepareCommand(cmd, connection, (SqlTransaction)null, commandType, commandText, commandParameters, out bool mustCloseConnection);
+			PrepareCommand(cmd, connection, null, commandType, commandText, commandParameters, out bool mustCloseConnection);
 
 			// Finally, execute the command
 			int retval = cmd.ExecuteNonQuery();
@@ -392,7 +392,7 @@ namespace DataAccess
 		public static int ExecuteNonQuery(SqlTransaction transaction, CommandType commandType, string commandText)
 		{
 			// Pass through the call providing null for the set of SqlParameters
-			return ExecuteNonQuery(transaction, commandType, commandText, (SqlParameter[])null);
+			return ExecuteNonQuery(transaction, commandType, commandText, null);
 		}
 
 		/// <summary>
@@ -484,7 +484,7 @@ namespace DataAccess
 		public static DataSet ExecuteDataset(string connectionString, CommandType commandType, string commandText)
 		{
 			// Pass through the call providing null for the set of SqlParameters
-			return ExecuteDataset(connectionString, commandType, commandText, (SqlParameter[])null);
+			return ExecuteDataset(connectionString, commandType, commandText, null);
 		}
 
 		/// <summary>
@@ -567,7 +567,7 @@ namespace DataAccess
 		public static DataSet ExecuteDataset(SqlConnection connection, CommandType commandType, string commandText)
 		{
 			// Pass through the call providing null for the set of SqlParameters
-			return ExecuteDataset(connection, commandType, commandText, (SqlParameter[])null);
+			return ExecuteDataset(connection, commandType, commandText, null);
 		}
 
 		/// <summary>
@@ -589,7 +589,7 @@ namespace DataAccess
 
 			// Create a command and prepare it for execution
 			SqlCommand cmd = new SqlCommand();
-			PrepareCommand(cmd, connection, (SqlTransaction)null, commandType, commandText, commandParameters, out bool mustCloseConnection);
+			PrepareCommand(cmd, connection, null, commandType, commandText, commandParameters, out bool mustCloseConnection);
 
 			// Create the DataAdapter & DataSet
 			using (SqlDataAdapter da = new SqlDataAdapter(cmd))
@@ -663,7 +663,7 @@ namespace DataAccess
 		public static DataSet ExecuteDataset(SqlTransaction transaction, CommandType commandType, string commandText)
 		{
 			// Pass through the call providing null for the set of SqlParameters
-			return ExecuteDataset(transaction, commandType, commandText, (SqlParameter[])null);
+			return ExecuteDataset(transaction, commandType, commandText, null);
 		}
 
 		/// <summary>
@@ -841,7 +841,7 @@ namespace DataAccess
 		public static SqlDataReader ExecuteReader(string connectionString, CommandType commandType, string commandText)
 		{
 			// Pass through the call providing null for the set of SqlParameters
-			return ExecuteReader(connectionString, commandType, commandText, (SqlParameter[])null);
+			return ExecuteReader(connectionString, commandType, commandText, null);
 		}
 
 		/// <summary>
@@ -928,7 +928,7 @@ namespace DataAccess
 		public static SqlDataReader ExecuteReader(SqlConnection connection, CommandType commandType, string commandText)
 		{
 			// Pass through the call providing null for the set of SqlParameters
-			return ExecuteReader(connection, commandType, commandText, (SqlParameter[])null);
+			return ExecuteReader(connection, commandType, commandText, null);
 		}
 
 		/// <summary>
@@ -947,7 +947,7 @@ namespace DataAccess
 		public static SqlDataReader ExecuteReader(SqlConnection connection, CommandType commandType, string commandText, params SqlParameter[] commandParameters)
 		{
 			// Pass through the call to the private overload using a null transaction value and an externally owned connection
-			return ExecuteReader(connection, (SqlTransaction)null, commandType, commandText, commandParameters, SqlConnectionOwnership.External);
+			return ExecuteReader(connection, null, commandType, commandText, commandParameters, SqlConnectionOwnership.External);
 		}
 
 		/// <summary>
@@ -1000,7 +1000,7 @@ namespace DataAccess
 		public static SqlDataReader ExecuteReader(SqlTransaction transaction, CommandType commandType, string commandText)
 		{
 			// Pass through the call providing null for the set of SqlParameters
-			return ExecuteReader(transaction, commandType, commandText, (SqlParameter[])null);
+			return ExecuteReader(transaction, commandType, commandText, null);
 		}
 
 		/// <summary>
@@ -1081,7 +1081,7 @@ namespace DataAccess
 		public static object ExecuteScalar(string connectionString, CommandType commandType, string commandText)
 		{
 			// Pass through the call providing null for the set of SqlParameters
-			return ExecuteScalar(connectionString, commandType, commandText, (SqlParameter[])null);
+			return ExecuteScalar(connectionString, commandType, commandText, null);
 		}
 
 		/// <summary>
@@ -1163,7 +1163,7 @@ namespace DataAccess
 		public static object ExecuteScalar(SqlConnection connection, CommandType commandType, string commandText)
 		{
 			// Pass through the call providing null for the set of SqlParameters
-			return ExecuteScalar(connection, commandType, commandText, (SqlParameter[])null);
+			return ExecuteScalar(connection, commandType, commandText, null);
 		}
 
 		/// <summary>
@@ -1186,7 +1186,7 @@ namespace DataAccess
 			// Create a command and prepare it for execution
 			SqlCommand cmd = new SqlCommand();
 
-			PrepareCommand(cmd, connection, (SqlTransaction)null, commandType, commandText, commandParameters, out bool mustCloseConnection);
+			PrepareCommand(cmd, connection, null, commandType, commandText, commandParameters, out bool mustCloseConnection);
 
 			// Execute the command & return the results
 			object retval = cmd.ExecuteScalar();
@@ -1253,7 +1253,7 @@ namespace DataAccess
 		public static object ExecuteScalar(SqlTransaction transaction, CommandType commandType, string commandText)
 		{
 			// Pass through the call providing null for the set of SqlParameters
-			return ExecuteScalar(transaction, commandType, commandText, (SqlParameter[])null);
+			return ExecuteScalar(transaction, commandType, commandText, null);
 		}
 
 		/// <summary>
@@ -1343,7 +1343,7 @@ namespace DataAccess
 		public static XmlReader ExecuteXmlReader(SqlConnection connection, CommandType commandType, string commandText)
 		{
 			// Pass through the call providing null for the set of SqlParameters
-			return ExecuteXmlReader(connection, commandType, commandText, (SqlParameter[])null);
+			return ExecuteXmlReader(connection, commandType, commandText, null);
 		}
 
 		/// <summary>
@@ -1368,7 +1368,7 @@ namespace DataAccess
 			SqlCommand cmd = new SqlCommand();
 			try
 			{
-				PrepareCommand(cmd, connection, (SqlTransaction)null, commandType, commandText, commandParameters, out mustCloseConnection);
+				PrepareCommand(cmd, connection, null, commandType, commandText, commandParameters, out mustCloseConnection);
 
 				// Create the DataAdapter & DataSet
 				XmlReader retval = cmd.ExecuteXmlReader();
@@ -1439,7 +1439,7 @@ namespace DataAccess
 		public static XmlReader ExecuteXmlReader(SqlTransaction transaction, CommandType commandType, string commandText)
 		{
 			// Pass through the call providing null for the set of SqlParameters
-			return ExecuteXmlReader(transaction, commandType, commandText, (SqlParameter[])null);
+			return ExecuteXmlReader(transaction, commandType, commandText, null);
 		}
 
 		/// <summary>
@@ -1958,7 +1958,7 @@ namespace DataAccess
 		/// <param name="spName">The name of the stored procedure</param>
 		/// <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
 		/// <returns>An int representing the number of rows affected by the command</returns>
-		public static int ExecuteNonQueryTypedParams(String connectionString, String spName, DataRow dataRow)
+		public static int ExecuteNonQueryTypedParams(string connectionString, string spName, DataRow dataRow)
 		{
 			if (connectionString == null || connectionString.Length == 0) throw new ArgumentNullException("connectionString");
 			if (spName == null || spName.Length == 0) throw new ArgumentNullException("spName");
@@ -1990,7 +1990,7 @@ namespace DataAccess
 		/// <param name="spName">The name of the stored procedure</param>
 		/// <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
 		/// <returns>An int representing the number of rows affected by the command</returns>
-		public static int ExecuteNonQueryTypedParams(SqlConnection connection, String spName, DataRow dataRow)
+		public static int ExecuteNonQueryTypedParams(SqlConnection connection, string spName, DataRow dataRow)
 		{
 			if (connection == null) throw new ArgumentNullException("connection");
 			if (spName == null || spName.Length == 0) throw new ArgumentNullException("spName");
@@ -2022,7 +2022,7 @@ namespace DataAccess
 		/// <param name="spName">The name of the stored procedure</param>
 		/// <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
 		/// <returns>An int representing the number of rows affected by the command</returns>
-		public static int ExecuteNonQueryTypedParams(SqlTransaction transaction, String spName, DataRow dataRow)
+		public static int ExecuteNonQueryTypedParams(SqlTransaction transaction, string spName, DataRow dataRow)
 		{
 			if (transaction == null) throw new ArgumentNullException("transaction");
 			if (transaction != null && transaction.Connection == null) throw new ArgumentException("The transaction was rollbacked or commited, please provide an open transaction.", "transaction");
@@ -2057,7 +2057,7 @@ namespace DataAccess
 		/// <param name="spName">The name of the stored procedure</param>
 		/// <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
 		/// <returns>A dataset containing the resultset generated by the command</returns>
-		public static DataSet ExecuteDatasetTypedParams(string connectionString, String spName, DataRow dataRow)
+		public static DataSet ExecuteDatasetTypedParams(string connectionString, string spName, DataRow dataRow)
 		{
 			if (connectionString == null || connectionString.Length == 0) throw new ArgumentNullException("connectionString");
 			if (spName == null || spName.Length == 0) throw new ArgumentNullException("spName");
@@ -2089,7 +2089,7 @@ namespace DataAccess
 		/// <param name="spName">The name of the stored procedure</param>
 		/// <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
 		/// <returns>A dataset containing the resultset generated by the command</returns>
-		public static DataSet ExecuteDatasetTypedParams(SqlConnection connection, String spName, DataRow dataRow)
+		public static DataSet ExecuteDatasetTypedParams(SqlConnection connection, string spName, DataRow dataRow)
 		{
 			if (connection == null) throw new ArgumentNullException("connection");
 			if (spName == null || spName.Length == 0) throw new ArgumentNullException("spName");
@@ -2121,7 +2121,7 @@ namespace DataAccess
 		/// <param name="spName">The name of the stored procedure</param>
 		/// <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
 		/// <returns>A dataset containing the resultset generated by the command</returns>
-		public static DataSet ExecuteDatasetTypedParams(SqlTransaction transaction, String spName, DataRow dataRow)
+		public static DataSet ExecuteDatasetTypedParams(SqlTransaction transaction, string spName, DataRow dataRow)
 		{
 			if (transaction == null) throw new ArgumentNullException("transaction");
 			if (transaction != null && transaction.Connection == null) throw new ArgumentException("The transaction was rollbacked or commited, please provide an open transaction.", "transaction");
@@ -2157,7 +2157,7 @@ namespace DataAccess
 		/// <param name="spName">The name of the stored procedure</param>
 		/// <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
 		/// <returns>A SqlDataReader containing the resultset generated by the command</returns>
-		public static SqlDataReader ExecuteReaderTypedParams(String connectionString, String spName, DataRow dataRow)
+		public static SqlDataReader ExecuteReaderTypedParams(string connectionString, string spName, DataRow dataRow)
 		{
 			if (connectionString == null || connectionString.Length == 0) throw new ArgumentNullException("connectionString");
 			if (spName == null || spName.Length == 0) throw new ArgumentNullException("spName");
@@ -2190,7 +2190,7 @@ namespace DataAccess
 		/// <param name="spName">The name of the stored procedure</param>
 		/// <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
 		/// <returns>A SqlDataReader containing the resultset generated by the command</returns>
-		public static SqlDataReader ExecuteReaderTypedParams(SqlConnection connection, String spName, DataRow dataRow)
+		public static SqlDataReader ExecuteReaderTypedParams(SqlConnection connection, string spName, DataRow dataRow)
 		{
 			if (connection == null) throw new ArgumentNullException("connection");
 			if (spName == null || spName.Length == 0) throw new ArgumentNullException("spName");
@@ -2222,7 +2222,7 @@ namespace DataAccess
 		/// <param name="spName">The name of the stored procedure</param>
 		/// <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
 		/// <returns>A SqlDataReader containing the resultset generated by the command</returns>
-		public static SqlDataReader ExecuteReaderTypedParams(SqlTransaction transaction, String spName, DataRow dataRow)
+		public static SqlDataReader ExecuteReaderTypedParams(SqlTransaction transaction, string spName, DataRow dataRow)
 		{
 			if (transaction == null) throw new ArgumentNullException("transaction");
 			if (transaction != null && transaction.Connection == null) throw new ArgumentException("The transaction was rollbacked or commited, please provide an open transaction.", "transaction");
@@ -2257,7 +2257,7 @@ namespace DataAccess
 		/// <param name="spName">The name of the stored procedure</param>
 		/// <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
 		/// <returns>An object containing the value in the 1x1 resultset generated by the command</returns>
-		public static object ExecuteScalarTypedParams(String connectionString, String spName, DataRow dataRow)
+		public static object ExecuteScalarTypedParams(string connectionString, string spName, DataRow dataRow)
 		{
 			if (connectionString == null || connectionString.Length == 0) throw new ArgumentNullException("connectionString");
 			if (spName == null || spName.Length == 0) throw new ArgumentNullException("spName");
@@ -2289,7 +2289,7 @@ namespace DataAccess
 		/// <param name="spName">The name of the stored procedure</param>
 		/// <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
 		/// <returns>An object containing the value in the 1x1 resultset generated by the command</returns>
-		public static object ExecuteScalarTypedParams(SqlConnection connection, String spName, DataRow dataRow)
+		public static object ExecuteScalarTypedParams(SqlConnection connection, string spName, DataRow dataRow)
 		{
 			if (connection == null) throw new ArgumentNullException("connection");
 			if (spName == null || spName.Length == 0) throw new ArgumentNullException("spName");
@@ -2321,7 +2321,7 @@ namespace DataAccess
 		/// <param name="spName">The name of the stored procedure</param>
 		/// <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
 		/// <returns>An object containing the value in the 1x1 resultset generated by the command</returns>
-		public static object ExecuteScalarTypedParams(SqlTransaction transaction, String spName, DataRow dataRow)
+		public static object ExecuteScalarTypedParams(SqlTransaction transaction, string spName, DataRow dataRow)
 		{
 			if (transaction == null) throw new ArgumentNullException("transaction");
 			if (transaction != null && transaction.Connection == null) throw new ArgumentException("The transaction was rollbacked or commited, please provide an open transaction.", "transaction");
@@ -2356,7 +2356,7 @@ namespace DataAccess
 		/// <param name="spName">The name of the stored procedure</param>
 		/// <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
 		/// <returns>An XmlReader containing the resultset generated by the command</returns>
-		public static XmlReader ExecuteXmlReaderTypedParams(SqlConnection connection, String spName, DataRow dataRow)
+		public static XmlReader ExecuteXmlReaderTypedParams(SqlConnection connection, string spName, DataRow dataRow)
 		{
 			if (connection == null) throw new ArgumentNullException("connection");
 			if (spName == null || spName.Length == 0) throw new ArgumentNullException("spName");
@@ -2388,7 +2388,7 @@ namespace DataAccess
 		/// <param name="spName">The name of the stored procedure</param>
 		/// <param name="dataRow">The dataRow used to hold the stored procedure's parameter values.</param>
 		/// <returns>An XmlReader containing the resultset generated by the command</returns>
-		public static XmlReader ExecuteXmlReaderTypedParams(SqlTransaction transaction, String spName, DataRow dataRow)
+		public static XmlReader ExecuteXmlReaderTypedParams(SqlTransaction transaction, string spName, DataRow dataRow)
 		{
 			if (transaction == null) throw new ArgumentNullException("transaction");
 			if (transaction != null && transaction.Connection == null) throw new ArgumentException("The transaction was rollbacked or commited, please provide an open transaction.", "transaction");

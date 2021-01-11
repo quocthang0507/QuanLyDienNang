@@ -16,6 +16,16 @@ CREATE TABLE BangGia (
 )
 GO
 
+CREATE TRIGGER trigger_BangGia ON BangGia FOR INSERT, UPDATE
+AS
+	IF UPDATE(Thue)
+		IF EXISTS (SELECT * FROM inserted WHERE Thue > 1 OR Thue < 0)
+		BEGIN
+			RAISERROR (N'Thuế GTGT (VAT) trên một bảng giá không được quá 1 hoặc nhỏ hơn 0', 15, 1)
+			ROLLBACK TRAN
+		END
+GO
+
 -- MÃ BẢNG GIÁ TỰ ĐỊNH NGHĨA
 INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('SH-THUONG', N'Điện sinh hoạt (hộ thường)')
 INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('SH-NGHEO', N'Điện sinh hoạt (hộ nghèo)')
@@ -89,6 +99,23 @@ CREATE TABLE ChiTietBangGia
 	ApGia bit default 0 not null,
 	KichHoat bit default 1 not null
 )
+GO
+
+CREATE TRIGGER trigger_ChiTietBangGia ON ChiTietBangGia FOR INSERT, UPDATE
+AS
+	IF UPDATE(BatDau) OR UPDATE(KetThuc) OR UPDATE(DonGia)
+		BEGIN
+			IF EXISTS (SELECT * FROM inserted WHERE KetThuc < BatDau)
+				BEGIN
+					RAISERROR (N'Trong phạm vi áp dụng bảng giá, vị trí kết thúc không được nhỏ hơn vị trí bắt đầu', 15, 1)
+					ROLLBACK TRAN
+				END
+			IF EXISTS (SELECT * FROM inserted WHERE DonGia < 0)
+				BEGIN
+					RAISERROR (N'Đơn giá không được âm', 15, 1)
+					ROLLBACK TRAN
+				END
+		END
 GO
 
 CREATE PROCEDURE proc_GetAll_ChiTietBangGia
@@ -185,10 +212,71 @@ CREATE TABLE BangDienApGia
 (
 	MaChiTiet varchar(30) not null references ChiTietBangGia(MaChiTiet),
 	MaBangGia varchar(20) not null references BangGia(MaBangGia),
-	TyLe tinyint not null default 0,
-	TenBangDien nvarchar(150) not null,
-	Constraint PK_BangDienApGia primary key (MaChiTiet, MaBangGia)
+	TyLe float not null default 0.,
+	Constraint PK_BangDienApGia primary key (MaChiTiet, MaBangGia),
+	KichHoat bit default 1
 )
+GO
+
+--DELETE FROM BangDienApGia
+
+CREATE PROCEDURE proc_CreateNew_BangDienApGia
+--ALTER PROCEDURE proc_CreateNew_BangDienApGia
+	@MaChiTiet varchar(30)
+AS
+	IF NOT EXISTS (SELECT * FROM BangDienApGia WHERE MaChiTiet = @MaChiTiet)
+	BEGIN
+		DECLARE @MaBangGia varchar(20)
+		DECLARE csrBangGia CURSOR FOR SELECT MaBangGia FROM BangGia
+		OPEN csrBangGia
+		FETCH NEXT FROM csrBangGia INTO @MaBangGia
+		WHILE @@FETCH_STATUS = 0
+		BEGIN
+			INSERT INTO BangDienApGia (MaChiTiet, MaBangGia) VALUES (@MaChiTiet, @MaBangGia)
+			FETCH NEXT FROM csrBangGia INTO @MaBangGia
+		END
+		CLOSE csrBangGia
+		DEALLOCATE csrBangGia
+	END
+GO
+
+CREATE VIEW view_BangDienApGia
+AS
+	SELECT BG.MaBangGia, CT.MaChiTiet, TenBangGia, TyLe, AG.KichHoat FROM BangGia BG, ChiTietBangGia CT, BangDienApGia AG WHERE BG.MaBangGia = AG.MaBangGia AND CT.MaChiTiet = AG.MaChiTiet
+GO
+
+CREATE PROCEDURE proc_GetAll_BangDienApGia
+	@MaChiTiet varchar(30)
+AS
+	SELECT * FROM view_BangDienApGia WHERE MaChiTiet = @MaChiTiet
+GO
+
+CREATE PROCEDURE proc_Update_BangDienApGia
+--ALTER PROCEDURE proc_Update_BangDienApGia
+	@MaChiTiet varchar(30),
+	@MaBangGia varchar(20),
+	@TyLe float,
+	@KichHoat bit
+AS
+	UPDATE BangDienApGia
+	SET TyLe = @TyLe, KichHoat = @KichHoat
+	WHERE MaChiTiet = @MaChiTiet AND MaBangGia = @MaBangGia
+GO
+
+CREATE TRIGGER trigger_BangDienApGia ON BangDienApGia FOR INSERT, UPDATE
+AS
+	IF UPDATE(TyLe)
+		BEGIN
+			DECLARE @MaChiTiet varchar(30)
+			DECLARE @TyLe float
+			SET @MaChiTiet = (SELECT MaChiTiet FROM inserted)
+			SET @TyLe = (SELECT SUM(TyLe) FROM BangDienApGia WHERE MaChiTiet = @MaChiTiet)
+			IF @TyLe > 1 OR @TyLe < 0
+				BEGIN
+					RAISERROR (N'Tổng tỷ lệ phần trăm trên một bảng giá áp giá không được quá 1 hoặc nhỏ hơn 0', 15, 1)
+					ROLLBACK TRAN
+				END
+		END
 GO
 
 --====================TRẠM BIẾN ÁP ÁP DỤNG CHO KHÁCH HÀNG====================
@@ -203,6 +291,18 @@ CREATE TABLE TramBienAp (
 	HeSoNhan tinyint default 1 not null,
 	KichHoat bit default 1 not null
 )
+GO
+
+CREATE TRIGGER trigger_TramBienAp ON TramBienAp FOR INSERT, UPDATE
+AS
+	IF UPDATE(HeSoNhan)
+		BEGIN
+			IF EXISTS (SELECT * FROM inserted WHERE HeSoNhan < 1)
+				BEGIN
+					RAISERROR (N'Hệ số nhân phải lớn hơn hoặc bằng 1', 15, 1)
+					ROLLBACK TRAN
+				END
+		END
 GO
 
 INSERT INTO TramBienAp (MaTram, TenTram) VALUES ('BA001', N'Trạm biến áp 1')
