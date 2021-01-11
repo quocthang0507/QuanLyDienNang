@@ -1,4 +1,5 @@
 ﻿using DataAccess;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -62,14 +63,29 @@ namespace Business.Classes
 
 		public static bool Insert(ChiTietBangGia chiTietBangGia)
 		{
-			int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_ChiTietBangGia", chiTietBangGia.MaBangGia, chiTietBangGia.BatDau, chiTietBangGia.KetThuc, chiTietBangGia.DonGia, chiTietBangGia.MoTa, chiTietBangGia.ApGia);
-			return result > 0;
+			try
+			{
+				int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_ChiTietBangGia", chiTietBangGia.MaBangGia, chiTietBangGia.BatDau, chiTietBangGia.KetThuc, chiTietBangGia.DonGia, chiTietBangGia.MoTa, chiTietBangGia.ApGia);
+				return result > 0;
+			}
+			catch (Exception)
+			{
+				return false;
+			}
+
 		}
 
 		public static bool Update(ChiTietBangGia chiTietBangGia)
 		{
-			int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_ChiTietBangGia", chiTietBangGia.MaBangGia, chiTietBangGia.MaBangGia, chiTietBangGia.BatDau, chiTietBangGia.KetThuc, chiTietBangGia.DonGia, chiTietBangGia.MoTa, chiTietBangGia.ApGia, chiTietBangGia.KichHoat);
-			return result > 0;
+			try
+			{
+				int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_ChiTietBangGia", chiTietBangGia.MaBangGia, chiTietBangGia.MaBangGia, chiTietBangGia.BatDau, chiTietBangGia.KetThuc, chiTietBangGia.DonGia, chiTietBangGia.MoTa, chiTietBangGia.ApGia, chiTietBangGia.KichHoat);
+				return result > 0;
+			}
+			catch (Exception)
+			{
+				return false;
+			}
 		}
 
 		public static bool Delete(int id)

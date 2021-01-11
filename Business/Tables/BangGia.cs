@@ -1,4 +1,5 @@
 ﻿using DataAccess;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -22,7 +23,7 @@ namespace Business.Classes
 		[DisplayName("Thuế VAT (0..1)")]
 		[Required]
 		[DefaultValue(0.1)]
-		public float Thue { get; set; }
+		public decimal Thue { get; set; }
 
 		[DisplayName("Kích hoạt")]
 		[DefaultValue(true)]
@@ -47,14 +48,28 @@ namespace Business.Classes
 
 		public static bool Insert(BangGia bangGia)
 		{
-			int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_BangGia", bangGia.MaBangGia, bangGia.TenBangGia, bangGia.Thue);
-			return result > 0;
+			try
+			{
+				int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_BangGia", bangGia.MaBangGia, bangGia.TenBangGia, bangGia.Thue);
+				return result > 0;
+			}
+			catch (Exception)
+			{
+				return false;
+			}
 		}
 
 		public static bool Update(BangGia bangGia)
 		{
-			int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_BangGia", bangGia.MaBangGia, bangGia.TenBangGia, bangGia.Thue, bangGia.KichHoat);
-			return result > 0;
+			try
+			{
+				int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_BangGia", bangGia.MaBangGia, bangGia.TenBangGia, bangGia.Thue, bangGia.KichHoat);
+				return result > 0;
+			}
+			catch (Exception)
+			{
+				return false;
+			}
 		}
 
 		public static bool Delete(string id)

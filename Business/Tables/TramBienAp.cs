@@ -1,4 +1,5 @@
 ﻿using DataAccess;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -59,14 +60,28 @@ namespace Business.Classes
 
 		public static bool Insert(TramBienAp tramBienAp)
 		{
-			int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_TramBienAp", tramBienAp.MaTram, tramBienAp.TenTram, tramBienAp.DiaChi, tramBienAp.NguoiPhuTrach, tramBienAp.MaSoCongTo, tramBienAp.HeSoNhan);
-			return result > 0;
+			try
+			{
+				int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_TramBienAp", tramBienAp.MaTram, tramBienAp.TenTram, tramBienAp.DiaChi, tramBienAp.NguoiPhuTrach, tramBienAp.MaSoCongTo, tramBienAp.HeSoNhan);
+				return result > 0;
+			}
+			catch (Exception)
+			{
+				return false;
+			}
 		}
 
 		public static bool Update(TramBienAp tramBienAp)
 		{
-			int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_TramBienAp", tramBienAp.MaTram, tramBienAp.TenTram, tramBienAp.DiaChi, tramBienAp.NguoiPhuTrach, tramBienAp.MaSoCongTo, tramBienAp.HeSoNhan, tramBienAp.KichHoat);
-			return result > 0;
+			try
+			{
+				int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_TramBienAp", tramBienAp.MaTram, tramBienAp.TenTram, tramBienAp.DiaChi, tramBienAp.NguoiPhuTrach, tramBienAp.MaSoCongTo, tramBienAp.HeSoNhan, tramBienAp.KichHoat);
+				return result > 0;
+			}
+			catch (Exception)
+			{
+				return false;
+			}
 		}
 
 		public static bool Delete(string id)

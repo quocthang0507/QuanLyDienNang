@@ -77,7 +77,7 @@ namespace QuanLyDienNang.Forms
 			}
 			else
 			{
-				TramBienAp.Update(new TramBienAp()
+				var ok = TramBienAp.Update(new TramBienAp()
 				{
 					MaTram = maTram,
 					TenTram = tenTram,
@@ -87,6 +87,8 @@ namespace QuanLyDienNang.Forms
 					HeSoNhan = int.Parse(heSoNhan),
 					KichHoat = kichHoat
 				});
+				if (!ok)
+					MessageBox.Show(STRINGS.ERROR_UPDATE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 

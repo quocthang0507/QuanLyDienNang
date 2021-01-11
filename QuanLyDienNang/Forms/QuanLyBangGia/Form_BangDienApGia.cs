@@ -43,13 +43,15 @@ namespace QuanLyDienNang.Forms
 			}
 			else
 			{
-				BangDienApGia.Update(new BangDienApGia()
+				var ok = BangDienApGia.Update(new BangDienApGia()
 				{
 					MaBangGia = maBangGia,
 					MaChiTiet = maChiTiet,
-					TyLe = float.Parse(tyLe),
+					TyLe = decimal.Parse(tyLe),
 					KichHoat = kichHoat
 				});
+				if (!ok)
+					MessageBox.Show(STRINGS.ERROR_UPDATE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 

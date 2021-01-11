@@ -1,5 +1,6 @@
 USE MASTER
 GO
+--DROP DATABASE QuanLyDienNang
 CREATE DATABASE QuanLyDienNang
 GO
 USE QuanLyDienNang
@@ -11,7 +12,7 @@ CREATE TABLE BangGia (
 	--BG001
 	MaBangGia varchar(20) primary key,
 	TenBangGia nvarchar(150) not null,
-	Thue float default 0.1 not null,
+	Thue decimal(3,2) default 0.1 not null,
 	KichHoat bit default 1 not null
 )
 GO
@@ -58,7 +59,7 @@ CREATE PROCEDURE proc_Insert_BangGia
 --ALTER PROCEDURE proc_Insert_BangGia
 	@MaBangGia varchar(20),
 	@TenBangGia nvarchar(150),
-	@Thue float
+	@Thue decimal(3,2)
 AS
 	INSERT INTO BangGia (MaBangGia, TenBangGia, Thue) VALUES (@MaBangGia, @TenBangGia, @Thue)
 GO
@@ -67,7 +68,7 @@ CREATE PROCEDURE proc_Update_BangGia
 --ALTER PROCEDURE proc_Update_BangGia
 	@MaBangGia varchar(20),
 	@TenBangGia nvarchar(150),
-	@Thue float,
+	@Thue decimal(3,2),
 	@KichHoat bit
 AS
 	UPDATE BangGia
@@ -102,10 +103,11 @@ CREATE TABLE ChiTietBangGia
 GO
 
 CREATE TRIGGER trigger_ChiTietBangGia ON ChiTietBangGia FOR INSERT, UPDATE
+--ALTER TRIGGER trigger_ChiTietBangGia ON ChiTietBangGia FOR INSERT, UPDATE
 AS
 	IF UPDATE(BatDau) OR UPDATE(KetThuc) OR UPDATE(DonGia)
 		BEGIN
-			IF EXISTS (SELECT * FROM inserted WHERE KetThuc < BatDau)
+			IF EXISTS (SELECT * FROM inserted WHERE KetThuc < BatDau AND KetThuc != 0) --Nếu kết thúc bằng 0 nghĩa là kéo dài vô tận!
 				BEGIN
 					RAISERROR (N'Trong phạm vi áp dụng bảng giá, vị trí kết thúc không được nhỏ hơn vị trí bắt đầu', 15, 1)
 					ROLLBACK TRAN
@@ -144,6 +146,8 @@ AS
 	INSERT INTO ChiTietBangGia (MaChiTiet, MaBangGia, BatDau, KetThuc, DonGia, MoTa, ApGia) VALUES (@MaChiTiet, @MaBangGia, @BatDau, @KetThuc, @DonGia, @MoTa, @ApGia)
 GO
 
+--DELETE FROM ChiTietBangGia
+
 EXEC proc_Insert_ChiTietBangGia 'SH-TH-BAC1', 'SH-THUONG', 0, 50, 1678, N'Bậc 1: Cho kWh từ 0 - 50', 0
 EXEC proc_Insert_ChiTietBangGia 'SH-TH-BAC2', 'SH-THUONG', 51, 100, 1734, N'Bậc 2: Cho kWh từ 51 - 100', 0
 EXEC proc_Insert_ChiTietBangGia 'SH-TH-BAC3', 'SH-THUONG', 101, 200, 2014, N'Bậc 3: Cho kWh từ 101 - 200', 0
@@ -174,8 +178,6 @@ EXEC proc_Insert_ChiTietBangGia 'KDDV-6KV-22KV-GTD', 'KD-DV', 0, 0, 1547, N'Cấ
 EXEC proc_Insert_ChiTietBangGia 'KDDV-6KV-22KV-GCD', 'KD-DV', 0, 0, 4400, N'Cấp điện áp từ 6kV đến dưới 22kV: Giờ cao điểm', 0
 EXEC proc_Insert_ChiTietBangGia 'KDDV-DUOI6KV-GBT', 'KD-DV', 0, 0, 2666, N'Cấp điện áp dưới 6kV: Giờ bình thường', 0
 EXEC proc_Insert_ChiTietBangGia 'KDDV-DUOI6KV-GTD', 'KD-DV', 0, 0, 1622, N'Cấp điện áp dưới 6kV: Giờ thấp điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'KDDV-DUOI6KV-GCD', 'KD-DV', 0, 0, 4587, N'Cấp điện áp dưới 6kV: Giờ cao điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'KDDV-DUOI6KV-GCD', 'KD-DV', 0, 0, 4587, N'Cấp điện áp dưới 6kV: Giờ cao điểm', 0
 EXEC proc_Insert_ChiTietBangGia 'KDDV-DUOI6KV-GCD', 'KD-DV', 0, 0, 4587, N'Cấp điện áp dưới 6kV: Giờ cao điểm', 0
 EXEC proc_Insert_ChiTietBangGia '10SX-50SH-40KD', 'APGIA', 0, 0, 0, N'10% Sản xuất, 50% Sinh hoạt, 40% Kinh doanh', 1
 EXEC proc_Insert_ChiTietBangGia '50%BN-10KD-30SX-10SH', 'APGIA', 0, 0, 0, N'50% Bơm nước, 10% Kinh doanh, 30% Sản xuất, 10% Sinh hoạt', 1
@@ -212,9 +214,9 @@ CREATE TABLE BangDienApGia
 (
 	MaChiTiet varchar(30) not null references ChiTietBangGia(MaChiTiet),
 	MaBangGia varchar(20) not null references BangGia(MaBangGia),
-	TyLe float not null default 0.,
-	Constraint PK_BangDienApGia primary key (MaChiTiet, MaBangGia),
-	KichHoat bit default 1
+	TyLe decimal(3,2) not null default 0.0,
+	KichHoat bit default 1,
+	Constraint PK_BangDienApGia primary key (MaChiTiet, MaBangGia)
 )
 GO
 
@@ -255,7 +257,7 @@ CREATE PROCEDURE proc_Update_BangDienApGia
 --ALTER PROCEDURE proc_Update_BangDienApGia
 	@MaChiTiet varchar(30),
 	@MaBangGia varchar(20),
-	@TyLe float,
+	@TyLe decimal(3,2),
 	@KichHoat bit
 AS
 	UPDATE BangDienApGia
@@ -263,15 +265,18 @@ AS
 	WHERE MaChiTiet = @MaChiTiet AND MaBangGia = @MaBangGia
 GO
 
+--EXEC proc_Update_BangDienApGia '10SX-50SH-40KD', 'SX', 0.1, 1
+
 CREATE TRIGGER trigger_BangDienApGia ON BangDienApGia FOR INSERT, UPDATE
+--ALTER TRIGGER trigger_BangDienApGia ON BangDienApGia FOR INSERT, UPDATE
 AS
 	IF UPDATE(TyLe)
 		BEGIN
 			DECLARE @MaChiTiet varchar(30)
-			DECLARE @TyLe float
+			DECLARE @TyLe decimal(3,2)
 			SET @MaChiTiet = (SELECT MaChiTiet FROM inserted)
 			SET @TyLe = (SELECT SUM(TyLe) FROM BangDienApGia WHERE MaChiTiet = @MaChiTiet)
-			IF @TyLe > 1 OR @TyLe < 0
+			IF @TyLe > 1.00 OR @TyLe < 0.00
 				BEGIN
 					RAISERROR (N'Tổng tỷ lệ phần trăm trên một bảng giá áp giá không được quá 1 hoặc nhỏ hơn 0', 15, 1)
 					ROLLBACK TRAN
@@ -455,7 +460,7 @@ CREATE TABLE KhachHang (
 	MaKhachHang char(10) primary key,
 	HoVaTen nvarchar(100) not null,
 	DiaChi nvarchar(250) not null,
-	MaChiTietBangGia varchar(20) references ChiTietBangGia(MaChiTiet),
+	MaChiTietBangGia varchar(30) references ChiTietBangGia(MaChiTiet),
 	MaTram varchar(20) references TramBienAp(MaTram),
 	SoHo tinyint not null default 1,
 	HeSoNhan tinyint not null default 1,
@@ -628,7 +633,7 @@ CREATE PROCEDURE proc_Update_KhachHang_Test
 	@MaKhachHang char(10),
 	@HoVaTen nvarchar(100),
 	@DiaChi nvarchar(250),
-	@MaBangGia varchar(20),
+	@MaChiTietBangGia varchar(30),
 	@MaTram varchar(20),
 	@SoHo tinyint,
 	@HeSoNhan tinyint,
@@ -654,7 +659,7 @@ AS
 				SET
 					HoVaTen = @HoVaTen,
 					DiaChi = @DiaChi,
-					MaBangGia = @MaBangGia,
+					MaChiTietBangGia = @MaChiTietBangGia,
 					MaTram = @MaTram,
 					SoHo = @SoHo,
 					HeSoNhan = @HeSoNhan,

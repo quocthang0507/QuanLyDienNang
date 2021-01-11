@@ -44,7 +44,7 @@ namespace QuanLyDienNang.Forms
 				{
 					MaBangGia = maBangGia,
 					TenBangGia = tenBangGia,
-					Thue = float.Parse(tbxThue.Text)
+					Thue = decimal.Parse(tbxThue.Text)
 				});
 				if (ok)
 				{
@@ -79,13 +79,15 @@ namespace QuanLyDienNang.Forms
 			}
 			else
 			{
-				BangGia.Update(new BangGia()
+				var ok = BangGia.Update(new BangGia()
 				{
 					MaBangGia = maBangGia,
 					TenBangGia = tenBangGia,
-					Thue = float.Parse(thue),
+					Thue = decimal.Parse(thue),
 					KichHoat = kichHoat
 				});
+				if (!ok)
+					MessageBox.Show(STRINGS.ERROR_UPDATE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 

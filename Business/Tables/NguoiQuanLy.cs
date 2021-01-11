@@ -1,4 +1,5 @@
 ﻿using DataAccess;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -54,14 +55,28 @@ namespace Business.Classes
 
 		public static bool Insert(NguoiQuanLy nguoiQuanLy)
 		{
-			int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_NguoiQuanLy", nguoiQuanLy.MaQuanLy, nguoiQuanLy.TenQuanLy, nguoiQuanLy.SoDienThoai, nguoiQuanLy.DiaChi, nguoiQuanLy.Email);
-			return result > 0;
+			try
+			{
+				int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_NguoiQuanLy", nguoiQuanLy.MaQuanLy, nguoiQuanLy.TenQuanLy, nguoiQuanLy.SoDienThoai, nguoiQuanLy.DiaChi, nguoiQuanLy.Email);
+				return result > 0;
+			}
+			catch (Exception)
+			{
+				return false;
+			}
 		}
 
 		public static bool Update(NguoiQuanLy nguoiQuanLy)
 		{
-			int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_NguoiQuanLy", nguoiQuanLy.MaQuanLy, nguoiQuanLy.TenQuanLy, nguoiQuanLy.SoDienThoai, nguoiQuanLy.DiaChi, nguoiQuanLy.Email, nguoiQuanLy.KichHoat);
-			return result > 0;
+			try
+			{
+				int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_NguoiQuanLy", nguoiQuanLy.MaQuanLy, nguoiQuanLy.TenQuanLy, nguoiQuanLy.SoDienThoai, nguoiQuanLy.DiaChi, nguoiQuanLy.Email, nguoiQuanLy.KichHoat);
+				return result > 0;
+			}
+			catch (Exception)
+			{
+				return false;
+			}
 		}
 
 		public static bool Delete(string id)

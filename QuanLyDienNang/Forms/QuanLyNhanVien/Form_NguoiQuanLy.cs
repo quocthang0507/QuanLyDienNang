@@ -70,7 +70,7 @@ namespace QuanLyDienNang.Forms
 			}
 			else
 			{
-				NguoiQuanLy.Update(new NguoiQuanLy()
+				var ok = NguoiQuanLy.Update(new NguoiQuanLy()
 				{
 					MaQuanLy = maQuanLy,
 					TenQuanLy = tenQuanLy,
@@ -78,6 +78,8 @@ namespace QuanLyDienNang.Forms
 					DiaChi = diaChi,
 					Email = email
 				});
+				if (!ok)
+					MessageBox.Show(STRINGS.ERROR_UPDATE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 

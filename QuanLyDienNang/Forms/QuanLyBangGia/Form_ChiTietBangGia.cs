@@ -82,7 +82,7 @@ namespace QuanLyDienNang.Forms
 			}
 			else
 			{
-				ChiTietBangGia.Update(new ChiTietBangGia()
+				var ok = ChiTietBangGia.Update(new ChiTietBangGia()
 				{
 					MaChiTiet = maChiTiet,
 					MaBangGia = maBangGia,
@@ -93,6 +93,8 @@ namespace QuanLyDienNang.Forms
 					ApGia = apGia,
 					KichHoat = kichHoat
 				});
+				if (!ok)
+					MessageBox.Show(STRINGS.ERROR_UPDATE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 
