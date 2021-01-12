@@ -12,7 +12,7 @@ namespace Business.Classes
 	{
 		[Key]
 		[DisplayName("Mã trạm biến áp")]
-		[StringLength(20)]
+		[StringLength(30)]
 		public string MaTram { get; set; }
 
 		[DisplayName("Tên trạm biến áp")]
@@ -29,7 +29,7 @@ namespace Business.Classes
 		public string NguoiPhuTrach { get; set; }
 
 		[DisplayName("Mã số công tơ")]
-		[StringLength(20)]
+		[StringLength(30)]
 		public string MaSoCongTo { get; set; }
 
 		[DisplayName("Hệ số nhân")]

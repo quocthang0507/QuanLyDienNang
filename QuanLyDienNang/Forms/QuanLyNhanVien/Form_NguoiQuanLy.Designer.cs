@@ -234,7 +234,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.tbxSoDT.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.tbxSoDT.Location = new System.Drawing.Point(168, 70);
-			this.tbxSoDT.MaxLength = 20;
+			this.tbxSoDT.MaxLength = 30;
 			this.tbxSoDT.Name = "tbxSoDT";
 			this.tbxSoDT.Size = new System.Drawing.Size(153, 25);
 			this.tbxSoDT.TabIndex = 3;
@@ -253,7 +253,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.tbxMaNQL.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.tbxMaNQL.Location = new System.Drawing.Point(485, 5);
-			this.tbxMaNQL.MaxLength = 20;
+			this.tbxMaNQL.MaxLength = 30;
 			this.tbxMaNQL.Name = "tbxMaNQL";
 			this.tbxMaNQL.Size = new System.Drawing.Size(159, 25);
 			this.tbxMaNQL.TabIndex = 1;

@@ -160,6 +160,7 @@
 			// 
 			this.tbxDiaChi.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.tbxDiaChi.Location = new System.Drawing.Point(74, 3);
+			this.tbxDiaChi.MaxLength = 250;
 			this.tbxDiaChi.Name = "tbxDiaChi";
 			this.tbxDiaChi.Size = new System.Drawing.Size(384, 25);
 			this.tbxDiaChi.TabIndex = 1;

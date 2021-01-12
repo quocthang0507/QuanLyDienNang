@@ -26,13 +26,13 @@ namespace Business.Classes
 		[Required]
 		public string DiaChi { get; set; }
 
-		[DisplayName("Mã chi tiết bảng giá")]
+		[DisplayName("Mã bảng giá")]
 		[StringLength(30)]
 		[Required]
-		public string MaChiTietBangGia { get; set; }
+		public string MaBangGia { get; set; }
 
 		[DisplayName("Mã trạm biến áp")]
-		[StringLength(20)]
+		[StringLength(30)]
 		[Required]
 		public string MaTram { get; set; }
 
@@ -47,11 +47,11 @@ namespace Business.Classes
 		public byte HeSoNhan { get; set; }
 
 		[DisplayName("Mã số thuế")]
-		[StringLength(20)]
+		[StringLength(30)]
 		public string MaSoThue { get; set; }
 
 		[DisplayName("Số điện thoại")]
-		[StringLength(20)]
+		[StringLength(30)]
 		public string SoDienThoai { get; set; }
 
 		[DisplayName("Email")]
@@ -63,7 +63,7 @@ namespace Business.Classes
 		public DateTime NgayTao { get; set; }
 
 		[DisplayName("Người tạo")]
-		[StringLength(20)]
+		[StringLength(30)]
 		[Required]
 		public string NguoiTao { get; set; }
 
@@ -72,23 +72,23 @@ namespace Business.Classes
 		public DateTime NgayCapNhat { get; set; }
 
 		[DisplayName("Người cập nhật")]
-		[StringLength(20)]
+		[StringLength(30)]
 		[Required]
 		public string NguoiCapNhat { get; set; }
 
 		[DisplayName("Mã số hợp đồng")]
-		[StringLength(20)]
+		[StringLength(30)]
 		public string MaSoHopDong { get; set; }
 
 		[DisplayName("Ngày hợp đồng")]
 		public DateTime NgayHopDong { get; set; }
 
 		[DisplayName("Mã công tơ")]
-		[StringLength(20)]
+		[StringLength(30)]
 		public string MaCongTo { get; set; }
 
 		[DisplayName("Số ngân hàng")]
-		[StringLength(20)]
+		[StringLength(30)]
 		public string SoNganHang { get; set; }
 
 		[DisplayName("Tên ngân hàng")]
@@ -114,7 +114,7 @@ namespace Business.Classes
 		{
 			try
 			{
-				int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_KhachHang", khachHang.HoVaTen, khachHang.DiaChi, khachHang.MaChiTietBangGia, khachHang.MaTram, khachHang.SoHo, khachHang.HeSoNhan, khachHang.MaSoThue, khachHang.SoDienThoai, khachHang.Email, khachHang.NgayTao, khachHang.NguoiTao, khachHang.NgayCapNhat, khachHang.NguoiCapNhat, khachHang.MaSoHopDong, khachHang.NgayHopDong, khachHang.MaCongTo, khachHang.SoNganHang, khachHang.TenNganHang);
+				int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_KhachHang", khachHang.HoVaTen, khachHang.DiaChi, khachHang.MaBangGia, khachHang.MaTram, khachHang.SoHo, khachHang.HeSoNhan, khachHang.MaSoThue, khachHang.SoDienThoai, khachHang.Email, khachHang.NgayTao, khachHang.NguoiTao, khachHang.NgayCapNhat, khachHang.NguoiCapNhat, khachHang.MaSoHopDong, khachHang.NgayHopDong, khachHang.MaCongTo, khachHang.SoNganHang, khachHang.TenNganHang);
 				return result > 0;
 			}
 			catch (Exception)
@@ -125,7 +125,7 @@ namespace Business.Classes
 
 		public static bool TryInserting(KhachHang khachHang)
 		{
-			int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_KhachHang_Test", khachHang.HoVaTen, khachHang.DiaChi, khachHang.MaChiTietBangGia, khachHang.MaTram, khachHang.SoHo, khachHang.HeSoNhan, khachHang.MaSoThue, khachHang.SoDienThoai, khachHang.Email, khachHang.NgayTao, khachHang.NguoiTao, khachHang.NgayCapNhat, khachHang.NguoiCapNhat, khachHang.MaSoHopDong, khachHang.NgayHopDong, khachHang.MaCongTo, khachHang.SoNganHang, khachHang.TenNganHang);
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_KhachHang_Test", khachHang.HoVaTen, khachHang.DiaChi, khachHang.MaBangGia, khachHang.MaTram, khachHang.SoHo, khachHang.HeSoNhan, khachHang.MaSoThue, khachHang.SoDienThoai, khachHang.Email, khachHang.NgayTao, khachHang.NguoiTao, khachHang.NgayCapNhat, khachHang.NguoiCapNhat, khachHang.MaSoHopDong, khachHang.NgayHopDong, khachHang.MaCongTo, khachHang.SoNganHang, khachHang.TenNganHang);
 			return result > 0;
 		}
 
@@ -133,7 +133,7 @@ namespace Business.Classes
 		{
 			try
 			{
-				int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_KhachHang", khachHang.MaKhachHang, khachHang.HoVaTen, khachHang.DiaChi, khachHang.MaChiTietBangGia, khachHang.MaTram, khachHang.SoHo, khachHang.HeSoNhan, khachHang.MaSoThue, khachHang.SoDienThoai, khachHang.Email, khachHang.NgayTao, khachHang.NguoiTao, khachHang.NgayCapNhat, khachHang.NguoiCapNhat, khachHang.MaSoHopDong, khachHang.NgayHopDong, khachHang.MaCongTo, khachHang.SoNganHang, khachHang.TenNganHang);
+				int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_KhachHang", khachHang.MaKhachHang, khachHang.HoVaTen, khachHang.DiaChi, khachHang.MaBangGia, khachHang.MaTram, khachHang.SoHo, khachHang.HeSoNhan, khachHang.MaSoThue, khachHang.SoDienThoai, khachHang.Email, khachHang.NgayTao, khachHang.NguoiTao, khachHang.NgayCapNhat, khachHang.NguoiCapNhat, khachHang.MaSoHopDong, khachHang.NgayHopDong, khachHang.MaCongTo, khachHang.SoNganHang, khachHang.TenNganHang);
 				return result > 0;
 			}
 			catch (Exception)
@@ -144,7 +144,7 @@ namespace Business.Classes
 
 		public static bool TryUpdating(KhachHang khachHang)
 		{
-			int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_KhachHang_Test", khachHang.MaKhachHang, khachHang.HoVaTen, khachHang.DiaChi, khachHang.MaChiTietBangGia, khachHang.MaTram, khachHang.SoHo, khachHang.HeSoNhan, khachHang.MaSoThue, khachHang.SoDienThoai, khachHang.Email, khachHang.NgayTao, khachHang.NguoiTao, khachHang.NgayCapNhat, khachHang.NguoiCapNhat, khachHang.MaSoHopDong, khachHang.NgayHopDong, khachHang.MaCongTo, khachHang.SoNganHang, khachHang.TenNganHang);
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_KhachHang_Test", khachHang.MaKhachHang, khachHang.HoVaTen, khachHang.DiaChi, khachHang.MaBangGia, khachHang.MaTram, khachHang.SoHo, khachHang.HeSoNhan, khachHang.MaSoThue, khachHang.SoDienThoai, khachHang.Email, khachHang.NgayTao, khachHang.NguoiTao, khachHang.NgayCapNhat, khachHang.NguoiCapNhat, khachHang.MaSoHopDong, khachHang.NgayHopDong, khachHang.MaCongTo, khachHang.SoNganHang, khachHang.TenNganHang);
 			return result > 0;
 		}
 
@@ -154,13 +154,13 @@ namespace Business.Classes
 			return result > 0;
 		}
 
-		public static List<KhachHang> Filter(string diaChi, string MaChiTietBangGia, string maTram, string tenNganHang)
+		public static List<KhachHang> Filter(string diaChi, string maBangGia, string maTram, string tenNganHang)
 		{
 			List<KhachHang> list = GetAll();
 			if (!string.IsNullOrWhiteSpace(diaChi))
 				list = list.Where(khach => khach.DiaChi.Contains(diaChi)).ToList();
-			if (!string.IsNullOrWhiteSpace(MaChiTietBangGia))
-				list = list.Where(khach => khach.MaChiTietBangGia.Equals(MaChiTietBangGia)).ToList();
+			if (!string.IsNullOrWhiteSpace(maBangGia))
+				list = list.Where(khach => khach.MaBangGia.Equals(maBangGia)).ToList();
 			if (!string.IsNullOrWhiteSpace(maTram))
 				list = list.Where(khach => khach.MaTram.Equals(maTram)).ToList();
 			if (!string.IsNullOrWhiteSpace(tenNganHang))

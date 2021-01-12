@@ -12,9 +12,6 @@ namespace QuanLyDienNang.Forms
 		private readonly Form frmCauHinh = new Form_CauHinh();
 		private static Form_Main Singleton;
 
-		// Lưu trữ tab đã mở trước đó
-		private TabPage previousTab;
-
 		// Ủy quyền xử lý từ form main sang các form con
 		private delegate void MyDelegate();
 		private MyDelegate GoUp, GoDown, GoToFirst, GoToEnd, ExportToExcel;
@@ -156,7 +153,7 @@ namespace QuanLyDienNang.Forms
 				Form form = tab.Controls[0] as Form;
 				form.Close();
 				tabForms.TabPages.Remove(tab);
-				tabForms.SelectedTab = previousTab;
+				SwitchToLastTab();
 			}
 		}
 
@@ -169,7 +166,7 @@ namespace QuanLyDienNang.Forms
 		{
 			if (tabForms.SelectedIndex == 0)
 				toolBar.Visible = false;
-			else
+			else if (tabForms.SelectedTab != null)
 			{
 				toolBar.Visible = true;
 				SwitchFormObject();
@@ -248,8 +245,6 @@ namespace QuanLyDienNang.Forms
 			};
 			newTab.Controls.Add(form);
 			newTab.ContextMenuStrip = contextTabMenu;
-			// Lưu lại tab hiện tại
-			previousTab = tabForms.SelectedTab;
 			// Hiển thị form và kích hoạt tab mới
 			tabForms.TabPages.Add(newTab);
 			tabForms.SelectedTab = newTab;
@@ -266,6 +261,13 @@ namespace QuanLyDienNang.Forms
 			lblServer.Text = "Tên máy chủ SQL: " + funcs.GetSQLServerName();
 			lblCSDL.Text = "Tên cơ sở dữ liệu: " + funcs.GetDatabase();
 			lblComputerName.Text = "Tên máy tính: " + Environment.MachineName;
+		}
+
+		private void SwitchToLastTab()
+		{
+			int len = tabForms.TabPages.Count;
+			if (len > 0)
+				tabForms.SelectTab(--len);
 		}
 
 		private void SwitchFormObject()

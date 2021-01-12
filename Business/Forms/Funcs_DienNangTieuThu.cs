@@ -30,7 +30,7 @@ namespace Business.Forms
 					HoVaTen = khach.HoVaTen,
 					DiaChi = khach.DiaChi,
 					MaTram = khach.MaTram,
-					MaChiTietBangGia = khach.MaChiTietBangGia,
+					MaBangGia = khach.MaBangGia,
 					NgayGhi = DateTime.Now,
 					NguoiGhi = MaQuanLy,
 					NgayBatDau = NgayBD,

@@ -16,7 +16,7 @@ namespace Business.Classes
 		public string MaChiTiet { get; set; }
 
 		[DisplayName("Mã bảng giá")]
-		[StringLength(20)]
+		[StringLength(30)]
 		[Required]
 		public string MaBangGia { get; set; }
 

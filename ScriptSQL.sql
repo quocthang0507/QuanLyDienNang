@@ -10,29 +10,30 @@ GO
 --DROP TABLE BangGia
 CREATE TABLE BangGia (
 	--BG001
-	MaBangGia VARCHAR(20) PRIMARY KEY,
+	MaBangGia VARCHAR(30) PRIMARY KEY,
 	TenBangGia NVARCHAR(150) NOT NULL,
 	Thue DECIMAL(3,2) DEFAULT 0.1 NOT NULL,
-	KichHoat BIT DEFAULT 1 NOT NULL
+	KichHoat BIT DEFAULT 1 NOT NULL,
+	CONSTRAINT constraint_Thue CHECK (THUE < 1 AND THUE >= 0)
 )
 GO
 
-CREATE TRIGGER trigger_BangGia ON BangGia FOR INSERT, UPDATE
-AS
-	IF UPDATE(Thue)
-		IF EXISTS (SELECT * FROM INSERTED WHERE Thue > 1 OR Thue < 0)
-		BEGIN
-			RAISERROR (N'Thuế GTGT (VAT) trên một bảng giá không được quá 1 hoặc nhỏ hơn 0', 15, 1)
-			ROLLBACK TRAN
-		END
-GO
+--DELETE FROM BangGia
 
 -- MÃ BẢNG GIÁ TỰ ĐỊNH NGHĨA
 INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('SH-THUONG', N'Điện sinh hoạt (hộ thường)')
 INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('SH-NGHEO', N'Điện sinh hoạt (hộ nghèo)')
-INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('KD-DV', N'Điện kinh doanh - dịch vụ')
-INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('SX', N'Điện sản xuất')
-INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('HC-SN', N'Điện hành chính, sự nghiệp')
+INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('KDDV-TREN22KV', N'Điện kinh doanh - dịch vụ: Cấp điện áp từ 22kV trở lên')
+INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('KDDV-6KV-22KV', N'Điện kinh doanh - dịch vụ: Cấp điện áp từ 6kV đến dưới 22kV')
+INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('KDDV-DUOI6KV', N'Điện kinh doanh - dịch vụ: Cấp điện áp dưới 6kV')
+INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('SX-TREN110KV', N'Điện sản xuất, cấp điện áp từ 110kV trở lên')
+INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('SX-22KV-110KV', N'Điện sản xuất, cấp điện áp từ 22kV đến dưới 110kV')
+INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('SX-6KV-22KV', N'Điện sản xuất, cấp điện áp từ 6kV đến dưới 22kV')
+INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('SX-DUOI6KV', N'Điện sản xuất, cấp điện áp dưới 6kV')
+INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('HCSN-BVTH-TREN6KV', N'Điện hành chính, sự nghiệp: Bệnh viện, nhà trẻ, mẫu giáo, trường phổ thông - Cấp điện áp từ 6kV trở lên')
+INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('HCSN-BVTH-DUOI6KV', N'Điện hành chính, sự nghiệp: Bệnh viện, nhà trẻ, mẫu giáo, trường phổ thông - Cấp điện áp dưới 6kV')
+INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('HCSN-CSCC-TREN6KV', N'Điện hành chính, sự nghiệp: Chiếu sáng công cộng; đơn vị hành chính sự nghiệp - Cấp điện áp từ 6kV trở lên')
+INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('HCSN-CSCC-DUOI6KV', N'Điện hành chính, sự nghiệp: Chiếu sáng công cộng; đơn vị hành chính sự nghiệp - Cấp điện áp dưới 6kV')
 INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('BV-TH', N'Điện cho bệnh viện, trường học')
 INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('BN-TT', N'Điện cho bơm nước, tưới tiêu')
 INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('CHIEUSANG', N'Điện chiếu sáng công cộng')
@@ -47,7 +48,7 @@ GO
 
 CREATE PROCEDURE proc_IsDuplicated_MaBangGia
 --ALTER PROCEDURE proc_IsDuplicated_MaBangGia
-	@MaBangGia VARCHAR(20)
+	@MaBangGia VARCHAR(30)
 AS
 	IF EXISTS (SELECT * FROM BangGia WHERE MaBangGia = @MaBangGia)
 		RETURN 1
@@ -57,7 +58,7 @@ GO
 
 CREATE PROCEDURE proc_Insert_BangGia
 --ALTER PROCEDURE proc_Insert_BangGia
-	@MaBangGia VARCHAR(20),
+	@MaBangGia VARCHAR(30),
 	@TenBangGia NVARCHAR(150),
 	@Thue DECIMAL(3,2)
 AS
@@ -66,7 +67,7 @@ GO
 
 CREATE PROCEDURE proc_Update_BangGia
 --ALTER PROCEDURE proc_Update_BangGia
-	@MaBangGia VARCHAR(20),
+	@MaBangGia VARCHAR(30),
 	@TenBangGia NVARCHAR(150),
 	@Thue DECIMAL(3,2),
 	@KichHoat BIT
@@ -78,7 +79,7 @@ GO
 
 CREATE PROCEDURE proc_Delete_BangGia
 --ALTER PROCEDURE proc_Delete_BangGia
-	@MaBangGia VARCHAR(20)
+	@MaBangGia VARCHAR(30)
 AS
 	UPDATE BangGia
 	SET KichHoat = 0
@@ -92,7 +93,7 @@ GO
 CREATE TABLE ChiTietBangGia
 (
 	MaChiTiet VARCHAR(30) PRIMARY KEY,
-	MaBangGia VARCHAR(20) REFERENCES BangGia(MaBangGia),
+	MaBangGia VARCHAR(30) REFERENCES BangGia(MaBangGia),
 	BatDau INT DEFAULT 0 NOT NULL,
 	KetThuc INT DEFAULT 0 NOT NULL,
 	DonGia INT NOT NULL,
@@ -128,7 +129,7 @@ GO
 
 CREATE PROCEDURE proc_GetByBangGia_ChiTietBangGia
 --ALTER PROCEDURE proc_GetAll_ChiTietBangGia
-	@MaBangGia VARCHAR(20)
+	@MaBangGia VARCHAR(30)
 AS
 	SELECT * FROM ChiTietBangGia WHERE MaBangGia = @MaBangGia ORDER BY KichHoat DESC, MaChiTiet ASC
 GO
@@ -136,7 +137,7 @@ GO
 CREATE PROCEDURE proc_Insert_ChiTietBangGia
 --ALTER PROCEDURE proc_Insert_ChiTietBangGia
 	@MaChiTiet VARCHAR(30),
-	@MaBangGia VARCHAR(20),
+	@MaBangGia VARCHAR(30),
 	@BatDau INT,
 	@KetThuc INT,
 	@DonGia INT,
@@ -154,31 +155,31 @@ EXEC proc_Insert_ChiTietBangGia 'SH-TH-BAC3', 'SH-THUONG', 101, 200, 2014, N'B�
 EXEC proc_Insert_ChiTietBangGia 'SH-TH-BAC4', 'SH-THUONG', 201, 300, 2536, N'Bậc 4: Cho kWh từ 201 - 300', 0
 EXEC proc_Insert_ChiTietBangGia 'SH-TH-BAC5', 'SH-THUONG', 301, 400, 2834, N'Bậc 5: Cho kWh từ 301 - 400', 0
 EXEC proc_Insert_ChiTietBangGia 'SH-TH-BAC6', 'SH-THUONG', 401, 0, 2927, N'Bậc 6: Cho kWh từ 401 trở lên', 0
-EXEC proc_Insert_ChiTietBangGia 'SX-TREN110KV-GBT', 'SX', 0, 0, 1536, N'Cấp điện áp 110kV trở lên: Giờ bình thường', 0
-EXEC proc_Insert_ChiTietBangGia 'SX-TREN110KV-GTH', 'SX', 0, 0, 970, N'Cấp điện áp 110kV trở lên: Giờ thấp điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'SX-TREN110KV-GCD', 'SX', 0, 0, 1536, N'Cấp điện áp 110kV trở lên: Giờ cao điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'SX-22KV-110KV-GBT', 'SX', 0, 0, 1555, N'Cấp điện áp từ 22kV đến dưới 110kV: Giờ bình thường', 0
-EXEC proc_Insert_ChiTietBangGia 'SX-22KV-110KV-GTD', 'SX', 0, 0, 1007, N'Cấp điện áp từ 22kV đến dưới 110kV: Giờ thấp điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'SX-22KV-110KV-GCD', 'SX', 0, 0, 2871, N'Cấp điện áp từ 22kV đến dưới 110kV: Giờ cao điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'SX-6KV-22KV-GBT', 'SX', 0, 0, 1611, N'Cấp điện áp từ 6kV đến dưới 22kV: Giờ bình thường', 0
-EXEC proc_Insert_ChiTietBangGia 'SX-6KV-22KV-GTD', 'SX', 0, 0, 1044, N'Cấp điện áp từ 6kV đến dưới 22kV: Giờ thấp điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'SX-6KV-22KV-GCD', 'SX', 0, 0, 2964, N'Cấp điện áp từ 6kV đến dưới 22kV: Giờ cao điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'SX-DUOI6KV-GBT', 'SX', 0, 0, 1685, N'Cấp điện áp dưới 6kV: Giờ bình thường', 0
-EXEC proc_Insert_ChiTietBangGia 'SX-DUOI6KV-GTD', 'SX', 0, 0, 1100, N'Cấp điện áp dưới 6kV: Giờ thấp điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'SX-DUOI6KV-GCD', 'SX', 0, 0, 3076, N'Cấp điện áp dưới 6kV: Giờ cao điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'HCSN-TH-TREN6KV', 'HC-SN', 0, 0, 1659, N'Bệnh viện, nhà trẻ, mẫu giáo, trường phổ thông: Cấp điện áp từ 6kV trở lên', 0
-EXEC proc_Insert_ChiTietBangGia 'HCSN-TH-DUOI6KV', 'HC-SN', 0, 0, 1771, N'Bệnh viện, nhà trẻ, mẫu giáo, trường phổ thông: Cấp điện áp dưới 6kV', 0
-EXEC proc_Insert_ChiTietBangGia 'HCSN-CS-TREN6KV', 'HC-SN', 0, 0, 1827, N'Chiếu sáng công cộng; đơn vị hành chính sự nghiệp: Cấp điện áp từ 6kV trở lên', 0
-EXEC proc_Insert_ChiTietBangGia 'HCSN-CS-DUOI6KV', 'HC-SN', 0, 0, 1902, N'Chiếu sáng công cộng; đơn vị hành chính sự nghiệp: Cấp điện áp dưới 6kV', 0
-EXEC proc_Insert_ChiTietBangGia 'KDDV-TREN22KV-GBT', 'KD-DV', 0, 0, 2442, N'Cấp điện áp từ 22kV trở lên: Giờ bình thường', 0
-EXEC proc_Insert_ChiTietBangGia 'KDDV-TREN22KV-GTD', 'KD-DV', 0, 0, 1361, N'Cấp điện áp từ 22kV trở lên: Giờ thấp điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'KDDV-TREN22KV-GCD', 'KD-DV', 0, 0, 4251, N'Cấp điện áp từ 22kV trở lên: Giờ cao điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'KDDV-6KV-22KV-GBT', 'KD-DV', 0, 0, 2629, N'Cấp điện áp từ 6kV đến dưới 22kV: Giờ bình thường', 0
-EXEC proc_Insert_ChiTietBangGia 'KDDV-6KV-22KV-GTD', 'KD-DV', 0, 0, 1547, N'Cấp điện áp từ 6kV đến dưới 22kV: Giờ thấp điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'KDDV-6KV-22KV-GCD', 'KD-DV', 0, 0, 4400, N'Cấp điện áp từ 6kV đến dưới 22kV: Giờ cao điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'KDDV-DUOI6KV-GBT', 'KD-DV', 0, 0, 2666, N'Cấp điện áp dưới 6kV: Giờ bình thường', 0
-EXEC proc_Insert_ChiTietBangGia 'KDDV-DUOI6KV-GTD', 'KD-DV', 0, 0, 1622, N'Cấp điện áp dưới 6kV: Giờ thấp điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'KDDV-DUOI6KV-GCD', 'KD-DV', 0, 0, 4587, N'Cấp điện áp dưới 6kV: Giờ cao điểm', 0
+EXEC proc_Insert_ChiTietBangGia 'SX-TREN110KV-GBT', 'SX-TREN110KV', 0, 0, 1536, N'Cấp điện áp 110kV trở lên: Giờ bình thường', 0
+EXEC proc_Insert_ChiTietBangGia 'SX-TREN110KV-GTD', 'SX-TREN110KV', 0, 0, 970, N'Cấp điện áp 110kV trở lên: Giờ thấp điểm', 0
+EXEC proc_Insert_ChiTietBangGia 'SX-TREN110KV-GCD', 'SX-TREN110KV', 0, 0, 1536, N'Cấp điện áp 110kV trở lên: Giờ cao điểm', 0
+EXEC proc_Insert_ChiTietBangGia 'SX-22KV-110KV-GBT', 'SX-22KV-110KV', 0, 0, 1555, N'Cấp điện áp từ 22kV đến dưới 110kV: Giờ bình thường', 0
+EXEC proc_Insert_ChiTietBangGia 'SX-22KV-110KV-GTD', 'SX-22KV-110KV', 0, 0, 1007, N'Cấp điện áp từ 22kV đến dưới 110kV: Giờ thấp điểm', 0
+EXEC proc_Insert_ChiTietBangGia 'SX-22KV-110KV-GCD', 'SX-22KV-110KV', 0, 0, 2871, N'Cấp điện áp từ 22kV đến dưới 110kV: Giờ cao điểm', 0
+EXEC proc_Insert_ChiTietBangGia 'SX-6KV-22KV-GBT', 'SX-6KV-22KV', 0, 0, 1611, N'Cấp điện áp từ 6kV đến dưới 22kV: Giờ bình thường', 0
+EXEC proc_Insert_ChiTietBangGia 'SX-6KV-22KV-GTD', 'SX-6KV-22KV', 0, 0, 1044, N'Cấp điện áp từ 6kV đến dưới 22kV: Giờ thấp điểm', 0
+EXEC proc_Insert_ChiTietBangGia 'SX-6KV-22KV-GCD', 'SX-6KV-22KV', 0, 0, 2964, N'Cấp điện áp từ 6kV đến dưới 22kV: Giờ cao điểm', 0
+EXEC proc_Insert_ChiTietBangGia 'SX-DUOI6KV-GBT', 'SX-DUOI6KV', 0, 0, 1685, N'Cấp điện áp dưới 6kV: Giờ bình thường', 0
+EXEC proc_Insert_ChiTietBangGia 'SX-DUOI6KV-GTD', 'SX-DUOI6KV', 0, 0, 1100, N'Cấp điện áp dưới 6kV: Giờ thấp điểm', 0
+EXEC proc_Insert_ChiTietBangGia 'SX-DUOI6KV-GCD', 'SX-DUOI6KV', 0, 0, 3076, N'Cấp điện áp dưới 6kV: Giờ cao điểm', 0
+EXEC proc_Insert_ChiTietBangGia 'HCSN-BVTH-TREN6KV', 'HCSN-BVTH-TREN6KV', 0, 0, 1659, N'Bệnh viện, nhà trẻ, mẫu giáo, trường phổ thông: Cấp điện áp từ 6kV trở lên', 0
+EXEC proc_Insert_ChiTietBangGia 'HCSN-BVTH-DUOI6KV', 'HCSN-BVTH-DUOI6KV', 0, 0, 1771, N'Bệnh viện, nhà trẻ, mẫu giáo, trường phổ thông: Cấp điện áp dưới 6kV', 0
+EXEC proc_Insert_ChiTietBangGia 'HCSN-CSCC-TREN6KV', 'HCSN-CSCC-TREN6KV', 0, 0, 1827, N'Chiếu sáng công cộng; đơn vị hành chính sự nghiệp: Cấp điện áp từ 6kV trở lên', 0
+EXEC proc_Insert_ChiTietBangGia 'HCSN-CSCC-DUOI6KV', 'HCSN-CSCC-DUOI6KV', 0, 0, 1902, N'Chiếu sáng công cộng; đơn vị hành chính sự nghiệp: Cấp điện áp dưới 6kV', 0
+EXEC proc_Insert_ChiTietBangGia 'KDDV-TREN22KV-GBT', 'KDDV-TREN22KV', 0, 0, 2442, N'Cấp điện áp từ 22kV trở lên: Giờ bình thường', 0
+EXEC proc_Insert_ChiTietBangGia 'KDDV-TREN22KV-GTD', 'KDDV-TREN22KV', 0, 0, 1361, N'Cấp điện áp từ 22kV trở lên: Giờ thấp điểm', 0
+EXEC proc_Insert_ChiTietBangGia 'KDDV-TREN22KV-GCD', 'KDDV-TREN22KV', 0, 0, 4251, N'Cấp điện áp từ 22kV trở lên: Giờ cao điểm', 0
+EXEC proc_Insert_ChiTietBangGia 'KDDV-6KV-22KV-GBT', 'KDDV-6KV-22KV', 0, 0, 2629, N'Cấp điện áp từ 6kV đến dưới 22kV: Giờ bình thường', 0
+EXEC proc_Insert_ChiTietBangGia 'KDDV-6KV-22KV-GTD', 'KDDV-6KV-22KV', 0, 0, 1547, N'Cấp điện áp từ 6kV đến dưới 22kV: Giờ thấp điểm', 0
+EXEC proc_Insert_ChiTietBangGia 'KDDV-6KV-22KV-GCD', 'KDDV-6KV-22KV', 0, 0, 4400, N'Cấp điện áp từ 6kV đến dưới 22kV: Giờ cao điểm', 0
+EXEC proc_Insert_ChiTietBangGia 'KDDV-DUOI6KV-GBT', 'KDDV-DUOI6KV', 0, 0, 2666, N'Cấp điện áp dưới 6kV: Giờ bình thường', 0
+EXEC proc_Insert_ChiTietBangGia 'KDDV-DUOI6KV-GTD', 'KDDV-DUOI6KV', 0, 0, 1622, N'Cấp điện áp dưới 6kV: Giờ thấp điểm', 0
+EXEC proc_Insert_ChiTietBangGia 'KDDV-DUOI6KV-GCD', 'KDDV-DUOI6KV', 0, 0, 4587, N'Cấp điện áp dưới 6kV: Giờ cao điểm', 0
 EXEC proc_Insert_ChiTietBangGia '10SX-50SH-40KD', 'APGIA', 0, 0, 0, N'10% Sản xuất, 50% Sinh hoạt, 40% Kinh doanh', 1
 EXEC proc_Insert_ChiTietBangGia '50%BN-10KD-30SX-10SH', 'APGIA', 0, 0, 0, N'50% Bơm nước, 10% Kinh doanh, 30% Sản xuất, 10% Sinh hoạt', 1
 GO
@@ -186,7 +187,7 @@ GO
 CREATE PROCEDURE proc_Update_ChiTietBangGia
 --ALTER PROCEDURE proc_Update_ChiTietBangGia
 	@MaChiTiet VARCHAR(30),
-	@MaBangGia VARCHAR(20),
+	@MaBangGia VARCHAR(30),
 	@BatDau INT,
 	@KetThuc INT,
 	@DonGia INT,
@@ -213,7 +214,7 @@ GO
 CREATE TABLE BangDienApGia
 (
 	MaChiTiet VARCHAR(30) NOT NULL REFERENCES ChiTietBangGia(MaChiTiet),
-	MaBangGia VARCHAR(20) NOT NULL REFERENCES BangGia(MaBangGia),
+	MaBangGia VARCHAR(30) NOT NULL REFERENCES BangGia(MaBangGia),
 	TyLe DECIMAL(3,2) NOT NULL DEFAULT 0.0,
 	KichHoat BIT DEFAULT 1,
 	ConstraINT PK_BangDienApGia PRIMARY KEY (MaChiTiet, MaBangGia)
@@ -228,7 +229,7 @@ CREATE PROCEDURE proc_CreateNew_BangDienApGia
 AS
 	IF NOT EXISTS (SELECT * FROM BangDienApGia WHERE MaChiTiet = @MaChiTiet)
 	BEGIN
-		DECLARE @MaBangGia VARCHAR(20)
+		DECLARE @MaBangGia VARCHAR(30)
 		DECLARE csrBangGia CURSOR FOR SELECT MaBangGia FROM BangGia
 		OPEN csrBangGia
 		FETCH NEXT FROM csrBangGia INTO @MaBangGia
@@ -256,7 +257,7 @@ GO
 CREATE PROCEDURE proc_Update_BangDienApGia
 --ALTER PROCEDURE proc_Update_BangDienApGia
 	@MaChiTiet VARCHAR(30),
-	@MaBangGia VARCHAR(20),
+	@MaBangGia VARCHAR(30),
 	@TyLe DECIMAL(3,2),
 	@KichHoat BIT
 AS
@@ -288,11 +289,11 @@ GO
 --DROP TABLE TramBienAp
 CREATE TABLE TramBienAp (
 	--BA001
-	MaTram VARCHAR(20) PRIMARY KEY,
+	MaTram VARCHAR(30) PRIMARY KEY,
 	TenTram NVARCHAR(150) NOT NULL,
 	DiaChi NVARCHAR(250) NULL,
 	NguoiPhuTrach NVARCHAR(100) NULL,
-	MaSoCongTo VARCHAR(20) NULL,
+	MaSoCongTo VARCHAR(30) NULL,
 	HeSoNhan TINYINT DEFAULT 1 NOT NULL,
 	KichHoat BIT DEFAULT 1 NOT NULL
 )
@@ -323,7 +324,7 @@ GO
 
 CREATE PROCEDURE proc_IsDuplicated_MaTram
 --ALTER PROCEDURE proc_IsDuplicated_MaTram
-	@MaTram VARCHAR(20)
+	@MaTram VARCHAR(30)
 AS
 	IF EXISTS (SELECT * FROM TramBienAp WHERE MaTram = @MaTram)
 		RETURN 1
@@ -333,11 +334,11 @@ GO
 
 CREATE PROCEDURE proc_Insert_TramBienAp
 --ALTER PROCEDURE proc_Insert_TramBienAp
-	@MaTram VARCHAR(20),
+	@MaTram VARCHAR(30),
 	@TenTram NVARCHAR(150),
 	@DiaChi NVARCHAR(250),
 	@NguoiPhuTrach NVARCHAR(100),
-	@MaSoCongTo VARCHAR(20),
+	@MaSoCongTo VARCHAR(30),
 	@HeSoNhan TINYINT
 AS
 	INSERT INTO TramBienAp (MaTram, TenTram, DiaChi, NguoiPhuTrach, MaSoCongTo, HeSoNhan) VALUES (@MaTram, @TenTram, @DiaChi, @NguoiPhuTrach, @MaSoCongTo, @HeSoNhan)
@@ -345,11 +346,11 @@ GO
 
 CREATE PROCEDURE proc_Update_TramBienAp
 --ALTER PROCEDURE proc_Update_TramBienAp
-	@MaTram VARCHAR(20),
+	@MaTram VARCHAR(30),
 	@TenTram NVARCHAR(150),
 	@DiaChi NVARCHAR(250),
 	@NguoiPhuTrach NVARCHAR(100),
-	@MaSoCongTo VARCHAR(20),
+	@MaSoCongTo VARCHAR(30),
 	@HeSoNhan TINYINT,
 	@KichHoat BIT
 AS
@@ -360,7 +361,7 @@ GO
 
 CREATE PROCEDURE proc_Delete_TramBienAp
 --ALTER PROCEDURE proc_Delete_TramBienAp
-	@MaTram VARCHAR(20)
+	@MaTram VARCHAR(30)
 AS
 	UPDATE TramBienAp
 	SET KichHoat = 0
@@ -370,9 +371,9 @@ GO
 --====================NGƯỜI QUẢN LÝ KHÁCH HÀNG====================
 --DROP TABLE NguoiQuanLy
 CREATE TABLE NguoiQuanLy (
-	MaQuanLy VARCHAR(20) PRIMARY KEY,
+	MaQuanLy VARCHAR(30) PRIMARY KEY,
 	TenQuanLy NVARCHAR(100) NOT NULL,
-	SoDienThoai NVARCHAR(20) NULL,
+	SoDienThoai VARCHAR(30) NULL,
 	DiaChi NVARCHAR(250) NOT NULL,
 	Email NVARCHAR(100) NULL,
 	KichHoat BIT DEFAULT 1 NOT NULL
@@ -398,32 +399,11 @@ AS
 		RETURN 0
 GO
 
---CREATE FUNCTION func_GenerateID_NguoiQuanLy()
-----ALTER FUNCTION func_GenerateID_NguoiQuanLy()
---RETURNS CHAR(5)
---AS
---	BEGIN
---		DECLARE @ID INT
---		DECLARE @MA CHAR(5)
---		IF EXISTS (SELECT * FROM NguoiQuanLy WHERE MaQuanLy = (SELECT max(MaQuanLy) FROM NguoiQuanLy))
---			SET @MA = (SELECT max(MaQuanLy) FROM NguoiQuanLy)
---		ELSE
---			SET @MA = 'QL000'
---		SET @ID = CAST (RIGHT(@MA, 3) AS INT) + 1
---		SET @MA = 'QL' + RIGHT('000' + CAST (@ID AS NVARCHAR(3)), 3)
---		RETURN @MA
---	END
---GO
-
-/*
-PRINT DBO.func_GenerateID_NguoiQuanLy()
-*/
-
 CREATE PROCEDURE proc_Insert_NguoiQuanLy
 --ALTER PROCEDURE proc_Insert_NguoiQuanLy
-	@MaQuanLy VARCHAR(20),
+	@MaQuanLy VARCHAR(30),
 	@TenQuanLy NVARCHAR(100),
-	@SoDienThoai NVARCHAR(20),
+	@SoDienThoai NVARCHAR(30),
 	@DiaChi NVARCHAR(250),
 	@Email NVARCHAR(100)
 AS
@@ -432,9 +412,9 @@ GO
 
 CREATE PROCEDURE proc_Update_NguoiQuanLy
 --ALTER PROCEDURE proc_Update_NguoiQuanLy
-	@MaQuanLy VARCHAR(20),
+	@MaQuanLy VARCHAR(30),
 	@TenQuanLy NVARCHAR(100),
-	@SoDienThoai NVARCHAR(20),
+	@SoDienThoai NVARCHAR(30),
 	@DiaChi NVARCHAR(250),
 	@Email NVARCHAR(100),
 	@KichHoat BIT
@@ -446,7 +426,7 @@ GO
 
 CREATE PROCEDURE proc_Delete_NguoiQuanLy
 --ALTER PROCEDURE proc_Delete_NguoiQuanLy
-	@MaQuanLy VARCHAR(10)
+	@MaQuanLy VARCHAR(30)
 AS
 	UPDATE NguoiQuanLy
 	SET KichHoat = 0
@@ -454,27 +434,27 @@ AS
 GO
 
 --====================THÔNG TIN KHÁCH HÀNG====================
+--DROP TABLE KhachHang
 CREATE TABLE KhachHang (
---ALTER TABLE KhachHang (
 	--KH00000001
 	MaKhachHang CHAR(10) PRIMARY KEY,
 	HoVaTen NVARCHAR(100) NOT NULL,
 	DiaChi NVARCHAR(250) NOT NULL,
-	MaChiTiet VARCHAR(30) REFERENCES ChiTietBangGia(MaChiTiet),
-	MaTram VARCHAR(20) REFERENCES TramBienAp(MaTram),
+	MaBangGia VARCHAR(30) REFERENCES BangGia(MaBangGia),
+	MaTram VARCHAR(30) REFERENCES TramBienAp(MaTram),
 	SoHo TINYINT NOT NULL DEFAULT 1,
 	HeSoNhan TINYINT NOT NULL DEFAULT 1,
-	MaSoThue NVARCHAR(20) NULL,
-	SoDienThoai NVARCHAR(20) NULL,
+	MaSoThue NVARCHAR(30) NULL,
+	SoDienThoai NVARCHAR(30) NULL,
 	Email NVARCHAR(100) NULL,
 	NgayTao DATETIME NOT NULL,
-	NguoiTao VARCHAR(20) REFERENCES NguoiQuanLy(MaQuanLy),
+	NguoiTao VARCHAR(30) REFERENCES NguoiQuanLy(MaQuanLy),
 	NgayCapNhat DATETIME NOT NULL,
-	NguoiCapNhat VARCHAR(20) REFERENCES NguoiQuanLy(MaQuanLy),
-	MaSoHopDong NVARCHAR(20) NULL,
+	NguoiCapNhat VARCHAR(30) REFERENCES NguoiQuanLy(MaQuanLy),
+	MaSoHopDong NVARCHAR(30) NULL,
 	NgayHopDong DATETIME NULL,
-	MaCongTo NVARCHAR(20) NULL,
-	SoNganHang NVARCHAR(20) NULL,
+	MaCongTo NVARCHAR(30) NULL,
+	SoNganHang NVARCHAR(30) NULL,
 	TenNganHang NVARCHAR(150) NULL,
 	KichHoat BIT DEFAULT 1 NOT NULL
 )
@@ -513,55 +493,56 @@ CREATE PROCEDURE proc_Insert_KhachHang
 --ALTER PROCEDURE proc_Insert_KhachHang
 	@HoVaTen NVARCHAR(100),
 	@DiaChi NVARCHAR(250),
-	@MaChiTiet NVARCHAR(20),
-	@MaTram VARCHAR(20),
+	@MaBangGia NVARCHAR(30),
+	@MaTram VARCHAR(30),
 	@SoHo TINYINT,
 	@HeSoNhan TINYINT,
-	@MaSoThue NVARCHAR(20),
-	@SoDienThoai NVARCHAR(20),
+	@MaSoThue NVARCHAR(30),
+	@SoDienThoai NVARCHAR(30),
 	@Email NVARCHAR(100),
 	@NgayTao DATETIME,
-	@NguoiTao NVARCHAR(20),
+	@NguoiTao NVARCHAR(30),
 	@NgayCapNhat DATETIME,
-	@NguoiCapNhat NVARCHAR(20),
-	@MaSoHopDong NVARCHAR(20),
+	@NguoiCapNhat NVARCHAR(30),
+	@MaSoHopDong NVARCHAR(30),
 	@NgayHopDong DATETIME,
-	@MaCongTo NVARCHAR(20),
-	@SoNganHang NVARCHAR(20),
+	@MaCongTo NVARCHAR(30),
+	@SoNganHang NVARCHAR(30),
 	@TenNganHang NVARCHAR(150)
 AS
 	DECLARE @MA CHAR(10)
 	SET @MA = DBO.func_GenerateID_KhachHang()
-	INSERT INTO KhachHang VALUES (@MA, @HoVaTen, @DiaChi, @MaChiTiet, @MaTram, @SoHo, @HeSoNhan, @MaSoThue, 
+	INSERT INTO KhachHang VALUES (@MA, @HoVaTen, @DiaChi, @MaBangGia, @MaTram, @SoHo, @HeSoNhan, @MaSoThue, 
 		@SoDienThoai, @Email, @NgayTao, @NguoiTao, @NgayCapNhat, @NguoiCapNhat, @MaSoHopDong, @NgayHopDong, @MaCongTo, @SoNganHang, @TenNganHang, 1)
 GO
 
 CREATE PROCEDURE proc_Update_KhachHang
+--ALTER PROCEDURE proc_Update_KhachHang
 	@MaKhachHang CHAR(10),
 	@HoVaTen NVARCHAR(100),
 	@DiaChi NVARCHAR(250),
-	@MaChiTiet VARCHAR(30),
-	@MaTram VARCHAR(20),
+	@MaBangGia VARCHAR(30),
+	@MaTram VARCHAR(30),
 	@SoHo TINYINT,
 	@HeSoNhan TINYINT,
-	@MaSoThue NVARCHAR(20),
-	@SoDienThoai NVARCHAR(20),
+	@MaSoThue NVARCHAR(30),
+	@SoDienThoai NVARCHAR(30),
 	@Email NVARCHAR(100),
 	@NgayTao DATETIME,
-	@NguoiTao NVARCHAR(20),
+	@NguoiTao NVARCHAR(30),
 	@NgayCapNhat DATETIME,
-	@NguoiCapNhat NVARCHAR(20),
-	@MaSoHopDong NVARCHAR(20),
+	@NguoiCapNhat NVARCHAR(30),
+	@MaSoHopDong NVARCHAR(30),
 	@NgayHopDong DATETIME,
-	@MaCongTo NVARCHAR(20),
-	@SoNganHang NVARCHAR(20),
+	@MaCongTo NVARCHAR(30),
+	@SoNganHang NVARCHAR(30),
 	@TenNganHang NVARCHAR(150)
 AS
 	UPDATE KhachHang
 	SET
 		HoVaTen = @HoVaTen,
 		DiaChi = @DiaChi,
-		MaChiTiet = @MaChiTiet,
+		MaBangGia = @MaBangGia,
 		MaTram = @MaTram,
 		SoHo = @SoHo,
 		HeSoNhan = @HeSoNhan,
@@ -593,21 +574,21 @@ CREATE PROCEDURE proc_Insert_KhachHang_Test
 --ALTER PROCEDURE proc_Insert_KhachHang_Test
 	@HoVaTen NVARCHAR(100),
 	@DiaChi NVARCHAR(250),
-	@MaChiTiet NVARCHAR(20),
-	@MaTram VARCHAR(20),
+	@MaBangGia NVARCHAR(30),
+	@MaTram VARCHAR(30),
 	@SoHo TINYINT,
 	@HeSoNhan TINYINT,
-	@MaSoThue NVARCHAR(20),
-	@SoDienThoai NVARCHAR(20),
+	@MaSoThue NVARCHAR(30),
+	@SoDienThoai NVARCHAR(30),
 	@Email NVARCHAR(100),
 	@NgayTao DATETIME,
-	@NguoiTao NVARCHAR(20),
+	@NguoiTao NVARCHAR(30),
 	@NgayCapNhat DATETIME,
-	@NguoiCapNhat NVARCHAR(20),
-	@MaSoHopDong NVARCHAR(20),
+	@NguoiCapNhat NVARCHAR(30),
+	@MaSoHopDong NVARCHAR(30),
 	@NgayHopDong DATETIME,
-	@MaCongTo NVARCHAR(20),
-	@SoNganHang NVARCHAR(20),
+	@MaCongTo NVARCHAR(30),
+	@SoNganHang NVARCHAR(30),
 	@TenNganHang NVARCHAR(150)
 AS
 	BEGIN
@@ -617,7 +598,7 @@ AS
 		BEGIN TRANSACTION ADDCUSTOMER
 			BEGIN TRY
 				SET @MA = DBO.func_GenerateID_KhachHang()
-				INSERT INTO KhachHang VALUES (@MA, @HoVaTen, @DiaChi, @MaChiTiet, @MaTram, @SoHo, @HeSoNhan, @MaSoThue, 
+				INSERT INTO KhachHang VALUES (@MA, @HoVaTen, @DiaChi, @MaBangGia, @MaTram, @SoHo, @HeSoNhan, @MaSoThue, 
 					@SoDienThoai, @Email, @NgayTao, @NguoiTao, @NgayCapNhat, @NguoiCapNhat, @MaSoHopDong, @NgayHopDong, @MaCongTo, @SoNganHang, @TenNganHang, 1)
 			END TRY
 			BEGIN CATCH
@@ -633,21 +614,21 @@ CREATE PROCEDURE proc_Update_KhachHang_Test
 	@MaKhachHang CHAR(10),
 	@HoVaTen NVARCHAR(100),
 	@DiaChi NVARCHAR(250),
-	@MaChiTiet NVARCHAR(30),
-	@MaTram VARCHAR(20),
+	@MaBangGia NVARCHAR(30),
+	@MaTram VARCHAR(30),
 	@SoHo TINYINT,
 	@HeSoNhan TINYINT,
-	@MaSoThue NVARCHAR(20),
-	@SoDienThoai NVARCHAR(20),
+	@MaSoThue NVARCHAR(30),
+	@SoDienThoai NVARCHAR(30),
 	@Email NVARCHAR(100),
 	@NgayTao DATETIME,
-	@NguoiTao NVARCHAR(20),
+	@NguoiTao NVARCHAR(30),
 	@NgayCapNhat DATETIME,
-	@NguoiCapNhat NVARCHAR(20),
-	@MaSoHopDong NVARCHAR(20),
+	@NguoiCapNhat NVARCHAR(30),
+	@MaSoHopDong NVARCHAR(30),
 	@NgayHopDong DATETIME,
-	@MaCongTo NVARCHAR(20),
-	@SoNganHang NVARCHAR(20),
+	@MaCongTo NVARCHAR(30),
+	@SoNganHang NVARCHAR(30),
 	@TenNganHang NVARCHAR(150)
 AS
 	BEGIN
@@ -659,7 +640,7 @@ AS
 				SET
 					HoVaTen = @HoVaTen,
 					DiaChi = @DiaChi,
-					MaChiTiet = @MaChiTiet,
+					MaBangGia = @MaBangGia,
 					MaTram = @MaTram,
 					SoHo = @SoHo,
 					HeSoNhan = @HeSoNhan,
@@ -688,15 +669,14 @@ GO
 --====================THÔNG TIN ĐIỆN NĂNG TIÊU THỤ CỦA KHÁCH HÀNG====================
 --DROP TABLE DienNangTieuThu
 CREATE TABLE DienNangTieuThu (
---ALTER TABLE DienNangTieuThu (
 	ID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
 	MaKhachHang CHAR(10) REFERENCES KhachHang(MaKhachHang) NOT NULL,
 	NgayGhi DATETIME NULL,
-	NguoiGhi VARCHAR(20) REFERENCES NguoiQuanLy(MaQuanLy),
+	NguoiGhi VARCHAR(30) REFERENCES NguoiQuanLy(MaQuanLy),
 	NgayBatDau DATETIME NULL,
 	NgayKetThuc DATETIME NULL,
 	NgayCapNhat DATETIME NULL,
-	NguoiCapNhat VARCHAR(20) REFERENCES NguoiQuanLy(MaQuanLy),
+	NguoiCapNhat VARCHAR(30) REFERENCES NguoiQuanLy(MaQuanLy),
 	NgayHoaDon DATETIME NULL,
 	NgayTraTien DATETIME NULL,
 	ChiSoMoi INT DEFAULT 0 NULL,
@@ -711,9 +691,9 @@ GO
 CREATE VIEW View_DienNangTieuThu
 --ALTER VIEW View_DienNangTieuThu
 AS
-	SELECT ID, D.MaKhachHang, HoVaTen, DiaChi, MaTram, MaBangGia, C.MaChiTiet, NgayGhi, NguoiGhi, NgayBatDau, NgayKetThuc, D.NgayCapNhat, D.NguoiCapNhat, NgayHoaDon, NgayTraTien, ChiSoMoi, ChiSoCu, TongTienTruocVAT, TongTienSauVAT, DaTra, ConLai
-	FROM DienNangTieuThu D, KhachHang K, ChiTietBangGia C
-	WHERE D.MaKhachHang = K.MaKhachHang AND K.MaChiTiet = C.MaChiTiet
+	SELECT ID, D.MaKhachHang, HoVaTen, DiaChi, MaTram, MaBangGia, NgayGhi, NguoiGhi, NgayBatDau, NgayKetThuc, D.NgayCapNhat, D.NguoiCapNhat, NgayHoaDon, NgayTraTien, ChiSoMoi, ChiSoCu, TongTienTruocVAT, TongTienSauVAT, DaTra, ConLai
+	FROM DienNangTieuThu D, KhachHang K
+	WHERE D.MaKhachHang = K.MaKhachHang
 GO
 
 CREATE PROCEDURE proc_GetAll_DienNangTieuThu
@@ -734,11 +714,11 @@ CREATE PROCEDURE proc_Insert_DienNangTieuThu
 --ALTER PROCEDURE proc_Insert_DienNangTieuThu
 	@MaKhachHang CHAR(10),
 	@NgayGhi DATETIME,
-	@NguoiGhi NVARCHAR(20),
+	@NguoiGhi NVARCHAR(30),
 	@NgayBatDau DATETIME,
 	@NgayKetThuc DATETIME,
 	@NgayCapNhat DATETIME,
-	@NguoiCapNhat NVARCHAR(20),
+	@NguoiCapNhat NVARCHAR(30),
 	@NgayHoaDon DATETIME,
 	@NgayTraTien DATETIME,
 	@ChiSoMoi INT,
@@ -755,11 +735,11 @@ CREATE PROCEDURE proc_Insert_DienNangTieuThu_Test
 --ALTER PROCEDURE proc_Insert_DienNangTieuThu_Test
 	@MaKhachHang CHAR(10),
 	@NgayGhi DATETIME,
-	@NguoiGhi NVARCHAR(20),
+	@NguoiGhi NVARCHAR(30),
 	@NgayBatDau DATETIME,
 	@NgayKetThuc DATETIME,
 	@NgayCapNhat DATETIME,
-	@NguoiCapNhat NVARCHAR(20),
+	@NguoiCapNhat NVARCHAR(30),
 	@NgayHoaDon DATETIME,
 	@NgayTraTien DATETIME,
 	@ChiSoMoi INT,
@@ -807,11 +787,11 @@ CREATE PROCEDURE proc_Update_DienNangTieuThu
 	@ID INT,
 	@MaKhachHang CHAR(10),
 	@NgayGhi DATETIME,
-	@NguoiGhi NVARCHAR(20),
+	@NguoiGhi NVARCHAR(30),
 	@NgayBatDau DATETIME,
 	@NgayKetThuc DATETIME,
 	@NgayCapNhat DATETIME,
-	@NguoiCapNhat NVARCHAR(20),
+	@NguoiCapNhat NVARCHAR(30),
 	@NgayHoaDon DATETIME,
 	@NgayTraTien DATETIME,
 	@ChiSoMoi INT,
@@ -846,11 +826,11 @@ CREATE PROCEDURE proc_Update_DienNangTieuThu_Test
 	@ID INT,
 	@MaKhachHang CHAR(10),
 	@NgayGhi DATETIME,
-	@NguoiGhi NVARCHAR(20),
+	@NguoiGhi NVARCHAR(30),
 	@NgayBatDau DATETIME,
 	@NgayKetThuc DATETIME,
 	@NgayCapNhat DATETIME,
-	@NguoiCapNhat NVARCHAR(20),
+	@NguoiCapNhat NVARCHAR(30),
 	@NgayHoaDon DATETIME,
 	@NgayTraTien DATETIME,
 	@ChiSoMoi INT,
@@ -934,6 +914,7 @@ AS
 GO
 
 --PRINT dbo.func_TinhTienDien_SinhHoat(0, 2)
+--PRINT dbo.func_TinhTienDien_SinhHoat(50, 1)
 --PRINT dbo.func_TinhTienDien_SinhHoat(50, 2)
 --PRINT dbo.func_TinhTienDien_SinhHoat(100, 1)
 --PRINT dbo.func_TinhTienDien_SinhHoat(100, 2)
@@ -957,30 +938,30 @@ CREATE VIEW view_BangDien
 AS
 	SELECT ID, D.MaKhachHang, B.MaBangGia, Thue, SoHo, C.MaChiTiet, NgayBatDau, NgayKetThuc, ChiSoMoi, ChiSoCu 
 	FROM DienNangTieuThu D, KhachHang K, ChiTietBangGia C, BangGia B
-	WHERE D.MaKhachHang = K.MaKhachHang AND C.MaChiTiet = K.MaChiTiet AND C.MaBangGia = B.MaBangGia
+	WHERE D.MaKhachHang = K.MaKhachHang AND C.MaBangGia = K.MaBangGia AND C.MaBangGia = B.MaBangGia
 GO
 
 CREATE PROCEDURE proc_TinhTienDien_DienNangTieuThu
 --ALTER PROCEDURE proc_TinhTienDien_DienNangTieuThu
 	@NgayBatDau DATETIME,
 	@NgayKetThuc DATETIME,
-	@MaQuanLy VARCHAR(20)
+	@MaQuanLy VARCHAR(30)
 AS
 	BEGIN
-		DECLARE @DonGia INT, @ID INT, @MaBangGia VARCHAR(20), @ChiSoMoi INT, @ChiSoCu INT, 
-			@TongTienTruocVAT INT, @VAT INT, @SoHo TINYINT, @Thue INT
+		DECLARE @DonGia INT, @ID INT, @MaBangGia VARCHAR(30), @ChiSoMoi INT, @ChiSoCu INT, 
+			@TongTienTruocVAT INT, @VAT INT, @SoHo TINYINT, @Thue DECIMAL(3, 2)
 		DECLARE csrDienNangTieuThu CURSOR FOR SELECT ID, MaBangGia, SoHo, Thue, ChiSoMoi, ChiSoCu FROM view_BangDien WHERE NgayBatDau = @NgayBatDau AND NgayKetThuc = @NgayKetThuc
 		OPEN csrDienNangTieuThu
 		FETCH NEXT FROM csrDienNangTieuThu INTO @ID, @MaBangGia, @SoHo, @Thue, @ChiSoMoi, @ChiSoCu
 		WHILE @@FETCH_STATUS = 0
 		BEGIN
 			IF @MaBangGia = 'SH-THUONG'
-				SET @TongTienTruocVAT = dbo.func_TinhTienDien_SinhHoat(@ChiSoCu - @ChiSoMoi, @SoHo)
+				SET @TongTienTruocVAT = dbo.func_TinhTienDien_SinhHoat(@ChiSoMoi - @ChiSoCu, @SoHo)
 			ELSE IF @MaBangGia = 'APGIA'
 				SET @TongTienTruocVAT = 0
 			ELSE
 				SET @TongTienTruocVAT = 0
-			SET @VAT = ROUND(@TongTienTruocVAT * @Thue, 0)
+			SET @VAT = CONVERT(INT, ROUND(@TongTienTruocVAT * @Thue, 0))
 			UPDATE DienNangTieuThu
 			SET TongTienTruocVAT = @TongTienTruocVAT, TongTienSauVAT = @TongTienTruocVAT + @Thue, NgayCapNhat = GETDATE(), NguoiCapNhat = @MaQuanLy
 			WHERE ID = @ID
@@ -990,3 +971,5 @@ AS
 		DEALLOCATE csrDienNangTieuThu
 	END
 GO
+
+--EXEC proc_TinhTienDien_DienNangTieuThu '2020/12/12', '2021/01/12', 'GIAMDOC'

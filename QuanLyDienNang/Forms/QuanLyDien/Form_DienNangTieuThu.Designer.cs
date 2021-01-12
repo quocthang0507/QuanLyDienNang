@@ -534,6 +534,7 @@
 			this.tbxDiaChi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.tbxDiaChi.Location = new System.Drawing.Point(85, 76);
+			this.tbxDiaChi.MaxLength = 250;
 			this.tbxDiaChi.Name = "tbxDiaChi";
 			this.tbxDiaChi.Size = new System.Drawing.Size(278, 25);
 			this.tbxDiaChi.TabIndex = 4;

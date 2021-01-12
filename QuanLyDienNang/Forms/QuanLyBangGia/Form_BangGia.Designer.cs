@@ -180,7 +180,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.tbxMaBangGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.tbxMaBangGia.Location = new System.Drawing.Point(101, 21);
-			this.tbxMaBangGia.MaxLength = 20;
+			this.tbxMaBangGia.MaxLength = 30;
 			this.tbxMaBangGia.Name = "tbxMaBangGia";
 			this.tbxMaBangGia.Size = new System.Drawing.Size(122, 25);
 			this.tbxMaBangGia.TabIndex = 1;

@@ -2,6 +2,7 @@
 using Business.Helper;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Text;
@@ -24,6 +25,7 @@ namespace QuanLyDienNang.Forms
 		private void Form_ChiTietBangGia_Shown(object sender, EventArgs e)
 		{
 			LoadTableByMaBangGia();
+			UpdateColumnFormat();
 		}
 
 		private void tbxBatDau_KeyPress(object sender, KeyPressEventArgs e)
@@ -212,6 +214,12 @@ namespace QuanLyDienNang.Forms
 			TextInfo textInfo = new CultureInfo("vi-VN", false).TextInfo;
 			Text = "Chi Tiết Bảng Giá " + textInfo.ToTitleCase(bangGia.TenBangGia);
 			lblTitle.Text = "CHI TIẾT BẢNG GIÁ " + bangGia.TenBangGia.ToUpper();
+		}
+
+		private void UpdateColumnFormat()
+		{
+			dgvChiTietGia.Columns[0].ReadOnly = true;
+			dgvChiTietGia.Columns[0].DefaultCellStyle.Font = new Font(DefaultFont, FontStyle.Bold);
 		}
 		#endregion
 

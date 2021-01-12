@@ -189,7 +189,7 @@ namespace QuanLyDienNang.Forms
 			this.label11.AutoSize = true;
 			this.label11.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
 			this.label11.ForeColor = System.Drawing.Color.Red;
-			this.label11.Location = new System.Drawing.Point(302, 13);
+			this.label11.Location = new System.Drawing.Point(276, 13);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(23, 19);
 			this.label11.TabIndex = 10;
@@ -318,16 +318,16 @@ namespace QuanLyDienNang.Forms
 			this.tbxMaChiTiet.Location = new System.Drawing.Point(96, 9);
 			this.tbxMaChiTiet.MaxLength = 30;
 			this.tbxMaChiTiet.Name = "tbxMaChiTiet";
-			this.tbxMaChiTiet.Size = new System.Drawing.Size(200, 25);
+			this.tbxMaChiTiet.Size = new System.Drawing.Size(180, 25);
 			this.tbxMaChiTiet.TabIndex = 1;
 			// 
 			// tbxMaBangGia
 			// 
 			this.tbxMaBangGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.tbxMaBangGia.Location = new System.Drawing.Point(426, 9);
+			this.tbxMaBangGia.Location = new System.Drawing.Point(400, 9);
 			this.tbxMaBangGia.MaxLength = 20;
 			this.tbxMaBangGia.Name = "tbxMaBangGia";
-			this.tbxMaBangGia.Size = new System.Drawing.Size(150, 25);
+			this.tbxMaBangGia.Size = new System.Drawing.Size(180, 25);
 			this.tbxMaBangGia.TabIndex = 2;
 			// 
 			// label10
@@ -354,7 +354,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(331, 13);
+			this.label2.Location = new System.Drawing.Point(305, 12);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(89, 19);
 			this.label2.TabIndex = 4;

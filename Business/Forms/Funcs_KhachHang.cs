@@ -74,7 +74,7 @@ namespace Business.Forms
 					{
 						HoVaTen = row["HoVaTen"].ToString(),
 						DiaChi = row["DiaChi"].ToString(),
-						MaChiTietBangGia = row["MaChiTietBangGia"].ToString(),
+						MaBangGia = row["MaBangGia"].ToString(),
 						MaTram = row["MaTram"].ToString(),
 						SoHo = byte.Parse(row["SoHo"].ToString()),
 						HeSoNhan = byte.Parse(row["HeSoNhan"].ToString()),
@@ -132,7 +132,7 @@ namespace Business.Forms
 						MaKhachHang = row["MaKhachHang"].ToString(),
 						HoVaTen = row["HoVaTen"].ToString(),
 						DiaChi = row["DiaChi"].ToString(),
-						MaChiTietBangGia = row["MaChiTietBangGia"].ToString(),
+						MaBangGia = row["MaBangGia"].ToString(),
 						MaTram = row["MaTram"].ToString(),
 						SoHo = byte.Parse(row["SoHo"].ToString()),
 						HeSoNhan = byte.Parse(row["HeSoNhan"].ToString()),

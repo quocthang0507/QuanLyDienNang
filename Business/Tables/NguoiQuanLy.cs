@@ -12,7 +12,7 @@ namespace Business.Classes
 	{
 		[Key]
 		[DisplayName("Mã quản lý")]
-		[StringLength(20)]
+		[StringLength(30)]
 		public string MaQuanLy { get; set; }
 
 		[DisplayName("Tên quản lý")]
@@ -21,7 +21,7 @@ namespace Business.Classes
 		public string TenQuanLy { get; set; }
 
 		[DisplayName("Số điện thoại")]
-		[StringLength(20)]
+		[StringLength(30)]
 		public string SoDienThoai { get; set; }
 
 		[DisplayName("Địa chỉ")]

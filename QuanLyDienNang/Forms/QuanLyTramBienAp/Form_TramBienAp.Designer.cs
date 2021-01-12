@@ -240,7 +240,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.tbxMaSoCongTo.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.tbxMaSoCongTo.Location = new System.Drawing.Point(626, 42);
-			this.tbxMaSoCongTo.MaxLength = 20;
+			this.tbxMaSoCongTo.MaxLength = 30;
 			this.tbxMaSoCongTo.Name = "tbxMaSoCongTo";
 			this.tbxMaSoCongTo.Size = new System.Drawing.Size(169, 25);
 			this.tbxMaSoCongTo.TabIndex = 5;
@@ -278,7 +278,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.tbxMaTram.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.tbxMaTram.Location = new System.Drawing.Point(99, 8);
-			this.tbxMaTram.MaxLength = 20;
+			this.tbxMaTram.MaxLength = 30;
 			this.tbxMaTram.Name = "tbxMaTram";
 			this.tbxMaTram.Size = new System.Drawing.Size(169, 25);
 			this.tbxMaTram.TabIndex = 1;

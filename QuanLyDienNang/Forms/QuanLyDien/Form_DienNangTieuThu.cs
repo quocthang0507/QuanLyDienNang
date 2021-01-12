@@ -81,7 +81,7 @@ namespace QuanLyDienNang.Forms
 
 		private void btnLoadTheoKy_Click(object sender, EventArgs e)
 		{
-			List<DienNangTieuThu> data = DienNangTieuThu.GetByDate(dtpCuoiKy.Value);
+			List<DienNangTieuThu> data = DienNangTieuThu.GetByPeriod(dtpCuoiKy.Value);
 			if (data == null)
 			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -128,7 +128,9 @@ namespace QuanLyDienNang.Forms
 				MessageBox.Show(STRINGS.ERROR_IMPORT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-			dgvDienNangTieuThu.DataSource = data;
+			funcs.UpdateSQL(data);
+			//dgvDienNangTieuThu.DataSource = data;
+			btnLoadTheoKy.PerformClick();
 		}
 
 		private void btnLapHoaDon_Click(object sender, EventArgs e)

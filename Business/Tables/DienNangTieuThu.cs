@@ -38,29 +38,22 @@ namespace Business.Classes
 		/// Mã trạm của khách hàng thuộc về, lưu ý cột này không có trong bảng DienNangTieuThu
 		/// </summary>
 		[DisplayName("Mã trạm")]
-		[StringLength(20)]
+		[StringLength(30)]
 		public string MaTram { get; set; }
 
 		/// <summary>
 		/// Mã bảng giá của khách hàng thuộc về, lưu ý cột này không có trong bảng DienNangTieuThu
 		/// </summary>
 		[DisplayName("Mã bảng giá")]
-		[StringLength(20)]
-		public string MaBangGia { get; set; }
-
-		/// <summary>
-		/// Mã chi tiết bảng giá của khách hàng thuộc về, lưu ý cột này không có trong bảng DienNangTieuThu
-		/// </summary>
-		[DisplayName("Mã chi tiết bảng giá")]
 		[StringLength(30)]
-		public string MaChiTietBangGia { get; set; }
+		public string MaBangGia { get; set; }
 
 		[DisplayName("Ngày ghi")]
 		[Required]
 		public DateTime NgayGhi { get; set; }
 
 		[DisplayName("Người ghi")]
-		[StringLength(20)]
+		[StringLength(30)]
 		[Required]
 		public string NguoiGhi { get; set; }
 
@@ -75,7 +68,7 @@ namespace Business.Classes
 		public DateTime NgayCapNhat { get; set; }
 
 		[DisplayName("Người cập nhật")]
-		[StringLength(20)]
+		[StringLength(30)]
 		[Required]
 		public string NguoiCapNhat { get; set; }
 
@@ -118,7 +111,7 @@ namespace Business.Classes
 			return CBO.FillCollection<DienNangTieuThu>(DataProvider.Instance.ExecuteReader("proc_GetAll_DienNangTieuThu"));
 		}
 
-		public static List<DienNangTieuThu> GetByDate(DateTime ngayCuoiKy)
+		public static List<DienNangTieuThu> GetByPeriod(DateTime ngayCuoiKy)
 		{
 			return CBO.FillCollection<DienNangTieuThu>(DataProvider.Instance.ExecuteReader("proc_GetByDate_DienNangTieuThu", ngayCuoiKy.Month, ngayCuoiKy.Year));
 		}
