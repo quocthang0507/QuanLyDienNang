@@ -10,17 +10,17 @@ GO
 --DROP TABLE BangGia
 CREATE TABLE BangGia (
 	--BG001
-	MaBangGia varchar(20) primary key,
-	TenBangGia nvarchar(150) not null,
-	Thue decimal(3,2) default 0.1 not null,
-	KichHoat bit default 1 not null
+	MaBangGia VARCHAR(20) PRIMARY KEY,
+	TenBangGia NVARCHAR(150) NOT NULL,
+	Thue DECIMAL(3,2) DEFAULT 0.1 NOT NULL,
+	KichHoat BIT DEFAULT 1 NOT NULL
 )
 GO
 
 CREATE TRIGGER trigger_BangGia ON BangGia FOR INSERT, UPDATE
 AS
 	IF UPDATE(Thue)
-		IF EXISTS (SELECT * FROM inserted WHERE Thue > 1 OR Thue < 0)
+		IF EXISTS (SELECT * FROM INSERTED WHERE Thue > 1 OR Thue < 0)
 		BEGIN
 			RAISERROR (N'Thuế GTGT (VAT) trên một bảng giá không được quá 1 hoặc nhỏ hơn 0', 15, 1)
 			ROLLBACK TRAN
@@ -47,7 +47,7 @@ GO
 
 CREATE PROCEDURE proc_IsDuplicated_MaBangGia
 --ALTER PROCEDURE proc_IsDuplicated_MaBangGia
-	@MaBangGia varchar(20)
+	@MaBangGia VARCHAR(20)
 AS
 	IF EXISTS (SELECT * FROM BangGia WHERE MaBangGia = @MaBangGia)
 		RETURN 1
@@ -57,19 +57,19 @@ GO
 
 CREATE PROCEDURE proc_Insert_BangGia
 --ALTER PROCEDURE proc_Insert_BangGia
-	@MaBangGia varchar(20),
-	@TenBangGia nvarchar(150),
-	@Thue decimal(3,2)
+	@MaBangGia VARCHAR(20),
+	@TenBangGia NVARCHAR(150),
+	@Thue DECIMAL(3,2)
 AS
 	INSERT INTO BangGia (MaBangGia, TenBangGia, Thue) VALUES (@MaBangGia, @TenBangGia, @Thue)
 GO
 
 CREATE PROCEDURE proc_Update_BangGia
 --ALTER PROCEDURE proc_Update_BangGia
-	@MaBangGia varchar(20),
-	@TenBangGia nvarchar(150),
-	@Thue decimal(3,2),
-	@KichHoat bit
+	@MaBangGia VARCHAR(20),
+	@TenBangGia NVARCHAR(150),
+	@Thue DECIMAL(3,2),
+	@KichHoat BIT
 AS
 	UPDATE BangGia
 	SET TenBangGia = @TenBangGia, KichHoat = @KichHoat, Thue = @Thue
@@ -78,7 +78,7 @@ GO
 
 CREATE PROCEDURE proc_Delete_BangGia
 --ALTER PROCEDURE proc_Delete_BangGia
-	@MaBangGia varchar(20)
+	@MaBangGia VARCHAR(20)
 AS
 	UPDATE BangGia
 	SET KichHoat = 0
@@ -91,14 +91,14 @@ GO
 --DROP TABLE ChiTietBangGia
 CREATE TABLE ChiTietBangGia
 (
-	MaChiTiet varchar(30) primary key,
-	MaBangGia varchar(20) references BangGia(MaBangGia),
-	BatDau int DEFAULT 0 not null,
-	KetThuc int DEFAULT 0 not null,
-	DonGia int not null,
-	MoTa nvarchar(250) null,
-	ApGia bit default 0 not null,
-	KichHoat bit default 1 not null
+	MaChiTiet VARCHAR(30) PRIMARY KEY,
+	MaBangGia VARCHAR(20) REFERENCES BangGia(MaBangGia),
+	BatDau INT DEFAULT 0 NOT NULL,
+	KetThuc INT DEFAULT 0 NOT NULL,
+	DonGia INT NOT NULL,
+	MoTa NVARCHAR(250) NULL,
+	ApGia BIT DEFAULT 0 NOT NULL,
+	KichHoat BIT DEFAULT 1 NOT NULL
 )
 GO
 
@@ -107,12 +107,12 @@ CREATE TRIGGER trigger_ChiTietBangGia ON ChiTietBangGia FOR INSERT, UPDATE
 AS
 	IF UPDATE(BatDau) OR UPDATE(KetThuc) OR UPDATE(DonGia)
 		BEGIN
-			IF EXISTS (SELECT * FROM inserted WHERE KetThuc < BatDau AND KetThuc != 0) --Nếu kết thúc bằng 0 nghĩa là kéo dài vô tận!
+			IF EXISTS (SELECT * FROM INSERTED WHERE KetThuc < BatDau AND KetThuc != 0) --Nếu kết thúc bằng 0 nghĩa là kéo dài vô tận!
 				BEGIN
 					RAISERROR (N'Trong phạm vi áp dụng bảng giá, vị trí kết thúc không được nhỏ hơn vị trí bắt đầu', 15, 1)
 					ROLLBACK TRAN
 				END
-			IF EXISTS (SELECT * FROM inserted WHERE DonGia < 0)
+			IF EXISTS (SELECT * FROM INSERTED WHERE DonGia < 0)
 				BEGIN
 					RAISERROR (N'Đơn giá không được âm', 15, 1)
 					ROLLBACK TRAN
@@ -128,20 +128,20 @@ GO
 
 CREATE PROCEDURE proc_GetByBangGia_ChiTietBangGia
 --ALTER PROCEDURE proc_GetAll_ChiTietBangGia
-	@MaBangGia varchar(20)
+	@MaBangGia VARCHAR(20)
 AS
 	SELECT * FROM ChiTietBangGia WHERE MaBangGia = @MaBangGia ORDER BY KichHoat DESC, MaChiTiet ASC
 GO
 
 CREATE PROCEDURE proc_Insert_ChiTietBangGia
 --ALTER PROCEDURE proc_Insert_ChiTietBangGia
-	@MaChiTiet varchar(30),
-	@MaBangGia varchar(20),
-	@BatDau int,
-	@KetThuc int,
-	@DonGia int,
-	@MoTa nvarchar(250),
-	@ApGia bit
+	@MaChiTiet VARCHAR(30),
+	@MaBangGia VARCHAR(20),
+	@BatDau INT,
+	@KetThuc INT,
+	@DonGia INT,
+	@MoTa NVARCHAR(250),
+	@ApGia BIT
 AS
 	INSERT INTO ChiTietBangGia (MaChiTiet, MaBangGia, BatDau, KetThuc, DonGia, MoTa, ApGia) VALUES (@MaChiTiet, @MaBangGia, @BatDau, @KetThuc, @DonGia, @MoTa, @ApGia)
 GO
@@ -185,14 +185,14 @@ GO
 
 CREATE PROCEDURE proc_Update_ChiTietBangGia
 --ALTER PROCEDURE proc_Update_ChiTietBangGia
-	@MaChiTiet varchar(30),
-	@MaBangGia varchar(20),
-	@BatDau int,
-	@KetThuc int,
-	@DonGia int,
-	@MoTa nvarchar(200),
-	@ApGia bit,
-	@KichHoat bit
+	@MaChiTiet VARCHAR(30),
+	@MaBangGia VARCHAR(20),
+	@BatDau INT,
+	@KetThuc INT,
+	@DonGia INT,
+	@MoTa NVARCHAR(200),
+	@ApGia BIT,
+	@KichHoat BIT
 AS
 	UPDATE ChiTietBangGia
 	SET MaBangGia = @MaBangGia, BatDau = @BatDau, KetThuc = @KetThuc, DonGia = @DonGia, MoTa = @MoTa, KichHoat = @KichHoat, ApGia = @ApGia
@@ -201,7 +201,7 @@ GO
 
 CREATE PROCEDURE proc_Delete_ChiTietBangGia
 --ALTER PROCEDURE proc_Delete_ChiTietBangGia
-	@MaChiTiet varchar(30)
+	@MaChiTiet VARCHAR(30)
 AS
 	UPDATE ChiTietBangGia
 	SET KichHoat = 0
@@ -212,11 +212,11 @@ GO
 --DROP TABLE BangDienApGia
 CREATE TABLE BangDienApGia
 (
-	MaChiTiet varchar(30) not null references ChiTietBangGia(MaChiTiet),
-	MaBangGia varchar(20) not null references BangGia(MaBangGia),
-	TyLe decimal(3,2) not null default 0.0,
-	KichHoat bit default 1,
-	Constraint PK_BangDienApGia primary key (MaChiTiet, MaBangGia)
+	MaChiTiet VARCHAR(30) NOT NULL REFERENCES ChiTietBangGia(MaChiTiet),
+	MaBangGia VARCHAR(20) NOT NULL REFERENCES BangGia(MaBangGia),
+	TyLe DECIMAL(3,2) NOT NULL DEFAULT 0.0,
+	KichHoat BIT DEFAULT 1,
+	ConstraINT PK_BangDienApGia PRIMARY KEY (MaChiTiet, MaBangGia)
 )
 GO
 
@@ -224,11 +224,11 @@ GO
 
 CREATE PROCEDURE proc_CreateNew_BangDienApGia
 --ALTER PROCEDURE proc_CreateNew_BangDienApGia
-	@MaChiTiet varchar(30)
+	@MaChiTiet VARCHAR(30)
 AS
 	IF NOT EXISTS (SELECT * FROM BangDienApGia WHERE MaChiTiet = @MaChiTiet)
 	BEGIN
-		DECLARE @MaBangGia varchar(20)
+		DECLARE @MaBangGia VARCHAR(20)
 		DECLARE csrBangGia CURSOR FOR SELECT MaBangGia FROM BangGia
 		OPEN csrBangGia
 		FETCH NEXT FROM csrBangGia INTO @MaBangGia
@@ -248,17 +248,17 @@ AS
 GO
 
 CREATE PROCEDURE proc_GetAll_BangDienApGia
-	@MaChiTiet varchar(30)
+	@MaChiTiet VARCHAR(30)
 AS
 	SELECT * FROM view_BangDienApGia WHERE MaChiTiet = @MaChiTiet
 GO
 
 CREATE PROCEDURE proc_Update_BangDienApGia
 --ALTER PROCEDURE proc_Update_BangDienApGia
-	@MaChiTiet varchar(30),
-	@MaBangGia varchar(20),
-	@TyLe decimal(3,2),
-	@KichHoat bit
+	@MaChiTiet VARCHAR(30),
+	@MaBangGia VARCHAR(20),
+	@TyLe DECIMAL(3,2),
+	@KichHoat BIT
 AS
 	UPDATE BangDienApGia
 	SET TyLe = @TyLe, KichHoat = @KichHoat
@@ -272,9 +272,9 @@ CREATE TRIGGER trigger_BangDienApGia ON BangDienApGia FOR INSERT, UPDATE
 AS
 	IF UPDATE(TyLe)
 		BEGIN
-			DECLARE @MaChiTiet varchar(30)
-			DECLARE @TyLe decimal(3,2)
-			SET @MaChiTiet = (SELECT MaChiTiet FROM inserted)
+			DECLARE @MaChiTiet VARCHAR(30)
+			DECLARE @TyLe DECIMAL(3,2)
+			SET @MaChiTiet = (SELECT MaChiTiet FROM INSERTED)
 			SET @TyLe = (SELECT SUM(TyLe) FROM BangDienApGia WHERE MaChiTiet = @MaChiTiet)
 			IF @TyLe > 1.00 OR @TyLe < 0.00
 				BEGIN
@@ -288,13 +288,13 @@ GO
 --DROP TABLE TramBienAp
 CREATE TABLE TramBienAp (
 	--BA001
-	MaTram varchar(20) primary key,
-	TenTram nvarchar(150) not null,
-	DiaChi nvarchar(250) null,
-	NguoiPhuTrach nvarchar(100) null,
-	MaSoCongTo nvarchar(20) null,
-	HeSoNhan tinyint default 1 not null,
-	KichHoat bit default 1 not null
+	MaTram VARCHAR(20) PRIMARY KEY,
+	TenTram NVARCHAR(150) NOT NULL,
+	DiaChi NVARCHAR(250) NULL,
+	NguoiPhuTrach NVARCHAR(100) NULL,
+	MaSoCongTo VARCHAR(20) NULL,
+	HeSoNhan TINYINT DEFAULT 1 NOT NULL,
+	KichHoat BIT DEFAULT 1 NOT NULL
 )
 GO
 
@@ -302,7 +302,7 @@ CREATE TRIGGER trigger_TramBienAp ON TramBienAp FOR INSERT, UPDATE
 AS
 	IF UPDATE(HeSoNhan)
 		BEGIN
-			IF EXISTS (SELECT * FROM inserted WHERE HeSoNhan < 1)
+			IF EXISTS (SELECT * FROM INSERTED WHERE HeSoNhan < 1)
 				BEGIN
 					RAISERROR (N'Hệ số nhân phải lớn hơn hoặc bằng 1', 15, 1)
 					ROLLBACK TRAN
@@ -323,7 +323,7 @@ GO
 
 CREATE PROCEDURE proc_IsDuplicated_MaTram
 --ALTER PROCEDURE proc_IsDuplicated_MaTram
-	@MaTram varchar(20)
+	@MaTram VARCHAR(20)
 AS
 	IF EXISTS (SELECT * FROM TramBienAp WHERE MaTram = @MaTram)
 		RETURN 1
@@ -333,25 +333,25 @@ GO
 
 CREATE PROCEDURE proc_Insert_TramBienAp
 --ALTER PROCEDURE proc_Insert_TramBienAp
-	@MaTram varchar(20),
-	@TenTram nvarchar(150),
-	@DiaChi nvarchar(250),
-	@NguoiPhuTrach nvarchar(100),
-	@MaSoCongTo nvarchar(20),
-	@HeSoNhan tinyint
+	@MaTram VARCHAR(20),
+	@TenTram NVARCHAR(150),
+	@DiaChi NVARCHAR(250),
+	@NguoiPhuTrach NVARCHAR(100),
+	@MaSoCongTo VARCHAR(20),
+	@HeSoNhan TINYINT
 AS
 	INSERT INTO TramBienAp (MaTram, TenTram, DiaChi, NguoiPhuTrach, MaSoCongTo, HeSoNhan) VALUES (@MaTram, @TenTram, @DiaChi, @NguoiPhuTrach, @MaSoCongTo, @HeSoNhan)
 GO
 
 CREATE PROCEDURE proc_Update_TramBienAp
 --ALTER PROCEDURE proc_Update_TramBienAp
-	@MaTram varchar(20),
-	@TenTram nvarchar(150),
-	@DiaChi nvarchar(250),
-	@NguoiPhuTrach nvarchar(100),
-	@MaSoCongTo nvarchar(20),
-	@HeSoNhan tinyint,
-	@KichHoat bit
+	@MaTram VARCHAR(20),
+	@TenTram NVARCHAR(150),
+	@DiaChi NVARCHAR(250),
+	@NguoiPhuTrach NVARCHAR(100),
+	@MaSoCongTo VARCHAR(20),
+	@HeSoNhan TINYINT,
+	@KichHoat BIT
 AS
 	UPDATE TramBienAp
 	SET TenTram = @TenTram, DiaChi = @DiaChi, NguoiPhuTrach = @NguoiPhuTrach, MaSoCongTo = @MaSoCongTo, HeSoNhan = @HeSoNhan, KichHoat = @KichHoat
@@ -360,7 +360,7 @@ GO
 
 CREATE PROCEDURE proc_Delete_TramBienAp
 --ALTER PROCEDURE proc_Delete_TramBienAp
-	@MaTram varchar(20)
+	@MaTram VARCHAR(20)
 AS
 	UPDATE TramBienAp
 	SET KichHoat = 0
@@ -370,12 +370,12 @@ GO
 --====================NGƯỜI QUẢN LÝ KHÁCH HÀNG====================
 --DROP TABLE NguoiQuanLy
 CREATE TABLE NguoiQuanLy (
-	MaQuanLy varchar(20) primary key,
-	TenQuanLy nvarchar(100) not null,
-	SoDienThoai varchar(20) null,
-	DiaChi nvarchar(250) not null,
-	Email nvarchar(100) null,
-	KichHoat bit default 1 not null
+	MaQuanLy VARCHAR(20) PRIMARY KEY,
+	TenQuanLy NVARCHAR(100) NOT NULL,
+	SoDienThoai NVARCHAR(20) NULL,
+	DiaChi NVARCHAR(250) NOT NULL,
+	Email NVARCHAR(100) NULL,
+	KichHoat BIT DEFAULT 1 NOT NULL
 )
 GO
 
@@ -390,7 +390,7 @@ GO
 
 CREATE PROCEDURE proc_IsDuplicated_MaQuanLy
 --ALTER PROCEDURE proc_IsDuplicated_MaQuanLy
-	@MaQuanLy varchar(10)
+	@MaQuanLy VARCHAR(10)
 AS
 	IF EXISTS (SELECT * FROM NguoiQuanLy WHERE MaQuanLy = @MaQuanLy)
 		RETURN 1
@@ -410,7 +410,7 @@ GO
 --		ELSE
 --			SET @MA = 'QL000'
 --		SET @ID = CAST (RIGHT(@MA, 3) AS INT) + 1
---		SET @MA = 'QL' + RIGHT('000' + CAST (@ID AS VARCHAR(3)), 3)
+--		SET @MA = 'QL' + RIGHT('000' + CAST (@ID AS NVARCHAR(3)), 3)
 --		RETURN @MA
 --	END
 --GO
@@ -421,23 +421,23 @@ PRINT DBO.func_GenerateID_NguoiQuanLy()
 
 CREATE PROCEDURE proc_Insert_NguoiQuanLy
 --ALTER PROCEDURE proc_Insert_NguoiQuanLy
-	@MaQuanLy varchar(20),
-	@TenQuanLy nvarchar(100),
-	@SoDienThoai varchar(20),
-	@DiaChi nvarchar(250),
-	@Email nvarchar(100)
+	@MaQuanLy VARCHAR(20),
+	@TenQuanLy NVARCHAR(100),
+	@SoDienThoai NVARCHAR(20),
+	@DiaChi NVARCHAR(250),
+	@Email NVARCHAR(100)
 AS
 	INSERT INTO NguoiQuanLy VALUES (@MaQuanLy, @TenQuanLy, @SoDienThoai, @DiaChi, @Email, 1)
 GO
 
 CREATE PROCEDURE proc_Update_NguoiQuanLy
 --ALTER PROCEDURE proc_Update_NguoiQuanLy
-	@MaQuanLy varchar(20),
-	@TenQuanLy nvarchar(100),
-	@SoDienThoai varchar(20),
-	@DiaChi nvarchar(250),
-	@Email nvarchar(100),
-	@KichHoat bit
+	@MaQuanLy VARCHAR(20),
+	@TenQuanLy NVARCHAR(100),
+	@SoDienThoai NVARCHAR(20),
+	@DiaChi NVARCHAR(250),
+	@Email NVARCHAR(100),
+	@KichHoat BIT
 AS
 	UPDATE NguoiQuanLy
 	SET TenQuanLy = @TenQuanLy, SoDienThoai = @SoDienThoai, DiaChi = @DiaChi, Email = @Email, KichHoat = @KichHoat
@@ -446,7 +446,7 @@ GO
 
 CREATE PROCEDURE proc_Delete_NguoiQuanLy
 --ALTER PROCEDURE proc_Delete_NguoiQuanLy
-	@MaQuanLy varchar(10)
+	@MaQuanLy VARCHAR(10)
 AS
 	UPDATE NguoiQuanLy
 	SET KichHoat = 0
@@ -457,26 +457,26 @@ GO
 CREATE TABLE KhachHang (
 --ALTER TABLE KhachHang (
 	--KH00000001
-	MaKhachHang char(10) primary key,
-	HoVaTen nvarchar(100) not null,
-	DiaChi nvarchar(250) not null,
-	MaChiTietBangGia varchar(30) references ChiTietBangGia(MaChiTiet),
-	MaTram varchar(20) references TramBienAp(MaTram),
-	SoHo tinyint not null default 1,
-	HeSoNhan tinyint not null default 1,
-	MaSoThue varchar(20) null,
-	SoDienThoai varchar(20) null,
-	Email nvarchar(100) null,
-	NgayTao datetime not null,
-	NguoiTao varchar(20) references NguoiQuanLy(MaQuanLy),
-	NgayCapNhat datetime not null,
-	NguoiCapNhat varchar(20) references NguoiQuanLy(MaQuanLy),
-	MaSoHopDong nvarchar(20) null,
-	NgayHopDong datetime null,
-	MaCongTo nvarchar(20) null,
-	SoNganHang varchar(20) null,
-	TenNganHang nvarchar(150) null,
-	KichHoat bit default 1 not null
+	MaKhachHang CHAR(10) PRIMARY KEY,
+	HoVaTen NVARCHAR(100) NOT NULL,
+	DiaChi NVARCHAR(250) NOT NULL,
+	MaChiTiet VARCHAR(30) REFERENCES ChiTietBangGia(MaChiTiet),
+	MaTram VARCHAR(20) REFERENCES TramBienAp(MaTram),
+	SoHo TINYINT NOT NULL DEFAULT 1,
+	HeSoNhan TINYINT NOT NULL DEFAULT 1,
+	MaSoThue NVARCHAR(20) NULL,
+	SoDienThoai NVARCHAR(20) NULL,
+	Email NVARCHAR(100) NULL,
+	NgayTao DATETIME NOT NULL,
+	NguoiTao VARCHAR(20) REFERENCES NguoiQuanLy(MaQuanLy),
+	NgayCapNhat DATETIME NOT NULL,
+	NguoiCapNhat VARCHAR(20) REFERENCES NguoiQuanLy(MaQuanLy),
+	MaSoHopDong NVARCHAR(20) NULL,
+	NgayHopDong DATETIME NULL,
+	MaCongTo NVARCHAR(20) NULL,
+	SoNganHang NVARCHAR(20) NULL,
+	TenNganHang NVARCHAR(150) NULL,
+	KichHoat BIT DEFAULT 1 NOT NULL
 )
 GO
 
@@ -500,7 +500,7 @@ AS
 		ELSE
 			SET @MA = 'KH00000000';
 		SET @ID = CAST (RIGHT(@MA, 8) AS INT) + 1
-		SET @MA = 'KH' + RIGHT('00000000' + CAST (@ID AS VARCHAR(8)), 8)
+		SET @MA = 'KH' + RIGHT('00000000' + CAST (@ID AS NVARCHAR(8)), 8)
 		RETURN @MA
 	END
 GO
@@ -511,57 +511,57 @@ PRINT DBO.func_GenerateID_KhachHang()
 
 CREATE PROCEDURE proc_Insert_KhachHang
 --ALTER PROCEDURE proc_Insert_KhachHang
-	@HoVaTen nvarchar(100),
-	@DiaChi nvarchar(250),
-	@MaChiTietBangGia varchar(20),
-	@MaTram varchar(20),
-	@SoHo tinyint,
-	@HeSoNhan tinyint,
-	@MaSoThue varchar(20),
-	@SoDienThoai varchar(20),
-	@Email nvarchar(100),
-	@NgayTao datetime,
-	@NguoiTao varchar(20),
-	@NgayCapNhat datetime,
-	@NguoiCapNhat varchar(20),
-	@MaSoHopDong nvarchar(20),
-	@NgayHopDong datetime,
-	@MaCongTo nvarchar(20),
-	@SoNganHang varchar(20),
-	@TenNganHang nvarchar(150)
+	@HoVaTen NVARCHAR(100),
+	@DiaChi NVARCHAR(250),
+	@MaChiTiet NVARCHAR(20),
+	@MaTram VARCHAR(20),
+	@SoHo TINYINT,
+	@HeSoNhan TINYINT,
+	@MaSoThue NVARCHAR(20),
+	@SoDienThoai NVARCHAR(20),
+	@Email NVARCHAR(100),
+	@NgayTao DATETIME,
+	@NguoiTao NVARCHAR(20),
+	@NgayCapNhat DATETIME,
+	@NguoiCapNhat NVARCHAR(20),
+	@MaSoHopDong NVARCHAR(20),
+	@NgayHopDong DATETIME,
+	@MaCongTo NVARCHAR(20),
+	@SoNganHang NVARCHAR(20),
+	@TenNganHang NVARCHAR(150)
 AS
 	DECLARE @MA CHAR(10)
 	SET @MA = DBO.func_GenerateID_KhachHang()
-	INSERT INTO KhachHang VALUES (@MA, @HoVaTen, @DiaChi, @MaChiTietBangGia, @MaTram, @SoHo, @HeSoNhan, @MaSoThue, 
+	INSERT INTO KhachHang VALUES (@MA, @HoVaTen, @DiaChi, @MaChiTiet, @MaTram, @SoHo, @HeSoNhan, @MaSoThue, 
 		@SoDienThoai, @Email, @NgayTao, @NguoiTao, @NgayCapNhat, @NguoiCapNhat, @MaSoHopDong, @NgayHopDong, @MaCongTo, @SoNganHang, @TenNganHang, 1)
 GO
 
 CREATE PROCEDURE proc_Update_KhachHang
-	@MaKhachHang char(10),
-	@HoVaTen nvarchar(100),
-	@DiaChi nvarchar(250),
-	@MaChiTietBangGia varchar(20),
-	@MaTram varchar(20),
-	@SoHo tinyint,
-	@HeSoNhan tinyint,
-	@MaSoThue varchar(20),
-	@SoDienThoai varchar(20),
-	@Email nvarchar(100),
-	@NgayTao datetime,
-	@NguoiTao varchar(20),
-	@NgayCapNhat datetime,
-	@NguoiCapNhat varchar(20),
-	@MaSoHopDong nvarchar(20),
-	@NgayHopDong datetime,
-	@MaCongTo nvarchar(20),
-	@SoNganHang varchar(20),
-	@TenNganHang nvarchar(150)
+	@MaKhachHang CHAR(10),
+	@HoVaTen NVARCHAR(100),
+	@DiaChi NVARCHAR(250),
+	@MaChiTiet VARCHAR(30),
+	@MaTram VARCHAR(20),
+	@SoHo TINYINT,
+	@HeSoNhan TINYINT,
+	@MaSoThue NVARCHAR(20),
+	@SoDienThoai NVARCHAR(20),
+	@Email NVARCHAR(100),
+	@NgayTao DATETIME,
+	@NguoiTao NVARCHAR(20),
+	@NgayCapNhat DATETIME,
+	@NguoiCapNhat NVARCHAR(20),
+	@MaSoHopDong NVARCHAR(20),
+	@NgayHopDong DATETIME,
+	@MaCongTo NVARCHAR(20),
+	@SoNganHang NVARCHAR(20),
+	@TenNganHang NVARCHAR(150)
 AS
 	UPDATE KhachHang
 	SET
 		HoVaTen = @HoVaTen,
 		DiaChi = @DiaChi,
-		MaChiTietBangGia = @MaChiTietBangGia,
+		MaChiTiet = @MaChiTiet,
 		MaTram = @MaTram,
 		SoHo = @SoHo,
 		HeSoNhan = @HeSoNhan,
@@ -582,7 +582,7 @@ GO
 
 CREATE PROCEDURE proc_Delete_KhachHang
 --ALTER PROCEDURE proc_Delete_KhachHang
-	@MaKhachHang char(10)
+	@MaKhachHang CHAR(10)
 AS
 	UPDATE KhachHang
 	SET KichHoat = 0
@@ -591,24 +591,24 @@ GO
 
 CREATE PROCEDURE proc_Insert_KhachHang_Test
 --ALTER PROCEDURE proc_Insert_KhachHang_Test
-	@HoVaTen nvarchar(100),
-	@DiaChi nvarchar(250),
-	@MaChiTietBangGia varchar(20),
-	@MaTram varchar(20),
-	@SoHo tinyint,
-	@HeSoNhan tinyint,
-	@MaSoThue varchar(20),
-	@SoDienThoai varchar(20),
-	@Email nvarchar(100),
-	@NgayTao datetime,
-	@NguoiTao varchar(20),
-	@NgayCapNhat datetime,
-	@NguoiCapNhat varchar(20),
-	@MaSoHopDong nvarchar(20),
-	@NgayHopDong datetime,
-	@MaCongTo nvarchar(20),
-	@SoNganHang varchar(20),
-	@TenNganHang nvarchar(150)
+	@HoVaTen NVARCHAR(100),
+	@DiaChi NVARCHAR(250),
+	@MaChiTiet NVARCHAR(20),
+	@MaTram VARCHAR(20),
+	@SoHo TINYINT,
+	@HeSoNhan TINYINT,
+	@MaSoThue NVARCHAR(20),
+	@SoDienThoai NVARCHAR(20),
+	@Email NVARCHAR(100),
+	@NgayTao DATETIME,
+	@NguoiTao NVARCHAR(20),
+	@NgayCapNhat DATETIME,
+	@NguoiCapNhat NVARCHAR(20),
+	@MaSoHopDong NVARCHAR(20),
+	@NgayHopDong DATETIME,
+	@MaCongTo NVARCHAR(20),
+	@SoNganHang NVARCHAR(20),
+	@TenNganHang NVARCHAR(150)
 AS
 	BEGIN
 		DECLARE @MA CHAR(10)
@@ -617,7 +617,7 @@ AS
 		BEGIN TRANSACTION ADDCUSTOMER
 			BEGIN TRY
 				SET @MA = DBO.func_GenerateID_KhachHang()
-				INSERT INTO KhachHang VALUES (@MA, @HoVaTen, @DiaChi, @MaChiTietBangGia, @MaTram, @SoHo, @HeSoNhan, @MaSoThue, 
+				INSERT INTO KhachHang VALUES (@MA, @HoVaTen, @DiaChi, @MaChiTiet, @MaTram, @SoHo, @HeSoNhan, @MaSoThue, 
 					@SoDienThoai, @Email, @NgayTao, @NguoiTao, @NgayCapNhat, @NguoiCapNhat, @MaSoHopDong, @NgayHopDong, @MaCongTo, @SoNganHang, @TenNganHang, 1)
 			END TRY
 			BEGIN CATCH
@@ -630,25 +630,25 @@ GO
 
 CREATE PROCEDURE proc_Update_KhachHang_Test
 --ALTER PROCEDURE proc_Update_KhachHang_Test
-	@MaKhachHang char(10),
-	@HoVaTen nvarchar(100),
-	@DiaChi nvarchar(250),
-	@MaChiTietBangGia varchar(30),
-	@MaTram varchar(20),
-	@SoHo tinyint,
-	@HeSoNhan tinyint,
-	@MaSoThue varchar(20),
-	@SoDienThoai varchar(20),
-	@Email nvarchar(100),
-	@NgayTao datetime,
-	@NguoiTao varchar(20),
-	@NgayCapNhat datetime,
-	@NguoiCapNhat varchar(20),
-	@MaSoHopDong nvarchar(20),
-	@NgayHopDong datetime,
-	@MaCongTo nvarchar(20),
-	@SoNganHang varchar(20),
-	@TenNganHang nvarchar(150)
+	@MaKhachHang CHAR(10),
+	@HoVaTen NVARCHAR(100),
+	@DiaChi NVARCHAR(250),
+	@MaChiTiet NVARCHAR(30),
+	@MaTram VARCHAR(20),
+	@SoHo TINYINT,
+	@HeSoNhan TINYINT,
+	@MaSoThue NVARCHAR(20),
+	@SoDienThoai NVARCHAR(20),
+	@Email NVARCHAR(100),
+	@NgayTao DATETIME,
+	@NguoiTao NVARCHAR(20),
+	@NgayCapNhat DATETIME,
+	@NguoiCapNhat NVARCHAR(20),
+	@MaSoHopDong NVARCHAR(20),
+	@NgayHopDong DATETIME,
+	@MaCongTo NVARCHAR(20),
+	@SoNganHang NVARCHAR(20),
+	@TenNganHang NVARCHAR(150)
 AS
 	BEGIN
 		DECLARE @KQ BIT
@@ -659,7 +659,7 @@ AS
 				SET
 					HoVaTen = @HoVaTen,
 					DiaChi = @DiaChi,
-					MaChiTietBangGia = @MaChiTietBangGia,
+					MaChiTiet = @MaChiTiet,
 					MaTram = @MaTram,
 					SoHo = @SoHo,
 					HeSoNhan = @HeSoNhan,
@@ -689,31 +689,31 @@ GO
 --DROP TABLE DienNangTieuThu
 CREATE TABLE DienNangTieuThu (
 --ALTER TABLE DienNangTieuThu (
-	ID int not null identity(1, 1) primary key,
-	MaKhachHang char(10) references KhachHang(MaKhachHang) not null,
-	NgayGhi datetime null,
-	NguoiGhi varchar(20) references NguoiQuanLy(MaQuanLy),
-	NgayBatDau datetime null,
-	NgayKetThuc datetime null,
-	NgayCapNhat datetime null,
-	NguoiCapNhat varchar(20) references NguoiQuanLy(MaQuanLy),
-	NgayHoaDon datetime null,
-	NgayTraTien datetime null,
-	ChiSoMoi int default 0 null,
-	ChiSoCu int default 0 null,
-	TongTienTruocVAT money null,
-	TongTienSauVAT money null,
-	DaTra money default 0 null,
-	ConLai money null,
+	ID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
+	MaKhachHang CHAR(10) REFERENCES KhachHang(MaKhachHang) NOT NULL,
+	NgayGhi DATETIME NULL,
+	NguoiGhi VARCHAR(20) REFERENCES NguoiQuanLy(MaQuanLy),
+	NgayBatDau DATETIME NULL,
+	NgayKetThuc DATETIME NULL,
+	NgayCapNhat DATETIME NULL,
+	NguoiCapNhat VARCHAR(20) REFERENCES NguoiQuanLy(MaQuanLy),
+	NgayHoaDon DATETIME NULL,
+	NgayTraTien DATETIME NULL,
+	ChiSoMoi INT DEFAULT 0 NULL,
+	ChiSoCu INT DEFAULT 0 NULL,
+	TongTienTruocVAT MONEY NULL,
+	TongTienSauVAT MONEY NULL,
+	DaTra MONEY DEFAULT 0 NULL,
+	ConLai MONEY NULL,
 )
 GO
 
 CREATE VIEW View_DienNangTieuThu
 --ALTER VIEW View_DienNangTieuThu
 AS
-	SELECT ID, D.MaKhachHang, HoVaTen, DiaChi, MaTram, MaBangGia, MaChiTietBangGia, NgayGhi, NguoiGhi, NgayBatDau, NgayKetThuc, D.NgayCapNhat, D.NguoiCapNhat, NgayHoaDon, NgayTraTien, ChiSoMoi, ChiSoCu, TongTienTruocVAT, TongTienSauVAT, DaTra, ConLai
+	SELECT ID, D.MaKhachHang, HoVaTen, DiaChi, MaTram, MaBangGia, C.MaChiTiet, NgayGhi, NguoiGhi, NgayBatDau, NgayKetThuc, D.NgayCapNhat, D.NguoiCapNhat, NgayHoaDon, NgayTraTien, ChiSoMoi, ChiSoCu, TongTienTruocVAT, TongTienSauVAT, DaTra, ConLai
 	FROM DienNangTieuThu D, KhachHang K, ChiTietBangGia C
-	WHERE D.MaKhachHang = K.MaKhachHang AND K.MaChiTietBangGia = C.MaChiTiet
+	WHERE D.MaKhachHang = K.MaKhachHang AND K.MaChiTiet = C.MaChiTiet
 GO
 
 CREATE PROCEDURE proc_GetAll_DienNangTieuThu
@@ -732,42 +732,42 @@ GO
 
 CREATE PROCEDURE proc_Insert_DienNangTieuThu
 --ALTER PROCEDURE proc_Insert_DienNangTieuThu
-	@MaKhachHang char(10),
-	@NgayGhi datetime,
-	@NguoiGhi varchar(20),
-	@NgayBatDau datetime,
-	@NgayKetThuc datetime,
-	@NgayCapNhat datetime,
-	@NguoiCapNhat varchar(20),
-	@NgayHoaDon datetime,
-	@NgayTraTien datetime,
-	@ChiSoMoi int,
-	@ChiSoCu int,
-	@TongTienTruocVAT money,
-	@TongTienSauVAT money,
-	@DaTra money,
-	@ConLai money
+	@MaKhachHang CHAR(10),
+	@NgayGhi DATETIME,
+	@NguoiGhi NVARCHAR(20),
+	@NgayBatDau DATETIME,
+	@NgayKetThuc DATETIME,
+	@NgayCapNhat DATETIME,
+	@NguoiCapNhat NVARCHAR(20),
+	@NgayHoaDon DATETIME,
+	@NgayTraTien DATETIME,
+	@ChiSoMoi INT,
+	@ChiSoCu INT,
+	@TongTienTruocVAT MONEY,
+	@TongTienSauVAT MONEY,
+	@DaTra MONEY,
+	@ConLai MONEY
 AS
 	INSERT INTO DienNangTieuThu VALUES (@MaKhachHang, @NgayGhi, @NguoiGhi, @NgayBatDau, @NgayKetThuc, @NgayCapNhat, @NguoiCapNhat, @NgayHoaDon, @NgayTraTien, @ChiSoMoi, @ChiSoCu, @TongTienTruocVAT, @TongTienSauVAT, @DaTra, @ConLai)
 GO
 
 CREATE PROCEDURE proc_Insert_DienNangTieuThu_Test
 --ALTER PROCEDURE proc_Insert_DienNangTieuThu_Test
-	@MaKhachHang char(10),
-	@NgayGhi datetime,
-	@NguoiGhi varchar(20),
-	@NgayBatDau datetime,
-	@NgayKetThuc datetime,
-	@NgayCapNhat datetime,
-	@NguoiCapNhat varchar(20),
-	@NgayHoaDon datetime,
-	@NgayTraTien datetime,
-	@ChiSoMoi int,
-	@ChiSoCu int,
-	@TongTienTruocVAT money,
-	@TongTienSauVAT money,
-	@DaTra money,
-	@ConLai money
+	@MaKhachHang CHAR(10),
+	@NgayGhi DATETIME,
+	@NguoiGhi NVARCHAR(20),
+	@NgayBatDau DATETIME,
+	@NgayKetThuc DATETIME,
+	@NgayCapNhat DATETIME,
+	@NguoiCapNhat NVARCHAR(20),
+	@NgayHoaDon DATETIME,
+	@NgayTraTien DATETIME,
+	@ChiSoMoi INT,
+	@ChiSoCu INT,
+	@TongTienTruocVAT MONEY,
+	@TongTienSauVAT MONEY,
+	@DaTra MONEY,
+	@ConLai MONEY
 AS
 	BEGIN
 		DECLARE @KQ BIT
@@ -804,22 +804,22 @@ GO
 
 CREATE PROCEDURE proc_Update_DienNangTieuThu
 --ALTER PROCEDURE proc_Update_DienNangTieuThu
-	@ID int,
-	@MaKhachHang char(10),
-	@NgayGhi datetime,
-	@NguoiGhi varchar(20),
-	@NgayBatDau datetime,
-	@NgayKetThuc datetime,
-	@NgayCapNhat datetime,
-	@NguoiCapNhat varchar(20),
-	@NgayHoaDon datetime,
-	@NgayTraTien datetime,
-	@ChiSoMoi int,
-	@ChiSoCu int,
-	@TongTienTruocVAT money,
-	@TongTienSauVAT money,
-	@DaTra money,
-	@ConLai money
+	@ID INT,
+	@MaKhachHang CHAR(10),
+	@NgayGhi DATETIME,
+	@NguoiGhi NVARCHAR(20),
+	@NgayBatDau DATETIME,
+	@NgayKetThuc DATETIME,
+	@NgayCapNhat DATETIME,
+	@NguoiCapNhat NVARCHAR(20),
+	@NgayHoaDon DATETIME,
+	@NgayTraTien DATETIME,
+	@ChiSoMoi INT,
+	@ChiSoCu INT,
+	@TongTienTruocVAT MONEY,
+	@TongTienSauVAT MONEY,
+	@DaTra MONEY,
+	@ConLai MONEY
 AS
 	UPDATE DienNangTieuThu
 	SET
@@ -843,22 +843,22 @@ GO
 
 CREATE PROCEDURE proc_Update_DienNangTieuThu_Test
 --ALTER PROCEDURE proc_Update_DienNangTieuThu_Test
-	@ID int,
-	@MaKhachHang char(10),
-	@NgayGhi datetime,
-	@NguoiGhi varchar(20),
-	@NgayBatDau datetime,
-	@NgayKetThuc datetime,
-	@NgayCapNhat datetime,
-	@NguoiCapNhat varchar(20),
-	@NgayHoaDon datetime,
-	@NgayTraTien datetime,
-	@ChiSoMoi int,
-	@ChiSoCu int,
-	@TongTienTruocVAT money,
-	@TongTienSauVAT money,
-	@DaTra money,
-	@ConLai money
+	@ID INT,
+	@MaKhachHang CHAR(10),
+	@NgayGhi DATETIME,
+	@NguoiGhi NVARCHAR(20),
+	@NgayBatDau DATETIME,
+	@NgayKetThuc DATETIME,
+	@NgayCapNhat DATETIME,
+	@NguoiCapNhat NVARCHAR(20),
+	@NgayHoaDon DATETIME,
+	@NgayTraTien DATETIME,
+	@ChiSoMoi INT,
+	@ChiSoCu INT,
+	@TongTienTruocVAT MONEY,
+	@TongTienSauVAT MONEY,
+	@DaTra MONEY,
+	@ConLai MONEY
 AS
 	BEGIN
 		DECLARE @KQ BIT
@@ -898,8 +898,8 @@ AS
 	SELECT * FROM ChiTietBangGia WHERE MaBangGia = 'SH-THUONG' AND KichHoat = 1
 GO
 
-CREATE FUNCTION func_TinhTienDien_SinhHoat (@DienNangTieuThu int, @SoHo tinyint)
---ALTER FUNCTION func_TinhTienDien_SinhHoat (@DienNangTieuThu int, @SoHo tinyint)
+CREATE FUNCTION func_TinhTienDien_SinhHoat (@DienNangTieuThu INT, @SoHo TINYINT)
+--ALTER FUNCTION func_TinhTienDien_SinhHoat (@DienNangTieuThu INT, @SoHo TINYINT)
 RETURNS INT
 AS
 	BEGIN
@@ -940,3 +940,39 @@ GO
 --PRINT dbo.func_TinhTienDien_SinhHoat(250, 2)
 --PRINT dbo.func_TinhTienDien_SinhHoat(453, 1)
 --PRINT dbo.func_TinhTienDien_SinhHoat(453, 2)
+
+CREATE VIEW view_BangDien
+--ALTER VIEW view_BangDien
+AS
+	SELECT ID, D.MaKhachHang, B.MaBangGia, Thue, SoHo, C.MaChiTiet, NgayBatDau, NgayKetThuc, ChiSoMoi, ChiSoCu 
+	FROM DienNangTieuThu D, KhachHang K, ChiTietBangGia C, BangGia B
+	WHERE D.MaKhachHang = K.MaKhachHang AND C.MaChiTiet = K.MaChiTiet AND C.MaBangGia = B.MaBangGia
+GO
+
+CREATE PROCEDURE proc_TinhTienDien_DienNangTieuThu
+	@NgayBatDau DATETIME,
+	@NgayKetThuc DATETIME
+AS
+	BEGIN
+		DECLARE @DonGia INT, @ID INT, @MaBangGia VARCHAR(20), @ChiSoMoi INT, @ChiSoCu INT, @TongTienTruocVAT INT, @SoHo TINYINT, @Thue INT
+		DECLARE csrDienNangTieuThu CURSOR FOR SELECT ID, MaBangGia, SoHo, Thue, ChiSoMoi, ChiSoCu FROM view_BangDien WHERE NgayBatDau = @NgayBatDau AND NgayKetThuc = @NgayKetThuc
+		OPEN csrDienNangTieuThu
+		FETCH NEXT FROM csrDienNangTieuThu INTO @ID, @MaBangGia, @SoHo, @Thue, @ChiSoMoi, @ChiSoCu
+		WHILE @@FETCH_STATUS = 0
+		BEGIN
+			IF @MaBangGia = 'SH-THUONG'
+				SET @TongTienTruocVAT = dbo.func_TinhTienDien_SinhHoat(@ChiSoCu - @ChiSoMoi, @SoHo)
+			ELSE IF @MaBangGia = 'APGIA'
+				SET @TongTienTruocVAT = 0
+			ELSE
+				SET @TongTienTruocVAT = 0
+			
+			UPDATE DienNangTieuThu
+			SET TongTienTruocVAT = @TongTienTruocVAT
+			WHERE ID = @ID
+			FETCH NEXT FROM csrDienNangTieuThu INTO @ID, @MaBangGia, @SoHo, @Thue, @ChiSoMoi, @ChiSoCu
+		END
+		CLOSE csrDienNangTieuThu
+		DEALLOCATE csrDienNangTieuThu
+	END
+GO
