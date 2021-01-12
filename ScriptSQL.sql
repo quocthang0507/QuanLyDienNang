@@ -941,6 +941,16 @@ GO
 --PRINT dbo.func_TinhTienDien_SinhHoat(453, 1)
 --PRINT dbo.func_TinhTienDien_SinhHoat(453, 2)
 
+CREATE FUNCTION func_TinhTienDien_ApGia (@DienNangTieuThu INT, @SoHo TINYINT)
+--ALTER FUNCTION func_TinhTienDien_ApGia (@DienNangTieuThu INT, @SoHo TINYINT)
+RETURNS INT
+AS
+	BEGIN
+		DECLARE @ThanhTien INT
+		RETURN @ThanhTien
+	END
+GO
+
 CREATE VIEW view_BangDien
 --ALTER VIEW view_BangDien
 AS
@@ -950,11 +960,13 @@ AS
 GO
 
 CREATE PROCEDURE proc_TinhTienDien_DienNangTieuThu
+--ALTER PROCEDURE proc_TinhTienDien_DienNangTieuThu
 	@NgayBatDau DATETIME,
 	@NgayKetThuc DATETIME
 AS
 	BEGIN
-		DECLARE @DonGia INT, @ID INT, @MaBangGia VARCHAR(20), @ChiSoMoi INT, @ChiSoCu INT, @TongTienTruocVAT INT, @SoHo TINYINT, @Thue INT
+		DECLARE @DonGia INT, @ID INT, @MaBangGia VARCHAR(20), @ChiSoMoi INT, @ChiSoCu INT, 
+			@TongTienTruocVAT INT, @VAT INT, @SoHo TINYINT, @Thue INT
 		DECLARE csrDienNangTieuThu CURSOR FOR SELECT ID, MaBangGia, SoHo, Thue, ChiSoMoi, ChiSoCu FROM view_BangDien WHERE NgayBatDau = @NgayBatDau AND NgayKetThuc = @NgayKetThuc
 		OPEN csrDienNangTieuThu
 		FETCH NEXT FROM csrDienNangTieuThu INTO @ID, @MaBangGia, @SoHo, @Thue, @ChiSoMoi, @ChiSoCu
@@ -966,9 +978,9 @@ AS
 				SET @TongTienTruocVAT = 0
 			ELSE
 				SET @TongTienTruocVAT = 0
-			
+			SET @VAT = ROUND(@TongTienTruocVAT * @Thue, 0)
 			UPDATE DienNangTieuThu
-			SET TongTienTruocVAT = @TongTienTruocVAT
+			SET TongTienTruocVAT = @TongTienTruocVAT, TongTienSauVAT = @TongTienTruocVAT + @Thue
 			WHERE ID = @ID
 			FETCH NEXT FROM csrDienNangTieuThu INTO @ID, @MaBangGia, @SoHo, @Thue, @ChiSoMoi, @ChiSoCu
 		END
