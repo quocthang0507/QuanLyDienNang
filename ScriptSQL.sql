@@ -711,9 +711,9 @@ GO
 CREATE VIEW View_DienNangTieuThu
 --ALTER VIEW View_DienNangTieuThu
 AS
-	SELECT ID, D.MaKhachHang, HoVaTen, DiaChi, MaTram, MaChiTietBangGia, NgayGhi, NguoiGhi, NgayBatDau, NgayKetThuc, D.NgayCapNhat, D.NguoiCapNhat, NgayHoaDon, NgayTraTien, ChiSoMoi, ChiSoCu, TongTienTruocVAT, TongTienSauVAT, DaTra, ConLai
-	FROM DienNangTieuThu D, KhachHang K
-	WHERE D.MaKhachHang = K.MaKhachHang
+	SELECT ID, D.MaKhachHang, HoVaTen, DiaChi, MaTram, MaBangGia, MaChiTietBangGia, NgayGhi, NguoiGhi, NgayBatDau, NgayKetThuc, D.NgayCapNhat, D.NguoiCapNhat, NgayHoaDon, NgayTraTien, ChiSoMoi, ChiSoCu, TongTienTruocVAT, TongTienSauVAT, DaTra, ConLai
+	FROM DienNangTieuThu D, KhachHang K, ChiTietBangGia C
+	WHERE D.MaKhachHang = K.MaKhachHang AND K.MaChiTietBangGia = C.MaChiTiet
 GO
 
 CREATE PROCEDURE proc_GetAll_DienNangTieuThu

@@ -47,6 +47,7 @@
 			this.quảnLýBảngGiáToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.quảnLýBảngGiáToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.quảnLýTrạmBiếnÁpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.quảnLýTrạmBiếnÁpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextTabMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.menuDong = new System.Windows.Forms.ToolStripMenuItem();
 			this.tabForms = new System.Windows.Forms.TabControl();
@@ -57,10 +58,9 @@
 			this.lblCSDL = new System.Windows.Forms.ToolStripStatusLabel();
 			this.lblServer = new System.Windows.Forms.ToolStripStatusLabel();
 			this.toolBar = new System.Windows.Forms.ToolStrip();
-			this.btnXuat = new System.Windows.Forms.ToolStripButton();
+			this.btnXuatExcel = new System.Windows.Forms.ToolStripButton();
 			this.btnIn = new System.Windows.Forms.ToolStripButton();
 			this.separator1 = new System.Windows.Forms.ToolStripSeparator();
-			this.btnXoa = new System.Windows.Forms.ToolStripButton();
 			this.btnSaoChep = new System.Windows.Forms.ToolStripButton();
 			this.separator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.btnTrenCung = new System.Windows.Forms.ToolStripButton();
@@ -70,7 +70,6 @@
 			this.separator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.btnDongForm = new System.Windows.Forms.ToolStripButton();
 			this.btnThoat = new System.Windows.Forms.ToolStripButton();
-			this.quảnLýTrạmBiếnÁpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuBar.SuspendLayout();
 			this.contextTabMenu.SuspendLayout();
 			this.tabForms.SuspendLayout();
@@ -224,7 +223,7 @@
 			// 
 			this.quảnLýBảngGiáToolStripMenuItem1.Image = global::QuanLyDienNang.Properties.Resources.VNDong;
 			this.quảnLýBảngGiáToolStripMenuItem1.Name = "quảnLýBảngGiáToolStripMenuItem1";
-			this.quảnLýBảngGiáToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+			this.quảnLýBảngGiáToolStripMenuItem1.Size = new System.Drawing.Size(164, 22);
 			this.quảnLýBảngGiáToolStripMenuItem1.Text = "Quản lý Bảng giá";
 			this.quảnLýBảngGiáToolStripMenuItem1.Click += new System.EventHandler(this.quảnLýBảngGiáToolStripMenuItem1_Click);
 			// 
@@ -235,6 +234,14 @@
 			this.quảnLýTrạmBiếnÁpToolStripMenuItem.Name = "quảnLýTrạmBiếnÁpToolStripMenuItem";
 			this.quảnLýTrạmBiếnÁpToolStripMenuItem.Size = new System.Drawing.Size(131, 20);
 			this.quảnLýTrạmBiếnÁpToolStripMenuItem.Text = "Quản lý &Trạm biến áp";
+			// 
+			// quảnLýTrạmBiếnÁpToolStripMenuItem1
+			// 
+			this.quảnLýTrạmBiếnÁpToolStripMenuItem1.Image = global::QuanLyDienNang.Properties.Resources.station;
+			this.quảnLýTrạmBiếnÁpToolStripMenuItem1.Name = "quảnLýTrạmBiếnÁpToolStripMenuItem1";
+			this.quảnLýTrạmBiếnÁpToolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
+			this.quảnLýTrạmBiếnÁpToolStripMenuItem1.Text = "Quản lý Trạm biến áp";
+			this.quảnLýTrạmBiếnÁpToolStripMenuItem1.Click += new System.EventHandler(this.quảnLýTrạmBiếnÁpToolStripMenuItem1_Click);
 			// 
 			// contextTabMenu
 			// 
@@ -342,10 +349,9 @@
 			this.toolBar.Dock = System.Windows.Forms.DockStyle.None;
 			this.toolBar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.toolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnXuat,
+            this.btnXuatExcel,
             this.btnIn,
             this.separator1,
-            this.btnXoa,
             this.btnSaoChep,
             this.separator2,
             this.btnTrenCung,
@@ -357,18 +363,18 @@
             this.btnThoat});
 			this.toolBar.Location = new System.Drawing.Point(3, 0);
 			this.toolBar.Name = "toolBar";
-			this.toolBar.Size = new System.Drawing.Size(933, 25);
+			this.toolBar.Size = new System.Drawing.Size(902, 25);
 			this.toolBar.TabIndex = 3;
 			this.toolBar.Text = "Thanh công cụ";
 			// 
-			// btnXuat
+			// btnXuatExcel
 			// 
-			this.btnXuat.Image = global::QuanLyDienNang.Properties.Resources.Office;
-			this.btnXuat.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btnXuat.Name = "btnXuat";
-			this.btnXuat.Size = new System.Drawing.Size(96, 22);
-			this.btnXuat.Text = "Xuất báo cáo";
-			this.btnXuat.Click += new System.EventHandler(this.btnXuat_Click);
+			this.btnXuatExcel.Image = global::QuanLyDienNang.Properties.Resources.Xlsx;
+			this.btnXuatExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btnXuatExcel.Name = "btnXuatExcel";
+			this.btnXuatExcel.Size = new System.Drawing.Size(94, 22);
+			this.btnXuatExcel.Text = "Xuất ra Excel";
+			this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
 			// 
 			// btnIn
 			// 
@@ -383,15 +389,6 @@
 			// 
 			this.separator1.Name = "separator1";
 			this.separator1.Size = new System.Drawing.Size(6, 25);
-			// 
-			// btnXoa
-			// 
-			this.btnXoa.Image = global::QuanLyDienNang.Properties.Resources.Delete2;
-			this.btnXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btnXoa.Name = "btnXoa";
-			this.btnXoa.Size = new System.Drawing.Size(90, 22);
-			this.btnXoa.Text = "Xóa bản ghi";
-			this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
 			// 
 			// btnSaoChep
 			// 
@@ -453,8 +450,8 @@
 			this.btnDongForm.Image = global::QuanLyDienNang.Properties.Resources.Delete;
 			this.btnDongForm.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.btnDongForm.Name = "btnDongForm";
-			this.btnDongForm.Size = new System.Drawing.Size(129, 22);
-			this.btnDongForm.Text = "Đóng Form hiện tại";
+			this.btnDongForm.Size = new System.Drawing.Size(118, 22);
+			this.btnDongForm.Text = "Đóng tab hiện tại";
 			this.btnDongForm.ToolTipText = "Đóng Form hiện hành";
 			this.btnDongForm.Click += new System.EventHandler(this.btnDongForm_Click);
 			// 
@@ -464,17 +461,10 @@
 			this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.btnThoat.Name = "btnThoat";
-			this.btnThoat.Size = new System.Drawing.Size(57, 22);
-			this.btnThoat.Text = "Thoát";
+			this.btnThoat.Size = new System.Drawing.Size(129, 22);
+			this.btnThoat.Text = "Thoát chương trình";
 			this.btnThoat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
-			// 
-			// quảnLýTrạmBiếnÁpToolStripMenuItem1
-			// 
-			this.quảnLýTrạmBiếnÁpToolStripMenuItem1.Name = "quảnLýTrạmBiếnÁpToolStripMenuItem1";
-			this.quảnLýTrạmBiếnÁpToolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
-			this.quảnLýTrạmBiếnÁpToolStripMenuItem1.Text = "Quản lý Trạm biến áp";
-			this.quảnLýTrạmBiếnÁpToolStripMenuItem1.Click += new System.EventHandler(this.quảnLýTrạmBiếnÁpToolStripMenuItem1_Click);
 			// 
 			// Form_Main
 			// 
@@ -536,10 +526,9 @@
 		private System.Windows.Forms.ToolStripButton btnIn;
 		private System.Windows.Forms.ToolStripSeparator separator3;
 		private System.Windows.Forms.StatusStrip statusBar;
-		private System.Windows.Forms.ToolStripButton btnXoa;
 		private System.Windows.Forms.ToolStripButton btnTrenCung;
 		private System.Windows.Forms.ToolStripButton btnDuoiCung;
-		private System.Windows.Forms.ToolStripButton btnXuat;
+		private System.Windows.Forms.ToolStripButton btnXuatExcel;
 		private System.Windows.Forms.ToolStripStatusLabel lblComputerName;
 		private System.Windows.Forms.ToolStripMenuItem cấuHìnhSQLStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem quảnLýNhânViênToolStripMenuItem;

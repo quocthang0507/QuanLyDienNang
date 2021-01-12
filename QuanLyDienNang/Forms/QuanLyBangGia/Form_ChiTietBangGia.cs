@@ -1,7 +1,10 @@
 ﻿using Business.Classes;
 using Business.Helper;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
+using System.Text;
 using System.Windows.Forms;
 
 namespace QuanLyDienNang.Forms
@@ -115,7 +118,7 @@ namespace QuanLyDienNang.Forms
 			if (chiTietBangGia.ApGia)
 			{
 				Form frmBangDienApGia = new Form_BangDienApGia(chiTietBangGia);
-				frmBangDienApGia.ShowDialog();
+				Form_Main.Instance.AddFormToTabPage(frmBangDienApGia);
 			}
 			else
 			{
@@ -125,9 +128,79 @@ namespace QuanLyDienNang.Forms
 		#endregion
 
 		#region Methods
+		public void GoToIndex(int index)
+		{
+			dgvChiTietGia.ClearSelection();
+			dgvChiTietGia.Rows[index].Selected = true;
+		}
+
+		public void GoUp()
+		{
+			int index = dgvChiTietGia.SelectedRows[0].Index;
+			if (index > 0)
+			{
+				index--;
+				GoToIndex(index);
+			}
+		}
+
+		public void GoDown()
+		{
+			int index = dgvChiTietGia.SelectedRows[0].Index;
+			if (index < dgvChiTietGia.Rows.Count - 1)
+			{
+				index++;
+				GoToIndex(index);
+			}
+		}
+
+		public void GoToFirst()
+		{
+			GoToIndex(0);
+		}
+
+		public void GoToEnd()
+		{
+			GoToIndex(dgvChiTietGia.Rows.Count - 1);
+		}
+
+		public override string ToString()
+		{
+			if (dgvChiTietGia.SelectedRows.Count > 0)
+			{
+				DataGridViewRow row = dgvChiTietGia.SelectedRows[0];
+				StringBuilder builder = new StringBuilder();
+				foreach (DataGridViewCell cell in row.Cells)
+				{
+					builder.Append(cell.Value.ToString() + '\t');
+				}
+				return builder.ToString();
+			}
+			return string.Empty;
+		}
+
+		public void ExportToExcel()
+		{
+			byte[] bytes = Excel.ExportToExcel(dgvChiTietGia.DataSource, "Danh sách Chi tiết Bảng giá");
+			if (bytes == null)
+			{
+				MessageBox.Show(STRINGS.ERROR_EXPORT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+			DialogResult dialog = saveDialog.ShowDialog();
+			if (dialog == DialogResult.OK)
+			{
+				string filepath = saveDialog.FileName;
+				FileStream stream = File.Create(filepath);
+				stream.Close();
+				File.WriteAllBytes(filepath, bytes);
+				MessageBox.Show(STRINGS.SUCCESS_EXPORT_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
+		}
+
 		private void LoadTableByMaBangGia()
 		{
-			System.Collections.Generic.List<ChiTietBangGia> data = ChiTietBangGia.GetByBangGia(bangGia.MaBangGia);
+			List<ChiTietBangGia> data = ChiTietBangGia.GetByBangGia(bangGia.MaBangGia);
 			if (data == null)
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else

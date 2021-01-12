@@ -45,6 +45,13 @@ namespace Business.Classes
 		/// Mã bảng giá của khách hàng thuộc về, lưu ý cột này không có trong bảng DienNangTieuThu
 		/// </summary>
 		[DisplayName("Mã bảng giá")]
+		[StringLength(20)]
+		public string MaBangGia { get; set; }
+
+		/// <summary>
+		/// Mã chi tiết bảng giá của khách hàng thuộc về, lưu ý cột này không có trong bảng DienNangTieuThu
+		/// </summary>
+		[DisplayName("Mã chi tiết bảng giá")]
 		[StringLength(30)]
 		public string MaChiTietBangGia { get; set; }
 
@@ -160,11 +167,11 @@ namespace Business.Classes
 			return result > 0;
 		}
 
-		public static List<DienNangTieuThu> Filter(DateTime batDau, DateTime ketThuc, string maTram, string diaChi, string MaChiTietBangGia, bool conNo)
+		public static List<DienNangTieuThu> Filter(DateTime batDau, DateTime ketThuc, string maTram, string diaChi, string maBangGia, bool conNo)
 		{
 			List<DienNangTieuThu> list = GetAll();
 			list = list.Where(dntt => dntt.NgayBatDau.Month == batDau.Month && dntt.NgayKetThuc.Month == ketThuc.Month && dntt.NgayBatDau.Year == batDau.Year && dntt.NgayKetThuc.Year == ketThuc.Year).ToList();
-			list = list.Where(dntt => dntt.MaTram == maTram && dntt.DiaChi.Contains(diaChi) && dntt.MaChiTietBangGia == MaChiTietBangGia).ToList();
+			list = list.Where(dntt => dntt.MaTram == maTram && dntt.DiaChi.Contains(diaChi) && dntt.MaBangGia == maBangGia).ToList();
 			if (conNo)
 				list = list.Where(dntt => dntt.ConLai > 0).ToList();
 			return list;

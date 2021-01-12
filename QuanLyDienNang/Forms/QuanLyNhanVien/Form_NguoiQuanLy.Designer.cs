@@ -48,6 +48,7 @@ namespace QuanLyDienNang.Forms
 			this.label4 = new System.Windows.Forms.Label();
 			this.tbxMaNQL = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
+			this.saveDialog = new System.Windows.Forms.SaveFileDialog();
 			this.tableParent.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvNguoiQuanLy)).BeginInit();
 			this.panel1.SuspendLayout();
@@ -65,7 +66,7 @@ namespace QuanLyDienNang.Forms
 			this.tableParent.Name = "tableParent";
 			this.tableParent.RowCount = 3;
 			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 170F));
+			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 160F));
 			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableParent.Size = new System.Drawing.Size(984, 561);
 			this.tableParent.TabIndex = 0;
@@ -89,11 +90,11 @@ namespace QuanLyDienNang.Forms
 			this.dgvNguoiQuanLy.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dgvNguoiQuanLy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvNguoiQuanLy.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dgvNguoiQuanLy.Location = new System.Drawing.Point(3, 203);
+			this.dgvNguoiQuanLy.Location = new System.Drawing.Point(3, 193);
 			this.dgvNguoiQuanLy.MultiSelect = false;
 			this.dgvNguoiQuanLy.Name = "dgvNguoiQuanLy";
 			this.dgvNguoiQuanLy.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgvNguoiQuanLy.Size = new System.Drawing.Size(978, 355);
+			this.dgvNguoiQuanLy.Size = new System.Drawing.Size(978, 365);
 			this.dgvNguoiQuanLy.TabIndex = 1;
 			this.dgvNguoiQuanLy.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNguoiQuanLy_CellValueChanged);
 			this.dgvNguoiQuanLy.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvNguoiQuanLy_DataBindingComplete);
@@ -118,7 +119,7 @@ namespace QuanLyDienNang.Forms
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel1.Location = new System.Drawing.Point(3, 33);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(978, 164);
+			this.panel1.Size = new System.Drawing.Size(978, 154);
 			this.panel1.TabIndex = 2;
 			// 
 			// label8
@@ -267,6 +268,14 @@ namespace QuanLyDienNang.Forms
 			this.label2.TabIndex = 0;
 			this.label2.Text = "Mã người quản lý:";
 			// 
+			// saveDialog
+			// 
+			this.saveDialog.DefaultExt = "xlsx";
+			this.saveDialog.FileName = "Danh sách Người quản lý";
+			this.saveDialog.Filter = "Excel Workbook (*.xlsx)|*.xlsx";
+			this.saveDialog.RestoreDirectory = true;
+			this.saveDialog.Title = "Lưu danh sách người quản lý";
+			// 
 			// Form_NguoiQuanLy
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -307,5 +316,6 @@ namespace QuanLyDienNang.Forms
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Label label9;
+		private System.Windows.Forms.SaveFileDialog saveDialog;
 	}
 }

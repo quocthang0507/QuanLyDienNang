@@ -190,40 +190,6 @@ namespace QuanLyDienNang.Forms
 		#endregion
 
 		#region Methods
-		private void LoadTramBienAp()
-		{
-			List<TramBienAp> data = TramBienAp.GetAll();
-			if (data == null)
-				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-			else
-				cbxTenTram.DataSource = data;
-		}
-
-		private void LoadBangGia()
-		{
-			List<BangGia> data = BangGia.GetAll();
-			if (data == null)
-				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-			else
-				cbxBangGia.DataSource = data;
-		}
-
-		private void LoadNguoiQuanLy()
-		{
-			List<NguoiQuanLy> data = NguoiQuanLy.GetAll();
-			if (data == null)
-				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-			else
-				cbxNguoiQuanLy.DataSource = data;
-		}
-
-		private void UpdateControls()
-		{
-			dtpBatDau_TK.Value = DateTime.Now.AddMonths(-1);
-			dtpCuoiKy.Value = DateTime.Now;
-			dtpDauKy.Value = DateTime.Now.AddMonths(-1);
-		}
-
 		public void GoToIndex(int index)
 		{
 			dgvDienNangTieuThu.ClearSelection();
@@ -273,6 +239,44 @@ namespace QuanLyDienNang.Forms
 				return builder.ToString();
 			}
 			return string.Empty;
+		}
+		public void ExportToExcel()
+		{
+			btnXuatExcel.PerformClick();
+		}
+
+		private void LoadTramBienAp()
+		{
+			List<TramBienAp> data = TramBienAp.GetAll();
+			if (data == null)
+				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			else
+				cbxTenTram.DataSource = data;
+		}
+
+		private void LoadBangGia()
+		{
+			List<BangGia> data = BangGia.GetAll();
+			if (data == null)
+				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			else
+				cbxBangGia.DataSource = data;
+		}
+
+		private void LoadNguoiQuanLy()
+		{
+			List<NguoiQuanLy> data = NguoiQuanLy.GetAll();
+			if (data == null)
+				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			else
+				cbxNguoiQuanLy.DataSource = data;
+		}
+
+		private void UpdateControls()
+		{
+			dtpBatDau_TK.Value = DateTime.Now.AddMonths(-1);
+			dtpCuoiKy.Value = DateTime.Now;
+			dtpDauKy.Value = DateTime.Now.AddMonths(-1);
 		}
 
 

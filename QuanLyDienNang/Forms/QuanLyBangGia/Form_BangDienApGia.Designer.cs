@@ -33,6 +33,7 @@ namespace QuanLyDienNang.Forms
 			this.tableParent = new System.Windows.Forms.TableLayoutPanel();
 			this.label1 = new System.Windows.Forms.Label();
 			this.dgvBangDienApGia = new System.Windows.Forms.DataGridView();
+			this.saveDialog = new System.Windows.Forms.SaveFileDialog();
 			this.tableParent.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvBangDienApGia)).BeginInit();
 			this.SuspendLayout();
@@ -83,6 +84,14 @@ namespace QuanLyDienNang.Forms
 			this.dgvBangDienApGia.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvBangDienApGia_DataBindingComplete);
 			this.dgvBangDienApGia.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvBangDienApGia_DataError);
 			// 
+			// saveDialog
+			// 
+			this.saveDialog.DefaultExt = "xlsx";
+			this.saveDialog.FileName = "Danh sách Chi tiết Bảng áp giá";
+			this.saveDialog.Filter = "Excel Workbook (*.xlsx)|*.xlsx";
+			this.saveDialog.RestoreDirectory = true;
+			this.saveDialog.Title = "Lưu danh sách chi tiết bảng điện áp giá";
+			// 
 			// Form_BangDienApGia
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -107,5 +116,6 @@ namespace QuanLyDienNang.Forms
 		private System.Windows.Forms.TableLayoutPanel tableParent;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.DataGridView dgvBangDienApGia;
+		private System.Windows.Forms.SaveFileDialog saveDialog;
 	}
 }

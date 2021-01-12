@@ -47,6 +47,7 @@ namespace QuanLyDienNang.Forms
 			this.tbxTenBangGia = new System.Windows.Forms.TextBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.btnXemChiTiet = new System.Windows.Forms.Button();
+			this.saveDialog = new System.Windows.Forms.SaveFileDialog();
 			this.tableParent.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvBangGia)).BeginInit();
 			this.panel1.SuspendLayout();
@@ -263,6 +264,14 @@ namespace QuanLyDienNang.Forms
 			this.btnXemChiTiet.UseVisualStyleBackColor = true;
 			this.btnXemChiTiet.Click += new System.EventHandler(this.btnXemChiTiet_Click);
 			// 
+			// saveDialog
+			// 
+			this.saveDialog.DefaultExt = "xlsx";
+			this.saveDialog.FileName = "Danh sách Bảng giá";
+			this.saveDialog.Filter = "Excel Workbook (*.xlsx)|*.xlsx";
+			this.saveDialog.RestoreDirectory = true;
+			this.saveDialog.Title = "Lưu danh sách bảng giá điện";
+			// 
 			// Form_BangGia
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -305,5 +314,6 @@ namespace QuanLyDienNang.Forms
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.SaveFileDialog saveDialog;
 	}
 }

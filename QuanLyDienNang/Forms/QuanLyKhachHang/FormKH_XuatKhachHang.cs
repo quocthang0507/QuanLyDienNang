@@ -86,29 +86,6 @@ namespace QuanLyDienNang.Forms
 		#endregion
 
 		#region Methods
-		private void LoadTramQuanLy()
-		{
-			System.Collections.Generic.List<TramBienAp> data = TramBienAp.GetAll();
-			if (data == null)
-				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-			else
-				cbxTenTram.DataSource = data;
-		}
-
-		private void LoadBangGia()
-		{
-			System.Collections.Generic.List<BangGia> data = BangGia.GetAll();
-			if (data == null)
-				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-			else
-				cbxBangGia.DataSource = data;
-		}
-
-		private void LoadDanhSachNganHang()
-		{
-			cbxNganHang.DataSource = KhachHang.GetAll().Select(khach => khach.TenNganHang).Distinct().ToList();
-		}
-
 		public void GoToIndex(int index)
 		{
 			dgvKhachHang.ClearSelection();
@@ -158,6 +135,34 @@ namespace QuanLyDienNang.Forms
 				return builder.ToString();
 			}
 			return string.Empty;
+		}
+
+		public void ExportToExcel()
+		{
+			btnXuat.PerformClick();
+		}
+
+		private void LoadTramQuanLy()
+		{
+			System.Collections.Generic.List<TramBienAp> data = TramBienAp.GetAll();
+			if (data == null)
+				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			else
+				cbxTenTram.DataSource = data;
+		}
+
+		private void LoadBangGia()
+		{
+			System.Collections.Generic.List<BangGia> data = BangGia.GetAll();
+			if (data == null)
+				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			else
+				cbxBangGia.DataSource = data;
+		}
+
+		private void LoadDanhSachNganHang()
+		{
+			cbxNganHang.DataSource = KhachHang.GetAll().Select(khach => khach.TenNganHang).Distinct().ToList();
 		}
 		#endregion
 

@@ -18,7 +18,7 @@ namespace QuanLyDienNang
 			{
 				Application.EnableVisualStyles();
 				Application.SetCompatibleTextRenderingDefault(false);
-				Application.Run(new Form_Main());
+				Application.Run(Form_Main.Instance);
 				singleton.Close();
 			}
 			else

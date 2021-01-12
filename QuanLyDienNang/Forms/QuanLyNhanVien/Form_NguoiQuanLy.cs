@@ -2,6 +2,7 @@
 using Business.Helper;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
@@ -137,14 +138,32 @@ namespace QuanLyDienNang.Forms
 			{
 				DataGridViewRow row = dgvNguoiQuanLy.SelectedRows[0];
 				StringBuilder builder = new StringBuilder();
-				builder.Append(row.Cells[0].Value.ToString() + '\t');
-				builder.Append(row.Cells[1].Value.ToString() + '\t');
-				builder.Append(row.Cells[2].Value.ToString() + '\t');
-				builder.Append(row.Cells[3].Value.ToString() + '\t');
-				builder.Append(row.Cells[4].Value.ToString() + '\t');
+				foreach (DataGridViewCell cell in row.Cells)
+				{
+					builder.Append(cell.Value.ToString() + '\t');
+				}
 				return builder.ToString();
 			}
 			return string.Empty;
+		}
+
+		public void ExportToExcel()
+		{
+			byte[] bytes = Excel.ExportToExcel(dgvNguoiQuanLy.DataSource, "Danh sách Người quản lý");
+			if (bytes == null)
+			{
+				MessageBox.Show(STRINGS.ERROR_EXPORT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+			DialogResult dialog = saveDialog.ShowDialog();
+			if (dialog == DialogResult.OK)
+			{
+				string filepath = saveDialog.FileName;
+				FileStream stream = File.Create(filepath);
+				stream.Close();
+				File.WriteAllBytes(filepath, bytes);
+				MessageBox.Show(STRINGS.SUCCESS_EXPORT_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
 		}
 
 		private void LoadTable()

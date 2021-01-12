@@ -4,6 +4,7 @@ using Business.Helper;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
@@ -62,7 +63,7 @@ namespace QuanLyDienNang.Forms
 		{
 			BangGia selected = (BangGia)dgvBangGia.SelectedRows[0].DataBoundItem;
 			Form frmChiTiet = new Form_ChiTietBangGia(selected);
-			frmChiTiet.ShowDialog();
+			Form_Main.Instance.AddFormToTabPage(frmChiTiet);
 		}
 
 		private void dgvBangGia_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -151,12 +152,32 @@ namespace QuanLyDienNang.Forms
 			{
 				DataGridViewRow row = dgvBangGia.SelectedRows[0];
 				StringBuilder builder = new StringBuilder();
-				builder.Append(row.Cells[0].Value.ToString() + '\t');
-				builder.Append(row.Cells[1].Value.ToString() + '\t');
-				builder.Append(row.Cells[2].Value.ToString() + '\t');
+				foreach (DataGridViewCell cell in row.Cells)
+				{
+					builder.Append(cell.Value.ToString() + '\t');
+				}
 				return builder.ToString();
 			}
 			return string.Empty;
+		}
+
+		public void ExportToExcel()
+		{
+			byte[] bytes = Excel.ExportToExcel(dgvBangGia.DataSource, "Danh sách Bảng giá");
+			if (bytes == null)
+			{
+				MessageBox.Show(STRINGS.ERROR_EXPORT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+			DialogResult dialog = saveDialog.ShowDialog();
+			if (dialog == DialogResult.OK)
+			{
+				string filepath = saveDialog.FileName;
+				FileStream stream = File.Create(filepath);
+				stream.Close();
+				File.WriteAllBytes(filepath, bytes);
+				MessageBox.Show(STRINGS.SUCCESS_EXPORT_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
 		}
 
 		private void LoadTable()

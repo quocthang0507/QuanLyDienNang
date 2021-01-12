@@ -50,6 +50,7 @@ namespace QuanLyDienNang.Forms
 			this.tbxMaTram = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
+			this.saveDialog = new System.Windows.Forms.SaveFileDialog();
 			this.tableParent.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvTramBienAp)).BeginInit();
 			this.panel1.SuspendLayout();
@@ -302,6 +303,14 @@ namespace QuanLyDienNang.Forms
 			this.label2.TabIndex = 0;
 			this.label2.Text = "Mã trạm:";
 			// 
+			// saveDialog
+			// 
+			this.saveDialog.DefaultExt = "xlsx";
+			this.saveDialog.FileName = "Danh sách Trạm biến áp";
+			this.saveDialog.Filter = "Excel Workbook (*.xlsx)|*.xlsx";
+			this.saveDialog.RestoreDirectory = true;
+			this.saveDialog.Title = "Lưu danh sách trạm biến áp";
+			// 
 			// Form_TramBienAp
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -346,5 +355,6 @@ namespace QuanLyDienNang.Forms
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.SaveFileDialog saveDialog;
 	}
 }

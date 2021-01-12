@@ -84,24 +84,6 @@ namespace QuanLyDienNang.Forms
 		#endregion
 
 		#region Methods
-		private void LoadSheet(string path)
-		{
-			List<string> data = funcs.GetSheetNamesOnExcel(path);
-			if (data == null)
-				MessageBox.Show(STRINGS.ERROR_IMPORT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-			else
-				cbxSheet.DataSource = data;
-		}
-
-		private void LoadNguoiQuanLy()
-		{
-			List<NguoiQuanLy> data = NguoiQuanLy.GetAll();
-			if (data == null)
-				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-			else
-				cbxNguoiCapNhat.DataSource = data;
-		}
-
 		public void GoToIndex(int index)
 		{
 			dgvKhachHang.ClearSelection();
@@ -151,6 +133,29 @@ namespace QuanLyDienNang.Forms
 				return builder.ToString();
 			}
 			return string.Empty;
+		}
+
+		public void ExportToExcel()
+		{
+			// Nothing to do
+		}
+
+		private void LoadSheet(string path)
+		{
+			List<string> data = funcs.GetSheetNamesOnExcel(path);
+			if (data == null)
+				MessageBox.Show(STRINGS.ERROR_IMPORT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			else
+				cbxSheet.DataSource = data;
+		}
+
+		private void LoadNguoiQuanLy()
+		{
+			List<NguoiQuanLy> data = NguoiQuanLy.GetAll();
+			if (data == null)
+				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			else
+				cbxNguoiCapNhat.DataSource = data;
 		}
 
 		#endregion

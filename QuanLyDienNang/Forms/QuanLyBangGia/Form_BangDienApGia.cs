@@ -3,6 +3,8 @@ using Business.Helper;
 using Business.Tables;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
+using System.Text;
 using System.Windows.Forms;
 
 namespace QuanLyDienNang.Forms
@@ -62,6 +64,76 @@ namespace QuanLyDienNang.Forms
 		#endregion
 
 		#region Methods
+		public void GoToIndex(int index)
+		{
+			dgvBangDienApGia.ClearSelection();
+			dgvBangDienApGia.Rows[index].Selected = true;
+		}
+
+		public void GoUp()
+		{
+			int index = dgvBangDienApGia.SelectedRows[0].Index;
+			if (index > 0)
+			{
+				index--;
+				GoToIndex(index);
+			}
+		}
+
+		public void GoDown()
+		{
+			int index = dgvBangDienApGia.SelectedRows[0].Index;
+			if (index < dgvBangDienApGia.Rows.Count - 1)
+			{
+				index++;
+				GoToIndex(index);
+			}
+		}
+
+		public void GoToFirst()
+		{
+			GoToIndex(0);
+		}
+
+		public void GoToEnd()
+		{
+			GoToIndex(dgvBangDienApGia.Rows.Count - 1);
+		}
+
+		public override string ToString()
+		{
+			if (dgvBangDienApGia.SelectedRows.Count > 0)
+			{
+				DataGridViewRow row = dgvBangDienApGia.SelectedRows[0];
+				StringBuilder builder = new StringBuilder();
+				foreach (DataGridViewCell cell in row.Cells)
+				{
+					builder.Append(cell.Value.ToString() + '\t');
+				}
+				return builder.ToString();
+			}
+			return string.Empty;
+		}
+
+		public void ExportToExcel()
+		{
+			byte[] bytes = Excel.ExportToExcel(dgvBangDienApGia.DataSource, "Danh sách Bảng áp giá");
+			if (bytes == null)
+			{
+				MessageBox.Show(STRINGS.ERROR_EXPORT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+			DialogResult dialog = saveDialog.ShowDialog();
+			if (dialog == DialogResult.OK)
+			{
+				string filepath = saveDialog.FileName;
+				FileStream stream = File.Create(filepath);
+				stream.Close();
+				File.WriteAllBytes(filepath, bytes);
+				MessageBox.Show(STRINGS.SUCCESS_EXPORT_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
+		}
+
 		private void LoadTable()
 		{
 			BangDienApGia.Create(chiTietBangGia.MaChiTiet);

@@ -621,7 +621,7 @@
 			// saveDialog
 			// 
 			this.saveDialog.DefaultExt = "xlsx";
-			this.saveDialog.FileName = "Danh sách DNTT.xlsx";
+			this.saveDialog.FileName = "Danh sách DNTT";
 			this.saveDialog.Filter = "Excel Workbook (*.xlsx)|*.xlsx";
 			this.saveDialog.RestoreDirectory = true;
 			this.saveDialog.Title = "Lưu danh sách khách hàng cùng với điện năng tiêu thụ";

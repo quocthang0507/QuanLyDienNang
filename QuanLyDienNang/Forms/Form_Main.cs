@@ -10,12 +10,23 @@ namespace QuanLyDienNang.Forms
 		private bool EXIT_WITHOUT_DIALOG = false;
 		private dynamic DynamicForm;
 		private readonly Form frmCauHinh = new Form_CauHinh();
+		private static Form_Main Singleton;
 
 		// Ủy quyền xử lý từ form main sang các form con
 		private delegate void MyDelegate();
-		MyDelegate GoUp, GoDown, GoToFirst, GoToEnd, Delete;
+		private MyDelegate GoUp, GoDown, GoToFirst, GoToEnd, ExportToExcel;
 
 		private readonly Funcs_Main funcs = new Funcs_Main();
+
+		public static Form_Main Instance
+		{
+			get
+			{
+				if (Singleton == null)
+					Singleton = new Form_Main();
+				return Singleton;
+			}
+		}
 
 		public Form_Main()
 		{
@@ -120,11 +131,6 @@ namespace QuanLyDienNang.Forms
 			GoToEnd.Invoke();
 		}
 
-		private void btnXoa_Click(object sender, EventArgs e)
-		{
-			Delete.Invoke();
-		}
-
 		private void btnSaoChep_Click(object sender, EventArgs e)
 		{
 			try
@@ -182,10 +188,9 @@ namespace QuanLyDienNang.Forms
 			this.Close();
 		}
 
-		private void btnXuat_Click(object sender, EventArgs e)
+		private void btnXuatExcel_Click(object sender, EventArgs e)
 		{
-			Form frmBaoCao = new Form_BaoCao();
-			frmBaoCao.ShowDialog();
+			ExportToExcel.Invoke();
 		}
 
 		private void btnIn_Click(object sender, EventArgs e)
@@ -212,7 +217,7 @@ namespace QuanLyDienNang.Forms
 		/// Kiểm tra panel còn form nào hay không, nếu không có thì chèn form mới vào
 		/// </summary>
 		/// <param name="form"></param>
-		private void AddFormToTabPage(Form form)
+		public void AddFormToTabPage(Form form)
 		{
 			// Kiểm tra form có nằm trong tabControl trước đó hay không
 			foreach (TabPage tabPage in tabForms.TabPages)
@@ -258,40 +263,43 @@ namespace QuanLyDienNang.Forms
 
 		private void SwitchFormObject()
 		{
-			if (tabForms.SelectedTab.Controls[0] is Form_NguoiQuanLy)
+			switch (tabForms.SelectedTab.Controls[0])
 			{
-				DynamicForm = tabForms.SelectedTab.Controls[0] as Form_NguoiQuanLy;
+				case Form_NguoiQuanLy _:
+					DynamicForm = tabForms.SelectedTab.Controls[0] as Form_NguoiQuanLy;
+					break;
+				case Form_DienNangTieuThu _:
+					DynamicForm = tabForms.SelectedTab.Controls[0] as Form_DienNangTieuThu;
+					break;
+				case FormKH_CapNhatKhachHang _:
+					DynamicForm = tabForms.SelectedTab.Controls[0] as FormKH_CapNhatKhachHang;
+					break;
+				case FormKH_XuatKhachHang _:
+					DynamicForm = tabForms.SelectedTab.Controls[0] as FormKH_XuatKhachHang;
+					break;
+				case FormKH_NhapKhachHang _:
+					DynamicForm = tabForms.SelectedTab.Controls[0] as FormKH_NhapKhachHang;
+					break;
+				case Form_BangGia _:
+					DynamicForm = tabForms.SelectedTab.Controls[0] as Form_BangGia;
+					break;
+				case Form_ChiTietBangGia _:
+					DynamicForm = tabForms.SelectedTab.Controls[0] as Form_ChiTietBangGia;
+					break;
+				case Form_BangDienApGia _:
+					DynamicForm = tabForms.SelectedTab.Controls[0] as Form_BangDienApGia;
+					break;
+				case Form_TramBienAp _:
+					DynamicForm = tabForms.SelectedTab.Controls[0] as Form_TramBienAp;
+					break;
+				default:
+					return;
 			}
-			else if (tabForms.SelectedTab.Controls[0] is Form_DienNangTieuThu)
-			{
-				DynamicForm = tabForms.SelectedTab.Controls[0] as Form_DienNangTieuThu;
-			}
-			else if (tabForms.SelectedTab.Controls[0] is FormKH_CapNhatKhachHang)
-			{
-				DynamicForm = tabForms.SelectedTab.Controls[0] as FormKH_CapNhatKhachHang;
-			}
-			else if (tabForms.SelectedTab.Controls[0] is FormKH_XuatKhachHang)
-			{
-				DynamicForm = tabForms.SelectedTab.Controls[0] as FormKH_XuatKhachHang;
-			}
-			else if (tabForms.SelectedTab.Controls[0] is FormKH_NhapKhachHang)
-			{
-				DynamicForm = tabForms.SelectedTab.Controls[0] as FormKH_NhapKhachHang;
-			}
-			else if (tabForms.SelectedTab.Controls[0] is Form_BangGia)
-			{
-				DynamicForm = tabForms.SelectedTab.Controls[0] as Form_BangGia;
-			}
-			else if (tabForms.SelectedTab.Controls[0] is Form_TramBienAp)
-			{
-				DynamicForm = tabForms.SelectedTab.Controls[0] as Form_TramBienAp;
-			}
-			else return;
 			GoUp = () => DynamicForm.GoUp();
 			GoDown = () => DynamicForm.GoDown();
 			GoToFirst = () => DynamicForm.GoToFirst();
 			GoToEnd = () => DynamicForm.GoToEnd();
-			Delete = () => DynamicForm.btnXoa_Click(null, null);
+			ExportToExcel = () => DynamicForm.ExportToExcel();
 		}
 		#endregion
 	}

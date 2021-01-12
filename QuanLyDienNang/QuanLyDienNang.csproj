@@ -181,7 +181,6 @@
     <Compile Include="Forms\QuanLyTramBienAp\Form_TramBienAp.Designer.cs">
       <DependentUpon>Form_TramBienAp.cs</DependentUpon>
     </Compile>
-    <Compile Include="STRINGS.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\QuanLyKhachHang\FormKH_XuatKhachHang.cs">
@@ -196,6 +195,7 @@
       <DependentUpon>HoaDonTienDien.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="STRINGS.cs" />
     <EmbeddedResource Include="Forms\QuanLyBangGia\Form_BangDienApGia.resx">
       <DependentUpon>Form_BangDienApGia.cs</DependentUpon>
     </EmbeddedResource>

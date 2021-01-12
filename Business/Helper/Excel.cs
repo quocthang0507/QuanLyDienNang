@@ -20,10 +20,26 @@ namespace Business.Helper
 		public static byte[] ExportToExcel(object objectList, string sheetname = "Danh sách khách hàng")
 		{
 			dynamic list = null;
-			if (objectList is List<KhachHang>)
-				list = objectList as List<KhachHang>;
-			else if (objectList is List<DienNangTieuThu>)
-				list = objectList as List<DienNangTieuThu>;
+			switch (objectList)
+			{
+				case List<KhachHang> _:
+					list = objectList as List<KhachHang>;
+					break;
+				case List<DienNangTieuThu> _:
+					list = objectList as List<DienNangTieuThu>;
+					break;
+				case List<BangGia> _:
+					list = objectList as List<BangGia>;
+					break;
+				case List<NguoiQuanLy> _:
+					list = objectList as List<NguoiQuanLy>;
+					break;
+				case List<TramBienAp> _:
+					list = objectList as List<TramBienAp>;
+					break;
+				default:
+					return list;
+			}
 			try
 			{
 				ExcelPackage excel = new ExcelPackage();
