@@ -68,7 +68,7 @@
 			this.btnXuong = new System.Windows.Forms.ToolStripButton();
 			this.btnDuoiCung = new System.Windows.Forms.ToolStripButton();
 			this.separator3 = new System.Windows.Forms.ToolStripSeparator();
-			this.btnDongForm = new System.Windows.Forms.ToolStripButton();
+			this.btnDongTab = new System.Windows.Forms.ToolStripButton();
 			this.btnThoat = new System.Windows.Forms.ToolStripButton();
 			this.menuBar.SuspendLayout();
 			this.contextTabMenu.SuspendLayout();
@@ -359,11 +359,11 @@
             this.btnXuong,
             this.btnDuoiCung,
             this.separator3,
-            this.btnDongForm,
+            this.btnDongTab,
             this.btnThoat});
 			this.toolBar.Location = new System.Drawing.Point(3, 0);
 			this.toolBar.Name = "toolBar";
-			this.toolBar.Size = new System.Drawing.Size(902, 25);
+			this.toolBar.Size = new System.Drawing.Size(933, 25);
 			this.toolBar.TabIndex = 3;
 			this.toolBar.Text = "Thanh công cụ";
 			// 
@@ -445,15 +445,15 @@
 			this.separator3.Name = "separator3";
 			this.separator3.Size = new System.Drawing.Size(6, 25);
 			// 
-			// btnDongForm
+			// btnDongTab
 			// 
-			this.btnDongForm.Image = global::QuanLyDienNang.Properties.Resources.Delete;
-			this.btnDongForm.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btnDongForm.Name = "btnDongForm";
-			this.btnDongForm.Size = new System.Drawing.Size(118, 22);
-			this.btnDongForm.Text = "Đóng tab hiện tại";
-			this.btnDongForm.ToolTipText = "Đóng Form hiện hành";
-			this.btnDongForm.Click += new System.EventHandler(this.btnDongForm_Click);
+			this.btnDongTab.Image = global::QuanLyDienNang.Properties.Resources.Delete;
+			this.btnDongTab.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btnDongTab.Name = "btnDongTab";
+			this.btnDongTab.Size = new System.Drawing.Size(118, 22);
+			this.btnDongTab.Text = "Đóng tab hiện tại";
+			this.btnDongTab.ToolTipText = "Đóng Form hiện hành";
+			this.btnDongTab.Click += new System.EventHandler(this.btnDongTab_Click);
 			// 
 			// btnThoat
 			// 
@@ -517,7 +517,7 @@
 		private System.Windows.Forms.TabPage tabMain;
 		private System.Windows.Forms.ToolStripContainer toolStripContainer;
 		private System.Windows.Forms.ToolStrip toolBar;
-		private System.Windows.Forms.ToolStripButton btnDongForm;
+		private System.Windows.Forms.ToolStripButton btnDongTab;
 		private System.Windows.Forms.ToolStripButton btnLen;
 		private System.Windows.Forms.ToolStripButton btnXuong;
 		private System.Windows.Forms.ToolStripSeparator separator1;

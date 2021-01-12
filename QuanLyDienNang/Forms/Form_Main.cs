@@ -11,6 +11,9 @@ namespace QuanLyDienNang.Forms
 		private dynamic DynamicForm;
 		private readonly Form frmCauHinh = new Form_CauHinh();
 		private static Form_Main Singleton;
+		
+		// Lưu trữ tab đã mở trước đó
+		private TabPage previousTab;
 
 		// Ủy quyền xử lý từ form main sang các form con
 		private delegate void MyDelegate();
@@ -148,14 +151,16 @@ namespace QuanLyDienNang.Forms
 		private void menuDong_Click(object sender, EventArgs e)
 		{
 			TabPage tab = tabForms.SelectedTab;
-			if (tab.Name == "tabMain")
-				return;
-			Form form = tab.Controls[0] as Form;
-			form.Close();
-			tabForms.TabPages.Remove(tab);
+			if (tab.Name != "tabMain")
+			{
+				Form form = tab.Controls[0] as Form;
+				form.Close();
+				tabForms.TabPages.Remove(tab);
+				tabForms.SelectedTab = previousTab;
+			}
 		}
 
-		private void btnDongForm_Click(object sender, EventArgs e)
+		private void btnDongTab_Click(object sender, EventArgs e)
 		{
 			menuDong.PerformClick();
 		}
@@ -243,7 +248,9 @@ namespace QuanLyDienNang.Forms
 			};
 			newTab.Controls.Add(form);
 			newTab.ContextMenuStrip = contextTabMenu;
-			// Hiển thị form và kích hoạt tab
+			// Lưu lại tab hiện tại
+			previousTab = tabForms.SelectedTab;
+			// Hiển thị form và kích hoạt tab mới
 			tabForms.TabPages.Add(newTab);
 			tabForms.SelectedTab = newTab;
 			form.Show();

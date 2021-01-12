@@ -891,3 +891,52 @@ AS
 		RETURN @KQ
 	END
 GO
+
+--====================TÍNH TIỀN ĐIỆN CHƯA THUẾ THEO CÁC MỨC GIÁ TRONG BẢNG CHI TIẾT GIÁ ĐIỆN====================
+CREATE VIEW view_BangDienSinhHoat
+AS
+	SELECT * FROM ChiTietBangGia WHERE MaBangGia = 'SH-THUONG' AND KichHoat = 1
+GO
+
+CREATE FUNCTION func_TinhTienDien_SinhHoat (@DienNangTieuThu int, @SoHo tinyint)
+--ALTER FUNCTION func_TinhTienDien_SinhHoat (@DienNangTieuThu int, @SoHo tinyint)
+RETURNS INT
+AS
+	BEGIN
+		DECLARE @DonGia INT, @BatDau INT, @KetThuc INT, @PhamVi INT, @ThanhTien INT
+		SET @ThanhTien = 0
+		DECLARE csrChiTietBangGia CURSOR FOR SELECT DonGia, BatDau, KetThuc FROM view_BangDienSinhHoat ORDER BY BatDau
+		OPEN csrChiTietBangGia
+		FETCH NEXT FROM csrChiTietBangGia INTO @DonGia, @BatDau, @KetThuc
+		WHILE @@FETCH_STATUS = 0
+		BEGIN
+			IF @BatDau = 0
+				SET @BatDau = 1
+			IF @KetThuc = 0
+				SET @KetThuc = 9999
+			SET @PhamVi = (@KetThuc - @BatDau + 1) * @SoHo
+			IF @DienNangTieuThu >= @PhamVi
+				BEGIN
+					SET @ThanhTien = @ThanhTien + @PhamVi * @DonGia
+					SET @DienNangTieuThu = @DienNangTieuThu - @PhamVi
+				END
+			ELSE
+				BEGIN
+					SET @ThanhTien = @ThanhTien + @DienNangTieuThu * @DonGia
+					SET @DienNangTieuThu = 0
+				END
+			FETCH NEXT FROM csrChiTietBangGia INTO @DonGia, @BatDau, @KetThuc
+		END
+		CLOSE csrChiTietBangGia
+		DEALLOCATE csrChiTietBangGia
+		RETURN @ThanhTien
+	END
+GO
+
+--PRINT dbo.func_TinhTienDien_SinhHoat(50, 2)
+--PRINT dbo.func_TinhTienDien_SinhHoat(100, 1)
+--PRINT dbo.func_TinhTienDien_SinhHoat(100, 2)
+--PRINT dbo.func_TinhTienDien_SinhHoat(250, 1)
+--PRINT dbo.func_TinhTienDien_SinhHoat(250, 2)
+--PRINT dbo.func_TinhTienDien_SinhHoat(453, 1)
+--PRINT dbo.func_TinhTienDien_SinhHoat(453, 2)
