@@ -176,5 +176,18 @@ namespace Business.Classes
 				list = list.Where(dntt => dntt.ConLai > 0).ToList();
 			return list;
 		}
+
+		public static bool UpdateMoney(DateTime ngayBatDau, DateTime ngayKetThuc, string maQuanLy)
+		{
+			try
+			{
+				int result = DataProvider.Instance.ExecuteNonQuery("proc_TinhTienDien_DienNangTieuThu", ngayBatDau, ngayKetThuc, maQuanLy);
+				return result > 0;
+			}
+			catch (Exception)
+			{
+				return false;
+			}
+		}
 	}
 }

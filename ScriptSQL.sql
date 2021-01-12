@@ -933,6 +933,7 @@ AS
 	END
 GO
 
+--PRINT dbo.func_TinhTienDien_SinhHoat(0, 2)
 --PRINT dbo.func_TinhTienDien_SinhHoat(50, 2)
 --PRINT dbo.func_TinhTienDien_SinhHoat(100, 1)
 --PRINT dbo.func_TinhTienDien_SinhHoat(100, 2)
@@ -962,7 +963,8 @@ GO
 CREATE PROCEDURE proc_TinhTienDien_DienNangTieuThu
 --ALTER PROCEDURE proc_TinhTienDien_DienNangTieuThu
 	@NgayBatDau DATETIME,
-	@NgayKetThuc DATETIME
+	@NgayKetThuc DATETIME,
+	@MaQuanLy VARCHAR(20)
 AS
 	BEGIN
 		DECLARE @DonGia INT, @ID INT, @MaBangGia VARCHAR(20), @ChiSoMoi INT, @ChiSoCu INT, 
@@ -980,7 +982,7 @@ AS
 				SET @TongTienTruocVAT = 0
 			SET @VAT = ROUND(@TongTienTruocVAT * @Thue, 0)
 			UPDATE DienNangTieuThu
-			SET TongTienTruocVAT = @TongTienTruocVAT, TongTienSauVAT = @TongTienTruocVAT + @Thue
+			SET TongTienTruocVAT = @TongTienTruocVAT, TongTienSauVAT = @TongTienTruocVAT + @Thue, NgayCapNhat = GETDATE(), NguoiCapNhat = @MaQuanLy
 			WHERE ID = @ID
 			FETCH NEXT FROM csrDienNangTieuThu INTO @ID, @MaBangGia, @SoHo, @Thue, @ChiSoMoi, @ChiSoCu
 		END

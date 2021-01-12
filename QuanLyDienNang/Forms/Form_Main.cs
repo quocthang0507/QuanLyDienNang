@@ -11,7 +11,7 @@ namespace QuanLyDienNang.Forms
 		private dynamic DynamicForm;
 		private readonly Form frmCauHinh = new Form_CauHinh();
 		private static Form_Main Singleton;
-		
+
 		// Lưu trữ tab đã mở trước đó
 		private TabPage previousTab;
 

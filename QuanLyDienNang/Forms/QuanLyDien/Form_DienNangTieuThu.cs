@@ -143,6 +143,12 @@ namespace QuanLyDienNang.Forms
 						  return;
 					  }
 					  Cursor.Current = Cursors.WaitCursor;
+					  bool ok = DienNangTieuThu.UpdateMoney(dtpDauKy.Value, dtpCuoiKy.Value, (cbxNguoiQuanLy.SelectedItem as NguoiQuanLy).MaQuanLy);
+					  if (!ok)
+					  {
+						  MessageBox.Show(STRINGS.ERROR_UPDATE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+						  return;
+					  }
 					  DataTable dt = funcs.ConvertListToDataTableForReporting(dgvDienNangTieuThu.DataSource as List<DienNangTieuThu>);
 					  Cursor.Current = Cursors.Default;
 					  Form form = new Form_BaoCao(dt);
