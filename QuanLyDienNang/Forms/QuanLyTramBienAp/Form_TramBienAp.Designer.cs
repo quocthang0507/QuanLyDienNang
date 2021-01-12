@@ -92,6 +92,7 @@ namespace QuanLyDienNang.Forms
 			this.dgvTramBienAp.AllowUserToDeleteRows = false;
 			this.dgvTramBienAp.AllowUserToResizeRows = false;
 			this.dgvTramBienAp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dgvTramBienAp.BackgroundColor = System.Drawing.SystemColors.Window;
 			this.dgvTramBienAp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvTramBienAp.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvTramBienAp.Location = new System.Drawing.Point(3, 173);

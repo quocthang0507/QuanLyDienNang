@@ -4,6 +4,7 @@ using Business.Helper;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Threading;
@@ -106,6 +107,7 @@ namespace QuanLyDienNang.Forms
 				stream.Close();
 				File.WriteAllBytes(filepath, bytes);
 				MessageBox.Show(STRINGS.SUCCESS_EXPORT_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
+				Process.Start(Directory.GetParent(filepath).FullName);
 			}
 		}
 
@@ -286,8 +288,6 @@ namespace QuanLyDienNang.Forms
 			dtpCuoiKy.Value = DateTime.Now;
 			dtpDauKy.Value = DateTime.Now.AddMonths(-1);
 		}
-
-
 		#endregion
 
 	}

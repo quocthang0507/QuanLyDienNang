@@ -98,6 +98,7 @@ namespace QuanLyDienNang.Forms
 			this.dgvChiTietGia.AllowUserToDeleteRows = false;
 			this.dgvChiTietGia.AllowUserToResizeRows = false;
 			this.dgvChiTietGia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dgvChiTietGia.BackgroundColor = System.Drawing.SystemColors.Window;
 			this.dgvChiTietGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvChiTietGia.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvChiTietGia.Location = new System.Drawing.Point(3, 203);

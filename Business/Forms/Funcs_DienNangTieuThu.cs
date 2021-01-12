@@ -69,7 +69,7 @@ namespace Business.Forms
 						MaKhachHang = row["MaKhachHang"].ToString(),
 						HoVaTen = row["HoVaTen"].ToString(),
 						DiaChi = row["DiaChi"].ToString(),
-						MaChiTietBangGia = row["MaChiTietBangGia"].ToString(),
+						MaBangGia = row["MaBangGia"].ToString(),
 						MaTram = row["MaTram"].ToString(),
 						NgayGhi = string.IsNullOrWhiteSpace(row["NgayGhi"].ToString()) ? DateTime.Now : DateTime.Parse(row["NgayGhi"].ToString()),
 						NguoiGhi = row["NguoiGhi"].ToString(),

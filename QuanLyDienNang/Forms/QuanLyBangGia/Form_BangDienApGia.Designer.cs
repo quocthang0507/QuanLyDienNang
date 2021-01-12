@@ -72,6 +72,7 @@ namespace QuanLyDienNang.Forms
 			this.dgvBangDienApGia.AllowUserToDeleteRows = false;
 			this.dgvBangDienApGia.AllowUserToResizeRows = false;
 			this.dgvBangDienApGia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dgvBangDienApGia.BackgroundColor = System.Drawing.SystemColors.Window;
 			this.dgvBangDienApGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvBangDienApGia.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvBangDienApGia.Location = new System.Drawing.Point(3, 33);

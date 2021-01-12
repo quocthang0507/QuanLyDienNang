@@ -37,10 +37,8 @@
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.btnKySau = new System.Windows.Forms.Button();
 			this.btnKyTruoc = new System.Windows.Forms.Button();
-			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
 			this.cbxNguoiQuanLy = new System.Windows.Forms.ComboBox();
 			this.dtpCuoiKy = new System.Windows.Forms.DateTimePicker();
-			this.label10 = new System.Windows.Forms.Label();
 			this.dtpDauKy = new System.Windows.Forms.DateTimePicker();
 			this.label8 = new System.Windows.Forms.Label();
 			this.btnLapDanhSach = new System.Windows.Forms.Button();
@@ -65,6 +63,7 @@
 			this.tbxDiaChi = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
+			this.label10 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.cbxBangGia = new System.Windows.Forms.ComboBox();
 			this.label5 = new System.Windows.Forms.Label();
@@ -77,7 +76,6 @@
 			this.tableTop.SuspendLayout();
 			this.tableRightTop.SuspendLayout();
 			this.groupBox1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
 			this.groupBox3.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.tableLeftTop.SuspendLayout();
@@ -120,6 +118,7 @@
 			this.dgvDienNangTieuThu.AllowUserToDeleteRows = false;
 			this.dgvDienNangTieuThu.AllowUserToResizeRows = false;
 			this.dgvDienNangTieuThu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+			this.dgvDienNangTieuThu.BackgroundColor = System.Drawing.SystemColors.Window;
 			this.dgvDienNangTieuThu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvDienNangTieuThu.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvDienNangTieuThu.Location = new System.Drawing.Point(3, 253);
@@ -165,10 +164,8 @@
 			// 
 			this.groupBox1.Controls.Add(this.btnKySau);
 			this.groupBox1.Controls.Add(this.btnKyTruoc);
-			this.groupBox1.Controls.Add(this.numericUpDown1);
 			this.groupBox1.Controls.Add(this.cbxNguoiQuanLy);
 			this.groupBox1.Controls.Add(this.dtpCuoiKy);
-			this.groupBox1.Controls.Add(this.label10);
 			this.groupBox1.Controls.Add(this.dtpDauKy);
 			this.groupBox1.Controls.Add(this.label8);
 			this.groupBox1.Controls.Add(this.btnLapDanhSach);
@@ -205,36 +202,13 @@
 			this.btnKyTruoc.UseVisualStyleBackColor = true;
 			this.btnKyTruoc.Click += new System.EventHandler(this.btnKyTruoc_Click);
 			// 
-			// numericUpDown1
-			// 
-			this.numericUpDown1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.numericUpDown1.Location = new System.Drawing.Point(47, 24);
-			this.numericUpDown1.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-			this.numericUpDown1.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			this.numericUpDown1.Name = "numericUpDown1";
-			this.numericUpDown1.Size = new System.Drawing.Size(50, 25);
-			this.numericUpDown1.TabIndex = 9;
-			this.numericUpDown1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-			// 
 			// cbxNguoiQuanLy
 			// 
 			this.cbxNguoiQuanLy.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.cbxNguoiQuanLy.DisplayMember = "TenQuanLy";
 			this.cbxNguoiQuanLy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbxNguoiQuanLy.FormattingEnabled = true;
-			this.cbxNguoiQuanLy.Location = new System.Drawing.Point(213, 55);
+			this.cbxNguoiQuanLy.Location = new System.Drawing.Point(213, 53);
 			this.cbxNguoiQuanLy.Name = "cbxNguoiQuanLy";
 			this.cbxNguoiQuanLy.Size = new System.Drawing.Size(245, 25);
 			this.cbxNguoiQuanLy.TabIndex = 12;
@@ -245,28 +219,18 @@
 			this.dtpCuoiKy.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.dtpCuoiKy.CustomFormat = "dd/MM/yyyy";
 			this.dtpCuoiKy.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.dtpCuoiKy.Location = new System.Drawing.Point(444, 24);
+			this.dtpCuoiKy.Location = new System.Drawing.Point(387, 22);
 			this.dtpCuoiKy.Name = "dtpCuoiKy";
 			this.dtpCuoiKy.Size = new System.Drawing.Size(130, 25);
 			this.dtpCuoiKy.TabIndex = 11;
 			this.dtpCuoiKy.ValueChanged += new System.EventHandler(this.dtpCuoiKy_ValueChanged);
-			// 
-			// label10
-			// 
-			this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(15, 26);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(26, 19);
-			this.label10.TabIndex = 0;
-			this.label10.Text = "Kỳ:";
 			// 
 			// dtpDauKy
 			// 
 			this.dtpDauKy.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.dtpDauKy.CustomFormat = "dd/MM/yyyy";
 			this.dtpDauKy.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.dtpDauKy.Location = new System.Drawing.Point(203, 24);
+			this.dtpDauKy.Location = new System.Drawing.Point(156, 22);
 			this.dtpDauKy.Name = "dtpDauKy";
 			this.dtpDauKy.Size = new System.Drawing.Size(130, 25);
 			this.dtpDauKy.TabIndex = 10;
@@ -275,7 +239,7 @@
 			// 
 			this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(108, 26);
+			this.label8.Location = new System.Drawing.Point(61, 24);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(89, 19);
 			this.label8.TabIndex = 0;
@@ -299,7 +263,7 @@
 			// 
 			this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(109, 58);
+			this.label11.Location = new System.Drawing.Point(109, 56);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(98, 19);
 			this.label11.TabIndex = 0;
@@ -323,7 +287,7 @@
 			// 
 			this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(347, 26);
+			this.label9.Location = new System.Drawing.Point(290, 24);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(91, 19);
 			this.label9.TabIndex = 0;
@@ -476,6 +440,7 @@
 			this.panel1.Controls.Add(this.tbxDiaChi);
 			this.panel1.Controls.Add(this.label2);
 			this.panel1.Controls.Add(this.label4);
+			this.panel1.Controls.Add(this.label10);
 			this.panel1.Controls.Add(this.label3);
 			this.panel1.Controls.Add(this.cbxBangGia);
 			this.panel1.Controls.Add(this.label5);
@@ -504,9 +469,9 @@
 			this.dtpKetThuc_TK.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.dtpKetThuc_TK.CustomFormat = "MM/yyyy";
 			this.dtpKetThuc_TK.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.dtpKetThuc_TK.Location = new System.Drawing.Point(263, 16);
+			this.dtpKetThuc_TK.Location = new System.Drawing.Point(283, 16);
 			this.dtpKetThuc_TK.Name = "dtpKetThuc_TK";
-			this.dtpKetThuc_TK.Size = new System.Drawing.Size(100, 25);
+			this.dtpKetThuc_TK.Size = new System.Drawing.Size(80, 25);
 			this.dtpKetThuc_TK.TabIndex = 9;
 			// 
 			// dtpBatDau_TK
@@ -514,16 +479,16 @@
 			this.dtpBatDau_TK.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.dtpBatDau_TK.CustomFormat = "MM/yyyy";
 			this.dtpBatDau_TK.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-			this.dtpBatDau_TK.Location = new System.Drawing.Point(85, 16);
+			this.dtpBatDau_TK.Location = new System.Drawing.Point(154, 16);
 			this.dtpBatDau_TK.Name = "dtpBatDau_TK";
-			this.dtpBatDau_TK.Size = new System.Drawing.Size(100, 25);
+			this.dtpBatDau_TK.Size = new System.Drawing.Size(80, 25);
 			this.dtpBatDau_TK.TabIndex = 9;
 			// 
 			// label6
 			// 
 			this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(220, 22);
+			this.label6.Location = new System.Drawing.Point(240, 22);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(37, 19);
 			this.label6.TabIndex = 0;
@@ -543,7 +508,7 @@
 			// 
 			this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(52, 22);
+			this.label2.Location = new System.Drawing.Point(121, 22);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(27, 19);
 			this.label2.TabIndex = 0;
@@ -559,6 +524,17 @@
 			this.label4.Size = new System.Drawing.Size(53, 19);
 			this.label4.TabIndex = 1;
 			this.label4.Text = "Địa chỉ:";
+			// 
+			// label10
+			// 
+			this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.label10.AutoSize = true;
+			this.label10.Location = new System.Drawing.Point(7, 22);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(117, 19);
+			this.label10.TabIndex = 1;
+			this.label10.Text = "Khoảng thời gian:";
 			// 
 			// label3
 			// 
@@ -650,7 +626,6 @@
 			this.tableRightTop.ResumeLayout(false);
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
 			this.groupBox3.ResumeLayout(false);
 			this.groupBox2.ResumeLayout(false);
 			this.tableLeftTop.ResumeLayout(false);
@@ -699,12 +674,11 @@
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.SaveFileDialog saveDialog;
-		private System.Windows.Forms.NumericUpDown numericUpDown1;
-		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.Button btnLoadTheoKy;
 		private System.Windows.Forms.GroupBox groupBox3;
 		private System.Windows.Forms.OpenFileDialog openDialog;
 		private System.Windows.Forms.Button btnKySau;
 		private System.Windows.Forms.Button btnKyTruoc;
+		private System.Windows.Forms.Label label10;
 	}
 }

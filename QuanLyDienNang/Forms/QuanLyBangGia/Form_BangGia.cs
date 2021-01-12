@@ -3,6 +3,7 @@ using Business.Forms;
 using Business.Helper;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Text;
@@ -177,6 +178,7 @@ namespace QuanLyDienNang.Forms
 				stream.Close();
 				File.WriteAllBytes(filepath, bytes);
 				MessageBox.Show(STRINGS.SUCCESS_EXPORT_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
+				Process.Start(Directory.GetParent(filepath).FullName);
 			}
 		}
 

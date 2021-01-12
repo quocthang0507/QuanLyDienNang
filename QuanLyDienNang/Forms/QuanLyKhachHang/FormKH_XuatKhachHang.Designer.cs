@@ -94,6 +94,7 @@
 			this.dgvKhachHang.AllowUserToOrderColumns = true;
 			this.dgvKhachHang.AllowUserToResizeRows = false;
 			this.dgvKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+			this.dgvKhachHang.BackgroundColor = System.Drawing.SystemColors.Window;
 			this.dgvKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvKhachHang.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvKhachHang.Location = new System.Drawing.Point(3, 213);

@@ -37,6 +37,9 @@ namespace Business.Helper
 				case List<TramBienAp> _:
 					list = objectList as List<TramBienAp>;
 					break;
+				case List<ChiTietBangGia> _:
+					list = objectList as List<ChiTietBangGia>;
+					break;
 				default:
 					return list;
 			}

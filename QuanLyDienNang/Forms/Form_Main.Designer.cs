@@ -83,6 +83,7 @@
 			// 
 			// menuBar
 			// 
+			this.menuBar.BackColor = System.Drawing.SystemColors.Control;
 			this.menuBar.Font = new System.Drawing.Font("Segoe UI", 9F);
 			this.menuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.chươngTrìnhToolStripMenuItem,
@@ -363,7 +364,7 @@
             this.btnThoat});
 			this.toolBar.Location = new System.Drawing.Point(3, 0);
 			this.toolBar.Name = "toolBar";
-			this.toolBar.Size = new System.Drawing.Size(933, 25);
+			this.toolBar.Size = new System.Drawing.Size(902, 25);
 			this.toolBar.TabIndex = 3;
 			this.toolBar.Text = "Thanh công cụ";
 			// 

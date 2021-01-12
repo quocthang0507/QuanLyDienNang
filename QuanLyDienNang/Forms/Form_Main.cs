@@ -153,7 +153,7 @@ namespace QuanLyDienNang.Forms
 				Form form = tab.Controls[0] as Form;
 				form.Close();
 				tabForms.TabPages.Remove(tab);
-				SwitchToLastTab();
+				//SwitchToLastTab();
 			}
 		}
 
