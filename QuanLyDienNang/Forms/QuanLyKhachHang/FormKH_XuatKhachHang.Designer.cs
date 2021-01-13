@@ -94,7 +94,7 @@
 			this.dgvKhachHang.AllowUserToOrderColumns = true;
 			this.dgvKhachHang.AllowUserToResizeRows = false;
 			this.dgvKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-			this.dgvKhachHang.BackgroundColor = System.Drawing.SystemColors.Window;
+			this.dgvKhachHang.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.dgvKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvKhachHang.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvKhachHang.Location = new System.Drawing.Point(3, 213);
@@ -305,6 +305,7 @@
 			this.AcceptButton = this.btnTimKiem;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.ClientSize = new System.Drawing.Size(984, 561);
 			this.Controls.Add(this.tableParent);
 			this.Font = new System.Drawing.Font("Segoe UI", 10F);

@@ -90,7 +90,7 @@ namespace QuanLyDienNang.Forms
 			this.dgvBangGia.AllowUserToDeleteRows = false;
 			this.dgvBangGia.AllowUserToResizeRows = false;
 			this.dgvBangGia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.dgvBangGia.BackgroundColor = System.Drawing.SystemColors.Window;
+			this.dgvBangGia.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.dgvBangGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvBangGia.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvBangGia.Location = new System.Drawing.Point(3, 153);
@@ -132,7 +132,7 @@ namespace QuanLyDienNang.Forms
 			this.groupBox1.Size = new System.Drawing.Size(679, 108);
 			this.groupBox1.TabIndex = 8;
 			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Thêm bảng giá:";
+			this.groupBox1.Text = "Thêm bảng giá";
 			// 
 			// label8
 			// 
@@ -256,9 +256,9 @@ namespace QuanLyDienNang.Forms
 			this.btnXemChiTiet.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnXemChiTiet.Image = global::QuanLyDienNang.Properties.Resources.Preview;
 			this.btnXemChiTiet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnXemChiTiet.Location = new System.Drawing.Point(760, 36);
+			this.btnXemChiTiet.Location = new System.Drawing.Point(776, 36);
 			this.btnXemChiTiet.Name = "btnXemChiTiet";
-			this.btnXemChiTiet.Size = new System.Drawing.Size(151, 40);
+			this.btnXemChiTiet.Size = new System.Drawing.Size(125, 40);
 			this.btnXemChiTiet.TabIndex = 6;
 			this.btnXemChiTiet.Text = "Xem chi tiết";
 			this.btnXemChiTiet.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -275,8 +275,10 @@ namespace QuanLyDienNang.Forms
 			// 
 			// Form_BangGia
 			// 
+			this.AcceptButton = this.btnXemChiTiet;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.ClientSize = new System.Drawing.Size(984, 561);
 			this.Controls.Add(this.tableParent);
 			this.Font = new System.Drawing.Font("Segoe UI", 10F);

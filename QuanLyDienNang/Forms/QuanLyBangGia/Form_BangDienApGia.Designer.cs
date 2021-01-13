@@ -72,7 +72,7 @@ namespace QuanLyDienNang.Forms
 			this.dgvBangDienApGia.AllowUserToDeleteRows = false;
 			this.dgvBangDienApGia.AllowUserToResizeRows = false;
 			this.dgvBangDienApGia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.dgvBangDienApGia.BackgroundColor = System.Drawing.SystemColors.Window;
+			this.dgvBangDienApGia.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.dgvBangDienApGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvBangDienApGia.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvBangDienApGia.Location = new System.Drawing.Point(3, 33);
@@ -97,6 +97,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.ClientSize = new System.Drawing.Size(984, 561);
 			this.Controls.Add(this.tableParent);
 			this.Font = new System.Drawing.Font("Segoe UI", 10F);

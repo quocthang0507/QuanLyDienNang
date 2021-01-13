@@ -49,6 +49,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.ClientSize = new System.Drawing.Size(984, 561);
 			this.Controls.Add(this.crystalViewer);
 			this.Font = new System.Drawing.Font("Segoe UI", 10F);

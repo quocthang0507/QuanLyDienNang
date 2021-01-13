@@ -118,7 +118,7 @@
 			this.dgvDienNangTieuThu.AllowUserToDeleteRows = false;
 			this.dgvDienNangTieuThu.AllowUserToResizeRows = false;
 			this.dgvDienNangTieuThu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-			this.dgvDienNangTieuThu.BackgroundColor = System.Drawing.SystemColors.Window;
+			this.dgvDienNangTieuThu.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.dgvDienNangTieuThu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvDienNangTieuThu.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvDienNangTieuThu.Location = new System.Drawing.Point(3, 253);
@@ -194,7 +194,7 @@
 			// btnKyTruoc
 			// 
 			this.btnKyTruoc.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnKyTruoc.Location = new System.Drawing.Point(8, 82);
+			this.btnKyTruoc.Location = new System.Drawing.Point(10, 83);
 			this.btnKyTruoc.Name = "btnKyTruoc";
 			this.btnKyTruoc.Size = new System.Drawing.Size(104, 40);
 			this.btnKyTruoc.TabIndex = 13;
@@ -274,7 +274,7 @@
 			this.btnLoadTheoKy.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnLoadTheoKy.Image = global::QuanLyDienNang.Properties.Resources.Refresh;
 			this.btnLoadTheoKy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLoadTheoKy.Location = new System.Drawing.Point(286, 83);
+			this.btnLoadTheoKy.Location = new System.Drawing.Point(285, 83);
 			this.btnLoadTheoKy.Name = "btnLoadTheoKy";
 			this.btnLoadTheoKy.Size = new System.Drawing.Size(180, 40);
 			this.btnLoadTheoKy.TabIndex = 15;
@@ -611,6 +611,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.ClientSize = new System.Drawing.Size(1084, 661);
 			this.Controls.Add(this.tableParent);
 			this.Font = new System.Drawing.Font("Segoe UI", 10F);

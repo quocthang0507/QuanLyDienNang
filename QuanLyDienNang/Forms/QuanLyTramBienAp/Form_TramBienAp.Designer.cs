@@ -92,7 +92,7 @@ namespace QuanLyDienNang.Forms
 			this.dgvTramBienAp.AllowUserToDeleteRows = false;
 			this.dgvTramBienAp.AllowUserToResizeRows = false;
 			this.dgvTramBienAp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.dgvTramBienAp.BackgroundColor = System.Drawing.SystemColors.Window;
+			this.dgvTramBienAp.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.dgvTramBienAp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvTramBienAp.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvTramBienAp.Location = new System.Drawing.Point(3, 173);
@@ -316,6 +316,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.ClientSize = new System.Drawing.Size(984, 561);
 			this.Controls.Add(this.tableParent);
 			this.Font = new System.Drawing.Font("Segoe UI", 10F);

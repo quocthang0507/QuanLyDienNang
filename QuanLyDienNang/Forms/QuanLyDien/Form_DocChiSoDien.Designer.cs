@@ -314,8 +314,10 @@ namespace QuanLyDienNang.Forms
 			// 
 			// Form_DocChiSoDien
 			// 
+			this.AcceptButton = this.btnNhanDien;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.ClientSize = new System.Drawing.Size(984, 561);
 			this.Controls.Add(this.tableParent);
 			this.Font = new System.Drawing.Font("Segoe UI", 10F);

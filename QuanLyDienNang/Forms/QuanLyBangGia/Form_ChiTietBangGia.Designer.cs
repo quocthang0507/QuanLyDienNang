@@ -98,7 +98,7 @@ namespace QuanLyDienNang.Forms
 			this.dgvChiTietGia.AllowUserToDeleteRows = false;
 			this.dgvChiTietGia.AllowUserToResizeRows = false;
 			this.dgvChiTietGia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.dgvChiTietGia.BackgroundColor = System.Drawing.SystemColors.Window;
+			this.dgvChiTietGia.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.dgvChiTietGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvChiTietGia.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgvChiTietGia.Location = new System.Drawing.Point(3, 203);
@@ -236,17 +236,18 @@ namespace QuanLyDienNang.Forms
 			this.groupBox1.Size = new System.Drawing.Size(661, 78);
 			this.groupBox1.TabIndex = 9;
 			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Phạm vi:";
+			this.groupBox1.Text = "Phạm vi";
 			// 
 			// label12
 			// 
 			this.label12.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.label12.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
-			this.label12.Location = new System.Drawing.Point(540, 20);
+			this.label12.Location = new System.Drawing.Point(502, 20);
 			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(115, 40);
+			this.label12.Size = new System.Drawing.Size(153, 40);
 			this.label12.TabIndex = 9;
 			this.label12.Text = "Để 0 nếu không áp dụng";
+			this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// label1
 			// 
@@ -391,8 +392,10 @@ namespace QuanLyDienNang.Forms
 			// 
 			// Form_ChiTietBangGia
 			// 
+			this.AcceptButton = this.btnBangDienApGia;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.ClientSize = new System.Drawing.Size(984, 561);
 			this.Controls.Add(this.tableParent);
 			this.Font = new System.Drawing.Font("Segoe UI", 10F);
