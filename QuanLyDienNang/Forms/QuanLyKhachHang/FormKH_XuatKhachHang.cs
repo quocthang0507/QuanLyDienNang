@@ -18,7 +18,6 @@ namespace QuanLyDienNang.Forms
 		public FormKH_XuatKhachHang()
 		{
 			InitializeComponent();
-			saveDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 		}
 
 		#region Events

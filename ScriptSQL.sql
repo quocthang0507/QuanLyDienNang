@@ -956,16 +956,16 @@ AS
 		WHILE @@FETCH_STATUS = 0
 		BEGIN
 			IF @MaBangGia = 'SH-THUONG'
-				SET @TongTienTruocVAT = dbo.func_TinhTienDien_SinhHoat(@ChiSoMoi - @ChiSoCu, @SoHo)
+				SET @TongTienTruocVAT = dbo.func_TinhTienDien_SinhHoat(@ChiSoMoi - @ChiSoCu, @SoHo);
 			ELSE IF @MaBangGia = 'APGIA'
-				SET @TongTienTruocVAT = 0
+				SET @TongTienTruocVAT = 0;
 			ELSE
-				SET @TongTienTruocVAT = 0
-			SET @VAT = CONVERT(INT, ROUND(@TongTienTruocVAT * @Thue, 0))
+				SET @TongTienTruocVAT = 0;
+			SET @VAT = CONVERT(INT, ROUND(@TongTienTruocVAT * @Thue, 0));
 			UPDATE DienNangTieuThu
-			SET TongTienTruocVAT = @TongTienTruocVAT, TongTienSauVAT = @TongTienTruocVAT + @Thue, NgayCapNhat = GETDATE(), NguoiCapNhat = @MaQuanLy
+			SET TongTienTruocVAT = @TongTienTruocVAT, TongTienSauVAT = @TongTienTruocVAT + @VAT, NgayCapNhat = GETDATE(), NguoiCapNhat = @MaQuanLy
 			WHERE ID = @ID
-			FETCH NEXT FROM csrDienNangTieuThu INTO @ID, @MaBangGia, @SoHo, @Thue, @ChiSoMoi, @ChiSoCu
+			FETCH NEXT FROM csrDienNangTieuThu INTO @ID, @MaBangGia, @SoHo, @Thue, @ChiSoMoi, @ChiSoCu;
 		END
 		CLOSE csrDienNangTieuThu
 		DEALLOCATE csrDienNangTieuThu

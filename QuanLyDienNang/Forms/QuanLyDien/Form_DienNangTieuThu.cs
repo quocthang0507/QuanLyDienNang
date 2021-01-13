@@ -152,6 +152,7 @@ namespace QuanLyDienNang.Forms
 						  MessageBox.Show(STRINGS.ERROR_UPDATE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 						  return;
 					  }
+					  btnLoadTheoKy.PerformClick();
 					  //DataTable dt = funcs.ConvertListToDataTableForReporting(dgvDienNangTieuThu.DataSource as List<DienNangTieuThu>);
 					  //Form form = new Form_BaoCao(dt);
 					  //form.ShowDialog();

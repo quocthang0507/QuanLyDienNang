@@ -295,7 +295,7 @@
 			// saveDialog
 			// 
 			this.saveDialog.DefaultExt = "xlsx";
-			this.saveDialog.FileName = "Danh sách khách hàng.xlsx";
+			this.saveDialog.FileName = "Danh sách Khách hàng";
 			this.saveDialog.Filter = "Excel Workbook (*.xlsx)|*.xlsx";
 			this.saveDialog.RestoreDirectory = true;
 			this.saveDialog.Title = "Lưu danh sách khách hàng";

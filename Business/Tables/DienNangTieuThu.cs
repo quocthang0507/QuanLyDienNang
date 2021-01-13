@@ -174,7 +174,7 @@ namespace Business.Classes
 		{
 			try
 			{
-				int result = DataProvider.Instance.ExecuteNonQuery("proc_TinhTienDien_DienNangTieuThu", ngayBatDau, ngayKetThuc, maQuanLy);
+				int result = DataProvider.Instance.ExecuteNonQuery("proc_TinhTienDien_DienNangTieuThu", ngayBatDau.ToString("yyyy/MM/dd"), ngayKetThuc.ToString("yyyy/MM/dd"), maQuanLy);
 				return result > 0;
 			}
 			catch (Exception)
