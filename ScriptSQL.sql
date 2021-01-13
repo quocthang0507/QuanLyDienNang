@@ -936,9 +936,9 @@ GO
 CREATE VIEW view_BangDien
 --ALTER VIEW view_BangDien
 AS
-	SELECT ID, D.MaKhachHang, B.MaBangGia, Thue, SoHo, C.MaChiTiet, NgayBatDau, NgayKetThuc, ChiSoMoi, ChiSoCu 
-	FROM DienNangTieuThu D, KhachHang K, ChiTietBangGia C, BangGia B
-	WHERE D.MaKhachHang = K.MaKhachHang AND C.MaBangGia = K.MaBangGia AND C.MaBangGia = B.MaBangGia
+	SELECT ID, D.MaKhachHang, B.MaBangGia, Thue, SoHo, NgayBatDau, NgayKetThuc, ChiSoMoi, ChiSoCu 
+	FROM DienNangTieuThu D, KhachHang K, BangGia B
+	WHERE D.MaKhachHang = K.MaKhachHang AND K.MaBangGia = B.MaBangGia
 GO
 
 CREATE PROCEDURE proc_TinhTienDien_DienNangTieuThu
@@ -972,4 +972,4 @@ AS
 	END
 GO
 
---EXEC proc_TinhTienDien_DienNangTieuThu '2020/12/12', '2021/01/12', 'GIAMDOC'
+--EXEC proc_TinhTienDien_DienNangTieuThu '2020/12/13', '2021/01/13', 'GIAMDOC'

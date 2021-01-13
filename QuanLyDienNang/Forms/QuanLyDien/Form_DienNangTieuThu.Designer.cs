@@ -71,6 +71,7 @@
 			this.label7 = new System.Windows.Forms.Label();
 			this.saveDialog = new System.Windows.Forms.SaveFileDialog();
 			this.openDialog = new System.Windows.Forms.OpenFileDialog();
+			this.tableRightBottom = new System.Windows.Forms.TableLayoutPanel();
 			this.tableParent.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvDienNangTieuThu)).BeginInit();
 			this.tableTop.SuspendLayout();
@@ -81,6 +82,7 @@
 			this.tableLeftTop.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.panel1.SuspendLayout();
+			this.tableRightBottom.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tableParent
@@ -295,26 +297,23 @@
 			// 
 			// groupBox3
 			// 
-			this.groupBox3.Controls.Add(this.btnXuatExcel);
-			this.groupBox3.Controls.Add(this.btnLuu);
-			this.groupBox3.Controls.Add(this.btnLapHoaDon);
-			this.groupBox3.Controls.Add(this.btnNhapExcel);
+			this.groupBox3.Controls.Add(this.tableRightBottom);
 			this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.groupBox3.Location = new System.Drawing.Point(3, 138);
 			this.groupBox3.Name = "groupBox3";
 			this.groupBox3.Size = new System.Drawing.Size(581, 67);
 			this.groupBox3.TabIndex = 1;
 			this.groupBox3.TabStop = false;
-			this.groupBox3.Text = "Lệnh";
+			this.groupBox3.Text = "Chức năng chính";
 			// 
 			// btnXuatExcel
 			// 
-			this.btnXuatExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+			this.btnXuatExcel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnXuatExcel.Image = global::QuanLyDienNang.Properties.Resources.Xlsx;
 			this.btnXuatExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnXuatExcel.Location = new System.Drawing.Point(472, 21);
+			this.btnXuatExcel.Location = new System.Drawing.Point(473, 3);
 			this.btnXuatExcel.Name = "btnXuatExcel";
-			this.btnXuatExcel.Size = new System.Drawing.Size(105, 40);
+			this.btnXuatExcel.Size = new System.Drawing.Size(99, 37);
 			this.btnXuatExcel.TabIndex = 20;
 			this.btnXuatExcel.Text = "Xuất Excel";
 			this.btnXuatExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -323,12 +322,12 @@
 			// 
 			// btnLuu
 			// 
-			this.btnLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+			this.btnLuu.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnLuu.Image = global::QuanLyDienNang.Properties.Resources.Save;
 			this.btnLuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLuu.Location = new System.Drawing.Point(10, 21);
+			this.btnLuu.Location = new System.Drawing.Point(3, 3);
 			this.btnLuu.Name = "btnLuu";
-			this.btnLuu.Size = new System.Drawing.Size(130, 40);
+			this.btnLuu.Size = new System.Drawing.Size(120, 37);
 			this.btnLuu.TabIndex = 17;
 			this.btnLuu.Text = "Lưu thông tin";
 			this.btnLuu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -337,12 +336,12 @@
 			// 
 			// btnLapHoaDon
 			// 
-			this.btnLapHoaDon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+			this.btnLapHoaDon.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnLapHoaDon.Image = global::QuanLyDienNang.Properties.Resources.Modify;
 			this.btnLapHoaDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLapHoaDon.Location = new System.Drawing.Point(146, 21);
+			this.btnLapHoaDon.Location = new System.Drawing.Point(129, 3);
 			this.btnLapHoaDon.Name = "btnLapHoaDon";
-			this.btnLapHoaDon.Size = new System.Drawing.Size(184, 40);
+			this.btnLapHoaDon.Size = new System.Drawing.Size(195, 37);
 			this.btnLapHoaDon.TabIndex = 18;
 			this.btnLapHoaDon.Text = "Tính tiền && Lập hóa đơn";
 			this.btnLapHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -351,12 +350,12 @@
 			// 
 			// btnNhapExcel
 			// 
-			this.btnNhapExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+			this.btnNhapExcel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.btnNhapExcel.Image = global::QuanLyDienNang.Properties.Resources.Import;
 			this.btnNhapExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnNhapExcel.Location = new System.Drawing.Point(336, 21);
+			this.btnNhapExcel.Location = new System.Drawing.Point(330, 3);
 			this.btnNhapExcel.Name = "btnNhapExcel";
-			this.btnNhapExcel.Size = new System.Drawing.Size(130, 40);
+			this.btnNhapExcel.Size = new System.Drawing.Size(137, 37);
 			this.btnNhapExcel.TabIndex = 19;
 			this.btnNhapExcel.Text = "Nhập từ Excel";
 			this.btnNhapExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -607,6 +606,25 @@
 			// 
 			this.openDialog.Filter = "Excel Workbook (.xlsx)|*.xlsx|Excel 97-2003 Workbook (.xls)|*.xls";
 			// 
+			// tableRightBottom
+			// 
+			this.tableRightBottom.ColumnCount = 4;
+			this.tableRightBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22F));
+			this.tableRightBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+			this.tableRightBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+			this.tableRightBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
+			this.tableRightBottom.Controls.Add(this.btnXuatExcel, 3, 0);
+			this.tableRightBottom.Controls.Add(this.btnLuu, 0, 0);
+			this.tableRightBottom.Controls.Add(this.btnNhapExcel, 2, 0);
+			this.tableRightBottom.Controls.Add(this.btnLapHoaDon, 1, 0);
+			this.tableRightBottom.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableRightBottom.Location = new System.Drawing.Point(3, 21);
+			this.tableRightBottom.Name = "tableRightBottom";
+			this.tableRightBottom.RowCount = 1;
+			this.tableRightBottom.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableRightBottom.Size = new System.Drawing.Size(575, 43);
+			this.tableRightBottom.TabIndex = 10;
+			// 
 			// Form_DienNangTieuThu
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -633,6 +651,7 @@
 			this.panel2.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
+			this.tableRightBottom.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -681,5 +700,6 @@
 		private System.Windows.Forms.Button btnKySau;
 		private System.Windows.Forms.Button btnKyTruoc;
 		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.TableLayoutPanel tableRightBottom;
 	}
 }

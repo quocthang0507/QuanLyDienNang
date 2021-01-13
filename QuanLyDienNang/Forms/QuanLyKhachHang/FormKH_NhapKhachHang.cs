@@ -73,7 +73,7 @@ namespace QuanLyDienNang.Forms
 			bool ok = funcs.TryInsertingDataTableToSQL(data);
 			if (ok)
 			{
-				funcs.InsertSQL(dgvKhachHang.DataSource as List<KhachHang>);
+				funcs.InsertSQL(data);
 				dgvKhachHang.DataSource = KhachHang.GetAll();
 				MessageBox.Show(STRINGS.SUCCESS_INSERT_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}

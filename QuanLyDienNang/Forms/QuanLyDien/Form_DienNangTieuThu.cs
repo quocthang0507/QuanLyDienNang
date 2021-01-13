@@ -86,9 +86,8 @@ namespace QuanLyDienNang.Forms
 			if (data == null)
 			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
 			}
-			dgvDienNangTieuThu.DataSource = data;
+			else dgvDienNangTieuThu.DataSource = data;
 		}
 
 		private void btnXuatExcel_Click(object sender, EventArgs e)
@@ -153,10 +152,10 @@ namespace QuanLyDienNang.Forms
 						  MessageBox.Show(STRINGS.ERROR_UPDATE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 						  return;
 					  }
-					  DataTable dt = funcs.ConvertListToDataTableForReporting(dgvDienNangTieuThu.DataSource as List<DienNangTieuThu>);
+					  //DataTable dt = funcs.ConvertListToDataTableForReporting(dgvDienNangTieuThu.DataSource as List<DienNangTieuThu>);
+					  //Form form = new Form_BaoCao(dt);
+					  //form.ShowDialog();
 					  Cursor.Current = Cursors.Default;
-					  Form form = new Form_BaoCao(dt);
-					  form.ShowDialog();
 				  });
 			  });
 			thread.Start();
