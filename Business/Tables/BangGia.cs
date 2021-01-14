@@ -25,6 +25,11 @@ namespace Business.Classes
 		[DefaultValue(0.1)]
 		public decimal Thue { get; set; }
 
+		[DisplayName("Áp giá phần trăm")]
+		[Required]
+		[DefaultValue(false)]
+		public bool ApGia { get; set; }
+
 		[DisplayName("Kích hoạt")]
 		[DefaultValue(true)]
 		[Required]
@@ -50,7 +55,7 @@ namespace Business.Classes
 		{
 			try
 			{
-				int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_BangGia", bangGia.MaBangGia, bangGia.TenBangGia, bangGia.Thue);
+				int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_BangGia", bangGia.MaBangGia, bangGia.TenBangGia, bangGia.Thue, bangGia.ApGia);
 				return result > 0;
 			}
 			catch (Exception)
@@ -63,7 +68,7 @@ namespace Business.Classes
 		{
 			try
 			{
-				int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_BangGia", bangGia.MaBangGia, bangGia.TenBangGia, bangGia.Thue, bangGia.KichHoat);
+				int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_BangGia", bangGia.MaBangGia, bangGia.TenBangGia, bangGia.Thue, bangGia.ApGia, bangGia.KichHoat);
 				return result > 0;
 			}
 			catch (Exception)

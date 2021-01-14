@@ -36,11 +36,6 @@ namespace Business.Classes
 		[StringLength(250)]
 		public string MoTa { get; set; }
 
-		[DisplayName("Áp giá phần trăm")]
-		[Required]
-		[DefaultValue(false)]
-		public bool ApGia { get; set; }
-
 		[DisplayName("Kích hoạt")]
 		[DefaultValue(true)]
 		[Required]
@@ -65,7 +60,7 @@ namespace Business.Classes
 		{
 			try
 			{
-				int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_ChiTietBangGia", chiTietBangGia.MaBangGia, chiTietBangGia.BatDau, chiTietBangGia.KetThuc, chiTietBangGia.DonGia, chiTietBangGia.MoTa, chiTietBangGia.ApGia);
+				int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_ChiTietBangGia", chiTietBangGia.MaBangGia, chiTietBangGia.BatDau, chiTietBangGia.KetThuc, chiTietBangGia.DonGia, chiTietBangGia.MoTa);
 				return result > 0;
 			}
 			catch (Exception)
@@ -79,7 +74,7 @@ namespace Business.Classes
 		{
 			try
 			{
-				int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_ChiTietBangGia", chiTietBangGia.MaBangGia, chiTietBangGia.MaBangGia, chiTietBangGia.BatDau, chiTietBangGia.KetThuc, chiTietBangGia.DonGia, chiTietBangGia.MoTa, chiTietBangGia.ApGia, chiTietBangGia.KichHoat);
+				int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_ChiTietBangGia", chiTietBangGia.MaBangGia, chiTietBangGia.MaBangGia, chiTietBangGia.BatDau, chiTietBangGia.KetThuc, chiTietBangGia.DonGia, chiTietBangGia.MoTa, chiTietBangGia.KichHoat);
 				return result > 0;
 			}
 			catch (Exception)

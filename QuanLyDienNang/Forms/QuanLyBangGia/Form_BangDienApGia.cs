@@ -12,12 +12,13 @@ namespace QuanLyDienNang.Forms
 {
 	public partial class Form_BangDienApGia : Form
 	{
-		private readonly ChiTietBangGia chiTietBangGia;
+		private readonly BangGia bangGia;
 
-		public Form_BangDienApGia(ChiTietBangGia chiTietBangGia)
+		public Form_BangDienApGia(BangGia bangGia)
 		{
 			InitializeComponent();
-			this.chiTietBangGia = chiTietBangGia;
+			this.bangGia = bangGia;
+			lblTitle.Text = "BẢNG ĐIỆN ÁP GIÁ " + bangGia.TenBangGia.ToUpper();
 		}
 
 		#region Events
@@ -36,8 +37,8 @@ namespace QuanLyDienNang.Forms
 		{
 			int changedRowIndex = e.RowIndex;
 			DataGridViewRow changedRow = dgvBangDienApGia.Rows[changedRowIndex];
-			string maBangGia = changedRow.Cells[0].Value.ToString();
-			string maChiTiet = changedRow.Cells[1].Value.ToString();
+			string maApGia = changedRow.Cells[0].Value.ToString();
+			string maBangGia = changedRow.Cells[1].Value.ToString();
 			string tyLe = changedRow.Cells[3].Value.ToString();
 			bool kichHoat = (bool)changedRow.Cells[4].Value;
 			if (Common.IsNullOrWhiteSpace(tyLe))
@@ -48,8 +49,8 @@ namespace QuanLyDienNang.Forms
 			{
 				var ok = BangDienApGia.Update(new BangDienApGia()
 				{
+					MaApGia = maApGia,
 					MaBangGia = maBangGia,
-					MaChiTiet = maChiTiet,
 					TyLe = decimal.Parse(tyLe),
 					KichHoat = kichHoat
 				});
@@ -138,8 +139,8 @@ namespace QuanLyDienNang.Forms
 
 		private void LoadTable()
 		{
-			BangDienApGia.Create(chiTietBangGia.MaChiTiet);
-			List<BangDienApGia> data = BangDienApGia.GetAll(chiTietBangGia.MaChiTiet);
+			BangDienApGia.Create(bangGia.MaBangGia);
+			List<BangDienApGia> data = BangDienApGia.GetAll(bangGia.MaBangGia);
 			if (data == null)
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else

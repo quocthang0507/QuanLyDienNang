@@ -11,16 +11,16 @@ namespace Business.Tables
 	public class BangDienApGia
 	{
 		[Key]
+		[DisplayName("Mã áp giá")]
+		[StringLength(30)]
+		[Required]
+		public string MaApGia { get; set; }
+
+		[Key]
 		[DisplayName("Mã bảng giá")]
 		[StringLength(30)]
 		[Required]
 		public string MaBangGia { get; set; }
-
-		[Key]
-		[DisplayName("Mã chi tiết bảng giá")]
-		[StringLength(30)]
-		[Required]
-		public string MaChiTiet { get; set; }
 
 		/// <summary>
 		/// Tên bảng giá tương ứng với mã bảng giá ở trên, lưu ý cột này không có trong bảng BangDienApGia
@@ -44,21 +44,21 @@ namespace Business.Tables
 
 		}
 
-		public static void Create(string maChiTiet)
+		public static void Create(string maBangGia)
 		{
-			DataProvider.Instance.ExecuteNonQuery("proc_CreateNew_BangDienApGia", maChiTiet);
+			DataProvider.Instance.ExecuteNonQuery("proc_CreateNew_BangDienApGia", maBangGia);
 		}
 
-		public static List<BangDienApGia> GetAll(string maChiTiet)
+		public static List<BangDienApGia> GetAll(string maApGia)
 		{
-			return CBO.FillCollection<BangDienApGia>(DataProvider.Instance.ExecuteReader("proc_GetAll_BangDienApGia", maChiTiet));
+			return CBO.FillCollection<BangDienApGia>(DataProvider.Instance.ExecuteReader("proc_GetAll_BangDienApGia", maApGia));
 		}
 
 		public static bool Update(BangDienApGia bangDienApGia)
 		{
 			try
 			{
-				int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_BangDienApGia", bangDienApGia.MaChiTiet, bangDienApGia.MaBangGia, bangDienApGia.TyLe, bangDienApGia.KichHoat);
+				int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_BangDienApGia", bangDienApGia.MaApGia, bangDienApGia.MaBangGia, bangDienApGia.TyLe, bangDienApGia.KichHoat);
 				return result > 0;
 			}
 			catch (Exception)

@@ -28,6 +28,7 @@
 		public static readonly string WARNING_NO_SQL_CONNECTION_MESSAGE = "Bạn không thiết lập kết nối đến máy chủ SQL nên chương trình sẽ thoát tại đây!";
 		public static readonly string WARNING_MISS_FILE_MESSAGE = "Phải chọn tập tin trước khi thực hiện hành động này.";
 		public static readonly string WARNING_NO_PERCENT_MESSAGE = "Đây không phải là bảng điện áp giá.";
+		public static readonly string WARNING_NO_APPLY_PERCENT_MESSAGE = "Vui lòng sử dụng nút 'Xem % áp giá'.";
 
 		public static readonly string SUCCESS = "Thành công";
 		public static readonly string SUCCESS_INSERT_MESSAGE = "Thêm dữ liệu mới vào thành công.";

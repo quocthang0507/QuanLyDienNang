@@ -46,7 +46,8 @@ namespace QuanLyDienNang.Forms
 				{
 					MaBangGia = maBangGia,
 					TenBangGia = tenBangGia,
-					Thue = decimal.Parse(tbxThue.Text)
+					Thue = decimal.Parse(tbxThue.Text),
+					ApGia = chkApGia.Checked
 				});
 				if (ok)
 				{
@@ -63,8 +64,15 @@ namespace QuanLyDienNang.Forms
 		private void btnXemChiTiet_Click(object sender, EventArgs e)
 		{
 			BangGia selected = (BangGia)dgvBangGia.SelectedRows[0].DataBoundItem;
-			Form frmChiTiet = new Form_ChiTietBangGia(selected);
-			Form_Main.Instance.AddFormToTabPage(frmChiTiet);
+			if (!selected.ApGia)
+			{
+				Form frmChiTiet = new Form_ChiTietBangGia(selected);
+				Form_Main.Instance.AddFormToTabPage(frmChiTiet);
+			}
+			else
+			{
+				MessageBox.Show(STRINGS.WARNING_NO_APPLY_PERCENT_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}
 		}
 
 		private void dgvBangGia_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -74,7 +82,8 @@ namespace QuanLyDienNang.Forms
 			string maBangGia = changedRow.Cells[0].Value.ToString();
 			string tenBangGia = changedRow.Cells[1].Value.ToString();
 			string thue = changedRow.Cells[2].Value.ToString();
-			bool kichHoat = (bool)changedRow.Cells[3].Value;
+			bool apGia = (bool)changedRow.Cells[3].Value;
+			bool kichHoat = (bool)changedRow.Cells[4].Value;
 			if (Common.IsNullOrWhiteSpace(maBangGia, tenBangGia, thue))
 			{
 				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -86,6 +95,7 @@ namespace QuanLyDienNang.Forms
 					MaBangGia = maBangGia,
 					TenBangGia = tenBangGia,
 					Thue = decimal.Parse(thue),
+					ApGia = apGia,
 					KichHoat = kichHoat
 				});
 				if (!ok)
@@ -108,6 +118,20 @@ namespace QuanLyDienNang.Forms
 			dgvBangGia.AutoResizeColumns();
 		}
 
+		private void btnXemApGia_Click(object sender, EventArgs e)
+		{
+			DataGridViewRow selectedRow = dgvBangGia.SelectedRows[0];
+			BangGia bangGia = selectedRow.DataBoundItem as BangGia;
+			if (bangGia.ApGia)
+			{
+				Form frmBangDienApGia = new Form_BangDienApGia(bangGia);
+				Form_Main.Instance.AddFormToTabPage(frmBangDienApGia);
+			}
+			else
+			{
+				MessageBox.Show(STRINGS.WARNING_NO_PERCENT_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}
+		}
 		#endregion
 
 		#region Methods

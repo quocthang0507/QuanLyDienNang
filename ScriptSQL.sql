@@ -13,6 +13,7 @@ CREATE TABLE BangGia (
 	MaBangGia VARCHAR(30) PRIMARY KEY,
 	TenBangGia NVARCHAR(150) NOT NULL,
 	Thue DECIMAL(3,2) DEFAULT 0.1 NOT NULL,
+	ApGia BIT DEFAULT 0 NOT NULL,
 	KichHoat BIT DEFAULT 1 NOT NULL,
 	CONSTRAINT constraint_Thue CHECK (THUE < 1 AND THUE >= 0)
 )
@@ -21,23 +22,24 @@ GO
 --DELETE FROM BangGia
 
 -- MÃ BẢNG GIÁ TỰ ĐỊNH NGHĨA
-INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('SH-THUONG', N'Điện sinh hoạt (hộ thường)')
-INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('SH-NGHEO', N'Điện sinh hoạt (hộ nghèo)')
-INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('KDDV-TREN22KV', N'Điện kinh doanh - dịch vụ: Cấp điện áp từ 22kV trở lên')
-INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('KDDV-6KV-22KV', N'Điện kinh doanh - dịch vụ: Cấp điện áp từ 6kV đến dưới 22kV')
-INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('KDDV-DUOI6KV', N'Điện kinh doanh - dịch vụ: Cấp điện áp dưới 6kV')
-INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('SX-TREN110KV', N'Điện sản xuất, cấp điện áp từ 110kV trở lên')
-INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('SX-22KV-110KV', N'Điện sản xuất, cấp điện áp từ 22kV đến dưới 110kV')
-INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('SX-6KV-22KV', N'Điện sản xuất, cấp điện áp từ 6kV đến dưới 22kV')
-INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('SX-DUOI6KV', N'Điện sản xuất, cấp điện áp dưới 6kV')
-INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('HCSN-BVTH-TREN6KV', N'Điện hành chính, sự nghiệp: Bệnh viện, nhà trẻ, mẫu giáo, trường phổ thông - Cấp điện áp từ 6kV trở lên')
-INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('HCSN-BVTH-DUOI6KV', N'Điện hành chính, sự nghiệp: Bệnh viện, nhà trẻ, mẫu giáo, trường phổ thông - Cấp điện áp dưới 6kV')
-INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('HCSN-CSCC-TREN6KV', N'Điện hành chính, sự nghiệp: Chiếu sáng công cộng; đơn vị hành chính sự nghiệp - Cấp điện áp từ 6kV trở lên')
-INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('HCSN-CSCC-DUOI6KV', N'Điện hành chính, sự nghiệp: Chiếu sáng công cộng; đơn vị hành chính sự nghiệp - Cấp điện áp dưới 6kV')
-INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('BV-TH', N'Điện cho bệnh viện, trường học')
-INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('BN-TT', N'Điện cho bơm nước, tưới tiêu')
-INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('CHIEUSANG', N'Điện chiếu sáng công cộng')
-INSERT INTO BangGia (MaBangGia, TenBangGia) VALUES ('APGIA', N'Bảng điện áp giá phần trăm')
+INSERT INTO BangGia (MaBangGia, TenBangGia, ApGia) VALUES ('SH-THUONG', N'Điện sinh hoạt (hộ thường)', 0);
+INSERT INTO BangGia (MaBangGia, TenBangGia, ApGia) VALUES ('SH-NGHEO', N'Điện sinh hoạt (hộ nghèo)', 0);
+INSERT INTO BangGia (MaBangGia, TenBangGia, ApGia) VALUES ('KDDV-TREN22KV', N'Điện kinh doanh - dịch vụ: Cấp điện áp từ 22kV trở lên', 0);
+INSERT INTO BangGia (MaBangGia, TenBangGia, ApGia) VALUES ('KDDV-6KV-22KV', N'Điện kinh doanh - dịch vụ: Cấp điện áp từ 6kV đến dưới 22kV', 0);
+INSERT INTO BangGia (MaBangGia, TenBangGia, ApGia) VALUES ('KDDV-DUOI6KV', N'Điện kinh doanh - dịch vụ: Cấp điện áp dưới 6kV', 0);
+INSERT INTO BangGia (MaBangGia, TenBangGia, ApGia) VALUES ('SX-TREN110KV', N'Điện sản xuất, cấp điện áp từ 110kV trở lên', 0);
+INSERT INTO BangGia (MaBangGia, TenBangGia, ApGia) VALUES ('SX-22KV-110KV', N'Điện sản xuất, cấp điện áp từ 22kV đến dưới 110kV', 0);
+INSERT INTO BangGia (MaBangGia, TenBangGia, ApGia) VALUES ('SX-6KV-22KV', N'Điện sản xuất, cấp điện áp từ 6kV đến dưới 22kV', 0);
+INSERT INTO BangGia (MaBangGia, TenBangGia, ApGia) VALUES ('SX-DUOI6KV', N'Điện sản xuất, cấp điện áp dưới 6kV', 0);
+INSERT INTO BangGia (MaBangGia, TenBangGia, ApGia) VALUES ('HCSN-BVTH-TREN6KV', N'Điện hành chính, sự nghiệp: Bệnh viện, nhà trẻ, mẫu giáo, trường phổ thông - Cấp điện áp từ 6kV trở lên', 0);
+INSERT INTO BangGia (MaBangGia, TenBangGia, ApGia) VALUES ('HCSN-BVTH-DUOI6KV', N'Điện hành chính, sự nghiệp: Bệnh viện, nhà trẻ, mẫu giáo, trường phổ thông - Cấp điện áp dưới 6kV', 0);
+INSERT INTO BangGia (MaBangGia, TenBangGia, ApGia) VALUES ('HCSN-CSCC-TREN6KV', N'Điện hành chính, sự nghiệp: Chiếu sáng công cộng; đơn vị hành chính sự nghiệp - Cấp điện áp từ 6kV trở lên', 0);
+INSERT INTO BangGia (MaBangGia, TenBangGia, ApGia) VALUES ('HCSN-CSCC-DUOI6KV', N'Điện hành chính, sự nghiệp: Chiếu sáng công cộng; đơn vị hành chính sự nghiệp - Cấp điện áp dưới 6kV', 0);
+INSERT INTO BangGia (MaBangGia, TenBangGia, ApGia) VALUES ('BV-TH', N'Điện cho bệnh viện, trường học', 0);
+INSERT INTO BangGia (MaBangGia, TenBangGia, ApGia) VALUES ('BN-TT', N'Điện cho bơm nước, tưới tiêu', 0);
+INSERT INTO BangGia (MaBangGia, TenBangGia, ApGia) VALUES ('CHIEUSANG', N'Điện chiếu sáng công cộng', 0);
+INSERT INTO BangGia (MaBangGia, TenBangGia, ApGia) VALUES ('10SX-50SH-40KD', N'10% Sản xuất, 50% Sinh hoạt, 40% Kinh doanh', 1);
+INSERT INTO BangGia (MaBangGia, TenBangGia, ApGia) VALUES ('50%BN-10KD-30SX-10SH', N'50% Bơm nước, 10% Kinh doanh, 30% Sản xuất, 10% Sinh hoạt', 1);
 GO
 
 CREATE PROCEDURE proc_GetAll_BangGia
@@ -60,9 +62,10 @@ CREATE PROCEDURE proc_Insert_BangGia
 --ALTER PROCEDURE proc_Insert_BangGia
 	@MaBangGia VARCHAR(30),
 	@TenBangGia NVARCHAR(150),
-	@Thue DECIMAL(3,2)
+	@Thue DECIMAL(3,2),
+	@ApGia BIT
 AS
-	INSERT INTO BangGia (MaBangGia, TenBangGia, Thue) VALUES (@MaBangGia, @TenBangGia, @Thue)
+	INSERT INTO BangGia (MaBangGia, TenBangGia, Thue, ApGia) VALUES (@MaBangGia, @TenBangGia, @Thue, @ApGia)
 GO
 
 CREATE PROCEDURE proc_Update_BangGia
@@ -70,10 +73,11 @@ CREATE PROCEDURE proc_Update_BangGia
 	@MaBangGia VARCHAR(30),
 	@TenBangGia NVARCHAR(150),
 	@Thue DECIMAL(3,2),
+	@ApGia BIT,
 	@KichHoat BIT
 AS
 	UPDATE BangGia
-	SET TenBangGia = @TenBangGia, KichHoat = @KichHoat, Thue = @Thue
+	SET TenBangGia = @TenBangGia, KichHoat = @KichHoat, Thue = @Thue, ApGia = @ApGia
 	WHERE MaBangGia = @MaBangGia
 GO
 
@@ -98,7 +102,6 @@ CREATE TABLE ChiTietBangGia
 	KetThuc INT DEFAULT 0 NOT NULL,
 	DonGia INT NOT NULL,
 	MoTa NVARCHAR(250) NULL,
-	ApGia BIT DEFAULT 0 NOT NULL,
 	KichHoat BIT DEFAULT 1 NOT NULL
 )
 GO
@@ -124,7 +127,7 @@ GO
 CREATE PROCEDURE proc_GetAll_ChiTietBangGia
 --ALTER PROCEDURE proc_GetAll_ChiTietBangGia
 AS
-	SELECT * FROM ChiTietBangGia ORDER BY KichHoat DESC, ApGia ASC, MaChiTiet ASC
+	SELECT * FROM ChiTietBangGia ORDER BY KichHoat DESC, MaChiTiet ASC
 GO
 
 CREATE PROCEDURE proc_GetByBangGia_ChiTietBangGia
@@ -141,47 +144,45 @@ CREATE PROCEDURE proc_Insert_ChiTietBangGia
 	@BatDau INT,
 	@KetThuc INT,
 	@DonGia INT,
-	@MoTa NVARCHAR(250),
-	@ApGia BIT
+	@MoTa NVARCHAR(250)
 AS
-	INSERT INTO ChiTietBangGia (MaChiTiet, MaBangGia, BatDau, KetThuc, DonGia, MoTa, ApGia) VALUES (@MaChiTiet, @MaBangGia, @BatDau, @KetThuc, @DonGia, @MoTa, @ApGia)
+	INSERT INTO ChiTietBangGia (MaChiTiet, MaBangGia, BatDau, KetThuc, DonGia, MoTa) 
+	VALUES (@MaChiTiet, @MaBangGia, @BatDau, @KetThuc, @DonGia, @MoTa)
 GO
 
 --DELETE FROM ChiTietBangGia
 
-EXEC proc_Insert_ChiTietBangGia 'SH-TH-BAC1', 'SH-THUONG', 0, 50, 1678, N'Bậc 1: Cho kWh từ 0 - 50', 0
-EXEC proc_Insert_ChiTietBangGia 'SH-TH-BAC2', 'SH-THUONG', 51, 100, 1734, N'Bậc 2: Cho kWh từ 51 - 100', 0
-EXEC proc_Insert_ChiTietBangGia 'SH-TH-BAC3', 'SH-THUONG', 101, 200, 2014, N'Bậc 3: Cho kWh từ 101 - 200', 0
-EXEC proc_Insert_ChiTietBangGia 'SH-TH-BAC4', 'SH-THUONG', 201, 300, 2536, N'Bậc 4: Cho kWh từ 201 - 300', 0
-EXEC proc_Insert_ChiTietBangGia 'SH-TH-BAC5', 'SH-THUONG', 301, 400, 2834, N'Bậc 5: Cho kWh từ 301 - 400', 0
-EXEC proc_Insert_ChiTietBangGia 'SH-TH-BAC6', 'SH-THUONG', 401, 0, 2927, N'Bậc 6: Cho kWh từ 401 trở lên', 0
-EXEC proc_Insert_ChiTietBangGia 'SX-TREN110KV-GBT', 'SX-TREN110KV', 0, 0, 1536, N'Cấp điện áp 110kV trở lên: Giờ bình thường', 0
-EXEC proc_Insert_ChiTietBangGia 'SX-TREN110KV-GTD', 'SX-TREN110KV', 0, 0, 970, N'Cấp điện áp 110kV trở lên: Giờ thấp điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'SX-TREN110KV-GCD', 'SX-TREN110KV', 0, 0, 1536, N'Cấp điện áp 110kV trở lên: Giờ cao điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'SX-22KV-110KV-GBT', 'SX-22KV-110KV', 0, 0, 1555, N'Cấp điện áp từ 22kV đến dưới 110kV: Giờ bình thường', 0
-EXEC proc_Insert_ChiTietBangGia 'SX-22KV-110KV-GTD', 'SX-22KV-110KV', 0, 0, 1007, N'Cấp điện áp từ 22kV đến dưới 110kV: Giờ thấp điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'SX-22KV-110KV-GCD', 'SX-22KV-110KV', 0, 0, 2871, N'Cấp điện áp từ 22kV đến dưới 110kV: Giờ cao điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'SX-6KV-22KV-GBT', 'SX-6KV-22KV', 0, 0, 1611, N'Cấp điện áp từ 6kV đến dưới 22kV: Giờ bình thường', 0
-EXEC proc_Insert_ChiTietBangGia 'SX-6KV-22KV-GTD', 'SX-6KV-22KV', 0, 0, 1044, N'Cấp điện áp từ 6kV đến dưới 22kV: Giờ thấp điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'SX-6KV-22KV-GCD', 'SX-6KV-22KV', 0, 0, 2964, N'Cấp điện áp từ 6kV đến dưới 22kV: Giờ cao điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'SX-DUOI6KV-GBT', 'SX-DUOI6KV', 0, 0, 1685, N'Cấp điện áp dưới 6kV: Giờ bình thường', 0
-EXEC proc_Insert_ChiTietBangGia 'SX-DUOI6KV-GTD', 'SX-DUOI6KV', 0, 0, 1100, N'Cấp điện áp dưới 6kV: Giờ thấp điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'SX-DUOI6KV-GCD', 'SX-DUOI6KV', 0, 0, 3076, N'Cấp điện áp dưới 6kV: Giờ cao điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'HCSN-BVTH-TREN6KV', 'HCSN-BVTH-TREN6KV', 0, 0, 1659, N'Bệnh viện, nhà trẻ, mẫu giáo, trường phổ thông: Cấp điện áp từ 6kV trở lên', 0
-EXEC proc_Insert_ChiTietBangGia 'HCSN-BVTH-DUOI6KV', 'HCSN-BVTH-DUOI6KV', 0, 0, 1771, N'Bệnh viện, nhà trẻ, mẫu giáo, trường phổ thông: Cấp điện áp dưới 6kV', 0
-EXEC proc_Insert_ChiTietBangGia 'HCSN-CSCC-TREN6KV', 'HCSN-CSCC-TREN6KV', 0, 0, 1827, N'Chiếu sáng công cộng; đơn vị hành chính sự nghiệp: Cấp điện áp từ 6kV trở lên', 0
-EXEC proc_Insert_ChiTietBangGia 'HCSN-CSCC-DUOI6KV', 'HCSN-CSCC-DUOI6KV', 0, 0, 1902, N'Chiếu sáng công cộng; đơn vị hành chính sự nghiệp: Cấp điện áp dưới 6kV', 0
-EXEC proc_Insert_ChiTietBangGia 'KDDV-TREN22KV-GBT', 'KDDV-TREN22KV', 0, 0, 2442, N'Cấp điện áp từ 22kV trở lên: Giờ bình thường', 0
-EXEC proc_Insert_ChiTietBangGia 'KDDV-TREN22KV-GTD', 'KDDV-TREN22KV', 0, 0, 1361, N'Cấp điện áp từ 22kV trở lên: Giờ thấp điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'KDDV-TREN22KV-GCD', 'KDDV-TREN22KV', 0, 0, 4251, N'Cấp điện áp từ 22kV trở lên: Giờ cao điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'KDDV-6KV-22KV-GBT', 'KDDV-6KV-22KV', 0, 0, 2629, N'Cấp điện áp từ 6kV đến dưới 22kV: Giờ bình thường', 0
-EXEC proc_Insert_ChiTietBangGia 'KDDV-6KV-22KV-GTD', 'KDDV-6KV-22KV', 0, 0, 1547, N'Cấp điện áp từ 6kV đến dưới 22kV: Giờ thấp điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'KDDV-6KV-22KV-GCD', 'KDDV-6KV-22KV', 0, 0, 4400, N'Cấp điện áp từ 6kV đến dưới 22kV: Giờ cao điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'KDDV-DUOI6KV-GBT', 'KDDV-DUOI6KV', 0, 0, 2666, N'Cấp điện áp dưới 6kV: Giờ bình thường', 0
-EXEC proc_Insert_ChiTietBangGia 'KDDV-DUOI6KV-GTD', 'KDDV-DUOI6KV', 0, 0, 1622, N'Cấp điện áp dưới 6kV: Giờ thấp điểm', 0
-EXEC proc_Insert_ChiTietBangGia 'KDDV-DUOI6KV-GCD', 'KDDV-DUOI6KV', 0, 0, 4587, N'Cấp điện áp dưới 6kV: Giờ cao điểm', 0
-EXEC proc_Insert_ChiTietBangGia '10SX-50SH-40KD', 'APGIA', 0, 0, 0, N'10% Sản xuất, 50% Sinh hoạt, 40% Kinh doanh', 1
-EXEC proc_Insert_ChiTietBangGia '50%BN-10KD-30SX-10SH', 'APGIA', 0, 0, 0, N'50% Bơm nước, 10% Kinh doanh, 30% Sản xuất, 10% Sinh hoạt', 1
+EXEC proc_Insert_ChiTietBangGia 'SH-TH-BAC1', 'SH-THUONG', 0, 50, 1678, N'Bậc 1: Cho kWh từ 0 - 50'
+EXEC proc_Insert_ChiTietBangGia 'SH-TH-BAC2', 'SH-THUONG', 51, 100, 1734, N'Bậc 2: Cho kWh từ 51 - 100'
+EXEC proc_Insert_ChiTietBangGia 'SH-TH-BAC3', 'SH-THUONG', 101, 200, 2014, N'Bậc 3: Cho kWh từ 101 - 200'
+EXEC proc_Insert_ChiTietBangGia 'SH-TH-BAC4', 'SH-THUONG', 201, 300, 2536, N'Bậc 4: Cho kWh từ 201 - 300'
+EXEC proc_Insert_ChiTietBangGia 'SH-TH-BAC5', 'SH-THUONG', 301, 400, 2834, N'Bậc 5: Cho kWh từ 301 - 400'
+EXEC proc_Insert_ChiTietBangGia 'SH-TH-BAC6', 'SH-THUONG', 401, 0, 2927, N'Bậc 6: Cho kWh từ 401 trở lên'
+EXEC proc_Insert_ChiTietBangGia 'SX-TREN110KV-GBT', 'SX-TREN110KV', 0, 0, 1536, N'Cấp điện áp 110kV trở lên: Giờ bình thường'
+EXEC proc_Insert_ChiTietBangGia 'SX-TREN110KV-GTD', 'SX-TREN110KV', 0, 0, 970, N'Cấp điện áp 110kV trở lên: Giờ thấp điểm'
+EXEC proc_Insert_ChiTietBangGia 'SX-TREN110KV-GCD', 'SX-TREN110KV', 0, 0, 1536, N'Cấp điện áp 110kV trở lên: Giờ cao điểm'
+EXEC proc_Insert_ChiTietBangGia 'SX-22KV-110KV-GBT', 'SX-22KV-110KV', 0, 0, 1555, N'Cấp điện áp từ 22kV đến dưới 110kV: Giờ bình thường'
+EXEC proc_Insert_ChiTietBangGia 'SX-22KV-110KV-GTD', 'SX-22KV-110KV', 0, 0, 1007, N'Cấp điện áp từ 22kV đến dưới 110kV: Giờ thấp điểm'
+EXEC proc_Insert_ChiTietBangGia 'SX-22KV-110KV-GCD', 'SX-22KV-110KV', 0, 0, 2871, N'Cấp điện áp từ 22kV đến dưới 110kV: Giờ cao điểm'
+EXEC proc_Insert_ChiTietBangGia 'SX-6KV-22KV-GBT', 'SX-6KV-22KV', 0, 0, 1611, N'Cấp điện áp từ 6kV đến dưới 22kV: Giờ bình thường'
+EXEC proc_Insert_ChiTietBangGia 'SX-6KV-22KV-GTD', 'SX-6KV-22KV', 0, 0, 1044, N'Cấp điện áp từ 6kV đến dưới 22kV: Giờ thấp điểm'
+EXEC proc_Insert_ChiTietBangGia 'SX-6KV-22KV-GCD', 'SX-6KV-22KV', 0, 0, 2964, N'Cấp điện áp từ 6kV đến dưới 22kV: Giờ cao điểm'
+EXEC proc_Insert_ChiTietBangGia 'SX-DUOI6KV-GBT', 'SX-DUOI6KV', 0, 0, 1685, N'Cấp điện áp dưới 6kV: Giờ bình thường'
+EXEC proc_Insert_ChiTietBangGia 'SX-DUOI6KV-GTD', 'SX-DUOI6KV', 0, 0, 1100, N'Cấp điện áp dưới 6kV: Giờ thấp điểm'
+EXEC proc_Insert_ChiTietBangGia 'SX-DUOI6KV-GCD', 'SX-DUOI6KV', 0, 0, 3076, N'Cấp điện áp dưới 6kV: Giờ cao điểm'
+EXEC proc_Insert_ChiTietBangGia 'HCSN-BVTH-TREN6KV', 'HCSN-BVTH-TREN6KV', 0, 0, 1659, N'Bệnh viện, nhà trẻ, mẫu giáo, trường phổ thông: Cấp điện áp từ 6kV trở lên'
+EXEC proc_Insert_ChiTietBangGia 'HCSN-BVTH-DUOI6KV', 'HCSN-BVTH-DUOI6KV', 0, 0, 1771, N'Bệnh viện, nhà trẻ, mẫu giáo, trường phổ thông: Cấp điện áp dưới 6kV'
+EXEC proc_Insert_ChiTietBangGia 'HCSN-CSCC-TREN6KV', 'HCSN-CSCC-TREN6KV', 0, 0, 1827, N'Chiếu sáng công cộng; đơn vị hành chính sự nghiệp: Cấp điện áp từ 6kV trở lên'
+EXEC proc_Insert_ChiTietBangGia 'HCSN-CSCC-DUOI6KV', 'HCSN-CSCC-DUOI6KV', 0, 0, 1902, N'Chiếu sáng công cộng; đơn vị hành chính sự nghiệp: Cấp điện áp dưới 6kV'
+EXEC proc_Insert_ChiTietBangGia 'KDDV-TREN22KV-GBT', 'KDDV-TREN22KV', 0, 0, 2442, N'Cấp điện áp từ 22kV trở lên: Giờ bình thường'
+EXEC proc_Insert_ChiTietBangGia 'KDDV-TREN22KV-GTD', 'KDDV-TREN22KV', 0, 0, 1361, N'Cấp điện áp từ 22kV trở lên: Giờ thấp điểm'
+EXEC proc_Insert_ChiTietBangGia 'KDDV-TREN22KV-GCD', 'KDDV-TREN22KV', 0, 0, 4251, N'Cấp điện áp từ 22kV trở lên: Giờ cao điểm'
+EXEC proc_Insert_ChiTietBangGia 'KDDV-6KV-22KV-GBT', 'KDDV-6KV-22KV', 0, 0, 2629, N'Cấp điện áp từ 6kV đến dưới 22kV: Giờ bình thường'
+EXEC proc_Insert_ChiTietBangGia 'KDDV-6KV-22KV-GTD', 'KDDV-6KV-22KV', 0, 0, 1547, N'Cấp điện áp từ 6kV đến dưới 22kV: Giờ thấp điểm'
+EXEC proc_Insert_ChiTietBangGia 'KDDV-6KV-22KV-GCD', 'KDDV-6KV-22KV', 0, 0, 4400, N'Cấp điện áp từ 6kV đến dưới 22kV: Giờ cao điểm'
+EXEC proc_Insert_ChiTietBangGia 'KDDV-DUOI6KV-GBT', 'KDDV-DUOI6KV', 0, 0, 2666, N'Cấp điện áp dưới 6kV: Giờ bình thường'
+EXEC proc_Insert_ChiTietBangGia 'KDDV-DUOI6KV-GTD', 'KDDV-DUOI6KV', 0, 0, 1622, N'Cấp điện áp dưới 6kV: Giờ thấp điểm'
+EXEC proc_Insert_ChiTietBangGia 'KDDV-DUOI6KV-GCD', 'KDDV-DUOI6KV', 0, 0, 4587, N'Cấp điện áp dưới 6kV: Giờ cao điểm'
 GO
 
 CREATE PROCEDURE proc_Update_ChiTietBangGia
@@ -192,11 +193,10 @@ CREATE PROCEDURE proc_Update_ChiTietBangGia
 	@KetThuc INT,
 	@DonGia INT,
 	@MoTa NVARCHAR(200),
-	@ApGia BIT,
 	@KichHoat BIT
 AS
 	UPDATE ChiTietBangGia
-	SET MaBangGia = @MaBangGia, BatDau = @BatDau, KetThuc = @KetThuc, DonGia = @DonGia, MoTa = @MoTa, KichHoat = @KichHoat, ApGia = @ApGia
+	SET MaBangGia = @MaBangGia, BatDau = @BatDau, KetThuc = @KetThuc, DonGia = @DonGia, MoTa = @MoTa, KichHoat = @KichHoat
 	WHERE MaChiTiet = @MaChiTiet
 GO
 
@@ -213,71 +213,81 @@ GO
 --DROP TABLE BangDienApGia
 CREATE TABLE BangDienApGia
 (
-	MaChiTiet VARCHAR(30) NOT NULL REFERENCES ChiTietBangGia(MaChiTiet),
+	MaApGia VARCHAR(30),
 	MaBangGia VARCHAR(30) NOT NULL REFERENCES BangGia(MaBangGia),
 	TyLe DECIMAL(3,2) NOT NULL DEFAULT 0.0,
 	KichHoat BIT DEFAULT 1,
-	ConstraINT PK_BangDienApGia PRIMARY KEY (MaChiTiet, MaBangGia)
+	CONSTRAINT pk_BangDienApGia PRIMARY KEY (MaApGia, MaBangGia)
 )
 GO
 
---DELETE FROM BangDienApGia
+CREATE PROCEDURE proc_Reset_BangDienApGia
+AS
+	DELETE FROM BangDienApGia
+	DBCC CHECKIDENT ('[BangDienApGia]', RESEED, 0);
+GO
 
+--EXEC proc_Reset_BangDienApGia
+
+-- Đưa mã bảng giá làm mã bảng áp giá
 CREATE PROCEDURE proc_CreateNew_BangDienApGia
 --ALTER PROCEDURE proc_CreateNew_BangDienApGia
-	@MaChiTiet VARCHAR(30)
+	@MaBangGia VARCHAR(30)
 AS
-	IF NOT EXISTS (SELECT * FROM BangDienApGia WHERE MaChiTiet = @MaChiTiet)
+	IF NOT EXISTS (SELECT * FROM BangDienApGia WHERE MaApGia = @MaBangGia)
 	BEGIN
-		DECLARE @MaBangGia VARCHAR(30)
-		DECLARE csrBangGia CURSOR FOR SELECT MaBangGia FROM BangGia
+		DECLARE @Ma VARCHAR(30)
+		DECLARE csrBangGia CURSOR FOR SELECT MaBangGia FROM BangGia WHERE ApGia = 0
 		OPEN csrBangGia
-		FETCH NEXT FROM csrBangGia INTO @MaBangGia
+		FETCH NEXT FROM csrBangGia INTO @Ma
 		WHILE @@FETCH_STATUS = 0
 		BEGIN
-			INSERT INTO BangDienApGia (MaChiTiet, MaBangGia) VALUES (@MaChiTiet, @MaBangGia)
-			FETCH NEXT FROM csrBangGia INTO @MaBangGia
+			INSERT INTO BangDienApGia (MaApGia, MaBangGia) VALUES (@MaBangGia, @Ma)
+			FETCH NEXT FROM csrBangGia INTO @Ma
 		END
 		CLOSE csrBangGia
 		DEALLOCATE csrBangGia
 	END
 GO
 
+--EXEC proc_CreateNew_BangDienApGia '10SX-50SH-40KD'
+
 CREATE VIEW view_BangDienApGia
+--ALTER VIEW view_BangDienApGia
 AS
-	SELECT BG.MaBangGia, CT.MaChiTiet, TenBangGia, TyLe, AG.KichHoat FROM BangGia BG, ChiTietBangGia CT, BangDienApGia AG 
-	WHERE BG.MaBangGia = AG.MaBangGia AND CT.MaChiTiet = AG.MaChiTiet
+	SELECT MaApGia, B.MaBangGia, TenBangGia, TyLe, A.KichHoat 
+	FROM BangGia B, BangDienApGia A
+	WHERE B.MaBangGia = A.MaBangGia
 GO
 
 CREATE PROCEDURE proc_GetAll_BangDienApGia
-	@MaChiTiet VARCHAR(30)
+--ALTER PROCEDURE proc_GetAll_BangDienApGia
+	@MaApGia VARCHAR(30)
 AS
-	SELECT * FROM view_BangDienApGia WHERE MaChiTiet = @MaChiTiet
+	SELECT * FROM view_BangDienApGia WHERE MaApGia = @MaApGia
 GO
 
 CREATE PROCEDURE proc_Update_BangDienApGia
 --ALTER PROCEDURE proc_Update_BangDienApGia
-	@MaChiTiet VARCHAR(30),
+	@MaApGia VARCHAR(30),
 	@MaBangGia VARCHAR(30),
 	@TyLe DECIMAL(3,2),
 	@KichHoat BIT
 AS
 	UPDATE BangDienApGia
 	SET TyLe = @TyLe, KichHoat = @KichHoat
-	WHERE MaChiTiet = @MaChiTiet AND MaBangGia = @MaBangGia
+	WHERE MaApGia = @MaApGia AND MaBangGia = @MaBangGia
 GO
-
---EXEC proc_Update_BangDienApGia '10SX-50SH-40KD', 'SX', 0.1, 1
 
 CREATE TRIGGER trigger_BangDienApGia ON BangDienApGia FOR INSERT, UPDATE
 --ALTER TRIGGER trigger_BangDienApGia ON BangDienApGia FOR INSERT, UPDATE
 AS
 	IF UPDATE(TyLe)
 		BEGIN
-			DECLARE @MaChiTiet VARCHAR(30)
+			DECLARE @MaBangGia VARCHAR(30)
 			DECLARE @TyLe DECIMAL(3,2)
-			SET @MaChiTiet = (SELECT MaChiTiet FROM INSERTED)
-			SET @TyLe = (SELECT SUM(TyLe) FROM BangDienApGia WHERE MaChiTiet = @MaChiTiet)
+			SET @MaBangGia = (SELECT @MaBangGia FROM INSERTED)
+			SET @TyLe = (SELECT SUM(TyLe) FROM BangDienApGia WHERE MaBangGia = @MaBangGia)
 			IF @TyLe > 1.00 OR @TyLe < 0.00
 				BEGIN
 					RAISERROR (N'Tổng tỷ lệ phần trăm trên một bảng giá áp giá không được quá 1 hoặc nhỏ hơn 0', 15, 1)
@@ -960,17 +970,6 @@ GO
 --PRINT dbo.func_TinhTienDien_SinhHoat(453, 1)
 --PRINT dbo.func_TinhTienDien_SinhHoat(453, 2)
 
-CREATE FUNCTION func_TinhTienDien_ApGia (@MaBangGia VARCHAR(30), @DienNangTieuThu INT, @SoHo TINYINT)
---ALTER FUNCTION func_TinhTienDien_ApGia (@MaBangGia VARCHAR(30), @DienNangTieuThu INT, @SoHo TINYINT)
-RETURNS INT
-AS
-	BEGIN
-		DECLARE @ThanhTien INT
-		SET @ThanhTien = 0
-		RETURN @ThanhTien
-	END
-GO
-
 -- LƯU Ý: Nếu điện năng tiêu thụ không theo giờ (thấp điểm, cao điểm) thì lấy @DNTT = @ChiSoMoi - @ChiSoCu
 CREATE FUNCTION func_TinhTienDien_ConLai(@MaBangGia VARCHAR(30), @DNTT INT, @ThapDiem INT, @CaoDiem INT, @BinhThuong INT)
 --ALTER FUNCTION func_TinhTienDien_ConLai(@MaBangGia VARCHAR(30), @DNTT INT, @ThapDiem INT, @CaoDiem INT, @BinhThuong INT)
@@ -999,6 +998,18 @@ AS
 	END
 GO
 
+CREATE FUNCTION func_TinhTienDien_ApGia (@ID INT, @DienNangTieuThu INT, @SoHo TINYINT)
+--ALTER FUNCTION func_TinhTienDien_ApGia (@MaChiTiet VARCHAR(30), @DienNangTieuThu INT, @SoHo TINYINT)
+RETURNS INT
+AS
+	BEGIN
+		DECLARE @ThanhTien INT, @ID INT
+		SET @ThanhTien = 0
+		SELECT * FROM view_BangDienApGia 
+		RETURN @ThanhTien
+	END
+GO
+
 CREATE VIEW view_BangDien
 --ALTER VIEW view_BangDien
 AS
@@ -1015,7 +1026,7 @@ CREATE PROCEDURE proc_TinhTienDien_DienNangTieuThu
 AS
 	BEGIN
 		DECLARE @DonGia INT, @ID INT, @MaBangGia VARCHAR(30), @ChiSoMoi INT, @ChiSoCu INT, @ThapDiem INT, @CaoDiem INT, @BinhThuong INT,
-			@TongTienTruocVAT INT, @VAT INT, @SoHo TINYINT, @Thue DECIMAL(3, 2)
+			@MaChiTiet VARCHAR(30), @TongTienTruocVAT INT, @VAT INT, @SoHo TINYINT, @Thue DECIMAL(3, 2)
 		DECLARE csrDienNangTieuThu CURSOR FOR SELECT ID, MaBangGia, SoHo, Thue, ChiSoMoi, ChiSoCu, ThapDiem, CaoDiem, BinhThuong FROM view_BangDien WHERE NgayBatDau = @NgayBatDau AND NgayKetThuc = @NgayKetThuc
 		OPEN csrDienNangTieuThu
 		FETCH NEXT FROM csrDienNangTieuThu INTO @ID, @MaBangGia, @SoHo, @Thue, @ChiSoMoi, @ChiSoCu, @ThapDiem, @CaoDiem, @BinhThuong
@@ -1024,7 +1035,7 @@ AS
 			IF @MaBangGia = 'SH-THUONG'
 				SET @TongTienTruocVAT = dbo.func_TinhTienDien_SinhHoat(@ChiSoMoi - @ChiSoCu, @SoHo);
 			ELSE IF @MaBangGia = 'APGIA'
-				SET @TongTienTruocVAT = dbo.func_TinhTienDien_ApGia(@MaBangGia, @ChiSoMoi - @ChiSoCu, @SoHo);
+				SET @TongTienTruocVAT = dbo.func_TinhTienDien_ApGia(@ID, @ChiSoMoi - @ChiSoCu, @SoHo);
 			ELSE
 				SET @TongTienTruocVAT = dbo.func_TinhTienDien_ConLai(@MaBangGia, @ChiSoMoi - @ChiSoCu, @ThapDiem, @CaoDiem, @BinhThuong);
 			SET @VAT = CONVERT(INT, ROUND(@TongTienTruocVAT * @Thue, 0));

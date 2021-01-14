@@ -31,7 +31,7 @@ namespace QuanLyDienNang.Forms
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_BangDienApGia));
 			this.tableParent = new System.Windows.Forms.TableLayoutPanel();
-			this.label1 = new System.Windows.Forms.Label();
+			this.lblTitle = new System.Windows.Forms.Label();
 			this.dgvBangDienApGia = new System.Windows.Forms.DataGridView();
 			this.saveDialog = new System.Windows.Forms.SaveFileDialog();
 			this.tableParent.SuspendLayout();
@@ -43,7 +43,7 @@ namespace QuanLyDienNang.Forms
 			this.tableParent.ColumnCount = 1;
 			this.tableParent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableParent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableParent.Controls.Add(this.label1, 0, 0);
+			this.tableParent.Controls.Add(this.lblTitle, 0, 0);
 			this.tableParent.Controls.Add(this.dgvBangDienApGia, 0, 1);
 			this.tableParent.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableParent.Location = new System.Drawing.Point(0, 0);
@@ -54,17 +54,17 @@ namespace QuanLyDienNang.Forms
 			this.tableParent.Size = new System.Drawing.Size(984, 561);
 			this.tableParent.TabIndex = 0;
 			// 
-			// label1
+			// lblTitle
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-			this.label1.Location = new System.Drawing.Point(3, 0);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(978, 30);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "BẢNG ĐIỆN ÁP GIÁ";
-			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.lblTitle.AutoSize = true;
+			this.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+			this.lblTitle.Location = new System.Drawing.Point(3, 0);
+			this.lblTitle.Name = "lblTitle";
+			this.lblTitle.Size = new System.Drawing.Size(978, 30);
+			this.lblTitle.TabIndex = 0;
+			this.lblTitle.Text = "BẢNG ĐIỆN ÁP GIÁ";
+			this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// dgvBangDienApGia
 			// 
@@ -116,7 +116,7 @@ namespace QuanLyDienNang.Forms
 		#endregion
 
 		private System.Windows.Forms.TableLayoutPanel tableParent;
-		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label lblTitle;
 		private System.Windows.Forms.DataGridView dgvBangDienApGia;
 		private System.Windows.Forms.SaveFileDialog saveDialog;
 	}

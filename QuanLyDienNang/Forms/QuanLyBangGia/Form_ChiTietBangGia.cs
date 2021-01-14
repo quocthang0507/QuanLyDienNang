@@ -46,13 +46,13 @@ namespace QuanLyDienNang.Forms
 
 		private void btnThem_Click(object sender, EventArgs e)
 		{
+			string maChiTiet = tbxMaChiTiet.Text;
 			string maBangGia = tbxMaBangGia.Text;
 			string moTa = tbxMoTa.Text;
 			string donGia = tbxDonGia.Text;
 			string batDau = tbxBatDau.Text;
 			string ketThuc = tbxKetThuc.Text;
-			bool apGia = chkApGia.Checked;
-			if (Common.IsNullOrWhiteSpace(maBangGia, batDau, ketThuc, donGia))
+			if (Common.IsNullOrWhiteSpace(maChiTiet, maBangGia, batDau, ketThuc, donGia))
 			{
 				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 			}
@@ -60,12 +60,12 @@ namespace QuanLyDienNang.Forms
 			{
 				ChiTietBangGia.Insert(new ChiTietBangGia()
 				{
+					MaChiTiet = maChiTiet,
 					MaBangGia = maBangGia,
 					MoTa = moTa,
 					DonGia = int.Parse(donGia),
 					BatDau = int.Parse(batDau),
-					KetThuc = int.Parse(ketThuc),
-					ApGia = apGia
+					KetThuc = int.Parse(ketThuc)
 				});
 			}
 		}
@@ -80,8 +80,7 @@ namespace QuanLyDienNang.Forms
 			string ketThuc = changedRow.Cells[3].Value.ToString();
 			string donGia = changedRow.Cells[4].Value.ToString();
 			string moTa = changedRow.Cells[5].Value.ToString();
-			bool apGia = (bool)changedRow.Cells[6].Value;
-			bool kichHoat = (bool)changedRow.Cells[7].Value;
+			bool kichHoat = (bool)changedRow.Cells[6].Value;
 			if (Common.IsNullOrWhiteSpace(maBangGia, batDau, ketThuc, donGia))
 			{
 				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -96,7 +95,6 @@ namespace QuanLyDienNang.Forms
 					DonGia = int.Parse(donGia),
 					BatDau = int.Parse(batDau),
 					KetThuc = int.Parse(ketThuc),
-					ApGia = apGia,
 					KichHoat = kichHoat
 				});
 				if (!ok)
@@ -114,20 +112,6 @@ namespace QuanLyDienNang.Forms
 			dgvChiTietGia.AutoResizeColumns();
 		}
 
-		private void btnBangDienApGia_Click(object sender, EventArgs e)
-		{
-			DataGridViewRow selectedRow = dgvChiTietGia.SelectedRows[0];
-			ChiTietBangGia chiTietBangGia = selectedRow.DataBoundItem as ChiTietBangGia;
-			if (chiTietBangGia.ApGia)
-			{
-				Form frmBangDienApGia = new Form_BangDienApGia(chiTietBangGia);
-				Form_Main.Instance.AddFormToTabPage(frmBangDienApGia);
-			}
-			else
-			{
-				MessageBox.Show(STRINGS.WARNING_NO_PERCENT_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-			}
-		}
 		#endregion
 
 		#region Methods
@@ -224,6 +208,5 @@ namespace QuanLyDienNang.Forms
 			dgvChiTietGia.Columns[0].DefaultCellStyle.Font = new Font(DefaultFont, FontStyle.Bold);
 		}
 		#endregion
-
 	}
 }
