@@ -88,6 +88,21 @@ namespace Business.Classes
 		[DefaultValue(0)]
 		public int ChiSoCu { get; set; }
 
+		[DisplayName("Giờ thấp điểm")]
+		[Required]
+		[DefaultValue(0)]
+		public int ThapDiem { get; set; }
+
+		[DisplayName("Giờ cao điểm")]
+		[Required]
+		[DefaultValue(0)]
+		public int CaoDiem { get; set; }
+
+		[DisplayName("Giờ bình thường")]
+		[Required]
+		[DefaultValue(0)]
+		public int BinhThuong { get; set; }
+
 		[DisplayName("Tổng tiền trước VAT")]
 		public int TongTienTruocVAT { get; set; }
 
@@ -120,7 +135,7 @@ namespace Business.Classes
 		{
 			try
 			{
-				int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_DienNangTieuThu", dienNangTieuThu.MaKhachHang, dienNangTieuThu.NgayGhi, dienNangTieuThu.NguoiGhi, dienNangTieuThu.NgayBatDau, dienNangTieuThu.NgayKetThuc, dienNangTieuThu.NgayCapNhat, dienNangTieuThu.NguoiCapNhat, dienNangTieuThu.NgayHoaDon, dienNangTieuThu.NgayTraTien, dienNangTieuThu.ChiSoMoi, dienNangTieuThu.ChiSoCu, dienNangTieuThu.TongTienTruocVAT, dienNangTieuThu.TongTienSauVAT, dienNangTieuThu.DaTra, dienNangTieuThu.ConLai);
+				int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_DienNangTieuThu", dienNangTieuThu.MaKhachHang, dienNangTieuThu.NgayGhi, dienNangTieuThu.NguoiGhi, dienNangTieuThu.NgayBatDau, dienNangTieuThu.NgayKetThuc, dienNangTieuThu.NgayCapNhat, dienNangTieuThu.NguoiCapNhat, dienNangTieuThu.NgayHoaDon, dienNangTieuThu.NgayTraTien, dienNangTieuThu.ChiSoMoi, dienNangTieuThu.ChiSoCu, dienNangTieuThu.ThapDiem, dienNangTieuThu.CaoDiem, dienNangTieuThu.BinhThuong, dienNangTieuThu.TongTienTruocVAT, dienNangTieuThu.TongTienSauVAT, dienNangTieuThu.DaTra, dienNangTieuThu.ConLai);
 				return result > 0;
 			}
 			catch (Exception)
@@ -131,7 +146,7 @@ namespace Business.Classes
 
 		public static bool TryInserting(DienNangTieuThu dienNangTieuThu)
 		{
-			int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_DienNangTieuThu_Test", dienNangTieuThu.MaKhachHang, dienNangTieuThu.NgayGhi, dienNangTieuThu.NguoiGhi, dienNangTieuThu.NgayBatDau, dienNangTieuThu.NgayKetThuc, dienNangTieuThu.NgayCapNhat, dienNangTieuThu.NguoiCapNhat, dienNangTieuThu.NgayHoaDon, dienNangTieuThu.NgayTraTien, dienNangTieuThu.ChiSoMoi, dienNangTieuThu.ChiSoCu, dienNangTieuThu.TongTienTruocVAT, dienNangTieuThu.TongTienSauVAT, dienNangTieuThu.DaTra, dienNangTieuThu.ConLai);
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_Insert_DienNangTieuThu_Test", dienNangTieuThu.MaKhachHang, dienNangTieuThu.NgayGhi, dienNangTieuThu.NguoiGhi, dienNangTieuThu.NgayBatDau, dienNangTieuThu.NgayKetThuc, dienNangTieuThu.NgayCapNhat, dienNangTieuThu.NguoiCapNhat, dienNangTieuThu.NgayHoaDon, dienNangTieuThu.NgayTraTien, dienNangTieuThu.ChiSoMoi, dienNangTieuThu.ChiSoCu, dienNangTieuThu.ThapDiem, dienNangTieuThu.CaoDiem, dienNangTieuThu.BinhThuong, dienNangTieuThu.TongTienTruocVAT, dienNangTieuThu.TongTienSauVAT, dienNangTieuThu.DaTra, dienNangTieuThu.ConLai);
 			return result > 0;
 		}
 
@@ -139,7 +154,7 @@ namespace Business.Classes
 		{
 			try
 			{
-				int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_DienNangTieuThu", dienNangTieuThu.ID, dienNangTieuThu.MaKhachHang, dienNangTieuThu.NgayGhi, dienNangTieuThu.NguoiGhi, dienNangTieuThu.NgayBatDau, dienNangTieuThu.NgayKetThuc, dienNangTieuThu.NgayCapNhat, dienNangTieuThu.NguoiCapNhat, dienNangTieuThu.NgayHoaDon, dienNangTieuThu.NgayTraTien, dienNangTieuThu.ChiSoMoi, dienNangTieuThu.ChiSoCu, dienNangTieuThu.TongTienTruocVAT, dienNangTieuThu.TongTienSauVAT, dienNangTieuThu.DaTra, dienNangTieuThu.ConLai);
+				int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_DienNangTieuThu", dienNangTieuThu.ID, dienNangTieuThu.MaKhachHang, dienNangTieuThu.NgayGhi, dienNangTieuThu.NguoiGhi, dienNangTieuThu.NgayBatDau, dienNangTieuThu.NgayKetThuc, dienNangTieuThu.NgayCapNhat, dienNangTieuThu.NguoiCapNhat, dienNangTieuThu.NgayHoaDon, dienNangTieuThu.NgayTraTien, dienNangTieuThu.ChiSoMoi, dienNangTieuThu.ChiSoCu, dienNangTieuThu.ThapDiem, dienNangTieuThu.CaoDiem, dienNangTieuThu.BinhThuong, dienNangTieuThu.TongTienTruocVAT, dienNangTieuThu.TongTienSauVAT, dienNangTieuThu.DaTra, dienNangTieuThu.ConLai);
 				return result > 0;
 			}
 			catch (Exception)
@@ -150,7 +165,7 @@ namespace Business.Classes
 
 		public static bool TryUpdating(DienNangTieuThu dienNangTieuThu)
 		{
-			int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_DienNangTieuThu_Test", dienNangTieuThu.ID, dienNangTieuThu.MaKhachHang, dienNangTieuThu.NgayGhi, dienNangTieuThu.NguoiGhi, dienNangTieuThu.NgayBatDau, dienNangTieuThu.NgayKetThuc, dienNangTieuThu.NgayCapNhat, dienNangTieuThu.NguoiCapNhat, dienNangTieuThu.NgayHoaDon, dienNangTieuThu.NgayTraTien, dienNangTieuThu.ChiSoMoi, dienNangTieuThu.ChiSoCu, dienNangTieuThu.TongTienTruocVAT, dienNangTieuThu.TongTienSauVAT, dienNangTieuThu.DaTra, dienNangTieuThu.ConLai);
+			int result = DataProvider.Instance.ExecuteNonQuery("proc_Update_DienNangTieuThu_Test", dienNangTieuThu.ID, dienNangTieuThu.MaKhachHang, dienNangTieuThu.NgayGhi, dienNangTieuThu.NguoiGhi, dienNangTieuThu.NgayBatDau, dienNangTieuThu.NgayKetThuc, dienNangTieuThu.NgayCapNhat, dienNangTieuThu.NguoiCapNhat, dienNangTieuThu.NgayHoaDon, dienNangTieuThu.NgayTraTien, dienNangTieuThu.ChiSoMoi, dienNangTieuThu.ChiSoCu, dienNangTieuThu.ThapDiem, dienNangTieuThu.CaoDiem, dienNangTieuThu.BinhThuong, dienNangTieuThu.TongTienTruocVAT, dienNangTieuThu.TongTienSauVAT, dienNangTieuThu.DaTra, dienNangTieuThu.ConLai);
 			return result > 0;
 		}
 

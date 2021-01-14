@@ -245,7 +245,8 @@ GO
 
 CREATE VIEW view_BangDienApGia
 AS
-	SELECT BG.MaBangGia, CT.MaChiTiet, TenBangGia, TyLe, AG.KichHoat FROM BangGia BG, ChiTietBangGia CT, BangDienApGia AG WHERE BG.MaBangGia = AG.MaBangGia AND CT.MaChiTiet = AG.MaChiTiet
+	SELECT BG.MaBangGia, CT.MaChiTiet, TenBangGia, TyLe, AG.KichHoat FROM BangGia BG, ChiTietBangGia CT, BangDienApGia AG 
+	WHERE BG.MaBangGia = AG.MaBangGia AND CT.MaChiTiet = AG.MaChiTiet
 GO
 
 CREATE PROCEDURE proc_GetAll_BangDienApGia
@@ -341,7 +342,8 @@ CREATE PROCEDURE proc_Insert_TramBienAp
 	@MaSoCongTo VARCHAR(30),
 	@HeSoNhan TINYINT
 AS
-	INSERT INTO TramBienAp (MaTram, TenTram, DiaChi, NguoiPhuTrach, MaSoCongTo, HeSoNhan) VALUES (@MaTram, @TenTram, @DiaChi, @NguoiPhuTrach, @MaSoCongTo, @HeSoNhan)
+	INSERT INTO TramBienAp (MaTram, TenTram, DiaChi, NguoiPhuTrach, MaSoCongTo, HeSoNhan) 
+	VALUES (@MaTram, @TenTram, @DiaChi, @NguoiPhuTrach, @MaSoCongTo, @HeSoNhan)
 GO
 
 CREATE PROCEDURE proc_Update_TramBienAp
@@ -599,7 +601,8 @@ AS
 			BEGIN TRY
 				SET @MA = DBO.func_GenerateID_KhachHang()
 				INSERT INTO KhachHang VALUES (@MA, @HoVaTen, @DiaChi, @MaBangGia, @MaTram, @SoHo, @HeSoNhan, @MaSoThue, 
-					@SoDienThoai, @Email, @NgayTao, @NguoiTao, @NgayCapNhat, @NguoiCapNhat, @MaSoHopDong, @NgayHopDong, @MaCongTo, @SoNganHang, @TenNganHang, 1)
+					@SoDienThoai, @Email, @NgayTao, @NguoiTao, @NgayCapNhat, @NguoiCapNhat, @MaSoHopDong, @NgayHopDong, 
+					@MaCongTo, @SoNganHang, @TenNganHang, 1)
 			END TRY
 			BEGIN CATCH
 				SET @KQ = 0
@@ -679,8 +682,11 @@ CREATE TABLE DienNangTieuThu (
 	NguoiCapNhat VARCHAR(30) REFERENCES NguoiQuanLy(MaQuanLy),
 	NgayHoaDon DATETIME NULL,
 	NgayTraTien DATETIME NULL,
-	ChiSoMoi INT DEFAULT 0 NULL,
-	ChiSoCu INT DEFAULT 0 NULL,
+	ChiSoMoi INT DEFAULT 0 NULL, -- Chỉ số công tơ lúc ghi
+	ChiSoCu INT DEFAULT 0 NULL, -- Chỉ số công tơ của kỳ trước
+	ThapDiem INT DEFAULT 0 NULL, -- Số điện năng tiêu thụ trong giờ thấp điểm
+	CaoDiem INT DEFAULT 0 NULL, -- Số điện năng tiêu thụ trong giờ cao điểm
+	BinhThuong INT DEFAULT 0 NULL, -- Số điện năng tiêu thụ trong giờ bình thường
 	TongTienTruocVAT MONEY NULL,
 	TongTienSauVAT MONEY NULL,
 	DaTra MONEY DEFAULT 0 NULL,
@@ -691,7 +697,9 @@ GO
 CREATE VIEW View_DienNangTieuThu
 --ALTER VIEW View_DienNangTieuThu
 AS
-	SELECT ID, D.MaKhachHang, HoVaTen, DiaChi, MaTram, MaBangGia, NgayGhi, NguoiGhi, NgayBatDau, NgayKetThuc, D.NgayCapNhat, D.NguoiCapNhat, NgayHoaDon, NgayTraTien, ChiSoMoi, ChiSoCu, TongTienTruocVAT, TongTienSauVAT, DaTra, ConLai
+	SELECT ID, D.MaKhachHang, HoVaTen, DiaChi, MaTram, MaBangGia, NgayGhi, NguoiGhi, NgayBatDau, NgayKetThuc, D.NgayCapNhat, 
+	D.NguoiCapNhat, NgayHoaDon, NgayTraTien, ChiSoMoi, ChiSoCu, ThapDiem, CaoDiem, BinhThuong, TongTienTruocVAT, TongTienSauVAT, 
+	DaTra, ConLai
 	FROM DienNangTieuThu D, KhachHang K
 	WHERE D.MaKhachHang = K.MaKhachHang
 GO
@@ -723,12 +731,16 @@ CREATE PROCEDURE proc_Insert_DienNangTieuThu
 	@NgayTraTien DATETIME,
 	@ChiSoMoi INT,
 	@ChiSoCu INT,
+	@ThapDiem INT,
+	@CaoDiem INT,
+	@BinhThuong INT,
 	@TongTienTruocVAT MONEY,
 	@TongTienSauVAT MONEY,
 	@DaTra MONEY,
 	@ConLai MONEY
 AS
-	INSERT INTO DienNangTieuThu VALUES (@MaKhachHang, @NgayGhi, @NguoiGhi, @NgayBatDau, @NgayKetThuc, @NgayCapNhat, @NguoiCapNhat, @NgayHoaDon, @NgayTraTien, @ChiSoMoi, @ChiSoCu, @TongTienTruocVAT, @TongTienSauVAT, @DaTra, @ConLai)
+	INSERT INTO DienNangTieuThu VALUES (@MaKhachHang, @NgayGhi, @NguoiGhi, @NgayBatDau, @NgayKetThuc, @NgayCapNhat, @NguoiCapNhat, 
+	@NgayHoaDon, @NgayTraTien, @ChiSoMoi, @ChiSoCu, @ThapDiem, @CaoDiem, @BinhThuong, @TongTienTruocVAT, @TongTienSauVAT, @DaTra, @ConLai)
 GO
 
 CREATE PROCEDURE proc_Insert_DienNangTieuThu_Test
@@ -744,6 +756,9 @@ CREATE PROCEDURE proc_Insert_DienNangTieuThu_Test
 	@NgayTraTien DATETIME,
 	@ChiSoMoi INT,
 	@ChiSoCu INT,
+	@ThapDiem INT,
+	@CaoDiem INT,
+	@BinhThuong INT,
 	@TongTienTruocVAT MONEY,
 	@TongTienSauVAT MONEY,
 	@DaTra MONEY,
@@ -756,7 +771,8 @@ AS
 		SET @MAX_ID = IDENT_CURRENT('[DienNangTieuThu]')
 		BEGIN TRANSACTION ADDDNTT
 			BEGIN TRY
-				INSERT INTO DienNangTieuThu VALUES (@MaKhachHang, @NgayGhi, @NguoiGhi, @NgayBatDau, @NgayKetThuc, @NgayCapNhat, @NguoiCapNhat, @NgayHoaDon, @NgayTraTien, @ChiSoMoi, @ChiSoCu, @TongTienTruocVAT, @TongTienSauVAT, @DaTra, @ConLai)
+				INSERT INTO DienNangTieuThu VALUES (@MaKhachHang, @NgayGhi, @NguoiGhi, @NgayBatDau, @NgayKetThuc, @NgayCapNhat, @NguoiCapNhat, 
+				@NgayHoaDon, @NgayTraTien, @ChiSoMoi, @ChiSoCu, @ThapDiem, @CaoDiem, @BinhThuong, @TongTienTruocVAT, @TongTienSauVAT, @DaTra, @ConLai)
 			END TRY
 			BEGIN CATCH
 				SET @KQ = 0
@@ -796,6 +812,9 @@ CREATE PROCEDURE proc_Update_DienNangTieuThu
 	@NgayTraTien DATETIME,
 	@ChiSoMoi INT,
 	@ChiSoCu INT,
+	@ThapDiem INT,
+	@CaoDiem INT,
+	@BinhThuong INT,
 	@TongTienTruocVAT MONEY,
 	@TongTienSauVAT MONEY,
 	@DaTra MONEY,
@@ -814,6 +833,9 @@ AS
 		NgayTraTien = @NgayTraTien,
 		ChiSoMoi = @ChiSoMoi,
 		ChiSoCu = @ChiSoCu,
+		ThapDiem = @ThapDiem,
+		CaoDiem = @CaoDiem,
+		BinhThuong = @BinhThuong,
 		TongTienTruocVAT = @TongTienTruocVAT,
 		TongTienSauVAT = @TongTienSauVAT,
 		DaTra = @DaTra,
@@ -835,6 +857,9 @@ CREATE PROCEDURE proc_Update_DienNangTieuThu_Test
 	@NgayTraTien DATETIME,
 	@ChiSoMoi INT,
 	@ChiSoCu INT,
+	@ThapDiem INT,
+	@CaoDiem INT,
+	@BinhThuong INT,
 	@TongTienTruocVAT MONEY,
 	@TongTienSauVAT MONEY,
 	@DaTra MONEY,
@@ -858,6 +883,9 @@ AS
 					NgayTraTien = @NgayTraTien,
 					ChiSoMoi = @ChiSoMoi,
 					ChiSoCu = @ChiSoCu,
+					ThapDiem = @ThapDiem,
+					CaoDiem = @CaoDiem,
+					BinhThuong = @BinhThuong,
 					TongTienTruocVAT = @TongTienTruocVAT,
 					TongTienSauVAT = @TongTienSauVAT,
 					DaTra = @DaTra,
@@ -874,8 +902,17 @@ GO
 
 --====================TÍNH TIỀN ĐIỆN CHƯA THUẾ THEO CÁC MỨC GIÁ TRONG BẢNG CHI TIẾT GIÁ ĐIỆN====================
 CREATE VIEW view_BangDienSinhHoat
+--ALTER VIEW view_BangDienSinhHoat
 AS
 	SELECT * FROM ChiTietBangGia WHERE MaBangGia = 'SH-THUONG' AND KichHoat = 1
+GO
+
+-- Bỏ qua bảng giá điện sinh hoạt và bảng giá điện áp giá
+CREATE VIEW view_BangDienConLai
+--ALTER VIEW view_BangDienConLai
+AS
+	SELECT * FROM ChiTietBangGia 
+	WHERE MaBangGia NOT LIKE 'SH*' AND MaBangGia NOT LIKE 'APGIA' AND KichHoat = 1
 GO
 
 CREATE FUNCTION func_TinhTienDien_SinhHoat (@DienNangTieuThu INT, @SoHo TINYINT)
@@ -923,12 +960,41 @@ GO
 --PRINT dbo.func_TinhTienDien_SinhHoat(453, 1)
 --PRINT dbo.func_TinhTienDien_SinhHoat(453, 2)
 
-CREATE FUNCTION func_TinhTienDien_ApGia (@DienNangTieuThu INT, @SoHo TINYINT)
---ALTER FUNCTION func_TinhTienDien_ApGia (@DienNangTieuThu INT, @SoHo TINYINT)
+CREATE FUNCTION func_TinhTienDien_ApGia (@MaBangGia VARCHAR(30), @DienNangTieuThu INT, @SoHo TINYINT)
+--ALTER FUNCTION func_TinhTienDien_ApGia (@MaBangGia VARCHAR(30), @DienNangTieuThu INT, @SoHo TINYINT)
 RETURNS INT
 AS
 	BEGIN
 		DECLARE @ThanhTien INT
+		SET @ThanhTien = 0
+		RETURN @ThanhTien
+	END
+GO
+
+-- LƯU Ý: Nếu điện năng tiêu thụ không theo giờ (thấp điểm, cao điểm) thì lấy @DNTT = @ChiSoMoi - @ChiSoCu
+CREATE FUNCTION func_TinhTienDien_ConLai(@MaBangGia VARCHAR(30), @DNTT INT, @ThapDiem INT, @CaoDiem INT, @BinhThuong INT)
+--ALTER FUNCTION func_TinhTienDien_ConLai(@MaBangGia VARCHAR(30), @DNTT INT, @ThapDiem INT, @CaoDiem INT, @BinhThuong INT)
+RETURNS INT
+AS
+	BEGIN
+		DECLARE @ThanhTien INT, @DonGia INT, @DonGia_BT INT, @DonGia_CD INT, @DonGia_TD INT
+		SET @ThanhTien = 0
+		-- Bảng giá với nhiều mức giá theo giờ
+		IF (SELECT COUNT(MaChiTiet) FROM view_BangDienConLai WHERE MaBangGia = @MaBangGia) > 1
+			BEGIN
+				SET @DonGia_TD = (SELECT DonGia FROM view_BangDienConLai WHERE MaBangGia = @MaBangGia AND MaChiTiet LIKE '*GTD')
+				SET @DonGia_CD = (SELECT DonGia FROM view_BangDienConLai WHERE MaBangGia = @MaBangGia AND MaChiTiet LIKE '*GCD')
+				SET @DonGia_BT = (SELECT DonGia FROM view_BangDienConLai WHERE MaBangGia = @MaBangGia AND MaChiTiet LIKE '*GBT')
+				SET @ThanhTien = @ThanhTien + @ThapDiem * @DonGia_TD
+				SET @ThanhTien = @ThanhTien + @CaoDiem * @DonGia_CD
+				SET @ThanhTien = @ThanhTien + @BinhThuong * @DonGia_BT
+			END
+		-- Bảng giá chỉ với một mức giá
+		ELSE
+			BEGIN
+				SET @DonGia = (SELECT DonGia FROM view_BangDienConLai WHERE MaBangGia = @MaBangGia)
+				SET @ThanhTien = @ThanhTien + @DNTT * @DonGia
+			END
 		RETURN @ThanhTien
 	END
 GO
@@ -936,7 +1002,7 @@ GO
 CREATE VIEW view_BangDien
 --ALTER VIEW view_BangDien
 AS
-	SELECT ID, D.MaKhachHang, B.MaBangGia, Thue, SoHo, NgayBatDau, NgayKetThuc, ChiSoMoi, ChiSoCu 
+	SELECT ID, D.MaKhachHang, B.MaBangGia, Thue, SoHo, NgayBatDau, NgayKetThuc, ChiSoMoi, ChiSoCu, ThapDiem, CaoDiem, BinhThuong
 	FROM DienNangTieuThu D, KhachHang K, BangGia B
 	WHERE D.MaKhachHang = K.MaKhachHang AND K.MaBangGia = B.MaBangGia
 GO
@@ -948,24 +1014,24 @@ CREATE PROCEDURE proc_TinhTienDien_DienNangTieuThu
 	@MaQuanLy VARCHAR(30)
 AS
 	BEGIN
-		DECLARE @DonGia INT, @ID INT, @MaBangGia VARCHAR(30), @ChiSoMoi INT, @ChiSoCu INT, 
+		DECLARE @DonGia INT, @ID INT, @MaBangGia VARCHAR(30), @ChiSoMoi INT, @ChiSoCu INT, @ThapDiem INT, @CaoDiem INT, @BinhThuong INT,
 			@TongTienTruocVAT INT, @VAT INT, @SoHo TINYINT, @Thue DECIMAL(3, 2)
-		DECLARE csrDienNangTieuThu CURSOR FOR SELECT ID, MaBangGia, SoHo, Thue, ChiSoMoi, ChiSoCu FROM view_BangDien WHERE NgayBatDau = @NgayBatDau AND NgayKetThuc = @NgayKetThuc
+		DECLARE csrDienNangTieuThu CURSOR FOR SELECT ID, MaBangGia, SoHo, Thue, ChiSoMoi, ChiSoCu, ThapDiem, CaoDiem, BinhThuong FROM view_BangDien WHERE NgayBatDau = @NgayBatDau AND NgayKetThuc = @NgayKetThuc
 		OPEN csrDienNangTieuThu
-		FETCH NEXT FROM csrDienNangTieuThu INTO @ID, @MaBangGia, @SoHo, @Thue, @ChiSoMoi, @ChiSoCu
+		FETCH NEXT FROM csrDienNangTieuThu INTO @ID, @MaBangGia, @SoHo, @Thue, @ChiSoMoi, @ChiSoCu, @ThapDiem, @CaoDiem, @BinhThuong
 		WHILE @@FETCH_STATUS = 0
 		BEGIN
 			IF @MaBangGia = 'SH-THUONG'
 				SET @TongTienTruocVAT = dbo.func_TinhTienDien_SinhHoat(@ChiSoMoi - @ChiSoCu, @SoHo);
 			ELSE IF @MaBangGia = 'APGIA'
-				SET @TongTienTruocVAT = 0;
+				SET @TongTienTruocVAT = dbo.func_TinhTienDien_ApGia(@MaBangGia, @ChiSoMoi - @ChiSoCu, @SoHo);
 			ELSE
-				SET @TongTienTruocVAT = 0;
+				SET @TongTienTruocVAT = dbo.func_TinhTienDien_ConLai(@MaBangGia, @ChiSoMoi - @ChiSoCu, @ThapDiem, @CaoDiem, @BinhThuong);
 			SET @VAT = CONVERT(INT, ROUND(@TongTienTruocVAT * @Thue, 0));
 			UPDATE DienNangTieuThu
 			SET TongTienTruocVAT = @TongTienTruocVAT, TongTienSauVAT = @TongTienTruocVAT + @VAT, NgayCapNhat = GETDATE(), NguoiCapNhat = @MaQuanLy
 			WHERE ID = @ID
-			FETCH NEXT FROM csrDienNangTieuThu INTO @ID, @MaBangGia, @SoHo, @Thue, @ChiSoMoi, @ChiSoCu;
+			FETCH NEXT FROM csrDienNangTieuThu INTO @ID, @MaBangGia, @SoHo, @Thue, @ChiSoMoi, @ChiSoCu, @ThapDiem, @CaoDiem, @BinhThuong;
 		END
 		CLOSE csrDienNangTieuThu
 		DEALLOCATE csrDienNangTieuThu
