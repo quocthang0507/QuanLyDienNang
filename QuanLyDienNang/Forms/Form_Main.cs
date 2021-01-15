@@ -75,10 +75,10 @@ namespace QuanLyDienNang.Forms
 			frmGioiThieu.ShowDialog();
 		}
 
-		private void nhậpThôngTinToolStripMenuItem_Click(object sender, EventArgs e)
+		private void quảnLýKháchHàngToolStripSubMenuItem_Click(object sender, EventArgs e)
 		{
-			Form frmNhap = new FormKH_NhapKhachHang();
-			AddFormToTabPage(frmNhap);
+			Form frmKhachHang = new Form_KhachHang();
+			AddFormToTabPage(frmKhachHang);
 		}
 
 		private void xuấtThôngTinToolStripMenuItem_Click(object sender, EventArgs e)
@@ -103,12 +103,6 @@ namespace QuanLyDienNang.Forms
 		{
 			Form frmNQL = new Form_NguoiQuanLy();
 			AddFormToTabPage(frmNQL);
-		}
-
-		private void cậpNhậtThôngTinTừExcelToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			Form frmCapNhatKH = new FormKH_CapNhatKhachHang();
-			AddFormToTabPage(frmCapNhatKH);
 		}
 
 		private void btnLen_Click(object sender, EventArgs e)
@@ -150,10 +144,8 @@ namespace QuanLyDienNang.Forms
 			TabPage tab = tabForms.SelectedTab;
 			if (tab.Name != "tabMain")
 			{
-				Form form = tab.Controls[0] as Form;
-				form.Close();
 				tabForms.TabPages.Remove(tab);
-				//SwitchToLastTab();
+				SwitchToLastTab();
 			}
 		}
 
@@ -280,14 +272,11 @@ namespace QuanLyDienNang.Forms
 				case Form_DienNangTieuThu _:
 					DynamicForm = tabForms.SelectedTab.Controls[0] as Form_DienNangTieuThu;
 					break;
-				case FormKH_CapNhatKhachHang _:
-					DynamicForm = tabForms.SelectedTab.Controls[0] as FormKH_CapNhatKhachHang;
+				case Form_KhachHang _:
+					DynamicForm = tabForms.SelectedTab.Controls[0] as Form_KhachHang;
 					break;
 				case FormKH_XuatKhachHang _:
 					DynamicForm = tabForms.SelectedTab.Controls[0] as FormKH_XuatKhachHang;
-					break;
-				case FormKH_NhapKhachHang _:
-					DynamicForm = tabForms.SelectedTab.Controls[0] as FormKH_NhapKhachHang;
 					break;
 				case Form_BangGia _:
 					DynamicForm = tabForms.SelectedTab.Controls[0] as Form_BangGia;
