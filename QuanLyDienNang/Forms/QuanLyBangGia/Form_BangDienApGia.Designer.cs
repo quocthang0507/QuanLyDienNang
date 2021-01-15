@@ -104,7 +104,7 @@ namespace QuanLyDienNang.Forms
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "Form_BangDienApGia";
-			this.Text = "Bảng Điện Áp Giá";
+			this.Text = "Quản Lý Bảng Điện Áp Giá";
 			this.Shown += new System.EventHandler(this.Form_BangDienApGia_Shown);
 			this.tableParent.ResumeLayout(false);
 			this.tableParent.PerformLayout();

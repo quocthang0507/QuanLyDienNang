@@ -288,7 +288,7 @@ namespace QuanLyDienNang.Forms
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "Form_NguoiQuanLy";
-			this.Text = "DANH SÁCH NGƯỜI QUẢN LÝ";
+			this.Text = "Quản Lý Thông Tin Nhân Viên";
 			this.Shown += new System.EventHandler(this.Form_NguoiQuanLy_Shown);
 			this.tableParent.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dgvNguoiQuanLy)).EndInit();

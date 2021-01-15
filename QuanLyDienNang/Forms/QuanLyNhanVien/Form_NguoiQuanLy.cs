@@ -1,6 +1,7 @@
 ﻿using Business.Classes;
 using Business.Helper;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -170,7 +171,7 @@ namespace QuanLyDienNang.Forms
 
 		private void LoadTable()
 		{
-			System.Collections.Generic.List<NguoiQuanLy> data = NguoiQuanLy.GetAll();
+			List<NguoiQuanLy> data = NguoiQuanLy.GetAll();
 			if (data == null)
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else

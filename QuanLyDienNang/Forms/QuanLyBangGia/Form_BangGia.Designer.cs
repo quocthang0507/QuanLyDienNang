@@ -35,6 +35,7 @@ namespace QuanLyDienNang.Forms
 			this.dgvBangGia = new System.Windows.Forms.DataGridView();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.chkApGia = new System.Windows.Forms.CheckBox();
 			this.label8 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
@@ -49,7 +50,6 @@ namespace QuanLyDienNang.Forms
 			this.btnXemApGia = new System.Windows.Forms.Button();
 			this.btnXemChiTiet = new System.Windows.Forms.Button();
 			this.saveDialog = new System.Windows.Forms.SaveFileDialog();
-			this.chkApGia = new System.Windows.Forms.CheckBox();
 			this.tableParent.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvBangGia)).BeginInit();
 			this.panel1.SuspendLayout();
@@ -137,6 +137,17 @@ namespace QuanLyDienNang.Forms
 			this.groupBox1.TabIndex = 8;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Thêm bảng giá";
+			// 
+			// chkApGia
+			// 
+			this.chkApGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.chkApGia.AutoSize = true;
+			this.chkApGia.Location = new System.Drawing.Point(424, 23);
+			this.chkApGia.Name = "chkApGia";
+			this.chkApGia.Size = new System.Drawing.Size(82, 23);
+			this.chkApGia.TabIndex = 3;
+			this.chkApGia.Text = "Áp giá %";
+			this.chkApGia.UseVisualStyleBackColor = true;
 			// 
 			// label8
 			// 
@@ -291,17 +302,6 @@ namespace QuanLyDienNang.Forms
 			this.saveDialog.RestoreDirectory = true;
 			this.saveDialog.Title = "Lưu danh sách bảng giá điện";
 			// 
-			// chkApGia
-			// 
-			this.chkApGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.chkApGia.AutoSize = true;
-			this.chkApGia.Location = new System.Drawing.Point(424, 23);
-			this.chkApGia.Name = "chkApGia";
-			this.chkApGia.Size = new System.Drawing.Size(82, 23);
-			this.chkApGia.TabIndex = 3;
-			this.chkApGia.Text = "Áp giá %";
-			this.chkApGia.UseVisualStyleBackColor = true;
-			// 
 			// Form_BangGia
 			// 
 			this.AcceptButton = this.btnXemChiTiet;
@@ -314,7 +314,7 @@ namespace QuanLyDienNang.Forms
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "Form_BangGia";
-			this.Text = "Bảng Giá";
+			this.Text = "Quản Lý Bảng Giá";
 			this.Shown += new System.EventHandler(this.Form_BangGia_Shown);
 			this.tableParent.ResumeLayout(false);
 			this.tableParent.PerformLayout();

@@ -149,6 +149,18 @@ namespace QuanLyDienNang.Forms
 			}
 		}
 
+		private void btnDongTabConLai_Click(object sender, EventArgs e)
+		{
+			foreach (TabPage tab in tabForms.TabPages)
+			{
+				if (tab.Name != "tabMain" && tab.Name != tabForms.SelectedTab.Name)
+				{
+					tabForms.TabPages.Remove(tab);
+				}
+			}
+			tabForms.SelectedIndex = 1;
+		}
+
 		private void btnDongTab_Click(object sender, EventArgs e)
 		{
 			menuDong.PerformClick();
@@ -240,6 +252,7 @@ namespace QuanLyDienNang.Forms
 			// Hiển thị form và kích hoạt tab mới
 			tabForms.TabPages.Add(newTab);
 			tabForms.SelectedTab = newTab;
+			tabForms.SelectedTab.Name = form.GetType().Name;
 			form.Show();
 		}
 

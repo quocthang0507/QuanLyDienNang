@@ -43,10 +43,12 @@ namespace QuanLyDienNang.Forms
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
-			this.button2 = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
-			this.btnLuuCSDL = new System.Windows.Forms.Button();
 			this.btnXemMau = new System.Windows.Forms.Button();
+			this.btnXoa = new System.Windows.Forms.Button();
+			this.btnThem = new System.Windows.Forms.Button();
+			this.btnLuuCSDL = new System.Windows.Forms.Button();
+			this.openDialog = new System.Windows.Forms.OpenFileDialog();
+			this.btnLayDanhSach = new System.Windows.Forms.Button();
 			this.tableParent.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).BeginInit();
 			this.panel1.SuspendLayout();
@@ -67,7 +69,7 @@ namespace QuanLyDienNang.Forms
 			this.tableParent.RowCount = 4;
 			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
 			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableParent.Size = new System.Drawing.Size(933, 588);
 			this.tableParent.TabIndex = 0;
@@ -92,11 +94,11 @@ namespace QuanLyDienNang.Forms
 			this.dgvKhachHang.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.dgvKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvKhachHang.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dgvKhachHang.Location = new System.Drawing.Point(3, 203);
+			this.dgvKhachHang.Location = new System.Drawing.Point(3, 183);
 			this.dgvKhachHang.MultiSelect = false;
 			this.dgvKhachHang.Name = "dgvKhachHang";
 			this.dgvKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgvKhachHang.Size = new System.Drawing.Size(927, 382);
+			this.dgvKhachHang.Size = new System.Drawing.Size(927, 402);
 			this.dgvKhachHang.TabIndex = 1;
 			this.dgvKhachHang.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvKhachHang_DataBindingComplete);
 			this.dgvKhachHang.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvKhachHang_DataError);
@@ -122,13 +124,14 @@ namespace QuanLyDienNang.Forms
 			this.btnLoadNoiDung.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnLoadNoiDung.Image = global::QuanLyDienNang.Properties.Resources.Text_Document;
 			this.btnLoadNoiDung.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.btnLoadNoiDung.Location = new System.Drawing.Point(840, 8);
+			this.btnLoadNoiDung.Location = new System.Drawing.Point(839, 8);
 			this.btnLoadNoiDung.Name = "btnLoadNoiDung";
 			this.btnLoadNoiDung.Size = new System.Drawing.Size(78, 74);
 			this.btnLoadNoiDung.TabIndex = 5;
 			this.btnLoadNoiDung.Text = "Load nội dung";
 			this.btnLoadNoiDung.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
 			this.btnLoadNoiDung.UseVisualStyleBackColor = true;
+			this.btnLoadNoiDung.Click += new System.EventHandler(this.btnLoadNoiDung_Click);
 			// 
 			// btnChonTapTin
 			// 
@@ -142,6 +145,7 @@ namespace QuanLyDienNang.Forms
 			this.btnChonTapTin.Text = "Chọn tập tin";
 			this.btnChonTapTin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnChonTapTin.UseVisualStyleBackColor = true;
+			this.btnChonTapTin.Click += new System.EventHandler(this.btnChonTapTin_Click);
 			// 
 			// cbxNguoiThucHien
 			// 
@@ -207,67 +211,90 @@ namespace QuanLyDienNang.Forms
 			// 
 			// panel2
 			// 
+			this.panel2.Controls.Add(this.btnLayDanhSach);
 			this.panel2.Controls.Add(this.btnXemMau);
-			this.panel2.Controls.Add(this.button2);
-			this.panel2.Controls.Add(this.button1);
+			this.panel2.Controls.Add(this.btnXoa);
+			this.panel2.Controls.Add(this.btnThem);
 			this.panel2.Controls.Add(this.btnLuuCSDL);
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel2.Location = new System.Drawing.Point(3, 133);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(927, 64);
+			this.panel2.Size = new System.Drawing.Size(927, 44);
 			this.panel2.TabIndex = 3;
-			// 
-			// button2
-			// 
-			this.button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.button2.Image = global::QuanLyDienNang.Properties.Resources.Delete1;
-			this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button2.Location = new System.Drawing.Point(613, 13);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(73, 40);
-			this.button2.TabIndex = 9;
-			this.button2.Text = "Xóa";
-			this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.button2.UseVisualStyleBackColor = true;
-			// 
-			// button1
-			// 
-			this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.button1.Image = global::QuanLyDienNang.Properties.Resources.Add1;
-			this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.button1.Location = new System.Drawing.Point(520, 13);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(85, 40);
-			this.button1.TabIndex = 8;
-			this.button1.Text = "Thêm";
-			this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.button1.UseVisualStyleBackColor = true;
-			// 
-			// btnLuuCSDL
-			// 
-			this.btnLuuCSDL.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnLuuCSDL.Image = global::QuanLyDienNang.Properties.Resources.Import;
-			this.btnLuuCSDL.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLuuCSDL.Location = new System.Drawing.Point(369, 13);
-			this.btnLuuCSDL.Name = "btnLuuCSDL";
-			this.btnLuuCSDL.Size = new System.Drawing.Size(145, 40);
-			this.btnLuuCSDL.TabIndex = 7;
-			this.btnLuuCSDL.Text = "Nhập vào CSDL";
-			this.btnLuuCSDL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.btnLuuCSDL.UseVisualStyleBackColor = true;
 			// 
 			// btnXemMau
 			// 
 			this.btnXemMau.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnXemMau.Image = global::QuanLyDienNang.Properties.Resources.Xlsx;
 			this.btnXemMau.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnXemMau.Location = new System.Drawing.Point(256, 12);
+			this.btnXemMau.Location = new System.Drawing.Point(328, 1);
 			this.btnXemMau.Name = "btnXemMau";
 			this.btnXemMau.Size = new System.Drawing.Size(107, 42);
-			this.btnXemMau.TabIndex = 6;
+			this.btnXemMau.TabIndex = 7;
 			this.btnXemMau.Text = "Xem mẫu";
 			this.btnXemMau.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnXemMau.UseVisualStyleBackColor = true;
+			this.btnXemMau.Click += new System.EventHandler(this.btnXemMau_Click);
+			// 
+			// btnXoa
+			// 
+			this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnXoa.Image = global::QuanLyDienNang.Properties.Resources.Delete1;
+			this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnXoa.Location = new System.Drawing.Point(685, 2);
+			this.btnXoa.Name = "btnXoa";
+			this.btnXoa.Size = new System.Drawing.Size(73, 40);
+			this.btnXoa.TabIndex = 10;
+			this.btnXoa.Text = "Xóa";
+			this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnXoa.UseVisualStyleBackColor = true;
+			this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+			// 
+			// btnThem
+			// 
+			this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnThem.Image = global::QuanLyDienNang.Properties.Resources.Add1;
+			this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnThem.Location = new System.Drawing.Point(592, 2);
+			this.btnThem.Name = "btnThem";
+			this.btnThem.Size = new System.Drawing.Size(85, 40);
+			this.btnThem.TabIndex = 9;
+			this.btnThem.Text = "Thêm";
+			this.btnThem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnThem.UseVisualStyleBackColor = true;
+			this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+			// 
+			// btnLuuCSDL
+			// 
+			this.btnLuuCSDL.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnLuuCSDL.Image = global::QuanLyDienNang.Properties.Resources.Import;
+			this.btnLuuCSDL.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnLuuCSDL.Location = new System.Drawing.Point(441, 2);
+			this.btnLuuCSDL.Name = "btnLuuCSDL";
+			this.btnLuuCSDL.Size = new System.Drawing.Size(145, 40);
+			this.btnLuuCSDL.TabIndex = 8;
+			this.btnLuuCSDL.Text = "Nhập vào CSDL";
+			this.btnLuuCSDL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnLuuCSDL.UseVisualStyleBackColor = true;
+			this.btnLuuCSDL.Click += new System.EventHandler(this.btnLuuCSDL_Click);
+			// 
+			// openDialog
+			// 
+			this.openDialog.Filter = "Excel Workbook (.xlsx)|*.xlsx|Excel 97-2003 Workbook (.xls)|*.xls";
+			// 
+			// btnLayDanhSach
+			// 
+			this.btnLayDanhSach.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnLayDanhSach.Image = global::QuanLyDienNang.Properties.Resources.User;
+			this.btnLayDanhSach.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnLayDanhSach.Location = new System.Drawing.Point(152, 1);
+			this.btnLayDanhSach.Name = "btnLayDanhSach";
+			this.btnLayDanhSach.Size = new System.Drawing.Size(170, 42);
+			this.btnLayDanhSach.TabIndex = 6;
+			this.btnLayDanhSach.Text = "Lấy tất cả danh sách";
+			this.btnLayDanhSach.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnLayDanhSach.UseVisualStyleBackColor = true;
+			this.btnLayDanhSach.Click += new System.EventHandler(this.btnLayDanhSach_Click);
 			// 
 			// Form_KhachHang
 			// 
@@ -308,8 +335,10 @@ namespace QuanLyDienNang.Forms
 		private System.Windows.Forms.Button btnLoadNoiDung;
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.Button btnLuuCSDL;
-		private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button btnXoa;
+		private System.Windows.Forms.Button btnThem;
 		private System.Windows.Forms.Button btnXemMau;
+		private System.Windows.Forms.OpenFileDialog openDialog;
+		private System.Windows.Forms.Button btnLayDanhSach;
 	}
 }

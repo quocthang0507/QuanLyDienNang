@@ -358,7 +358,7 @@ namespace QuanLyDienNang.Forms
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "Form_ChiTietBangGia";
-			this.Text = "Chi Tiết Bảng Giá";
+			this.Text = "Quản Lý Chi Tiết Bảng Giá";
 			this.Shown += new System.EventHandler(this.Form_ChiTietBangGia_Shown);
 			this.tableParent.ResumeLayout(false);
 			this.tableParent.PerformLayout();
