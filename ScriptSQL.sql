@@ -922,7 +922,7 @@ CREATE VIEW view_BangDienConLai
 --ALTER VIEW view_BangDienConLai
 AS
 	SELECT * FROM ChiTietBangGia 
-	WHERE MaBangGia NOT LIKE 'SH*' AND MaBangGia NOT LIKE 'APGIA' AND KichHoat = 1
+	WHERE MaBangGia NOT LIKE 'SH%' AND MaBangGia NOT LIKE 'APGIA' AND KichHoat = 1
 GO
 
 CREATE FUNCTION func_TinhTienDien_SinhHoat (@DienNangTieuThu INT, @SoHo TINYINT)
@@ -981,9 +981,9 @@ AS
 		-- Bảng giá với nhiều mức giá theo giờ
 		IF (SELECT COUNT(MaChiTiet) FROM view_BangDienConLai WHERE MaBangGia = @MaBangGia) > 1
 			BEGIN
-				SET @DonGia_TD = (SELECT DonGia FROM view_BangDienConLai WHERE MaBangGia = @MaBangGia AND MaChiTiet LIKE '*GTD')
-				SET @DonGia_CD = (SELECT DonGia FROM view_BangDienConLai WHERE MaBangGia = @MaBangGia AND MaChiTiet LIKE '*GCD')
-				SET @DonGia_BT = (SELECT DonGia FROM view_BangDienConLai WHERE MaBangGia = @MaBangGia AND MaChiTiet LIKE '*GBT')
+				SET @DonGia_TD = (SELECT DonGia FROM view_BangDienConLai WHERE MaBangGia = @MaBangGia AND MaChiTiet LIKE '%GTD')
+				SET @DonGia_CD = (SELECT DonGia FROM view_BangDienConLai WHERE MaBangGia = @MaBangGia AND MaChiTiet LIKE '%GCD')
+				SET @DonGia_BT = (SELECT DonGia FROM view_BangDienConLai WHERE MaBangGia = @MaBangGia AND MaChiTiet LIKE '%GBT')
 				SET @ThanhTien = @ThanhTien + @ThapDiem * @DonGia_TD
 				SET @ThanhTien = @ThanhTien + @CaoDiem * @DonGia_CD
 				SET @ThanhTien = @ThanhTien + @BinhThuong * @DonGia_BT
@@ -997,6 +997,8 @@ AS
 		RETURN @ThanhTien
 	END
 GO
+
+--PRINT DBO.func_TinhTienDien_ConLai('SX-DUOI6KV', 200, 100, 50, 100)
 
 CREATE FUNCTION func_TinhTienDien_ApGia (@ID INT, @DienNangTieuThu INT, @SoHo TINYINT)
 --ALTER FUNCTION func_TinhTienDien_ApGia (@MaChiTiet VARCHAR(30), @DienNangTieuThu INT, @SoHo TINYINT)
