@@ -137,7 +137,9 @@ namespace Business.Forms
 			foreach (DienNangTieuThu dienNangTieuThu in list)
 			{
 				if (!DienNangTieuThu.TryInserting(dienNangTieuThu))
+				{
 					return false;
+				}
 			}
 			return true;
 		}
@@ -152,7 +154,9 @@ namespace Business.Forms
 			foreach (DienNangTieuThu dienNangTieuThu in list)
 			{
 				if (!DienNangTieuThu.TryUpdating(dienNangTieuThu))
+				{
 					return false;
+				}
 			}
 			return true;
 		}

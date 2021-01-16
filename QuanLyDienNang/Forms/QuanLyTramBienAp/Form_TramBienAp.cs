@@ -1,5 +1,6 @@
 ﻿using Business.Classes;
 using Business.Helper;
+using KGySoft.ComponentModel;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -90,7 +91,9 @@ namespace QuanLyDienNang.Forms
 					KichHoat = kichHoat
 				});
 				if (!ok)
+				{
 					MessageBox.Show(STRINGS.ERROR_UPDATE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
 			}
 		}
 
@@ -181,9 +184,13 @@ namespace QuanLyDienNang.Forms
 		{
 			List<TramBienAp> data = TramBienAp.GetAll();
 			if (data == null)
+			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 			else
-				dgvTramBienAp.DataSource = data;
+			{
+				dgvTramBienAp.DataSource = new SortableBindingList<TramBienAp>(data);
+			}
 		}
 
 		private void UpdateColumnFormat()

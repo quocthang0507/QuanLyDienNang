@@ -115,7 +115,10 @@ namespace DataAccess
 		{
 			ArrayList objFillCollection = new ArrayList();
 			if (dr == null)
+			{
 				return objFillCollection;
+			}
+
 			object objFillObject;
 			List<PropertyInfo> objProperties = GetPropertyInfo(objType);
 			int[] arrOrdinals = GetOrdinals(objProperties, dr);
@@ -134,7 +137,10 @@ namespace DataAccess
 		public static IList FillCollection(IDataReader dr, Type objType, IList objToFill)
 		{
 			if (dr == null)
+			{
 				return objToFill;
+			}
+
 			object objFillObject;
 			List<PropertyInfo> objProperties = GetPropertyInfo(objType);
 			int[] arrOrdinals = GetOrdinals(objProperties, dr);
@@ -223,7 +229,10 @@ namespace DataAccess
 		{
 			C objFillCollection = new C();
 			if (dr == null)
+			{
 				return objFillCollection;
+			}
+
 			T objFillObject;
 			List<PropertyInfo> objProperties = GetPropertyInfo(typeof(T));
 			int[] arrOrdinals = GetOrdinals(objProperties, dr);
@@ -247,7 +256,10 @@ namespace DataAccess
 		public static IList<T> FillCollection<T>(IDataReader dr, IList<T> objToFill) where T : class, new()
 		{
 			if (dr == null)
+			{
 				return objToFill;
+			}
+
 			T objFillObject;
 			List<PropertyInfo> objProperties = GetPropertyInfo(typeof(T));
 			int[] arrOrdinals = GetOrdinals(objProperties, dr);

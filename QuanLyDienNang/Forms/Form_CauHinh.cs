@@ -83,9 +83,13 @@ namespace QuanLyDienNang.Forms
 		private void cbxChungThuc_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (cbxChungThuc.SelectedIndex == 0)
+			{
 				gbxChungThuc.Enabled = false;
+			}
 			else
+			{
 				gbxChungThuc.Enabled = true;
+			}
 		}
 		#endregion
 

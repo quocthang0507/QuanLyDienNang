@@ -8,6 +8,14 @@ namespace Business.Helper
 {
 	public static class Common
 	{
+		public static void EnableUserSortInDataGridView(ref DataGridView dgv)
+		{
+			foreach (DataGridViewColumn column in dgv.Columns)
+			{
+				column.SortMode = DataGridViewColumnSortMode.Automatic;
+			}
+		}
+
 		/// <summary>
 		/// Kiểm tra phím vừa nhấn là số (số nguyên không dấu)
 		/// </summary>
@@ -15,7 +23,9 @@ namespace Business.Helper
 		public static void IsDigitEvent(ref KeyPressEventArgs e)
 		{
 			if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+			{
 				e.Handled = true;
+			}
 		}
 
 		/// <summary>
@@ -26,7 +36,9 @@ namespace Business.Helper
 		public static void IsDecimalEvent(ref KeyPressEventArgs e, object sender = null)
 		{
 			if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+			{
 				e.Handled = true;
+			}
 
 			// only allow one decimal point
 			if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
@@ -45,7 +57,9 @@ namespace Business.Helper
 			foreach (string str in strings)
 			{
 				if (string.IsNullOrWhiteSpace(str))
+				{
 					return true;
+				}
 			}
 			return false;
 		}
@@ -77,7 +91,10 @@ namespace Business.Helper
 						{
 							string data = reader.ReadToEnd();
 							if (data == "" || data == "E99")
+							{
 								throw new Exception();
+							}
+
 							return data;
 						}
 					}

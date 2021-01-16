@@ -1,6 +1,8 @@
 ﻿using Business.Classes;
 using Business.Helper;
 using Business.Tables;
+using KGySoft.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
@@ -22,7 +24,7 @@ namespace QuanLyDienNang.Forms
 		}
 
 		#region Events
-		private void Form_BangDienApGia_Shown(object sender, System.EventArgs e)
+		private void Form_BangDienApGia_Shown(object sender, EventArgs e)
 		{
 			LoadTable();
 			UpdateColumnFormat();
@@ -55,7 +57,9 @@ namespace QuanLyDienNang.Forms
 					KichHoat = kichHoat
 				});
 				if (!ok)
+				{
 					MessageBox.Show(STRINGS.ERROR_UPDATE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
 			}
 		}
 
@@ -142,9 +146,13 @@ namespace QuanLyDienNang.Forms
 			BangDienApGia.Create(bangGia.MaBangGia);
 			List<BangDienApGia> data = BangDienApGia.GetAll(bangGia.MaBangGia);
 			if (data == null)
+			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 			else
-				dgvBangDienApGia.DataSource = data;
+			{
+				dgvBangDienApGia.DataSource = new SortableBindingList<BangDienApGia>(data);
+			}
 		}
 
 		private void UpdateColumnFormat()

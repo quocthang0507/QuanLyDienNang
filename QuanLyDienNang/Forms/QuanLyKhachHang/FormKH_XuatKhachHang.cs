@@ -49,7 +49,9 @@ namespace QuanLyDienNang.Forms
 		private void btnTimKiem_Click(object sender, System.EventArgs e)
 		{
 			if (rbtnXuatHet.Checked)
+			{
 				dgvKhachHang.DataSource = KhachHang.GetAll();
+			}
 			else
 			{
 				string maBangGia, maTram;
@@ -145,7 +147,9 @@ namespace QuanLyDienNang.Forms
 		{
 			System.Collections.Generic.List<TramBienAp> data = TramBienAp.GetAll();
 			if (data == null)
+			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 			else
 			{
 				cbxTenTram.DataSource = data;
@@ -158,7 +162,9 @@ namespace QuanLyDienNang.Forms
 		{
 			System.Collections.Generic.List<BangGia> data = BangGia.GetAll();
 			if (data == null)
+			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 			else
 			{
 				cbxBangGia.DataSource = data;

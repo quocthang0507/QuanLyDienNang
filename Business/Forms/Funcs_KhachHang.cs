@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Windows.Forms;
 
 namespace Business.Forms
 {
@@ -186,9 +185,13 @@ namespace Business.Forms
 		{
 			DataTable dt = Excel.ReadExcelAsDataTable(excelFilePath, sheetname);
 			if (dt == null)
+			{
 				return null;
+			}
 			else
+			{
 				return ConvertDataTableToListForInserting(dt);
+			}
 		}
 
 		/// <summary>
@@ -201,9 +204,13 @@ namespace Business.Forms
 		{
 			DataTable dt = Excel.ReadExcelAsDataTable(excelFilePath, sheetname);
 			if (dt == null)
+			{
 				return null;
+			}
 			else
+			{
 				return ConvertDataTableToListForUpdating(dt);
+			}
 		}
 
 		/// <summary>
@@ -216,7 +223,9 @@ namespace Business.Forms
 			foreach (KhachHang khach in list)
 			{
 				if (!KhachHang.TryInserting(khach))
+				{
 					return false;
+				}
 			}
 			return true;
 		}
@@ -232,7 +241,9 @@ namespace Business.Forms
 			{
 				bool ok = KhachHang.TryUpdating(khach);
 				if (!ok)
+				{
 					return false;
+				}
 			}
 			return true;
 		}

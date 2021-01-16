@@ -23,7 +23,10 @@ namespace QuanLyDienNang.Forms
 			get
 			{
 				if (Singleton == null)
+				{
 					Singleton = new Form_Main();
+				}
+
 				return Singleton;
 			}
 		}
@@ -81,7 +84,7 @@ namespace QuanLyDienNang.Forms
 			AddFormToTabPage(frmKhachHang);
 		}
 
-		private void xuấtThôngTinToolStripMenuItem_Click(object sender, EventArgs e)
+		public void xuấtThôngTinToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Form frmXuat = new FormKH_XuatKhachHang();
 			AddFormToTabPage(frmXuat);
@@ -169,7 +172,9 @@ namespace QuanLyDienNang.Forms
 		private void tabForms_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (tabForms.SelectedIndex == 0)
+			{
 				toolBar.Visible = false;
+			}
 			else if (tabForms.SelectedTab != null)
 			{
 				toolBar.Visible = true;
@@ -272,7 +277,9 @@ namespace QuanLyDienNang.Forms
 		{
 			int len = tabForms.TabPages.Count;
 			if (len > 0)
+			{
 				tabForms.SelectTab(--len);
+			}
 		}
 
 		private void SwitchFormObject()

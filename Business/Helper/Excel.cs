@@ -1,7 +1,8 @@
 ﻿using Business.Classes;
+using Business.Tables;
+using KGySoft.ComponentModel;
 using OfficeOpenXml;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.IO;
@@ -14,31 +15,34 @@ namespace Business.Helper
 		/// <summary>
 		/// Xuất dữ liệu sang Excel, dữ liệu trả về ở dạng mảng bytes
 		/// </summary>
-		/// <param name="list"></param>
+		/// <param name="SortableBindingList"></param>
 		/// <param name="sheetname"></param>
 		/// <returns></returns>
-		public static byte[] ExportToExcel(object objectList, string sheetname = "Danh sách khách hàng")
+		public static byte[] ExportToExcel(object objectSortableBindingList, string sheetname = "Danh sách khách hàng")
 		{
 			dynamic list = null;
-			switch (objectList)
+			switch (objectSortableBindingList)
 			{
-				case List<KhachHang> _:
-					list = objectList as List<KhachHang>;
+				case SortableBindingList<KhachHang> _:
+					list = objectSortableBindingList as SortableBindingList<KhachHang>;
 					break;
-				case List<DienNangTieuThu> _:
-					list = objectList as List<DienNangTieuThu>;
+				case SortableBindingList<DienNangTieuThu> _:
+					list = objectSortableBindingList as SortableBindingList<DienNangTieuThu>;
 					break;
-				case List<BangGia> _:
-					list = objectList as List<BangGia>;
+				case SortableBindingList<BangGia> _:
+					list = objectSortableBindingList as SortableBindingList<BangGia>;
 					break;
-				case List<NguoiQuanLy> _:
-					list = objectList as List<NguoiQuanLy>;
+				case SortableBindingList<ChiTietBangGia> _:
+					list = objectSortableBindingList as SortableBindingList<ChiTietBangGia>;
 					break;
-				case List<TramBienAp> _:
-					list = objectList as List<TramBienAp>;
+				case SortableBindingList<BangDienApGia> _:
+					list = objectSortableBindingList as SortableBindingList<BangDienApGia>;
 					break;
-				case List<ChiTietBangGia> _:
-					list = objectList as List<ChiTietBangGia>;
+				case SortableBindingList<NguoiQuanLy> _:
+					list = objectSortableBindingList as SortableBindingList<NguoiQuanLy>;
+					break;
+				case SortableBindingList<TramBienAp> _:
+					list = objectSortableBindingList as SortableBindingList<TramBienAp>;
 					break;
 				default:
 					return list;
@@ -58,7 +62,9 @@ namespace Business.Helper
 					sheet.Cells[1, col].Style.Font.Bold = true;
 					// Sửa lại định dạng ngày cho cột bắt đầu bằng chữ "Ngay"
 					if (prop.Name.StartsWith("Ngay"))
+					{
 						sheet.Column(col).Style.Numberformat.Format = CultureInfo.CurrentUICulture.DateTimeFormat.ShortDatePattern;
+					}
 					// Thêm dữ liệu cho các ô thuộc cột đó
 					for (int row = 1; row <= list.Count; row++)
 					{

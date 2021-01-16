@@ -26,7 +26,10 @@ namespace Business.Helper
 			get
 			{
 				if (Singleton == null)
+				{
 					Singleton = new Configuration();
+				}
+
 				return Singleton;
 			}
 		}

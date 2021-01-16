@@ -33,7 +33,10 @@ namespace QuanLyDienNang.Forms
 		{
 			DialogResult result = openDialog.ShowDialog();
 			if (result != DialogResult.OK || Common.IsNullOrWhiteSpace(openDialog.FileName))
+			{
 				return;
+			}
+
 			string path = openDialog.FileName;
 			tbxDuongDan.Text = path;
 			funcs.SaveExcelPathForImporting(path);
@@ -53,9 +56,13 @@ namespace QuanLyDienNang.Forms
 					  }
 					  List<KhachHang> data = funcs.ReadExcelForInserting(tbxDuongDan.Text, cbxSheet.Text);
 					  if (data == null)
+					  {
 						  MessageBox.Show(STRINGS.ERROR_IMPORT_EXCEL, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+					  }
 					  else
+					  {
 						  dgvKhachHang.DataSource = data;
+					  }
 				  });
 			  });
 			thread.Start();
@@ -87,9 +94,13 @@ namespace QuanLyDienNang.Forms
 		{
 			string filepath = AppDomain.CurrentDomain.BaseDirectory + STRINGS.SAMPLE_PATH;
 			if (File.Exists(filepath))
+			{
 				Process.Start(filepath);
+			}
 			else
+			{
 				MessageBox.Show(STRINGS.ERROR_NOT_FOUND_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 		}
 
 		private void dgvKhachHang_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -161,9 +172,13 @@ namespace QuanLyDienNang.Forms
 			{
 				List<string> data = funcs.GetSheetNamesOnExcel(path);
 				if (data == null)
+				{
 					MessageBox.Show(STRINGS.ERROR_IMPORT_EXCEL, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
 				else
+				{
 					cbxSheet.DataSource = data;
+				}
 			}
 		}
 
@@ -171,9 +186,13 @@ namespace QuanLyDienNang.Forms
 		{
 			List<NguoiQuanLy> data = NguoiQuanLy.GetAll();
 			if (data == null)
+			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 			else
+			{
 				cbxNguoiNhap.DataSource = data;
+			}
 		}
 
 		#endregion

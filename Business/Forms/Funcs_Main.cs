@@ -34,7 +34,10 @@ namespace Business.Forms
 		{
 			Funcs_ConnectionString funcs = new Funcs_ConnectionString();
 			if (funcs.SqlConnectionString != null)
+			{
 				return funcs.SqlConnectionString.ServerName;
+			}
+
 			return null;
 		}
 
@@ -46,7 +49,10 @@ namespace Business.Forms
 		{
 			Funcs_ConnectionString funcs = new Funcs_ConnectionString();
 			if (funcs.SqlConnectionString != null)
+			{
 				return funcs.SqlConnectionString.Database;
+			}
+
 			return null;
 		}
 	}

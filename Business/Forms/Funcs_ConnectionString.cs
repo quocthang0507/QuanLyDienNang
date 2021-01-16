@@ -32,6 +32,7 @@ namespace Business.Forms
 		public void SaveConnectionString()
 		{
 			if (SqlConnectionString != null)
+			{
 				if (!string.IsNullOrWhiteSpace(SqlConnectionString.ServerName) && !string.IsNullOrWhiteSpace(SqlConnectionString.Database))
 				{
 					if (!string.IsNullOrWhiteSpace(SqlConnectionString.Username) && !string.IsNullOrWhiteSpace(SqlConnectionString.Password))
@@ -43,6 +44,7 @@ namespace Business.Forms
 					Configuration.Instance.Write(KEY_DATABASE_INI, SqlConnectionString.Database, SECTION_INI);
 					DataProvider.ConnectionString = SqlConnectionString.ConnectionString;
 				}
+			}
 		}
 
 		/// <summary>

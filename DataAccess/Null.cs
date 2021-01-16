@@ -36,32 +36,63 @@ namespace DataAccess
 		public static object GetNull(object objField, object objDBNull)
 		{
 			if (objField == null)
+			{
 				return objDBNull;
+			}
+
 			if (objField is short && Convert.ToInt16(objField) == NullShort)
+			{
 				return objDBNull;
+			}
+
 			if (objField is int && Convert.ToInt32(objField) == NullInteger)
+			{
 				return objDBNull;
+			}
+
 			if (objField is float && Convert.ToSingle(objField) == NullSingle)
+			{
 				return objDBNull;
+			}
+
 			if (objField is double && Convert.ToDouble(objField) == NullDouble)
+			{
 				return objDBNull;
+			}
+
 			if (objField is decimal && Convert.ToDecimal(objField) == NullDecimal)
+			{
 				return objDBNull;
+			}
+
 			if (objField is DateTime && Convert.ToDateTime(objField).Date == NullDate)
+			{
 				return objDBNull;
+			}
+
 			if (objField is bool && Convert.ToBoolean(objField) == NullBoolean)
+			{
 				return objDBNull;
+			}
+
 			if (objField is string)
 			{
 				if (objField == null)
+				{
 					return objDBNull;
+				}
+
 				if (objField.ToString() == NullString)
+				{
 					return objDBNull;
+				}
 			}
 			if (objField is Guid guild)
 			{
 				if (guild.Equals(NullGuid))
+				{
 					return objDBNull;
+				}
 			}
 			return objField;
 		}

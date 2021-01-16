@@ -181,7 +181,10 @@ namespace Business.Classes
 			list = list.Where(dntt => dntt.NgayBatDau.Month == batDau.Month && dntt.NgayKetThuc.Month == ketThuc.Month && dntt.NgayBatDau.Year == batDau.Year && dntt.NgayKetThuc.Year == ketThuc.Year).ToList();
 			list = list.Where(dntt => dntt.MaTram == maTram && dntt.DiaChi.Contains(diaChi) && dntt.MaBangGia == maBangGia).ToList();
 			if (conNo)
+			{
 				list = list.Where(dntt => dntt.ConLai > 0).ToList();
+			}
+
 			return list;
 		}
 

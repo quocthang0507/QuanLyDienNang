@@ -21,7 +21,10 @@ namespace DataAccess
 			get
 			{
 				if (instance == null)
+				{
 					instance = new SqlDataProvider(ConnectionString);
+				}
+
 				return instance;
 			}
 		}

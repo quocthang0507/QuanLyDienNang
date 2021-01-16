@@ -40,25 +40,36 @@ namespace QuanLyDienNang.Forms
 		{
 			List<DienNangTieuThu> data = DienNangTieuThu.GetAll();
 			if (data == null)
+			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 			else
+			{
 				dgvDienNangTieuThu.DataSource = data;
+			}
 		}
 
 		private void btnTimKiem_Click(object sender, EventArgs e)
 		{
 			List<DienNangTieuThu> data = DienNangTieuThu.Filter(dtpBatDau_TK.Value, dtpKetThuc_TK.Value, (cbxTenTram.SelectedItem as TramBienAp).MaTram, tbxDiaChi.Text, (cbxBangGia.SelectedItem as BangGia).MaBangGia, chkConNo.Checked);
 			if (data == null)
+			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 			else
+			{
 				dgvDienNangTieuThu.DataSource = data;
+			}
 		}
 
 		private void btnLapDanhSach_Click(object sender, EventArgs e)
 		{
 			DialogResult dialog = MessageBox.Show(STRINGS.QUESTION_LAPDANHSACH_MESSAGE, STRINGS.QUESTION, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 			if (dialog == DialogResult.No)
+			{
 				return;
+			}
+
 			List<DienNangTieuThu> data = funcs.AddNewDNTTFromKH((cbxNguoiQuanLy.SelectedItem as NguoiQuanLy).MaQuanLy, dtpDauKy.Value, dtpCuoiKy.Value);
 			if (data == null)
 			{
@@ -87,7 +98,10 @@ namespace QuanLyDienNang.Forms
 			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
-			else dgvDienNangTieuThu.DataSource = data;
+			else
+			{
+				dgvDienNangTieuThu.DataSource = data;
+			}
 		}
 
 		private void btnXuatExcel_Click(object sender, EventArgs e)
@@ -119,7 +133,10 @@ namespace QuanLyDienNang.Forms
 		{
 			DialogResult result = openDialog.ShowDialog();
 			if (result != DialogResult.OK || Common.IsNullOrWhiteSpace(openDialog.FileName))
+			{
 				return;
+			}
+
 			string path = openDialog.FileName;
 			// Đọc sheet đầu tiên
 			DataTable dt = Excel.ReadExcelAsDataTable(path, "");
@@ -259,7 +276,9 @@ namespace QuanLyDienNang.Forms
 		{
 			List<TramBienAp> data = TramBienAp.GetAll();
 			if (data == null)
+			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 			else
 			{
 				cbxTenTram.DataSource = data;
@@ -272,7 +291,9 @@ namespace QuanLyDienNang.Forms
 		{
 			List<BangGia> data = BangGia.GetAll();
 			if (data == null)
+			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 			else
 			{
 				cbxBangGia.DataSource = data;
@@ -285,7 +306,9 @@ namespace QuanLyDienNang.Forms
 		{
 			List<NguoiQuanLy> data = NguoiQuanLy.GetAll();
 			if (data == null)
+			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 			else
 			{
 				cbxNguoiQuanLy.DataSource = data;

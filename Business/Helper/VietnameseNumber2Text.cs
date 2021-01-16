@@ -128,7 +128,10 @@ namespace Business.Helper
 		private string ConvertNumber2Text(long number)
 		{
 			if (number == 0)
+			{
 				return Digit[0];
+			}
+
 			string str = "", postfix = "";
 			long billions;
 			do

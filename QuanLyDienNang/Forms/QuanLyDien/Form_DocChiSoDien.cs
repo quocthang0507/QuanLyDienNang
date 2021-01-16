@@ -35,7 +35,10 @@ namespace QuanLyDienNang.Forms
 			{
 				DialogResult result = folderDialog.ShowDialog();
 				if (result != DialogResult.OK || Common.IsNullOrWhiteSpace(folderDialog.SelectedPath))
+				{
 					return;
+				}
+
 				path = folderDialog.SelectedPath;
 			}
 			System.Collections.Generic.IEnumerable<ImageResult> files = FileUtils.LoadImagesFromDirectory(path);
@@ -82,7 +85,10 @@ namespace QuanLyDienNang.Forms
 		private void btnNhanDienTatCa_Click(object sender, EventArgs e)
 		{
 			if (CheckAnotherRunning())
+			{
 				return;
+			}
+
 			runAllThread = new Thread(ProcessAll);
 			runAllThread.Start();
 		}

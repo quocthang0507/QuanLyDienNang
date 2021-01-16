@@ -158,13 +158,25 @@ namespace Business.Classes
 		{
 			List<KhachHang> list = GetAll();
 			if (!string.IsNullOrWhiteSpace(diaChi))
+			{
 				list = list.Where(khach => khach.DiaChi.Contains(diaChi)).ToList();
+			}
+
 			if (!string.IsNullOrWhiteSpace(maBangGia))
+			{
 				list = list.Where(khach => khach.MaBangGia.Equals(maBangGia)).ToList();
+			}
+
 			if (!string.IsNullOrWhiteSpace(maTram))
+			{
 				list = list.Where(khach => khach.MaTram.Equals(maTram)).ToList();
+			}
+
 			if (!string.IsNullOrWhiteSpace(tenNganHang))
+			{
 				list = list.Where(khach => khach.TenNganHang.Contains(tenNganHang)).ToList();
+			}
+
 			return list;
 		}
 	}

@@ -29,19 +29,33 @@ namespace Business.Helper
 			byte[] jpeg2 = new byte[] { 255, 216, 255, 225 };
 
 			if (bmp.SequenceEqual(bytes.Take(bmp.Length)))
+			{
 				return ImageFormat.Bmp;
+			}
 			else if (gif.SequenceEqual(bytes.Take(gif.Length)))
+			{
 				return ImageFormat.Gif;
+			}
 			else if (png.SequenceEqual(bytes.Take(png.Length)))
+			{
 				return ImageFormat.Png;
+			}
 			else if (tiff.SequenceEqual(bytes.Take(tiff.Length)))
+			{
 				return ImageFormat.Tiff;
+			}
 			else if (tiff2.SequenceEqual(bytes.Take(tiff2.Length)))
+			{
 				return ImageFormat.Tiff;
+			}
 			else if (jpeg.SequenceEqual(bytes.Take(jpeg.Length)))
+			{
 				return ImageFormat.Jpeg;
+			}
 			else if (jpeg2.SequenceEqual(bytes.Take(jpeg2.Length)))
+			{
 				return ImageFormat.Jpeg;
+			}
 
 			return null;
 		}
@@ -49,15 +63,25 @@ namespace Business.Helper
 		public static ImageFormat GetImageFormat(Image image)
 		{
 			if (ImageFormat.Bmp.Equals(image.RawFormat))
+			{
 				return ImageFormat.Bmp;
+			}
 			else if (ImageFormat.Gif.Equals(image.RawFormat))
+			{
 				return ImageFormat.Gif;
+			}
 			else if (ImageFormat.Png.Equals(image.RawFormat))
+			{
 				return ImageFormat.Png;
+			}
 			else if (ImageFormat.Tiff.Equals(image.RawFormat))
+			{
 				return ImageFormat.Tiff;
+			}
 			else if (ImageFormat.Jpeg.Equals(image.RawFormat))
+			{
 				return ImageFormat.Jpeg;
+			}
 
 			return null;
 		}

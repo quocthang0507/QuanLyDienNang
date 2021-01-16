@@ -23,11 +23,20 @@ namespace DataAccess
 		/// <param name="parameterValues"></param>
 		private void AssignParameterValues(SqlParameter[] commandParameters, object[] parameterValues)
 		{
-			if (commandParameters == null || parameterValues == null) return;
+			if (commandParameters == null || parameterValues == null)
+			{
+				return;
+			}
+
 			if (commandParameters.Length != parameterValues.Length)
+			{
 				throw new ArgumentException("Command parameters do not match parameter values!");
+			}
+
 			for (int i = 0, j = commandParameters.Length; i < j; i++)
+			{
 				commandParameters[i].Value = parameterValues[i];
+			}
 		}
 
 		public override DataSet ExecuteDataset(string spName, params object[] parameterValues)
@@ -43,7 +52,10 @@ namespace DataAccess
 		public override object ExecuteNonQueryWithOutput(string outputParam, string spName, params object[] parameterValues)
 		{
 			if (string.IsNullOrWhiteSpace(outputParam))
+			{
 				throw new ArgumentException("OutputParam can't be null or empty!");
+			}
+
 			SqlParameter[] parameters = SqlHelperParameterCache.GetSpParameterSet(connectionString, spName);
 			SqlParameter sqlParameter = null;
 			foreach (SqlParameter item in parameters)
@@ -55,11 +67,17 @@ namespace DataAccess
 				}
 			}
 			if (sqlParameter == null)
+			{
 				throw new Exception("Parameter not found!");
+			}
+
 			AssignParameterValues(parameters, parameterValues);
 			int result = SqlHelper.ExecuteNonQuery(connectionString, CommandType.StoredProcedure, spName, parameters);
 			if (result > 0)
+			{
 				return sqlParameter.Value;
+			}
+
 			return null;
 		}
 

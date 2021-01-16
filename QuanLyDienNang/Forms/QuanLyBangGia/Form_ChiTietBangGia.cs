@@ -1,5 +1,6 @@
 ﻿using Business.Classes;
 using Business.Helper;
+using KGySoft.ComponentModel;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -98,7 +99,9 @@ namespace QuanLyDienNang.Forms
 					KichHoat = kichHoat
 				});
 				if (!ok)
+				{
 					MessageBox.Show(STRINGS.ERROR_UPDATE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
 			}
 		}
 
@@ -190,9 +193,13 @@ namespace QuanLyDienNang.Forms
 		{
 			List<ChiTietBangGia> data = ChiTietBangGia.GetByBangGia(bangGia.MaBangGia);
 			if (data == null)
+			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 			else
-				dgvChiTietGia.DataSource = data;
+			{
+				dgvChiTietGia.DataSource = new SortableBindingList<ChiTietBangGia>(data);
+			}
 		}
 
 		private void UpdateLabels()

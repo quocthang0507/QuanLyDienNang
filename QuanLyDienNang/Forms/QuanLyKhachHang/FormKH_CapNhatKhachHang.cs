@@ -29,7 +29,10 @@ namespace QuanLyDienNang.Forms
 		{
 			DialogResult result = openDialog.ShowDialog();
 			if (result != DialogResult.OK || Common.IsNullOrWhiteSpace(openDialog.FileName))
+			{
 				return;
+			}
+
 			string path = openDialog.FileName;
 			tbxDuongDan.Text = path;
 			LoadSheet(path);
@@ -48,9 +51,13 @@ namespace QuanLyDienNang.Forms
 					}
 					List<KhachHang> data = funcs.ReadExcelForUpdating(tbxDuongDan.Text, cbxSheet.Text);
 					if (data == null)
+					{
 						MessageBox.Show(STRINGS.ERROR_IMPORT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
 					else
+					{
 						dgvKhachHang.DataSource = data;
+					}
 				});
 			});
 			thread.Start();
@@ -144,18 +151,26 @@ namespace QuanLyDienNang.Forms
 		{
 			List<string> data = funcs.GetSheetNamesOnExcel(path);
 			if (data == null)
+			{
 				MessageBox.Show(STRINGS.ERROR_IMPORT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 			else
+			{
 				cbxSheet.DataSource = data;
+			}
 		}
 
 		private void LoadNguoiQuanLy()
 		{
 			List<NguoiQuanLy> data = NguoiQuanLy.GetAll();
 			if (data == null)
+			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 			else
+			{
 				cbxNguoiCapNhat.DataSource = data;
+			}
 		}
 
 		#endregion
