@@ -568,6 +568,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\close1.png" />
+    <None Include="Resources\close2.png" />
+    <None Include="Resources\open2.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\delete1.png" />
+    <None Include="Resources\delete2.png" />
     <None Include="Resources\percent.png" />
     <None Include="Resources\check1.png" />
     <None Include="Resources\shutdown.png" />
@@ -619,7 +626,6 @@
     <None Include="Resources\New Folder.png" />
     <None Include="Resources\Open1.png" />
     <None Include="Resources\Chat.png" />
-    <None Include="Resources\Delete2.png" />
     <None Include="Resources\Add2.png" />
     <None Include="Resources\Archive1.png" />
     <None Include="Resources\Edit1.png" />
@@ -634,7 +640,6 @@
     <None Include="Resources\Up.png" />
     <None Include="Resources\Copy.png" />
     <None Include="Resources\Configure.png" />
-    <None Include="Resources\close.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

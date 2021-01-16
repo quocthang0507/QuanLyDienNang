@@ -252,7 +252,7 @@ namespace QuanLyDienNang.Forms
 			// btnXoa
 			// 
 			this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnXoa.Image = global::QuanLyDienNang.Properties.Resources.Delete1;
+			this.btnXoa.Image = global::QuanLyDienNang.Properties.Resources.delete;
 			this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.btnXoa.Location = new System.Drawing.Point(693, 2);
 			this.btnXoa.Name = "btnXoa";

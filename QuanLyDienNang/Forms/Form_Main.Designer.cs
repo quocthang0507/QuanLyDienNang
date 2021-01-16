@@ -49,6 +49,8 @@
 			this.quảnLýTrạmBiếnÁpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextTabMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.menuDong = new System.Windows.Forms.ToolStripMenuItem();
+			this.menuDongConLai = new System.Windows.Forms.ToolStripMenuItem();
+			this.menuDongHet = new System.Windows.Forms.ToolStripMenuItem();
 			this.tabForms = new System.Windows.Forms.TabControl();
 			this.tabMain = new System.Windows.Forms.TabPage();
 			this.toolStripContainer = new System.Windows.Forms.ToolStripContainer();
@@ -67,8 +69,10 @@
 			this.btnDuoiCung = new System.Windows.Forms.ToolStripButton();
 			this.separator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.btnDongTab = new System.Windows.Forms.ToolStripButton();
-			this.btnThoat = new System.Windows.Forms.ToolStripButton();
 			this.btnDongTabConLai = new System.Windows.Forms.ToolStripButton();
+			this.btnDongHet = new System.Windows.Forms.ToolStripButton();
+			this.separator4 = new System.Windows.Forms.ToolStripSeparator();
+			this.btnThoat = new System.Windows.Forms.ToolStripButton();
 			this.menuBar.SuspendLayout();
 			this.contextTabMenu.SuspendLayout();
 			this.tabForms.SuspendLayout();
@@ -94,7 +98,7 @@
 			this.menuBar.Location = new System.Drawing.Point(0, 0);
 			this.menuBar.Name = "menuBar";
 			this.menuBar.ShowItemToolTips = true;
-			this.menuBar.Size = new System.Drawing.Size(1034, 24);
+			this.menuBar.Size = new System.Drawing.Size(1084, 24);
 			this.menuBar.TabIndex = 0;
 			this.menuBar.Text = "menuBar";
 			// 
@@ -237,16 +241,35 @@
 			// contextTabMenu
 			// 
 			this.contextTabMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuDong});
+            this.menuDong,
+            this.menuDongConLai,
+            this.menuDongHet});
 			this.contextTabMenu.Name = "contextTabMenu";
-			this.contextTabMenu.Size = new System.Drawing.Size(175, 26);
+			this.contextTabMenu.Size = new System.Drawing.Size(183, 70);
 			// 
 			// menuDong
 			// 
+			this.menuDong.Image = global::QuanLyDienNang.Properties.Resources.close;
 			this.menuDong.Name = "menuDong";
-			this.menuDong.Size = new System.Drawing.Size(174, 22);
+			this.menuDong.Size = new System.Drawing.Size(182, 22);
 			this.menuDong.Text = "Đóng tab đang mở";
 			this.menuDong.Click += new System.EventHandler(this.menuDong_Click);
+			// 
+			// menuDongConLai
+			// 
+			this.menuDongConLai.Image = global::QuanLyDienNang.Properties.Resources.close;
+			this.menuDongConLai.Name = "menuDongConLai";
+			this.menuDongConLai.Size = new System.Drawing.Size(182, 22);
+			this.menuDongConLai.Text = "Đóng các tab còn lại";
+			this.menuDongConLai.Click += new System.EventHandler(this.menuDongConLai_Click);
+			// 
+			// menuDongHet
+			// 
+			this.menuDongHet.Image = global::QuanLyDienNang.Properties.Resources.close;
+			this.menuDongHet.Name = "menuDongHet";
+			this.menuDongHet.Size = new System.Drawing.Size(182, 22);
+			this.menuDongHet.Text = "Đóng tất cả các tab";
+			this.menuDongHet.Click += new System.EventHandler(this.menuDongHet_Click);
 			// 
 			// tabForms
 			// 
@@ -255,7 +278,7 @@
 			this.tabForms.Location = new System.Drawing.Point(0, 0);
 			this.tabForms.Name = "tabForms";
 			this.tabForms.SelectedIndex = 0;
-			this.tabForms.Size = new System.Drawing.Size(1034, 487);
+			this.tabForms.Size = new System.Drawing.Size(1084, 587);
 			this.tabForms.TabIndex = 1;
 			this.tabForms.SelectedIndexChanged += new System.EventHandler(this.tabForms_SelectedIndexChanged);
 			// 
@@ -265,7 +288,7 @@
 			this.tabMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.tabMain.Location = new System.Drawing.Point(4, 26);
 			this.tabMain.Name = "tabMain";
-			this.tabMain.Size = new System.Drawing.Size(1026, 457);
+			this.tabMain.Size = new System.Drawing.Size(1076, 557);
 			this.tabMain.TabIndex = 0;
 			this.tabMain.Text = "Chào mừng";
 			this.tabMain.UseVisualStyleBackColor = true;
@@ -280,12 +303,12 @@
 			// toolStripContainer.ContentPanel
 			// 
 			this.toolStripContainer.ContentPanel.Controls.Add(this.tabForms);
-			this.toolStripContainer.ContentPanel.Size = new System.Drawing.Size(1034, 487);
+			this.toolStripContainer.ContentPanel.Size = new System.Drawing.Size(1084, 587);
 			this.toolStripContainer.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.toolStripContainer.Font = new System.Drawing.Font("Segoe UI", 10F);
 			this.toolStripContainer.Location = new System.Drawing.Point(0, 24);
 			this.toolStripContainer.Name = "toolStripContainer";
-			this.toolStripContainer.Size = new System.Drawing.Size(1034, 537);
+			this.toolStripContainer.Size = new System.Drawing.Size(1084, 637);
 			this.toolStripContainer.TabIndex = 4;
 			this.toolStripContainer.Text = "toolStripContainer1";
 			// 
@@ -305,7 +328,7 @@
 			this.statusBar.Location = new System.Drawing.Point(0, 0);
 			this.statusBar.Name = "statusBar";
 			this.statusBar.ShowItemToolTips = true;
-			this.statusBar.Size = new System.Drawing.Size(1034, 25);
+			this.statusBar.Size = new System.Drawing.Size(1084, 25);
 			this.statusBar.TabIndex = 0;
 			// 
 			// lblComputerName
@@ -351,10 +374,12 @@
             this.separator3,
             this.btnDongTab,
             this.btnDongTabConLai,
+            this.btnDongHet,
+            this.separator4,
             this.btnThoat});
 			this.toolBar.Location = new System.Drawing.Point(3, 0);
 			this.toolBar.Name = "toolBar";
-			this.toolBar.Size = new System.Drawing.Size(1031, 25);
+			this.toolBar.Size = new System.Drawing.Size(1021, 25);
 			this.toolBar.TabIndex = 3;
 			this.toolBar.Text = "Thanh công cụ";
 			// 
@@ -391,8 +416,8 @@
 			this.btnTrenCung.Image = global::QuanLyDienNang.Properties.Resources.Up;
 			this.btnTrenCung.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.btnTrenCung.Name = "btnTrenCung";
-			this.btnTrenCung.Size = new System.Drawing.Size(110, 22);
-			this.btnTrenCung.Text = "Dòng trên cùng";
+			this.btnTrenCung.Size = new System.Drawing.Size(79, 22);
+			this.btnTrenCung.Text = "Trên cùng";
 			this.btnTrenCung.Click += new System.EventHandler(this.btnTrenCung_Click);
 			// 
 			// btnLen
@@ -418,8 +443,8 @@
 			this.btnDuoiCung.Image = global::QuanLyDienNang.Properties.Resources.Down;
 			this.btnDuoiCung.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.btnDuoiCung.Name = "btnDuoiCung";
-			this.btnDuoiCung.Size = new System.Drawing.Size(112, 22);
-			this.btnDuoiCung.Text = "Dòng cuối cùng";
+			this.btnDuoiCung.Size = new System.Drawing.Size(82, 22);
+			this.btnDuoiCung.Text = "Dưới cùng";
 			this.btnDuoiCung.Click += new System.EventHandler(this.btnDuoiCung_Click);
 			// 
 			// separator3
@@ -429,13 +454,36 @@
 			// 
 			// btnDongTab
 			// 
-			this.btnDongTab.Image = global::QuanLyDienNang.Properties.Resources.Delete;
+			this.btnDongTab.Image = global::QuanLyDienNang.Properties.Resources.close;
 			this.btnDongTab.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.btnDongTab.Name = "btnDongTab";
 			this.btnDongTab.Size = new System.Drawing.Size(118, 22);
 			this.btnDongTab.Text = "Đóng tab hiện tại";
 			this.btnDongTab.ToolTipText = "Đóng Form hiện hành";
 			this.btnDongTab.Click += new System.EventHandler(this.btnDongTab_Click);
+			// 
+			// btnDongTabConLai
+			// 
+			this.btnDongTabConLai.Image = global::QuanLyDienNang.Properties.Resources.close;
+			this.btnDongTabConLai.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btnDongTabConLai.Name = "btnDongTabConLai";
+			this.btnDongTabConLai.Size = new System.Drawing.Size(135, 22);
+			this.btnDongTabConLai.Text = "Đóng các tab còn lại";
+			this.btnDongTabConLai.Click += new System.EventHandler(this.btnDongTabConLai_Click);
+			// 
+			// btnDongHet
+			// 
+			this.btnDongHet.Image = global::QuanLyDienNang.Properties.Resources.close;
+			this.btnDongHet.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btnDongHet.Name = "btnDongHet";
+			this.btnDongHet.Size = new System.Drawing.Size(76, 22);
+			this.btnDongHet.Text = "Đóng hết";
+			this.btnDongHet.Click += new System.EventHandler(this.btnDongHet_Click);
+			// 
+			// separator4
+			// 
+			this.separator4.Name = "separator4";
+			this.separator4.Size = new System.Drawing.Size(6, 25);
 			// 
 			// btnThoat
 			// 
@@ -448,24 +496,15 @@
 			this.btnThoat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
 			// 
-			// btnDongTabConLai
-			// 
-			this.btnDongTabConLai.Image = global::QuanLyDienNang.Properties.Resources.close;
-			this.btnDongTabConLai.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btnDongTabConLai.Name = "btnDongTabConLai";
-			this.btnDongTabConLai.Size = new System.Drawing.Size(135, 22);
-			this.btnDongTabConLai.Text = "Đóng các tab còn lại";
-			this.btnDongTabConLai.Click += new System.EventHandler(this.btnDongTabConLai_Click);
-			// 
 			// Form_Main
 			// 
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.ClientSize = new System.Drawing.Size(1034, 561);
+			this.ClientSize = new System.Drawing.Size(1084, 661);
 			this.Controls.Add(this.toolStripContainer);
 			this.Controls.Add(this.menuBar);
 			this.Font = new System.Drawing.Font("Segoe UI", 10F);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.MinimumSize = new System.Drawing.Size(1050, 600);
+			this.MinimumSize = new System.Drawing.Size(1100, 700);
 			this.Name = "Form_Main";
 			this.Text = "ỨNG DỤNG QUẢN LÝ ĐIỆN NĂNG";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -532,6 +571,10 @@
 		private System.Windows.Forms.ToolStripMenuItem quảnLýTrạmBiếnÁpToolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem quảnLýKháchHàngToolStripSubMenuItem;
 		private System.Windows.Forms.ToolStripButton btnDongTabConLai;
+		private System.Windows.Forms.ToolStripMenuItem menuDongConLai;
+		private System.Windows.Forms.ToolStripMenuItem menuDongHet;
+		private System.Windows.Forms.ToolStripButton btnDongHet;
+		private System.Windows.Forms.ToolStripSeparator separator4;
 	}
 }
 

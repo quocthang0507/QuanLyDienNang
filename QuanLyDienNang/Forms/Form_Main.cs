@@ -144,12 +144,17 @@ namespace QuanLyDienNang.Forms
 
 		private void menuDong_Click(object sender, EventArgs e)
 		{
-			TabPage tab = tabForms.SelectedTab;
-			if (tab.Name != "tabMain")
-			{
-				tabForms.TabPages.Remove(tab);
-				SwitchToLastTab();
-			}
+			btnDongTab.PerformClick();
+		}
+
+		private void menuDongHet_Click(object sender, EventArgs e)
+		{
+			btnDongHet.PerformClick();
+		}
+
+		private void menuDongConLai_Click(object sender, EventArgs e)
+		{
+			btnDongTabConLai.PerformClick();
 		}
 
 		private void btnDongTabConLai_Click(object sender, EventArgs e)
@@ -166,7 +171,24 @@ namespace QuanLyDienNang.Forms
 
 		private void btnDongTab_Click(object sender, EventArgs e)
 		{
-			menuDong.PerformClick();
+			TabPage tab = tabForms.SelectedTab;
+			if (tab.Name != "tabMain")
+			{
+				tabForms.TabPages.Remove(tab);
+				SwitchToLastTab();
+			}
+		}
+
+		private void btnDongHet_Click(object sender, EventArgs e)
+		{
+			foreach (TabPage tab in tabForms.TabPages)
+			{
+				if (tab.Name != "tabMain")
+				{
+					tabForms.TabPages.Remove(tab);
+				}
+			}
+			tabForms.SelectedIndex = 0;
 		}
 
 		private void tabForms_SelectedIndexChanged(object sender, EventArgs e)
@@ -202,11 +224,6 @@ namespace QuanLyDienNang.Forms
 		private void btnXuatExcel_Click(object sender, EventArgs e)
 		{
 			ExportToExcel.Invoke();
-		}
-
-		private void btnIn_Click(object sender, EventArgs e)
-		{
-
 		}
 
 		private void quảnLýBảngGiáToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -278,7 +295,7 @@ namespace QuanLyDienNang.Forms
 			int len = tabForms.TabPages.Count;
 			if (len > 0)
 			{
-				tabForms.SelectTab(--len);
+				tabForms.SelectedIndex = --len;
 			}
 		}
 

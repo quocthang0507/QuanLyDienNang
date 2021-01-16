@@ -293,6 +293,26 @@ namespace QuanLyDienNang.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap close1 {
+            get {
+                object obj = ResourceManager.GetObject("close1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap close2 {
+            get {
+                object obj = ResourceManager.GetObject("close2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Comment {
             get {
                 object obj = ResourceManager.GetObject("Comment", resourceCulture);
@@ -423,9 +443,9 @@ namespace QuanLyDienNang.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Delete {
+        internal static System.Drawing.Bitmap delete {
             get {
-                object obj = ResourceManager.GetObject("Delete", resourceCulture);
+                object obj = ResourceManager.GetObject("delete", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -433,9 +453,9 @@ namespace QuanLyDienNang.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Delete1 {
+        internal static System.Drawing.Bitmap delete1 {
             get {
-                object obj = ResourceManager.GetObject("Delete1", resourceCulture);
+                object obj = ResourceManager.GetObject("delete1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -443,9 +463,9 @@ namespace QuanLyDienNang.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Delete2 {
+        internal static System.Drawing.Bitmap delete2 {
             get {
-                object obj = ResourceManager.GetObject("Delete2", resourceCulture);
+                object obj = ResourceManager.GetObject("delete2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -916,6 +936,16 @@ namespace QuanLyDienNang.Properties {
         internal static System.Drawing.Bitmap Open1 {
             get {
                 object obj = ResourceManager.GetObject("Open1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap open2 {
+            get {
+                object obj = ResourceManager.GetObject("open2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
