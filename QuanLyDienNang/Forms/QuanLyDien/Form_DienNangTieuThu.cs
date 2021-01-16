@@ -261,7 +261,11 @@ namespace QuanLyDienNang.Forms
 			if (data == null)
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
+			{
 				cbxTenTram.DataSource = data;
+				cbxTenTram.DisplayMember = nameof(TramBienAp.TenTram);
+				cbxTenTram.ValueMember = nameof(TramBienAp.TenTram);
+			}
 		}
 
 		private void LoadBangGia()
@@ -270,7 +274,11 @@ namespace QuanLyDienNang.Forms
 			if (data == null)
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
+			{
 				cbxBangGia.DataSource = data;
+				cbxBangGia.DisplayMember = nameof(BangGia.TenBangGia);
+				cbxBangGia.ValueMember = nameof(BangGia.TenBangGia);
+			}
 		}
 
 		private void LoadNguoiQuanLy()
@@ -279,7 +287,11 @@ namespace QuanLyDienNang.Forms
 			if (data == null)
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
+			{
 				cbxNguoiQuanLy.DataSource = data;
+				cbxNguoiQuanLy.DisplayMember = nameof(NguoiQuanLy.TenQuanLy);
+				cbxNguoiQuanLy.ValueMember = nameof(NguoiQuanLy.TenQuanLy);
+			}
 		}
 
 		private void UpdateControls()

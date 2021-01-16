@@ -38,7 +38,7 @@ namespace QuanLyDienNang.Forms
 		private void dgvKhachHang_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
 		{
 			dgvKhachHang.AutoResizeColumns();
-			UpdateColumnFormat();
+			//UpdateColumnFormat();
 		}
 
 		private void btnChonTapTin_Click(object sender, EventArgs e)
@@ -48,6 +48,7 @@ namespace QuanLyDienNang.Forms
 				return;
 			string path = openDialog.FileName;
 			tbxDuongDan.Text = path;
+			funcs.SaveExcelPathForImporting(path);
 			LoadSheet(path);
 		}
 
@@ -78,7 +79,9 @@ namespace QuanLyDienNang.Forms
 			if (data == null)
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
+			{
 				dgvKhachHang.DataSource = data;
+			}
 		}
 
 		private void btnXemMau_Click(object sender, EventArgs e)
@@ -186,7 +189,11 @@ namespace QuanLyDienNang.Forms
 			if (data == null)
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else
+			{
 				cbxNguoiThucHien.DataSource = data;
+				cbxNguoiThucHien.DisplayMember = nameof(NguoiQuanLy.TenQuanLy);
+				cbxNguoiThucHien.ValueMember = nameof(NguoiQuanLy.TenQuanLy);
+			}
 		}
 
 		private void LoadSheet(string path)
@@ -204,6 +211,5 @@ namespace QuanLyDienNang.Forms
 			dgvKhachHang.Columns[0].DefaultCellStyle.Font = new Font(DefaultFont, FontStyle.Bold);
 		}
 		#endregion
-
 	}
 }

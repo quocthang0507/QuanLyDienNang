@@ -46,10 +46,11 @@
 			this.btnLoadTheoKy = new System.Windows.Forms.Button();
 			this.label9 = new System.Windows.Forms.Label();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
+			this.tableRightBottom = new System.Windows.Forms.TableLayoutPanel();
 			this.btnXuatExcel = new System.Windows.Forms.Button();
 			this.btnLuu = new System.Windows.Forms.Button();
-			this.btnLapHoaDon = new System.Windows.Forms.Button();
 			this.btnNhapExcel = new System.Windows.Forms.Button();
+			this.btnLapHoaDon = new System.Windows.Forms.Button();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.tableLeftTop = new System.Windows.Forms.TableLayoutPanel();
 			this.panel2 = new System.Windows.Forms.Panel();
@@ -71,18 +72,17 @@
 			this.label7 = new System.Windows.Forms.Label();
 			this.saveDialog = new System.Windows.Forms.SaveFileDialog();
 			this.openDialog = new System.Windows.Forms.OpenFileDialog();
-			this.tableRightBottom = new System.Windows.Forms.TableLayoutPanel();
 			this.tableParent.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvDienNangTieuThu)).BeginInit();
 			this.tableTop.SuspendLayout();
 			this.tableRightTop.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.groupBox3.SuspendLayout();
+			this.tableRightBottom.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.tableLeftTop.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.panel1.SuspendLayout();
-			this.tableRightBottom.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tableParent
@@ -207,14 +207,12 @@
 			// cbxNguoiQuanLy
 			// 
 			this.cbxNguoiQuanLy.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.cbxNguoiQuanLy.DisplayMember = "TenQuanLy";
 			this.cbxNguoiQuanLy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbxNguoiQuanLy.FormattingEnabled = true;
 			this.cbxNguoiQuanLy.Location = new System.Drawing.Point(213, 53);
 			this.cbxNguoiQuanLy.Name = "cbxNguoiQuanLy";
 			this.cbxNguoiQuanLy.Size = new System.Drawing.Size(245, 25);
 			this.cbxNguoiQuanLy.TabIndex = 12;
-			this.cbxNguoiQuanLy.ValueMember = "TenQuanLy";
 			// 
 			// dtpCuoiKy
 			// 
@@ -306,6 +304,25 @@
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Chức năng chính";
 			// 
+			// tableRightBottom
+			// 
+			this.tableRightBottom.ColumnCount = 4;
+			this.tableRightBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22F));
+			this.tableRightBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+			this.tableRightBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+			this.tableRightBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
+			this.tableRightBottom.Controls.Add(this.btnXuatExcel, 3, 0);
+			this.tableRightBottom.Controls.Add(this.btnLuu, 0, 0);
+			this.tableRightBottom.Controls.Add(this.btnNhapExcel, 2, 0);
+			this.tableRightBottom.Controls.Add(this.btnLapHoaDon, 1, 0);
+			this.tableRightBottom.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableRightBottom.Location = new System.Drawing.Point(3, 21);
+			this.tableRightBottom.Name = "tableRightBottom";
+			this.tableRightBottom.RowCount = 1;
+			this.tableRightBottom.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableRightBottom.Size = new System.Drawing.Size(575, 43);
+			this.tableRightBottom.TabIndex = 10;
+			// 
 			// btnXuatExcel
 			// 
 			this.btnXuatExcel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -334,20 +351,6 @@
 			this.btnLuu.UseVisualStyleBackColor = true;
 			this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
 			// 
-			// btnLapHoaDon
-			// 
-			this.btnLapHoaDon.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.btnLapHoaDon.Image = global::QuanLyDienNang.Properties.Resources.Modify;
-			this.btnLapHoaDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLapHoaDon.Location = new System.Drawing.Point(129, 3);
-			this.btnLapHoaDon.Name = "btnLapHoaDon";
-			this.btnLapHoaDon.Size = new System.Drawing.Size(195, 37);
-			this.btnLapHoaDon.TabIndex = 18;
-			this.btnLapHoaDon.Text = "Tính tiền && Lập hóa đơn";
-			this.btnLapHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.btnLapHoaDon.UseVisualStyleBackColor = true;
-			this.btnLapHoaDon.Click += new System.EventHandler(this.btnLapHoaDon_Click);
-			// 
 			// btnNhapExcel
 			// 
 			this.btnNhapExcel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -361,6 +364,20 @@
 			this.btnNhapExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnNhapExcel.UseVisualStyleBackColor = true;
 			this.btnNhapExcel.Click += new System.EventHandler(this.btnNhapExcel_Click);
+			// 
+			// btnLapHoaDon
+			// 
+			this.btnLapHoaDon.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.btnLapHoaDon.Image = global::QuanLyDienNang.Properties.Resources.Modify;
+			this.btnLapHoaDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnLapHoaDon.Location = new System.Drawing.Point(129, 3);
+			this.btnLapHoaDon.Name = "btnLapHoaDon";
+			this.btnLapHoaDon.Size = new System.Drawing.Size(195, 37);
+			this.btnLapHoaDon.TabIndex = 18;
+			this.btnLapHoaDon.Text = "Tính tiền && Lập hóa đơn";
+			this.btnLapHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnLapHoaDon.UseVisualStyleBackColor = true;
+			this.btnLapHoaDon.Click += new System.EventHandler(this.btnLapHoaDon_Click);
 			// 
 			// groupBox2
 			// 
@@ -550,14 +567,12 @@
 			// 
 			this.cbxBangGia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.cbxBangGia.DisplayMember = "TenBangGia";
 			this.cbxBangGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbxBangGia.FormattingEnabled = true;
 			this.cbxBangGia.Location = new System.Drawing.Point(85, 105);
 			this.cbxBangGia.Name = "cbxBangGia";
 			this.cbxBangGia.Size = new System.Drawing.Size(278, 25);
 			this.cbxBangGia.TabIndex = 5;
-			this.cbxBangGia.ValueMember = "TenBangGia";
 			// 
 			// label5
 			// 
@@ -574,14 +589,12 @@
 			// 
 			this.cbxTenTram.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.cbxTenTram.DisplayMember = "TenTram";
 			this.cbxTenTram.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbxTenTram.FormattingEnabled = true;
 			this.cbxTenTram.Location = new System.Drawing.Point(85, 47);
 			this.cbxTenTram.Name = "cbxTenTram";
 			this.cbxTenTram.Size = new System.Drawing.Size(278, 25);
 			this.cbxTenTram.TabIndex = 3;
-			this.cbxTenTram.ValueMember = "TenTram";
 			// 
 			// label7
 			// 
@@ -606,25 +619,6 @@
 			// 
 			this.openDialog.Filter = "Excel Workbook (.xlsx)|*.xlsx|Excel 97-2003 Workbook (.xls)|*.xls";
 			// 
-			// tableRightBottom
-			// 
-			this.tableRightBottom.ColumnCount = 4;
-			this.tableRightBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22F));
-			this.tableRightBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
-			this.tableRightBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-			this.tableRightBottom.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
-			this.tableRightBottom.Controls.Add(this.btnXuatExcel, 3, 0);
-			this.tableRightBottom.Controls.Add(this.btnLuu, 0, 0);
-			this.tableRightBottom.Controls.Add(this.btnNhapExcel, 2, 0);
-			this.tableRightBottom.Controls.Add(this.btnLapHoaDon, 1, 0);
-			this.tableRightBottom.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableRightBottom.Location = new System.Drawing.Point(3, 21);
-			this.tableRightBottom.Name = "tableRightBottom";
-			this.tableRightBottom.RowCount = 1;
-			this.tableRightBottom.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableRightBottom.Size = new System.Drawing.Size(575, 43);
-			this.tableRightBottom.TabIndex = 10;
-			// 
 			// Form_DienNangTieuThu
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -646,12 +640,12 @@
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			this.groupBox3.ResumeLayout(false);
+			this.tableRightBottom.ResumeLayout(false);
 			this.groupBox2.ResumeLayout(false);
 			this.tableLeftTop.ResumeLayout(false);
 			this.panel2.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
-			this.tableRightBottom.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}

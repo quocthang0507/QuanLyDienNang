@@ -148,14 +148,12 @@
 			// cbxTenTram
 			// 
 			this.cbxTenTram.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.cbxTenTram.DisplayMember = "TenTram";
 			this.cbxTenTram.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbxTenTram.FormattingEnabled = true;
 			this.cbxTenTram.Location = new System.Drawing.Point(584, 3);
 			this.cbxTenTram.Name = "cbxTenTram";
 			this.cbxTenTram.Size = new System.Drawing.Size(359, 25);
 			this.cbxTenTram.TabIndex = 2;
-			this.cbxTenTram.ValueMember = "TenTram";
 			// 
 			// tbxDiaChi
 			// 
@@ -199,14 +197,12 @@
 			// cbxBangGia
 			// 
 			this.cbxBangGia.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.cbxBangGia.DisplayMember = "TenBangGia";
 			this.cbxBangGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbxBangGia.FormattingEnabled = true;
 			this.cbxBangGia.Location = new System.Drawing.Point(74, 34);
 			this.cbxBangGia.Name = "cbxBangGia";
 			this.cbxBangGia.Size = new System.Drawing.Size(384, 25);
 			this.cbxBangGia.TabIndex = 3;
-			this.cbxBangGia.ValueMember = "TenBangGia";
 			// 
 			// cbxNganHang
 			// 

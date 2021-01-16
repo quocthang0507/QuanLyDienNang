@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Forms\Funcs_BangGia.cs" />
+    <Compile Include="Helper\DisplayNameHelper.cs" />
     <Compile Include="Helper\VietnameseNumber2Text.cs" />
     <Compile Include="Helper\Excel.cs" />
     <Compile Include="Tables\BangDienApGia.cs" />
