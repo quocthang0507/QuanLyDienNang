@@ -1,4 +1,5 @@
 ﻿using DataAccess;
+using KGySoft.ComponentModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -105,9 +106,9 @@ namespace Business.Classes
 
 		}
 
-		public static List<KhachHang> GetAll()
+		public static SortableBindingList<KhachHang> GetAll()
 		{
-			return CBO.FillCollection<KhachHang>(DataProvider.Instance.ExecuteReader("proc_GetAll_KhachHang"));
+			return CBO.FillInBindingList<KhachHang>(DataProvider.Instance.ExecuteReader("proc_GetAll_KhachHang"));
 		}
 
 		public static bool Insert(KhachHang khachHang)
@@ -154,30 +155,27 @@ namespace Business.Classes
 			return result > 0;
 		}
 
-		public static List<KhachHang> Filter(string diaChi, string maBangGia, string maTram, string tenNganHang)
+		public static SortableBindingList<KhachHang> Filter(string diaChi, string maBangGia, string maTram, string tenNganHang)
 		{
-			List<KhachHang> list = GetAll();
+			SortableBindingList<KhachHang> list = GetAll();
+			IEnumerable<KhachHang> temp = null;
 			if (!string.IsNullOrWhiteSpace(diaChi))
 			{
-				list = list.Where(khach => khach.DiaChi.Contains(diaChi)).ToList();
+				temp = list.Where(khach => khach.DiaChi.Contains(diaChi));
 			}
-
 			if (!string.IsNullOrWhiteSpace(maBangGia))
 			{
-				list = list.Where(khach => khach.MaBangGia.Equals(maBangGia)).ToList();
+				temp = temp.Where(khach => khach.MaBangGia.Equals(maBangGia));
 			}
-
 			if (!string.IsNullOrWhiteSpace(maTram))
 			{
-				list = list.Where(khach => khach.MaTram.Equals(maTram)).ToList();
+				temp = temp.Where(khach => khach.MaTram.Equals(maTram));
 			}
-
 			if (!string.IsNullOrWhiteSpace(tenNganHang))
 			{
-				list = list.Where(khach => khach.TenNganHang.Contains(tenNganHang)).ToList();
+				temp = temp.Where(khach => khach.TenNganHang.Contains(tenNganHang)).ToList();
 			}
-
-			return list;
+			return new SortableBindingList<KhachHang>(temp.ToList());
 		}
 	}
 }

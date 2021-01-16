@@ -1,6 +1,6 @@
 ﻿using DataAccess;
+using KGySoft.ComponentModel;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -49,9 +49,9 @@ namespace Business.Tables
 			DataProvider.Instance.ExecuteNonQuery("proc_CreateNew_BangDienApGia", maBangGia);
 		}
 
-		public static List<BangDienApGia> GetAll(string maApGia)
+		public static SortableBindingList<BangDienApGia> GetAll(string maApGia)
 		{
-			return CBO.FillCollection<BangDienApGia>(DataProvider.Instance.ExecuteReader("proc_GetAll_BangDienApGia", maApGia));
+			return CBO.FillInBindingList<BangDienApGia>(DataProvider.Instance.ExecuteReader("proc_GetAll_BangDienApGia", maApGia));
 		}
 
 		public static bool Update(BangDienApGia bangDienApGia)

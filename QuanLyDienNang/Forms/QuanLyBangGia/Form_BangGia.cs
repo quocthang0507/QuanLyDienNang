@@ -211,14 +211,14 @@ namespace QuanLyDienNang.Forms
 
 		private void LoadTable()
 		{
-			List<BangGia> data = BangGia.GetAll();
+			SortableBindingList<BangGia> data = BangGia.GetAll();
 			if (data == null)
 			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 			else
 			{
-				dgvBangGia.DataSource = new SortableBindingList<BangGia>(data);
+				dgvBangGia.DataSource = data;
 			}
 		}
 

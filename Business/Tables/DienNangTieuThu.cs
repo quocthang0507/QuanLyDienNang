@@ -1,6 +1,6 @@
 ﻿using DataAccess;
+using KGySoft.ComponentModel;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -121,14 +121,14 @@ namespace Business.Classes
 
 		}
 
-		public static List<DienNangTieuThu> GetAll()
+		public static SortableBindingList<DienNangTieuThu> GetAll()
 		{
-			return CBO.FillCollection<DienNangTieuThu>(DataProvider.Instance.ExecuteReader("proc_GetAll_DienNangTieuThu"));
+			return CBO.FillInBindingList<DienNangTieuThu>(DataProvider.Instance.ExecuteReader("proc_GetAll_DienNangTieuThu"));
 		}
 
-		public static List<DienNangTieuThu> GetByPeriod(DateTime ngayCuoiKy)
+		public static SortableBindingList<DienNangTieuThu> GetByPeriod(DateTime ngayCuoiKy)
 		{
-			return CBO.FillCollection<DienNangTieuThu>(DataProvider.Instance.ExecuteReader("proc_GetByDate_DienNangTieuThu", ngayCuoiKy.Month, ngayCuoiKy.Year));
+			return CBO.FillInBindingList<DienNangTieuThu>(DataProvider.Instance.ExecuteReader("proc_GetByDate_DienNangTieuThu", ngayCuoiKy.Month, ngayCuoiKy.Year));
 		}
 
 		public static bool Insert(DienNangTieuThu dienNangTieuThu)
@@ -175,17 +175,16 @@ namespace Business.Classes
 			return result > 0;
 		}
 
-		public static List<DienNangTieuThu> Filter(DateTime batDau, DateTime ketThuc, string maTram, string diaChi, string maBangGia, bool conNo)
+		public static SortableBindingList<DienNangTieuThu> Filter(DateTime batDau, DateTime ketThuc, string maTram, string diaChi, string maBangGia, bool conNo)
 		{
-			List<DienNangTieuThu> list = GetAll();
-			list = list.Where(dntt => dntt.NgayBatDau.Month == batDau.Month && dntt.NgayKetThuc.Month == ketThuc.Month && dntt.NgayBatDau.Year == batDau.Year && dntt.NgayKetThuc.Year == ketThuc.Year).ToList();
-			list = list.Where(dntt => dntt.MaTram == maTram && dntt.DiaChi.Contains(diaChi) && dntt.MaBangGia == maBangGia).ToList();
+			SortableBindingList<DienNangTieuThu> list = GetAll();
+			var temp = list.Where(dntt => dntt.NgayBatDau.Month == batDau.Month && dntt.NgayKetThuc.Month == ketThuc.Month && dntt.NgayBatDau.Year == batDau.Year && dntt.NgayKetThuc.Year == ketThuc.Year);
+			temp = temp.Where(dntt => dntt.MaTram == maTram && dntt.DiaChi.Contains(diaChi) && dntt.MaBangGia == maBangGia).ToList();
 			if (conNo)
 			{
-				list = list.Where(dntt => dntt.ConLai > 0).ToList();
+				temp = temp.Where(dntt => dntt.ConLai > 0);
 			}
-
-			return list;
+			return new SortableBindingList<DienNangTieuThu>(temp.ToList());
 		}
 
 		public static bool UpdateMoney(DateTime ngayBatDau, DateTime ngayKetThuc, string maQuanLy)

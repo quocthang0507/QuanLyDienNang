@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="KGySoft.CoreLibraries, Version=5.5.0.0, Culture=neutral, PublicKeyToken=b45eba277439ddfe, processorArchitecture=MSIL">
+      <HintPath>..\packages\KGySoft.CoreLibraries.5.5.0\lib\net472\KGySoft.CoreLibraries.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -46,12 +49,14 @@
     <Compile Include="CBO.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="Null.cs" />
-    <Compile Include="SortableBindingList.cs" />
     <Compile Include="SQLConnectionString.cs" />
     <Compile Include="SqlDataProvider.cs" />
     <Compile Include="SQLHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StoredProcStatus.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

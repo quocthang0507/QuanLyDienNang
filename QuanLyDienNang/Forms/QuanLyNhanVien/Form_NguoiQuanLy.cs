@@ -176,14 +176,14 @@ namespace QuanLyDienNang.Forms
 
 		private void LoadTable()
 		{
-			List<NguoiQuanLy> data = NguoiQuanLy.GetAll();
+			SortableBindingList<NguoiQuanLy> data = NguoiQuanLy.GetAll();
 			if (data == null)
 			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 			else
 			{
-				dgvNguoiQuanLy.DataSource = new SortableBindingList<NguoiQuanLy>(data);
+				dgvNguoiQuanLy.DataSource = data;
 			}
 		}
 

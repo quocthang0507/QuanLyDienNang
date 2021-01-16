@@ -1,6 +1,6 @@
 ﻿using DataAccess;
+using KGySoft.ComponentModel;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -42,9 +42,9 @@ namespace Business.Classes
 
 		}
 
-		public static List<NguoiQuanLy> GetAll()
+		public static SortableBindingList<NguoiQuanLy> GetAll()
 		{
-			return CBO.FillCollection<NguoiQuanLy>(DataProvider.Instance.ExecuteReader("proc_GetAll_NguoiQuanLy"));
+			return CBO.FillInBindingList<NguoiQuanLy>(DataProvider.Instance.ExecuteReader("proc_GetAll_NguoiQuanLy"));
 		}
 
 		public static bool IsDuplicatedMaQuanLy(string maQuanLy)

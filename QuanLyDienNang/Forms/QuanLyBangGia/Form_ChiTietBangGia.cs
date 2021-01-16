@@ -191,14 +191,14 @@ namespace QuanLyDienNang.Forms
 
 		private void LoadTableByMaBangGia()
 		{
-			List<ChiTietBangGia> data = ChiTietBangGia.GetByBangGia(bangGia.MaBangGia);
+			SortableBindingList<ChiTietBangGia> data = ChiTietBangGia.GetByBangGia(bangGia.MaBangGia);
 			if (data == null)
 			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 			else
 			{
-				dgvChiTietGia.DataSource = new SortableBindingList<ChiTietBangGia>(data);
+				dgvChiTietGia.DataSource = data;
 			}
 		}
 

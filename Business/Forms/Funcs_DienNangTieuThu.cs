@@ -1,6 +1,6 @@
 ﻿using Business.Classes;
+using KGySoft.ComponentModel;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 
@@ -18,10 +18,10 @@ namespace Business.Forms
 		/// <param name="NgayBD">Ngày bắt đầu</param>
 		/// <param name="NgayKT">Ngày kết thúc</param>
 		/// <returns>Danh sách DienNangTieuThu</returns>
-		public List<DienNangTieuThu> AddNewDNTTFromKH(string MaQuanLy, DateTime NgayBD, DateTime NgayKT)
+		public SortableBindingList<DienNangTieuThu> AddNewDNTTFromKH(string MaQuanLy, DateTime NgayBD, DateTime NgayKT)
 		{
-			List<KhachHang> listKH = KhachHang.GetAll();
-			List<DienNangTieuThu> listDNTT = new List<DienNangTieuThu>();
+			SortableBindingList<KhachHang> listKH = KhachHang.GetAll();
+			SortableBindingList<DienNangTieuThu> listDNTT = new SortableBindingList<DienNangTieuThu>();
 			foreach (KhachHang khach in listKH)
 			{
 				DienNangTieuThu dienNangTieuThu = new DienNangTieuThu()
@@ -59,9 +59,9 @@ namespace Business.Forms
 		/// </summary>
 		/// <param name="dt">DataTable</param>
 		/// <returns>Null hoặc Danh sách DienNangTieuThu</returns>
-		public List<DienNangTieuThu> ConvertDataTableToListForUpdating(DataTable dt)
+		public SortableBindingList<DienNangTieuThu> ConvertDataTableToListForUpdating(DataTable dt)
 		{
-			List<DienNangTieuThu> list = new List<DienNangTieuThu>();
+			SortableBindingList<DienNangTieuThu> list = new SortableBindingList<DienNangTieuThu>();
 			try
 			{
 				foreach (DataRow row in dt.Rows)
@@ -107,7 +107,7 @@ namespace Business.Forms
 		/// </summary>
 		/// <param name="list"></param>
 		/// <returns></returns>
-		public DataTable ConvertListToDataTableForReporting(List<DienNangTieuThu> list)
+		public DataTable ConvertListToDataTableForReporting(SortableBindingList<DienNangTieuThu> list)
 		{
 			DataTable dt = new DataTable();
 			PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(DienNangTieuThu));
@@ -132,7 +132,7 @@ namespace Business.Forms
 		/// </summary>
 		/// <param name="list">Danh sách DienNangTieuThu</param>
 		/// <returns>Thành công hay không</returns>
-		public bool TryInsertingListToSQL(List<DienNangTieuThu> list)
+		public bool TryInsertingListToSQL(SortableBindingList<DienNangTieuThu> list)
 		{
 			foreach (DienNangTieuThu dienNangTieuThu in list)
 			{
@@ -149,7 +149,7 @@ namespace Business.Forms
 		/// </summary>
 		/// <param name="list">Danh sách DienNangTieuThu</param>
 		/// <returns>Thành công hay không</returns>
-		public bool TryUpdatingListToSQL(List<DienNangTieuThu> list)
+		public bool TryUpdatingListToSQL(SortableBindingList<DienNangTieuThu> list)
 		{
 			foreach (DienNangTieuThu dienNangTieuThu in list)
 			{
@@ -165,7 +165,7 @@ namespace Business.Forms
 		/// Chèn danh sách vào bảng DienNangTieuThu
 		/// </summary>
 		/// <param name="list">Danh sách DienNangTieuThu</param>
-		public void InsertSQL(List<DienNangTieuThu> list)
+		public void InsertSQL(SortableBindingList<DienNangTieuThu> list)
 		{
 			foreach (DienNangTieuThu dienNangTieuThu in list)
 			{
@@ -177,7 +177,7 @@ namespace Business.Forms
 		/// Cập nhật danh sách vào bảng DienNangTieuThu
 		/// </summary>
 		/// <param name="list">Danh sách DienNangTieuThu</param>
-		public void UpdateSQL(List<DienNangTieuThu> list)
+		public void UpdateSQL(SortableBindingList<DienNangTieuThu> list)
 		{
 			foreach (DienNangTieuThu dienNangTieuThu in list)
 			{
@@ -191,7 +191,7 @@ namespace Business.Forms
 		/// <param name="list">Danh sách DienNangTieuThu</param>
 		/// <param name="maQL">Mã của người quản lý</param>
 		/// <returns>Danh sách DienNangTieuThu</returns>
-		public List<DienNangTieuThu> UpdateListForUpdating(List<DienNangTieuThu> list, string maQL)
+		public SortableBindingList<DienNangTieuThu> UpdateListForUpdating(SortableBindingList<DienNangTieuThu> list, string maQL)
 		{
 			foreach (DienNangTieuThu dienNangTieuThu in list)
 			{

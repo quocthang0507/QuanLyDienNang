@@ -182,14 +182,14 @@ namespace QuanLyDienNang.Forms
 
 		private void LoadTable()
 		{
-			List<TramBienAp> data = TramBienAp.GetAll();
+			SortableBindingList<TramBienAp> data = TramBienAp.GetAll();
 			if (data == null)
 			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 			else
 			{
-				dgvTramBienAp.DataSource = new SortableBindingList<TramBienAp>(data);
+				dgvTramBienAp.DataSource = data;
 			}
 		}
 

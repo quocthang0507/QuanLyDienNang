@@ -1,6 +1,6 @@
 ﻿using DataAccess;
+using KGySoft.ComponentModel;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -46,14 +46,14 @@ namespace Business.Classes
 
 		}
 
-		public static List<ChiTietBangGia> GetAll()
+		public static SortableBindingList<ChiTietBangGia> GetAll()
 		{
-			return CBO.FillCollection<ChiTietBangGia>(DataProvider.Instance.ExecuteReader("proc_GetAll_ChiTietBangGia"));
+			return CBO.FillInBindingList<ChiTietBangGia>(DataProvider.Instance.ExecuteReader("proc_GetAll_ChiTietBangGia"));
 		}
 
-		public static List<ChiTietBangGia> GetByBangGia(string maBangGia)
+		public static SortableBindingList<ChiTietBangGia> GetByBangGia(string maBangGia)
 		{
-			return CBO.FillCollection<ChiTietBangGia>(DataProvider.Instance.ExecuteReader("proc_GetByBangGia_ChiTietBangGia", maBangGia));
+			return CBO.FillInBindingList<ChiTietBangGia>(DataProvider.Instance.ExecuteReader("proc_GetByBangGia_ChiTietBangGia", maBangGia));
 		}
 
 		public static bool Insert(ChiTietBangGia chiTietBangGia)

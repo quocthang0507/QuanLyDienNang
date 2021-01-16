@@ -1,6 +1,7 @@
 ﻿using Business.Classes;
 using Business.Forms;
 using Business.Helper;
+using KGySoft.ComponentModel;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -38,7 +39,7 @@ namespace QuanLyDienNang.Forms
 
 		private void btnXuatTatCa_Click(object sender, EventArgs e)
 		{
-			List<DienNangTieuThu> data = DienNangTieuThu.GetAll();
+			SortableBindingList<DienNangTieuThu> data = DienNangTieuThu.GetAll();
 			if (data == null)
 			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -51,7 +52,7 @@ namespace QuanLyDienNang.Forms
 
 		private void btnTimKiem_Click(object sender, EventArgs e)
 		{
-			List<DienNangTieuThu> data = DienNangTieuThu.Filter(dtpBatDau_TK.Value, dtpKetThuc_TK.Value, (cbxTenTram.SelectedItem as TramBienAp).MaTram, tbxDiaChi.Text, (cbxBangGia.SelectedItem as BangGia).MaBangGia, chkConNo.Checked);
+			SortableBindingList<DienNangTieuThu> data = DienNangTieuThu.Filter(dtpBatDau_TK.Value, dtpKetThuc_TK.Value, (cbxTenTram.SelectedItem as TramBienAp).MaTram, tbxDiaChi.Text, (cbxBangGia.SelectedItem as BangGia).MaBangGia, chkConNo.Checked);
 			if (data == null)
 			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -70,7 +71,7 @@ namespace QuanLyDienNang.Forms
 				return;
 			}
 
-			List<DienNangTieuThu> data = funcs.AddNewDNTTFromKH((cbxNguoiQuanLy.SelectedItem as NguoiQuanLy).MaQuanLy, dtpDauKy.Value, dtpCuoiKy.Value);
+			SortableBindingList<DienNangTieuThu> data = funcs.AddNewDNTTFromKH((cbxNguoiQuanLy.SelectedItem as NguoiQuanLy).MaQuanLy, dtpDauKy.Value, dtpCuoiKy.Value);
 			if (data == null)
 			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -93,7 +94,7 @@ namespace QuanLyDienNang.Forms
 
 		private void btnLoadTheoKy_Click(object sender, EventArgs e)
 		{
-			List<DienNangTieuThu> data = DienNangTieuThu.GetByPeriod(dtpCuoiKy.Value);
+			SortableBindingList<DienNangTieuThu> data = DienNangTieuThu.GetByPeriod(dtpCuoiKy.Value);
 			if (data == null)
 			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -140,7 +141,7 @@ namespace QuanLyDienNang.Forms
 			string path = openDialog.FileName;
 			// Đọc sheet đầu tiên
 			DataTable dt = Excel.ReadExcelAsDataTable(path, "");
-			List<DienNangTieuThu> data = funcs.ConvertDataTableToListForUpdating(dt);
+			SortableBindingList<DienNangTieuThu> data = funcs.ConvertDataTableToListForUpdating(dt);
 			if (data == null)
 			{
 				MessageBox.Show(STRINGS.ERROR_IMPORT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -187,11 +188,11 @@ namespace QuanLyDienNang.Forms
 				return;
 			}
 			string maQL = (cbxNguoiQuanLy.SelectedItem as NguoiQuanLy).MaQuanLy;
-			List<DienNangTieuThu> data = funcs.UpdateListForUpdating(dgvDienNangTieuThu.DataSource as List<DienNangTieuThu>, maQL);
+			SortableBindingList<DienNangTieuThu> data = funcs.UpdateListForUpdating(dgvDienNangTieuThu.DataSource as SortableBindingList<DienNangTieuThu>, maQL);
 			bool ok = funcs.TryUpdatingListToSQL(data);
 			if (ok)
 			{
-				funcs.UpdateSQL(dgvDienNangTieuThu.DataSource as List<DienNangTieuThu>);
+				funcs.UpdateSQL(dgvDienNangTieuThu.DataSource as SortableBindingList<DienNangTieuThu>);
 				MessageBox.Show(STRINGS.SUCCESS_UPDATE_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			else
@@ -274,7 +275,7 @@ namespace QuanLyDienNang.Forms
 
 		private void LoadTramBienAp()
 		{
-			List<TramBienAp> data = TramBienAp.GetAll();
+			SortableBindingList<TramBienAp> data = TramBienAp.GetAll();
 			if (data == null)
 			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -289,7 +290,7 @@ namespace QuanLyDienNang.Forms
 
 		private void LoadBangGia()
 		{
-			List<BangGia> data = BangGia.GetAll();
+			SortableBindingList<BangGia> data = BangGia.GetAll();
 			if (data == null)
 			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -304,7 +305,7 @@ namespace QuanLyDienNang.Forms
 
 		private void LoadNguoiQuanLy()
 		{
-			List<NguoiQuanLy> data = NguoiQuanLy.GetAll();
+			SortableBindingList<NguoiQuanLy> data = NguoiQuanLy.GetAll();
 			if (data == null)
 			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -1,6 +1,7 @@
 ﻿using Business.Classes;
 using Business.Forms;
 using Business.Helper;
+using KGySoft.ComponentModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -49,7 +50,7 @@ namespace QuanLyDienNang.Forms
 						MessageBox.Show(STRINGS.WARNING_MISS_PATH_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 						return;
 					}
-					List<KhachHang> data = funcs.ReadExcelForUpdating(tbxDuongDan.Text, cbxSheet.Text);
+					SortableBindingList<KhachHang> data = funcs.ReadExcelForUpdating(tbxDuongDan.Text, cbxSheet.Text);
 					if (data == null)
 					{
 						MessageBox.Show(STRINGS.ERROR_IMPORT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -71,11 +72,11 @@ namespace QuanLyDienNang.Forms
 				return;
 			}
 			string maQL = (cbxNguoiCapNhat.SelectedItem as NguoiQuanLy).MaQuanLy;
-			List<KhachHang> data = funcs.UpdateListForUpdating(dgvKhachHang.DataSource as List<KhachHang>, maQL);
+			SortableBindingList<KhachHang> data = funcs.UpdateListForUpdating(dgvKhachHang.DataSource as SortableBindingList<KhachHang>, maQL);
 			bool ok = funcs.TryUpdatingDataTableToSQL(data);
 			if (ok)
 			{
-				funcs.UpdateSQL(dgvKhachHang.DataSource as List<KhachHang>);
+				funcs.UpdateSQL(dgvKhachHang.DataSource as SortableBindingList<KhachHang>);
 				MessageBox.Show(STRINGS.SUCCESS_UPDATE_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			else
@@ -149,7 +150,7 @@ namespace QuanLyDienNang.Forms
 
 		private void LoadSheet(string path)
 		{
-			List<string> data = funcs.GetSheetNamesOnExcel(path);
+			SortableBindingList<string> data = funcs.GetSheetNamesOnExcel(path);
 			if (data == null)
 			{
 				MessageBox.Show(STRINGS.ERROR_IMPORT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -162,7 +163,7 @@ namespace QuanLyDienNang.Forms
 
 		private void LoadNguoiQuanLy()
 		{
-			List<NguoiQuanLy> data = NguoiQuanLy.GetAll();
+			SortableBindingList<NguoiQuanLy> data = NguoiQuanLy.GetAll();
 			if (data == null)
 			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);

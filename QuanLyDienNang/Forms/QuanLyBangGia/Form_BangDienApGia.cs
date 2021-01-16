@@ -144,14 +144,14 @@ namespace QuanLyDienNang.Forms
 		private void LoadTable()
 		{
 			BangDienApGia.Create(bangGia.MaBangGia);
-			List<BangDienApGia> data = BangDienApGia.GetAll(bangGia.MaBangGia);
+			SortableBindingList<BangDienApGia> data = BangDienApGia.GetAll(bangGia.MaBangGia);
 			if (data == null)
 			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 			else
 			{
-				dgvBangDienApGia.DataSource = new SortableBindingList<BangDienApGia>(data);
+				dgvBangDienApGia.DataSource = data;
 			}
 		}
 

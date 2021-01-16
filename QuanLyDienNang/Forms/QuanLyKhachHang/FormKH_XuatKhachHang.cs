@@ -1,6 +1,7 @@
 ﻿using Business.Classes;
 using Business.Forms;
 using Business.Helper;
+using KGySoft.ComponentModel;
 using System;
 using System.IO;
 using System.Linq;
@@ -145,7 +146,7 @@ namespace QuanLyDienNang.Forms
 
 		private void LoadTramQuanLy()
 		{
-			System.Collections.Generic.List<TramBienAp> data = TramBienAp.GetAll();
+			SortableBindingList<TramBienAp> data = TramBienAp.GetAll();
 			if (data == null)
 			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -160,7 +161,7 @@ namespace QuanLyDienNang.Forms
 
 		private void LoadBangGia()
 		{
-			System.Collections.Generic.List<BangGia> data = BangGia.GetAll();
+			SortableBindingList<BangGia> data = BangGia.GetAll();
 			if (data == null)
 			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);

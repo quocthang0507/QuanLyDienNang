@@ -1,6 +1,6 @@
 ﻿using DataAccess;
+using KGySoft.ComponentModel;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -40,9 +40,9 @@ namespace Business.Classes
 
 		}
 
-		public static List<BangGia> GetAll()
+		public static SortableBindingList<BangGia> GetAll()
 		{
-			return CBO.FillCollection<BangGia>(DataProvider.Instance.ExecuteReader("proc_GetAll_BangGia"));
+			return CBO.FillInBindingList<BangGia>(DataProvider.Instance.ExecuteReader("proc_GetAll_BangGia"));
 		}
 
 		public static bool IsDuplicatedMaBangGia(string MaBangGia)

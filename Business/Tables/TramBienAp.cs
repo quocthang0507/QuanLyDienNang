@@ -1,6 +1,6 @@
 ﻿using DataAccess;
+using KGySoft.ComponentModel;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -53,9 +53,9 @@ namespace Business.Classes
 			return result == 1;
 		}
 
-		public static List<TramBienAp> GetAll()
+		public static SortableBindingList<TramBienAp> GetAll()
 		{
-			return CBO.FillCollection<TramBienAp>(DataProvider.Instance.ExecuteReader("proc_GetAll_TramBienAp"));
+			return CBO.FillInBindingList<TramBienAp>(DataProvider.Instance.ExecuteReader("proc_GetAll_TramBienAp"));
 		}
 
 		public static bool Insert(TramBienAp tramBienAp)

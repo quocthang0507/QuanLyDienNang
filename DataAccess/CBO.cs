@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KGySoft.ComponentModel;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -251,6 +252,11 @@ namespace DataAccess
 		public static List<T> FillCollection<T>(IDataReader dr) where T : class, new()
 		{
 			return FillCollection<T, List<T>>(dr);
+		}
+
+		public static SortableBindingList<T> FillInBindingList<T>(IDataReader dr) where T : class, new()
+		{
+			return new SortableBindingList<T>(FillCollection<T, List<T>>(dr));
 		}
 
 		public static IList<T> FillCollection<T>(IDataReader dr, IList<T> objToFill) where T : class, new()

@@ -1,8 +1,8 @@
 ﻿using Business.Classes;
 using Business.Forms;
 using Business.Helper;
+using KGySoft.ComponentModel;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -67,7 +67,7 @@ namespace QuanLyDienNang.Forms
 						MessageBox.Show(STRINGS.WARNING_MISS_FILE_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 						return;
 					}
-					List<KhachHang> data = funcs.ReadExcelForInserting(tbxDuongDan.Text, cbxSheet.Text);
+					SortableBindingList<KhachHang> data = funcs.ReadExcelForInserting(tbxDuongDan.Text, cbxSheet.Text);
 					if (data == null)
 					{
 						MessageBox.Show(STRINGS.ERROR_IMPORT_EXCEL, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -83,7 +83,7 @@ namespace QuanLyDienNang.Forms
 
 		private void btnLayDanhSach_Click(object sender, EventArgs e)
 		{
-			List<KhachHang> data = KhachHang.GetAll();
+			SortableBindingList<KhachHang> data = KhachHang.GetAll();
 			if (data == null)
 			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -115,7 +115,7 @@ namespace QuanLyDienNang.Forms
 				return;
 			}
 			string maQL = (cbxNguoiThucHien.SelectedItem as NguoiQuanLy).MaQuanLy;
-			List<KhachHang> data = funcs.UpdateListForInserting(dgvKhachHang.DataSource as List<KhachHang>, maQL);
+			SortableBindingList<KhachHang> data = funcs.UpdateListForInserting(dgvKhachHang.DataSource as SortableBindingList<KhachHang>, maQL);
 			bool ok = funcs.TryInsertingDataTableToSQL(data);
 			if (ok)
 			{
@@ -261,7 +261,7 @@ namespace QuanLyDienNang.Forms
 
 		private void LoadNguoiQuanLy()
 		{
-			List<NguoiQuanLy> data = NguoiQuanLy.GetAll();
+			SortableBindingList<NguoiQuanLy> data = NguoiQuanLy.GetAll();
 			if (data == null)
 			{
 				MessageBox.Show(STRINGS.ERROR_QUERY_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -276,7 +276,7 @@ namespace QuanLyDienNang.Forms
 
 		private void LoadSheet(string path)
 		{
-			List<string> data = funcs.GetSheetNamesOnExcel(path);
+			SortableBindingList<string> data = funcs.GetSheetNamesOnExcel(path);
 			if (data == null)
 			{
 				MessageBox.Show(STRINGS.ERROR_IMPORT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);

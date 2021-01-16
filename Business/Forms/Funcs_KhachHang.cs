@@ -1,8 +1,8 @@
 ﻿using Business.Classes;
 using Business.Helper;
+using KGySoft.ComponentModel;
 using OfficeOpenXml;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.IO;
 
@@ -39,12 +39,12 @@ namespace Business.Forms
 		/// </summary>
 		/// <param name="excelFilePath">Đường dẫn tập tin Excel</param>
 		/// <returns>Null hoặc danh sách tên</returns>
-		public List<string> GetSheetNamesOnExcel(string excelFilePath)
+		public SortableBindingList<string> GetSheetNamesOnExcel(string excelFilePath)
 		{
 			try
 			{
 				ExcelPackage excel = new ExcelPackage(new FileInfo(excelFilePath));
-				List<string> sheets = new List<string>();
+				SortableBindingList<string> sheets = new SortableBindingList<string>();
 				foreach (ExcelWorksheet sheet in excel.Workbook.Worksheets)
 				{
 					sheets.Add(sheet.Name);
@@ -63,9 +63,9 @@ namespace Business.Forms
 		/// </summary>
 		/// <param name="dt">Dữ liệu trong DataTable</param>
 		/// <returns>Null hoặc Danh sách khách hàng</returns>
-		public List<KhachHang> ConvertDataTableToListForInserting(DataTable dt)
+		public SortableBindingList<KhachHang> ConvertDataTableToListForInserting(DataTable dt)
 		{
-			List<KhachHang> list = new List<KhachHang>();
+			SortableBindingList<KhachHang> list = new SortableBindingList<KhachHang>();
 			try
 			{
 				foreach (DataRow row in dt.Rows)
@@ -103,7 +103,7 @@ namespace Business.Forms
 		/// <param name="list">Danh sách khách hàng</param>
 		/// <param name="maQL">Mã của người quản lý</param>
 		/// <returns>Danh sách khách hàng</returns>
-		public List<KhachHang> UpdateListForInserting(List<KhachHang> list, string maQL)
+		public SortableBindingList<KhachHang> UpdateListForInserting(SortableBindingList<KhachHang> list, string maQL)
 		{
 			foreach (KhachHang khach in list)
 			{
@@ -120,9 +120,9 @@ namespace Business.Forms
 		/// </summary>
 		/// <param name="dt">Dữ liệu trong DataTable</param>
 		/// <returns>Null hoặc Danh sách khách hàng</returns>
-		public List<KhachHang> ConvertDataTableToListForUpdating(DataTable dt)
+		public SortableBindingList<KhachHang> ConvertDataTableToListForUpdating(DataTable dt)
 		{
-			List<KhachHang> list = new List<KhachHang>();
+			SortableBindingList<KhachHang> list = new SortableBindingList<KhachHang>();
 			try
 			{
 				foreach (DataRow row in dt.Rows)
@@ -165,7 +165,7 @@ namespace Business.Forms
 		/// <param name="list">Danh sách khách hàng</param>
 		/// <param name="maQL">Mã của người quản lý</param>
 		/// <returns>Danh sách khách hàng</returns>
-		public List<KhachHang> UpdateListForUpdating(List<KhachHang> list, string maQL)
+		public SortableBindingList<KhachHang> UpdateListForUpdating(SortableBindingList<KhachHang> list, string maQL)
 		{
 			foreach (KhachHang khach in list)
 			{
@@ -181,7 +181,7 @@ namespace Business.Forms
 		/// <param name="excelFilePath">Đường dẫn đến tập tin Excel</param>
 		/// <param name="sheetname">Tên sheet chứa dữ liệu</param>
 		/// <returns>Null hoặc Danh sách khách hàng</returns>
-		public List<KhachHang> ReadExcelForInserting(string excelFilePath, string sheetname)
+		public SortableBindingList<KhachHang> ReadExcelForInserting(string excelFilePath, string sheetname)
 		{
 			DataTable dt = Excel.ReadExcelAsDataTable(excelFilePath, sheetname);
 			if (dt == null)
@@ -200,7 +200,7 @@ namespace Business.Forms
 		/// <param name="excelFilePath">Đường dẫn đến tập tin Excel</param>
 		/// <param name="sheetname">Tên sheet chứa dữ liệu</param>
 		/// <returns>Null hoặc Danh sách khách hàng</returns>
-		public List<KhachHang> ReadExcelForUpdating(string excelFilePath, string sheetname)
+		public SortableBindingList<KhachHang> ReadExcelForUpdating(string excelFilePath, string sheetname)
 		{
 			DataTable dt = Excel.ReadExcelAsDataTable(excelFilePath, sheetname);
 			if (dt == null)
@@ -218,7 +218,7 @@ namespace Business.Forms
 		/// </summary>
 		/// <param name="list">Danh sách khách hàng</param>
 		/// <returns>Thành công hay không</returns>
-		public bool TryInsertingDataTableToSQL(List<KhachHang> list)
+		public bool TryInsertingDataTableToSQL(SortableBindingList<KhachHang> list)
 		{
 			foreach (KhachHang khach in list)
 			{
@@ -235,7 +235,7 @@ namespace Business.Forms
 		/// </summary>
 		/// <param name="list">Danh sách khách hàng</param>
 		/// <returns>Thành công hay không</returns>
-		public bool TryUpdatingDataTableToSQL(List<KhachHang> list)
+		public bool TryUpdatingDataTableToSQL(SortableBindingList<KhachHang> list)
 		{
 			foreach (KhachHang khach in list)
 			{
@@ -252,7 +252,7 @@ namespace Business.Forms
 		/// Thêm danh sách khách hàng vào SQL
 		/// </summary>
 		/// <param name="list">Danh sách khách hàng</param>
-		public void InsertSQL(List<KhachHang> list)
+		public void InsertSQL(SortableBindingList<KhachHang> list)
 		{
 			foreach (KhachHang khach in list)
 			{
@@ -264,7 +264,7 @@ namespace Business.Forms
 		/// Cập nhật danh sách khách hàng vào SQL
 		/// </summary>
 		/// <param name="list">Danh sách khách hàng</param>
-		public void UpdateSQL(List<KhachHang> list)
+		public void UpdateSQL(SortableBindingList<KhachHang> list)
 		{
 			foreach (KhachHang khach in list)
 			{
