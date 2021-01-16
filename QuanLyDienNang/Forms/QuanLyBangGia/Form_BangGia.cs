@@ -79,11 +79,11 @@ namespace QuanLyDienNang.Forms
 		{
 			int changedRowIndex = e.RowIndex;
 			DataGridViewRow changedRow = dgvBangGia.Rows[changedRowIndex];
-			string maBangGia = changedRow.Cells[0].Value.ToString();
-			string tenBangGia = changedRow.Cells[1].Value.ToString();
-			string thue = changedRow.Cells[2].Value.ToString();
-			bool apGia = (bool)changedRow.Cells[3].Value;
-			bool kichHoat = (bool)changedRow.Cells[4].Value;
+			string maBangGia = changedRow.Cells[nameof(BangGia.MaBangGia)].Value.ToString();
+			string tenBangGia = changedRow.Cells[nameof(BangGia.TenBangGia)].Value.ToString();
+			string thue = changedRow.Cells[nameof(BangGia.Thue)].Value.ToString();
+			bool apGia = (bool)changedRow.Cells[nameof(BangGia.ApGia)].Value;
+			bool kichHoat = (bool)changedRow.Cells[nameof(BangGia.KichHoat)].Value;
 			if (Common.IsNullOrWhiteSpace(maBangGia, tenBangGia, thue))
 			{
 				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);

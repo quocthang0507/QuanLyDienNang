@@ -72,7 +72,7 @@ namespace QuanLyDienNang.Forms
 			this.tableParent.Name = "tableParent";
 			this.tableParent.RowCount = 3;
 			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 170F));
+			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 130F));
 			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableParent.Size = new System.Drawing.Size(984, 561);
 			this.tableParent.TabIndex = 0;
@@ -98,11 +98,11 @@ namespace QuanLyDienNang.Forms
 			this.dgvChiTietGia.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.dgvChiTietGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvChiTietGia.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dgvChiTietGia.Location = new System.Drawing.Point(3, 203);
+			this.dgvChiTietGia.Location = new System.Drawing.Point(3, 163);
 			this.dgvChiTietGia.MultiSelect = false;
 			this.dgvChiTietGia.Name = "dgvChiTietGia";
 			this.dgvChiTietGia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dgvChiTietGia.Size = new System.Drawing.Size(978, 375);
+			this.dgvChiTietGia.Size = new System.Drawing.Size(978, 395);
 			this.dgvChiTietGia.TabIndex = 1;
 			this.dgvChiTietGia.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChiTietGia_CellValueChanged);
 			this.dgvChiTietGia.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvChiTietGia_DataBindingComplete);
@@ -126,7 +126,7 @@ namespace QuanLyDienNang.Forms
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel1.Location = new System.Drawing.Point(3, 33);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(978, 164);
+			this.panel1.Size = new System.Drawing.Size(978, 124);
 			this.panel1.TabIndex = 2;
 			// 
 			// label9

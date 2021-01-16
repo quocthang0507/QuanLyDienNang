@@ -62,11 +62,12 @@ namespace QuanLyDienNang.Forms
 		{
 			int changedRowIndex = e.RowIndex;
 			DataGridViewRow changedRow = dgvNguoiQuanLy.Rows[changedRowIndex];
-			string maQuanLy = changedRow.Cells[0].Value.ToString();
-			string tenQuanLy = changedRow.Cells[1].Value.ToString();
-			string soDienThoai = changedRow.Cells[2].Value.ToString();
-			string diaChi = changedRow.Cells[3].Value.ToString();
-			string email = changedRow.Cells[4].Value.ToString();
+			string maQuanLy = changedRow.Cells[nameof(NguoiQuanLy.MaQuanLy)].Value.ToString();
+			string tenQuanLy = changedRow.Cells[nameof(NguoiQuanLy.TenQuanLy)].Value.ToString();
+			string soDienThoai = changedRow.Cells[nameof(NguoiQuanLy.SoDienThoai)].Value.ToString();
+			string diaChi = changedRow.Cells[nameof(NguoiQuanLy.DiaChi)].Value.ToString();
+			string email = changedRow.Cells[nameof(NguoiQuanLy.Email)].Value.ToString();
+			bool kichHoat = (bool)changedRow.Cells[nameof(NguoiQuanLy.KichHoat)].Value;
 			if (Common.IsNullOrWhiteSpace(maQuanLy, tenQuanLy, diaChi))
 			{
 				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -79,7 +80,8 @@ namespace QuanLyDienNang.Forms
 					TenQuanLy = tenQuanLy,
 					SoDienThoai = soDienThoai,
 					DiaChi = diaChi,
-					Email = email
+					Email = email,
+					KichHoat = kichHoat
 				});
 				if (!ok)
 					MessageBox.Show(STRINGS.ERROR_UPDATE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);

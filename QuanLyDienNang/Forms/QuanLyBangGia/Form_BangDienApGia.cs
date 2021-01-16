@@ -37,10 +37,10 @@ namespace QuanLyDienNang.Forms
 		{
 			int changedRowIndex = e.RowIndex;
 			DataGridViewRow changedRow = dgvBangDienApGia.Rows[changedRowIndex];
-			string maApGia = changedRow.Cells[0].Value.ToString();
-			string maBangGia = changedRow.Cells[1].Value.ToString();
-			string tyLe = changedRow.Cells[3].Value.ToString();
-			bool kichHoat = (bool)changedRow.Cells[4].Value;
+			string maApGia = changedRow.Cells[nameof(BangDienApGia.MaApGia)].Value.ToString();
+			string maBangGia = changedRow.Cells[nameof(BangDienApGia.MaBangGia)].Value.ToString();
+			string tyLe = changedRow.Cells[nameof(BangDienApGia.TyLe)].Value.ToString();
+			bool kichHoat = (bool)changedRow.Cells[nameof(BangDienApGia.KichHoat)].Value;
 			if (Common.IsNullOrWhiteSpace(tyLe))
 			{
 				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
