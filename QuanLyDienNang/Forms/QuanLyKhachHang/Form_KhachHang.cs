@@ -141,63 +141,70 @@ namespace QuanLyDienNang.Forms
 
 		private void dgvKhachHang_CellValueChanged(object sender, DataGridViewCellEventArgs e)
 		{
-			int changedRowIndex = e.RowIndex;
-			DataGridViewRow changedRow = dgvKhachHang.Rows[changedRowIndex];
-			string maKhachHang = changedRow.Cells[nameof(KhachHang.MaKhachHang)].Value.ToString();
-			string hoVaTen = changedRow.Cells[nameof(KhachHang.HoVaTen)].Value.ToString();
-			string diaChi = changedRow.Cells[nameof(KhachHang.DiaChi)].Value.ToString();
-			string maBangGia = BangGia.GetByName(changedRow.Cells[nameof(BangGia.TenBangGia)].Value.ToString()).MaBangGia;
-			string maTram = TramBienAp.GetByName(changedRow.Cells[nameof(TramBienAp.TenTram)].Value.ToString()).MaTram;
-			string soHo = changedRow.Cells[nameof(KhachHang.SoHo)].Value.ToString();
-			string heSoNhan = changedRow.Cells[nameof(KhachHang.HeSoNhan)].Value.ToString();
-			string maSoThue = changedRow.Cells[nameof(KhachHang.MaSoThue)].Value.ToString();
-			string soDienThoai = changedRow.Cells[nameof(KhachHang.SoDienThoai)].Value.ToString();
-			string email = changedRow.Cells[nameof(KhachHang.Email)].Value.ToString();
-			string ngayTao = changedRow.Cells[nameof(KhachHang.NgayTao)].Value.ToString();
-			string nguoiTao = changedRow.Cells[nameof(KhachHang.NguoiTao)].Value.ToString();
-			//string ngayCapNhat = changedRow.Cells[nameof(KhachHang.NgayCapNhat)].Value.ToString();
-			string nguoiCapNhat = (cbxNguoiThucHien.SelectedItem as NguoiQuanLy).MaQuanLy;
-			string maSoHopDong = changedRow.Cells[nameof(KhachHang.MaSoHopDong)].Value.ToString();
-			string ngayHopDong = changedRow.Cells[nameof(KhachHang.NgayHopDong)].Value.ToString();
-			string maCongTo = changedRow.Cells[nameof(KhachHang.MaCongTo)].Value.ToString();
-			string soNganHang = changedRow.Cells[nameof(KhachHang.SoNganHang)].Value.ToString();
-			string tenNganHang = changedRow.Cells[nameof(KhachHang.TenNganHang)].Value.ToString();
-			bool kichHoat = (bool)changedRow.Cells[nameof(KhachHang.KichHoat)].Value;
-			if (Common.IsNullOrWhiteSpace(maKhachHang, hoVaTen, diaChi, maBangGia, maTram, soHo, heSoNhan, ngayTao, nguoiTao, nguoiCapNhat))
+			try
 			{
-				MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-			}
-			else
-			{
-				var ok = KhachHang.Update(new KhachHang()
+				int changedRowIndex = e.RowIndex;
+				DataGridViewRow changedRow = dgvKhachHang.Rows[changedRowIndex];
+				string maKhachHang = changedRow.Cells[nameof(KhachHang.MaKhachHang)].Value.ToString();
+				string hoVaTen = changedRow.Cells[nameof(KhachHang.HoVaTen)].Value.ToString();
+				string diaChi = changedRow.Cells[nameof(KhachHang.DiaChi)].Value.ToString();
+				string maBangGia = BangGia.GetByName(changedRow.Cells[nameof(BangGia.TenBangGia)].Value.ToString()).MaBangGia;
+				string maTram = TramBienAp.GetByName(changedRow.Cells[nameof(TramBienAp.TenTram)].Value.ToString()).MaTram;
+				string soHo = changedRow.Cells[nameof(KhachHang.SoHo)].Value.ToString();
+				string heSoNhan = changedRow.Cells[nameof(KhachHang.HeSoNhan)].Value.ToString();
+				string maSoThue = changedRow.Cells[nameof(KhachHang.MaSoThue)].Value.ToString();
+				string soDienThoai = changedRow.Cells[nameof(KhachHang.SoDienThoai)].Value.ToString();
+				string email = changedRow.Cells[nameof(KhachHang.Email)].Value.ToString();
+				string ngayTao = changedRow.Cells[nameof(KhachHang.NgayTao)].Value.ToString();
+				string nguoiTao = changedRow.Cells[nameof(KhachHang.NguoiTao)].Value.ToString();
+				//string ngayCapNhat = changedRow.Cells[nameof(KhachHang.NgayCapNhat)].Value.ToString();
+				string nguoiCapNhat = (cbxNguoiThucHien.SelectedItem as NguoiQuanLy).MaQuanLy;
+				string maSoHopDong = changedRow.Cells[nameof(KhachHang.MaSoHopDong)].Value.ToString();
+				string ngayHopDong = changedRow.Cells[nameof(KhachHang.NgayHopDong)].Value.ToString();
+				string maCongTo = changedRow.Cells[nameof(KhachHang.MaCongTo)].Value.ToString();
+				string soNganHang = changedRow.Cells[nameof(KhachHang.SoNganHang)].Value.ToString();
+				string tenNganHang = changedRow.Cells[nameof(KhachHang.TenNganHang)].Value.ToString();
+				bool kichHoat = (bool)changedRow.Cells[nameof(KhachHang.KichHoat)].Value;
+				if (Common.IsNullOrWhiteSpace(maKhachHang, hoVaTen, diaChi, maBangGia, maTram, soHo, heSoNhan, ngayTao, nguoiTao, nguoiCapNhat))
 				{
-					MaKhachHang = maKhachHang,
-					HoVaTen = hoVaTen,
-					DiaChi = diaChi,
-					MaBangGia = maBangGia,
-					MaTram = maTram,
-					SoHo = byte.Parse(soHo),
-					HeSoNhan = byte.Parse(heSoNhan),
-					MaSoThue = maSoThue,
-					SoDienThoai = soDienThoai,
-					Email = email,
-					NgayTao = DateTime.Parse(ngayTao),
-					NguoiTao = nguoiTao,
-					NgayCapNhat = DateTime.Now,
-					NguoiCapNhat = nguoiCapNhat,
-					MaSoHopDong = maSoHopDong,
-					NgayHopDong = DateTime.Parse(ngayHopDong),
-					MaCongTo = maCongTo,
-					SoNganHang = soNganHang,
-					TenNganHang = tenNganHang,
-					KichHoat = kichHoat
-				});
-				if (!ok)
+					MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				}
+				else
 				{
-					MessageBox.Show(STRINGS.ERROR_UPDATE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+					var ok = KhachHang.Update(new KhachHang()
+					{
+						MaKhachHang = maKhachHang,
+						HoVaTen = hoVaTen,
+						DiaChi = diaChi,
+						MaBangGia = maBangGia,
+						MaTram = maTram,
+						SoHo = byte.Parse(soHo),
+						HeSoNhan = byte.Parse(heSoNhan),
+						MaSoThue = maSoThue,
+						SoDienThoai = soDienThoai,
+						Email = email,
+						NgayTao = DateTime.Parse(ngayTao),
+						NguoiTao = nguoiTao,
+						NgayCapNhat = DateTime.Now,
+						NguoiCapNhat = nguoiCapNhat,
+						MaSoHopDong = maSoHopDong,
+						NgayHopDong = DateTime.Parse(ngayHopDong),
+						MaCongTo = maCongTo,
+						SoNganHang = soNganHang,
+						TenNganHang = tenNganHang,
+						KichHoat = kichHoat
+					});
+					if (!ok)
+					{
+						MessageBox.Show(STRINGS.ERROR_UPDATE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
 				}
 			}
-
+			catch (Exception)
+			{
+				return;
+				// Nothing to do, silence is gold
+			}
 		}
 		#endregion
 

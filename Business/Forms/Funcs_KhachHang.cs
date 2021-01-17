@@ -291,12 +291,12 @@ namespace Business.Forms
 			// Lấy thứ tự của cột mã và thêm cột mới vào
 			int iBangGia = dgv.Columns[nameof(KhachHang.MaBangGia)].Index;
 			dgv.Columns.Insert(iBangGia, cbxBangGia);
-			int iTram = dgv.Columns[nameof(TramBienAp.MaTram)].Index;
+			int iTram = dgv.Columns[nameof(KhachHang.MaTram)].Index;
 			dgv.Columns.Insert(iTram, cbxTram);
 			// Gán giá trị tương ứng của comboBox theo mã
 			foreach (DataGridViewRow row in dgv.Rows)
 			{
-				// Lấy ô mã
+				// Lấy ô comboBox
 				DataGridViewComboBoxCell cbxBangGiaCell = (row.Cells[iBangGia] as DataGridViewComboBoxCell);
 				DataGridViewComboBoxCell cbxTramCell = (row.Cells[iTram] as DataGridViewComboBoxCell);
 				// Lấy danh sách các bảng ngoại
@@ -304,7 +304,7 @@ namespace Business.Forms
 				SortableBindingList<TramBienAp> tramBienAps = TramBienAp.GetAll();
 				// Đưa vào comboBox
 				cbxBangGiaCell.DataSource = bangGias;
-				cbxTram.DataSource = tramBienAps;
+				cbxTramCell.DataSource = tramBienAps;
 				// Đặt giá trị hiển thị
 				cbxBangGiaCell.DisplayMember = nameof(BangGia.TenBangGia);
 				cbxTramCell.DisplayMember = nameof(TramBienAp.TenTram);
