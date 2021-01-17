@@ -8,16 +8,16 @@ GO
 
 --====================BẢNG GIÁ ÁP DỤNG CHO KHÁCH HÀNG====================
 --DROP TABLE BangGia
-CREATE TABLE BangGia (
-	--BG001
-	MaBangGia VARCHAR(30) PRIMARY KEY,
-	TenBangGia NVARCHAR(150) NOT NULL,
-	Thue DECIMAL(3,2) DEFAULT 0.1 NOT NULL,
-	ApGia BIT DEFAULT 0 NOT NULL,
-	KichHoat BIT DEFAULT 1 NOT NULL,
-	CONSTRAINT constraint_Thue CHECK (THUE < 1 AND THUE >= 0)
-)
-GO
+CREATE TABLE [dbo].[BangGia] (
+    [MaBangGia]  VARCHAR (30)   NOT NULL,
+    [TenBangGia] NVARCHAR (150) NOT NULL,
+    [Thue]       DECIMAL (3, 2) DEFAULT ((0.1)) NOT NULL,
+    [ApGia]      BIT            DEFAULT ((0)) NOT NULL,
+    [KichHoat]   BIT            DEFAULT ((1)) NOT NULL,
+    PRIMARY KEY CLUSTERED ([MaBangGia] ASC),
+    UNIQUE NONCLUSTERED ([TenBangGia] ASC),
+    CONSTRAINT [constraint_Thue] CHECK ([THUE]<(1) AND [THUE]>=(0))
+);
 
 --DELETE FROM BangGia
 
@@ -46,6 +46,13 @@ CREATE PROCEDURE proc_GetAll_BangGia
 --ALTER PROCEDURE proc_GetAll_BangGia
 AS
 	SELECT * FROM BangGia ORDER BY KichHoat DESC, MaBangGia ASC
+GO
+
+CREATE PROCEDURE proc_GetByName_BangGia
+--ALTER PROCEDURE proc_GetByName_BangGia
+	@TenBangGia NVARCHAR(150)
+AS
+	SELECT * FROM BangGia WHERE TenBangGia = @TenBangGia
 GO
 
 CREATE PROCEDURE proc_IsDuplicated_MaBangGia
@@ -94,18 +101,20 @@ GO
 
 --====================CHI TIẾT BẢNG GIÁ ĐIỆN====================
 --DROP TABLE ChiTietBangGia
-CREATE TABLE ChiTietBangGia
-(
-	MaChiTiet VARCHAR(30) PRIMARY KEY,
-	MaBangGia VARCHAR(30) REFERENCES BangGia(MaBangGia),
-	BatDau INT DEFAULT 0 NOT NULL,
-	KetThuc INT DEFAULT 0 NOT NULL,
-	DonGia INT NOT NULL,
-	MoTa NVARCHAR(250) NULL,
-	KichHoat BIT DEFAULT 1 NOT NULL
-)
-GO
+CREATE TABLE [dbo].[ChiTietBangGia] (
+    [MaChiTiet] VARCHAR (30)   NOT NULL,
+    [MaBangGia] VARCHAR (30)   NULL,
+    [BatDau]    INT            DEFAULT ((0)) NOT NULL,
+    [KetThuc]   INT            DEFAULT ((0)) NOT NULL,
+    [DonGia]    INT            NOT NULL,
+    [MoTa]      NVARCHAR (250) NULL,
+    [KichHoat]  BIT            DEFAULT ((1)) NOT NULL,
+    PRIMARY KEY CLUSTERED ([MaChiTiet] ASC),
+    FOREIGN KEY ([MaBangGia]) REFERENCES [dbo].[BangGia] ([MaBangGia])
+);
 
+
+GO
 CREATE TRIGGER trigger_ChiTietBangGia ON ChiTietBangGia FOR INSERT, UPDATE
 --ALTER TRIGGER trigger_ChiTietBangGia ON ChiTietBangGia FOR INSERT, UPDATE
 AS
@@ -211,15 +220,15 @@ GO
 
 --====================BẢNG ĐIỆN ÁP GIÁ====================
 --DROP TABLE BangDienApGia
-CREATE TABLE BangDienApGia
-(
-	MaApGia VARCHAR(30),
-	MaBangGia VARCHAR(30) NOT NULL REFERENCES BangGia(MaBangGia),
-	TyLe DECIMAL(3,2) NOT NULL DEFAULT 0.0,
-	KichHoat BIT DEFAULT 1,
-	CONSTRAINT pk_BangDienApGia PRIMARY KEY (MaApGia, MaBangGia)
-)
-GO
+CREATE TABLE [dbo].[BangDienApGia] (
+    [MaApGia]   VARCHAR (30)   NOT NULL,
+    [MaBangGia] VARCHAR (30)   NOT NULL,
+    [TyLe]      DECIMAL (3, 2) DEFAULT ((0.0)) NOT NULL,
+    [KichHoat]  BIT            DEFAULT ((1)) NULL,
+    CONSTRAINT [pk_BangDienApGia] PRIMARY KEY CLUSTERED ([MaApGia] ASC, [MaBangGia] ASC),
+    FOREIGN KEY ([MaBangGia]) REFERENCES [dbo].[BangGia] ([MaBangGia])
+);
+
 
 CREATE PROCEDURE proc_Reset_BangDienApGia
 AS
@@ -298,17 +307,17 @@ GO
 
 --====================TRẠM BIẾN ÁP ÁP DỤNG CHO KHÁCH HÀNG====================
 --DROP TABLE TramBienAp
-CREATE TABLE TramBienAp (
-	--BA001
-	MaTram VARCHAR(30) PRIMARY KEY,
-	TenTram NVARCHAR(150) NOT NULL,
-	DiaChi NVARCHAR(250) NULL,
-	NguoiPhuTrach NVARCHAR(100) NULL,
-	MaSoCongTo VARCHAR(30) NULL,
-	HeSoNhan TINYINT DEFAULT 1 NOT NULL,
-	KichHoat BIT DEFAULT 1 NOT NULL
-)
-GO
+CREATE TABLE [dbo].[TramBienAp] (
+    [MaTram]        VARCHAR (30)   NOT NULL,
+    [TenTram]       NVARCHAR (150) NOT NULL,
+    [DiaChi]        NVARCHAR (250) NULL,
+    [NguoiPhuTrach] NVARCHAR (100) NULL,
+    [MaSoCongTo]    VARCHAR (30)   NULL,
+    [HeSoNhan]      TINYINT        DEFAULT ((1)) NOT NULL,
+    [KichHoat]      BIT            DEFAULT ((1)) NOT NULL,
+    PRIMARY KEY CLUSTERED ([MaTram] ASC),
+    UNIQUE NONCLUSTERED ([TenTram] ASC)
+);
 
 CREATE TRIGGER trigger_TramBienAp ON TramBienAp FOR INSERT, UPDATE
 AS
@@ -331,6 +340,13 @@ CREATE PROCEDURE proc_GetAll_TramBienAp
 --ALTER PROCEDURE proc_GetAll_TramBienAp
 AS
 	SELECT * FROM TramBienAp WHERE KichHoat = 1
+GO
+
+CREATE PROCEDURE proc_GetByName_TramBienAp
+--ALTER PROCEDURE proc_GetByName_TramBienAp
+	@TenTram NVARCHAR(150)
+AS
+	SELECT * FROM TramBienAp WHERE TenTram = @TenTram
 GO
 
 CREATE PROCEDURE proc_IsDuplicated_MaTram
@@ -382,15 +398,16 @@ GO
 
 --====================NGƯỜI QUẢN LÝ KHÁCH HÀNG====================
 --DROP TABLE NguoiQuanLy
-CREATE TABLE NguoiQuanLy (
-	MaQuanLy VARCHAR(30) PRIMARY KEY,
-	TenQuanLy NVARCHAR(100) NOT NULL,
-	SoDienThoai VARCHAR(30) NULL,
-	DiaChi NVARCHAR(250) NOT NULL,
-	Email NVARCHAR(100) NULL,
-	KichHoat BIT DEFAULT 1 NOT NULL
-)
-GO
+CREATE TABLE [dbo].[NguoiQuanLy] (
+    [MaQuanLy]    VARCHAR (30)   NOT NULL,
+    [TenQuanLy]   NVARCHAR (100) NOT NULL,
+    [SoDienThoai] VARCHAR (30)   NULL,
+    [DiaChi]      NVARCHAR (250) NOT NULL,
+    [Email]       NVARCHAR (100) NULL,
+    [KichHoat]    BIT            DEFAULT ((1)) NOT NULL,
+    PRIMARY KEY CLUSTERED ([MaQuanLy] ASC)
+);
+
 
 INSERT INTO NguoiQuanLy VALUES ('GIAMDOC', N'La Quốc Thắng', '0987610260', N'Đà Lạt - Lâm Đồng', 'quocthang_0507@yahoo.com.vn', 1)
 GO
@@ -447,30 +464,33 @@ GO
 
 --====================THÔNG TIN KHÁCH HÀNG====================
 --DROP TABLE KhachHang
-CREATE TABLE KhachHang (
-	--KH00000001
-	MaKhachHang CHAR(10) PRIMARY KEY,
-	HoVaTen NVARCHAR(100) NOT NULL,
-	DiaChi NVARCHAR(250) NOT NULL,
-	MaBangGia VARCHAR(30) REFERENCES BangGia(MaBangGia),
-	MaTram VARCHAR(30) REFERENCES TramBienAp(MaTram),
-	SoHo TINYINT NOT NULL DEFAULT 1,
-	HeSoNhan TINYINT NOT NULL DEFAULT 1,
-	MaSoThue NVARCHAR(30) NULL,
-	SoDienThoai NVARCHAR(30) NULL,
-	Email NVARCHAR(100) NULL,
-	NgayTao DATETIME NOT NULL,
-	NguoiTao VARCHAR(30) REFERENCES NguoiQuanLy(MaQuanLy),
-	NgayCapNhat DATETIME NOT NULL,
-	NguoiCapNhat VARCHAR(30) REFERENCES NguoiQuanLy(MaQuanLy),
-	MaSoHopDong NVARCHAR(30) NULL,
-	NgayHopDong DATETIME NULL,
-	MaCongTo NVARCHAR(30) NULL,
-	SoNganHang NVARCHAR(30) NULL,
-	TenNganHang NVARCHAR(150) NULL,
-	KichHoat BIT DEFAULT 1 NOT NULL
-)
-GO
+CREATE TABLE [dbo].[KhachHang] (
+    [MaKhachHang]  CHAR (10)      NOT NULL,
+    [HoVaTen]      NVARCHAR (100) NOT NULL,
+    [DiaChi]       NVARCHAR (250) NOT NULL,
+    [MaBangGia]    VARCHAR (30)   NULL,
+    [MaTram]       VARCHAR (30)   NULL,
+    [SoHo]         TINYINT        DEFAULT ((1)) NOT NULL,
+    [HeSoNhan]     TINYINT        DEFAULT ((1)) NOT NULL,
+    [MaSoThue]     NVARCHAR (30)  NULL,
+    [SoDienThoai]  NVARCHAR (30)  NULL,
+    [Email]        NVARCHAR (100) NULL,
+    [NgayTao]      DATETIME       NOT NULL,
+    [NguoiTao]     VARCHAR (30)   NULL,
+    [NgayCapNhat]  DATETIME       NOT NULL,
+    [NguoiCapNhat] VARCHAR (30)   NULL,
+    [MaSoHopDong]  NVARCHAR (30)  NULL,
+    [NgayHopDong]  DATETIME       NULL,
+    [MaCongTo]     NVARCHAR (30)  NULL,
+    [SoNganHang]   NVARCHAR (30)  NULL,
+    [TenNganHang]  NVARCHAR (150) NULL,
+    [KichHoat]     BIT            DEFAULT ((1)) NOT NULL,
+    PRIMARY KEY CLUSTERED ([MaKhachHang] ASC),
+    FOREIGN KEY ([MaBangGia]) REFERENCES [dbo].[BangGia] ([MaBangGia]),
+    FOREIGN KEY ([MaTram]) REFERENCES [dbo].[TramBienAp] ([MaTram]),
+    FOREIGN KEY ([NguoiTao]) REFERENCES [dbo].[NguoiQuanLy] ([MaQuanLy]),
+    FOREIGN KEY ([NguoiCapNhat]) REFERENCES [dbo].[NguoiQuanLy] ([MaQuanLy])
+);
 
 --DELETE FROM KHACHHANG
 
@@ -688,28 +708,31 @@ GO
 
 --====================THÔNG TIN ĐIỆN NĂNG TIÊU THỤ CỦA KHÁCH HÀNG====================
 --DROP TABLE DienNangTieuThu
-CREATE TABLE DienNangTieuThu (
-	ID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-	MaKhachHang CHAR(10) REFERENCES KhachHang(MaKhachHang) NOT NULL,
-	NgayGhi DATETIME NULL,
-	NguoiGhi VARCHAR(30) REFERENCES NguoiQuanLy(MaQuanLy),
-	NgayBatDau DATETIME NULL,
-	NgayKetThuc DATETIME NULL,
-	NgayCapNhat DATETIME NULL,
-	NguoiCapNhat VARCHAR(30) REFERENCES NguoiQuanLy(MaQuanLy),
-	NgayHoaDon DATETIME NULL,
-	NgayTraTien DATETIME NULL,
-	ChiSoMoi INT DEFAULT 0 NULL, -- Chỉ số công tơ lúc ghi
-	ChiSoCu INT DEFAULT 0 NULL, -- Chỉ số công tơ của kỳ trước
-	ThapDiem INT DEFAULT 0 NULL, -- Số điện năng tiêu thụ trong giờ thấp điểm
-	CaoDiem INT DEFAULT 0 NULL, -- Số điện năng tiêu thụ trong giờ cao điểm
-	BinhThuong INT DEFAULT 0 NULL, -- Số điện năng tiêu thụ trong giờ bình thường
-	TongTienTruocVAT MONEY NULL,
-	TongTienSauVAT MONEY NULL,
-	DaTra MONEY DEFAULT 0 NULL,
-	ConLai MONEY NULL,
-)
-GO
+CREATE TABLE [dbo].[DienNangTieuThu] (
+    [ID]               INT          IDENTITY (1, 1) NOT NULL,
+    [MaKhachHang]      CHAR (10)    NOT NULL,
+    [NgayGhi]          DATETIME     NULL,
+    [NguoiGhi]         VARCHAR (30) NULL,
+    [NgayBatDau]       DATETIME     NULL,
+    [NgayKetThuc]      DATETIME     NULL,
+    [NgayCapNhat]      DATETIME     NULL,
+    [NguoiCapNhat]     VARCHAR (30) NULL,
+    [NgayHoaDon]       DATETIME     NULL,
+    [NgayTraTien]      DATETIME     NULL,
+    [ChiSoMoi]         INT          DEFAULT ((0)) NULL,
+    [ChiSoCu]          INT          DEFAULT ((0)) NULL,
+    [ThapDiem]         INT          DEFAULT ((0)) NULL,
+    [CaoDiem]          INT          DEFAULT ((0)) NULL,
+    [BinhThuong]       INT          DEFAULT ((0)) NULL,
+    [TongTienTruocVAT] MONEY        NULL,
+    [TongTienSauVAT]   MONEY        NULL,
+    [DaTra]            MONEY        DEFAULT ((0)) NULL,
+    [ConLai]           MONEY        NULL,
+    PRIMARY KEY CLUSTERED ([ID] ASC),
+    FOREIGN KEY ([MaKhachHang]) REFERENCES [dbo].[KhachHang] ([MaKhachHang]),
+    FOREIGN KEY ([NguoiGhi]) REFERENCES [dbo].[NguoiQuanLy] ([MaQuanLy]),
+    FOREIGN KEY ([NguoiCapNhat]) REFERENCES [dbo].[NguoiQuanLy] ([MaQuanLy])
+);
 
 CREATE VIEW View_DienNangTieuThu
 --ALTER VIEW View_DienNangTieuThu

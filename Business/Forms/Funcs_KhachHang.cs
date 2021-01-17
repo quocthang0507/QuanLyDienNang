@@ -5,6 +5,7 @@ using OfficeOpenXml;
 using System;
 using System.Data;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Business.Forms
@@ -277,27 +278,45 @@ namespace Business.Forms
 
 		public void PopulateDataGridView(ref DataGridView dgv, SortableBindingList<KhachHang> data)
 		{
-			dgv.DataSource = KhachHang.GetAll();
+			dgv.DataSource = data;
 			dgv.AllowUserToAddRows = false;
-			DataGridViewComboBoxColumn cbxColumn = new DataGridViewComboBoxColumn();
-			cbxColumn.HeaderText = DisplayNameHelper.GetDisplayName(typeof(BangGia), nameof(BangGia.TenBangGia));
-			cbxColumn.Name = nameof(BangGia.TenBangGia);
-			dgv.Columns.Insert(3, cbxColumn);
+			// Khai báo cột có dạng comboBox
+			DataGridViewComboBoxColumn cbxBangGia = new DataGridViewComboBoxColumn();
+			DataGridViewComboBoxColumn cbxTram = new DataGridViewComboBoxColumn();
+			// Gán thuộc tính
+			cbxBangGia.HeaderText = DisplayNameHelper.GetDisplayName(typeof(BangGia), nameof(BangGia.TenBangGia));
+			cbxTram.HeaderText = DisplayNameHelper.GetDisplayName(typeof(TramBienAp), nameof(TramBienAp.TenTram));
+			cbxBangGia.Name = nameof(BangGia.TenBangGia);
+			cbxTram.Name = nameof(TramBienAp.TenTram);
+			// Lấy thứ tự của cột mã và thêm cột mới vào
+			int iBangGia = dgv.Columns[nameof(KhachHang.MaBangGia)].Index;
+			dgv.Columns.Insert(iBangGia, cbxBangGia);
+			int iTram = dgv.Columns[nameof(TramBienAp.MaTram)].Index;
+			dgv.Columns.Insert(iTram, cbxTram);
+			// Gán giá trị tương ứng của comboBox theo mã
 			foreach (DataGridViewRow row in dgv.Rows)
 			{
-				DataGridViewComboBoxCell cbxCell = (row.Cells[3] as DataGridViewComboBoxCell);
+				// Lấy ô mã
+				DataGridViewComboBoxCell cbxBangGiaCell = (row.Cells[iBangGia] as DataGridViewComboBoxCell);
+				DataGridViewComboBoxCell cbxTramCell = (row.Cells[iTram] as DataGridViewComboBoxCell);
+				// Lấy danh sách các bảng ngoại
 				SortableBindingList<BangGia> bangGias = BangGia.GetAll();
-				cbxCell.DataSource = bangGias;
-				cbxCell.DisplayMember = nameof(BangGia.TenBangGia);
-				foreach (BangGia bangGia in bangGias)
-				{
-					KhachHang khachHang = KhachHang.GetByID(row.Cells[0].Value.ToString());
-					if (khachHang.MaBangGia == bangGia.MaBangGia)
-					{
-						cbxCell.Value = bangGia.TenBangGia;
-					}
-				}
+				SortableBindingList<TramBienAp> tramBienAps = TramBienAp.GetAll();
+				// Đưa vào comboBox
+				cbxBangGiaCell.DataSource = bangGias;
+				cbxTram.DataSource = tramBienAps;
+				// Đặt giá trị hiển thị
+				cbxBangGiaCell.DisplayMember = nameof(BangGia.TenBangGia);
+				cbxTramCell.DisplayMember = nameof(TramBienAp.TenTram);
+				// Tìm khách hàng
+				KhachHang khachHang = KhachHang.GetByID(row.Cells[0].Value.ToString());
+				// Tìm tên tương ứng với mã
+				cbxBangGiaCell.Value = bangGias.Where(bangGia => bangGia.MaBangGia.Equals(khachHang.MaBangGia)).First().TenBangGia;
+				cbxTramCell.Value = tramBienAps.Where(tram => tram.MaTram.Equals(khachHang.MaTram)).First().TenTram;
 			}
+			// Bỏ cột mã đi
+			dgv.Columns.RemoveAt(++iBangGia);
+			dgv.Columns.RemoveAt(++iTram);
 		}
 	}
 }

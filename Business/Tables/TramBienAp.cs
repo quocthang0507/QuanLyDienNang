@@ -58,6 +58,18 @@ namespace Business.Classes
 			return CBO.FillInBindingList<TramBienAp>(DataProvider.Instance.ExecuteReader("proc_GetAll_TramBienAp"));
 		}
 
+		public static TramBienAp GetByName(string tenTram)
+		{
+			try
+			{
+				return CBO.FillObject<TramBienAp>(DataProvider.Instance.ExecuteReader("proc_GetByName_TramBienAp", tenTram));
+			}
+			catch (Exception)
+			{
+				return null;
+			}
+		}
+
 		public static bool Insert(TramBienAp tramBienAp)
 		{
 			try

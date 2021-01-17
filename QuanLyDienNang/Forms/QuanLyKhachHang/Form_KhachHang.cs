@@ -32,7 +32,7 @@ namespace QuanLyDienNang.Forms
 
 		private void dgvKhachHang_DataError(object sender, DataGridViewDataErrorEventArgs e)
 		{
-			//MessageBox.Show(STRINGS.ERROR_COMMIT_DATAGRIDVIEW_MESSAGE + e.Context.ToString(), STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			MessageBox.Show(STRINGS.ERROR_COMMIT_DATAGRIDVIEW_MESSAGE + e.Context.ToString(), STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
 		private void dgvKhachHang_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -146,8 +146,8 @@ namespace QuanLyDienNang.Forms
 			string maKhachHang = changedRow.Cells[nameof(KhachHang.MaKhachHang)].Value.ToString();
 			string hoVaTen = changedRow.Cells[nameof(KhachHang.HoVaTen)].Value.ToString();
 			string diaChi = changedRow.Cells[nameof(KhachHang.DiaChi)].Value.ToString();
-			string maBangGia = changedRow.Cells[nameof(KhachHang.MaBangGia)].Value.ToString();
-			string maTram = changedRow.Cells[nameof(KhachHang.MaTram)].Value.ToString();
+			string maBangGia = BangGia.GetByName(changedRow.Cells[nameof(BangGia.TenBangGia)].Value.ToString()).MaBangGia;
+			string maTram = TramBienAp.GetByName(changedRow.Cells[nameof(TramBienAp.TenTram)].Value.ToString()).MaTram;
 			string soHo = changedRow.Cells[nameof(KhachHang.SoHo)].Value.ToString();
 			string heSoNhan = changedRow.Cells[nameof(KhachHang.HeSoNhan)].Value.ToString();
 			string maSoThue = changedRow.Cells[nameof(KhachHang.MaSoThue)].Value.ToString();

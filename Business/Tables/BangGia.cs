@@ -45,6 +45,18 @@ namespace Business.Classes
 			return CBO.FillInBindingList<BangGia>(DataProvider.Instance.ExecuteReader("proc_GetAll_BangGia"));
 		}
 
+		public static BangGia GetByName(string tenBangGia)
+		{
+			try
+			{
+				return CBO.FillObject<BangGia>(DataProvider.Instance.ExecuteReader("proc_GetByName_BangGia", tenBangGia));
+			}
+			catch (Exception)
+			{
+				return null;
+			}
+		}
+
 		public static bool IsDuplicatedMaBangGia(string MaBangGia)
 		{
 			int result = DataProvider.Instance.ExecuteNonQuery("proc_IsDuplicated_MaBangGia", MaBangGia);
