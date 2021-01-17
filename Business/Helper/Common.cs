@@ -1,4 +1,8 @@
-﻿using System;
+﻿using KGySoft.ComponentModel;
+using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Net;
@@ -8,14 +12,6 @@ namespace Business.Helper
 {
 	public static class Common
 	{
-		public static void EnableUserSortInDataGridView(ref DataGridView dgv)
-		{
-			foreach (DataGridViewColumn column in dgv.Columns)
-			{
-				column.SortMode = DataGridViewColumnSortMode.Automatic;
-			}
-		}
-
 		/// <summary>
 		/// Kiểm tra phím vừa nhấn là số (số nguyên không dấu)
 		/// </summary>
@@ -110,6 +106,26 @@ namespace Business.Helper
 		{
 			DialogResult dialog = MessageBox.Show(text, "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 			return dialog == DialogResult.Yes;
+		}
+
+		public static DataTable ConvertBindingListToDataTable<T>(SortableBindingList<T> data)
+		{
+			DataTable dt = new DataTable();
+			PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(T));
+			foreach (PropertyDescriptor property in properties)
+			{
+				dt.Columns.Add(property.Name, property.PropertyType);
+			}
+			foreach (T item in data)
+			{
+				object[] values = new object[properties.Count];
+				for (int i = 0; i < values.Length; i++)
+				{
+					values[i] = properties[i].GetValue(item) ?? DBNull.Value;
+				}
+				dt.Rows.Add(values);
+			}
+			return dt;
 		}
 	}
 }

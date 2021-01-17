@@ -278,7 +278,7 @@
 			this.tabForms.Location = new System.Drawing.Point(0, 0);
 			this.tabForms.Name = "tabForms";
 			this.tabForms.SelectedIndex = 0;
-			this.tabForms.Size = new System.Drawing.Size(1084, 587);
+			this.tabForms.Size = new System.Drawing.Size(1084, 585);
 			this.tabForms.TabIndex = 1;
 			this.tabForms.SelectedIndexChanged += new System.EventHandler(this.tabForms_SelectedIndexChanged);
 			// 
@@ -288,7 +288,7 @@
 			this.tabMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.tabMain.Location = new System.Drawing.Point(4, 26);
 			this.tabMain.Name = "tabMain";
-			this.tabMain.Size = new System.Drawing.Size(1076, 557);
+			this.tabMain.Size = new System.Drawing.Size(1076, 555);
 			this.tabMain.TabIndex = 0;
 			this.tabMain.Text = "Chào mừng";
 			this.tabMain.UseVisualStyleBackColor = true;
@@ -303,7 +303,7 @@
 			// toolStripContainer.ContentPanel
 			// 
 			this.toolStripContainer.ContentPanel.Controls.Add(this.tabForms);
-			this.toolStripContainer.ContentPanel.Size = new System.Drawing.Size(1084, 587);
+			this.toolStripContainer.ContentPanel.Size = new System.Drawing.Size(1084, 585);
 			this.toolStripContainer.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.toolStripContainer.Font = new System.Drawing.Font("Segoe UI", 10F);
 			this.toolStripContainer.Location = new System.Drawing.Point(0, 24);
@@ -362,6 +362,7 @@
 			// 
 			this.toolBar.Dock = System.Windows.Forms.DockStyle.None;
 			this.toolBar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+			this.toolBar.ImageScalingSize = new System.Drawing.Size(20, 20);
 			this.toolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnXuatExcel,
             this.separator1,
@@ -379,7 +380,7 @@
             this.btnThoat});
 			this.toolBar.Location = new System.Drawing.Point(3, 0);
 			this.toolBar.Name = "toolBar";
-			this.toolBar.Size = new System.Drawing.Size(1021, 25);
+			this.toolBar.Size = new System.Drawing.Size(1081, 27);
 			this.toolBar.TabIndex = 3;
 			this.toolBar.Text = "Thanh công cụ";
 			// 
@@ -388,35 +389,35 @@
 			this.btnXuatExcel.Image = global::QuanLyDienNang.Properties.Resources.Xlsx;
 			this.btnXuatExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.btnXuatExcel.Name = "btnXuatExcel";
-			this.btnXuatExcel.Size = new System.Drawing.Size(94, 22);
+			this.btnXuatExcel.Size = new System.Drawing.Size(98, 24);
 			this.btnXuatExcel.Text = "Xuất ra Excel";
 			this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
 			// 
 			// separator1
 			// 
 			this.separator1.Name = "separator1";
-			this.separator1.Size = new System.Drawing.Size(6, 25);
+			this.separator1.Size = new System.Drawing.Size(6, 27);
 			// 
 			// btnSaoChep
 			// 
 			this.btnSaoChep.Image = global::QuanLyDienNang.Properties.Resources.Copy;
 			this.btnSaoChep.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.btnSaoChep.Name = "btnSaoChep";
-			this.btnSaoChep.Size = new System.Drawing.Size(118, 22);
+			this.btnSaoChep.Size = new System.Drawing.Size(122, 24);
 			this.btnSaoChep.Text = "Sao chép bản ghi";
 			this.btnSaoChep.Click += new System.EventHandler(this.btnSaoChep_Click);
 			// 
 			// separator2
 			// 
 			this.separator2.Name = "separator2";
-			this.separator2.Size = new System.Drawing.Size(6, 25);
+			this.separator2.Size = new System.Drawing.Size(6, 27);
 			// 
 			// btnTrenCung
 			// 
 			this.btnTrenCung.Image = global::QuanLyDienNang.Properties.Resources.Up;
 			this.btnTrenCung.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.btnTrenCung.Name = "btnTrenCung";
-			this.btnTrenCung.Size = new System.Drawing.Size(79, 22);
+			this.btnTrenCung.Size = new System.Drawing.Size(83, 24);
 			this.btnTrenCung.Text = "Trên cùng";
 			this.btnTrenCung.Click += new System.EventHandler(this.btnTrenCung_Click);
 			// 
@@ -425,7 +426,7 @@
 			this.btnLen.Image = global::QuanLyDienNang.Properties.Resources.Stock_Index_Up;
 			this.btnLen.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.btnLen.Name = "btnLen";
-			this.btnLen.Size = new System.Drawing.Size(80, 22);
+			this.btnLen.Size = new System.Drawing.Size(84, 24);
 			this.btnLen.Text = "Dòng trên";
 			this.btnLen.Click += new System.EventHandler(this.btnLen_Click);
 			// 
@@ -434,7 +435,7 @@
 			this.btnXuong.Image = global::QuanLyDienNang.Properties.Resources.Stock_Index_Down;
 			this.btnXuong.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.btnXuong.Name = "btnXuong";
-			this.btnXuong.Size = new System.Drawing.Size(83, 22);
+			this.btnXuong.Size = new System.Drawing.Size(87, 24);
 			this.btnXuong.Text = "Dòng dưới";
 			this.btnXuong.Click += new System.EventHandler(this.btnXuong_Click);
 			// 
@@ -443,21 +444,21 @@
 			this.btnDuoiCung.Image = global::QuanLyDienNang.Properties.Resources.Down;
 			this.btnDuoiCung.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.btnDuoiCung.Name = "btnDuoiCung";
-			this.btnDuoiCung.Size = new System.Drawing.Size(82, 22);
+			this.btnDuoiCung.Size = new System.Drawing.Size(86, 24);
 			this.btnDuoiCung.Text = "Dưới cùng";
 			this.btnDuoiCung.Click += new System.EventHandler(this.btnDuoiCung_Click);
 			// 
 			// separator3
 			// 
 			this.separator3.Name = "separator3";
-			this.separator3.Size = new System.Drawing.Size(6, 25);
+			this.separator3.Size = new System.Drawing.Size(6, 27);
 			// 
 			// btnDongTab
 			// 
 			this.btnDongTab.Image = global::QuanLyDienNang.Properties.Resources.close;
 			this.btnDongTab.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.btnDongTab.Name = "btnDongTab";
-			this.btnDongTab.Size = new System.Drawing.Size(118, 22);
+			this.btnDongTab.Size = new System.Drawing.Size(122, 24);
 			this.btnDongTab.Text = "Đóng tab hiện tại";
 			this.btnDongTab.ToolTipText = "Đóng Form hiện hành";
 			this.btnDongTab.Click += new System.EventHandler(this.btnDongTab_Click);
@@ -467,7 +468,7 @@
 			this.btnDongTabConLai.Image = global::QuanLyDienNang.Properties.Resources.close;
 			this.btnDongTabConLai.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.btnDongTabConLai.Name = "btnDongTabConLai";
-			this.btnDongTabConLai.Size = new System.Drawing.Size(135, 22);
+			this.btnDongTabConLai.Size = new System.Drawing.Size(139, 24);
 			this.btnDongTabConLai.Text = "Đóng các tab còn lại";
 			this.btnDongTabConLai.Click += new System.EventHandler(this.btnDongTabConLai_Click);
 			// 
@@ -476,14 +477,14 @@
 			this.btnDongHet.Image = global::QuanLyDienNang.Properties.Resources.close;
 			this.btnDongHet.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.btnDongHet.Name = "btnDongHet";
-			this.btnDongHet.Size = new System.Drawing.Size(76, 22);
+			this.btnDongHet.Size = new System.Drawing.Size(80, 24);
 			this.btnDongHet.Text = "Đóng hết";
 			this.btnDongHet.Click += new System.EventHandler(this.btnDongHet_Click);
 			// 
 			// separator4
 			// 
 			this.separator4.Name = "separator4";
-			this.separator4.Size = new System.Drawing.Size(6, 25);
+			this.separator4.Size = new System.Drawing.Size(6, 27);
 			// 
 			// btnThoat
 			// 
@@ -491,7 +492,7 @@
 			this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.btnThoat.Name = "btnThoat";
-			this.btnThoat.Size = new System.Drawing.Size(129, 22);
+			this.btnThoat.Size = new System.Drawing.Size(133, 24);
 			this.btnThoat.Text = "Thoát chương trình";
 			this.btnThoat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);

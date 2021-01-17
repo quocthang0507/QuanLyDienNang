@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data;
 using System.Linq;
 
 namespace Business.Classes
@@ -104,6 +105,18 @@ namespace Business.Classes
 		public KhachHang()
 		{
 
+		}
+
+		public static KhachHang GetByID(string maKhachHang)
+		{
+			try
+			{
+				return CBO.FillObject<KhachHang>(DataProvider.Instance.ExecuteReader("proc_GetByID_KhachHang", maKhachHang));
+			}
+			catch (Exception)
+			{
+				return null;
+			}
 		}
 
 		public static SortableBindingList<KhachHang> GetAll()

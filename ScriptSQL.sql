@@ -480,6 +480,13 @@ AS
 	SELECT * FROM KhachHang WHERE KichHoat = 1 ORDER BY MaKhachHang
 GO
 
+CREATE PROCEDURE proc_GetByID_KhachHang
+--ALTER PROCEDURE proc_GetByID_KhachHang
+	@MaKhachHang CHAR(10)
+AS
+	SELECT * FROM KhachHang WHERE MaKhachHang = @MaKhachHang
+GO
+
 CREATE FUNCTION func_GenerateID_KhachHang()
 --ALTER FUNCTION func_GenerateID_KhachHang()
 RETURNS CHAR(10)

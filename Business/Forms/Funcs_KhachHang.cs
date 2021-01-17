@@ -5,6 +5,7 @@ using OfficeOpenXml;
 using System;
 using System.Data;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Business.Forms
 {
@@ -15,6 +16,8 @@ namespace Business.Forms
 	{
 		private readonly string SECTION_IMPORT_INSERT_INI = "NhapKhachHang";
 		private readonly string KEY_EXCELFILE_INSERT_INI = "DuongDanTapTin";
+
+		public DataTable DataTable { get; private set; }
 
 		/// <summary>
 		/// Lấy đường dẫn Excel đã lưu trước đó
@@ -269,6 +272,31 @@ namespace Business.Forms
 			foreach (KhachHang khach in list)
 			{
 				KhachHang.Update(khach);
+			}
+		}
+
+		public void PopulateDataGridView(ref DataGridView dgv, SortableBindingList<KhachHang> data)
+		{
+			dgv.DataSource = KhachHang.GetAll();
+			dgv.AllowUserToAddRows = false;
+			DataGridViewComboBoxColumn cbxColumn = new DataGridViewComboBoxColumn();
+			cbxColumn.HeaderText = DisplayNameHelper.GetDisplayName(typeof(BangGia), nameof(BangGia.TenBangGia));
+			cbxColumn.Name = nameof(BangGia.TenBangGia);
+			dgv.Columns.Insert(3, cbxColumn);
+			foreach (DataGridViewRow row in dgv.Rows)
+			{
+				DataGridViewComboBoxCell cbxCell = (row.Cells[3] as DataGridViewComboBoxCell);
+				SortableBindingList<BangGia> bangGias = BangGia.GetAll();
+				cbxCell.DataSource = bangGias;
+				cbxCell.DisplayMember = nameof(BangGia.TenBangGia);
+				foreach (BangGia bangGia in bangGias)
+				{
+					KhachHang khachHang = KhachHang.GetByID(row.Cells[0].Value.ToString());
+					if (khachHang.MaBangGia == bangGia.MaBangGia)
+					{
+						cbxCell.Value = bangGia.TenBangGia;
+					}
+				}
 			}
 		}
 	}

@@ -32,14 +32,13 @@ namespace QuanLyDienNang.Forms
 
 		private void dgvKhachHang_DataError(object sender, DataGridViewDataErrorEventArgs e)
 		{
-			MessageBox.Show(STRINGS.ERROR_COMMIT_DATAGRIDVIEW_MESSAGE + e.Context.ToString(), STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			//MessageBox.Show(STRINGS.ERROR_COMMIT_DATAGRIDVIEW_MESSAGE + e.Context.ToString(), STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 
 		private void dgvKhachHang_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
 		{
 			dgvKhachHang.AutoResizeColumns();
 			UpdateColumnFormat();
-			Common.EnableUserSortInDataGridView(ref dgvKhachHang);
 		}
 
 		private void btnChonTapTin_Click(object sender, EventArgs e)
@@ -90,7 +89,8 @@ namespace QuanLyDienNang.Forms
 			}
 			else
 			{
-				dgvKhachHang.DataSource = data;
+				//dgvKhachHang.DataSource = data;
+				funcs.PopulateDataGridView(ref dgvKhachHang, data);
 			}
 		}
 
