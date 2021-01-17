@@ -408,7 +408,6 @@ CREATE TABLE [dbo].[NguoiQuanLy] (
     PRIMARY KEY CLUSTERED ([MaQuanLy] ASC)
 );
 
-
 INSERT INTO NguoiQuanLy VALUES ('GIAMDOC', N'La Quốc Thắng', '0987610260', N'Đà Lạt - Lâm Đồng', 'quocthang_0507@yahoo.com.vn', 1)
 GO
 

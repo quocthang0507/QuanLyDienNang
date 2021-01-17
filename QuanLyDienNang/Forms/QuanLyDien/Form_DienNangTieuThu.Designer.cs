@@ -130,7 +130,6 @@
 			this.dgvDienNangTieuThu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dgvDienNangTieuThu.Size = new System.Drawing.Size(1078, 435);
 			this.dgvDienNangTieuThu.TabIndex = 1;
-			this.dgvDienNangTieuThu.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvDienNangTieuThu_DataBindingComplete);
 			// 
 			// tableTop
 			// 

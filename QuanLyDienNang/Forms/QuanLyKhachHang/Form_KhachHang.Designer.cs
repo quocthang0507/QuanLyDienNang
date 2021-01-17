@@ -90,7 +90,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			this.dgvKhachHang.AllowUserToDeleteRows = false;
 			this.dgvKhachHang.AllowUserToResizeRows = false;
-			this.dgvKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dgvKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
 			this.dgvKhachHang.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.dgvKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvKhachHang.Dock = System.Windows.Forms.DockStyle.Fill;

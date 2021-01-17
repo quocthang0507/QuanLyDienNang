@@ -29,11 +29,6 @@ namespace QuanLyDienNang.Forms
 			UpdateColumnFormat();
 		}
 
-		private void dgvBangDienApGia_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-		{
-			dgvBangDienApGia.AutoResizeColumns();
-		}
-
 		private void dgvBangDienApGia_CellValueChanged(object sender, DataGridViewCellEventArgs e)
 		{
 			int changedRowIndex = e.RowIndex;

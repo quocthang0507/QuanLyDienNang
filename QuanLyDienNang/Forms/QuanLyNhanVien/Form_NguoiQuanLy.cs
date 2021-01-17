@@ -94,11 +94,6 @@ namespace QuanLyDienNang.Forms
 		{
 			MessageBox.Show(STRINGS.ERROR_COMMIT_DATAGRIDVIEW_MESSAGE + e.Context.ToString(), STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
-
-		private void dgvNguoiQuanLy_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-		{
-			dgvNguoiQuanLy.AutoResizeColumns();
-		}
 		#endregion
 
 		#region Methods

@@ -104,7 +104,6 @@
 			this.dgvKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dgvKhachHang.Size = new System.Drawing.Size(978, 452);
 			this.dgvKhachHang.TabIndex = 9;
-			this.dgvKhachHang.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvKhachHang_DataBindingComplete);
 			// 
 			// panel1
 			// 

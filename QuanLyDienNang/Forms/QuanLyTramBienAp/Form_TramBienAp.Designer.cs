@@ -91,7 +91,7 @@ namespace QuanLyDienNang.Forms
 			this.dgvTramBienAp.AllowUserToAddRows = false;
 			this.dgvTramBienAp.AllowUserToDeleteRows = false;
 			this.dgvTramBienAp.AllowUserToResizeRows = false;
-			this.dgvTramBienAp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dgvTramBienAp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
 			this.dgvTramBienAp.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.dgvTramBienAp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvTramBienAp.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -102,7 +102,6 @@ namespace QuanLyDienNang.Forms
 			this.dgvTramBienAp.Size = new System.Drawing.Size(978, 385);
 			this.dgvTramBienAp.TabIndex = 1;
 			this.dgvTramBienAp.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTramBienAp_CellValueChanged);
-			this.dgvTramBienAp.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvTramBienAp_DataBindingComplete);
 			this.dgvTramBienAp.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvTramBienAp_DataError);
 			// 
 			// panel1

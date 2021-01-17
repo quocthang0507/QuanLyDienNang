@@ -37,7 +37,6 @@ namespace QuanLyDienNang.Forms
 
 		private void dgvKhachHang_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
 		{
-			dgvKhachHang.AutoResizeColumns();
 			UpdateColumnFormat();
 		}
 

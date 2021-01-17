@@ -71,7 +71,7 @@ namespace QuanLyDienNang.Forms
 			this.dgvBangDienApGia.AllowUserToAddRows = false;
 			this.dgvBangDienApGia.AllowUserToDeleteRows = false;
 			this.dgvBangDienApGia.AllowUserToResizeRows = false;
-			this.dgvBangDienApGia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dgvBangDienApGia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
 			this.dgvBangDienApGia.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.dgvBangDienApGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvBangDienApGia.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -82,7 +82,6 @@ namespace QuanLyDienNang.Forms
 			this.dgvBangDienApGia.Size = new System.Drawing.Size(978, 525);
 			this.dgvBangDienApGia.TabIndex = 1;
 			this.dgvBangDienApGia.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBangDienApGia_CellValueChanged);
-			this.dgvBangDienApGia.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvBangDienApGia_DataBindingComplete);
 			this.dgvBangDienApGia.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvBangDienApGia_DataError);
 			// 
 			// saveDialog

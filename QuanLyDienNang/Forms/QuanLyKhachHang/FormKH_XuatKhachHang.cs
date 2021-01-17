@@ -80,11 +80,6 @@ namespace QuanLyDienNang.Forms
 				MessageBox.Show(STRINGS.SUCCESS_EXPORT_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 		}
-
-		private void dgvKhachHang_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-		{
-			dgvKhachHang.AutoResizeColumns();
-		}
 		#endregion
 
 		#region Methods

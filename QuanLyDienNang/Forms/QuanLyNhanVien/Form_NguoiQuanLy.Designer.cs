@@ -87,7 +87,7 @@ namespace QuanLyDienNang.Forms
 			this.dgvNguoiQuanLy.AllowUserToAddRows = false;
 			this.dgvNguoiQuanLy.AllowUserToDeleteRows = false;
 			this.dgvNguoiQuanLy.AllowUserToResizeRows = false;
-			this.dgvNguoiQuanLy.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dgvNguoiQuanLy.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
 			this.dgvNguoiQuanLy.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.dgvNguoiQuanLy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvNguoiQuanLy.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -98,7 +98,6 @@ namespace QuanLyDienNang.Forms
 			this.dgvNguoiQuanLy.Size = new System.Drawing.Size(978, 365);
 			this.dgvNguoiQuanLy.TabIndex = 1;
 			this.dgvNguoiQuanLy.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNguoiQuanLy_CellValueChanged);
-			this.dgvNguoiQuanLy.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvNguoiQuanLy_DataBindingComplete);
 			this.dgvNguoiQuanLy.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvNguoiQuanLy_DataError);
 			// 
 			// panel1
