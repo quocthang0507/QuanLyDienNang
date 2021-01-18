@@ -1,6 +1,6 @@
 ﻿namespace QuanLyDienNang.Forms
 {
-	partial class FormKH_XuatKhachHang
+	partial class Form_XuatKhachHang
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormKH_XuatKhachHang));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_XuatKhachHang));
 			this.label1 = new System.Windows.Forms.Label();
 			this.tableParent = new System.Windows.Forms.TableLayoutPanel();
 			this.dgvKhachHang = new System.Windows.Forms.DataGridView();

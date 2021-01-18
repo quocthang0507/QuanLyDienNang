@@ -49,6 +49,7 @@ namespace QuanLyDienNang.Forms
 			this.btnThem = new System.Windows.Forms.Button();
 			this.btnLuuCSDL = new System.Windows.Forms.Button();
 			this.openDialog = new System.Windows.Forms.OpenFileDialog();
+			this.btnCapNhat = new System.Windows.Forms.Button();
 			this.tableParent.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).BeginInit();
 			this.panel1.SuspendLayout();
@@ -210,6 +211,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			// panel2
 			// 
+			this.panel2.Controls.Add(this.btnCapNhat);
 			this.panel2.Controls.Add(this.btnLayDanhSach);
 			this.panel2.Controls.Add(this.btnXemMau);
 			this.panel2.Controls.Add(this.btnXoa);
@@ -226,9 +228,9 @@ namespace QuanLyDienNang.Forms
 			this.btnLayDanhSach.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnLayDanhSach.Image = global::QuanLyDienNang.Properties.Resources.User;
 			this.btnLayDanhSach.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLayDanhSach.Location = new System.Drawing.Point(160, 1);
+			this.btnLayDanhSach.Location = new System.Drawing.Point(74, 1);
 			this.btnLayDanhSach.Name = "btnLayDanhSach";
-			this.btnLayDanhSach.Size = new System.Drawing.Size(170, 42);
+			this.btnLayDanhSach.Size = new System.Drawing.Size(170, 40);
 			this.btnLayDanhSach.TabIndex = 6;
 			this.btnLayDanhSach.Text = "Lấy tất cả danh sách";
 			this.btnLayDanhSach.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -240,9 +242,9 @@ namespace QuanLyDienNang.Forms
 			this.btnXemMau.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnXemMau.Image = global::QuanLyDienNang.Properties.Resources.Xlsx;
 			this.btnXemMau.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnXemMau.Location = new System.Drawing.Point(336, 1);
+			this.btnXemMau.Location = new System.Drawing.Point(250, 1);
 			this.btnXemMau.Name = "btnXemMau";
-			this.btnXemMau.Size = new System.Drawing.Size(107, 42);
+			this.btnXemMau.Size = new System.Drawing.Size(107, 40);
 			this.btnXemMau.TabIndex = 7;
 			this.btnXemMau.Text = "Xem mẫu";
 			this.btnXemMau.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -254,10 +256,10 @@ namespace QuanLyDienNang.Forms
 			this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnXoa.Image = global::QuanLyDienNang.Properties.Resources.delete;
 			this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnXoa.Location = new System.Drawing.Point(693, 2);
+			this.btnXoa.Location = new System.Drawing.Point(746, 1);
 			this.btnXoa.Name = "btnXoa";
 			this.btnXoa.Size = new System.Drawing.Size(73, 40);
-			this.btnXoa.TabIndex = 10;
+			this.btnXoa.TabIndex = 11;
 			this.btnXoa.Text = "Xóa";
 			this.btnXoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnXoa.UseVisualStyleBackColor = true;
@@ -268,10 +270,10 @@ namespace QuanLyDienNang.Forms
 			this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnThem.Image = global::QuanLyDienNang.Properties.Resources.Add1;
 			this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnThem.Location = new System.Drawing.Point(600, 2);
+			this.btnThem.Location = new System.Drawing.Point(655, 1);
 			this.btnThem.Name = "btnThem";
 			this.btnThem.Size = new System.Drawing.Size(85, 40);
-			this.btnThem.TabIndex = 9;
+			this.btnThem.TabIndex = 10;
 			this.btnThem.Text = "Thêm";
 			this.btnThem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnThem.UseVisualStyleBackColor = true;
@@ -282,7 +284,7 @@ namespace QuanLyDienNang.Forms
 			this.btnLuuCSDL.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnLuuCSDL.Image = global::QuanLyDienNang.Properties.Resources.Import;
 			this.btnLuuCSDL.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLuuCSDL.Location = new System.Drawing.Point(449, 2);
+			this.btnLuuCSDL.Location = new System.Drawing.Point(363, 1);
 			this.btnLuuCSDL.Name = "btnLuuCSDL";
 			this.btnLuuCSDL.Size = new System.Drawing.Size(145, 40);
 			this.btnLuuCSDL.TabIndex = 8;
@@ -294,6 +296,20 @@ namespace QuanLyDienNang.Forms
 			// openDialog
 			// 
 			this.openDialog.Filter = "Excel Workbook (.xlsx)|*.xlsx|Excel 97-2003 Workbook (.xls)|*.xls";
+			// 
+			// btnCapNhat
+			// 
+			this.btnCapNhat.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnCapNhat.Image = global::QuanLyDienNang.Properties.Resources.Save;
+			this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnCapNhat.Location = new System.Drawing.Point(514, 1);
+			this.btnCapNhat.Name = "btnCapNhat";
+			this.btnCapNhat.Size = new System.Drawing.Size(135, 40);
+			this.btnCapNhat.TabIndex = 9;
+			this.btnCapNhat.Text = "Cập nhật CSDL";
+			this.btnCapNhat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnCapNhat.UseVisualStyleBackColor = true;
+			this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
 			// 
 			// Form_KhachHang
 			// 
@@ -339,5 +355,6 @@ namespace QuanLyDienNang.Forms
 		private System.Windows.Forms.Button btnXemMau;
 		private System.Windows.Forms.OpenFileDialog openDialog;
 		private System.Windows.Forms.Button btnLayDanhSach;
+		private System.Windows.Forms.Button btnCapNhat;
 	}
 }

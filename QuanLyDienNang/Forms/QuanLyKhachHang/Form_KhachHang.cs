@@ -129,6 +129,27 @@ namespace QuanLyDienNang.Forms
 			}
 		}
 
+		private void btnCapNhat_Click(object sender, EventArgs e)
+		{
+			if (dgvKhachHang.DataSource == null)
+			{
+				MessageBox.Show(STRINGS.WARNING_MISS_DGV_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+			string maQL = (cbxNguoiThucHien.SelectedItem as NguoiQuanLy).MaQuanLy;
+			SortableBindingList<KhachHang> data = funcs.UpdateListForUpdating(dgvKhachHang.DataSource as SortableBindingList<KhachHang>, maQL);
+			bool ok = funcs.TryUpdatingDataTableToSQL(data);
+			if (ok)
+			{
+				funcs.UpdateSQL(dgvKhachHang.DataSource as SortableBindingList<KhachHang>);
+				MessageBox.Show(STRINGS.SUCCESS_UPDATE_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
+			else
+			{
+				MessageBox.Show(STRINGS.ERROR_UPDATE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+
 		private void btnThem_Click(object sender, EventArgs e)
 		{
 

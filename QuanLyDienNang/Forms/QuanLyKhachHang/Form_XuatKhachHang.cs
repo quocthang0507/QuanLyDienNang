@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace QuanLyDienNang.Forms
 {
-	public partial class FormKH_XuatKhachHang : Form
+	public partial class Form_XuatKhachHang : Form
 	{
 		private readonly Funcs_KhachHang funcs = new Funcs_KhachHang();
 		private Thread thread;
 
-		public FormKH_XuatKhachHang()
+		public Form_XuatKhachHang()
 		{
 			InitializeComponent();
 		}

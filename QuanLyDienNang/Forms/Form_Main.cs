@@ -89,7 +89,7 @@ namespace QuanLyDienNang.Forms
 
 		public void xuấtThôngTinToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			Form frmXuat = new FormKH_XuatKhachHang();
+			Form frmXuat = new Form_XuatKhachHang();
 			AddFormToTabPage(frmXuat);
 		}
 
@@ -338,8 +338,8 @@ namespace QuanLyDienNang.Forms
 				case Form_KhachHang _:
 					DynamicForm = tabForms.SelectedTab.Controls[0] as Form_KhachHang;
 					break;
-				case FormKH_XuatKhachHang _:
-					DynamicForm = tabForms.SelectedTab.Controls[0] as FormKH_XuatKhachHang;
+				case Form_XuatKhachHang _:
+					DynamicForm = tabForms.SelectedTab.Controls[0] as Form_XuatKhachHang;
 					break;
 				case Form_BangGia _:
 					DynamicForm = tabForms.SelectedTab.Controls[0] as Form_BangGia;

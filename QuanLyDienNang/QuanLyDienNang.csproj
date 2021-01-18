@@ -113,12 +113,6 @@
     <Compile Include="Forms\Form_GioiThieu_New.Designer.cs">
       <DependentUpon>Form_GioiThieu_New.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\QuanLyKhachHang\FormKH_CapNhatKhachHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\QuanLyKhachHang\FormKH_CapNhatKhachHang.Designer.cs">
-      <DependentUpon>FormKH_CapNhatKhachHang.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\QuanLyDien\Form_DocChiSoDien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,12 +124,6 @@
     </Compile>
     <Compile Include="Forms\Form_Main.Designer.cs">
       <DependentUpon>Form_Main.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\QuanLyKhachHang\FormKH_NhapKhachHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\QuanLyKhachHang\FormKH_NhapKhachHang.Designer.cs">
-      <DependentUpon>FormKH_NhapKhachHang.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\QuanLyDien\Form_DienNangTieuThu.cs">
       <SubType>Form</SubType>
@@ -181,11 +169,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Forms\QuanLyKhachHang\FormKH_XuatKhachHang.cs">
+    <Compile Include="Forms\QuanLyKhachHang\Form_XuatKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\QuanLyKhachHang\FormKH_XuatKhachHang.Designer.cs">
-      <DependentUpon>FormKH_XuatKhachHang.cs</DependentUpon>
+    <Compile Include="Forms\QuanLyKhachHang\Form_XuatKhachHang.Designer.cs">
+      <DependentUpon>Form_XuatKhachHang.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\HoaDonTienDien.cs">
       <AutoGen>True</AutoGen>
@@ -209,9 +197,6 @@
     <EmbeddedResource Include="Forms\Form_GioiThieu_New.resx">
       <DependentUpon>Form_GioiThieu_New.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\QuanLyKhachHang\FormKH_CapNhatKhachHang.resx">
-      <DependentUpon>FormKH_CapNhatKhachHang.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\QuanLyDien\Form_DocChiSoDien.resx">
       <DependentUpon>Form_DocChiSoDien.cs</DependentUpon>
     </EmbeddedResource>
@@ -220,9 +205,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form_Main.resx">
       <DependentUpon>Form_Main.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\QuanLyKhachHang\FormKH_NhapKhachHang.resx">
-      <DependentUpon>FormKH_NhapKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\QuanLyDien\Form_DienNangTieuThu.resx">
       <DependentUpon>Form_DienNangTieuThu.cs</DependentUpon>
@@ -252,8 +234,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Forms\QuanLyKhachHang\FormKH_XuatKhachHang.resx">
-      <DependentUpon>FormKH_XuatKhachHang.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\QuanLyKhachHang\Form_XuatKhachHang.resx">
+      <DependentUpon>Form_XuatKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\HoaDonTienDien.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
