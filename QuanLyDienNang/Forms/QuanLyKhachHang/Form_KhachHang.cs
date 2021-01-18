@@ -221,9 +221,8 @@ namespace QuanLyDienNang.Forms
 					}
 				}
 			}
-			catch (Exception)
+			catch
 			{
-				return;
 				// Nothing to do, silence is gold
 			}
 		}

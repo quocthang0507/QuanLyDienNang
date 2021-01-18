@@ -543,13 +543,18 @@
     <None Include="Resources\anh nen 3.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\anh nen 2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\anh nen 1.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\Report.ico" />
+    <None Include="Resources\Zoom.ico" />
+    <None Include="Resources\staff.ico" />
+    <None Include="Resources\energy.ico" />
+    <None Include="Resources\users.png" />
+    <None Include="Resources\View.png" />
+    <None Include="Resources\staff.png" />
+    <None Include="Resources\station.png" />
     <None Include="Resources\close.png" />
     <None Include="Resources\close1.png" />
     <None Include="Resources\close2.png" />
@@ -567,7 +572,6 @@
     <None Include="Resources\settings2.png" />
     <None Include="Resources\text document 1.png" />
     <None Include="Resources\report.png" />
-    <None Include="Resources\station.png" />
     <None Include="Resources\Money.ico" />
     <None Include="Resources\VND1.png" />
     <None Include="Resources\VNDong.png" />
