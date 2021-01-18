@@ -25,6 +25,7 @@ namespace QuanLyDienNang.Forms
 		#region Events
 		private void FormKH_DienNangTieuThu_Shown(object sender, EventArgs e)
 		{
+			dgvDienNangTieuThu.AutoSizeColumnsMode = Form_Main.Instance.ColumnSizeMode;
 			UpdateControls();
 			LoadTramBienAp();
 			LoadBangGia();

@@ -20,6 +20,7 @@ namespace QuanLyDienNang.Forms
 		#region Events
 		private void Form_TramBienAp_Shown(object sender, EventArgs e)
 		{
+			dgvTramBienAp.AutoSizeColumnsMode = Form_Main.Instance.ColumnSizeMode;
 			LoadTable();
 			UpdateColumnFormat();
 		}

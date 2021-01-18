@@ -1,4 +1,5 @@
-﻿using DataAccess;
+﻿using Business.Helper;
+using DataAccess;
 
 namespace Business.Forms
 {
@@ -7,6 +8,9 @@ namespace Business.Forms
 	/// </summary>
 	public class Funcs_Main
 	{
+		private readonly string SECTION_INI = "KieuHienThi";
+		private readonly string KEY_COL_SIZE_MODE_INI = "ColumnSizeMode";
+
 		/// <summary>
 		/// Kiểm tra chuỗi kết nối có lấy được từ tập tin INI hay không
 		/// </summary>
@@ -54,6 +58,16 @@ namespace Business.Forms
 			}
 
 			return null;
+		}
+
+		public void SaveColumnSizeMode(string mode)
+		{
+			Configuration.Instance.Write(KEY_COL_SIZE_MODE_INI, mode, SECTION_INI);
+		}
+
+		public string GetSavedColumnSizeMode()
+		{
+			return Configuration.Instance.Read(KEY_COL_SIZE_MODE_INI, SECTION_INI);
 		}
 	}
 }

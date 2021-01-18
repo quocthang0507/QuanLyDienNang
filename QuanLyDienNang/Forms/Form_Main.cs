@@ -10,13 +10,14 @@ namespace QuanLyDienNang.Forms
 		private bool EXIT_WITHOUT_DIALOG = false;
 		private dynamic DynamicForm;
 		private readonly Form frmCauHinh = new Form_CauHinh();
+		private readonly Funcs_Main funcs = new Funcs_Main();
 		private static Form_Main Singleton;
 
 		// Ủy quyền xử lý từ form main sang các form con
 		private delegate void MyDelegate();
 		private MyDelegate GoUp, GoDown, GoToFirst, GoToEnd, ExportToExcel;
 
-		private readonly Funcs_Main funcs = new Funcs_Main();
+		public DataGridViewAutoSizeColumnsMode ColumnSizeMode;
 
 		public static Form_Main Instance
 		{
@@ -36,6 +37,7 @@ namespace QuanLyDienNang.Forms
 			Thread thread = new Thread(ShowSplashScreen);
 			thread.Start();
 			InitializeComponent();
+			AddCheckEvents();
 			thread.Abort();
 			toolBar.Visible = false;
 		}
@@ -50,6 +52,7 @@ namespace QuanLyDienNang.Forms
 			}
 			UpdateStatusBar();
 			this.Activate();
+			SetSavedColumnSizeMode();
 		}
 
 		private void FrmCauHinh_FormClosing(object sender, FormClosingEventArgs e)
@@ -238,6 +241,21 @@ namespace QuanLyDienNang.Forms
 			AddFormToTabPage(frmTramBienAp);
 		}
 
+		private void subMenuItem_CheckedChanged(object sender, EventArgs e)
+		{
+			ToolStripMenuItem item = (ToolStripMenuItem)sender;
+			if (item.Checked)
+			{
+				var checks = chếĐộHiểnThịBảngToolStripMenuItem.DropDownItems;
+				foreach (ToolStripMenuItem stripMenuItem in checks)
+				{
+					if (stripMenuItem != item)
+						stripMenuItem.Checked = false;
+				}
+				SetVarColumnSizeMode(item.Text);
+			}
+			funcs.SaveColumnSizeMode(item.Text);
+		}
 		#endregion
 
 		#region Methods
@@ -280,7 +298,15 @@ namespace QuanLyDienNang.Forms
 
 		private void ShowSplashScreen()
 		{
-			Application.Run(new FormWelcome());
+			// Đoạn này hay bị lỗi
+			try
+			{
+				Application.Run(new FormWelcome());
+			}
+			catch (Exception e)
+			{
+				//MessageBox.Show("Đã có lỗi xảy ra: " + e.Message, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 		}
 
 		private void UpdateStatusBar()
@@ -335,6 +361,37 @@ namespace QuanLyDienNang.Forms
 			GoToFirst = () => DynamicForm.GoToFirst();
 			GoToEnd = () => DynamicForm.GoToEnd();
 			ExportToExcel = () => DynamicForm.ExportToExcel();
+		}
+
+		private void AddCheckEvents()
+		{
+			var checks = chếĐộHiểnThịBảngToolStripMenuItem.DropDownItems;
+			foreach (ToolStripMenuItem subMenuItem in checks)
+			{
+				subMenuItem.CheckedChanged += subMenuItem_CheckedChanged;
+			}
+		}
+
+		private void SetSavedColumnSizeMode()
+		{
+			string mode = funcs.GetSavedColumnSizeMode();
+			if (!string.IsNullOrWhiteSpace(mode))
+			{
+				var checks = chếĐộHiểnThịBảngToolStripMenuItem.DropDownItems;
+				foreach (ToolStripMenuItem subMenuItem in checks)
+				{
+					if (subMenuItem.Text.Equals(mode))
+						subMenuItem.Checked = true;
+				}
+				SetVarColumnSizeMode(mode);
+			}
+		}
+
+		private void SetVarColumnSizeMode(string mode)
+		{
+			if (!Enum.IsDefined(typeof(DataGridViewAutoSizeColumnsMode), mode))
+				return;
+			ColumnSizeMode = (DataGridViewAutoSizeColumnsMode)Enum.Parse(typeof(DataGridViewAutoSizeColumnsMode), mode);
 		}
 		#endregion
 	}

@@ -24,6 +24,7 @@ namespace QuanLyDienNang.Forms
 		#region Events
 		private void FormKH_XuatKhachHang_Shown(object sender, EventArgs e)
 		{
+			dgvKhachHang.AutoSizeColumnsMode = Form_Main.Instance.ColumnSizeMode;
 			thread = new Thread(() =>
 			{
 				dgvKhachHang.Invoke((MethodInvoker)delegate

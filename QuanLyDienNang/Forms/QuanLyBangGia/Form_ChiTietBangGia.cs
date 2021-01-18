@@ -25,6 +25,7 @@ namespace QuanLyDienNang.Forms
 		#region Events
 		private void Form_ChiTietBangGia_Shown(object sender, EventArgs e)
 		{
+			dgvChiTietGia.AutoSizeColumnsMode = Form_Main.Instance.ColumnSizeMode;
 			LoadTableByMaBangGia();
 			UpdateColumnFormat();
 		}

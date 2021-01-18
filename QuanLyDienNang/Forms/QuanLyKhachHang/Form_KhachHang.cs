@@ -25,6 +25,7 @@ namespace QuanLyDienNang.Forms
 		#region Events
 		private void Form_KhachHang_Shown(object sender, EventArgs e)
 		{
+			dgvKhachHang.AutoSizeColumnsMode = Form_Main.Instance.ColumnSizeMode;
 			tbxDuongDan.Text = funcs.GetSavedExcelPathForImporting();
 			LoadNguoiQuanLy();
 			LoadSheet(tbxDuongDan.Text);

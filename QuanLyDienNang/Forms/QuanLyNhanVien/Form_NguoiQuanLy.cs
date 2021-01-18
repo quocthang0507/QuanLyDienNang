@@ -20,6 +20,7 @@ namespace QuanLyDienNang.Forms
 		#region Events
 		private void Form_NguoiQuanLy_Shown(object sender, EventArgs e)
 		{
+			dgvNguoiQuanLy.AutoSizeColumnsMode = Form_Main.Instance.ColumnSizeMode;
 			LoadTable();
 			UpdateColumnFormat();
 		}

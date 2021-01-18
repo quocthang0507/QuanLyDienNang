@@ -23,6 +23,7 @@ namespace QuanLyDienNang.Forms
 		#region Events
 		private void Form_BangGia_Shown(object sender, EventArgs e)
 		{
+			dgvBangGia.AutoSizeColumnsMode = Form_Main.Instance.ColumnSizeMode;
 			LoadTable();
 			UpdateColumnFormat();
 		}
