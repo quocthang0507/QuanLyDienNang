@@ -84,6 +84,13 @@ namespace QuanLyDienNang.Forms
 		#endregion
 
 		#region Methods
+		public void UpdateColumnSizeMode()
+		{
+			dgvKhachHang.AutoSizeColumnsMode = Form_Main.Instance.ColumnSizeMode;
+			dgvKhachHang.Refresh();
+			dgvKhachHang.Update();
+		}
+
 		public void GoToIndex(int index)
 		{
 			dgvKhachHang.ClearSelection();

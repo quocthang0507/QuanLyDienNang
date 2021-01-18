@@ -43,13 +43,13 @@ namespace QuanLyDienNang.Forms
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.btnCapNhat = new System.Windows.Forms.Button();
 			this.btnLayDanhSach = new System.Windows.Forms.Button();
 			this.btnXemMau = new System.Windows.Forms.Button();
 			this.btnXoa = new System.Windows.Forms.Button();
 			this.btnThem = new System.Windows.Forms.Button();
 			this.btnLuuCSDL = new System.Windows.Forms.Button();
 			this.openDialog = new System.Windows.Forms.OpenFileDialog();
-			this.btnCapNhat = new System.Windows.Forms.Button();
 			this.tableParent.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).BeginInit();
 			this.panel1.SuspendLayout();
@@ -223,6 +223,20 @@ namespace QuanLyDienNang.Forms
 			this.panel2.Size = new System.Drawing.Size(927, 44);
 			this.panel2.TabIndex = 3;
 			// 
+			// btnCapNhat
+			// 
+			this.btnCapNhat.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.btnCapNhat.Image = global::QuanLyDienNang.Properties.Resources.Save;
+			this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnCapNhat.Location = new System.Drawing.Point(514, 1);
+			this.btnCapNhat.Name = "btnCapNhat";
+			this.btnCapNhat.Size = new System.Drawing.Size(135, 40);
+			this.btnCapNhat.TabIndex = 9;
+			this.btnCapNhat.Text = "Cập nhật CSDL";
+			this.btnCapNhat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnCapNhat.UseVisualStyleBackColor = true;
+			this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
+			// 
 			// btnLayDanhSach
 			// 
 			this.btnLayDanhSach.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -296,20 +310,6 @@ namespace QuanLyDienNang.Forms
 			// openDialog
 			// 
 			this.openDialog.Filter = "Excel Workbook (.xlsx)|*.xlsx|Excel 97-2003 Workbook (.xls)|*.xls";
-			// 
-			// btnCapNhat
-			// 
-			this.btnCapNhat.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.btnCapNhat.Image = global::QuanLyDienNang.Properties.Resources.Save;
-			this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnCapNhat.Location = new System.Drawing.Point(514, 1);
-			this.btnCapNhat.Name = "btnCapNhat";
-			this.btnCapNhat.Size = new System.Drawing.Size(135, 40);
-			this.btnCapNhat.TabIndex = 9;
-			this.btnCapNhat.Text = "Cập nhật CSDL";
-			this.btnCapNhat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.btnCapNhat.UseVisualStyleBackColor = true;
-			this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
 			// 
 			// Form_KhachHang
 			// 

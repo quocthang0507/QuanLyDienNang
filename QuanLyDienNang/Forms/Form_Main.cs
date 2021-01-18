@@ -15,7 +15,7 @@ namespace QuanLyDienNang.Forms
 
 		// Ủy quyền xử lý từ form main sang các form con
 		private delegate void MyDelegate();
-		private MyDelegate GoUp, GoDown, GoToFirst, GoToEnd, ExportToExcel;
+		private MyDelegate GoUp, GoDown, GoToFirst, GoToEnd, ExportToExcel, UpdateColumnSizeMode;
 
 		public DataGridViewAutoSizeColumnsMode ColumnSizeMode;
 
@@ -361,6 +361,7 @@ namespace QuanLyDienNang.Forms
 			GoToFirst = () => DynamicForm.GoToFirst();
 			GoToEnd = () => DynamicForm.GoToEnd();
 			ExportToExcel = () => DynamicForm.ExportToExcel();
+			UpdateColumnSizeMode = () => DynamicForm.UpdateColumnSizeMode();
 		}
 
 		private void AddCheckEvents()
@@ -392,6 +393,8 @@ namespace QuanLyDienNang.Forms
 			if (!Enum.IsDefined(typeof(DataGridViewAutoSizeColumnsMode), mode))
 				return;
 			ColumnSizeMode = (DataGridViewAutoSizeColumnsMode)Enum.Parse(typeof(DataGridViewAutoSizeColumnsMode), mode);
+			if (UpdateColumnSizeMode != null)
+				UpdateColumnSizeMode.Invoke();
 		}
 		#endregion
 	}

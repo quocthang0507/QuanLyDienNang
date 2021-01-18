@@ -65,6 +65,13 @@ namespace QuanLyDienNang.Forms
 		#endregion
 
 		#region Methods
+		public void UpdateColumnSizeMode()
+		{
+			dgvBangDienApGia.AutoSizeColumnsMode = Form_Main.Instance.ColumnSizeMode;
+			dgvBangDienApGia.Refresh();
+			dgvBangDienApGia.Update();
+		}
+
 		public void GoToIndex(int index)
 		{
 			dgvBangDienApGia.ClearSelection();

@@ -33,6 +33,14 @@
 			this.menuBar = new System.Windows.Forms.MenuStrip();
 			this.chươngTrìnhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.cấuHìnhSQLStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.chếĐộHiểnThịBảngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.AllCellsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.AllCellsExceptHeaderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.ColumnHeaderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.DisplayedCellsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.DisplayedCellsExceptHeaderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.FillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.NoneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.giớiThiệuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.quảnLýKháchHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,14 +81,6 @@
 			this.btnDongHet = new System.Windows.Forms.ToolStripButton();
 			this.separator4 = new System.Windows.Forms.ToolStripSeparator();
 			this.btnThoat = new System.Windows.Forms.ToolStripButton();
-			this.chếĐộHiểnThịBảngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.AllCellsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.AllCellsExceptHeaderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.ColumnHeaderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.DisplayedCellsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.DisplayedCellsExceptHeaderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.FillToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.NoneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuBar.SuspendLayout();
 			this.contextTabMenu.SuspendLayout();
 			this.tabForms.SuspendLayout();
@@ -98,11 +98,11 @@
 			this.menuBar.Font = new System.Drawing.Font("Segoe UI", 9F);
 			this.menuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.chươngTrìnhToolStripMenuItem,
-            this.quảnLýKháchHàngToolStripMenuItem,
-            this.quảnLýĐiệnNăngTiêuThụToolStripMenuItem,
-            this.quảnLýNhânViênToolStripMenuItem,
             this.quảnLýBảngGiáToolStripMenuItem,
-            this.quảnLýTrạmBiếnÁpToolStripMenuItem});
+            this.quảnLýNhânViênToolStripMenuItem,
+            this.quảnLýTrạmBiếnÁpToolStripMenuItem,
+            this.quảnLýKháchHàngToolStripMenuItem,
+            this.quảnLýĐiệnNăngTiêuThụToolStripMenuItem});
 			this.menuBar.Location = new System.Drawing.Point(0, 0);
 			this.menuBar.Name = "menuBar";
 			this.menuBar.ShowItemToolTips = true;
@@ -130,6 +130,70 @@
 			this.cấuHìnhSQLStripMenuItem.Size = new System.Drawing.Size(200, 22);
 			this.cấuHìnhSQLStripMenuItem.Text = "Cấu hình &SQL Server";
 			this.cấuHìnhSQLStripMenuItem.Click += new System.EventHandler(this.cấuHìnhSQLStripMenuItem_Click);
+			// 
+			// chếĐộHiểnThịBảngToolStripMenuItem
+			// 
+			this.chếĐộHiểnThịBảngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AllCellsToolStripMenuItem,
+            this.AllCellsExceptHeaderToolStripMenuItem,
+            this.ColumnHeaderToolStripMenuItem,
+            this.DisplayedCellsToolStripMenuItem,
+            this.DisplayedCellsExceptHeaderToolStripMenuItem,
+            this.FillToolStripMenuItem,
+            this.NoneToolStripMenuItem});
+			this.chếĐộHiểnThịBảngToolStripMenuItem.Image = global::QuanLyDienNang.Properties.Resources.Positive;
+			this.chếĐộHiểnThịBảngToolStripMenuItem.Name = "chếĐộHiểnThịBảngToolStripMenuItem";
+			this.chếĐộHiểnThịBảngToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+			this.chếĐộHiểnThịBảngToolStripMenuItem.Text = "Chế độ hiển thị bảng";
+			// 
+			// AllCellsToolStripMenuItem
+			// 
+			this.AllCellsToolStripMenuItem.CheckOnClick = true;
+			this.AllCellsToolStripMenuItem.Name = "AllCellsToolStripMenuItem";
+			this.AllCellsToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+			this.AllCellsToolStripMenuItem.Text = "AllCells";
+			// 
+			// AllCellsExceptHeaderToolStripMenuItem
+			// 
+			this.AllCellsExceptHeaderToolStripMenuItem.CheckOnClick = true;
+			this.AllCellsExceptHeaderToolStripMenuItem.Name = "AllCellsExceptHeaderToolStripMenuItem";
+			this.AllCellsExceptHeaderToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+			this.AllCellsExceptHeaderToolStripMenuItem.Text = "AllCellsExceptHeader";
+			// 
+			// ColumnHeaderToolStripMenuItem
+			// 
+			this.ColumnHeaderToolStripMenuItem.CheckOnClick = true;
+			this.ColumnHeaderToolStripMenuItem.Name = "ColumnHeaderToolStripMenuItem";
+			this.ColumnHeaderToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+			this.ColumnHeaderToolStripMenuItem.Text = "ColumnHeader";
+			// 
+			// DisplayedCellsToolStripMenuItem
+			// 
+			this.DisplayedCellsToolStripMenuItem.CheckOnClick = true;
+			this.DisplayedCellsToolStripMenuItem.Name = "DisplayedCellsToolStripMenuItem";
+			this.DisplayedCellsToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+			this.DisplayedCellsToolStripMenuItem.Text = "DisplayedCells";
+			// 
+			// DisplayedCellsExceptHeaderToolStripMenuItem
+			// 
+			this.DisplayedCellsExceptHeaderToolStripMenuItem.CheckOnClick = true;
+			this.DisplayedCellsExceptHeaderToolStripMenuItem.Name = "DisplayedCellsExceptHeaderToolStripMenuItem";
+			this.DisplayedCellsExceptHeaderToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+			this.DisplayedCellsExceptHeaderToolStripMenuItem.Text = "DisplayedCellsExceptHeader";
+			// 
+			// FillToolStripMenuItem
+			// 
+			this.FillToolStripMenuItem.CheckOnClick = true;
+			this.FillToolStripMenuItem.Name = "FillToolStripMenuItem";
+			this.FillToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+			this.FillToolStripMenuItem.Text = "Fill";
+			// 
+			// NoneToolStripMenuItem
+			// 
+			this.NoneToolStripMenuItem.CheckOnClick = true;
+			this.NoneToolStripMenuItem.Name = "NoneToolStripMenuItem";
+			this.NoneToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+			this.NoneToolStripMenuItem.Text = "None";
 			// 
 			// giớiThiệuToolStripMenuItem
 			// 
@@ -505,70 +569,6 @@
 			this.btnThoat.Text = "Thoát chương trình";
 			this.btnThoat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
-			// 
-			// chếĐộHiểnThịBảngToolStripMenuItem
-			// 
-			this.chếĐộHiểnThịBảngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AllCellsToolStripMenuItem,
-            this.AllCellsExceptHeaderToolStripMenuItem,
-            this.ColumnHeaderToolStripMenuItem,
-            this.DisplayedCellsToolStripMenuItem,
-            this.DisplayedCellsExceptHeaderToolStripMenuItem,
-            this.FillToolStripMenuItem,
-            this.NoneToolStripMenuItem});
-			this.chếĐộHiểnThịBảngToolStripMenuItem.Image = global::QuanLyDienNang.Properties.Resources.Positive;
-			this.chếĐộHiểnThịBảngToolStripMenuItem.Name = "chếĐộHiểnThịBảngToolStripMenuItem";
-			this.chếĐộHiểnThịBảngToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-			this.chếĐộHiểnThịBảngToolStripMenuItem.Text = "Chế độ hiển thị bảng";
-			// 
-			// AllCellsToolStripMenuItem
-			// 
-			this.AllCellsToolStripMenuItem.CheckOnClick = true;
-			this.AllCellsToolStripMenuItem.Name = "AllCellsToolStripMenuItem";
-			this.AllCellsToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-			this.AllCellsToolStripMenuItem.Text = "AllCells";
-			// 
-			// AllCellsExceptHeaderToolStripMenuItem
-			// 
-			this.AllCellsExceptHeaderToolStripMenuItem.CheckOnClick = true;
-			this.AllCellsExceptHeaderToolStripMenuItem.Name = "AllCellsExceptHeaderToolStripMenuItem";
-			this.AllCellsExceptHeaderToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-			this.AllCellsExceptHeaderToolStripMenuItem.Text = "AllCellsExceptHeader";
-			// 
-			// ColumnHeaderToolStripMenuItem
-			// 
-			this.ColumnHeaderToolStripMenuItem.CheckOnClick = true;
-			this.ColumnHeaderToolStripMenuItem.Name = "ColumnHeaderToolStripMenuItem";
-			this.ColumnHeaderToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-			this.ColumnHeaderToolStripMenuItem.Text = "ColumnHeader";
-			// 
-			// DisplayedCellsToolStripMenuItem
-			// 
-			this.DisplayedCellsToolStripMenuItem.CheckOnClick = true;
-			this.DisplayedCellsToolStripMenuItem.Name = "DisplayedCellsToolStripMenuItem";
-			this.DisplayedCellsToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-			this.DisplayedCellsToolStripMenuItem.Text = "DisplayedCells";
-			// 
-			// DisplayedCellsExceptHeaderToolStripMenuItem
-			// 
-			this.DisplayedCellsExceptHeaderToolStripMenuItem.CheckOnClick = true;
-			this.DisplayedCellsExceptHeaderToolStripMenuItem.Name = "DisplayedCellsExceptHeaderToolStripMenuItem";
-			this.DisplayedCellsExceptHeaderToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-			this.DisplayedCellsExceptHeaderToolStripMenuItem.Text = "DisplayedCellsExceptHeader";
-			// 
-			// FillToolStripMenuItem
-			// 
-			this.FillToolStripMenuItem.CheckOnClick = true;
-			this.FillToolStripMenuItem.Name = "FillToolStripMenuItem";
-			this.FillToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-			this.FillToolStripMenuItem.Text = "Fill";
-			// 
-			// NoneToolStripMenuItem
-			// 
-			this.NoneToolStripMenuItem.CheckOnClick = true;
-			this.NoneToolStripMenuItem.Name = "NoneToolStripMenuItem";
-			this.NoneToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-			this.NoneToolStripMenuItem.Text = "None";
 			// 
 			// Form_Main
 			// 
