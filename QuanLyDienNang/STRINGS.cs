@@ -29,6 +29,7 @@
 		public static readonly string WARNING_MISS_FILE_MESSAGE = "Phải chọn tập tin trước khi thực hiện hành động này.";
 		public static readonly string WARNING_NO_PERCENT_MESSAGE = "Đây không phải là bảng điện áp giá.";
 		public static readonly string WARNING_NO_APPLY_PERCENT_MESSAGE = "Vui lòng sử dụng nút 'Xem % áp giá'.";
+		public static readonly string WARNING_MISS_PATH_MESSAGE = "Phải chọn tập tin trước khi thực hiện hành động này.";
 
 		public static readonly string SUCCESS = "Thành công";
 		public static readonly string SUCCESS_INSERT_MESSAGE = "Thêm dữ liệu mới vào thành công.";
@@ -42,8 +43,8 @@
 
 		public static readonly string QUESTION = "Xác nhận";
 		public static readonly string QUESTION_LAPDANHSACH_MESSAGE = "Chức năng này dùng để lập danh sách mới theo kỳ được xác định, dữ liệu lấy từ danh sách khách hàng. Bạn có muốn tiếp tục?";
+		public static readonly string QUESTION_MESSAGE = "Bạn có muốn tiếp tục thực hiện chức năng này?";
 		public static readonly string QUESTION_QUIT_MESSAGE = "Bạn có muốn thoát khỏi chương trình không?";
-		public static readonly string WARNING_MISS_PATH_MESSAGE = "Phải chọn tập tin trước khi thực hiện hành động này.";
 
 		public static readonly string SAMPLE_PATH = "/Templates/NhapThongTinKhachHang_Sample.xlsx";
 

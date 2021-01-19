@@ -43,6 +43,7 @@ namespace QuanLyDienNang.Forms
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.label5 = new System.Windows.Forms.Label();
 			this.btnCapNhat = new System.Windows.Forms.Button();
 			this.btnLayDanhSach = new System.Windows.Forms.Button();
 			this.btnXemMau = new System.Windows.Forms.Button();
@@ -70,7 +71,7 @@ namespace QuanLyDienNang.Forms
 			this.tableParent.RowCount = 4;
 			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
 			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
 			this.tableParent.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableParent.Size = new System.Drawing.Size(933, 588);
 			this.tableParent.TabIndex = 0;
@@ -95,13 +96,12 @@ namespace QuanLyDienNang.Forms
 			this.dgvKhachHang.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption;
 			this.dgvKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvKhachHang.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dgvKhachHang.Location = new System.Drawing.Point(3, 183);
+			this.dgvKhachHang.Location = new System.Drawing.Point(3, 203);
 			this.dgvKhachHang.MultiSelect = false;
 			this.dgvKhachHang.Name = "dgvKhachHang";
 			this.dgvKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dgvKhachHang.Size = new System.Drawing.Size(927, 402);
 			this.dgvKhachHang.TabIndex = 1;
-			this.dgvKhachHang.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhachHang_CellValueChanged);
 			this.dgvKhachHang.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvKhachHang_DataBindingComplete);
 			this.dgvKhachHang.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvKhachHang_DataError);
 			// 
@@ -211,6 +211,7 @@ namespace QuanLyDienNang.Forms
 			// 
 			// panel2
 			// 
+			this.panel2.Controls.Add(this.label5);
 			this.panel2.Controls.Add(this.btnCapNhat);
 			this.panel2.Controls.Add(this.btnLayDanhSach);
 			this.panel2.Controls.Add(this.btnXemMau);
@@ -220,15 +221,27 @@ namespace QuanLyDienNang.Forms
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel2.Location = new System.Drawing.Point(3, 133);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(927, 44);
+			this.panel2.Size = new System.Drawing.Size(927, 64);
 			this.panel2.TabIndex = 3;
+			// 
+			// label5
+			// 
+			this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+			this.label5.AutoSize = true;
+			this.label5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Italic);
+			this.label5.Location = new System.Drawing.Point(187, 44);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(535, 19);
+			this.label5.TabIndex = 12;
+			this.label5.Text = "*Lưu ý: Phải nhấn nút \'Cập nhật CSDL\' sau mỗi thao tác thay đổi dữ liệu trong bản" +
+    "g";
 			// 
 			// btnCapNhat
 			// 
 			this.btnCapNhat.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnCapNhat.Image = global::QuanLyDienNang.Properties.Resources.Save;
 			this.btnCapNhat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnCapNhat.Location = new System.Drawing.Point(514, 1);
+			this.btnCapNhat.Location = new System.Drawing.Point(514, 3);
 			this.btnCapNhat.Name = "btnCapNhat";
 			this.btnCapNhat.Size = new System.Drawing.Size(135, 40);
 			this.btnCapNhat.TabIndex = 9;
@@ -242,7 +255,7 @@ namespace QuanLyDienNang.Forms
 			this.btnLayDanhSach.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnLayDanhSach.Image = global::QuanLyDienNang.Properties.Resources.User;
 			this.btnLayDanhSach.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLayDanhSach.Location = new System.Drawing.Point(74, 1);
+			this.btnLayDanhSach.Location = new System.Drawing.Point(74, 3);
 			this.btnLayDanhSach.Name = "btnLayDanhSach";
 			this.btnLayDanhSach.Size = new System.Drawing.Size(170, 40);
 			this.btnLayDanhSach.TabIndex = 6;
@@ -256,7 +269,7 @@ namespace QuanLyDienNang.Forms
 			this.btnXemMau.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnXemMau.Image = global::QuanLyDienNang.Properties.Resources.Xlsx;
 			this.btnXemMau.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnXemMau.Location = new System.Drawing.Point(250, 1);
+			this.btnXemMau.Location = new System.Drawing.Point(250, 3);
 			this.btnXemMau.Name = "btnXemMau";
 			this.btnXemMau.Size = new System.Drawing.Size(107, 40);
 			this.btnXemMau.TabIndex = 7;
@@ -270,7 +283,7 @@ namespace QuanLyDienNang.Forms
 			this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnXoa.Image = global::QuanLyDienNang.Properties.Resources.delete;
 			this.btnXoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnXoa.Location = new System.Drawing.Point(746, 1);
+			this.btnXoa.Location = new System.Drawing.Point(746, 3);
 			this.btnXoa.Name = "btnXoa";
 			this.btnXoa.Size = new System.Drawing.Size(73, 40);
 			this.btnXoa.TabIndex = 11;
@@ -284,7 +297,7 @@ namespace QuanLyDienNang.Forms
 			this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnThem.Image = global::QuanLyDienNang.Properties.Resources.Add1;
 			this.btnThem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnThem.Location = new System.Drawing.Point(655, 1);
+			this.btnThem.Location = new System.Drawing.Point(655, 3);
 			this.btnThem.Name = "btnThem";
 			this.btnThem.Size = new System.Drawing.Size(85, 40);
 			this.btnThem.TabIndex = 10;
@@ -298,7 +311,7 @@ namespace QuanLyDienNang.Forms
 			this.btnLuuCSDL.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnLuuCSDL.Image = global::QuanLyDienNang.Properties.Resources.Import;
 			this.btnLuuCSDL.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnLuuCSDL.Location = new System.Drawing.Point(363, 1);
+			this.btnLuuCSDL.Location = new System.Drawing.Point(363, 3);
 			this.btnLuuCSDL.Name = "btnLuuCSDL";
 			this.btnLuuCSDL.Size = new System.Drawing.Size(145, 40);
 			this.btnLuuCSDL.TabIndex = 8;
@@ -330,6 +343,7 @@ namespace QuanLyDienNang.Forms
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
 			this.panel2.ResumeLayout(false);
+			this.panel2.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -356,5 +370,6 @@ namespace QuanLyDienNang.Forms
 		private System.Windows.Forms.OpenFileDialog openDialog;
 		private System.Windows.Forms.Button btnLayDanhSach;
 		private System.Windows.Forms.Button btnCapNhat;
+		private System.Windows.Forms.Label label5;
 	}
 }

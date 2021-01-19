@@ -580,7 +580,7 @@
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MinimumSize = new System.Drawing.Size(1100, 700);
 			this.Name = "Form_Main";
-			this.Text = "ỨNG DỤNG QUẢN LÝ ĐIỆN NĂNG";
+			this.Text = "Quản Lý Điện Năng";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Main_FormClosing);
 			this.Shown += new System.EventHandler(this.Form_Main_Shown);

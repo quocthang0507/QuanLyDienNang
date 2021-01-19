@@ -303,7 +303,7 @@ namespace QuanLyDienNang.Forms
 			{
 				Application.Run(new FormWelcome());
 			}
-			catch (Exception e)
+			catch
 			{
 				//MessageBox.Show("Đã có lỗi xảy ra: " + e.Message, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}

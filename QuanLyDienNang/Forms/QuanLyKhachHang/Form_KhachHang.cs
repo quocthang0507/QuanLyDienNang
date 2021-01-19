@@ -48,7 +48,6 @@ namespace QuanLyDienNang.Forms
 			{
 				return;
 			}
-
 			string path = openDialog.FileName;
 			tbxDuongDan.Text = path;
 			funcs.SaveExcelPathForImporting(path);
@@ -114,18 +113,21 @@ namespace QuanLyDienNang.Forms
 				MessageBox.Show(STRINGS.WARNING_MISS_DGV_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
-			string maQL = (cbxNguoiThucHien.SelectedItem as NguoiQuanLy).MaQuanLy;
-			SortableBindingList<KhachHang> data = funcs.UpdateListForInserting(dgvKhachHang.DataSource as SortableBindingList<KhachHang>, maQL);
-			bool ok = funcs.TryInsertingDataTableToSQL(data);
-			if (ok)
+			if (Common.ShowQuestionDialog())
 			{
-				funcs.InsertSQL(data);
-				dgvKhachHang.DataSource = KhachHang.GetAll();
-				MessageBox.Show(STRINGS.SUCCESS_INSERT_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
-			}
-			else
-			{
-				MessageBox.Show(STRINGS.ERROR_INSERT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				string maQuanLy = (cbxNguoiThucHien.SelectedItem as NguoiQuanLy).MaQuanLy;
+				SortableBindingList<KhachHang> data = funcs.UpdateListForInserting(dgvKhachHang.DataSource as SortableBindingList<KhachHang>, maQuanLy);
+				bool ok = funcs.TryInsertingDataTableToSQL(data);
+				if (ok)
+				{
+					funcs.InsertSQL(data);
+					dgvKhachHang.DataSource = KhachHang.GetAll();
+					MessageBox.Show(STRINGS.SUCCESS_INSERT_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
+				}
+				else
+				{
+					MessageBox.Show(STRINGS.ERROR_INSERT_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
 			}
 		}
 
@@ -136,17 +138,21 @@ namespace QuanLyDienNang.Forms
 				MessageBox.Show(STRINGS.WARNING_MISS_DGV_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
-			string maQL = (cbxNguoiThucHien.SelectedItem as NguoiQuanLy).MaQuanLy;
-			SortableBindingList<KhachHang> data = funcs.UpdateListForUpdating(dgvKhachHang.DataSource as SortableBindingList<KhachHang>, maQL);
-			bool ok = funcs.TryUpdatingDataTableToSQL(data);
-			if (ok)
+			if (Common.ShowQuestionDialog())
 			{
-				funcs.UpdateSQL(dgvKhachHang.DataSource as SortableBindingList<KhachHang>);
-				MessageBox.Show(STRINGS.SUCCESS_UPDATE_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
-			}
-			else
-			{
-				MessageBox.Show(STRINGS.ERROR_UPDATE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				string maQuanLy = (cbxNguoiThucHien.SelectedItem as NguoiQuanLy).MaQuanLy;
+				SortableBindingList<KhachHang> data = funcs.ConvertDataSource(dgvKhachHang, maQuanLy);
+				//SortableBindingList<KhachHang> data = funcs.UpdateListForUpdating(list, maQuanLy);
+				bool ok = funcs.TryUpdatingDataTableToSQL(data);
+				if (ok)
+				{
+					funcs.UpdateSQL(dgvKhachHang.DataSource as SortableBindingList<KhachHang>);
+					MessageBox.Show(STRINGS.SUCCESS_UPDATE_MESSAGE, STRINGS.SUCCESS, MessageBoxButtons.OK, MessageBoxIcon.Information);
+				}
+				else
+				{
+					MessageBox.Show(STRINGS.ERROR_UPDATE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				}
 			}
 		}
 
@@ -158,73 +164,6 @@ namespace QuanLyDienNang.Forms
 		private void btnXoa_Click(object sender, EventArgs e)
 		{
 
-		}
-
-		private void dgvKhachHang_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-		{
-			try
-			{
-				int changedRowIndex = e.RowIndex;
-				DataGridViewRow changedRow = dgvKhachHang.Rows[changedRowIndex];
-				string maKhachHang = changedRow.Cells[nameof(KhachHang.MaKhachHang)].Value.ToString();
-				string hoVaTen = changedRow.Cells[nameof(KhachHang.HoVaTen)].Value.ToString();
-				string diaChi = changedRow.Cells[nameof(KhachHang.DiaChi)].Value.ToString();
-				string maBangGia = BangGia.GetByName(changedRow.Cells[nameof(BangGia.TenBangGia)].Value.ToString()).MaBangGia;
-				string maTram = TramBienAp.GetByName(changedRow.Cells[nameof(TramBienAp.TenTram)].Value.ToString()).MaTram;
-				string soHo = changedRow.Cells[nameof(KhachHang.SoHo)].Value.ToString();
-				string heSoNhan = changedRow.Cells[nameof(KhachHang.HeSoNhan)].Value.ToString();
-				string maSoThue = changedRow.Cells[nameof(KhachHang.MaSoThue)].Value.ToString();
-				string soDienThoai = changedRow.Cells[nameof(KhachHang.SoDienThoai)].Value.ToString();
-				string email = changedRow.Cells[nameof(KhachHang.Email)].Value.ToString();
-				string ngayTao = changedRow.Cells[nameof(KhachHang.NgayTao)].Value.ToString();
-				string nguoiTao = changedRow.Cells[nameof(KhachHang.NguoiTao)].Value.ToString();
-				//string ngayCapNhat = changedRow.Cells[nameof(KhachHang.NgayCapNhat)].Value.ToString();
-				string nguoiCapNhat = (cbxNguoiThucHien.SelectedItem as NguoiQuanLy).MaQuanLy;
-				string maSoHopDong = changedRow.Cells[nameof(KhachHang.MaSoHopDong)].Value.ToString();
-				string ngayHopDong = changedRow.Cells[nameof(KhachHang.NgayHopDong)].Value.ToString();
-				string maCongTo = changedRow.Cells[nameof(KhachHang.MaCongTo)].Value.ToString();
-				string soNganHang = changedRow.Cells[nameof(KhachHang.SoNganHang)].Value.ToString();
-				string tenNganHang = changedRow.Cells[nameof(KhachHang.TenNganHang)].Value.ToString();
-				bool kichHoat = (bool)changedRow.Cells[nameof(KhachHang.KichHoat)].Value;
-				if (Common.IsNullOrWhiteSpace(maKhachHang, hoVaTen, diaChi, maBangGia, maTram, soHo, heSoNhan, ngayTao, nguoiTao, nguoiCapNhat))
-				{
-					MessageBox.Show(STRINGS.WARNING_MISS_FIELDS_MESSAGE, STRINGS.WARNING, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-				}
-				else
-				{
-					var ok = KhachHang.Update(new KhachHang()
-					{
-						MaKhachHang = maKhachHang,
-						HoVaTen = hoVaTen,
-						DiaChi = diaChi,
-						MaBangGia = maBangGia,
-						MaTram = maTram,
-						SoHo = byte.Parse(soHo),
-						HeSoNhan = byte.Parse(heSoNhan),
-						MaSoThue = maSoThue,
-						SoDienThoai = soDienThoai,
-						Email = email,
-						NgayTao = DateTime.Parse(ngayTao),
-						NguoiTao = nguoiTao,
-						NgayCapNhat = DateTime.Now,
-						NguoiCapNhat = nguoiCapNhat,
-						MaSoHopDong = maSoHopDong,
-						NgayHopDong = DateTime.Parse(ngayHopDong),
-						MaCongTo = maCongTo,
-						SoNganHang = soNganHang,
-						TenNganHang = tenNganHang,
-						KichHoat = kichHoat
-					});
-					if (!ok)
-					{
-						MessageBox.Show(STRINGS.ERROR_UPDATE_MESSAGE, STRINGS.ERROR, MessageBoxButtons.OK, MessageBoxIcon.Error);
-					}
-				}
-			}
-			catch
-			{
-				// Nothing to do, silence is gold
-			}
 		}
 		#endregion
 

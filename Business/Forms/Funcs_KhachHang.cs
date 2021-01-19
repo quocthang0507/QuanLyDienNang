@@ -278,6 +278,9 @@ namespace Business.Forms
 
 		public void PopulateDataGridView(ref DataGridView dgv, SortableBindingList<KhachHang> data)
 		{
+			// Xóa hết các cột nếu đã có trước
+			dgv.Columns.Clear();
+			// Đổ dữ liệu vào
 			dgv.DataSource = data;
 			dgv.AllowUserToAddRows = false;
 			// Khai báo cột có dạng comboBox
@@ -317,6 +320,57 @@ namespace Business.Forms
 			// Bỏ cột mã đi
 			dgv.Columns.RemoveAt(++iBangGia);
 			dgv.Columns.RemoveAt(++iTram);
+		}
+
+		public SortableBindingList<KhachHang> ConvertDataSource(DataGridView dgv, string maQuanLy)
+		{
+			SortableBindingList<KhachHang> list = new SortableBindingList<KhachHang>();
+			foreach (DataGridViewRow row in dgv.Rows)
+			{
+				string maKhachHang = row.Cells[nameof(KhachHang.MaKhachHang)].Value.ToString();
+				string hoVaTen = row.Cells[nameof(KhachHang.HoVaTen)].Value.ToString();
+				string diaChi = row.Cells[nameof(KhachHang.DiaChi)].Value.ToString();
+				string maBangGia = BangGia.GetByName(row.Cells[nameof(BangGia.TenBangGia)].Value.ToString()).MaBangGia;
+				string maTram = TramBienAp.GetByName(row.Cells[nameof(TramBienAp.TenTram)].Value.ToString()).MaTram;
+				string soHo = row.Cells[nameof(KhachHang.SoHo)].Value.ToString();
+				string heSoNhan = row.Cells[nameof(KhachHang.HeSoNhan)].Value.ToString();
+				string maSoThue = row.Cells[nameof(KhachHang.MaSoThue)].Value.ToString();
+				string soDienThoai = row.Cells[nameof(KhachHang.SoDienThoai)].Value.ToString();
+				string email = row.Cells[nameof(KhachHang.Email)].Value.ToString();
+				string ngayTao = row.Cells[nameof(KhachHang.NgayTao)].Value.ToString();
+				string nguoiTao = row.Cells[nameof(KhachHang.NguoiTao)].Value.ToString();
+				string maSoHopDong = row.Cells[nameof(KhachHang.MaSoHopDong)].Value.ToString();
+				string ngayHopDong = row.Cells[nameof(KhachHang.NgayHopDong)].Value.ToString();
+				string maCongTo = row.Cells[nameof(KhachHang.MaCongTo)].Value.ToString();
+				string soNganHang = row.Cells[nameof(KhachHang.SoNganHang)].Value.ToString();
+				string tenNganHang = row.Cells[nameof(KhachHang.TenNganHang)].Value.ToString();
+				bool kichHoat = (bool)row.Cells[nameof(KhachHang.KichHoat)].Value;
+				KhachHang khachHang = new KhachHang()
+				{
+					MaKhachHang = maKhachHang,
+					HoVaTen = hoVaTen,
+					DiaChi = diaChi,
+					MaBangGia = maBangGia,
+					MaTram = maTram,
+					SoHo = byte.Parse(soHo),
+					HeSoNhan = byte.Parse(heSoNhan),
+					MaSoThue = maSoThue,
+					SoDienThoai = soDienThoai,
+					Email = email,
+					NgayTao = DateTime.Parse(ngayTao),
+					NguoiTao = nguoiTao,
+					NgayCapNhat = DateTime.Now,
+					NguoiCapNhat = maQuanLy,
+					MaSoHopDong = maSoHopDong,
+					NgayHopDong = DateTime.Parse(ngayHopDong),
+					MaCongTo = maCongTo,
+					SoNganHang = soNganHang,
+					TenNganHang = tenNganHang,
+					KichHoat = kichHoat
+				};
+				list.Add(khachHang);
+			}
+			return list;
 		}
 	}
 }
