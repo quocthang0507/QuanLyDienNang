@@ -113,8 +113,6 @@ CREATE TABLE [dbo].[ChiTietBangGia] (
     FOREIGN KEY ([MaBangGia]) REFERENCES [dbo].[BangGia] ([MaBangGia])
 );
 
-
-GO
 CREATE TRIGGER trigger_ChiTietBangGia ON ChiTietBangGia FOR INSERT, UPDATE
 --ALTER TRIGGER trigger_ChiTietBangGia ON ChiTietBangGia FOR INSERT, UPDATE
 AS
@@ -228,7 +226,6 @@ CREATE TABLE [dbo].[BangDienApGia] (
     CONSTRAINT [pk_BangDienApGia] PRIMARY KEY CLUSTERED ([MaApGia] ASC, [MaBangGia] ASC),
     FOREIGN KEY ([MaBangGia]) REFERENCES [dbo].[BangGia] ([MaBangGia])
 );
-
 
 CREATE PROCEDURE proc_Reset_BangDienApGia
 AS
@@ -1029,17 +1026,32 @@ GO
 
 --PRINT DBO.func_TinhTienDien_ConLai('SX-DUOI6KV', 200, 100, 50, 100)
 
-CREATE FUNCTION func_TinhTienDien_ApGia (@ID INT, @DienNangTieuThu INT, @SoHo TINYINT)
---ALTER FUNCTION func_TinhTienDien_ApGia (@MaChiTiet VARCHAR(30), @DienNangTieuThu INT, @SoHo TINYINT)
+CREATE FUNCTION func_TinhTienDien_ApGia (@MaApGia VARCHAR(30), @DienNangTieuThu INT, @SoHo TINYINT)
+--ALTER FUNCTION func_TinhTienDien_ApGia (@MaApGia VARCHAR(30), @DienNangTieuThu INT, @SoHo TINYINT)
 RETURNS INT
 AS
 	BEGIN
-		DECLARE @ThanhTien INT, @ID INT
+		DECLARE @ThanhTien INT, @MaBangGia VARCHAR(30), @_TyLe_ DECIMAL(3,2), @_DienNangTieuThu_ INT
 		SET @ThanhTien = 0
-		SELECT * FROM view_BangDienApGia 
+		DECLARE csrBangApGia CURSOR FOR SELECT MaBangGia, TyLe FROM view_BangDienApGia WHERE TyLe > 0 AND MaApGia = @MaApGia
+		OPEN csrBangApGia
+		FETCH NEXT FROM csrBangApGia INTO @MaBangGia, @_TyLe_
+		WHILE @@FETCH_STATUS = 0
+		BEGIN
+			SET @_DienNangTieuThu_ = @DienNangTieuThu * @_TyLe_;
+			IF @MaBangGia = 'SH-THUONG'
+				SET @ThanhTien = @ThanhTien + dbo.func_TinhTienDien_SinhHoat(@_DienNangTieuThu_, @SoHo);
+			ELSE
+				SET @ThanhTien = @ThanhTien + dbo.func_TinhTienDien_ConLai(@MaBangGia, @_DienNangTieuThu_, 0, 0, 0);
+			FETCH NEXT FROM csrBangApGia INTO @MaBangGia, @_TyLe_
+		END
+		CLOSE csrBangApGia
+		DEALLOCATE csrBangApGia
 		RETURN @ThanhTien
 	END
 GO
+
+--PRINT dbo.func_TinhTienDien_ApGia('10SX-50SH-40KD', 250, 1)
 
 CREATE VIEW view_BangDien
 --ALTER VIEW view_BangDien
@@ -1066,7 +1078,7 @@ AS
 			IF @MaBangGia = 'SH-THUONG'
 				SET @TongTienTruocVAT = dbo.func_TinhTienDien_SinhHoat(@ChiSoMoi - @ChiSoCu, @SoHo);
 			ELSE IF @MaBangGia = 'APGIA'
-				SET @TongTienTruocVAT = dbo.func_TinhTienDien_ApGia(@ID, @ChiSoMoi - @ChiSoCu, @SoHo);
+				SET @TongTienTruocVAT = dbo.func_TinhTienDien_ApGia(@MaBangGia, @ChiSoMoi - @ChiSoCu, @SoHo);
 			ELSE
 				SET @TongTienTruocVAT = dbo.func_TinhTienDien_ConLai(@MaBangGia, @ChiSoMoi - @ChiSoCu, @ThapDiem, @CaoDiem, @BinhThuong);
 			SET @VAT = CONVERT(INT, ROUND(@TongTienTruocVAT * @Thue, 0));
