@@ -17,7 +17,7 @@ namespace QuanLyDienNang.Forms
 		private delegate void MyDelegate();
 		private MyDelegate GoUp, GoDown, GoToFirst, GoToEnd, ExportToExcel, UpdateColumnSizeMode;
 
-		public DataGridViewAutoSizeColumnsMode ColumnSizeMode;
+		public DataGridViewAutoSizeColumnsMode ColumnSizeMode = DataGridViewAutoSizeColumnsMode.Fill;
 
 		public static Form_Main Instance
 		{
