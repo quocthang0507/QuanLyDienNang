@@ -30,6 +30,7 @@ namespace QuanLyDienNang.Forms
 			LoadTramBienAp();
 			LoadBangGia();
 			LoadNguoiQuanLy();
+			btnLoadTheoKy.PerformClick();
 		}
 
 		private void tbxSoDienThoai_KeyPress(object sender, KeyPressEventArgs e)
